@@ -69808,7 +69808,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/ts/bootstrap.js");
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-__webpack_require__(/*! ./components/App */ "./resources/ts/components/App.tsx");
+__webpack_require__(/*! ./tests/App */ "./resources/ts/tests/App.tsx");
 
 
 /***/ }),
@@ -69858,10 +69858,10 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/ts/components/About.tsx":
-/*!*******************************************!*\
-  !*** ./resources/ts/components/About.tsx ***!
-  \*******************************************/
+/***/ "./resources/ts/tests/About.tsx":
+/*!**************************************!*\
+  !*** ./resources/ts/tests/About.tsx ***!
+  \**************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -69880,10 +69880,10 @@ exports.default = About;
 
 /***/ }),
 
-/***/ "./resources/ts/components/App.tsx":
-/*!*****************************************!*\
-  !*** ./resources/ts/components/App.tsx ***!
-  \*****************************************/
+/***/ "./resources/ts/tests/App.tsx":
+/*!************************************!*\
+  !*** ./resources/ts/tests/App.tsx ***!
+  \************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -69896,9 +69896,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var react_dom_1 = __importDefault(__webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js"));
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-var GlobalNav_1 = __importDefault(__webpack_require__(/*! ./GlobalNav */ "./resources/ts/components/GlobalNav.tsx"));
-var Top_1 = __importDefault(__webpack_require__(/*! ./Top */ "./resources/ts/components/Top.tsx"));
-var About_1 = __importDefault(__webpack_require__(/*! ./About */ "./resources/ts/components/About.tsx"));
+var GlobalNav_1 = __importDefault(__webpack_require__(/*! ./GlobalNav */ "./resources/ts/tests/GlobalNav.tsx"));
+var Top_1 = __importDefault(__webpack_require__(/*! ./Top */ "./resources/ts/tests/Top.tsx"));
+var About_1 = __importDefault(__webpack_require__(/*! ./About */ "./resources/ts/tests/About.tsx"));
 var App = function () {
     return (react_1.default.createElement(react_router_dom_1.BrowserRouter, null,
         react_1.default.createElement(GlobalNav_1.default, null),
@@ -69912,10 +69912,10 @@ if (document.getElementById('app')) {
 
 /***/ }),
 
-/***/ "./resources/ts/components/GlobalNav.tsx":
-/*!***********************************************!*\
-  !*** ./resources/ts/components/GlobalNav.tsx ***!
-  \***********************************************/
+/***/ "./resources/ts/tests/GlobalNav.tsx":
+/*!******************************************!*\
+  !*** ./resources/ts/tests/GlobalNav.tsx ***!
+  \******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -69940,10 +69940,10 @@ exports.default = GlobalNav;
 
 /***/ }),
 
-/***/ "./resources/ts/components/Top.tsx":
-/*!*****************************************!*\
-  !*** ./resources/ts/components/Top.tsx ***!
-  \*****************************************/
+/***/ "./resources/ts/tests/Top.tsx":
+/*!************************************!*\
+  !*** ./resources/ts/tests/Top.tsx ***!
+  \************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
