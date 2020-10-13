@@ -5,7 +5,8 @@ import {BrowserRouter, Route} from 'react-router-dom';
 import GlobalNav from './GlobalNav';
 import Top from './Top';
 import About from './About';
-import Register from './Register'
+import Register from './Register';
+import Login from './Login';
 
 const App: FC = () => {
   return(
@@ -15,6 +16,7 @@ const App: FC = () => {
       <Route path="/" exact component={Top} />
       <Route path="/about" component={About} />
       <Route path="/regist" component={Register} />
+      <Route path="/login" component={Login} />
     </BrowserRouter>
   )
 }

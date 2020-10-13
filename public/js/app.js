@@ -69900,12 +69900,14 @@ var GlobalNav_1 = __importDefault(__webpack_require__(/*! ./GlobalNav */ "./reso
 var Top_1 = __importDefault(__webpack_require__(/*! ./Top */ "./resources/ts/tests/Top.tsx"));
 var About_1 = __importDefault(__webpack_require__(/*! ./About */ "./resources/ts/tests/About.tsx"));
 var Register_1 = __importDefault(__webpack_require__(/*! ./Register */ "./resources/ts/tests/Register.tsx"));
+var login_1 = __importDefault(__webpack_require__(/*! ./login */ "./resources/ts/tests/login.tsx"));
 var App = function () {
     return (react_1.default.createElement(react_router_dom_1.BrowserRouter, null,
         react_1.default.createElement(GlobalNav_1.default, null),
         react_1.default.createElement(react_router_dom_1.Route, { path: "/", exact: true, component: Top_1.default }),
         react_1.default.createElement(react_router_dom_1.Route, { path: "/about", component: About_1.default }),
-        react_1.default.createElement(react_router_dom_1.Route, { path: "/regist", component: Register_1.default })));
+        react_1.default.createElement(react_router_dom_1.Route, { path: "/regist", component: Register_1.default }),
+        react_1.default.createElement(react_router_dom_1.Route, { path: "/login", component: login_1.default })));
 };
 if (document.getElementById('app')) {
     react_dom_1.default.render(react_1.default.createElement(App, null), document.getElementById('app'));
@@ -69937,7 +69939,9 @@ var GlobalNav = function () {
             react_1.default.createElement(react_router_dom_1.Link, { to: "/about" },
                 react_1.default.createElement("li", null, "About")),
             react_1.default.createElement(react_router_dom_1.Link, { to: "/regist" },
-                react_1.default.createElement("li", null, "Register")))));
+                react_1.default.createElement("li", null, "Register")),
+            react_1.default.createElement(react_router_dom_1.Link, { to: "/login" },
+                react_1.default.createElement("li", null, "Login")))));
 };
 exports.default = GlobalNav;
 
@@ -70028,6 +70032,66 @@ exports.default = Top;
 
 /***/ }),
 
+/***/ "./resources/ts/tests/login.tsx":
+/*!**************************************!*\
+  !*** ./resources/ts/tests/login.tsx ***!
+  \**************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var Login = function () {
+    var _a = react_1.useState(""), mail = _a[0], setMail = _a[1];
+    var _b = react_1.useState(""), password = _b[0], setPassword = _b[1];
+    return (react_1.default.createElement(react_1.default.Fragment, null,
+        react_1.default.createElement("p", null, mail),
+        react_1.default.createElement("p", null, password),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("label", null,
+            "mail",
+            react_1.default.createElement("br", null),
+            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setMail(e.target.value); } })),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("label", null,
+            "password",
+            react_1.default.createElement("br", null),
+            react_1.default.createElement("input", { type: "password", onChange: function (e) { return setPassword(e.target.value); } })),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("p", null,
+            react_1.default.createElement("a", { href: "#" }, "\u30D1\u30B9\u30EF\u30FC\u30C9\u3092\u304A\u5FD8\u308C\u3067\u3059\u304B\uFF1F")),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("button", null, "\u30ED\u30B0\u30A4\u30F3"),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("p", null,
+            react_1.default.createElement("a", { href: "#" }, "\u30D1\u30B9\u30EF\u30FC\u30C9\u3092\u304A\u5FD8\u308C\u3067\u3059\u304B\uFF1F"))));
+};
+exports.default = Login;
+
+
+/***/ }),
+
 /***/ 0:
 /*!**************************************************************!*\
   !*** multi ./resources/ts/app.tsx ./resources/sass/app.scss ***!
@@ -70035,8 +70099,8 @@ exports.default = Top;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/ryoga/projects/PlanToTravel/resources/ts/app.tsx */"./resources/ts/app.tsx");
-module.exports = __webpack_require__(/*! /Users/ryoga/projects/PlanToTravel/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\hyeeun\planto\PlanToTravel\resources\ts\app.tsx */"./resources/ts/app.tsx");
+module.exports = __webpack_require__(/*! C:\Users\hyeeun\planto\PlanToTravel\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
