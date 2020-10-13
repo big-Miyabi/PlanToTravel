@@ -48,3 +48,51 @@
 ## 動作環境
 
 ### 構築手順
+
+### コーディング規約
+
+#### Laravel
+
+##### ファイル名について
+
+| 種類           | 記法             | 複数 or 単数 | 例                                                         |
+| -------------- | ---------------- | ------------ | ---------------------------------------------------------- |
+| テーブル名     | スネークケース   | 複数         | users_table                                                |
+| モデル名       | アッパーキャメル | 単数         | UserData                                                   |
+| migration 名   | スネークケース   | 単数         | xxx_crate_users_table<br/>※ xxx には作成日時が自動で入る。 |
+| seeder 名      | アッパーキャメル | －－－       | UsersTableSeeder                                           |
+| Controllers 名 | アッパーキャメル | －－－       | UserDataController                                         |
+| views 名       | スネークケース   | －－－       | users_add                                                  |
+
+##### その他
+
+| 種類           | 記法             | 例                        |
+| -------------- | ---------------- | ------------------------- |
+| クラス名       | アッパーキャメル | UserData<br/>ItemList     |
+| メソッド名     | ローワーキャメル | userData<br/>itemList     |
+| 変数名         | スネークケース   | $user_data<br/>$item_list |
+| ディレクトリ名 | アッパーキャメル | UserData<br/>ItemList     |
+| ファイル名     | スネークケース   | user_data<br/>item_list   |
+
+参考元: [【laravel】laravel の命名規則 - Qiita](https://qiita.com/gone0021/items/e248c8b0ed3a9e6dbdee)
+
+#### React
+
+##### ファイル名について
+
+拡張子が tsx のものやコンポーネントファイルに関してはアッパーキャメルを使う
+
+-   例：UserData.js, PostForm.tsx
+    -   class User extends React.Component {}
+    -   const App: FC = () => {}
+
+それ以外の通常の ts ファイルや js ファイルなどに関してはローワーキャメルを使う
+
+-   例：userActions.ts, userReducer.ts, firebase.ts
+
+##### 変数・関数名について
+
+ローワーキャメルを使う
+例：const userData = "hoge"
+const createUser = () => { }
+const [state,setState] = useState("")
