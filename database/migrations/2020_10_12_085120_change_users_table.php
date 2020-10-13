@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTagsTable extends Migration
+class ChangeUsersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,9 @@ class CreateTagsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tags', function (Blueprint $table) {
-          $table->increments("id");
-          $table->string("tag_name",12);
-          $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            //
+            $table->string("password", 255)->change();
         });
     }
 
@@ -27,6 +26,8 @@ class CreateTagsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tags');
+        Schema::table('users', function (Blueprint $table) {
+            //
+        });
     }
 }

@@ -69905,8 +69905,8 @@ var App = function () {
         react_1.default.createElement(react_router_dom_1.Route, { path: "/", exact: true, component: Top_1.default }),
         react_1.default.createElement(react_router_dom_1.Route, { path: "/about", component: About_1.default })));
 };
-if (document.getElementById('app')) {
-    react_dom_1.default.render(react_1.default.createElement(App, null), document.getElementById('app'));
+if (document.getElementById("app")) {
+    react_dom_1.default.render(react_1.default.createElement(App, null), document.getElementById("app"));
 }
 
 
@@ -69969,8 +69969,8 @@ exports.default = Top;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/ryoga/projects/PlanToTravel/resources/ts/app.tsx */"./resources/ts/app.tsx");
-module.exports = __webpack_require__(/*! /Users/ryoga/projects/PlanToTravel/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/so_ananta/Desktop/PlanToTravel/resources/ts/app.tsx */"./resources/ts/app.tsx");
+module.exports = __webpack_require__(/*! /Users/so_ananta/Desktop/PlanToTravel/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
