@@ -14,6 +14,9 @@ const GlobalNav:FC = () => {
         <Link to="/regist">
           <li>Register</li>
         </Link>
+        <Link to="/login">
+          <li>Login</li>
+        </Link>
       </ul>
     </nav>
   )
