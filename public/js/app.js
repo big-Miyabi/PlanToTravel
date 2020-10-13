@@ -69899,11 +69899,13 @@ var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_mod
 var GlobalNav_1 = __importDefault(__webpack_require__(/*! ./GlobalNav */ "./resources/ts/tests/GlobalNav.tsx"));
 var Top_1 = __importDefault(__webpack_require__(/*! ./Top */ "./resources/ts/tests/Top.tsx"));
 var About_1 = __importDefault(__webpack_require__(/*! ./About */ "./resources/ts/tests/About.tsx"));
+var Register_1 = __importDefault(__webpack_require__(/*! ./Register */ "./resources/ts/tests/Register.tsx"));
 var App = function () {
     return (react_1.default.createElement(react_router_dom_1.BrowserRouter, null,
         react_1.default.createElement(GlobalNav_1.default, null),
         react_1.default.createElement(react_router_dom_1.Route, { path: "/", exact: true, component: Top_1.default }),
-        react_1.default.createElement(react_router_dom_1.Route, { path: "/about", component: About_1.default })));
+        react_1.default.createElement(react_router_dom_1.Route, { path: "/about", component: About_1.default }),
+        react_1.default.createElement(react_router_dom_1.Route, { path: "/regist", component: Register_1.default })));
 };
 if (document.getElementById('app')) {
     react_dom_1.default.render(react_1.default.createElement(App, null), document.getElementById('app'));
@@ -69933,9 +69935,73 @@ var GlobalNav = function () {
             react_1.default.createElement(react_router_dom_1.Link, { to: "/" },
                 react_1.default.createElement("li", null, "Top")),
             react_1.default.createElement(react_router_dom_1.Link, { to: "/about" },
-                react_1.default.createElement("li", null, "About")))));
+                react_1.default.createElement("li", null, "About")),
+            react_1.default.createElement(react_router_dom_1.Link, { to: "/regist" },
+                react_1.default.createElement("li", null, "Register")))));
 };
 exports.default = GlobalNav;
+
+
+/***/ }),
+
+/***/ "./resources/ts/tests/Register.tsx":
+/*!*****************************************!*\
+  !*** ./resources/ts/tests/Register.tsx ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var Register = function () {
+    var _a = react_1.useState(""), username = _a[0], setUserName = _a[1];
+    var _b = react_1.useState(""), mail = _b[0], setMail = _b[1];
+    var _c = react_1.useState(""), password = _c[0], setPassword = _c[1];
+    var icon = "default";
+    var header = "https://i.gyazo.com/de7ceb1d7eeb05c25968693df1ffc358.png";
+    return (react_1.default.createElement(react_1.default.Fragment, null,
+        react_1.default.createElement("p", null, username),
+        react_1.default.createElement("p", null, mail),
+        react_1.default.createElement("p", null, password),
+        react_1.default.createElement("label", null,
+            "UserName",
+            react_1.default.createElement("br", null),
+            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setUserName(e.target.value); } })),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("label", null,
+            "mail",
+            react_1.default.createElement("br", null),
+            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setMail(e.target.value); } })),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("label", null,
+            "password",
+            react_1.default.createElement("br", null),
+            react_1.default.createElement("input", { type: "password", onChange: function (e) { return setPassword(e.target.value); } })),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("button", null, "\u767B\u9332")));
+};
+exports.default = Register;
 
 
 /***/ }),
