@@ -80324,8 +80324,8 @@ exports.default = RegisterScreen;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/ryoga/projects/PlanToTravel/resources/ts/app.tsx */"./resources/ts/app.tsx");
-module.exports = __webpack_require__(/*! /Users/ryoga/projects/PlanToTravel/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/so_ananta/Desktop/PlanToTravel/resources/ts/app.tsx */"./resources/ts/app.tsx");
+module.exports = __webpack_require__(/*! /Users/so_ananta/Desktop/PlanToTravel/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
