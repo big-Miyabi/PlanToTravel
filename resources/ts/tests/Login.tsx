@@ -1,13 +1,33 @@
 import React, { FC, useState} from 'react';
-
+import axios from 'axios';
 const Login:FC = () => {
-  const [mail, setMail] = useState<string>("")
+  const [email, setMail] = useState<string>("")
   const [password, setPassword] = useState<string>("")
 
+  const loginUser = ()=>{
+    axios.post('/api/login', {
+      email,
+      password,
+    }).then((res)=>{
+      console.log(res.data)
+    }).catch(error=>{
+      console.log(email)
+      console.log(password)
+      console.log(error)
+    })
+  }
+  const logoutUser = ()=>{
+    axios.post('/api/logout')
+      .then((res)=>{
+        console.log(res.data)
+      }).catch(error=>{
+        console.log(error)
+      })
+  }
 
   return (
     <>
-      <p>{mail}</p>
+      <p>{email}</p>
       <p>{password}</p>
       <br />
       <label>
@@ -22,10 +42,10 @@ const Login:FC = () => {
       <br />
       <p><a href="#">パスワードをお忘れですか？</a></p>
       <br />
-      <button>ログイン</button>
+      <button onClick={loginUser}>ログイン</button>
       <br />
       <p><a href="#">パスワードをお忘れですか？</a></p>
-
+      <button onClick={logoutUser}>ログアウト</button>
     </>
   )
 }
