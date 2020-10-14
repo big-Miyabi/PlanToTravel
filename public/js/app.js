@@ -83263,6 +83263,10 @@ __webpack_require__(/*! ./bootstrap */ "./resources/ts/bootstrap.js");
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+// どちらか一方にコメントアウトをして使う
+// testsを使いたい場合(バック側)
+// require("./tests/App");
+// Reactの実装状態を確認したい場合(フロント側)
 __webpack_require__(/*! ./src/App */ "./resources/ts/src/App.tsx");
 
 
@@ -83610,8 +83614,8 @@ exports.default = RegisterScreen;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/so_ananta/Desktop/PlanToTravel/resources/ts/app.tsx */"./resources/ts/app.tsx");
-module.exports = __webpack_require__(/*! /Users/so_ananta/Desktop/PlanToTravel/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/ryoga/projects/PlanToTravel/resources/ts/app.tsx */"./resources/ts/app.tsx");
+module.exports = __webpack_require__(/*! /Users/ryoga/projects/PlanToTravel/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
