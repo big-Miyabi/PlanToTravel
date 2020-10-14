@@ -4,11 +4,12 @@ import { IconDefinition } from "@fortawesome/fontawesome-common-types"
 
 type Props = {
   icon: IconDefinition,
+  className: string,
 }
 
-const IconBtn: FC<Props> = ({ icon }) => {
+const IconBtn: FC<Props> = ({ icon, className }) => {
   return (
-    <FontAwesomeIcon icon={icon} />
+    <FontAwesomeIcon className={className} icon={icon} />
   )
 }
 

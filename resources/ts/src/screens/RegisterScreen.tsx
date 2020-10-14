@@ -6,7 +6,7 @@ import { faHome } from "@fortawesome/free-solid-svg-icons";
 const RegisterScreen: FC = () => {
   return (
     <div className="register">
-      <IconBtn icon={faHome} />
+      <IconBtn className="register__icon" icon={faHome} />
       {/* <RegistForm /> */}
     </div>
   )
