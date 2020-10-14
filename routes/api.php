@@ -18,6 +18,6 @@ use Illuminate\Support\Facades\Auth;
 //   return $request->user();
 // });
 Route::group(['middleware' => 'api'], function () {
-  // Auth::routes();
-  Route::post('register', 'RegisterController@register');
+  Auth::routes();
+  // Route::post('register', 'Auth/RegisterController@register');
 });

@@ -69988,7 +69988,7 @@ var Register = function () {
         axios_1.default.post('/api/register', {
             username: username,
             email: email,
-            password: password, icon: icon, header: header,
+            password: password,
         }).then(function (res) {
             console.log(res.data);
         }).catch(function (error) {
