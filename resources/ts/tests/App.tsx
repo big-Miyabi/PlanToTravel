@@ -6,7 +6,8 @@ import axios from "axios";
 import GlobalNav from './GlobalNav';
 import Top from './Top';
 import About from './About';
-import Register from './Register'
+import Register from './Register';
+import Login from './Login';
 
 const App: FC = () => {
   return (
@@ -15,7 +16,8 @@ const App: FC = () => {
       {/*完全一致のため、exactを付与*/}
       <Route path="/" exact component={Top} />
       <Route path="/about" component={About} />
-      <Route path="/regist" component={Register} />
+      <Route path="/hoge" component={Register} />
+      <Route path="/hogehoge" component={Login} />
     </BrowserRouter>
   );
 };
