@@ -19,9 +19,9 @@ use Illuminate\Support\Facades\Auth;
 // });
 
 Route::get('/{any}', function () {
-  return view('App');
+  return view('app');
 })->where('any', '.*'); // .*は、正規表現で0文字以上の任意の文字列を意味する
 
-Auth::routes();
+// Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');

@@ -1,0 +1,17 @@
+@import "_variables.scss";
+@import "_function.scss";
+
+// @include md-down()内部にstyleを記述すると、スマートフォンサイズでメディアクエリがかかるようになる
+@include md-down() {
+    .register {
+        width: 100vw;
+        height: 100vh;
+        background-image: url("../assets/register_background.png");
+        background-size: cover;
+
+        &__icon {
+            color: $white;
+            font-size: 2.4rem;
+        }
+    }
+}
