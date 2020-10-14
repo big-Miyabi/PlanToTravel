@@ -19,10 +19,13 @@ html {
   }
 
   .register__logo {
-    width: 20.4rem;
-    height: auto;
     text-align: center;
     margin: 0px auto;
+  }
+
+  .register__logo-img {
+    width: 20.4rem;
+    height: auto;
   }
 
   .regist-form {

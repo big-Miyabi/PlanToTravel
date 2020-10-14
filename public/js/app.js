@@ -80309,7 +80309,8 @@ var RegistForm_1 = __importDefault(__webpack_require__(/*! ../containers/organis
 var RegisterScreen = function () {
     return (react_1.default.createElement("div", { className: "register" },
         react_1.default.createElement(IconBtn_1.default, { className: "register__icon", icon: free_solid_svg_icons_1.faHome }),
-        react_1.default.createElement("img", { src: "../images/logo_tate_white.png", className: "register__logo" }),
+        react_1.default.createElement("div", { className: "register__logo" },
+            react_1.default.createElement("img", { src: "../images/logo_tate_white.png", className: "register__logo-img" })),
         react_1.default.createElement(RegistForm_1.default, null)));
 };
 exports.default = RegisterScreen;
