@@ -1,0 +1,19 @@
+// min-width
+$breakpoint-up: (
+    "sm": "(min-width: 320px)",
+    "md": "(min-width: 560px)",
+    "lg": "(min-width: 960px)",
+) !default;
+
+// max-width
+$breakpoint-down: (
+    "md": "(max-width: 559px)",
+    "lg": "(max-width: 959px)",
+) !default;
+
+// @mixinの定義
+@mixin md-down($breakpoint: md) {
+    @media screen and #{map-get($breakpoint-down, $breakpoint)} {
+        @content;
+    }
+}
