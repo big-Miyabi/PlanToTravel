@@ -69808,7 +69808,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/ts/bootstrap.js");
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-__webpack_require__(/*! ./tests/App */ "./resources/ts/tests/App.tsx");
+__webpack_require__(/*! ./src/App */ "./resources/ts/src/App.tsx");
 
 
 /***/ }),
@@ -69858,32 +69858,10 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/ts/tests/About.tsx":
-/*!**************************************!*\
-  !*** ./resources/ts/tests/About.tsx ***!
-  \**************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var About = function () {
-    return react_1.default.createElement("h1", null, "About");
-};
-exports.default = About;
-
-
-/***/ }),
-
-/***/ "./resources/ts/tests/App.tsx":
-/*!************************************!*\
-  !*** ./resources/ts/tests/App.tsx ***!
-  \************************************/
+/***/ "./resources/ts/src/App.tsx":
+/*!**********************************!*\
+  !*** ./resources/ts/src/App.tsx ***!
+  \**********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -69896,18 +69874,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var react_dom_1 = __importDefault(__webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js"));
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-var GlobalNav_1 = __importDefault(__webpack_require__(/*! ./GlobalNav */ "./resources/ts/tests/GlobalNav.tsx"));
-var Top_1 = __importDefault(__webpack_require__(/*! ./Top */ "./resources/ts/tests/Top.tsx"));
-var About_1 = __importDefault(__webpack_require__(/*! ./About */ "./resources/ts/tests/About.tsx"));
-var Register_1 = __importDefault(__webpack_require__(/*! ./Register */ "./resources/ts/tests/Register.tsx"));
-var login_1 = __importDefault(__webpack_require__(/*! ./login */ "./resources/ts/tests/login.tsx"));
+var RegisterScreen_1 = __importDefault(__webpack_require__(/*! ./screens/RegisterScreen */ "./resources/ts/src/screens/RegisterScreen.tsx"));
+var RegisterScreen_2 = __importDefault(__webpack_require__(/*! ./screens/RegisterScreen */ "./resources/ts/src/screens/RegisterScreen.tsx"));
 var App = function () {
     return (react_1.default.createElement(react_router_dom_1.BrowserRouter, null,
-        react_1.default.createElement(GlobalNav_1.default, null),
-        react_1.default.createElement(react_router_dom_1.Route, { path: "/", exact: true, component: Top_1.default }),
-        react_1.default.createElement(react_router_dom_1.Route, { path: "/about", component: About_1.default }),
-        react_1.default.createElement(react_router_dom_1.Route, { path: "/regist", component: Register_1.default }),
-        react_1.default.createElement(react_router_dom_1.Route, { path: "/login", component: login_1.default })));
+        react_1.default.createElement(RegisterScreen_1.default, null),
+        react_1.default.createElement(react_router_dom_1.Route, { path: "/regist", exact: true, component: RegisterScreen_2.default })));
 };
 if (document.getElementById('app')) {
     react_dom_1.default.render(react_1.default.createElement(App, null), document.getElementById('app'));
@@ -69916,10 +69888,10 @@ if (document.getElementById('app')) {
 
 /***/ }),
 
-/***/ "./resources/ts/tests/GlobalNav.tsx":
-/*!******************************************!*\
-  !*** ./resources/ts/tests/GlobalNav.tsx ***!
-  \******************************************/
+/***/ "./resources/ts/src/components/atoms/IconBtn.tsx":
+/*!*******************************************************!*\
+  !*** ./resources/ts/src/components/atoms/IconBtn.tsx ***!
+  \*******************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -69930,90 +69902,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-var GlobalNav = function () {
-    return (react_1.default.createElement("nav", null,
-        react_1.default.createElement("ul", null,
-            react_1.default.createElement(react_router_dom_1.Link, { to: "/" },
-                react_1.default.createElement("li", null, "Top")),
-            react_1.default.createElement(react_router_dom_1.Link, { to: "/about" },
-                react_1.default.createElement("li", null, "About")),
-            react_1.default.createElement(react_router_dom_1.Link, { to: "/regist" },
-                react_1.default.createElement("li", null, "Register")),
-            react_1.default.createElement(react_router_dom_1.Link, { to: "/login" },
-                react_1.default.createElement("li", null, "Login")))));
+var IconBtn = function () {
+    return (react_1.default.createElement("div", null));
 };
-exports.default = GlobalNav;
+exports.default = IconBtn;
 
 
 /***/ }),
 
-/***/ "./resources/ts/tests/Register.tsx":
-/*!*****************************************!*\
-  !*** ./resources/ts/tests/Register.tsx ***!
-  \*****************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var Register = function () {
-    var _a = react_1.useState(""), username = _a[0], setUserName = _a[1];
-    var _b = react_1.useState(""), mail = _b[0], setMail = _b[1];
-    var _c = react_1.useState(""), password = _c[0], setPassword = _c[1];
-    var icon = "default";
-    var header = "https://i.gyazo.com/de7ceb1d7eeb05c25968693df1ffc358.png";
-    return (react_1.default.createElement(react_1.default.Fragment, null,
-        react_1.default.createElement("p", null, username),
-        react_1.default.createElement("p", null, mail),
-        react_1.default.createElement("p", null, password),
-        react_1.default.createElement("label", null,
-            "UserName",
-            react_1.default.createElement("br", null),
-            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setUserName(e.target.value); } })),
-        react_1.default.createElement("br", null),
-        react_1.default.createElement("label", null,
-            "mail",
-            react_1.default.createElement("br", null),
-            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setMail(e.target.value); } })),
-        react_1.default.createElement("br", null),
-        react_1.default.createElement("label", null,
-            "password",
-            react_1.default.createElement("br", null),
-            react_1.default.createElement("input", { type: "password", onChange: function (e) { return setPassword(e.target.value); } })),
-        react_1.default.createElement("br", null),
-        react_1.default.createElement("button", null, "\u767B\u9332")));
-};
-exports.default = Register;
-
-
-/***/ }),
-
-/***/ "./resources/ts/tests/Top.tsx":
-/*!************************************!*\
-  !*** ./resources/ts/tests/Top.tsx ***!
-  \************************************/
+/***/ "./resources/ts/src/screens/RegisterScreen.tsx":
+/*!*****************************************************!*\
+  !*** ./resources/ts/src/screens/RegisterScreen.tsx ***!
+  \*****************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -70024,70 +69924,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var Top = function () {
-    return react_1.default.createElement("h1", null, "Top");
+var IconBtn_1 = __importDefault(__webpack_require__(/*! ../components/atoms/IconBtn */ "./resources/ts/src/components/atoms/IconBtn.tsx"));
+var RegisterScreen = function () {
+    return (react_1.default.createElement("div", { className: "register" },
+        react_1.default.createElement(IconBtn_1.default, null)));
 };
-exports.default = Top;
-
-
-/***/ }),
-
-/***/ "./resources/ts/tests/login.tsx":
-/*!**************************************!*\
-  !*** ./resources/ts/tests/login.tsx ***!
-  \**************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var Login = function () {
-    var _a = react_1.useState(""), mail = _a[0], setMail = _a[1];
-    var _b = react_1.useState(""), password = _b[0], setPassword = _b[1];
-    return (react_1.default.createElement(react_1.default.Fragment, null,
-        react_1.default.createElement("p", null, mail),
-        react_1.default.createElement("p", null, password),
-        react_1.default.createElement("br", null),
-        react_1.default.createElement("label", null,
-            "mail",
-            react_1.default.createElement("br", null),
-            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setMail(e.target.value); } })),
-        react_1.default.createElement("br", null),
-        react_1.default.createElement("label", null,
-            "password",
-            react_1.default.createElement("br", null),
-            react_1.default.createElement("input", { type: "password", onChange: function (e) { return setPassword(e.target.value); } })),
-        react_1.default.createElement("br", null),
-        react_1.default.createElement("p", null,
-            react_1.default.createElement("a", { href: "#" }, "\u30D1\u30B9\u30EF\u30FC\u30C9\u3092\u304A\u5FD8\u308C\u3067\u3059\u304B\uFF1F")),
-        react_1.default.createElement("br", null),
-        react_1.default.createElement("button", null, "\u30ED\u30B0\u30A4\u30F3"),
-        react_1.default.createElement("br", null),
-        react_1.default.createElement("p", null,
-            react_1.default.createElement("a", { href: "#" }, "\u30D1\u30B9\u30EF\u30FC\u30C9\u3092\u304A\u5FD8\u308C\u3067\u3059\u304B\uFF1F"))));
-};
-exports.default = Login;
+exports.default = RegisterScreen;
 
 
 /***/ }),
@@ -70099,8 +69941,8 @@ exports.default = Login;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\hyeeun\planto\PlanToTravel\resources\ts\app.tsx */"./resources/ts/app.tsx");
-module.exports = __webpack_require__(/*! C:\Users\hyeeun\planto\PlanToTravel\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/ryoga/projects/PlanToTravel/resources/ts/app.tsx */"./resources/ts/app.tsx");
+module.exports = __webpack_require__(/*! /Users/ryoga/projects/PlanToTravel/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
