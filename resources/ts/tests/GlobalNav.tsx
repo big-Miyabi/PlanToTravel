@@ -1,8 +1,7 @@
-import React, { FC } from 'react';
-import {Link} from 'react-router-dom';
-const GlobalNav:FC = () => {
-
-  return(
+import React, { FC } from 'react'
+import { Link } from 'react-router-dom'
+const GlobalNav: FC = () => {
+  return (
     <nav>
       <ul>
         <Link to="/">
@@ -22,4 +21,4 @@ const GlobalNav:FC = () => {
   )
 }
 
-export default GlobalNav;
+export default GlobalNav

@@ -83363,7 +83363,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var FormBtn = function (_a) {
     var className = _a.className, name = _a.name;
-    return (react_1.default.createElement("button", { className: className + " form-btn" }, name));
+    return (react_1.default.createElement("button", { className: className + ' form-btn' }, name));
 };
 exports.default = FormBtn;
 
@@ -83422,7 +83422,7 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 var FormInput = function (_a) {
     var props = __rest(_a, []);
     var className = props.className, inputId = props.inputId, labelName = props.labelName, placeholder = props.placeholder;
-    return (react_1.default.createElement("div", { className: className + " " + "form-input" },
+    return (react_1.default.createElement("div", { className: className + ' ' + 'form-input' },
         react_1.default.createElement("label", { className: "form-input__label", htmlFor: inputId }, labelName),
         react_1.default.createElement("input", { type: "text", id: inputId, className: "form-input__input", placeholder: placeholder })));
 };
@@ -83461,8 +83461,8 @@ var free_solid_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-solid-svg
 var FormInput = function (_a) {
     var props = __rest(_a, []);
     var className = props.className, inputId = props.inputId, labelName = props.labelName, placeholder = props.placeholder;
-    return (react_1.default.createElement("div", { className: className + " form-input" },
-        react_1.default.createElement("label", { className: "form-input__label", htmlFor: inputId }, labelName),
+    return (react_1.default.createElement("div", { className: className + ' form-input' },
+        react_1.default.createElement("label", { className: 'form-input__label', htmlFor: inputId }, labelName),
         react_1.default.createElement("input", { type: "password", id: inputId, className: "form-input__input", placeholder: placeholder }),
         react_1.default.createElement(IconBtn_1.default, { className: "password__icon", icon: free_solid_svg_icons_1.faEye })));
 };
@@ -83549,7 +83549,7 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 var RegisterWithSNS_1 = __importDefault(__webpack_require__(/*! ../../components/molecules/RegisterWithSNS */ "./resources/ts/src/components/molecules/RegisterWithSNS.tsx"));
 var RegisterWithSNSContainer = function (_a) {
     var className = _a.className;
-    return (react_1.default.createElement(RegisterWithSNS_1.default, { className: className }));
+    return react_1.default.createElement(RegisterWithSNS_1.default, { className: className });
 };
 exports.default = RegisterWithSNSContainer;
 
@@ -83572,7 +83572,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var RegistForm_1 = __importDefault(__webpack_require__(/*! ../../components/organisms/RegistForm */ "./resources/ts/src/components/organisms/RegistForm.tsx"));
 var RegistFormContainer = function () {
-    return (react_1.default.createElement(RegistForm_1.default, null));
+    return react_1.default.createElement(RegistForm_1.default, null);
 };
 exports.default = RegistFormContainer;
 
