@@ -1,6 +1,7 @@
-import React, { FC } from 'react';
-import ReactDOM from 'react-dom';
-import {BrowserRouter, Route} from 'react-router-dom';
+import React, { FC } from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter, Route } from "react-router-dom";
+import axios from "axios";
 
 import GlobalNav from './GlobalNav';
 import Top from './Top';
@@ -9,7 +10,7 @@ import Register from './Register';
 import Login from './Login';
 
 const App: FC = () => {
-  return(
+  return (
     <BrowserRouter>
       <GlobalNav />
       {/*完全一致のため、exactを付与*/}
@@ -18,9 +19,9 @@ const App: FC = () => {
       <Route path="/hoge" component={Register} />
       <Route path="/hogehoge" component={Login} />
     </BrowserRouter>
-  )
-}
+  );
+};
 
-if (document.getElementById('app')) {
-  ReactDOM.render(<App />, document.getElementById('app'));
+if (document.getElementById("app")) {
+  ReactDOM.render(<App />, document.getElementById("app"));
 }
