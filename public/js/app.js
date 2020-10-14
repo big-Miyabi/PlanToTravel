@@ -83489,10 +83489,10 @@ var IconBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/IconBtn */ "./r
 var free_brands_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-brands-svg-icons */ "./node_modules/@fortawesome/free-brands-svg-icons/index.es.js");
 var RegisterWithSNS = function (_a) {
     var className = _a.className;
-    return (react_1.default.createElement("div", { className: className },
+    return (react_1.default.createElement("div", { className: className + ' ' + 'register-with-sns' },
         react_1.default.createElement("p", null, "SNS\u3067\u65B0\u898F\u767B\u9332"),
-        react_1.default.createElement(IconBtn_1.default, { className: "register__icon", icon: free_brands_svg_icons_1.faTwitter }),
-        react_1.default.createElement(IconBtn_1.default, { className: "register__icon", icon: free_brands_svg_icons_1.faFacebook })));
+        react_1.default.createElement(IconBtn_1.default, { className: "register-with-sns__icon", icon: free_brands_svg_icons_1.faTwitter }),
+        react_1.default.createElement(IconBtn_1.default, { className: "register-with-sns__icon", icon: free_brands_svg_icons_1.faFacebook })));
 };
 exports.default = RegisterWithSNS;
 
@@ -83519,13 +83519,18 @@ var FormBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FormBtn */ "./r
 var RegisterWithSNS_1 = __importDefault(__webpack_require__(/*! ../../containers/molecules/RegisterWithSNS */ "./resources/ts/src/containers/molecules/RegisterWithSNS.tsx"));
 var RegistForm = function () {
     return (react_1.default.createElement("div", { className: "regist-form" },
-        react_1.default.createElement(FormInput_1.default, { className: "regist-form__input", inputId: "username", labelName: "\u30E6\u30FC\u30B6\u30FC\u30CD\u30FC\u30E0", placeholder: "2-15\u6587\u5B57\u4EE5\u5185" }),
-        react_1.default.createElement(FormInput_1.default, { className: "regist-form__input", inputId: "mail", labelName: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9", placeholder: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u3092\u5165\u529B" }),
+        react_1.default.createElement(FormInput_1.default, { className: "regist-form__username", inputId: "username", labelName: "\u30E6\u30FC\u30B6\u30FC\u30CD\u30FC\u30E0", placeholder: "2-15\u6587\u5B57\u4EE5\u5185" }),
+        react_1.default.createElement(FormInput_1.default, { className: "regist-form__mail", inputId: "mail", labelName: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9", placeholder: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u3092\u5165\u529B" }),
         react_1.default.createElement(FormPasswordInput_1.default, { className: "regist-form__password", inputId: "password", labelName: "\u30D1\u30B9\u30EF\u30FC\u30C9", placeholder: "6\u6587\u5B57\u4EE5\u4E0A\u534A\u89D2\u82F1\u6570\u5B57" }),
         react_1.default.createElement(FormBtn_1.default, { className: "regist-form__button", name: "\u65B0\u898F\u767B\u9332" }),
         react_1.default.createElement(RegisterWithSNS_1.default, { className: "regist-form__sns" }),
-        react_1.default.createElement("div", { className: "regist-form__confirm-msg" },
-            react_1.default.createElement("p", null, "\u767B\u9332\u3059\u308B\u3053\u3068\u3067\u3001\u5229\u7528\u898F\u7D04\u53CA\u3073\u30D7\u30E9\u30A4\u30D0\u30B7\u30FC\u30DD\u30EA\u30B7\u30FC\u306B\u540C\u610F\u3059\u308B\u3082\u306E\u3068\u3057\u307E\u3059\u3002"))));
+        react_1.default.createElement("div", { className: "confirm-msg" },
+            react_1.default.createElement("p", null,
+                "\u767B\u9332\u3059\u308B\u3053\u3068\u3067\u3001",
+                react_1.default.createElement("span", { className: "confirm-msg__link" }, "\u5229\u7528\u898F\u7D04"),
+                "\u53CA\u3073",
+                react_1.default.createElement("span", { className: "confirm-msg__link" }, "\u30D7\u30E9\u30A4\u30D0\u30B7\u30FC\u30DD\u30EA\u30B7\u30FC"),
+                "\u306B\u540C\u610F\u3059\u308B\u3082\u306E\u3068\u3057\u307E\u3059\u3002"))));
 };
 exports.default = RegistForm;
 

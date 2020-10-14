@@ -14,12 +14,13 @@ html {
   }
 
   .register__icon {
+    margin-left: 2.9333333333vw;
     color: #f9fcfe;
     font-size: 2.4rem;
   }
 
   .register__logo {
-    margin: 0px auto;
+    margin: 4.5566502463vh auto 0px;
     text-align: center;
   }
 
@@ -31,7 +32,7 @@ html {
   .regist-form {
     width: 84vw;
     height: 57.7586206897vh;
-    margin: 0px auto;
+    margin: 3.078817734vh auto 0px;
     border-radius: 17px;
     background-color: white;
     background-color: rgba(255, 255, 255, 0.9);
