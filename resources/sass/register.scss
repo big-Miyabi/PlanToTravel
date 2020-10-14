@@ -11,11 +11,12 @@
         background-image: url("../assets/register_background.png");
         background-size: cover;
         &__icon {
+            margin-left: px-to-vw(11);
             color: $white;
             font-size: 2.4rem;
         }
         &__logo {
-            margin: 0px auto;
+            margin: px-to-vh(37) auto 0px;
             text-align: center;
         }
         &__logo-img {
@@ -26,7 +27,7 @@
     .regist-form {
         width: px-to-vw(315);
         height: px-to-vh(469);
-        margin: 0px auto;
+        margin: px-to-vh(25) auto 0px;
         border-radius: 17px;
         background-color: white;
         background-color: rgba(255, 255, 255, 0.9);
