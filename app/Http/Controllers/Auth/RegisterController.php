@@ -68,6 +68,8 @@ class RegisterController extends Controller
       'username' => $data['username'],
       'email' => $data['email'],
       'password' => Hash::make($data['password']),
+      'icon' => "default",
+      'header' => "https://i.gyazo.com/de7ceb1d7eeb05c25968693df1ffc358.png",
     ]);
   }
 }
