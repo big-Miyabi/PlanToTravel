@@ -2,6 +2,7 @@ import React, { FC } from "react"
 import FormInput from "../molecules/FormInput"
 import FormPasswordInput from "../molecules/FormPasswordInput"
 import FormBtn from "../atoms/FormBtn"
+import RegisterWithSNS from "../../containers/molecules/RegisterWithSNS"
 
 const RegistForm: FC = () => {
   return (
@@ -31,6 +32,12 @@ const RegistForm: FC = () => {
         className="regist-form__button"
         name="新規登録"
       />
+
+      <RegisterWithSNS className="regist-form__sns" />
+
+      <div className="regist-form__confirm-msg">
+        <p>登録することで、利用規約及びプライバシーポリシーに同意するものとします。</p>
+      </div>
     </div>
   )
 }

@@ -11,9 +11,9 @@ const FormInput:FC<Props> = ({...props}) => {
   const { className, inputId, labelName, placeholder } = props;
 
   return (
-    <div className={className + " form-input"}>
+    <div className={className + " " + "form-input"}>
       <label
-        className={"form-input__label"}
+        className="form-input__label"
         htmlFor={inputId}
       >
         {labelName}
