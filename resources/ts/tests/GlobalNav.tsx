@@ -1,16 +1,6 @@
 import React, { FC } from 'react';
 import {Link} from 'react-router-dom';
-import axios from "axios";
-
 const GlobalNav:FC = () => {
-  axios
-    .get('/api/get')
-    .then((res) => {
-      //todosを更新（描画がかかる）
-    })
-    .catch(error => {
-      console.log(error)
-    })
 
   return(
     <nav>
