@@ -15,8 +15,8 @@ const App: FC = () => {
       {/*完全一致のため、exactを付与*/}
       <Route path="/" exact component={Top} />
       <Route path="/about" component={About} />
-      <Route path="/regist" component={Register} />
-      <Route path="/login" component={Login} />
+      <Route path="/hoge" component={Register} />
+      <Route path="/hogehoge" component={Login} />
     </BrowserRouter>
   )
 }

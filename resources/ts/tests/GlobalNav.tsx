@@ -1,7 +1,17 @@
 import React, { FC } from 'react';
 import {Link} from 'react-router-dom';
+import axios from "axios";
 
 const GlobalNav:FC = () => {
+  axios
+    .get('/api/get')
+    .then((res) => {
+      //todosを更新（描画がかかる）
+    })
+    .catch(error => {
+      console.log(error)
+    })
+
   return(
     <nav>
       <ul>
@@ -11,10 +21,10 @@ const GlobalNav:FC = () => {
         <Link to="/about">
           <li>About</li>
         </Link>
-        <Link to="/regist">
+        <Link to="/hoge">
           <li>Register</li>
         </Link>
-        <Link to="/login">
+        <Link to="/hogehoge">
           <li>Login</li>
         </Link>
       </ul>
