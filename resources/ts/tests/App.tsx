@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route } from "react-router-dom";
+import axios from "axios";
 
 import GlobalNav from './GlobalNav';
 import Top from './Top';
