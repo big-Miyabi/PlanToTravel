@@ -5,11 +5,12 @@ import { IconDefinition } from "@fortawesome/fontawesome-common-types"
 type Props = {
   icon: IconDefinition,
   className: string,
+  onClick?: () => void;
 }
 
-const IconBtn: FC<Props> = ({ icon, className }) => {
+const IconBtn: FC<Props> = ({ icon, className, onClick }) => {
   return (
-    <FontAwesomeIcon className={className} icon={icon} />
+    <FontAwesomeIcon onClick={onClick} className={className} icon={icon} />
   )
 }
 
