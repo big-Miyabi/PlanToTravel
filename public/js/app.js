@@ -80113,6 +80113,29 @@ if (document.getElementById('app')) {
 
 /***/ }),
 
+/***/ "./resources/ts/src/components/atoms/FormBtn.tsx":
+/*!*******************************************************!*\
+  !*** ./resources/ts/src/components/atoms/FormBtn.tsx ***!
+  \*******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var FormBtn = function (_a) {
+    var className = _a.className, name = _a.name;
+    return (react_1.default.createElement("button", { className: className + " form-btn" }, name));
+};
+exports.default = FormBtn;
+
+
+/***/ }),
+
 /***/ "./resources/ts/src/components/atoms/IconBtn.tsx":
 /*!*******************************************************!*\
   !*** ./resources/ts/src/components/atoms/IconBtn.tsx ***!
@@ -80137,6 +80160,135 @@ exports.default = IconBtn;
 
 /***/ }),
 
+/***/ "./resources/ts/src/components/molecules/FormInput.tsx":
+/*!*************************************************************!*\
+  !*** ./resources/ts/src/components/molecules/FormInput.tsx ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var FormInput = function (_a) {
+    var props = __rest(_a, []);
+    var className = props.className, inputId = props.inputId, labelName = props.labelName, placeholder = props.placeholder;
+    return (react_1.default.createElement("div", { className: className + " form-input" },
+        react_1.default.createElement("label", { className: "form-input__label", htmlFor: inputId }, labelName),
+        react_1.default.createElement("input", { type: "text", id: inputId, className: "form-input__input", placeholder: placeholder })));
+};
+exports.default = FormInput;
+
+
+/***/ }),
+
+/***/ "./resources/ts/src/components/molecules/FormPasswordInput.tsx":
+/*!*********************************************************************!*\
+  !*** ./resources/ts/src/components/molecules/FormPasswordInput.tsx ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var IconBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/IconBtn */ "./resources/ts/src/components/atoms/IconBtn.tsx"));
+var free_solid_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+var FormInput = function (_a) {
+    var props = __rest(_a, []);
+    var className = props.className, inputId = props.inputId, labelName = props.labelName, placeholder = props.placeholder;
+    return (react_1.default.createElement("div", { className: className + " form-input" },
+        react_1.default.createElement("label", { className: "form-input__label", htmlFor: inputId }, labelName),
+        react_1.default.createElement("input", { type: "password", id: inputId, className: "form-input__input", placeholder: placeholder }),
+        react_1.default.createElement(IconBtn_1.default, { className: "password__icon", icon: free_solid_svg_icons_1.faEye })));
+};
+exports.default = FormInput;
+
+
+/***/ }),
+
+/***/ "./resources/ts/src/components/organisms/RegistForm.tsx":
+/*!**************************************************************!*\
+  !*** ./resources/ts/src/components/organisms/RegistForm.tsx ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var FormInput_1 = __importDefault(__webpack_require__(/*! ../molecules/FormInput */ "./resources/ts/src/components/molecules/FormInput.tsx"));
+var FormPasswordInput_1 = __importDefault(__webpack_require__(/*! ../molecules/FormPasswordInput */ "./resources/ts/src/components/molecules/FormPasswordInput.tsx"));
+var FormBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FormBtn */ "./resources/ts/src/components/atoms/FormBtn.tsx"));
+var RegistForm = function () {
+    return (react_1.default.createElement("div", { className: "regist-form" },
+        react_1.default.createElement(FormInput_1.default, { className: "regist-form__input", inputId: "username", labelName: "\u30E6\u30FC\u30B6\u30FC\u30CD\u30FC\u30E0", placeholder: "2-15\u6587\u5B57\u4EE5\u5185" }),
+        react_1.default.createElement(FormInput_1.default, { className: "regist-form__input", inputId: "mail", labelName: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9", placeholder: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u3092\u5165\u529B" }),
+        react_1.default.createElement(FormPasswordInput_1.default, { className: "regist-form__password", inputId: "password", labelName: "\u30D1\u30B9\u30EF\u30FC\u30C9", placeholder: "6\u6587\u5B57\u4EE5\u4E0A\u534A\u89D2\u82F1\u6570\u5B57" }),
+        react_1.default.createElement(FormBtn_1.default, { className: "regist-form__button", name: "\u65B0\u898F\u767B\u9332" })));
+};
+exports.default = RegistForm;
+
+
+/***/ }),
+
+/***/ "./resources/ts/src/containers/organisms/RegistForm.tsx":
+/*!**************************************************************!*\
+  !*** ./resources/ts/src/containers/organisms/RegistForm.tsx ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var RegistForm_1 = __importDefault(__webpack_require__(/*! ../../components/organisms/RegistForm */ "./resources/ts/src/components/organisms/RegistForm.tsx"));
+var RegistFormContainer = function () {
+    return (react_1.default.createElement(RegistForm_1.default, null));
+};
+exports.default = RegistFormContainer;
+
+
+/***/ }),
+
 /***/ "./resources/ts/src/screens/RegisterScreen.tsx":
 /*!*****************************************************!*\
   !*** ./resources/ts/src/screens/RegisterScreen.tsx ***!
@@ -80153,9 +80305,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var IconBtn_1 = __importDefault(__webpack_require__(/*! ../components/atoms/IconBtn */ "./resources/ts/src/components/atoms/IconBtn.tsx"));
 var free_solid_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+var RegistForm_1 = __importDefault(__webpack_require__(/*! ../containers/organisms/RegistForm */ "./resources/ts/src/containers/organisms/RegistForm.tsx"));
 var RegisterScreen = function () {
     return (react_1.default.createElement("div", { className: "register" },
-        react_1.default.createElement(IconBtn_1.default, { className: "register__icon", icon: free_solid_svg_icons_1.faHome })));
+        react_1.default.createElement(IconBtn_1.default, { className: "register__icon", icon: free_solid_svg_icons_1.faHome }),
+        react_1.default.createElement("img", { src: "../images/logo_tate_white.png" }),
+        react_1.default.createElement(RegistForm_1.default, null)));
 };
 exports.default = RegisterScreen;
 
