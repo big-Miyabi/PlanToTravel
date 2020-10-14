@@ -7,7 +7,7 @@ const RegisterScreen: FC = () => {
   return (
     <div className="register">
       <IconBtn className="register__icon" icon={faHome} />
-      <img src="../images/logo_tate_white.png" />
+      <img src="../images/logo_tate_white.png" className="register__logo" />
       <RegistForm />
     </div>
   )
