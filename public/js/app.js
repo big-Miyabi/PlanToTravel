@@ -80129,8 +80129,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var react_fontawesome_1 = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
 var IconBtn = function (_a) {
-    var icon = _a.icon;
-    return (react_1.default.createElement(react_fontawesome_1.FontAwesomeIcon, { icon: icon }));
+    var icon = _a.icon, className = _a.className;
+    return (react_1.default.createElement(react_fontawesome_1.FontAwesomeIcon, { className: className, icon: icon }));
 };
 exports.default = IconBtn;
 
@@ -80155,7 +80155,7 @@ var IconBtn_1 = __importDefault(__webpack_require__(/*! ../components/atoms/Icon
 var free_solid_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 var RegisterScreen = function () {
     return (react_1.default.createElement("div", { className: "register" },
-        react_1.default.createElement(IconBtn_1.default, { icon: free_solid_svg_icons_1.faHome })));
+        react_1.default.createElement(IconBtn_1.default, { className: "register__icon", icon: free_solid_svg_icons_1.faHome })));
 };
 exports.default = RegisterScreen;
 
