@@ -10,11 +10,47 @@ html {
     height: 100vh;
     background-image: url(/images/register_background.png?d194af37b2b7e100e94b557798d8626b);
     background-size: cover;
+    padding-top: 18px;
   }
 
   .register__icon {
     color: #f9fcfe;
     font-size: 2.4rem;
+  }
+
+  .register__logo {
+    text-align: center;
+    margin: 0px auto;
+  }
+
+  .register__logo-img {
+    width: 20.4rem;
+    height: auto;
+  }
+
+  .regist-form {
+    background-color: white;
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 31.5rem;
+    height: 46.9rem;
+    border-radius: 1.7rem;
+    text-align: center;
+    margin: 0px auto;
+  }
+
+  .regist-form__button {
+    width: 24.6rem;
+    height: 3.3rem;
+    background-color: #fcbe32;
+    border: none;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 0.8rem;
+  }
+
+  .regist-form__button:hover {
+    background-color: rgba(252, 190, 50, 0.5);
   }
 }
 
@@ -52,7 +88,7 @@ html {
   --breakpoint-md: 768px;
   --breakpoint-lg: 992px;
   --breakpoint-xl: 1200px;
-  --font-family-sans-serif: "Nunito", sans-serif;
+  --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
@@ -84,7 +120,7 @@ section {
 
 body {
   margin: 0;
-  font-family: "Nunito", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 0.9rem;
   font-weight: 400;
   line-height: 1.6;
@@ -6388,7 +6424,7 @@ a.close.disabled {
   z-index: 1070;
   display: block;
   margin: 0;
-  font-family: "Nunito", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-style: normal;
   font-weight: 400;
   line-height: 1.6;
@@ -6513,7 +6549,7 @@ a.close.disabled {
   z-index: 1060;
   display: block;
   max-width: 276px;
-  font-family: "Nunito", sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-style: normal;
   font-weight: 400;
   line-height: 1.6;
