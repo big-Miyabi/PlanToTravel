@@ -80129,8 +80129,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var react_fontawesome_1 = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
 var IconBtn = function (_a) {
-    var icon = _a.icon, className = _a.className;
-    return (react_1.default.createElement(react_fontawesome_1.FontAwesomeIcon, { className: className, icon: icon }));
+    var icon = _a.icon, className = _a.className, onClick = _a.onClick;
+    return (react_1.default.createElement(react_fontawesome_1.FontAwesomeIcon, { onClick: onClick, className: className, icon: icon }));
 };
 exports.default = IconBtn;
 

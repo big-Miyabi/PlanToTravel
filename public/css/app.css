@@ -4,8 +4,18 @@ html {
   font-size: 62.5%;
 }
 
-.register__icon {
-  color: #f9fcfe;
+@media screen and (max-width: 559px) {
+  .register {
+    width: 100vw;
+    height: 100vh;
+    background-image: url(/images/register_background.png?229f45a7976a2c8f2ab28a7ae8809ee8);
+    background-size: cover;
+  }
+
+  .register__icon {
+    color: #f9fcfe;
+    font-size: 2.4rem;
+  }
 }
 
 /*!
