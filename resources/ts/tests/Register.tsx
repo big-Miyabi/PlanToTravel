@@ -13,7 +13,8 @@ const Register:FC = () => {
     axios.post('/api/register', {
       username,
       email,
-      password,icon,header,
+      password,
+      // icon,header,
     }).then((res)=>{
       console.log(res.data)
     }).catch(error=>{
