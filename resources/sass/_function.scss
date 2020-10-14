@@ -17,3 +17,18 @@ $breakpoint-down: (
         @content;
     }
 }
+
+// 画面設計でデザインした画面のwidthとheight
+$screen-width: 375;
+$screen-height: 812;
+
+// 画面設計上のpxの数値部分を引数に入れると、自動でvwとvhに変換してくれる関数
+@function px-to-vw($px-num) {
+    $vw: $px-num / $screen-width * 100;
+    @return #{$vw}vw;
+}
+
+@function px-to-vh($px-num) {
+    $vh: $px-num / $screen-height * 100;
+    @return #{$vh}vh;
+}

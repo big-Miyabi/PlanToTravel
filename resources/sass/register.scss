@@ -19,13 +19,13 @@
             text-align: center;
         }
         &__logo-img {
-            width: 204px;
+            width: px-to-vw(204);
             height: auto;
         }
     }
     .regist-form {
-        width: 315px;
-        height: 469px;
+        width: px-to-vw(315);
+        height: px-to-vh(469);
         margin: 0px auto;
         border-radius: 17px;
         background-color: white;
@@ -33,8 +33,8 @@
         text-align: center;
 
         &__button {
-            width: 246px;
-            height: 33px;
+            width: px-to-vw(246);
+            height: px-to-vh(33);
             border: none;
             border-radius: 8px;
             background-color: $yellow;

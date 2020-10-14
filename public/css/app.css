@@ -24,13 +24,13 @@ html {
   }
 
   .register__logo-img {
-    width: 204px;
+    width: 54.4vw;
     height: auto;
   }
 
   .regist-form {
-    width: 315px;
-    height: 469px;
+    width: 84vw;
+    height: 57.7586206897vh;
     margin: 0px auto;
     border-radius: 17px;
     background-color: white;
@@ -39,8 +39,8 @@ html {
   }
 
   .regist-form__button {
-    width: 246px;
-    height: 33px;
+    width: 65.6vw;
+    height: 4.0640394089vh;
     border: none;
     border-radius: 8px;
     background-color: #fcbe32;
