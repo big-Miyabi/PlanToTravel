@@ -69976,30 +69976,30 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var Register = function () {
     var _a = react_1.useState(""), username = _a[0], setUserName = _a[1];
-    var _b = react_1.useState(""), mail = _b[0], setMail = _b[1];
+    var _b = react_1.useState(""), email = _b[0], setMail = _b[1];
     var _c = react_1.useState(""), password = _c[0], setPassword = _c[1];
     var icon = "default";
     var header = "https://i.gyazo.com/de7ceb1d7eeb05c25968693df1ffc358.png";
-    return (react_1.default.createElement(react_1.default.Fragment, null,
+    return (react_1.default.createElement("form", { method: "POST", action: "" },
         react_1.default.createElement("p", null, username),
-        react_1.default.createElement("p", null, mail),
+        react_1.default.createElement("p", null, email),
         react_1.default.createElement("p", null, password),
         react_1.default.createElement("label", null,
             "UserName",
             react_1.default.createElement("br", null),
-            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setUserName(e.target.value); } })),
+            react_1.default.createElement("input", { type: "text", value: "", onChange: function (e) { return setUserName(e.target.value); } })),
         react_1.default.createElement("br", null),
         react_1.default.createElement("label", null,
-            "mail",
+            "email",
             react_1.default.createElement("br", null),
-            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setMail(e.target.value); } })),
+            react_1.default.createElement("input", { type: "text", value: "", onChange: function (e) { return setMail(e.target.value); } })),
         react_1.default.createElement("br", null),
         react_1.default.createElement("label", null,
             "password",
             react_1.default.createElement("br", null),
-            react_1.default.createElement("input", { type: "password", onChange: function (e) { return setPassword(e.target.value); } })),
+            react_1.default.createElement("input", { type: "password", value: "", onChange: function (e) { return setPassword(e.target.value); } })),
         react_1.default.createElement("br", null),
-        react_1.default.createElement("button", null, "\u767B\u9332")));
+        react_1.default.createElement("button", { type: "submit" }, "\u767B\u9332")));
 };
 exports.default = Register;
 
