@@ -1,6 +1,7 @@
 // Typography
-$font-family-sans-serif: "Nunito", sans-serif;
-$font-size-base: 0.9rem;
+//$font-family-sans-serif: "Nunito", sans-serif;
+$font-family: 'Noto Sans JP', sans-serif;
+$font-size-base: 0.9rem; //9px
 $line-height-base: 1.6;
 
 // Colors
@@ -11,3 +12,6 @@ $light-blur: #bcdbe8;
 $gray: #c4c4c4;
 $light-gray: #e5e5e5;
 $white: #f9fcfe;
+
+//padding-top
+$header-top:18px;
