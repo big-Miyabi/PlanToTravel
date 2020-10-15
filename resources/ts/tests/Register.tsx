@@ -15,7 +15,6 @@ const Register: FC = () => {
         username,
         email,
         password,
-        // icon,header,
       })
       .then((res) => {
         console.log(res.data)
