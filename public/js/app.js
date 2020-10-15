@@ -83643,9 +83643,25 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var free_brands_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-brands-svg-icons */ "./node_modules/@fortawesome/free-brands-svg-icons/index.es.js");
+var FormInput_1 = __importDefault(__webpack_require__(/*! ../molecules/FormInput */ "./resources/ts/src/components/molecules/FormInput.tsx"));
+var FormPasswordInput_1 = __importDefault(__webpack_require__(/*! ../molecules/FormPasswordInput */ "./resources/ts/src/components/molecules/FormPasswordInput.tsx"));
+var FormBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FormBtn */ "./resources/ts/src/components/atoms/FormBtn.tsx"));
+var FontAwesomeIconBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FontAwesomeIconBtn */ "./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx"));
 var UserMenu = function () {
     return (react_1.default.createElement("div", { className: "user-menu" },
-        react_1.default.createElement("p", null, "aaaaaaaaaa")));
+        react_1.default.createElement(FormInput_1.default, { className: "user-manu__mail-input", inputId: "mail", labelName: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9", placeholder: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u3092\u5165\u529B" }),
+        react_1.default.createElement(FormPasswordInput_1.default, { className: "user-manu__password-input", inputId: "password", labelName: "\u30D1\u30B9\u30EF\u30FC\u30C9", placeholder: "6\u6587\u5B57\u4EE5\u4E0A\u534A\u89D2\u82F1\u6570\u5B57" }),
+        react_1.default.createElement("p", { className: "user-menu__forgetting-password" }, "\u30D1\u30B9\u30EF\u30FC\u30C9\u3092\u304A\u5FD8\u308C\u3067\u3059\u304B\uFF1F"),
+        react_1.default.createElement("div", { className: "login" },
+            react_1.default.createElement(FormBtn_1.default, { className: "login__button", name: "\u30ED\u30B0\u30A4\u30F3" }),
+            react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "login__twitter-icon", icon: free_brands_svg_icons_1.faTwitter }),
+            react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "login__facebook-icon", icon: free_brands_svg_icons_1.faFacebook })),
+        react_1.default.createElement("p", { className: "user-menu__register-btn" }, "\u30A2\u30AB\u30A6\u30F3\u30C8\u3092\u304A\u6301\u3061\u3067\u306A\u3044\u65B9\u306F\u3053\u3061\u3089"),
+        react_1.default.createElement("p", { className: "policy" },
+            react_1.default.createElement("span", { className: "policy__terms" }, "\u5229\u7528\u898F\u7D04"),
+            "\u30FB",
+            react_1.default.createElement("span", { className: "policy__privacy-policy" }, "\u30D7\u30E9\u30A4\u30D0\u30B7\u30FC\u30DD\u30EA\u30B7\u30FC"))));
 };
 exports.default = UserMenu;
 
