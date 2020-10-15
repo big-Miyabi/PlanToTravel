@@ -31,8 +31,9 @@ html {
 
   .regist-form {
     width: 84vw;
-    height: 57.7586206897vh;
-    margin: 3.078817734vh auto 0px;
+    height: auto;
+    margin: 3.078817734vh auto 6.157635468vh;
+    padding: 1.2315270936vh 0;
     border-radius: 17px;
     background-color: white;
     background-color: rgba(255, 255, 255, 0.9);
@@ -42,6 +43,7 @@ html {
   .regist-form__button {
     width: 65.6vw;
     height: 4.0640394089vh;
+    margin-top: 1.2315270936vh;
     border: none;
     border-radius: 8px;
     background-color: #fcbe32;
@@ -52,6 +54,97 @@ html {
 
   .regist-form__button:hover {
     background-color: rgba(252, 190, 50, 0.5);
+  }
+
+  .regist-form__button:focus {
+    outline: none;
+  }
+
+  .form-input {
+    width: 65.6vw;
+    margin: 2.4630541872vh auto 0px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .form-input__label {
+    text-align: left;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #bcdbe8;
+    margin-bottom: 1.2315270936vh;
+  }
+
+  .form-input__input {
+    border: none;
+    border-bottom: 1px solid #bcdbe8;
+    padding: 0.2463054187vh 2.6666666667vw;
+  }
+
+  .form-input__input:focus {
+    border-bottom: 1px solid #003666;
+    outline: none;
+  }
+
+  .password__icon {
+    color: #bcdbe8;
+    position: absolute;
+    top: 53.9408866995vh;
+    left: 77.3333333333vw;
+  }
+
+  input:-webkit-autofill {
+    -webkit-box-shadow: 0 0 0 1000px white inset;
+  }
+
+  .register-with-sns p {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-top: 3.6945812808vh;
+    margin-bottom: 1.2315270936vh;
+    color: #bcdbe8;
+  }
+
+  .register-with-sns p.line:after {
+    display: inline-block;
+    margin: 0 0 0.3694581281vh 2.6666666667vw;
+    height: 0.1231527094vh;
+    content: " ";
+    background-color: #bcdbe8;
+    width: 20%;
+  }
+
+  .register-with-sns p.line:before {
+    display: inline-block;
+    margin: 0 2.6666666667vw 0.3694581281vh 0;
+    height: 0.1231527094vh;
+    content: " ";
+    background-color: #bcdbe8;
+    width: 20%;
+  }
+
+  .register-with-sns__icon-twitter {
+    color: #bcdbe8;
+    font-size: 4.2rem;
+    margin-right: 17.3333333333vw;
+  }
+
+  .register-with-sns__icon-facebook {
+    color: #bcdbe8;
+    font-size: 4.2rem;
+  }
+
+  .confirm-msg {
+    width: 65.6vw;
+    margin: 3.078817734vh auto 0px;
+    text-align: center;
+    color: #bcdbe8;
+  }
+
+  .confirm-msg__link {
+    font-weight: bold;
+    color: #003666;
   }
 }
 

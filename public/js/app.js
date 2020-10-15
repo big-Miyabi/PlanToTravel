@@ -83490,9 +83490,9 @@ var free_brands_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-brands-s
 var RegisterWithSNS = function (_a) {
     var className = _a.className;
     return (react_1.default.createElement("div", { className: className + ' ' + 'register-with-sns' },
-        react_1.default.createElement("p", null, "SNS\u3067\u65B0\u898F\u767B\u9332"),
-        react_1.default.createElement(IconBtn_1.default, { className: "register-with-sns__icon", icon: free_brands_svg_icons_1.faTwitter }),
-        react_1.default.createElement(IconBtn_1.default, { className: "register-with-sns__icon", icon: free_brands_svg_icons_1.faFacebook })));
+        react_1.default.createElement("p", { className: "line" }, "SNS\u3067\u65B0\u898F\u767B\u9332"),
+        react_1.default.createElement(IconBtn_1.default, { className: "register-with-sns__icon-twitter", icon: free_brands_svg_icons_1.faTwitter }),
+        react_1.default.createElement(IconBtn_1.default, { className: "register-with-sns__icon-facebook", icon: free_brands_svg_icons_1.faFacebook })));
 };
 exports.default = RegisterWithSNS;
 
@@ -83529,6 +83529,7 @@ var RegistForm = function () {
                 "\u767B\u9332\u3059\u308B\u3053\u3068\u3067\u3001",
                 react_1.default.createElement("span", { className: "confirm-msg__link" }, "\u5229\u7528\u898F\u7D04"),
                 "\u53CA\u3073",
+                react_1.default.createElement("br", null),
                 react_1.default.createElement("span", { className: "confirm-msg__link" }, "\u30D7\u30E9\u30A4\u30D0\u30B7\u30FC\u30DD\u30EA\u30B7\u30FC"),
                 "\u306B\u540C\u610F\u3059\u308B\u3082\u306E\u3068\u3057\u307E\u3059\u3002"))));
 };
@@ -83620,8 +83621,8 @@ exports.default = RegisterScreen;
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/ryoga/projects/PlanToTravel/resources/ts/app.tsx */"./resources/ts/app.tsx");
-module.exports = __webpack_require__(/*! /Users/ryoga/projects/PlanToTravel/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\hyeeun\planto\PlanToTravel\resources\ts\app.tsx */"./resources/ts/app.tsx");
+module.exports = __webpack_require__(/*! C:\Users\hyeeun\planto\PlanToTravel\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

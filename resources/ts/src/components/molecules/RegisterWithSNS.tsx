@@ -14,13 +14,13 @@ const RegisterWithSNS: FC<Props> = ({ className }) => {
     <div
       className={className + ' ' + 'register-with-sns'}
     >
-      <p>SNSで新規登録</p>
+      <p className="line">SNSで新規登録</p>
       <IconBtn
-        className="register-with-sns__icon"
+        className="register-with-sns__icon-twitter"
         icon={faTwitter}
       />
       <IconBtn
-        className="register-with-sns__icon"
+        className="register-with-sns__icon-facebook"
         icon={faFacebook}
       />
     </div>

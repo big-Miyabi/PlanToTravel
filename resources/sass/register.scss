@@ -4,6 +4,7 @@
 // @include md-down()内部にstyleを記述すると、スマートフォンサイズでメディアクエリがかかるようになる
 @include md-down() {
     //スタイルはここに書くこと
+
     .register {
         width: 100vw;
         height: 100vh;
@@ -26,8 +27,9 @@
     }
     .regist-form {
         width: px-to-vw(315);
-        height: px-to-vh(469);
-        margin: px-to-vh(25) auto 0px;
+        height: auto;
+        margin: px-to-vh(25) auto px-to-vh(50);
+        padding: px-to-vh(10) 0;
         border-radius: 17px;
         background-color: white;
         background-color: rgba(255, 255, 255, 0.9);
@@ -36,6 +38,7 @@
         &__button {
             width: px-to-vw(246);
             height: px-to-vh(33);
+            margin-top: px-to-vh(10);
             border: none;
             border-radius: 8px;
             background-color: $yellow;
@@ -45,6 +48,89 @@
             &:hover {
                 background-color: rgba(252, 190, 50, 0.5);
             }
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+
+    .form-input {
+        width: px-to-vw(246);
+        margin: px-to-vh(20) auto 0px; //これと
+        display: flex;
+        flex-direction: column;
+        text-align: center; //これで画面真ん中に
+        &__label {
+            text-align: left;
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: $light-blur;
+            margin-bottom: px-to-vh(10);
+        }
+        &__input {
+            border: none;
+            border-bottom: 1px solid $light-blur;
+            padding: px-to-vh(2) px-to-vw(10);
+            &:focus {
+                border-bottom: 1px solid $navy-blue;
+                outline: none;
+            }
+        }
+    }
+    .password__icon {
+        color: $light-blur;
+        position: absolute;
+        top: px-to-vh(438);
+        left: px-to-vw(290);
+    }
+
+    input:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0 1000px white inset;
+    }
+
+    .register-with-sns {
+        p {
+            font-size: 1.4rem;
+            font-weight: bold;
+            margin-top: px-to-vh(30);
+            margin-bottom: px-to-vh(10);
+            color: $light-blur;
+            &.line:after {
+                display: inline-block;
+                margin: 0 0 px-to-vh(3) px-to-vw(10);
+                height: px-to-vh(1);
+                content: " ";
+                background-color: $light-blur;
+                width: 20%;
+            }
+            &.line:before {
+                display: inline-block;
+                margin: 0 px-to-vw(10) px-to-vh(3) 0;
+                height: px-to-vh(1);
+                content: " ";
+                background-color: $light-blur;
+                width: 20%;
+            }
+        }
+        &__icon-twitter {
+            color: $light-blur;
+            font-size: 4.2rem;
+            margin-right: px-to-vw(65);
+        }
+        &__icon-facebook {
+            color: $light-blur;
+            font-size: 4.2rem;
+        }
+    }
+
+    .confirm-msg {
+        width: px-to-vw(246);
+        margin: px-to-vh(25) auto 0px;
+        text-align: center; //これで画面真ん中に
+        color: $light-blur;
+        &__link {
+            font-weight: bold;
+            color: $navy-blue;
         }
     }
 }
