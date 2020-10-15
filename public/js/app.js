@@ -83334,15 +83334,39 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 var react_dom_1 = __importDefault(__webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js"));
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 var RegisterScreen_1 = __importDefault(__webpack_require__(/*! ./screens/RegisterScreen */ "./resources/ts/src/screens/RegisterScreen.tsx"));
-var RegisterScreen_2 = __importDefault(__webpack_require__(/*! ./screens/RegisterScreen */ "./resources/ts/src/screens/RegisterScreen.tsx"));
+var HomeScreen_1 = __importDefault(__webpack_require__(/*! ./screens/HomeScreen */ "./resources/ts/src/screens/HomeScreen.tsx"));
 var App = function () {
     return (react_1.default.createElement(react_router_dom_1.BrowserRouter, null,
-        react_1.default.createElement(RegisterScreen_1.default, null),
-        react_1.default.createElement(react_router_dom_1.Route, { path: "/regist", exact: true, component: RegisterScreen_2.default })));
+        react_1.default.createElement(react_router_dom_1.Route, { path: "/regist", exact: true, component: RegisterScreen_1.default }),
+        react_1.default.createElement(react_router_dom_1.Route, { path: "/", exact: true, component: HomeScreen_1.default })));
 };
 if (document.getElementById('app')) {
     react_dom_1.default.render(react_1.default.createElement(App, null), document.getElementById('app'));
 }
+
+
+/***/ }),
+
+/***/ "./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx":
+/*!******************************************************************!*\
+  !*** ./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_fontawesome_1 = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
+var IconBtn = function (_a) {
+    var icon = _a.icon, className = _a.className, onClick = _a.onClick;
+    return (react_1.default.createElement(react_fontawesome_1.FontAwesomeIcon, { onClick: onClick, className: className, icon: icon }));
+};
+exports.default = IconBtn;
 
 
 /***/ }),
@@ -83370,10 +83394,10 @@ exports.default = FormBtn;
 
 /***/ }),
 
-/***/ "./resources/ts/src/components/atoms/IconBtn.tsx":
-/*!*******************************************************!*\
-  !*** ./resources/ts/src/components/atoms/IconBtn.tsx ***!
-  \*******************************************************/
+/***/ "./resources/ts/src/components/atoms/svg/NaviIcon.tsx":
+/*!************************************************************!*\
+  !*** ./resources/ts/src/components/atoms/svg/NaviIcon.tsx ***!
+  \************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -83384,12 +83408,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var react_fontawesome_1 = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
-var IconBtn = function (_a) {
-    var icon = _a.icon, className = _a.className, onClick = _a.onClick;
-    return (react_1.default.createElement(react_fontawesome_1.FontAwesomeIcon, { onClick: onClick, className: className, icon: icon }));
+var colors_1 = __webpack_require__(/*! ../../../utilities/colors */ "./resources/ts/src/utilities/colors.ts");
+var NaviIcon = function (_a) {
+    var _b = _a.color, color = _b === void 0 ? colors_1.colors.yellow : _b;
+    return (react_1.default.createElement("svg", { width: "23", height: "28", viewBox: "0 0 23 28", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
+        react_1.default.createElement("path", { d: "M2 10L11.5 19L21 10", stroke: color, "stroke-width": "3", "stroke-linecap": "round", "stroke-linejoin": "round" })));
 };
-exports.default = IconBtn;
+exports.default = NaviIcon;
 
 
 /***/ }),
@@ -83456,7 +83481,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var IconBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/IconBtn */ "./resources/ts/src/components/atoms/IconBtn.tsx"));
+var FontAwesomeIconBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FontAwesomeIconBtn */ "./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx"));
 var free_solid_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 var FormInput = function (_a) {
     var props = __rest(_a, []);
@@ -83464,7 +83489,7 @@ var FormInput = function (_a) {
     return (react_1.default.createElement("div", { className: className + ' form-input' },
         react_1.default.createElement("label", { className: 'form-input__label', htmlFor: inputId }, labelName),
         react_1.default.createElement("input", { type: "password", id: inputId, className: "form-input__input", placeholder: placeholder }),
-        react_1.default.createElement(IconBtn_1.default, { className: "password__icon", icon: free_solid_svg_icons_1.faEye })));
+        react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "password__icon", icon: free_solid_svg_icons_1.faEye })));
 };
 exports.default = FormInput;
 
@@ -83485,16 +83510,43 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var IconBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/IconBtn */ "./resources/ts/src/components/atoms/IconBtn.tsx"));
+var FontAwesomeIconBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FontAwesomeIconBtn */ "./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx"));
 var free_brands_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-brands-svg-icons */ "./node_modules/@fortawesome/free-brands-svg-icons/index.es.js");
 var RegisterWithSNS = function (_a) {
     var className = _a.className;
     return (react_1.default.createElement("div", { className: className + ' ' + 'register-with-sns' },
         react_1.default.createElement("p", null, "SNS\u3067\u65B0\u898F\u767B\u9332"),
-        react_1.default.createElement(IconBtn_1.default, { className: "register-with-sns__icon", icon: free_brands_svg_icons_1.faTwitter }),
-        react_1.default.createElement(IconBtn_1.default, { className: "register-with-sns__icon", icon: free_brands_svg_icons_1.faFacebook })));
+        react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "register-with-sns__icon", icon: free_brands_svg_icons_1.faTwitter }),
+        react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "register-with-sns__icon", icon: free_brands_svg_icons_1.faFacebook })));
 };
 exports.default = RegisterWithSNS;
+
+
+/***/ }),
+
+/***/ "./resources/ts/src/components/organisms/Header.tsx":
+/*!**********************************************************!*\
+  !*** ./resources/ts/src/components/organisms/Header.tsx ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var colors_1 = __webpack_require__(/*! ../../utilities/colors */ "./resources/ts/src/utilities/colors.ts");
+var NaviIcon_1 = __importDefault(__webpack_require__(/*! ../atoms/svg/NaviIcon */ "./resources/ts/src/components/atoms/svg/NaviIcon.tsx"));
+// type Props = {}
+var Header = function () {
+    return (react_1.default.createElement("div", null,
+        react_1.default.createElement(NaviIcon_1.default, { color: colors_1.colors.lightGray }),
+        react_1.default.createElement("p", null, "aaaaa")));
+};
+exports.default = Header;
 
 
 /***/ }),
@@ -83561,6 +83613,29 @@ exports.default = RegisterWithSNSContainer;
 
 /***/ }),
 
+/***/ "./resources/ts/src/containers/organisms/Header.tsx":
+/*!**********************************************************!*\
+  !*** ./resources/ts/src/containers/organisms/Header.tsx ***!
+  \**********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var Header_1 = __importDefault(__webpack_require__(/*! ../../components/organisms/Header */ "./resources/ts/src/components/organisms/Header.tsx"));
+var HeaderContainer = function () {
+    return react_1.default.createElement(Header_1.default, null);
+};
+exports.default = HeaderContainer;
+
+
+/***/ }),
+
 /***/ "./resources/ts/src/containers/organisms/RegistForm.tsx":
 /*!**************************************************************!*\
   !*** ./resources/ts/src/containers/organisms/RegistForm.tsx ***!
@@ -83584,6 +83659,30 @@ exports.default = RegistFormContainer;
 
 /***/ }),
 
+/***/ "./resources/ts/src/screens/HomeScreen.tsx":
+/*!*************************************************!*\
+  !*** ./resources/ts/src/screens/HomeScreen.tsx ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var Header_1 = __importDefault(__webpack_require__(/*! ../containers/organisms/Header */ "./resources/ts/src/containers/organisms/Header.tsx"));
+var HomeScreen = function () {
+    return (react_1.default.createElement(react_1.default.Fragment, null,
+        react_1.default.createElement(Header_1.default, null)));
+};
+exports.default = HomeScreen;
+
+
+/***/ }),
+
 /***/ "./resources/ts/src/screens/RegisterScreen.tsx":
 /*!*****************************************************!*\
   !*** ./resources/ts/src/screens/RegisterScreen.tsx ***!
@@ -83598,17 +83697,41 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var IconBtn_1 = __importDefault(__webpack_require__(/*! ../components/atoms/IconBtn */ "./resources/ts/src/components/atoms/IconBtn.tsx"));
+var FontAwesomeIconBtn_1 = __importDefault(__webpack_require__(/*! ../components/atoms/FontAwesomeIconBtn */ "./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx"));
 var free_solid_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 var RegistForm_1 = __importDefault(__webpack_require__(/*! ../containers/organisms/RegistForm */ "./resources/ts/src/containers/organisms/RegistForm.tsx"));
 var RegisterScreen = function () {
     return (react_1.default.createElement("div", { className: "register" },
-        react_1.default.createElement(IconBtn_1.default, { className: "register__icon", icon: free_solid_svg_icons_1.faHome }),
+        react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "register__icon", icon: free_solid_svg_icons_1.faHome }),
         react_1.default.createElement("div", { className: "register__logo" },
             react_1.default.createElement("img", { src: "../images/logo_tate_white.png", className: "register__logo-img" })),
         react_1.default.createElement(RegistForm_1.default, null)));
 };
 exports.default = RegisterScreen;
+
+
+/***/ }),
+
+/***/ "./resources/ts/src/utilities/colors.ts":
+/*!**********************************************!*\
+  !*** ./resources/ts/src/utilities/colors.ts ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.colors = void 0;
+exports.colors = {
+    orange: '#ff6633',
+    yellow: '#fcbe32',
+    navyBlue: '#003666',
+    lightBlue: '#bcdbe8',
+    gray: '#c4c4c4',
+    lightGray: '#e5e5e5',
+    white: '#f9fcfe',
+};
 
 
 /***/ }),

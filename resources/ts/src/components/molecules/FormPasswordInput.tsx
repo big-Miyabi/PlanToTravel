@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import IconBtn from '../atoms/IconBtn'
+import FontAwesomeIconBtn from '../atoms/FontAwesomeIconBtn'
 import { faEye } from '@fortawesome/free-solid-svg-icons'
 import { faEyeSlash } from '@fortawesome/free-solid-svg-icons'
 
@@ -32,7 +32,7 @@ const FormInput: FC<Props> = ({ ...props }) => {
         className="form-input__input"
         placeholder={placeholder}
       />
-      <IconBtn
+      <FontAwesomeIconBtn
         className="password__icon"
         icon={faEye}
       />

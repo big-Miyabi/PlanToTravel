@@ -1,12 +1,12 @@
 import React, { FC } from 'react'
-import IconBtn from '../components/atoms/IconBtn'
+import FontAwesomeIconBtn from '../components/atoms/FontAwesomeIconBtn'
 import { faHome } from '@fortawesome/free-solid-svg-icons'
 import RegistForm from '../containers/organisms/RegistForm'
 
 const RegisterScreen: FC = () => {
   return (
     <div className="register">
-      <IconBtn
+      <FontAwesomeIconBtn
         className="register__icon"
         icon={faHome}
       />
