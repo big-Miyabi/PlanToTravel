@@ -70011,6 +70011,7 @@ var Login = function () {
             console.log(res.data);
         })
             .catch(function (error) {
+            console.log({ loginUser: loginUser });
             console.log(error);
         });
     };
