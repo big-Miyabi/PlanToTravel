@@ -42,7 +42,7 @@ const RegistForm: FC = () => {
           <span className="confirm-msg__link">
             利用規約
           </span>
-          及び
+          及び<br/>
           <span className="confirm-msg__link">
             プライバシーポリシー
           </span>
