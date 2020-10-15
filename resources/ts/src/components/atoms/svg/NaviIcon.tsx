@@ -2,14 +2,17 @@ import React, { FC } from 'react'
 import { colors } from '../../../utilities/colors'
 
 type Props = {
+  className: string
   color?: string
 }
 
 const NaviIcon: FC<Props> = ({
+  className,
   color = colors.yellow,
 }) => {
   return (
     <svg
+      className={className}
       width="23"
       height="28"
       viewBox="0 0 23 28"

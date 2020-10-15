@@ -8,12 +8,13 @@ html {
   .register {
     width: 100vw;
     height: 100vh;
-    padding-top: 18px;
+    padding-top: 2.2167487685vh;
     background-image: url(/images/register_background.png?d194af37b2b7e100e94b557798d8626b);
     background-size: cover;
   }
 
   .register__icon {
+    margin-top: 1.9704433498vh;
     margin-left: 2.9333333333vw;
     color: #f9fcfe;
     font-size: 2.4rem;
@@ -52,6 +53,24 @@ html {
 
   .regist-form__button:hover {
     background-color: rgba(252, 190, 50, 0.5);
+  }
+}
+
+@media screen and (max-width: 559px) {
+  .home {
+    padding-top: 2.2167487685vh;
+  }
+
+  .header {
+    display: flex;
+    margin-top: 1.4778325123vh;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .header__logo {
+    width: 60.48vw;
   }
 }
 
