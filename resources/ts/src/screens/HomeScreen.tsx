@@ -1,12 +1,15 @@
-// import React, { FC } from "react"
+import React, { FC } from 'react'
+import Header from '../containers/organisms/Header'
 
-// const RegisterScreen: FC = () => {
-//   return (
-//     <>
-//       <Header />
-//       <PopularPosts />
-//       <NewPosts />
-//       <PostBtn />
-//     <>
-//   )
-// }
+const HomeScreen: FC = () => {
+  return (
+    <>
+      <Header />
+      {/* <PopularPosts />
+      <NewPosts />
+      <PostBtn /> */}
+    </>
+  )
+}
+
+export default HomeScreen
