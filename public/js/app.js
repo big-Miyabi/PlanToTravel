@@ -83338,7 +83338,7 @@ var HomeScreen_1 = __importDefault(__webpack_require__(/*! ./screens/HomeScreen 
 var App = function () {
     return (react_1.default.createElement(react_router_dom_1.BrowserRouter, null,
         react_1.default.createElement(react_router_dom_1.Route, { path: "/regist", exact: true, component: RegisterScreen_1.default }),
-        react_1.default.createElement(react_router_dom_1.Route, { path: "/", exact: true, component: HomeScreen_1.default })));
+        react_1.default.createElement(react_router_dom_1.Route, { path: ['/', '/home'], exact: true, component: HomeScreen_1.default })));
 };
 if (document.getElementById('app')) {
     react_dom_1.default.render(react_1.default.createElement(App, null), document.getElementById('app'));

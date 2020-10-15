@@ -13,7 +13,11 @@ const App: FC = () => {
         exact
         component={RegisterScreen}
       />
-      <Route path="/" exact component={HomeScreen} />
+      <Route
+        path={['/', '/home']}
+        exact
+        component={HomeScreen}
+      />
     </BrowserRouter>
   )
 }
