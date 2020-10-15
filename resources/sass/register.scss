@@ -3,15 +3,48 @@
 
 // @include md-down()内部にstyleを記述すると、スマートフォンサイズでメディアクエリがかかるようになる
 @include md-down() {
+    //スタイルはここに書くこと
     .register {
         width: 100vw;
         height: 100vh;
+        padding-top: $header-top;
         background-image: url("../assets/register_background.png");
         background-size: cover;
-
         &__icon {
+            margin-left: px-to-vw(11);
             color: $white;
             font-size: 2.4rem;
+        }
+        &__logo {
+            margin: px-to-vh(37) auto 0px;
+            text-align: center;
+        }
+        &__logo-img {
+            width: px-to-vw(204);
+            height: auto;
+        }
+    }
+    .regist-form {
+        width: px-to-vw(315);
+        height: px-to-vh(469);
+        margin: px-to-vh(25) auto 0px;
+        border-radius: 17px;
+        background-color: white;
+        background-color: rgba(255, 255, 255, 0.9);
+        text-align: center;
+
+        &__button {
+            width: px-to-vw(246);
+            height: px-to-vh(33);
+            border: none;
+            border-radius: 8px;
+            background-color: $yellow;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            &:hover {
+                background-color: rgba(252, 190, 50, 0.5);
+            }
         }
     }
 }
