@@ -1,5 +1,7 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useState, Component } from 'react'
+import ReactDOM from 'react-dom'
 import axios from 'axios'
+
 const Login: FC = () => {
   const [email, setMail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
@@ -11,11 +13,22 @@ const Login: FC = () => {
         password,
       })
       .then((res) => {
-        console.log(res.config.data)
+        console.log(res.data)
       })
       .catch((error) => {
-        console.log(password)
         console.log(email)
+        console.log(password)
+        console.log(error)
+      })
+  }
+  const logoutUser = () => {
+    axios
+      .post('/api/logout')
+      .then((res) => {
+        console.log(res.data)
+      })
+      .catch((error) => {
+        console.log({ loginUser })
         console.log(error)
       })
   }
@@ -24,6 +37,7 @@ const Login: FC = () => {
     <>
       <p>{email}</p>
       <p>{password}</p>
+
       <br />
       <label>
         email
@@ -52,6 +66,7 @@ const Login: FC = () => {
       <p>
         <a href="#">パスワードをお忘れですか？</a>
       </p>
+      <button onClick={logoutUser}>ログアウト</button>
     </>
   )
 }
