@@ -69812,7 +69812,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/ts/bootstrap.js");
 // testsを使いたい場合(バック側)
 __webpack_require__(/*! ./tests/App */ "./resources/ts/tests/App.tsx");
 // Reactの実装状態を確認したい場合(フロント側)
-//require('./src/App')
+// require('./src/App')
 
 
 /***/ }),
@@ -70000,11 +70000,22 @@ var Login = function () {
             password: password,
         })
             .then(function (res) {
-            console.log(res.config.data);
+            console.log(res.data);
         })
             .catch(function (error) {
-            console.log(password);
             console.log(email);
+            console.log(password);
+            console.log(error);
+        });
+    };
+    var logoutUser = function () {
+        axios_1.default
+            .post('/api/logout')
+            .then(function (res) {
+            console.log(res.data);
+        })
+            .catch(function (error) {
+            console.log({ loginUser: loginUser });
             console.log(error);
         });
     };
@@ -70028,7 +70039,8 @@ var Login = function () {
         react_1.default.createElement("button", { onClick: loginUser }, "\u30ED\u30B0\u30A4\u30F3"),
         react_1.default.createElement("br", null),
         react_1.default.createElement("p", null,
-            react_1.default.createElement("a", { href: "#" }, "\u30D1\u30B9\u30EF\u30FC\u30C9\u3092\u304A\u5FD8\u308C\u3067\u3059\u304B\uFF1F"))));
+            react_1.default.createElement("a", { href: "#" }, "\u30D1\u30B9\u30EF\u30FC\u30C9\u3092\u304A\u5FD8\u308C\u3067\u3059\u304B\uFF1F")),
+        react_1.default.createElement("button", { onClick: logoutUser }, "\u30ED\u30B0\u30A2\u30A6\u30C8")));
 };
 exports.default = Login;
 
