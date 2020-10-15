@@ -1,16 +1,32 @@
 import React, { FC, useState } from 'react'
-
+import axios from 'axios'
 const Login: FC = () => {
-  const [mail, setMail] = useState<string>('')
+  const [email, setMail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
+
+  const loginUser = () => {
+    axios
+      .post('/api/login', {
+        email,
+        password,
+      })
+      .then((res) => {
+        console.log(res.config.data)
+      })
+      .catch((error) => {
+        console.log(password)
+        console.log(email)
+        console.log(error)
+      })
+  }
 
   return (
     <>
-      <p>{mail}</p>
+      <p>{email}</p>
       <p>{password}</p>
       <br />
       <label>
-        mail
+        email
         <br />
         <input
           type="text"
@@ -31,7 +47,7 @@ const Login: FC = () => {
         <a href="#">パスワードをお忘れですか？</a>
       </p>
       <br />
-      <button>ログイン</button>
+      <button onClick={loginUser}>ログイン</button>
       <br />
       <p>
         <a href="#">パスワードをお忘れですか？</a>
