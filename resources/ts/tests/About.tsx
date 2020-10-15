@@ -1,7 +1,7 @@
-import React, { FC } from "react";
+import React, { FC } from 'react'
 
 const About: FC = () => {
-  return <h1>About</h1>;
-};
+  return <h1>About</h1>
+}
 
-export default About;
+export default About

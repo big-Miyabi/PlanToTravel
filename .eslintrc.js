@@ -6,6 +6,7 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended',
+    "plugin:prettier/recommended",
   ],
   globals: {
     Atomics: 'readonly',
@@ -14,7 +15,7 @@ module.exports = {
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
-      jsx: true
+      jsx: true,
     },
     project: './tsconfig.json',
     sourceType: 'module'
@@ -36,6 +37,17 @@ module.exports = {
     'prefer-arrow-callback': 'error',
     'prefer-const': 'error',
     'prefer-spread': 'error',
-    'require-yield': 'error'
+    'require-yield': 'error',
+    "prettier/prettier": [
+      "error",
+      {
+        "printWidth": 55,
+        "trailingComma": "es5",
+        "tabWidth": 2,
+        "semi": false,
+        "singleQuote": true,
+        "endOfLine": "lf"
+      }
+  ]
   }
 };

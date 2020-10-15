@@ -69808,7 +69808,11 @@ __webpack_require__(/*! ./bootstrap */ "./resources/ts/bootstrap.js");
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
+// どちらか一方にコメントアウトをして使う
+// testsを使いたい場合(バック側)
 __webpack_require__(/*! ./tests/App */ "./resources/ts/tests/App.tsx");
+// Reactの実装状態を確認したい場合(フロント側)
+// require('./src/App')
 
 
 /***/ }),
@@ -69909,8 +69913,8 @@ var App = function () {
         react_1.default.createElement(react_router_dom_1.Route, { path: "/hoge", component: Register_1.default }),
         react_1.default.createElement(react_router_dom_1.Route, { path: "/hogehoge", component: Login_1.default })));
 };
-if (document.getElementById("app")) {
-    react_dom_1.default.render(react_1.default.createElement(App, null), document.getElementById("app"));
+if (document.getElementById('app')) {
+    react_dom_1.default.render(react_1.default.createElement(App, null), document.getElementById('app'));
 }
 
 
@@ -69983,25 +69987,30 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 var Login = function () {
-    var _a = react_1.useState(""), email = _a[0], setMail = _a[1];
-    var _b = react_1.useState(""), password = _b[0], setPassword = _b[1];
+    var _a = react_1.useState(''), email = _a[0], setMail = _a[1];
+    var _b = react_1.useState(''), password = _b[0], setPassword = _b[1];
     var loginUser = function () {
-        axios_1.default.post('/api/login', {
+        axios_1.default
+            .post('/api/login', {
             email: email,
             password: password,
-        }).then(function (res) {
+        })
+            .then(function (res) {
             console.log(res.data);
-        }).catch(function (error) {
+        })
+            .catch(function (error) {
             console.log(email);
             console.log(password);
             console.log(error);
         });
     };
     var logoutUser = function () {
-        axios_1.default.post('/api/logout')
+        axios_1.default
+            .post('/api/logout')
             .then(function (res) {
             console.log(res.data);
-        }).catch(function (error) {
+        })
+            .catch(function (error) {
             console.log(error);
         });
     };
@@ -70068,19 +70077,22 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 var Register = function () {
-    var _a = react_1.useState(""), username = _a[0], setUserName = _a[1];
-    var _b = react_1.useState(""), email = _b[0], setMail = _b[1];
-    var _c = react_1.useState(""), password = _c[0], setPassword = _c[1];
-    var icon = "default";
-    var header = "https://i.gyazo.com/de7ceb1d7eeb05c25968693df1ffc358.png";
+    var _a = react_1.useState(''), username = _a[0], setUserName = _a[1];
+    var _b = react_1.useState(''), email = _b[0], setMail = _b[1];
+    var _c = react_1.useState(''), password = _c[0], setPassword = _c[1];
+    var icon = 'default';
+    var header = 'https://i.gyazo.com/de7ceb1d7eeb05c25968693df1ffc358.png';
     var postUserData = function () {
-        axios_1.default.post('/api/register', {
+        axios_1.default
+            .post('/api/register', {
             username: username,
             email: email,
             password: password,
-        }).then(function (res) {
+        })
+            .then(function (res) {
             console.log(res.data);
-        }).catch(function (error) {
+        })
+            .catch(function (error) {
             console.log(username);
             console.log(password);
             console.log(email);
