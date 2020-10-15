@@ -11,9 +11,7 @@ type Props = {
 
 const RegisterWithSNS: FC<Props> = ({ className }) => {
   return (
-    <div
-      className={className + ' ' + 'register-with-sns'}
-    >
+    <div className={className + ' ' + 'register-with-sns'}>
       <p>SNSで新規登録</p>
       <FontAwesomeIconBtn
         className="register-with-sns__icon"
