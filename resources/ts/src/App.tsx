@@ -19,8 +19,5 @@ const App: FC = () => {
 }
 
 if (document.getElementById('app')) {
-  ReactDOM.render(
-    <App />,
-    document.getElementById('app')
-  )
+  ReactDOM.render(<App />, document.getElementById('app'))
 }

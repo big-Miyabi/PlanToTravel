@@ -3,14 +3,29 @@ import { colors } from '../../utilities/colors'
 import NaviIcon from '../atoms/svg/NaviIcon'
 import SearchIcon from '../atoms/svg/SearchIcon'
 
-// type Props = {}
+type Props = {
+  isMenuActive: boolean
+  isSearchActive: boolean
+  showUserMenu: () => void
+  showSearchMenu: () => void
+}
 
-const Header: FC = () => {
+const Header: FC<Props> = ({ ...props }) => {
+  const {
+    isMenuActive,
+    isSearchActive,
+    showUserMenu,
+    showSearchMenu,
+  } = props
+
   return (
     <div className="header">
       <NaviIcon
         className="header__menu"
-        color={colors.lightGray}
+        color={
+          isMenuActive ? colors.yellow : colors.lightGray
+        }
+        onClick={() => showUserMenu()}
       />
       <h1 className="header__logo-wrap">
         <img
@@ -21,7 +36,10 @@ const Header: FC = () => {
       </h1>
       <SearchIcon
         className="header__search"
-        color={colors.lightGray}
+        color={
+          isSearchActive ? colors.yellow : colors.lightGray
+        }
+        onClick={() => showSearchMenu()}
       />
     </div>
   )
