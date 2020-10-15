@@ -16,7 +16,7 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "2.*",
         "nesbot/carbon": "2.19.2 as 1.26.3",
-        "tymon/jwt-auth": "^1.0"
+        "tymon/jwt-auth": "dev-develop"
     },
     "require-dev": {
         "facade/ignition": "^2.0",
