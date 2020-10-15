@@ -72,6 +72,13 @@ html {
   .header__logo {
     width: 60.48vw;
   }
+
+  .user-menu {
+    width: 86.6666666667vw;
+    height: 85.3333333333vw;
+    background-image: url(/images/navi_loginBg.png?8e1d05dc13b173b2bb4b2b23ef9dd633);
+    background-size: cover;
+  }
 }
 
 /*!

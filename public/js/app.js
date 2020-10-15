@@ -83629,6 +83629,29 @@ exports.default = RegistForm;
 
 /***/ }),
 
+/***/ "./resources/ts/src/components/organisms/UserMenu.tsx":
+/*!************************************************************!*\
+  !*** ./resources/ts/src/components/organisms/UserMenu.tsx ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var UserMenu = function () {
+    return (react_1.default.createElement("div", { className: "user-menu" },
+        react_1.default.createElement("p", null, "aaaaaaaaaa")));
+};
+exports.default = UserMenu;
+
+
+/***/ }),
+
 /***/ "./resources/ts/src/containers/molecules/RegisterWithSNS.tsx":
 /*!*******************************************************************!*\
   !*** ./resources/ts/src/containers/molecules/RegisterWithSNS.tsx ***!
@@ -83730,6 +83753,29 @@ exports.default = RegistFormContainer;
 
 /***/ }),
 
+/***/ "./resources/ts/src/containers/organisms/UserMenu.tsx":
+/*!************************************************************!*\
+  !*** ./resources/ts/src/containers/organisms/UserMenu.tsx ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var UserMenu_1 = __importDefault(__webpack_require__(/*! ../../components/organisms/UserMenu */ "./resources/ts/src/components/organisms/UserMenu.tsx"));
+var UserMenuContainer = function () {
+    return react_1.default.createElement(UserMenu_1.default, null);
+};
+exports.default = UserMenuContainer;
+
+
+/***/ }),
+
 /***/ "./resources/ts/src/screens/HomeScreen.tsx":
 /*!*************************************************!*\
   !*** ./resources/ts/src/screens/HomeScreen.tsx ***!
@@ -83745,9 +83791,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var Header_1 = __importDefault(__webpack_require__(/*! ../containers/organisms/Header */ "./resources/ts/src/containers/organisms/Header.tsx"));
+var UserMenu_1 = __importDefault(__webpack_require__(/*! ../containers/organisms/UserMenu */ "./resources/ts/src/containers/organisms/UserMenu.tsx"));
 var HomeScreen = function () {
     return (react_1.default.createElement("div", { className: "home" },
-        react_1.default.createElement(Header_1.default, null)));
+        react_1.default.createElement(Header_1.default, null),
+        react_1.default.createElement(UserMenu_1.default, null)));
 };
 exports.default = HomeScreen;
 
