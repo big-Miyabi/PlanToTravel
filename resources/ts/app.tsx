@@ -4,7 +4,7 @@
  * building robust, powerful web applications using React + Laravel.
  */
 
-require("./bootstrap");
+require('./bootstrap')
 
 /**
  * Next, we will create a fresh React component instance and attach it to
@@ -12,4 +12,9 @@ require("./bootstrap");
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-require("./src/App");
+// どちらか一方にコメントアウトをして使う
+// testsを使いたい場合(バック側)
+// require("./tests/App");
+
+// Reactの実装状態を確認したい場合(フロント側)
+require('./src/App')

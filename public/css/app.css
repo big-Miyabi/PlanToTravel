@@ -8,45 +8,46 @@ html {
   .register {
     width: 100vw;
     height: 100vh;
+    padding-top: 18px;
     background-image: url(/images/register_background.png?d194af37b2b7e100e94b557798d8626b);
     background-size: cover;
-    padding-top: 18px;
   }
 
   .register__icon {
+    margin-left: 2.9333333333vw;
     color: #f9fcfe;
     font-size: 2.4rem;
   }
 
   .register__logo {
+    margin: 4.5566502463vh auto 0px;
     text-align: center;
-    margin: 0px auto;
   }
 
   .register__logo-img {
-    width: 20.4rem;
+    width: 54.4vw;
     height: auto;
   }
 
   .regist-form {
+    width: 84vw;
+    height: 57.7586206897vh;
+    margin: 3.078817734vh auto 0px;
+    border-radius: 17px;
     background-color: white;
     background-color: rgba(255, 255, 255, 0.9);
-    width: 31.5rem;
-    height: 46.9rem;
-    border-radius: 1.7rem;
     text-align: center;
-    margin: 0px auto;
   }
 
   .regist-form__button {
-    width: 24.6rem;
-    height: 3.3rem;
-    background-color: #fcbe32;
+    width: 65.6vw;
+    height: 4.0640394089vh;
     border: none;
+    border-radius: 8px;
+    background-color: #fcbe32;
     color: #fff;
     text-align: center;
     text-decoration: none;
-    border-radius: 0.8rem;
   }
 
   .regist-form__button:hover {
