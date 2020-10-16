@@ -85807,6 +85807,30 @@ var ActionTypes;
 
 /***/ }),
 
+/***/ "./resources/ts/src/actions/loginState.ts":
+/*!************************************************!*\
+  !*** ./resources/ts/src/actions/loginState.ts ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.setLoginState = void 0;
+var index_1 = __webpack_require__(/*! ./index */ "./resources/ts/src/actions/index.ts");
+exports.setLoginState = function (state) {
+    return ({
+        type: index_1.ActionTypes.LOGIN_STATE,
+        payload: {
+            state: state,
+        },
+    });
+};
+
+
+/***/ }),
+
 /***/ "./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx":
 /*!******************************************************************!*\
   !*** ./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx ***!
@@ -86242,9 +86266,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+var loginState_1 = __webpack_require__(/*! ../../actions/loginState */ "./resources/ts/src/actions/loginState.ts");
 var RegistForm_1 = __importDefault(__webpack_require__(/*! ../../components/organisms/RegistForm */ "./resources/ts/src/components/organisms/RegistForm.tsx"));
 var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 var RegistFormContainer = function () {
+    var dispatch = react_redux_1.useDispatch();
     var _a = react_1.useState(''), username = _a[0], setUserName = _a[1];
     var _b = react_1.useState(''), email = _b[0], setMail = _b[1];
     var _c = react_1.useState(''), password = _c[0], setPassword = _c[1];
@@ -86257,6 +86284,7 @@ var RegistFormContainer = function () {
         })
             .then(function (res) {
             console.log(res.config.data);
+            dispatch(loginState_1.setLoginState(true));
         })
             .catch(function (error) {
             // エラー処理
@@ -86363,6 +86391,7 @@ exports.loginStateReducer = function (state, action) {
     if (state === void 0) { state = initialState; }
     switch (action.type) {
         case index_1.ActionTypes.LOGIN_STATE:
+            console.log('hogehoge');
             return __assign(__assign({}, state), { state: action.payload.state });
         default: {
             return state;
