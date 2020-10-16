@@ -110,7 +110,7 @@ input:-webkit-autofill {
     color: #7390ab;
   }
 
-  .register-with-sns p {
+  .register-with-sns__p {
     margin-top: 3.6945812808vh;
     margin-bottom: 1.2315270936vh;
     color: #bcdbe8;
@@ -118,7 +118,7 @@ input:-webkit-autofill {
     font-weight: bold;
   }
 
-  .register-with-sns p.line:after {
+  .register-with-sns__p:after {
     display: inline-block;
     width: 20%;
     height: 0.1231527094vh;
@@ -127,7 +127,7 @@ input:-webkit-autofill {
     content: " ";
   }
 
-  .register-with-sns p.line:before {
+  .register-with-sns__p:before {
     display: inline-block;
     width: 20%;
     height: 0.1231527094vh;
