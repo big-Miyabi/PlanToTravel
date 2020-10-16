@@ -70100,11 +70100,11 @@ var Post = function () {
     // const [distance, setDistance] = useState<string>('')
     var _r = react_1.useState(''), comment = _r[0], setComment = _r[1];
     var _s = react_1.useState(''), tag_name = _s[0], setTagName = _s[1];
-    var uid = '1';
+    var uid = '31';
     var is_public = '0';
     var addSchedule = function () {
         axios_1.default
-            .post('/api/register', {
+            .post('/api/create', {
             uid: uid,
             title: title,
             header: header,
@@ -70112,6 +70112,7 @@ var Post = function () {
             day_s: day_s,
             day_f: day_f,
             is_public: is_public,
+            tag_name: tag_name,
         })
             .then(function (res) {
             console.log(res.data);

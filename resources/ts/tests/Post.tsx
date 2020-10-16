@@ -20,11 +20,11 @@ const Post: FC = () => {
   // const [distance, setDistance] = useState<string>('')
   const [comment, setComment] = useState<string>('')
   const [tag_name, setTagName] = useState<string>('')
-  const uid = '1'
+  const uid = '31'
   const is_public = '0'
   const addSchedule = () => {
     axios
-      .post('/api/register', {
+      .post('/api/create', {
         uid,
         title,
         header,
@@ -32,6 +32,7 @@ const Post: FC = () => {
         day_s,
         day_f,
         is_public,
+        tag_name,
       })
       .then((res) => {
         console.log(res.data)
