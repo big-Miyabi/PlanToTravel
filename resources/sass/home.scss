@@ -16,10 +16,82 @@
             width: px-to-vw(226.8);
         }
     }
+    .form-input {
+        &__label {
+            margin-bottom: 0;
+        }
+    }
     .user-menu {
         width: px-to-vw(325);
         height: px-to-vw(320); // 縦横比固定のためvwを使用
         background-image: url("../assets/navi_loginBg.png");
         background-size: cover;
+        margin: px-to-vh(20) auto 0px; //これと
+        text-align: center; //これで画面真ん中に
+        padding-top: px-to-vh(11);
+
+        &__forgetting-password {
+            text-decoration: underline;
+            margin: px-to-vh(3) 0 px-to-vh(13);
+            color: $gray;
+            font-size: 1.2rem;
+        }
+
+        &__register-btn {
+            text-decoration: underline;
+            color: $orange;
+            margin: px-to-vh(15) 0 px-to-vh(23);
+        }
+    }
+
+    .login {
+        margin: 0 auto 0px; //これと
+        text-align: center; //これで画面真ん中に
+        &__button {
+            width: px-to-vw(133);
+            height: px-to-vh(33);
+            //margin-top: px-to-vh(10);
+            border: none;
+            border-radius: 8px;
+            background-color: $yellow;
+            color: #fff;
+            text-align: center;
+            text-decoration: none;
+            font-size: 1.4rem;
+            font-weight: bold;
+            &:hover {
+                background-color: rgba(252, 190, 50, 0.5);
+            }
+            &:focus {
+                outline: none;
+            }
+        }
+
+        &__twitter-icon {
+            position: relative;
+            top: px-to-vh(5);
+            margin: 0 px-to-vw(15) 0;
+            color: $yellow;
+            font-size: 2.4rem;
+        }
+
+        &__facebook-icon {
+            position: relative;
+            top: px-to-vh(5);
+            color: $yellow;
+            font-size: 2.4rem;
+        }
+    }
+
+    .policy {
+        color: $gray;
+
+        &__terms {
+            text-decoration: underline;
+        }
+
+        &__privacy-policy {
+            text-decoration: underline;
+        }
     }
 }
