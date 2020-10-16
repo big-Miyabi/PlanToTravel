@@ -85802,7 +85802,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ActionTypes = void 0;
 var ActionTypes;
 (function (ActionTypes) {
-    ActionTypes["LOGIN_STATE"] = "LOGIN_STATE";
+    ActionTypes["SET_LOGIN_STATE"] = "SET_LOGIN_STATE";
+    ActionTypes["SET_LOGIN_INFO"] = "SET_LOGIN_INFO";
 })(ActionTypes = exports.ActionTypes || (exports.ActionTypes = {}));
 
 
@@ -85818,13 +85819,25 @@ var ActionTypes;
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.setLoginState = void 0;
+exports.setLoginInfo = exports.setLoginState = void 0;
 var index_1 = __webpack_require__(/*! ./index */ "./resources/ts/src/actions/index.ts");
 exports.setLoginState = function (state) {
     return ({
-        type: index_1.ActionTypes.LOGIN_STATE,
+        type: index_1.ActionTypes.SET_LOGIN_STATE,
         payload: {
             state: state,
+        },
+    });
+};
+exports.setLoginInfo = function (id, username, header, icon, profile) {
+    return ({
+        type: index_1.ActionTypes.SET_LOGIN_INFO,
+        payload: {
+            id: id,
+            username: username,
+            header: header,
+            icon: icon,
+            profile: profile,
         },
     });
 };
@@ -86390,12 +86403,19 @@ exports.loginStateReducer = void 0;
 var index_1 = __webpack_require__(/*! ../actions/index */ "./resources/ts/src/actions/index.ts");
 var initialState = {
     state: false,
+    id: 0,
+    username: 'unknown',
+    header: '',
+    icon: '',
+    profile: null,
 };
 exports.loginStateReducer = function (state, action) {
     if (state === void 0) { state = initialState; }
     switch (action.type) {
-        case index_1.ActionTypes.LOGIN_STATE:
+        case index_1.ActionTypes.SET_LOGIN_STATE:
             return __assign(__assign({}, state), { state: action.payload.state });
+        case index_1.ActionTypes.SET_LOGIN_INFO:
+            return __assign(__assign({}, state), { id: action.payload.id, username: action.payload.username, header: action.payload.header, icon: action.payload.icon, profile: action.payload.profile });
         default: {
             return state;
         }
