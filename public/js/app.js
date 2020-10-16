@@ -85789,14 +85789,59 @@ if (document.getElementById('app')) {
 
 /***/ }),
 
-/***/ "./resources/ts/src/actions/loginState.ts":
-/*!************************************************!*\
-  !*** ./resources/ts/src/actions/loginState.ts ***!
-  \************************************************/
+/***/ "./resources/ts/src/actions/index.ts":
+/*!*******************************************!*\
+  !*** ./resources/ts/src/actions/index.ts ***!
+  \*******************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/ts-loader/index.js):\nError: ENOENT: no such file or directory, open '/Users/ryoga/projects/PlanToTravel/resources/ts/src/actions/loginState.ts'");
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ActionTypes = void 0;
+var ActionTypes;
+(function (ActionTypes) {
+    ActionTypes["SET_LOGIN_STATE"] = "SET_LOGIN_STATE";
+    ActionTypes["SET_LOGIN_INFO"] = "SET_LOGIN_INFO";
+})(ActionTypes = exports.ActionTypes || (exports.ActionTypes = {}));
+
+
+/***/ }),
+
+/***/ "./resources/ts/src/actions/login.ts":
+/*!*******************************************!*\
+  !*** ./resources/ts/src/actions/login.ts ***!
+  \*******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.setLoginInfo = exports.setLoginState = void 0;
+var index_1 = __webpack_require__(/*! ./index */ "./resources/ts/src/actions/index.ts");
+exports.setLoginState = function (state) {
+    return ({
+        type: index_1.ActionTypes.SET_LOGIN_STATE,
+        payload: {
+            state: state,
+        },
+    });
+};
+exports.setLoginInfo = function (id, username, header, icon, profile) {
+    return ({
+        type: index_1.ActionTypes.SET_LOGIN_INFO,
+        payload: {
+            id: id,
+            username: username,
+            header: header,
+            icon: icon,
+            profile: profile,
+        },
+    });
+};
+
 
 /***/ }),
 
@@ -86236,7 +86281,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-var loginState_1 = __webpack_require__(/*! ../../actions/loginState */ "./resources/ts/src/actions/loginState.ts");
+var login_1 = __webpack_require__(/*! ../../actions/login */ "./resources/ts/src/actions/login.ts");
 var RegistForm_1 = __importDefault(__webpack_require__(/*! ../../components/organisms/RegistForm */ "./resources/ts/src/components/organisms/RegistForm.tsx"));
 var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 var RegistFormContainer = function () {
@@ -86256,7 +86301,7 @@ var RegistFormContainer = function () {
             console.log(res.data);
             // console.log(res.data)
             // console.log(res.config.data)
-            dispatch(loginState_1.setLoginState(true));
+            dispatch(login_1.setLoginState(true));
         })
             .catch(function (error) {
             // エラー処理
@@ -86325,22 +86370,58 @@ exports.default = UserMenuContainer;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.rootReducer = void 0;
 var redux_1 = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
-var loginStateReducer_1 = __webpack_require__(/*! ./loginStateReducer */ "./resources/ts/src/reducers/loginStateReducer.ts");
+var loginReducer_1 = __webpack_require__(/*! ./loginReducer */ "./resources/ts/src/reducers/loginReducer.ts");
 exports.rootReducer = redux_1.combineReducers({
-    loginStateReducer: loginStateReducer_1.loginStateReducer,
+    loginStateReducer: loginReducer_1.loginStateReducer,
 });
 
 
 /***/ }),
 
-/***/ "./resources/ts/src/reducers/loginStateReducer.ts":
-/*!********************************************************!*\
-  !*** ./resources/ts/src/reducers/loginStateReducer.ts ***!
-  \********************************************************/
+/***/ "./resources/ts/src/reducers/loginReducer.ts":
+/*!***************************************************!*\
+  !*** ./resources/ts/src/reducers/loginReducer.ts ***!
+  \***************************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/ts-loader/index.js):\nError: ENOENT: no such file or directory, open '/Users/ryoga/projects/PlanToTravel/resources/ts/src/reducers/loginStateReducer.ts'");
+"use strict";
+
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.loginStateReducer = void 0;
+var index_1 = __webpack_require__(/*! ../actions/index */ "./resources/ts/src/actions/index.ts");
+var initialState = {
+    state: false,
+    id: 0,
+    username: 'unknown',
+    header: '',
+    icon: '',
+    profile: null,
+};
+exports.loginStateReducer = function (state, action) {
+    if (state === void 0) { state = initialState; }
+    switch (action.type) {
+        case index_1.ActionTypes.SET_LOGIN_STATE:
+            return __assign(__assign({}, state), { state: action.payload.state });
+        case index_1.ActionTypes.SET_LOGIN_INFO:
+            return __assign(__assign({}, state), { id: action.payload.id, username: action.payload.username, header: action.payload.header, icon: action.payload.icon, profile: action.payload.profile });
+        default: {
+            return state;
+        }
+    }
+};
+
 
 /***/ }),
 

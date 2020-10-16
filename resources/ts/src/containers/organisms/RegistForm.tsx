@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { setLoginState } from '../../actions/loginState'
+import { setLoginState } from '../../actions/login'
 import RegistForm from '../../components/organisms/RegistForm'
 import axios from 'axios'
 
