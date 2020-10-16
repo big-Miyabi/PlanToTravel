@@ -85779,7 +85779,8 @@ var App = function () {
         react_1.default.createElement(react_router_dom_1.Route, { path: "/regist", exact: true, component: RegisterScreen_1.default }),
         react_1.default.createElement(react_router_dom_1.Route, { path: ['/', '/home'], exact: true, component: HomeScreen_1.default })));
 };
-var store = redux_1.createStore(reducers_1.rootReducer);
+var store = redux_1.createStore(reducers_1.rootReducer, window.__REDUX_DEVTOOLS_EXTENSION__ &&
+    window.__REDUX_DEVTOOLS_EXTENSION__());
 if (document.getElementById('app')) {
     react_dom_1.default.render(react_1.default.createElement(react_redux_1.Provider, { store: store },
         react_1.default.createElement(App, null)), document.getElementById('app'));
