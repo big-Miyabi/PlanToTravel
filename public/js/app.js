@@ -83540,7 +83540,7 @@ var free_brands_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-brands-s
 var RegisterWithSNS = function (_a) {
     var className = _a.className;
     return (react_1.default.createElement("div", { className: className + ' ' + 'register-with-sns' },
-        react_1.default.createElement("p", null, "SNS\u3067\u65B0\u898F\u767B\u9332"),
+        react_1.default.createElement("p", { className: "register-with-sns__p" }, "SNS\u3067\u65B0\u898F\u767B\u9332"),
         react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "register-with-sns__icon-twitter", icon: free_brands_svg_icons_1.faTwitter }),
         react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "register-with-sns__icon-facebook", icon: free_brands_svg_icons_1.faFacebook })));
 };
