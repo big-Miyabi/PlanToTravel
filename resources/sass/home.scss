@@ -1,0 +1,25 @@
+@import "variables";
+@import "function";
+
+// @include md-down()内部にstyleを記述すると、スマートフォンサイズでメディアクエリがかかるようになる
+@include md-down() {
+    .home {
+        padding-top: $header-top;
+    }
+    .header {
+        display: flex;
+        margin-top: px-to-vh(12);
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        &__logo {
+            width: px-to-vw(226.8);
+        }
+    }
+    .user-menu {
+        width: px-to-vw(325);
+        height: px-to-vw(320); // 縦横比固定のためvwを使用
+        background-image: url("../assets/navi_loginBg.png");
+        background-size: cover;
+    }
+}

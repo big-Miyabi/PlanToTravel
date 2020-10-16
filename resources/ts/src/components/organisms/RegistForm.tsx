@@ -1,10 +1,22 @@
-import React, { FC } from 'react'
+import React, { FC, Dispatch } from 'react'
 import FormInput from '../molecules/FormInput'
 import FormPasswordInput from '../molecules/FormPasswordInput'
 import FormBtn from '../atoms/FormBtn'
 import RegisterWithSNS from '../../containers/molecules/RegisterWithSNS'
 
-const RegistForm: FC = () => {
+type Props = {
+  setUserName: Dispatch<React.SetStateAction<string>>
+  setMail: Dispatch<React.SetStateAction<string>>
+  setPassword: Dispatch<React.SetStateAction<string>>
+  registUserData: () => void
+}
+
+const RegistForm: FC<Props> = ({
+  setUserName,
+  setMail,
+  setPassword,
+  registUserData,
+}) => {
   return (
     <div className="regist-form">
       <FormInput
@@ -12,6 +24,7 @@ const RegistForm: FC = () => {
         inputId="username"
         labelName="ユーザーネーム"
         placeholder="2-15文字以内"
+        setValue={setUserName}
       />
 
       <FormInput
@@ -19,6 +32,7 @@ const RegistForm: FC = () => {
         inputId="mail"
         labelName="メールアドレス"
         placeholder="メールアドレスを入力"
+        setValue={setMail}
       />
 
       <FormPasswordInput
@@ -26,11 +40,13 @@ const RegistForm: FC = () => {
         inputId="password"
         labelName="パスワード"
         placeholder="6文字以上半角英数字"
+        setValue={setPassword}
       />
 
       <FormBtn
         className="regist-form__button"
         name="新規登録"
+        onClick={() => registUserData()}
       />
 
       <RegisterWithSNS className="regist-form__sns" />
@@ -43,6 +59,7 @@ const RegistForm: FC = () => {
             利用規約
           </span>
           及び
+          <br />
           <span className="confirm-msg__link">
             プライバシーポリシー
           </span>
