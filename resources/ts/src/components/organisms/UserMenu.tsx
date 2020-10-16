@@ -8,6 +8,7 @@ import FormInput from '../molecules/FormInput'
 import FormPasswordInput from '../molecules/FormPasswordInput'
 import FormBtn from '../atoms/FormBtn'
 import FontAwesomeIconBtn from '../atoms/FontAwesomeIconBtn'
+import UserInfo from '../molecules/UserInfo'
 
 type Props = {
   isLogin: boolean
@@ -24,9 +25,10 @@ const UserMenu: FC<Props> = ({
     <>
       {isLogin ? (
         <div className="user-menu--profile">
-          <FontAwesomeIconBtn
-            className="user-menu--user-icon"
-            icon={faUserCircle}
+          <UserInfo
+            className="user-menu--user-info"
+            icon=""
+            name="unknown"
           />
         </div>
       ) : (
