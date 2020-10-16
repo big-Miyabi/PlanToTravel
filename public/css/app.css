@@ -87,14 +87,14 @@ input:-webkit-autofill {
     text-align: left;
     font-size: 1.4rem;
     font-weight: bold;
-    color: #bcdbe8;
+    color: #7390ab;
     margin-bottom: 1.2315270936vh;
   }
 
   .form-input__input {
     padding: 0.2463054187vh 2.6666666667vw;
     border: none;
-    border-bottom: 1px solid #bcdbe8;
+    border-bottom: 1px solid #7390ab;
     background-color: transparent;
   }
 
@@ -107,7 +107,7 @@ input:-webkit-autofill {
     position: relative;
     top: -1.8472906404vh;
     left: 60.2666666667vw;
-    color: #bcdbe8;
+    color: #7390ab;
   }
 
   .register-with-sns p {
