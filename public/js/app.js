@@ -86297,11 +86297,9 @@ var RegistFormContainer = function () {
             password: password,
         })
             .then(function (res) {
-            console.log(res);
-            console.log(res.data);
-            // console.log(res.data)
-            // console.log(res.config.data)
+            var userData = res.data[0];
             dispatch(login_1.setLoginState(true));
+            dispatch(login_1.setLoginInfo(userData.id, userData.username, userData.header, userData.icon, userData.profile));
         })
             .catch(function (error) {
             // エラー処理
