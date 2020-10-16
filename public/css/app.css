@@ -24,8 +24,18 @@ input:-webkit-autofill {
     font-size: 2.4rem;
   }
 
+  .register__content {
+    display: flex;
+    position: absolute;
+    top: 0px;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
   .register__logo {
-    margin: 4.5566502463vh auto 0px;
     text-align: center;
   }
 
@@ -37,7 +47,7 @@ input:-webkit-autofill {
   .regist-form {
     width: 84vw;
     height: auto;
-    margin: 3.078817734vh auto 6.157635468vh;
+    margin: 3.078817734vh auto 0px;
     padding: 1.2315270936vh 0;
     border-radius: 17px;
     background-color: white;

@@ -17,8 +17,17 @@
             color: $white;
             font-size: 2.4rem;
         }
+        &__content {
+            display: flex;
+            position: absolute;
+            top: 0px;
+            height: 100vh;
+            width: 100vw;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
         &__logo {
-            margin: px-to-vh(37) auto 0px;
             text-align: center;
         }
         &__logo-img {
@@ -29,7 +38,7 @@
     .regist-form {
         width: px-to-vw(315);
         height: auto;
-        margin: px-to-vh(25) auto px-to-vh(50);
+        margin: px-to-vh(25) auto 0px;
         padding: px-to-vh(10) 0;
         border-radius: 17px;
         background-color: white;
