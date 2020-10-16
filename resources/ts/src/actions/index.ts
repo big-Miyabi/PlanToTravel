@@ -1,4 +1,4 @@
-import { setLoginState, setLoginInfo } from './loginState'
+import { setLoginState, setLoginInfo } from './login'
 
 export enum ActionTypes {
   SET_LOGIN_STATE = 'SET_LOGIN_STATE',
