@@ -10,13 +10,15 @@ const RegisterScreen: FC = () => {
         className="register__icon"
         icon={faHome}
       />
-      <div className="register__logo">
-        <img
-          src="../images/logo_tate_white.png"
-          className="register__logo-img"
-        />
+      <div className="register__content">
+        <div className="register__logo">
+          <img
+            src="../images/logo_tate_white.png"
+            className="register__logo-img"
+          />
+        </div>
+        <RegistForm />
       </div>
-      <RegistForm />
     </div>
   )
 }
