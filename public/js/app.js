@@ -83412,7 +83412,7 @@ var colors_1 = __webpack_require__(/*! ../../../utilities/colors */ "./resources
 var NaviIcon = function (_a) {
     var className = _a.className, _b = _a.color, color = _b === void 0 ? colors_1.colors.yellow : _b, onClick = _a.onClick;
     return (react_1.default.createElement("svg", { className: className, onClick: onClick, width: "23", height: "28", viewBox: "0 0 23 28", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
-        react_1.default.createElement("path", { d: "M2 10L11.5 19L21 10", stroke: color, "stroke-width": "3", "stroke-linecap": "round", "stroke-linejoin": "round" })));
+        react_1.default.createElement("path", { d: "M2 10L11.5 19L21 10", stroke: color, strokeWidth: "3", strokeLinecap: "round", strokeLinejoin: "round" })));
 };
 exports.default = NaviIcon;
 
@@ -83903,7 +83903,8 @@ var RegisterScreen = function () {
             react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "register__home-icon", icon: free_solid_svg_icons_1.faHome })),
         react_1.default.createElement("div", { className: "register__content" },
             react_1.default.createElement("div", { className: "register__logo" },
-                react_1.default.createElement("img", { src: "../images/logo_tate_white.png", className: "register__logo-img" })),
+                react_1.default.createElement(react_router_dom_1.Link, { to: "../home" },
+                    react_1.default.createElement("img", { src: "../images/logo_tate_white.png", className: "register__logo-img" }))),
             react_1.default.createElement(RegistForm_1.default, null))));
 };
 exports.default = RegisterScreen;

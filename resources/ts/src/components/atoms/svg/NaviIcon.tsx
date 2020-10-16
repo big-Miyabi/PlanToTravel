@@ -25,9 +25,9 @@ const NaviIcon: FC<Props> = ({
       <path
         d="M2 10L11.5 19L21 10"
         stroke={color}
-        stroke-width="3"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="3"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   )
