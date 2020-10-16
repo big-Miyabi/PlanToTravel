@@ -21,7 +21,9 @@ const RegistFormContainer: FC = () => {
         password,
       })
       .then((res) => {
+        console.log(res)
         const userData = res.data[0]
+        console.log(userData)
         dispatch(setLoginState(true))
         dispatch(
           setLoginInfo(
@@ -35,6 +37,7 @@ const RegistFormContainer: FC = () => {
       })
       .catch((error) => {
         // エラー処理
+        console.log(error)
       })
   }
 
