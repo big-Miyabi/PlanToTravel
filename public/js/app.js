@@ -86284,7 +86284,10 @@ var RegistFormContainer = function () {
             password: password,
         })
             .then(function (res) {
-            console.log(res.config.data);
+            console.log(res);
+            console.log(res.data);
+            // console.log(res.data)
+            // console.log(res.config.data)
             dispatch(loginState_1.setLoginState(true));
         })
             .catch(function (error) {
@@ -86392,7 +86395,6 @@ exports.loginStateReducer = function (state, action) {
     if (state === void 0) { state = initialState; }
     switch (action.type) {
         case index_1.ActionTypes.LOGIN_STATE:
-            console.log('hogehoge');
             return __assign(__assign({}, state), { state: action.payload.state });
         default: {
             return state;

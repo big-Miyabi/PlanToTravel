@@ -18,7 +18,10 @@ const RegistFormContainer: FC = () => {
         password,
       })
       .then((res) => {
-        console.log(res.config.data)
+        console.log(res)
+        console.log(res.data)
+        // console.log(res.data)
+        // console.log(res.config.data)
         dispatch(setLoginState(true))
       })
       .catch((error) => {

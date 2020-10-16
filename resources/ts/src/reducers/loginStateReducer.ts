@@ -20,8 +20,6 @@ export const loginStateReducer: LoginReducer = (
 ): State => {
   switch (action.type) {
     case ActionTypes.LOGIN_STATE:
-      console.log('hogehoge')
-
       return {
         ...state,
         state: action.payload.state,
