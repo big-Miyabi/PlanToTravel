@@ -85892,6 +85892,37 @@ exports.default = FormBtn;
 
 /***/ }),
 
+/***/ "./resources/ts/src/components/atoms/svg/MapIcon.tsx":
+/*!***********************************************************!*\
+  !*** ./resources/ts/src/components/atoms/svg/MapIcon.tsx ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var colors_1 = __webpack_require__(/*! ../../../utilities/colors */ "./resources/ts/src/utilities/colors.ts");
+var MapIcon = function (_a) {
+    var className = _a.className, _b = _a.color, color = _b === void 0 ? colors_1.colors.navyBlue : _b, _c = _a.onClick, onClick = _c === void 0 ? function () { } : _c;
+    return (react_1.default.createElement("svg", { className: className, onClick: onClick, width: "38", height: "53", viewBox: "0 0 38 53", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
+        react_1.default.createElement("g", { "clip-path": "url(#clip0)" },
+            react_1.default.createElement("path", { d: "M17.4127 53C17.4127 53 -8.59257 26.4976 2.95095 7.57008C2.95095 7.57008 6.80038 0 18.3439 0C18.3439 0 33.7369 0 37.5815 15.1449C41.4261 30.2898 17.4127 53 17.4127 53Z", fill: color }),
+            react_1.default.createElement("path", { d: "M18.3448 30.285C24.7201 30.285 29.8883 25.2001 29.8883 18.9276C29.8883 12.655 24.7201 7.57007 18.3448 7.57007C11.9695 7.57007 6.80127 12.655 6.80127 18.9276C6.80127 25.2001 11.9695 30.285 18.3448 30.285Z", fill: "white" }),
+            react_1.default.createElement("path", { d: "M9.78198 18.7859C9.78198 18.4932 9.82518 18.2004 9.91638 17.9076C10.0076 17.6148 10.142 17.3503 10.334 17.1189C10.5212 16.8828 10.7707 16.6939 11.0779 16.5475C11.3851 16.4011 11.7547 16.3303 12.1915 16.3303H15.4025V13.2607C15.4025 12.3068 15.6761 11.6031 16.2185 11.1545C16.7609 10.7058 17.3993 10.4839 18.1336 10.4839C18.868 10.4839 19.5064 10.7106 20.0488 11.1545C20.5911 11.6031 20.8647 12.3068 20.8647 13.2607V16.3303H24.0758C24.5126 16.3303 24.8821 16.4011 25.1893 16.5475C25.4965 16.6939 25.7461 16.8828 25.9333 17.1189C26.1205 17.355 26.2597 17.6148 26.3509 17.9076C26.4421 18.2004 26.4853 18.4932 26.4853 18.7859C26.4853 19.0787 26.4421 19.3763 26.3509 19.6785C26.2645 19.9807 26.1157 20.2546 25.9189 20.4955C25.7221 20.741 25.4725 20.9394 25.1749 21.0952C24.8773 21.2511 24.5126 21.3313 24.0758 21.3313H20.8647V24.4009C20.8647 25.3549 20.5911 26.0585 20.0488 26.5071C19.5016 26.9558 18.8632 27.1777 18.1336 27.1777C17.4041 27.1777 16.7609 26.9558 16.2185 26.5071C15.6713 26.0585 15.4025 25.3596 15.4025 24.4009V21.3313H12.1915C11.7547 21.3313 11.3851 21.2558 11.0779 21.0952C10.7707 20.9394 10.5212 20.741 10.334 20.4955C10.1468 20.2499 10.0076 19.9807 9.91638 19.6785C9.82518 19.3763 9.78198 19.0787 9.78198 18.7859Z", fill: color })),
+        react_1.default.createElement("defs", null,
+            react_1.default.createElement("clipPath", { id: "clip0" },
+                react_1.default.createElement("rect", { width: "38", height: "53", fill: "transparent" })))));
+};
+exports.default = MapIcon;
+
+
+/***/ }),
+
 /***/ "./resources/ts/src/components/atoms/svg/NaviIcon.tsx":
 /*!************************************************************!*\
   !*** ./resources/ts/src/components/atoms/svg/NaviIcon.tsx ***!
@@ -86019,6 +86050,34 @@ exports.default = FormInput;
 
 /***/ }),
 
+/***/ "./resources/ts/src/components/molecules/MenuItem.tsx":
+/*!************************************************************!*\
+  !*** ./resources/ts/src/components/molecules/MenuItem.tsx ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var colors_1 = __webpack_require__(/*! ../../utilities/colors */ "./resources/ts/src/utilities/colors.ts");
+var FontAwesomeIconBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FontAwesomeIconBtn */ "./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx"));
+var MapIcon_1 = __importDefault(__webpack_require__(/*! ../atoms/svg/MapIcon */ "./resources/ts/src/components/atoms/svg/MapIcon.tsx"));
+var MenuItem = function (_a) {
+    var className = _a.className, title = _a.title, icon = _a.icon;
+    return (react_1.default.createElement("div", { className: className + ' ' + 'menu-item' },
+        icon === 'MapIcon' ? (react_1.default.createElement(MapIcon_1.default, { className: "menu-item__icon", color: colors_1.colors.lightGray })) : (react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "menu-item__icon", icon: icon })),
+        react_1.default.createElement("p", { className: "menu-item__title" }, title)));
+};
+exports.default = MenuItem;
+
+
+/***/ }),
+
 /***/ "./resources/ts/src/components/molecules/RegisterWithSNS.tsx":
 /*!*******************************************************************!*\
   !*** ./resources/ts/src/components/molecules/RegisterWithSNS.tsx ***!
@@ -86064,7 +86123,7 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 var FontAwesomeIconBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FontAwesomeIconBtn */ "./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx"));
 var free_solid_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 var UserInfo = function (_a) {
-    var className = _a.className, icon = _a.icon, name = _a.name;
+    var className = _a.className, iconUrl = _a.iconUrl, name = _a.name;
     return (react_1.default.createElement("div", { className: className + ' ' + 'user-info' },
         react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "user-info__user-icon", icon: free_solid_svg_icons_1.faUserCircle }),
         react_1.default.createElement("div", { className: "user-info__name-wrap" },
@@ -86173,15 +86232,24 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var free_brands_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-brands-svg-icons */ "./node_modules/@fortawesome/free-brands-svg-icons/index.es.js");
+var free_solid_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 var FormInput_1 = __importDefault(__webpack_require__(/*! ../molecules/FormInput */ "./resources/ts/src/components/molecules/FormInput.tsx"));
 var FormPasswordInput_1 = __importDefault(__webpack_require__(/*! ../molecules/FormPasswordInput */ "./resources/ts/src/components/molecules/FormPasswordInput.tsx"));
 var FormBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FormBtn */ "./resources/ts/src/components/atoms/FormBtn.tsx"));
 var FontAwesomeIconBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FontAwesomeIconBtn */ "./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx"));
 var UserInfo_1 = __importDefault(__webpack_require__(/*! ../molecules/UserInfo */ "./resources/ts/src/components/molecules/UserInfo.tsx"));
+var MenuItem_1 = __importDefault(__webpack_require__(/*! ../molecules/MenuItem */ "./resources/ts/src/components/molecules/MenuItem.tsx"));
 var UserMenu = function (_a) {
     var isLogin = _a.isLogin, setMail = _a.setMail, setPassword = _a.setPassword;
     return (react_1.default.createElement(react_1.default.Fragment, null, isLogin ? (react_1.default.createElement("div", { className: "user-menu--profile" },
-        react_1.default.createElement(UserInfo_1.default, { className: "user-menu--user-info", icon: "", name: "unknown" }))) : (react_1.default.createElement("div", { className: "user-menu--login" },
+        react_1.default.createElement(UserInfo_1.default, { className: "user-menu__user-info", iconUrl: "", name: "unknown" }),
+        react_1.default.createElement("div", { className: "user-menu__items" },
+            react_1.default.createElement(MenuItem_1.default, { className: "user_menu__home", title: 'Home', icon: free_solid_svg_icons_1.faHome }),
+            react_1.default.createElement(MenuItem_1.default, { className: "user_menu__itinerary", title: '作成した行程表', icon: 'MapIcon' }),
+            react_1.default.createElement(MenuItem_1.default, { className: "user_menu__favorite", title: 'いいね', icon: free_solid_svg_icons_1.faHeart }),
+            react_1.default.createElement(MenuItem_1.default, { className: "user_menu__bookmark", title: 'ブックマーク', icon: free_solid_svg_icons_1.faBookmark }),
+            react_1.default.createElement(MenuItem_1.default, { className: "user_menu__setting", title: '設定', icon: free_solid_svg_icons_1.faCog }),
+            react_1.default.createElement(MenuItem_1.default, { className: "user_menu__logout", title: 'ログアウト', icon: free_solid_svg_icons_1.faSignOutAlt })))) : (react_1.default.createElement("div", { className: "user-menu--login" },
         react_1.default.createElement(FormInput_1.default, { className: "user-manu__mail-input", inputId: "mail", labelName: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9", placeholder: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u3092\u5165\u529B", setValue: setMail }),
         react_1.default.createElement(FormPasswordInput_1.default, { className: "user-manu__password-input", inputId: "password", labelName: "\u30D1\u30B9\u30EF\u30FC\u30C9", placeholder: "6\u6587\u5B57\u4EE5\u4E0A\u534A\u89D2\u82F1\u6570\u5B57", setValue: setPassword }),
         react_1.default.createElement("p", { className: "user-menu__forgetting-password" }, "\u30D1\u30B9\u30EF\u30FC\u30C9\u3092\u304A\u5FD8\u308C\u3067\u3059\u304B\uFF1F"),

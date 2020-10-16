@@ -4,11 +4,15 @@ import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
 
 type Props = {
   className: string
-  icon: string
+  iconUrl: string
   name: string
 }
 
-const UserInfo: FC<Props> = ({ className, icon, name }) => {
+const UserInfo: FC<Props> = ({
+  className,
+  iconUrl,
+  name,
+}) => {
   return (
     <div className={className + ' ' + 'user-info'}>
       <FontAwesomeIconBtn

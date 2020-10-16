@@ -3,12 +3,19 @@ import {
   faTwitter,
   faFacebook,
 } from '@fortawesome/free-brands-svg-icons'
-import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
+import {
+  faHome,
+  faHeart,
+  faBookmark,
+  faCog,
+  faSignOutAlt,
+} from '@fortawesome/free-solid-svg-icons'
 import FormInput from '../molecules/FormInput'
 import FormPasswordInput from '../molecules/FormPasswordInput'
 import FormBtn from '../atoms/FormBtn'
 import FontAwesomeIconBtn from '../atoms/FontAwesomeIconBtn'
 import UserInfo from '../molecules/UserInfo'
+import MenuItem from '../molecules/MenuItem'
 
 type Props = {
   isLogin: boolean
@@ -26,10 +33,42 @@ const UserMenu: FC<Props> = ({
       {isLogin ? (
         <div className="user-menu--profile">
           <UserInfo
-            className="user-menu--user-info"
-            icon=""
+            className="user-menu__user-info"
+            iconUrl=""
             name="unknown"
           />
+          <div className="user-menu__items">
+            <MenuItem
+              className="user_menu__home"
+              title={'Home'}
+              icon={faHome}
+            />
+            <MenuItem
+              className="user_menu__itinerary"
+              title={'作成した行程表'}
+              icon={'MapIcon'}
+            />
+            <MenuItem
+              className="user_menu__favorite"
+              title={'いいね'}
+              icon={faHeart}
+            />
+            <MenuItem
+              className="user_menu__bookmark"
+              title={'ブックマーク'}
+              icon={faBookmark}
+            />
+            <MenuItem
+              className="user_menu__setting"
+              title={'設定'}
+              icon={faCog}
+            />
+            <MenuItem
+              className="user_menu__logout"
+              title={'ログアウト'}
+              icon={faSignOutAlt}
+            />
+          </div>
         </div>
       ) : (
         <div className="user-menu--login">
