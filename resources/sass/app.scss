@@ -1,12 +1,7 @@
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Nunito");
 
-html {
-  font-size: 62.5%;
-  //1rem=10pxってこと
-}
-
-// Variables
+@import "common";
 @import "register";
 @import "home";
 

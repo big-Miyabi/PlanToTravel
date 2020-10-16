@@ -79,15 +79,12 @@
             }
         }
     }
+
     .password__icon {
         position: relative;
         top: px-to-vh(-15);
         left: px-to-vw(226);
         color: $light-blue;
-    }
-
-    input:-webkit-autofill {
-        -webkit-box-shadow: 0 0 0 1000px white inset;
     }
 
     .register-with-sns {
