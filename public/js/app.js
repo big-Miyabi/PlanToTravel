@@ -85802,29 +85802,42 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ActionTypes = void 0;
 var ActionTypes;
 (function (ActionTypes) {
-    ActionTypes["LOGIN_STATE"] = "LOGIN_STATE";
+    ActionTypes["SET_LOGIN_STATE"] = "SET_LOGIN_STATE";
+    ActionTypes["SET_LOGIN_INFO"] = "SET_LOGIN_INFO";
 })(ActionTypes = exports.ActionTypes || (exports.ActionTypes = {}));
 
 
 /***/ }),
 
-/***/ "./resources/ts/src/actions/loginState.ts":
-/*!************************************************!*\
-  !*** ./resources/ts/src/actions/loginState.ts ***!
-  \************************************************/
+/***/ "./resources/ts/src/actions/login.ts":
+/*!*******************************************!*\
+  !*** ./resources/ts/src/actions/login.ts ***!
+  \*******************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.setLoginState = void 0;
+exports.setLoginInfo = exports.setLoginState = void 0;
 var index_1 = __webpack_require__(/*! ./index */ "./resources/ts/src/actions/index.ts");
 exports.setLoginState = function (state) {
     return ({
-        type: index_1.ActionTypes.LOGIN_STATE,
+        type: index_1.ActionTypes.SET_LOGIN_STATE,
         payload: {
             state: state,
+        },
+    });
+};
+exports.setLoginInfo = function (id, username, header, icon, profile) {
+    return ({
+        type: index_1.ActionTypes.SET_LOGIN_INFO,
+        payload: {
+            id: id,
+            username: username,
+            header: header,
+            icon: icon,
+            profile: profile,
         },
     });
 };
@@ -86268,7 +86281,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-var loginState_1 = __webpack_require__(/*! ../../actions/loginState */ "./resources/ts/src/actions/loginState.ts");
+var login_1 = __webpack_require__(/*! ../../actions/login */ "./resources/ts/src/actions/login.ts");
 var RegistForm_1 = __importDefault(__webpack_require__(/*! ../../components/organisms/RegistForm */ "./resources/ts/src/components/organisms/RegistForm.tsx"));
 var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 var RegistFormContainer = function () {
@@ -86284,11 +86297,15 @@ var RegistFormContainer = function () {
             password: password,
         })
             .then(function (res) {
-            console.log(res.config.data);
-            dispatch(loginState_1.setLoginState(true));
+            console.log(res);
+            var userData = res.data[0];
+            console.log(userData);
+            dispatch(login_1.setLoginState(true));
+            dispatch(login_1.setLoginInfo(userData.id, userData.username, userData.header, userData.icon, userData.profile));
         })
             .catch(function (error) {
             // エラー処理
+            console.log(error);
         });
     };
     return (react_1.default.createElement(RegistForm_1.default, { setUserName: setUserName, setMail: setMail, setPassword: setPassword, registUserData: registUserData }));
@@ -86354,18 +86371,18 @@ exports.default = UserMenuContainer;
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.rootReducer = void 0;
 var redux_1 = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
-var loginStateReducer_1 = __webpack_require__(/*! ./loginStateReducer */ "./resources/ts/src/reducers/loginStateReducer.ts");
+var loginReducer_1 = __webpack_require__(/*! ./loginReducer */ "./resources/ts/src/reducers/loginReducer.ts");
 exports.rootReducer = redux_1.combineReducers({
-    loginStateReducer: loginStateReducer_1.loginStateReducer,
+    loginStateReducer: loginReducer_1.loginStateReducer,
 });
 
 
 /***/ }),
 
-/***/ "./resources/ts/src/reducers/loginStateReducer.ts":
-/*!********************************************************!*\
-  !*** ./resources/ts/src/reducers/loginStateReducer.ts ***!
-  \********************************************************/
+/***/ "./resources/ts/src/reducers/loginReducer.ts":
+/*!***************************************************!*\
+  !*** ./resources/ts/src/reducers/loginReducer.ts ***!
+  \***************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -86387,13 +86404,19 @@ exports.loginStateReducer = void 0;
 var index_1 = __webpack_require__(/*! ../actions/index */ "./resources/ts/src/actions/index.ts");
 var initialState = {
     state: false,
+    id: 0,
+    username: 'unknown',
+    header: '',
+    icon: '',
+    profile: null,
 };
 exports.loginStateReducer = function (state, action) {
     if (state === void 0) { state = initialState; }
     switch (action.type) {
-        case index_1.ActionTypes.LOGIN_STATE:
-            console.log('hogehoge');
+        case index_1.ActionTypes.SET_LOGIN_STATE:
             return __assign(__assign({}, state), { state: action.payload.state });
+        case index_1.ActionTypes.SET_LOGIN_INFO:
+            return __assign(__assign({}, state), { id: action.payload.id, username: action.payload.username, header: action.payload.header, icon: action.payload.icon, profile: action.payload.profile });
         default: {
             return state;
         }
@@ -86493,8 +86516,8 @@ exports.colors = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\hyeeun\planto\PlanToTravel\resources\ts\app.tsx */"./resources/ts/app.tsx");
-module.exports = __webpack_require__(/*! C:\Users\hyeeun\planto\PlanToTravel\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\laravel\Intern\PlanToTravel\resources\ts\app.tsx */"./resources/ts/app.tsx");
+module.exports = __webpack_require__(/*! C:\laravel\Intern\PlanToTravel\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
