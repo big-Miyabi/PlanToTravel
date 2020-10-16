@@ -72,6 +72,7 @@
             padding: px-to-vh(2) px-to-vw(10);
             border: none;
             border-bottom: 1px solid $light-blue;
+            background-color: transparent;
             &:focus {
                 border-bottom: 1px solid $navy-blue;
                 outline: none;
@@ -79,9 +80,9 @@
         }
     }
     .password__icon {
-        position: absolute;
-        top: px-to-vh(438);
-        left: px-to-vw(290);
+        position: relative;
+        top: px-to-vh(-15);
+        left: px-to-vw(226);
         color: $light-blue;
     }
 
