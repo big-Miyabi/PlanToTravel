@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, Dispatch } from 'react'
 import FontAwesomeIconBtn from '../atoms/FontAwesomeIconBtn'
 import { faEye } from '@fortawesome/free-solid-svg-icons'
 import { faEyeSlash } from '@fortawesome/free-solid-svg-icons'
@@ -8,6 +8,7 @@ type Props = {
   inputId: string
   labelName: string
   placeholder: string
+  setValue: Dispatch<React.SetStateAction<string>>
 }
 
 const FormInput: FC<Props> = ({ ...props }) => {
@@ -16,6 +17,7 @@ const FormInput: FC<Props> = ({ ...props }) => {
     inputId,
     labelName,
     placeholder,
+    setValue,
   } = props
 
   return (
@@ -31,6 +33,7 @@ const FormInput: FC<Props> = ({ ...props }) => {
         id={inputId}
         className="form-input__input"
         placeholder={placeholder}
+        onChange={(e) => setValue(e.target.value)}
       />
       <FontAwesomeIconBtn
         className="password__icon"
