@@ -4,6 +4,10 @@ html {
   font-size: 62.5%;
 }
 
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 1000px white inset;
+}
+
 @media screen and (max-width: 559px) {
   .register {
     width: 100vw;
@@ -94,10 +98,6 @@ html {
     top: -1.8472906404vh;
     left: 60.2666666667vw;
     color: #bcdbe8;
-  }
-
-  input:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 1000px white inset;
   }
 
   .register-with-sns p {
