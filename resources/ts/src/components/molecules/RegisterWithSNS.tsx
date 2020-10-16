@@ -11,27 +11,14 @@ type Props = {
 
 const RegisterWithSNS: FC<Props> = ({ className }) => {
   return (
-<<<<<<< HEAD
     <div className={className + ' ' + 'register-with-sns'}>
       <p className="register-with-sns__p">SNSで新規登録</p>
       <FontAwesomeIconBtn
-        className="register-with-sns__icon"
-        icon={faTwitter}
-      />
-      <FontAwesomeIconBtn
-        className="register-with-sns__icon"
-=======
-    <div
-      className={className + ' ' + 'register-with-sns'}
-    >
-      <p className="line">SNSで新規登録</p>
-      <IconBtn
         className="register-with-sns__icon-twitter"
         icon={faTwitter}
       />
-      <IconBtn
+      <FontAwesomeIconBtn
         className="register-with-sns__icon-facebook"
->>>>>>> 6453de1... Add:register scss
         icon={faFacebook}
       />
     </div>
