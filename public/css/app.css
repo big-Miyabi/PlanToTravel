@@ -183,14 +183,24 @@ input:-webkit-autofill {
     margin-bottom: 0;
   }
 
-  .user-menu {
-    width: 86.6666666667vw;
-    height: 85.3333333333vw;
-    background-image: url(/images/navi_loginBg.png?8e1d05dc13b173b2bb4b2b23ef9dd633);
+  .user-menu--login,
+  .user-menu--profile {
     background-size: cover;
     margin: 2.4630541872vh auto 0px;
     text-align: center;
     padding-top: 1.354679803vh;
+  }
+
+  .user-menu--profile {
+    width: 86.6666666667vw;
+    height: 98.1333333333vw;
+    background-image: url(/images/navi_myBg.png?8b5e51e294e13b9093e56a74614f1386);
+  }
+
+  .user-menu--login {
+    width: 86.6666666667vw;
+    height: 85.3333333333vw;
+    background-image: url(/images/navi_loginBg.png?8e1d05dc13b173b2bb4b2b23ef9dd633);
   }
 
   .user-menu__forgetting-password {
