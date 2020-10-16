@@ -8,7 +8,7 @@ type Props = {
   onClick?: () => void
 }
 
-const IconBtn: FC<Props> = ({
+const FontAwesomeIconBtn: FC<Props> = ({
   icon,
   className,
   onClick,
@@ -22,4 +22,4 @@ const IconBtn: FC<Props> = ({
   )
 }
 
-export default IconBtn
+export default FontAwesomeIconBtn
