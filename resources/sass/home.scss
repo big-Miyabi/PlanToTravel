@@ -21,14 +21,25 @@
             margin-bottom: 0;
         }
     }
-    .user-menu {
-        width: px-to-vw(325);
-        height: px-to-vw(320); // 縦横比固定のためvwを使用
-        background-image: url("../assets/navi_loginBg.png");
+    %user_menu {
         background-size: cover;
         margin: px-to-vh(20) auto 0px; //これと
         text-align: center; //これで画面真ん中に
         padding-top: px-to-vh(11);
+    }
+    .user-menu {
+        &--profile {
+            @extend %user_menu;
+            width: px-to-vw(325);
+            height: px-to-vw(368); // 縦横比固定のためvwを使用
+            background-image: url("../assets/navi_myBg.png");
+        }
+        &--login {
+            @extend %user_menu;
+            width: px-to-vw(325);
+            height: px-to-vw(320); // 縦横比固定のためvwを使用
+            background-image: url("../assets/navi_loginBg.png");
+        }
 
         &__forgetting-password {
             text-decoration: underline;
