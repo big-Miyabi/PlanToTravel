@@ -86047,6 +86047,35 @@ exports.default = RegisterWithSNS;
 
 /***/ }),
 
+/***/ "./resources/ts/src/components/molecules/UserInfo.tsx":
+/*!************************************************************!*\
+  !*** ./resources/ts/src/components/molecules/UserInfo.tsx ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var FontAwesomeIconBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FontAwesomeIconBtn */ "./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx"));
+var free_solid_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+var UserInfo = function (_a) {
+    var className = _a.className, icon = _a.icon, name = _a.name;
+    return (react_1.default.createElement("div", { className: className + ' ' + 'user-info' },
+        react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "user-info__user-icon", icon: free_solid_svg_icons_1.faUserCircle }),
+        react_1.default.createElement("div", { className: "user-info__name-wrap" },
+            react_1.default.createElement("p", { className: "user-info__name" }, name)),
+        react_1.default.createElement("p", { className: "user-info__show-profile" }, "\u30DE\u30A4\u30D7\u30ED\u30D5\u30A3\u30FC\u30EB\u3092\u898B\u308B")));
+};
+exports.default = UserInfo;
+
+
+/***/ }),
+
 /***/ "./resources/ts/src/components/organisms/Header.tsx":
 /*!**********************************************************!*\
   !*** ./resources/ts/src/components/organisms/Header.tsx ***!
@@ -86144,15 +86173,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var free_brands_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-brands-svg-icons */ "./node_modules/@fortawesome/free-brands-svg-icons/index.es.js");
-var free_solid_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 var FormInput_1 = __importDefault(__webpack_require__(/*! ../molecules/FormInput */ "./resources/ts/src/components/molecules/FormInput.tsx"));
 var FormPasswordInput_1 = __importDefault(__webpack_require__(/*! ../molecules/FormPasswordInput */ "./resources/ts/src/components/molecules/FormPasswordInput.tsx"));
 var FormBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FormBtn */ "./resources/ts/src/components/atoms/FormBtn.tsx"));
 var FontAwesomeIconBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FontAwesomeIconBtn */ "./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx"));
+var UserInfo_1 = __importDefault(__webpack_require__(/*! ../molecules/UserInfo */ "./resources/ts/src/components/molecules/UserInfo.tsx"));
 var UserMenu = function (_a) {
     var isLogin = _a.isLogin, setMail = _a.setMail, setPassword = _a.setPassword;
     return (react_1.default.createElement(react_1.default.Fragment, null, isLogin ? (react_1.default.createElement("div", { className: "user-menu--profile" },
-        react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "user-menu--user-icon", icon: free_solid_svg_icons_1.faUserCircle }))) : (react_1.default.createElement("div", { className: "user-menu--login" },
+        react_1.default.createElement(UserInfo_1.default, { className: "user-menu--user-info", icon: "", name: "unknown" }))) : (react_1.default.createElement("div", { className: "user-menu--login" },
         react_1.default.createElement(FormInput_1.default, { className: "user-manu__mail-input", inputId: "mail", labelName: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9", placeholder: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u3092\u5165\u529B", setValue: setMail }),
         react_1.default.createElement(FormPasswordInput_1.default, { className: "user-manu__password-input", inputId: "password", labelName: "\u30D1\u30B9\u30EF\u30FC\u30C9", placeholder: "6\u6587\u5B57\u4EE5\u4E0A\u534A\u89D2\u82F1\u6570\u5B57", setValue: setPassword }),
         react_1.default.createElement("p", { className: "user-menu__forgetting-password" }, "\u30D1\u30B9\u30EF\u30FC\u30C9\u3092\u304A\u5FD8\u308C\u3067\u3059\u304B\uFF1F"),
