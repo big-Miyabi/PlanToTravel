@@ -83893,12 +83893,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 var FontAwesomeIconBtn_1 = __importDefault(__webpack_require__(/*! ../components/atoms/FontAwesomeIconBtn */ "./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx"));
 var free_solid_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 var RegistForm_1 = __importDefault(__webpack_require__(/*! ../containers/organisms/RegistForm */ "./resources/ts/src/containers/organisms/RegistForm.tsx"));
 var RegisterScreen = function () {
     return (react_1.default.createElement("div", { className: "register" },
-        react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "register__icon", icon: free_solid_svg_icons_1.faHome }),
+        react_1.default.createElement(react_router_dom_1.Link, { to: "../home" },
+            react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "register__home-icon", icon: free_solid_svg_icons_1.faHome })),
         react_1.default.createElement("div", { className: "register__content" },
             react_1.default.createElement("div", { className: "register__logo" },
                 react_1.default.createElement("img", { src: "../images/logo_tate_white.png", className: "register__logo-img" })),

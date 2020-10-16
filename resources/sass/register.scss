@@ -8,12 +8,12 @@
     .register {
         width: 100vw;
         height: 100vh;
-        padding-top: $header-top;
         background-image: url("../assets/register_background.png");
         background-size: cover;
-        &__icon {
-            margin-top: px-to-vh(16);
-            margin-left: px-to-vw(11);
+        &__home-icon {
+            position: absolute;
+            top: px-to-vh(34);
+            left: px-to-vw(11);
             color: $white;
             font-size: 2.4rem;
         }
