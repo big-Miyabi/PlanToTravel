@@ -65,6 +65,8 @@ input:-webkit-autofill {
     color: #fff;
     text-align: center;
     text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: bold;
   }
 
   .regist-form__button:hover {
@@ -177,11 +179,84 @@ input:-webkit-autofill {
     width: 60.48vw;
   }
 
+  .form-input__label {
+    margin-bottom: 0;
+  }
+
   .user-menu {
     width: 86.6666666667vw;
     height: 85.3333333333vw;
     background-image: url(/images/navi_loginBg.png?8e1d05dc13b173b2bb4b2b23ef9dd633);
     background-size: cover;
+    margin: 2.4630541872vh auto 0px;
+    text-align: center;
+    padding-top: 1.354679803vh;
+  }
+
+  .user-menu__forgetting-password {
+    text-decoration: underline;
+    margin: 0.3694581281vh 0 1.6009852217vh;
+    color: #c4c4c4;
+    font-size: 1.2rem;
+  }
+
+  .user-menu__register-btn {
+    text-decoration: underline;
+    color: #ff6633;
+    margin: 1.8472906404vh 0 2.8325123153vh;
+  }
+
+  .login {
+    margin: 0 auto 0px;
+    text-align: center;
+  }
+
+  .login__button {
+    width: 35.4666666667vw;
+    height: 4.0640394089vh;
+    border: none;
+    border-radius: 8px;
+    background-color: #fcbe32;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
+
+  .login__button:hover {
+    background-color: rgba(252, 190, 50, 0.5);
+  }
+
+  .login__button:focus {
+    outline: none;
+  }
+
+  .login__twitter-icon {
+    position: relative;
+    top: 0.6157635468vh;
+    margin: 0 4vw 0;
+    color: #fcbe32;
+    font-size: 2.4rem;
+  }
+
+  .login__facebook-icon {
+    position: relative;
+    top: 0.6157635468vh;
+    color: #fcbe32;
+    font-size: 2.4rem;
+  }
+
+  .policy {
+    color: #c4c4c4;
+  }
+
+  .policy__terms {
+    text-decoration: underline;
+  }
+
+  .policy__privacy-policy {
+    text-decoration: underline;
   }
 }
 
