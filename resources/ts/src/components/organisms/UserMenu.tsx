@@ -37,38 +37,46 @@ const UserMenu: FC<Props> = ({
             iconUrl=""
             name="unknown"
           />
-          <div className="user-menu__items">
+          <div className="menu-items">
             <MenuItem
-              className="user_menu__home"
+              className="menu-items__home"
               title={'Home'}
               icon={faHome}
             />
             <MenuItem
-              className="user_menu__itinerary"
+              className="menu-items__itinerary"
               title={'作成した行程表'}
               icon={'MapIcon'}
             />
             <MenuItem
-              className="user_menu__favorite"
+              className="menu-items__favorite"
               title={'いいね'}
               icon={faHeart}
             />
             <MenuItem
-              className="user_menu__bookmark"
+              className="menu-items__bookmark"
               title={'ブックマーク'}
               icon={faBookmark}
             />
             <MenuItem
-              className="user_menu__setting"
+              className="menu-items__setting"
               title={'設定'}
               icon={faCog}
             />
             <MenuItem
-              className="user_menu__logout"
+              className="menu-items__logout"
               title={'ログアウト'}
               icon={faSignOutAlt}
             />
           </div>
+
+          <p className="policy">
+            <span className="policy__terms">利用規約</span>
+            ・
+            <span className="policy__privacy-policy">
+              プライバシーポリシー
+            </span>
+          </p>
         </div>
       ) : (
         <div className="user-menu--login">
