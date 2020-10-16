@@ -86297,12 +86297,15 @@ var RegistFormContainer = function () {
             password: password,
         })
             .then(function (res) {
+            console.log(res);
             var userData = res.data[0];
+            console.log(userData);
             dispatch(login_1.setLoginState(true));
             dispatch(login_1.setLoginInfo(userData.id, userData.username, userData.header, userData.icon, userData.profile));
         })
             .catch(function (error) {
             // エラー処理
+            console.log(error);
         });
     };
     return (react_1.default.createElement(RegistForm_1.default, { setUserName: setUserName, setMail: setMail, setPassword: setPassword, registUserData: registUserData }));
