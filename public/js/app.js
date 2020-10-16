@@ -86144,13 +86144,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var free_brands_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-brands-svg-icons */ "./node_modules/@fortawesome/free-brands-svg-icons/index.es.js");
+var free_solid_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 var FormInput_1 = __importDefault(__webpack_require__(/*! ../molecules/FormInput */ "./resources/ts/src/components/molecules/FormInput.tsx"));
 var FormPasswordInput_1 = __importDefault(__webpack_require__(/*! ../molecules/FormPasswordInput */ "./resources/ts/src/components/molecules/FormPasswordInput.tsx"));
 var FormBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FormBtn */ "./resources/ts/src/components/atoms/FormBtn.tsx"));
 var FontAwesomeIconBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FontAwesomeIconBtn */ "./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx"));
 var UserMenu = function (_a) {
-    var setMail = _a.setMail, setPassword = _a.setPassword;
-    return (react_1.default.createElement("div", { className: "user-menu" },
+    var isLogin = _a.isLogin, setMail = _a.setMail, setPassword = _a.setPassword;
+    return (react_1.default.createElement(react_1.default.Fragment, null, isLogin ? (react_1.default.createElement("div", { className: "user-menu--profile" },
+        react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "user-menu--user-icon", icon: free_solid_svg_icons_1.faUserCircle }))) : (react_1.default.createElement("div", { className: "user-menu--login" },
         react_1.default.createElement(FormInput_1.default, { className: "user-manu__mail-input", inputId: "mail", labelName: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9", placeholder: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u3092\u5165\u529B", setValue: setMail }),
         react_1.default.createElement(FormPasswordInput_1.default, { className: "user-manu__password-input", inputId: "password", labelName: "\u30D1\u30B9\u30EF\u30FC\u30C9", placeholder: "6\u6587\u5B57\u4EE5\u4E0A\u534A\u89D2\u82F1\u6570\u5B57", setValue: setPassword }),
         react_1.default.createElement("p", { className: "user-menu__forgetting-password" }, "\u30D1\u30B9\u30EF\u30FC\u30C9\u3092\u304A\u5FD8\u308C\u3067\u3059\u304B\uFF1F"),
@@ -86162,7 +86164,7 @@ var UserMenu = function (_a) {
         react_1.default.createElement("p", { className: "policy" },
             react_1.default.createElement("span", { className: "policy__terms" }, "\u5229\u7528\u898F\u7D04"),
             "\u30FB",
-            react_1.default.createElement("span", { className: "policy__privacy-policy" }, "\u30D7\u30E9\u30A4\u30D0\u30B7\u30FC\u30DD\u30EA\u30B7\u30FC"))));
+            react_1.default.createElement("span", { className: "policy__privacy-policy" }, "\u30D7\u30E9\u30A4\u30D0\u30B7\u30FC\u30DD\u30EA\u30B7\u30FC"))))));
 };
 exports.default = UserMenu;
 
@@ -86352,7 +86354,8 @@ var UserMenu_1 = __importDefault(__webpack_require__(/*! ../../components/organi
 var UserMenuContainer = function () {
     var _a = react_1.useState(''), email = _a[0], setMail = _a[1];
     var _b = react_1.useState(''), password = _b[0], setPassword = _b[1];
-    return (react_1.default.createElement(UserMenu_1.default, { setMail: setMail, setPassword: setPassword }));
+    var isLogin = true;
+    return (react_1.default.createElement(UserMenu_1.default, { isLogin: isLogin, setMail: setMail, setPassword: setPassword }));
 };
 exports.default = UserMenuContainer;
 
@@ -86516,8 +86519,8 @@ exports.colors = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\laravel\Intern\PlanToTravel\resources\ts\app.tsx */"./resources/ts/app.tsx");
-module.exports = __webpack_require__(/*! C:\laravel\Intern\PlanToTravel\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/ryoga/projects/PlanToTravel/resources/ts/app.tsx */"./resources/ts/app.tsx");
+module.exports = __webpack_require__(/*! /Users/ryoga/projects/PlanToTravel/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
