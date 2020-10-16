@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import { Link } from 'react-router-dom'
 import FontAwesomeIconBtn from '../components/atoms/FontAwesomeIconBtn'
 import { faHome } from '@fortawesome/free-solid-svg-icons'
 import RegistForm from '../containers/organisms/RegistForm'
@@ -6,10 +7,12 @@ import RegistForm from '../containers/organisms/RegistForm'
 const RegisterScreen: FC = () => {
   return (
     <div className="register">
-      <FontAwesomeIconBtn
-        className="register__icon"
-        icon={faHome}
-      />
+      <Link to="../home">
+        <FontAwesomeIconBtn
+          className="register__home-icon"
+          icon={faHome}
+        />
+      </Link>
       <div className="register__content">
         <div className="register__logo">
           <img
