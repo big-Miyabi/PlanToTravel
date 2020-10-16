@@ -1,6 +1,9 @@
 import React, { FC, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { setLoginState } from '../../actions/loginState'
+import {
+  setLoginState,
+  setLoginInfo,
+} from '../../actions/login'
 import RegistForm from '../../components/organisms/RegistForm'
 import axios from 'axios'
 
@@ -18,11 +21,23 @@ const RegistFormContainer: FC = () => {
         password,
       })
       .then((res) => {
-        console.log(res.config.data)
+        console.log(res)
+        const userData = res.data[0]
+        console.log(userData)
         dispatch(setLoginState(true))
+        dispatch(
+          setLoginInfo(
+            userData.id,
+            userData.username,
+            userData.header,
+            userData.icon,
+            userData.profile
+          )
+        )
       })
       .catch((error) => {
         // エラー処理
+        console.log(error)
       })
   }
 
