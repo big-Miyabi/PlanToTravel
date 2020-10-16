@@ -40,7 +40,7 @@ const Login: FC = () => {
 
       <br />
       <label>
-        mail
+        email
         <br />
         <input
           type="text"

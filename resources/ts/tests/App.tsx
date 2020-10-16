@@ -7,6 +7,7 @@ import Top from './Top'
 import About from './About'
 import Register from './Register'
 import Login from './Login'
+import Post from './Post'
 
 const App: FC = () => {
   return (
@@ -17,6 +18,7 @@ const App: FC = () => {
       <Route path="/about" component={About} />
       <Route path="/hoge" component={Register} />
       <Route path="/hogehoge" component={Login} />
+      <Route path="/post" component={Post} />
     </BrowserRouter>
   )
 }

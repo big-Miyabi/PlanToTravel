@@ -69905,13 +69905,15 @@ var Top_1 = __importDefault(__webpack_require__(/*! ./Top */ "./resources/ts/tes
 var About_1 = __importDefault(__webpack_require__(/*! ./About */ "./resources/ts/tests/About.tsx"));
 var Register_1 = __importDefault(__webpack_require__(/*! ./Register */ "./resources/ts/tests/Register.tsx"));
 var Login_1 = __importDefault(__webpack_require__(/*! ./Login */ "./resources/ts/tests/Login.tsx"));
+var Post_1 = __importDefault(__webpack_require__(/*! ./Post */ "./resources/ts/tests/Post.tsx"));
 var App = function () {
     return (react_1.default.createElement(react_router_dom_1.BrowserRouter, null,
         react_1.default.createElement(GlobalNav_1.default, null),
         react_1.default.createElement(react_router_dom_1.Route, { path: "/", exact: true, component: Top_1.default }),
         react_1.default.createElement(react_router_dom_1.Route, { path: "/about", component: About_1.default }),
         react_1.default.createElement(react_router_dom_1.Route, { path: "/hoge", component: Register_1.default }),
-        react_1.default.createElement(react_router_dom_1.Route, { path: "/hogehoge", component: Login_1.default })));
+        react_1.default.createElement(react_router_dom_1.Route, { path: "/hogehoge", component: Login_1.default }),
+        react_1.default.createElement(react_router_dom_1.Route, { path: "/post", component: Post_1.default })));
 };
 if (document.getElementById('app')) {
     react_dom_1.default.render(react_1.default.createElement(App, null), document.getElementById('app'));
@@ -69945,7 +69947,9 @@ var GlobalNav = function () {
             react_1.default.createElement(react_router_dom_1.Link, { to: "/hoge" },
                 react_1.default.createElement("li", null, "Register")),
             react_1.default.createElement(react_router_dom_1.Link, { to: "/hogehoge" },
-                react_1.default.createElement("li", null, "Login")))));
+                react_1.default.createElement("li", null, "Login")),
+            react_1.default.createElement(react_router_dom_1.Link, { to: "/post" },
+                react_1.default.createElement("li", null, "Post")))));
 };
 exports.default = GlobalNav;
 
@@ -70020,7 +70024,7 @@ var Login = function () {
         react_1.default.createElement("p", null, password),
         react_1.default.createElement("br", null),
         react_1.default.createElement("label", null,
-            "mail",
+            "email",
             react_1.default.createElement("br", null),
             react_1.default.createElement("input", { type: "text", onChange: function (e) { return setMail(e.target.value); } })),
         react_1.default.createElement("br", null),
@@ -70039,6 +70043,163 @@ var Login = function () {
         react_1.default.createElement("button", { onClick: logoutUser }, "\u30ED\u30B0\u30A2\u30A6\u30C8")));
 };
 exports.default = Login;
+
+
+/***/ }),
+
+/***/ "./resources/ts/tests/Post.tsx":
+/*!*************************************!*\
+  !*** ./resources/ts/tests/Post.tsx ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
+var Post = function () {
+    var _a = react_1.useState(''), title = _a[0], setTitle = _a[1];
+    var _b = react_1.useState(''), header = _b[0], setHeader = _b[1];
+    var _c = react_1.useState(''), people = _c[0], setPeople = _c[1];
+    var _d = react_1.useState(''), day_s = _d[0], setDayS = _d[1];
+    var _e = react_1.useState(''), day_f = _e[0], setDayf = _e[1];
+    var _f = react_1.useState(''), order_number = _f[0], setOrderNum = _f[1];
+    var _g = react_1.useState(''), day = _g[0], setDay = _g[1];
+    var _h = react_1.useState(''), img = _h[0], setImg = _h[1];
+    var _j = react_1.useState(''), place_name = _j[0], setPlaceName = _j[1];
+    var _k = react_1.useState(''), longitude = _k[0], setLongitude = _k[1];
+    var _l = react_1.useState(''), latitude = _l[0], setLatitude = _l[1];
+    var _m = react_1.useState(''), rating = _m[0], setRating = _m[1];
+    var _o = react_1.useState(''), weather = _o[0], setWeather = _o[1];
+    var _p = react_1.useState(''), transport = _p[0], setTransport = _p[1];
+    var _q = react_1.useState(''), transport_detail = _q[0], setTransD = _q[1];
+    // const [distance, setDistance] = useState<string>('')
+    var _r = react_1.useState(''), comment = _r[0], setComment = _r[1];
+    var _s = react_1.useState(''), tag_name = _s[0], setTagName = _s[1];
+    var uid = '1';
+    var is_public = '0';
+    var addSchedule = function () {
+        axios_1.default
+            .post('/api/register', {
+            uid: uid,
+            title: title,
+            header: header,
+            people: people,
+            day_s: day_s,
+            day_f: day_f,
+            is_public: is_public,
+        })
+            .then(function (res) {
+            console.log(res.data);
+        })
+            .catch(function (error) {
+            console.log(error);
+        });
+    };
+    return (react_1.default.createElement(react_1.default.Fragment, null,
+        react_1.default.createElement("label", null,
+            "\u30D8\u30C3\u30C0\u30FC\u753B\u50CF\u8FFD\u52A0",
+            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setHeader(e.target.value); } })),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("label", null,
+            "\u30BF\u30A4\u30C8\u30EB*",
+            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setTitle(e.target.value); } })),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("label", null,
+            "\u30BF\u30B0",
+            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setTagName(e.target.value); } }),
+            ",",
+            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setTagName(e.target.value); } }),
+            ",",
+            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setTagName(e.target.value); } })),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("label", null,
+            "\u65E5\u4ED8*",
+            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setDayS(e.target.value); } }),
+            "\uFF5E",
+            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setDayf(e.target.value); } })),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("label", null,
+            "\u4EBA\u6570*",
+            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setPeople(e.target.value); } }),
+            "\u4EBA"),
+        react_1.default.createElement("button", { onClick: addSchedule }, "\u6295\u7A3F"),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("h2", null, "\u884C\u7A0B*"),
+        react_1.default.createElement("label", null,
+            "\u5834\u6240",
+            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setPlaceName(e.target.value); } }),
+            "\u5929\u6C17",
+            react_1.default.createElement("select", { onChange: function (e) { return setWeather(e.target.value); } },
+                react_1.default.createElement("option", { value: "sun" }, "sun"),
+                react_1.default.createElement("option", { value: "cloud" }, "cloud"),
+                react_1.default.createElement("option", { value: "rain" }, "rain"),
+                react_1.default.createElement("option", { value: "snow" }, "snow"),
+                react_1.default.createElement("option", { value: "night" }, "night")),
+            "\u8A55\u4FA1",
+            react_1.default.createElement("select", { onChange: function (e) { return setRating(e.target.value); } },
+                react_1.default.createElement("option", { value: "0" }, "0"),
+                react_1.default.createElement("option", { value: "1" }, "1"),
+                react_1.default.createElement("option", { value: "2" }, "2"),
+                react_1.default.createElement("option", { value: "3" }, "3"))),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("label", null,
+            "\u7DEF\u5EA6",
+            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setLatitude(e.target.value); } }),
+            "\u7D4C\u5EA6",
+            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setLongitude(e.target.value); } })),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("label", null,
+            "\u5199\u771F",
+            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setImg(e.target.value); } })),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("label", null,
+            "\u30B3\u30E1\u30F3\u30C8",
+            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setComment(e.target.value); } })),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("label", null,
+            "\u79FB\u52D5\u624B\u6BB5",
+            react_1.default.createElement("select", { onChange: function (e) { return setTransport(e.target.value); } },
+                react_1.default.createElement("option", { value: "\u5F92\u6B69" }, "\u5F92\u6B69"),
+                react_1.default.createElement("option", { value: "\u81EA\u8EE2\u8ECA" }, "\u81EA\u8EE2\u8ECA"),
+                react_1.default.createElement("option", { value: "\u8ECA" }, "\u8ECA"),
+                react_1.default.createElement("option", { value: "\u30D0\u30B9" }, "\u30D0\u30B9"),
+                react_1.default.createElement("option", { value: "\u96FB\u8ECA" }, "\u96FB\u8ECA"),
+                react_1.default.createElement("option", { value: "\u8239" }, "\u8239"),
+                react_1.default.createElement("option", { value: "\u98DB\u884C\u6A5F" }, "\u98DB\u884C\u6A5F"))),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("label", null,
+            "\u79FB\u52D5\u624B\u6BB5\u8A73\u7D30",
+            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setTransD(e.target.value); } })),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("button", null, "\u78BA\u5B9A")));
+};
+exports.default = Post;
 
 
 /***/ }),
