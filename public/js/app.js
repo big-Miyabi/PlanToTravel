@@ -83265,7 +83265,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/ts/bootstrap.js");
  */
 // どちらか一方にコメントアウトをして使う
 // testsを使いたい場合(バック側)
-// require("./tests/App");
+// require('./tests/App')
 // Reactの実装状態を確認したい場合(フロント側)
 __webpack_require__(/*! ./src/App */ "./resources/ts/src/App.tsx");
 
@@ -83386,8 +83386,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var FormBtn = function (_a) {
-    var className = _a.className, name = _a.name;
-    return (react_1.default.createElement("button", { className: className + ' form-btn' }, name));
+    var className = _a.className, name = _a.name, onClick = _a.onClick;
+    return (react_1.default.createElement("button", { className: className + ' form-btn', onClick: onClick }, name));
 };
 exports.default = FormBtn;
 
@@ -83471,10 +83471,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var FormInput = function (_a) {
     var props = __rest(_a, []);
-    var className = props.className, inputId = props.inputId, labelName = props.labelName, placeholder = props.placeholder;
+    var className = props.className, inputId = props.inputId, labelName = props.labelName, placeholder = props.placeholder, setValue = props.setValue;
     return (react_1.default.createElement("div", { className: className + ' ' + 'form-input' },
         react_1.default.createElement("label", { className: "form-input__label", htmlFor: inputId }, labelName),
-        react_1.default.createElement("input", { type: "text", id: inputId, className: "form-input__input", placeholder: placeholder })));
+        react_1.default.createElement("input", { type: "text", id: inputId, className: "form-input__input", placeholder: placeholder, onChange: function (e) { return setValue(e.target.value); } })));
 };
 exports.default = FormInput;
 
@@ -83510,10 +83510,10 @@ var FontAwesomeIconBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/Font
 var free_solid_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 var FormInput = function (_a) {
     var props = __rest(_a, []);
-    var className = props.className, inputId = props.inputId, labelName = props.labelName, placeholder = props.placeholder;
+    var className = props.className, inputId = props.inputId, labelName = props.labelName, placeholder = props.placeholder, setValue = props.setValue;
     return (react_1.default.createElement("div", { className: className + ' form-input' },
         react_1.default.createElement("label", { className: 'form-input__label', htmlFor: inputId }, labelName),
-        react_1.default.createElement("input", { type: "password", id: inputId, className: "form-input__input", placeholder: placeholder }),
+        react_1.default.createElement("input", { type: "password", id: inputId, className: "form-input__input", placeholder: placeholder, onChange: function (e) { return setValue(e.target.value); } }),
         react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "password__icon", icon: free_solid_svg_icons_1.faEye })));
 };
 exports.default = FormInput;
@@ -83541,8 +83541,8 @@ var RegisterWithSNS = function (_a) {
     var className = _a.className;
     return (react_1.default.createElement("div", { className: className + ' ' + 'register-with-sns' },
         react_1.default.createElement("p", null, "SNS\u3067\u65B0\u898F\u767B\u9332"),
-        react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "register-with-sns__icon", icon: free_brands_svg_icons_1.faTwitter }),
-        react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "register-with-sns__icon", icon: free_brands_svg_icons_1.faFacebook })));
+        react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "register-with-sns__icon-twitter", icon: free_brands_svg_icons_1.faTwitter }),
+        react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "register-with-sns__icon-facebook", icon: free_brands_svg_icons_1.faFacebook })));
 };
 exports.default = RegisterWithSNS;
 
@@ -83609,18 +83609,20 @@ var FormInput_1 = __importDefault(__webpack_require__(/*! ../molecules/FormInput
 var FormPasswordInput_1 = __importDefault(__webpack_require__(/*! ../molecules/FormPasswordInput */ "./resources/ts/src/components/molecules/FormPasswordInput.tsx"));
 var FormBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FormBtn */ "./resources/ts/src/components/atoms/FormBtn.tsx"));
 var RegisterWithSNS_1 = __importDefault(__webpack_require__(/*! ../../containers/molecules/RegisterWithSNS */ "./resources/ts/src/containers/molecules/RegisterWithSNS.tsx"));
-var RegistForm = function () {
+var RegistForm = function (_a) {
+    var setUserName = _a.setUserName, setMail = _a.setMail, setPassword = _a.setPassword, registUserData = _a.registUserData;
     return (react_1.default.createElement("div", { className: "regist-form" },
-        react_1.default.createElement(FormInput_1.default, { className: "regist-form__username", inputId: "username", labelName: "\u30E6\u30FC\u30B6\u30FC\u30CD\u30FC\u30E0", placeholder: "2-15\u6587\u5B57\u4EE5\u5185" }),
-        react_1.default.createElement(FormInput_1.default, { className: "regist-form__mail", inputId: "mail", labelName: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9", placeholder: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u3092\u5165\u529B" }),
-        react_1.default.createElement(FormPasswordInput_1.default, { className: "regist-form__password", inputId: "password", labelName: "\u30D1\u30B9\u30EF\u30FC\u30C9", placeholder: "6\u6587\u5B57\u4EE5\u4E0A\u534A\u89D2\u82F1\u6570\u5B57" }),
-        react_1.default.createElement(FormBtn_1.default, { className: "regist-form__button", name: "\u65B0\u898F\u767B\u9332" }),
+        react_1.default.createElement(FormInput_1.default, { className: "regist-form__username", inputId: "username", labelName: "\u30E6\u30FC\u30B6\u30FC\u30CD\u30FC\u30E0", placeholder: "2-15\u6587\u5B57\u4EE5\u5185", setValue: setUserName }),
+        react_1.default.createElement(FormInput_1.default, { className: "regist-form__mail", inputId: "mail", labelName: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9", placeholder: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u3092\u5165\u529B", setValue: setMail }),
+        react_1.default.createElement(FormPasswordInput_1.default, { className: "regist-form__password", inputId: "password", labelName: "\u30D1\u30B9\u30EF\u30FC\u30C9", placeholder: "6\u6587\u5B57\u4EE5\u4E0A\u534A\u89D2\u82F1\u6570\u5B57", setValue: setPassword }),
+        react_1.default.createElement(FormBtn_1.default, { className: "regist-form__button", name: "\u65B0\u898F\u767B\u9332", onClick: function () { return registUserData(); } }),
         react_1.default.createElement(RegisterWithSNS_1.default, { className: "regist-form__sns" }),
         react_1.default.createElement("div", { className: "confirm-msg" },
             react_1.default.createElement("p", null,
                 "\u767B\u9332\u3059\u308B\u3053\u3068\u3067\u3001",
                 react_1.default.createElement("span", { className: "confirm-msg__link" }, "\u5229\u7528\u898F\u7D04"),
                 "\u53CA\u3073",
+                react_1.default.createElement("br", null),
                 react_1.default.createElement("span", { className: "confirm-msg__link" }, "\u30D7\u30E9\u30A4\u30D0\u30B7\u30FC\u30DD\u30EA\u30B7\u30FC"),
                 "\u306B\u540C\u610F\u3059\u308B\u3082\u306E\u3068\u3057\u307E\u3059\u3002"))));
 };
@@ -83648,13 +83650,14 @@ var FormInput_1 = __importDefault(__webpack_require__(/*! ../molecules/FormInput
 var FormPasswordInput_1 = __importDefault(__webpack_require__(/*! ../molecules/FormPasswordInput */ "./resources/ts/src/components/molecules/FormPasswordInput.tsx"));
 var FormBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FormBtn */ "./resources/ts/src/components/atoms/FormBtn.tsx"));
 var FontAwesomeIconBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FontAwesomeIconBtn */ "./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx"));
-var UserMenu = function () {
+var UserMenu = function (_a) {
+    var setMail = _a.setMail, setPassword = _a.setPassword;
     return (react_1.default.createElement("div", { className: "user-menu" },
-        react_1.default.createElement(FormInput_1.default, { className: "user-manu__mail-input", inputId: "mail", labelName: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9", placeholder: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u3092\u5165\u529B" }),
-        react_1.default.createElement(FormPasswordInput_1.default, { className: "user-manu__password-input", inputId: "password", labelName: "\u30D1\u30B9\u30EF\u30FC\u30C9", placeholder: "6\u6587\u5B57\u4EE5\u4E0A\u534A\u89D2\u82F1\u6570\u5B57" }),
+        react_1.default.createElement(FormInput_1.default, { className: "user-manu__mail-input", inputId: "mail", labelName: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9", placeholder: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u3092\u5165\u529B", setValue: setMail }),
+        react_1.default.createElement(FormPasswordInput_1.default, { className: "user-manu__password-input", inputId: "password", labelName: "\u30D1\u30B9\u30EF\u30FC\u30C9", placeholder: "6\u6587\u5B57\u4EE5\u4E0A\u534A\u89D2\u82F1\u6570\u5B57", setValue: setPassword }),
         react_1.default.createElement("p", { className: "user-menu__forgetting-password" }, "\u30D1\u30B9\u30EF\u30FC\u30C9\u3092\u304A\u5FD8\u308C\u3067\u3059\u304B\uFF1F"),
         react_1.default.createElement("div", { className: "login" },
-            react_1.default.createElement(FormBtn_1.default, { className: "login__button", name: "\u30ED\u30B0\u30A4\u30F3" }),
+            react_1.default.createElement(FormBtn_1.default, { className: "login__button", name: "\u30ED\u30B0\u30A4\u30F3", onClick: function () { } }),
             react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "login__twitter-icon", icon: free_brands_svg_icons_1.faTwitter }),
             react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "login__facebook-icon", icon: free_brands_svg_icons_1.faFacebook })),
         react_1.default.createElement("p", { className: "user-menu__register-btn" }, "\u30A2\u30AB\u30A6\u30F3\u30C8\u3092\u304A\u6301\u3061\u3067\u306A\u3044\u65B9\u306F\u3053\u3061\u3089"),
@@ -83755,14 +83758,51 @@ exports.default = HeaderContainer;
 
 "use strict";
 
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var RegistForm_1 = __importDefault(__webpack_require__(/*! ../../components/organisms/RegistForm */ "./resources/ts/src/components/organisms/RegistForm.tsx"));
+var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
 var RegistFormContainer = function () {
-    return react_1.default.createElement(RegistForm_1.default, null);
+    var _a = react_1.useState(''), username = _a[0], setUserName = _a[1];
+    var _b = react_1.useState(''), email = _b[0], setMail = _b[1];
+    var _c = react_1.useState(''), password = _c[0], setPassword = _c[1];
+    var registUserData = function () {
+        axios_1.default
+            .post('/api/register', {
+            username: username,
+            email: email,
+            password: password,
+        })
+            .then(function (res) {
+            console.log(res.config.data);
+        })
+            .catch(function (error) {
+            // エラー処理
+        });
+    };
+    return (react_1.default.createElement(RegistForm_1.default, { setUserName: setUserName, setMail: setMail, setPassword: setPassword, registUserData: registUserData }));
 };
 exports.default = RegistFormContainer;
 
@@ -83778,14 +83818,35 @@ exports.default = RegistFormContainer;
 
 "use strict";
 
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var UserMenu_1 = __importDefault(__webpack_require__(/*! ../../components/organisms/UserMenu */ "./resources/ts/src/components/organisms/UserMenu.tsx"));
 var UserMenuContainer = function () {
-    return react_1.default.createElement(UserMenu_1.default, null);
+    var _a = react_1.useState(''), email = _a[0], setMail = _a[1];
+    var _b = react_1.useState(''), password = _b[0], setPassword = _b[1];
+    return (react_1.default.createElement(UserMenu_1.default, { setMail: setMail, setPassword: setPassword }));
 };
 exports.default = UserMenuContainer;
 
