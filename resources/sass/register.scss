@@ -1,5 +1,5 @@
-@import "_variables.scss";
-@import "_function.scss";
+@import "variables";
+@import "function";
 
 // @include md-down()内部にstyleを記述すると、スマートフォンサイズでメディアクエリがかかるようになる
 @include md-down() {
@@ -8,16 +8,26 @@
     .register {
         width: 100vw;
         height: 100vh;
-        padding-top: $header-top;
         background-image: url("../assets/register_background.png");
         background-size: cover;
-        &__icon {
-            margin-left: px-to-vw(11);
+        &__home-icon {
+            position: absolute;
+            top: px-to-vh(34);
+            left: px-to-vw(11);
             color: $white;
             font-size: 2.4rem;
         }
+        &__content {
+            display: flex;
+            position: absolute;
+            top: 0px;
+            height: 100vh;
+            width: 100vw;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
         &__logo {
-            margin: px-to-vh(37) auto 0px;
             text-align: center;
         }
         &__logo-img {
@@ -28,7 +38,7 @@
     .regist-form {
         width: px-to-vw(315);
         height: auto;
-        margin: px-to-vh(25) auto px-to-vh(50);
+        margin: px-to-vh(25) auto 0px;
         padding: px-to-vh(10) 0;
         border-radius: 17px;
         background-color: white;
@@ -55,70 +65,68 @@
     }
 
     .form-input {
+        display: flex;
         width: px-to-vw(246);
         margin: px-to-vh(20) auto 0px; //これと
-        display: flex;
-        flex-direction: column;
         text-align: center; //これで画面真ん中に
+        flex-direction: column;
         &__label {
             text-align: left;
             font-size: 1.4rem;
             font-weight: bold;
-            color: $light-blur;
+            color: $light-navy;
             margin-bottom: px-to-vh(10);
         }
         &__input {
-            border: none;
-            border-bottom: 1px solid $light-blur;
             padding: px-to-vh(2) px-to-vw(10);
+            border: none;
+            border-bottom: 1px solid $light-navy;
+            background-color: transparent;
             &:focus {
-                border-bottom: 1px solid $navy-blue;
+                border-bottom: 1px solid $navy;
                 outline: none;
             }
         }
     }
-    .password__icon {
-        color: $light-blur;
-        position: absolute;
-        top: px-to-vh(438);
-        left: px-to-vw(290);
-    }
 
-    input:-webkit-autofill {
-        -webkit-box-shadow: 0 0 0 1000px white inset;
+    .password__icon {
+        position: relative;
+        top: px-to-vh(-15);
+        left: px-to-vw(226);
+        color: $light-navy;
     }
 
     .register-with-sns {
-        p {
-            font-size: 1.4rem;
-            font-weight: bold;
+        &__p {
             margin-top: px-to-vh(30);
             margin-bottom: px-to-vh(10);
-            color: $light-blur;
-            &.line:after {
+            color: $light-blue;
+            font-size: 1.4rem;
+            font-weight: bold;
+            &:after {
                 display: inline-block;
+                width: 20%;
+                height: px-to-vh(1);
                 margin: 0 0 px-to-vh(3) px-to-vw(10);
-                height: px-to-vh(1);
+                background-color: $light-blue;
                 content: " ";
-                background-color: $light-blur;
-                width: 20%;
             }
-            &.line:before {
+            &:before {
                 display: inline-block;
-                margin: 0 px-to-vw(10) px-to-vh(3) 0;
-                height: px-to-vh(1);
-                content: " ";
-                background-color: $light-blur;
                 width: 20%;
+                height: px-to-vh(1);
+                margin: 0 px-to-vw(10) px-to-vh(3) 0;
+                background-color: $light-blue;
+                content: " ";
             }
         }
         &__icon-twitter {
-            color: $light-blur;
-            font-size: 4.2rem;
             margin-right: px-to-vw(65);
+            color: $light-blue;
+            font-size: 4.2rem;
         }
         &__icon-facebook {
-            color: $light-blur;
+            color: $light-blue;
             font-size: 4.2rem;
         }
     }
@@ -127,10 +135,10 @@
         width: px-to-vw(246);
         margin: px-to-vh(25) auto 0px;
         text-align: center; //これで画面真ん中に
-        color: $light-blur;
+        color: $light-blue;
         &__link {
             font-weight: bold;
-            color: $navy-blue;
+            color: $navy;
         }
     }
 }

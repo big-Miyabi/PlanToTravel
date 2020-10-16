@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import IconBtn from '../atoms/IconBtn'
+import FontAwesomeIconBtn from '../atoms/FontAwesomeIconBtn'
 import {
   faTwitter,
   faFacebook,
@@ -11,15 +11,13 @@ type Props = {
 
 const RegisterWithSNS: FC<Props> = ({ className }) => {
   return (
-    <div
-      className={className + ' ' + 'register-with-sns'}
-    >
-      <p className="line">SNSで新規登録</p>
-      <IconBtn
+    <div className={className + ' ' + 'register-with-sns'}>
+      <p className="register-with-sns__p">SNSで新規登録</p>
+      <FontAwesomeIconBtn
         className="register-with-sns__icon-twitter"
         icon={faTwitter}
       />
-      <IconBtn
+      <FontAwesomeIconBtn
         className="register-with-sns__icon-facebook"
         icon={faFacebook}
       />

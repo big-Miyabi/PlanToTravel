@@ -9,7 +9,7 @@ const Register: FC = () => {
   const icon = 'default'
   const header =
     'https://i.gyazo.com/de7ceb1d7eeb05c25968693df1ffc358.png'
-  const postUserData = () => {
+  const registUserData = () => {
     axios
       .post('/api/register', {
         username,
@@ -61,7 +61,7 @@ const Register: FC = () => {
         />
       </label>
       <br />
-      <button onClick={postUserData}>登録</button>
+      <button onClick={registUserData}>登録</button>
     </>
   )
 }
