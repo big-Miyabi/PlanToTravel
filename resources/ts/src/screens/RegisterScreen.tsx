@@ -1,10 +1,13 @@
 import React, { FC } from 'react'
-import { Link } from 'react-router-dom'
+import {
+  Link,
+  RouteComponentProps as Props,
+} from 'react-router-dom'
 import FontAwesomeIconBtn from '../components/atoms/FontAwesomeIconBtn'
 import { faHome } from '@fortawesome/free-solid-svg-icons'
 import RegistForm from '../containers/organisms/RegistForm'
 
-const RegisterScreen: FC = () => {
+const RegisterScreen: FC<Props> = (props) => {
   return (
     <div className="register">
       <Link to="../home">
@@ -22,7 +25,7 @@ const RegisterScreen: FC = () => {
             />
           </Link>
         </div>
-        <RegistForm />
+        <RegistForm history={props.history} />
       </div>
     </div>
   )
