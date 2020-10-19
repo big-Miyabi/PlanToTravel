@@ -37,6 +37,16 @@ const Post: FC = () => {
         tag_name,
         tag_name2,
         tag_name3,
+        day,
+        img,
+        place_name,
+        longitude,
+        latitude,
+        rating,
+        weather,
+        transport,
+        transport_detail,
+        comment,
       })
       .then((res) => {
         console.log(res.data)
@@ -106,6 +116,13 @@ const Post: FC = () => {
       <button onClick={addSchedule}>投稿</button>
       <br />
       <h2>行程*</h2>
+      <label htmlFor="">
+        日にち
+        <input
+          type="text"
+          onChange={(e) => setDay(e.target.value)}
+        />
+      </label>
       <label>
         場所
         <input
@@ -116,6 +133,7 @@ const Post: FC = () => {
         <select
           onChange={(e) => setWeather(e.target.value)}
         >
+          <option>選択してください</option>
           <option value="sun">sun</option>
           <option value="cloud">cloud</option>
           <option value="rain">rain</option>
@@ -124,6 +142,7 @@ const Post: FC = () => {
         </select>
         評価
         <select onChange={(e) => setRating(e.target.value)}>
+          <option>選択してください</option>
           <option value="0">0</option>
           <option value="1">1</option>
           <option value="2">2</option>
@@ -165,6 +184,7 @@ const Post: FC = () => {
         <select
           onChange={(e) => setTransport(e.target.value)}
         >
+          <option>選択してください</option>
           <option value="徒歩">徒歩</option>
           <option value="自転車">自転車</option>
           <option value="車">車</option>
@@ -261,7 +281,7 @@ const Post: FC = () => {
         />
       </label>
       <br /> */}
-      <button>確定</button>
+      <button onClick={addSchedule}>確定</button>
     </>
   )
 }
