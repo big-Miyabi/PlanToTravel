@@ -1,13 +1,11 @@
 import React, { FC } from 'react'
 import { IconDefinition } from '@fortawesome/fontawesome-common-types'
-import { colors } from '../../utilities/colors'
 import FontAwesomeIconBtn from '../atoms/FontAwesomeIconBtn'
-import MapIcon from '../atoms/svg/MapIcon'
 
 type Props = {
   className: string
   title: string
-  icon: IconDefinition | 'MapIcon'
+  icon: IconDefinition
 }
 
 const MenuItem: FC<Props> = ({
@@ -17,17 +15,10 @@ const MenuItem: FC<Props> = ({
 }) => {
   return (
     <div className={className + ' ' + 'menu-item'}>
-      {icon === 'MapIcon' ? (
-        <MapIcon
-          className="menu-item__icon"
-          color={colors.lightGray}
-        />
-      ) : (
-        <FontAwesomeIconBtn
-          className="menu-item__icon"
-          icon={icon}
-        />
-      )}
+      <FontAwesomeIconBtn
+        className="menu-item__icon"
+        icon={icon}
+      />
       <p className="menu-item__title">{title}</p>
     </div>
   )

@@ -37,7 +37,6 @@ const UserMenu: FC<Props> = ({
         <MenuItem
           className="items-wrap__itinerary"
           title={'作成した行程表'}
-          //icon={'MapIcon'}
           icon={faMapMarkerAlt}
         />
         <MenuItem
