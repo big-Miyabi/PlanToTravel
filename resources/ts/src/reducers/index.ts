@@ -3,6 +3,7 @@ import { persistReducer } from 'redux-persist'
 import storage from 'redux-persist/lib/storage'
 
 import { loginReducer } from './loginReducer'
+import { menuReducer } from './menuReducer'
 
 // 永続化の設定
 const persistConfig = {
@@ -13,7 +14,10 @@ const persistConfig = {
 }
 
 // 永続化設定されたReducerとして定義
-const rootReducer = combineReducers({ loginReducer })
+const rootReducer = combineReducers({
+  loginReducer,
+  menuReducer,
+})
 const persistedReducer = persistReducer(
   persistConfig,
   rootReducer

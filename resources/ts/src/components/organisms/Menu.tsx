@@ -9,9 +9,13 @@ const Menu: FC = () => {
     (state: RootState) => state.loginReducer.state
   )
   // const isLogin = true // テスト用、後で消す
+  const shouldShowMenu = useSelector(
+    (state: RootState) => state.menuReducer.shouldShow
+  )
+  const style = shouldShowMenu ? {} : { display: 'none' }
 
   return (
-    <div className="menu">
+    <div className="menu" style={style}>
       {isLogin ? (
         <UserMenu className="menu__contents--user" />
       ) : (
