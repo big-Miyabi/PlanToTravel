@@ -3,7 +3,6 @@
 
 // @include md-down()内部にstyleを記述すると、スマートフォンサイズでメディアクエリがかかるようになる
 @include md-down() {
-    //ログイン後UserMenu.tsx-const isLogin = false
     .home {
         padding-top: $header-top;
     }
@@ -62,12 +61,11 @@
     }
 
     .login {
-        margin: 0 auto 0px; //これと
-        text-align: center; //これで画面真ん中に
+        margin: 0 auto;
+        text-align: center;
         &__button {
             width: px-to-vw(133);
             height: px-to-vh(33);
-            //margin-top: px-to-vh(10);
             border: none;
             border-radius: 8px;
             background-color: $yellow;
@@ -176,18 +174,23 @@
     }
 
     .menu-item {
+        display: flex;
         width: px-to-vw(229);
-        height: auto;
-        margin: 0 auto 0px; //これと
+        height: px-to-vh(32);
+        margin: 0 auto;
         border-bottom: px-to-vh(1) solid $light-gray;
-        text-align: center; //これで画面真ん中に
         font-size: 1.4rem;
         color: $light-gray;
+        justify-content: space-between;
+        align-items: center;
         &__icon {
-            float: left;
             margin-top: px-to-vh(4);
+            margin-left: px-to-vw(7);
         }
         &__title {
+            width: 100%;
+            margin-bottom: 0;
+            text-align: center;
         }
     }
 }
