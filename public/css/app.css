@@ -374,6 +374,7 @@ input:-webkit-autofill {
   }
 
   .register__home-icon {
+    z-index: 2;
     position: absolute;
     top: 4.1871921182vh;
     left: 2.9333333333vw;
@@ -521,10 +522,6 @@ input:-webkit-autofill {
 }
 
 @media screen and (max-width: 559px) {
-  .home {
-    padding-top: 2.2167487685vh;
-  }
-
   .header {
     display: flex;
     margin-top: 1.4778325123vh;
@@ -728,6 +725,10 @@ input:-webkit-autofill {
     margin-bottom: 0;
     text-align: center;
   }
+}
+
+.home {
+  padding-top: 2.2167487685vh;
 }
 
 /*!

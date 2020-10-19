@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Auth;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
   return $request->user();
 });
-// Route::group(['middleware' => 'api'], function () {
-//   Auth::routes();
-// });
+Route::group(['middleware' => 'api'], function () {
+  Route::post('create', 'PostController@create');
+});
 Auth::routes();
