@@ -458,7 +458,8 @@ input:-webkit-autofill {
   .password__icon-wrap {
     position: relative;
     top: -2.0935960591vh;
-    left: 29.3333333333vw;
+    left: 60.2666666667vw;
+    width: 0;
     color: #7390ab;
   }
 
