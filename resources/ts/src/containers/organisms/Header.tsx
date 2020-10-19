@@ -19,6 +19,20 @@ const HeaderContainer: FC = () => {
       : setIsSearchActive(true)
   }
 
+  const documentClickHandler = () => {
+    console.log(document)
+    switchMenuDisplay()
+    document.body.removeEventListener(
+      'click',
+      documentClickHandler
+    )
+  }
+
+  document.body.addEventListener(
+    'click',
+    documentClickHandler
+  )
+
   return (
     <Header
       isMenuActive={isMenuActive}
