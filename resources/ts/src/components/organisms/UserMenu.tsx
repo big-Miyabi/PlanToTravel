@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import { Link } from 'react-router-dom'
 import {
   faHome,
   faHeart,
@@ -31,31 +32,41 @@ const UserMenu: FC<Props> = ({
         iconUrl={iconUrl}
       />
       <div className="items-wrap">
-        <MenuItem
-          className="items-wrap__home"
-          title={'Home'}
-          icon={faHome}
-        />
-        <MenuItem
-          className="items-wrap__itinerary"
-          title={'作成した行程表'}
-          icon={faMapMarkerAlt}
-        />
-        <MenuItem
-          className="items-wrap__favorite"
-          title={'いいね'}
-          icon={faHeart}
-        />
-        <MenuItem
-          className="items-wrap__bookmark"
-          title={'ブックマーク'}
-          icon={faBookmark}
-        />
-        <MenuItem
-          className="items-wrap__setting"
-          title={'設定'}
-          icon={faCog}
-        />
+        <Link to="../home">
+          <MenuItem
+            className="items-wrap__home"
+            title={'Home'}
+            icon={faHome}
+          />
+        </Link>
+        <Link to="../home">
+          <MenuItem
+            className="items-wrap__itinerary"
+            title={'作成した行程表'}
+            icon={faMapMarkerAlt}
+          />
+        </Link>
+        <Link to="../home">
+          <MenuItem
+            className="items-wrap__favorite"
+            title={'いいね'}
+            icon={faHeart}
+          />
+        </Link>
+        <Link to="../home">
+          <MenuItem
+            className="items-wrap__bookmark"
+            title={'ブックマーク'}
+            icon={faBookmark}
+          />
+        </Link>
+        <Link to="../home">
+          <MenuItem
+            className="items-wrap__setting"
+            title={'設定'}
+            icon={faCog}
+          />
+        </Link>
         <MenuItem
           className="items-wrap__logout"
           title={'ログアウト'}

@@ -17,7 +17,6 @@ const UserMenuContainer: FC<Props> = ({ className }) => {
 
   const logout = () => {
     // ログイン情報を初期化
-    console.log('logout')
     dispatch(setLoginState(false))
     dispatch(setLoginInfo(0, 'unknown', '', '', null))
   }

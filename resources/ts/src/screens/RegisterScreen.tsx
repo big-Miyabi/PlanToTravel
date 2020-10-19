@@ -1,6 +1,8 @@
 import React, { FC } from 'react'
-import { Link } from 'react-router-dom'
-import { RouteComponentProps as Props } from 'react-router-dom'
+import {
+  Link,
+  RouteComponentProps as Props,
+} from 'react-router-dom'
 import FontAwesomeIconBtn from '../components/atoms/FontAwesomeIconBtn'
 import { faHome } from '@fortawesome/free-solid-svg-icons'
 import RegistForm from '../containers/organisms/RegistForm'
