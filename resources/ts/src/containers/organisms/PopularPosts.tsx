@@ -7,6 +7,7 @@ const PopularPostsContainer: FC = () => {
   const posts: PostCardType[] = [
     {
       id: 1000,
+      header: '../images/post_ninki_sample1.png',
       hasGoTo: true,
       favNum: 123,
       itinerary: [
@@ -30,6 +31,7 @@ const PopularPostsContainer: FC = () => {
     },
     {
       id: 1001,
+      header: '../images/post_defaultPho.png',
       hasGoTo: true,
       favNum: 100,
       itinerary: [
@@ -53,6 +55,7 @@ const PopularPostsContainer: FC = () => {
     },
     {
       id: 1002,
+      header: '../images/post_ninki_sample2.png',
       hasGoTo: true,
       favNum: 98,
       itinerary: [

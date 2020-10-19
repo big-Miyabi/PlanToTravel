@@ -87431,9 +87431,12 @@ var ItineraryInCard_1 = __importDefault(__webpack_require__(/*! ../molecules/Iti
 var free_solid_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 var PopularCard = function (_a) {
     var post = _a.post;
-    var style = post.hasGoTo ? {} : { display: 'none' };
-    return (react_1.default.createElement("div", { className: "popular-card" },
-        react_1.default.createElement("div", { style: style },
+    var goTostyle = post.hasGoTo ? {} : { display: 'none' };
+    var bgStyle = {
+        backgroundImage: 'url(' + post.header + ')',
+    };
+    return (react_1.default.createElement("div", { className: "popular-card", style: bgStyle },
+        react_1.default.createElement("div", { style: goTostyle },
             react_1.default.createElement(GoToLogo_1.default, { className: "popular-card__go-to" })),
         react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "popular-card__bookmar", icon: free_solid_svg_icons_1.faBookmark }),
         react_1.default.createElement("div", { className: "popular-card__favorite" },
@@ -88029,6 +88032,7 @@ var PopularPostsContainer = function () {
     var posts = [
         {
             id: 1000,
+            header: '../images/post_ninki_sample1.png',
             hasGoTo: true,
             favNum: 123,
             itinerary: [
@@ -88052,6 +88056,7 @@ var PopularPostsContainer = function () {
         },
         {
             id: 1001,
+            header: '../images/post_defaultPho.png',
             hasGoTo: true,
             favNum: 100,
             itinerary: [
@@ -88075,6 +88080,7 @@ var PopularPostsContainer = function () {
         },
         {
             id: 1002,
+            header: '../images/post_ninki_sample2.png',
             hasGoTo: true,
             favNum: 98,
             itinerary: [

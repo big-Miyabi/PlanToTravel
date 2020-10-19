@@ -5,6 +5,7 @@ export type ItineraryType = {
 
 export type PostCardType = {
   id: number
+  header: string
   hasGoTo: boolean
   favNum: number
   itinerary: ItineraryType[]
