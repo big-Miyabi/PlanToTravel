@@ -87527,11 +87527,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 var UserMenu_1 = __importDefault(__webpack_require__(/*! ../../components/organisms/UserMenu */ "./resources/ts/src/components/organisms/UserMenu.tsx"));
 var UserMenuContainer = function () {
     var _a = react_1.useState(''), email = _a[0], setMail = _a[1];
     var _b = react_1.useState(''), password = _b[0], setPassword = _b[1];
-    var isLogin = true;
+    var isLogin = react_redux_1.useSelector(function (state) { return state.loginReducer.state; });
     return (react_1.default.createElement(UserMenu_1.default, { isLogin: isLogin, setMail: setMail, setPassword: setPassword }));
 };
 exports.default = UserMenuContainer;
