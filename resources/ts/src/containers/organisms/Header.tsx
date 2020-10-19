@@ -2,16 +2,14 @@ import React, { FC, useState } from 'react'
 import Header from '../../components/organisms/Header'
 
 const HeaderContainer: FC = () => {
-  const [isUserMenuActive, setIsUserMenuActive] = useState(
-    false
-  )
+  const [isMenuActive, setIsMenuActive] = useState(false)
   const [isSearchActive, setIsSearchActive] = useState(
     false
   )
-  const showUserMenu = () => {
-    isUserMenuActive
-      ? setIsUserMenuActive(false)
-      : setIsUserMenuActive(true)
+  const showMenu = () => {
+    isMenuActive
+      ? setIsMenuActive(false)
+      : setIsMenuActive(true)
   }
   const showSearchMenu = () => {
     isSearchActive
@@ -21,9 +19,9 @@ const HeaderContainer: FC = () => {
 
   return (
     <Header
-      isMenuActive={isUserMenuActive}
+      isMenuActive={isMenuActive}
       isSearchActive={isSearchActive}
-      showUserMenu={showUserMenu}
+      showMenu={showMenu}
       showSearchMenu={showSearchMenu}
     />
   )

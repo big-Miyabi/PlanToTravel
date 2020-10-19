@@ -1,12 +1,12 @@
 import React, { FC } from 'react'
 import Header from '../containers/organisms/Header'
-import UserMenu from '../containers/organisms/UserMenu'
+import Menu from '../components/organisms/Menu'
 
 const HomeScreen: FC = () => {
   return (
     <div className="home">
       <Header />
-      <UserMenu />
+      <Menu />
       {/* <PopularPosts />
       <NewPosts />
       <PostBtn /> */}

@@ -6,7 +6,7 @@ import SearchIcon from '../atoms/svg/SearchIcon'
 type Props = {
   isMenuActive: boolean
   isSearchActive: boolean
-  showUserMenu: () => void
+  showMenu: () => void
   showSearchMenu: () => void
 }
 
@@ -14,7 +14,7 @@ const Header: FC<Props> = ({ ...props }) => {
   const {
     isMenuActive,
     isSearchActive,
-    showUserMenu,
+    showMenu,
     showSearchMenu,
   } = props
 
@@ -25,7 +25,7 @@ const Header: FC<Props> = ({ ...props }) => {
         color={
           isMenuActive ? colors.yellow : colors.lightGray
         }
-        onClick={() => showUserMenu()}
+        onClick={() => showMenu()}
       />
       <h1 className="header__logo-wrap">
         <img
