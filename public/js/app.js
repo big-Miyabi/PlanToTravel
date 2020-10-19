@@ -87600,7 +87600,12 @@ var RegistFormContainer = function (_a) {
         var result;
         return __generator(this, function (_a) {
             switch (_a.label) {
-                case 0: return [4 /*yield*/, axios_1.registUserData(dispatch, username, email, password)];
+                case 0: return [4 /*yield*/, axios_1.postByAxios.regist({
+                        dispatch: dispatch,
+                        username: username,
+                        email: email,
+                        password: password,
+                    })];
                 case 1:
                     result = _a.sent();
                     if (result === 'success')
@@ -87800,31 +87805,57 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.registUserData = void 0;
+exports.postByAxios = void 0;
 var login_1 = __webpack_require__(/*! ../actions/login */ "./resources/ts/src/actions/login.ts");
 var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
-exports.registUserData = function (dispatch, username, email, password) {
-    return new Promise(function (resolve) {
-        axios_1.default
-            .post('/api/register', {
-            username: username,
-            email: email,
-            password: password,
-        })
-            .then(function (res) {
-            console.log(res);
-            var userData = res.data[0];
-            console.log(userData);
-            dispatch(login_1.setLoginState(true));
-            dispatch(login_1.setLoginInfo(userData.id, userData.username, userData.header, userData.icon, userData.profile));
-            resolve('success');
-        })
-            .catch(function (error) {
-            // エラー処理
-            console.log(error);
-            resolve('failed');
+exports.postByAxios = {
+    // 登録処理
+    regist: function (arg) {
+        return new Promise(function (resolve) {
+            axios_1.default
+                .post('/api/register', {
+                username: arg.username,
+                email: arg.email,
+                password: arg.password,
+            })
+                .then(function (res) {
+                console.log(res);
+                var userData = res.data[0];
+                console.log(userData);
+                arg.dispatch(login_1.setLoginState(true));
+                arg.dispatch(login_1.setLoginInfo(userData.id, userData.username, userData.header, userData.icon, userData.profile));
+                resolve('success');
+            })
+                .catch(function (error) {
+                // エラー処理
+                console.log(error);
+                resolve('failed');
+            });
         });
-    });
+    },
+    // ログイン処理
+    login: function (arg) {
+        return new Promise(function (resolve) {
+            axios_1.default
+                .post('/api/login', {
+                email: arg.email,
+                password: arg.password,
+            })
+                .then(function (res) {
+                console.log(res);
+                var userData = res.data[0];
+                arg.dispatch(login_1.setLoginState(true));
+                arg.dispatch(login_1.setLoginInfo(userData.id, userData.username, userData.header, userData.icon, userData.profile));
+                resolve('success');
+                console.log(res.data);
+            })
+                .catch(function (error) {
+                // エラー処理
+                console.log(error);
+                resolve('failed');
+            });
+        });
+    },
 };
 
 
