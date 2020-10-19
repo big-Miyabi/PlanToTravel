@@ -1,16 +1,32 @@
-import React, { FC, useState } from 'react'
+import React, { FC } from 'react'
+import { useDispatch } from 'react-redux'
+import {
+  setLoginState,
+  setLoginInfo,
+} from '../../actions/login'
 import UserMenu from '../../components/organisms/UserMenu'
 
-const UserMenuContainer: FC = () => {
-  const [email, setMail] = useState<string>('')
-  const [password, setPassword] = useState<string>('')
-  const isLogin = true
+type Props = {
+  className: string
+}
+
+const UserMenuContainer: FC<Props> = ({ className }) => {
+  const dispatch = useDispatch()
+  const name = 'こんこん'
+  const iconUrl = ''
+
+  const logout = () => {
+    // ログイン情報を初期化
+    dispatch(setLoginState(false))
+    dispatch(setLoginInfo(0, 'unknown', '', '', null))
+  }
 
   return (
     <UserMenu
-      isLogin={isLogin}
-      setMail={setMail}
-      setPassword={setPassword}
+      className={className}
+      name={name}
+      iconUrl={iconUrl}
+      logout={logout}
     />
   )
 }

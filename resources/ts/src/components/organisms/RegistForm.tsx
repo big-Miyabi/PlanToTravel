@@ -1,6 +1,6 @@
 import React, { FC, Dispatch } from 'react'
 import FormInput from '../molecules/FormInput'
-import FormPasswordInput from '../molecules/FormPasswordInput'
+import FormPasswordInput from '../../containers/molecules/FormPasswordInput'
 import FormBtn from '../atoms/FormBtn'
 import RegisterWithSNS from '../../containers/molecules/RegisterWithSNS'
 
@@ -8,14 +8,14 @@ type Props = {
   setUserName: Dispatch<React.SetStateAction<string>>
   setMail: Dispatch<React.SetStateAction<string>>
   setPassword: Dispatch<React.SetStateAction<string>>
-  registUserData: () => void
+  regist: () => void
 }
 
 const RegistForm: FC<Props> = ({
   setUserName,
   setMail,
   setPassword,
-  registUserData,
+  regist,
 }) => {
   return (
     <div className="regist-form">
@@ -46,7 +46,7 @@ const RegistForm: FC<Props> = ({
       <FormBtn
         className="regist-form__button"
         name="新規登録"
-        onClick={() => registUserData()}
+        onClick={() => regist()}
       />
 
       <RegisterWithSNS className="regist-form__sns" />

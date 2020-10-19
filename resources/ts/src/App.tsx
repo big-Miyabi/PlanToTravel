@@ -3,7 +3,10 @@ import ReactDOM from 'react-dom'
 import { BrowserRouter, Route } from 'react-router-dom'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
-import { rootReducer } from './reducers'
+import { PersistGate } from 'redux-persist/integration/react'
+import { PersistPartial } from 'redux-persist/es/persistReducer'
+import { persistStore } from 'redux-persist'
+import persistedReducer, { RootState } from './reducers'
 import RegisterScreen from './screens/RegisterScreen'
 import HomeScreen from './screens/HomeScreen'
 
@@ -25,16 +28,25 @@ const App: FC = () => {
   )
 }
 
-const store = createStore(
-  rootReducer,
+const store = createStore<
+  RootState & PersistPartial,
+  any,
+  any,
+  any
+>(
+  persistedReducer,
   (window as any).__REDUX_DEVTOOLS_EXTENSION__ &&
     (window as any).__REDUX_DEVTOOLS_EXTENSION__()
 )
 
+const persistor = persistStore(store)
+
 if (document.getElementById('app')) {
   ReactDOM.render(
     <Provider store={store}>
-      <App />
+      <PersistGate loading={null} persistor={persistor}>
+        <App />
+      </PersistGate>
     </Provider>,
     document.getElementById('app') as HTMLElement
   )
