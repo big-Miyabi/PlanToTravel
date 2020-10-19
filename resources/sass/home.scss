@@ -1,3 +1,74 @@
 .home {
     padding-top: $header-top;
 }
+
+.popular-posts {
+    color: $navy;
+    margin-top: px-to-vh(25);
+}
+.popular-posts__title {
+    font-size: 1.4rem;
+    letter-spacing: px-to-vw(5);
+    text-align: center;
+}
+.popularcard {
+    width: px-to-vw(347);
+    overflow: hidden;
+    margin: 0 auto 0px;
+}
+.popular-card {
+    width: px-to-vw(347);
+    height: px-to-vh(193);
+    background-size: cover;
+    border-radius: px-to-vw(17);
+    margin: px-to-vh(26) auto 0px; //これと
+    //text-align: center;
+    display: flex;
+    flex-direction: row;
+
+    &header {
+        z-index: 1;
+        position: relative;
+    }
+
+    &__ninki_whithbg {
+        z-index: 2;
+        position: relative;
+        img {
+            width: px-to-vw(347);
+            height: px-to-vh(193);
+        }
+    }
+
+    &__go-to {
+        margin-top: 0;
+        z-index: 5;
+        position: relative;
+        left: px-to-vw(-343);
+        top: px-to-vh(-18);
+    }
+
+    &__defaultform {
+        width: px-to-vw(136);
+        height: px-to-vh(189);
+        z-index: 4;
+        position: relative;
+        left: px-to-vw(-150);
+        top: px-to-vh(-18);
+        &__bookmar {
+            color: rgba(188, 219, 232, 0.7);
+            &:hover {
+                color: $navy;
+            }
+            &:focus {
+                outline: none;
+            }
+        }
+        &__favorite {
+            color: $orange;
+            &:visited {
+                color: yellow;
+            }
+        }
+    }
+}
