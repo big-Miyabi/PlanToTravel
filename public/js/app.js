@@ -86897,6 +86897,7 @@ var ActionTypes;
 (function (ActionTypes) {
     ActionTypes["SET_LOGIN_STATE"] = "SET_LOGIN_STATE";
     ActionTypes["SET_LOGIN_INFO"] = "SET_LOGIN_INFO";
+    ActionTypes["SET_SHOULD_SHOW_MENU"] = "SET_SHOULD_SHOW_MENU";
 })(ActionTypes = exports.ActionTypes || (exports.ActionTypes = {}));
 
 
@@ -86931,6 +86932,30 @@ exports.setLoginInfo = function (id, username, header, icon, profile) {
             header: header,
             icon: icon,
             profile: profile,
+        },
+    });
+};
+
+
+/***/ }),
+
+/***/ "./resources/ts/src/actions/menu.ts":
+/*!******************************************!*\
+  !*** ./resources/ts/src/actions/menu.ts ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.setShouldShowMenu = void 0;
+var index_1 = __webpack_require__(/*! ./index */ "./resources/ts/src/actions/index.ts");
+exports.setShouldShowMenu = function (shouldShow) {
+    return ({
+        type: index_1.ActionTypes.SET_SHOULD_SHOW_MENU,
+        payload: {
+            shouldShow: shouldShow,
         },
     });
 };
@@ -87308,7 +87333,9 @@ var LoginMenu_1 = __importDefault(__webpack_require__(/*! ../../containers/organ
 var Menu = function () {
     var isLogin = react_redux_1.useSelector(function (state) { return state.loginReducer.state; });
     // const isLogin = true // テスト用、後で消す
-    return (react_1.default.createElement("div", { className: "menu" }, isLogin ? (react_1.default.createElement(UserMenu_1.default, { className: "menu__contents--user" })) : (react_1.default.createElement(LoginMenu_1.default, { className: "menu__contents--login" }))));
+    var shouldShowMenu = react_redux_1.useSelector(function (state) { return state.menuReducer.shouldShow; });
+    var style = shouldShowMenu ? {} : { display: 'none' };
+    return (react_1.default.createElement("div", { className: "menu", style: style }, isLogin ? (react_1.default.createElement(UserMenu_1.default, { className: "menu__contents--user" })) : (react_1.default.createElement(LoginMenu_1.default, { className: "menu__contents--login" }))));
 };
 exports.default = Menu;
 
@@ -87512,14 +87539,16 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+var menu_1 = __webpack_require__(/*! ../../actions/menu */ "./resources/ts/src/actions/menu.ts");
 var Header_1 = __importDefault(__webpack_require__(/*! ../../components/organisms/Header */ "./resources/ts/src/components/organisms/Header.tsx"));
 var HeaderContainer = function () {
+    var dispatch = react_redux_1.useDispatch();
     var _a = react_1.useState(false), isMenuActive = _a[0], setIsMenuActive = _a[1];
     var _b = react_1.useState(false), isSearchActive = _b[0], setIsSearchActive = _b[1];
     var showMenu = function () {
-        isMenuActive
-            ? setIsMenuActive(false)
-            : setIsMenuActive(true);
+        setIsMenuActive(!isMenuActive);
+        dispatch(menu_1.setShouldShowMenu(!isMenuActive));
     };
     var showSearchMenu = function () {
         isSearchActive
@@ -87788,6 +87817,7 @@ var redux_1 = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js
 var redux_persist_1 = __webpack_require__(/*! redux-persist */ "./node_modules/redux-persist/es/index.js");
 var storage_1 = __importDefault(__webpack_require__(/*! redux-persist/lib/storage */ "./node_modules/redux-persist/lib/storage/index.js"));
 var loginReducer_1 = __webpack_require__(/*! ./loginReducer */ "./resources/ts/src/reducers/loginReducer.ts");
+var menuReducer_1 = __webpack_require__(/*! ./menuReducer */ "./resources/ts/src/reducers/menuReducer.ts");
 // 永続化の設定
 var persistConfig = {
     key: 'root',
@@ -87795,7 +87825,10 @@ var persistConfig = {
     whitelist: ['loginReducer'],
 };
 // 永続化設定されたReducerとして定義
-var rootReducer = redux_1.combineReducers({ loginReducer: loginReducer_1.loginReducer });
+var rootReducer = redux_1.combineReducers({
+    loginReducer: loginReducer_1.loginReducer,
+    menuReducer: menuReducer_1.menuReducer,
+});
 var persistedReducer = redux_persist_1.persistReducer(persistConfig, rootReducer);
 exports.default = persistedReducer;
 
@@ -87840,6 +87873,46 @@ exports.loginReducer = function (state, action) {
             return __assign(__assign({}, state), { state: action.payload.state });
         case index_1.ActionTypes.SET_LOGIN_INFO:
             return __assign(__assign({}, state), { id: action.payload.id, username: action.payload.username, header: action.payload.header, icon: action.payload.icon, profile: action.payload.profile });
+        default: {
+            return state;
+        }
+    }
+};
+
+
+/***/ }),
+
+/***/ "./resources/ts/src/reducers/menuReducer.ts":
+/*!**************************************************!*\
+  !*** ./resources/ts/src/reducers/menuReducer.ts ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.menuReducer = void 0;
+var index_1 = __webpack_require__(/*! ../actions/index */ "./resources/ts/src/actions/index.ts");
+var initialState = {
+    shouldShow: false,
+};
+exports.menuReducer = function (state, action) {
+    if (state === void 0) { state = initialState; }
+    switch (action.type) {
+        case index_1.ActionTypes.SET_SHOULD_SHOW_MENU:
+            return __assign(__assign({}, state), { shouldShow: action.payload.shouldShow });
         default: {
             return state;
         }

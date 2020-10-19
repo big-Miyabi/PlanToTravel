@@ -1,15 +1,17 @@
 import React, { FC, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { setShouldShowMenu } from '../../actions/menu'
 import Header from '../../components/organisms/Header'
 
 const HeaderContainer: FC = () => {
+  const dispatch = useDispatch()
   const [isMenuActive, setIsMenuActive] = useState(false)
   const [isSearchActive, setIsSearchActive] = useState(
     false
   )
   const showMenu = () => {
-    isMenuActive
-      ? setIsMenuActive(false)
-      : setIsMenuActive(true)
+    setIsMenuActive(!isMenuActive)
+    dispatch(setShouldShowMenu(!isMenuActive))
   }
   const showSearchMenu = () => {
     isSearchActive
