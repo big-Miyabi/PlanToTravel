@@ -87555,6 +87555,12 @@ var HeaderContainer = function () {
             ? setIsSearchActive(false)
             : setIsSearchActive(true);
     };
+    var documentClickHandler = function () {
+        console.log(document);
+        switchMenuDisplay();
+        document.body.removeEventListener('click', documentClickHandler);
+    };
+    document.body.addEventListener('click', documentClickHandler);
     return (react_1.default.createElement(Header_1.default, { isMenuActive: isMenuActive, isSearchActive: isSearchActive, switchMenuDisplay: switchMenuDisplay, switchSearchDisplay: switchSearchDisplay }));
 };
 exports.default = HeaderContainer;
