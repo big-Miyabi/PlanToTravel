@@ -15,16 +15,14 @@ const UserInfo: FC<Props> = ({
 }) => {
   return (
     <div className={className + ' ' + 'user-info'}>
-      <FontAwesomeIconBtn
-        className="user-info__user-icon"
-        icon={faUserCircle}
-      />
-      {/*
-        https://www.nxworld.net/tips/css-parenthesis.html
-        "[]"のCSSはこのサイトのCSSが参考になりそう
-       */}
-      <div className="user-info__name-wrap">
-        <p className="user-info__name">{name}</p>
+      <div className="user-info__icon-name-wrap">
+        <FontAwesomeIconBtn
+          className="user-info__user-icon"
+          icon={faUserCircle}
+        />
+        <div className="user-info__name-wrap">
+          <p className="user-info__name">{name}</p>
+        </div>
       </div>
       <p className="user-info__show-profile">
         マイプロフィールを見る

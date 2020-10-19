@@ -270,9 +270,16 @@ input:-webkit-autofill {
   }
 
   .user-info {
+    width: 61.0666666667vw;
     margin: 3.078817734vh auto 0px;
-    text-align: center;
     color: #fcbe32;
+  }
+
+  .user-info__icon-name-wrap {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .user-info__user-icon {
@@ -281,16 +288,45 @@ input:-webkit-autofill {
   }
 
   .user-info__name-wrap {
+    display: flex;
+    position: relative;
     width: 41.8666666667vw;
     height: 5.0492610837vh;
-    background-image: url(/images/icon_profile_name.svg?f495771c28b27860f5c2c5256b332416);
-    background-size: cover;
+    box-sizing: border-box;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .user-info__name-wrap:before,
+  .user-info__name-wrap:after {
+    position: absolute;
+    top: 0;
+    content: "";
+    width: 2.9333333333vw;
+    height: 100%;
+    border-top: 4px solid #fcbe32;
+    border-bottom: 4px solid #fcbe32;
+    box-sizing: border-box;
+  }
+
+  .user-info__name-wrap:before {
+    left: 0;
+    border-left: 4px solid #fcbe32;
+  }
+
+  .user-info__name-wrap:after {
+    right: 0;
+    border-right: 4px solid #fcbe32;
   }
 
   .user-info__name {
     font-size: 1.4rem;
     font-weight: bold;
     color: black;
+  }
+
+  .user-info__show-profile {
+    text-align: right;
   }
 
   .items-wrap {

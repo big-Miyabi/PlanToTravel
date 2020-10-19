@@ -86764,7 +86764,7 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-throw new Error("Module build failed (from ./node_modules/css-loader/index.js):\nModuleBuildError: Module build failed (from ./node_modules/img-loader/index.js):\nError: ENOENT: no such file or directory, open '/Users/ryoga/projects/PlanToTravel/resources/assets/icon_profile_name.svg'\n    at runLoaders (/Users/ryoga/projects/PlanToTravel/node_modules/webpack/lib/NormalModule.js:316:20)\n    at /Users/ryoga/projects/PlanToTravel/node_modules/loader-runner/lib/LoaderRunner.js:367:11\n    at /Users/ryoga/projects/PlanToTravel/node_modules/loader-runner/lib/LoaderRunner.js:203:19\n    at process.nextTick (/Users/ryoga/projects/PlanToTravel/node_modules/enhanced-resolve/lib/CachedInputFileSystem.js:85:15)\n    at process._tickCallback (internal/process/next_tick.js:61:11)");
+// removed by extract-text-webpack-plugin
 
 /***/ }),
 
@@ -87193,9 +87193,10 @@ var free_solid_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-solid-svg
 var UserInfo = function (_a) {
     var className = _a.className, iconUrl = _a.iconUrl, name = _a.name;
     return (react_1.default.createElement("div", { className: className + ' ' + 'user-info' },
-        react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "user-info__user-icon", icon: free_solid_svg_icons_1.faUserCircle }),
-        react_1.default.createElement("div", { className: "user-info__name-wrap" },
-            react_1.default.createElement("p", { className: "user-info__name" }, name)),
+        react_1.default.createElement("div", { className: "user-info__icon-name-wrap" },
+            react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "user-info__user-icon", icon: free_solid_svg_icons_1.faUserCircle }),
+            react_1.default.createElement("div", { className: "user-info__name-wrap" },
+                react_1.default.createElement("p", { className: "user-info__name" }, name))),
         react_1.default.createElement("p", { className: "user-info__show-profile" }, "\u30DE\u30A4\u30D7\u30ED\u30D5\u30A3\u30FC\u30EB\u3092\u898B\u308B")));
 };
 exports.default = UserInfo;

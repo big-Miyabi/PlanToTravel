@@ -102,7 +102,6 @@
 
     .policy {
         color: $gray;
-
         &__terms {
             text-decoration: underline;
         }
@@ -112,27 +111,62 @@
         }
     }
 
-    //ログイン前UserMenu.tsx-const isLogin = true
     .user-info {
-        margin: px-to-vh(25) auto 0px; //これと
-        text-align: center; //これで画面真ん中に
+        width: px-to-vw(229);
+        margin: px-to-vh(25) auto 0px;
         color: $yellow;
+
+        &__icon-name-wrap {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
 
         &__user-icon {
             float: left;
             font-size: 5.6rem;
         }
+
         &__name-wrap {
+            display: flex;
+            position: relative;
             width: px-to-vw(157);
             height: px-to-vh(41);
-            background-image: url("../assets/icon_profile_name.svg");
-            background-size: cover;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            flex-direction: column;
+            justify-content: center;
+            &:before,
+            &:after {
+                position: absolute;
+                top: 0;
+                content: "";
+                width: px-to-vw(11);
+                height: 100%;
+                border-top: 4px solid $yellow;
+                border-bottom: 4px solid $yellow;
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+            &:before {
+                left: 0;
+                border-left: 4px solid $yellow;
+            }
+            &:after {
+                right: 0;
+                border-right: 4px solid $yellow;
+            }
         }
 
         &__name {
             font-size: 1.4rem;
             font-weight: bold;
             color: black;
+        }
+
+        &__show-profile {
+            text-align: right;
         }
     }
     .items-wrap {
