@@ -543,7 +543,10 @@ input:-webkit-autofill {
 
   .menu .menu__contents--user,
   .menu .menu__contents--login {
-    margin: 2.4630541872vh auto 0px;
+    position: absolute;
+    z-index: 1000;
+    top: 9.9753694581vh;
+    left: 6.6666666667vw;
     padding-top: 1.354679803vh;
     background-size: cover;
     text-align: center;
@@ -561,6 +564,16 @@ input:-webkit-autofill {
     background-image: url(/images/navi_myBg.png?763465bb11a06bbca2f912cd0d19a331);
   }
 
+  .menu-overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+  }
+
   .login-menu__forgetting-password {
     margin: 0.3694581281vh 0 1.6009852217vh;
     text-decoration: underline;
@@ -568,7 +581,7 @@ input:-webkit-autofill {
     font-size: 1.2rem;
   }
 
-  .login-menu__register-btn {
+  .login-menu__register-link {
     margin: 1.8472906404vh 0 2.8325123153vh;
     text-decoration: underline;
     color: #ff6633;

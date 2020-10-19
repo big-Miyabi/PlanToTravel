@@ -87285,6 +87285,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 var free_brands_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-brands-svg-icons */ "./node_modules/@fortawesome/free-brands-svg-icons/index.es.js");
 var FormInput_1 = __importDefault(__webpack_require__(/*! ../molecules/FormInput */ "./resources/ts/src/components/molecules/FormInput.tsx"));
 var FormPasswordInput_1 = __importDefault(__webpack_require__(/*! ../../containers/molecules/FormPasswordInput */ "./resources/ts/src/containers/molecules/FormPasswordInput.tsx"));
@@ -87302,7 +87303,8 @@ var LoginMenu = function (_a) {
             react_1.default.createElement(FormBtn_1.default, { className: "login__button", name: "\u30ED\u30B0\u30A4\u30F3", onClick: function () { return login(); } }),
             react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "login__twitter-icon", icon: free_brands_svg_icons_1.faTwitter }),
             react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "login__facebook-icon", icon: free_brands_svg_icons_1.faFacebook })),
-        react_1.default.createElement("p", { className: "login-menu__register-btn" }, "\u30A2\u30AB\u30A6\u30F3\u30C8\u3092\u304A\u6301\u3061\u3067\u306A\u3044\u65B9\u306F\u3053\u3061\u3089"),
+        react_1.default.createElement(react_router_dom_1.Link, { to: "../regist" },
+            react_1.default.createElement("p", { className: "login-menu__register-link" }, "\u30A2\u30AB\u30A6\u30F3\u30C8\u3092\u304A\u6301\u3061\u3067\u306A\u3044\u65B9\u306F\u3053\u3061\u3089")),
         react_1.default.createElement("p", { className: "policy" },
             react_1.default.createElement("span", { className: "policy__terms" }, "\u5229\u7528\u898F\u7D04"),
             "\u30FB",
@@ -87335,7 +87337,9 @@ var Menu = function () {
     // const isLogin = true // テスト用、後で消す
     var shouldShowMenu = react_redux_1.useSelector(function (state) { return state.menuReducer.shouldShow; });
     var style = shouldShowMenu ? {} : { display: 'none' };
-    return (react_1.default.createElement("div", { className: "menu", style: style }, isLogin ? (react_1.default.createElement(UserMenu_1.default, { className: "menu__contents--user" })) : (react_1.default.createElement(LoginMenu_1.default, { className: "menu__contents--login" }))));
+    return (react_1.default.createElement(react_1.default.Fragment, null,
+        react_1.default.createElement("div", { className: "menu", style: style }, isLogin ? (react_1.default.createElement(UserMenu_1.default, { className: "menu__contents--user" })) : (react_1.default.createElement(LoginMenu_1.default, { className: "menu__contents--login" }))),
+        react_1.default.createElement("div", { style: style, className: "menu-overlay" })));
 };
 exports.default = Menu;
 
@@ -87555,12 +87559,17 @@ var HeaderContainer = function () {
             ? setIsSearchActive(false)
             : setIsSearchActive(true);
     };
-    var documentClickHandler = function () {
-        console.log(document);
-        switchMenuDisplay();
-        document.body.removeEventListener('click', documentClickHandler);
-    };
-    document.body.addEventListener('click', documentClickHandler);
+    // メニュー外をクリックでメニューを閉じる処理
+    react_1.useEffect(function () {
+        var overlay = document.getElementsByClassName('menu-overlay')[0];
+        var documentClickHandler = function () {
+            if (!isMenuActive)
+                return;
+            switchMenuDisplay();
+            overlay.removeEventListener('click', documentClickHandler);
+        };
+        overlay.addEventListener('click', documentClickHandler);
+    }, [isMenuActive]);
     return (react_1.default.createElement(Header_1.default, { isMenuActive: isMenuActive, isSearchActive: isSearchActive, switchMenuDisplay: switchMenuDisplay, switchSearchDisplay: switchSearchDisplay }));
 };
 exports.default = HeaderContainer;
