@@ -95,13 +95,7 @@ class PostController extends Controller
       'place_name' => 'required|string|max:63',
       'longitude' => 'required|integer',
       'latitude' => 'required|integer',
-      'weather' => 'required',
-      'img' => '',
-      'transport' => '',
-      'transport_detail' => '',
-      'comment' => '',
-      'distance' => '',
-      'rating' => '',
+      'weather' => 'required'
     ]);
     //SQL実行
     $params = Place::create([
