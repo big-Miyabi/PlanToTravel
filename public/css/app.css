@@ -731,6 +731,85 @@ input:-webkit-autofill {
   padding-top: 2.2167487685vh;
 }
 
+.popular-posts {
+  color: #003666;
+  margin-top: 3.078817734vh;
+}
+
+.popular-posts__title {
+  font-size: 1.4rem;
+  letter-spacing: 1.3333333333vw;
+  text-align: center;
+}
+
+.popularcard {
+  width: 92.5333333333vw;
+  overflow: hidden;
+  margin: 0 auto 0px;
+}
+
+.popular-card {
+  width: 92.5333333333vw;
+  height: 23.7684729064vh;
+  background-size: cover;
+  border-radius: 4.5333333333vw;
+  margin: 3.2019704433vh auto 0px;
+  display: flex;
+  flex-direction: row;
+}
+
+.popular-cardheader {
+  z-index: 1;
+  position: relative;
+}
+
+.popular-card__ninki_whithbg {
+  z-index: 2;
+  position: relative;
+}
+
+.popular-card__ninki_whithbg img {
+  width: 92.5333333333vw;
+  height: 23.7684729064vh;
+}
+
+.popular-card__go-to {
+  margin-top: 0;
+  z-index: 5;
+  position: relative;
+  left: -91.4666666667vw;
+  top: -2.2167487685vh;
+}
+
+.popular-card__defaultform {
+  width: 36.2666666667vw;
+  height: 23.275862069vh;
+  z-index: 4;
+  position: relative;
+  left: -40vw;
+  top: -2.2167487685vh;
+}
+
+.popular-card__defaultform__bookmar {
+  color: rgba(188, 219, 232, 0.7);
+}
+
+.popular-card__defaultform__bookmar:hover {
+  color: #003666;
+}
+
+.popular-card__defaultform__bookmar:focus {
+  outline: none;
+}
+
+.popular-card__defaultform__favorite {
+  color: #ff6633;
+}
+
+.popular-card__defaultform__favorite:visited {
+  color: yellow;
+}
+
 /*!
  * Bootstrap v4.5.2 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
