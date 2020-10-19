@@ -87365,6 +87365,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 var free_solid_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 var UserInfo_1 = __importDefault(__webpack_require__(/*! ../molecules/UserInfo */ "./resources/ts/src/components/molecules/UserInfo.tsx"));
 var MenuItem_1 = __importDefault(__webpack_require__(/*! ../molecules/MenuItem */ "./resources/ts/src/components/molecules/MenuItem.tsx"));
@@ -87373,11 +87374,16 @@ var UserMenu = function (_a) {
     return (react_1.default.createElement("div", { className: className + ' ' + 'user-menu' },
         react_1.default.createElement(UserInfo_1.default, { className: "user-menu__user-info", name: name, iconUrl: iconUrl }),
         react_1.default.createElement("div", { className: "items-wrap" },
-            react_1.default.createElement(MenuItem_1.default, { className: "items-wrap__home", title: 'Home', icon: free_solid_svg_icons_1.faHome }),
-            react_1.default.createElement(MenuItem_1.default, { className: "items-wrap__itinerary", title: '作成した行程表', icon: free_solid_svg_icons_1.faMapMarkerAlt }),
-            react_1.default.createElement(MenuItem_1.default, { className: "items-wrap__favorite", title: 'いいね', icon: free_solid_svg_icons_1.faHeart }),
-            react_1.default.createElement(MenuItem_1.default, { className: "items-wrap__bookmark", title: 'ブックマーク', icon: free_solid_svg_icons_1.faBookmark }),
-            react_1.default.createElement(MenuItem_1.default, { className: "items-wrap__setting", title: '設定', icon: free_solid_svg_icons_1.faCog }),
+            react_1.default.createElement(react_router_dom_1.Link, { to: "../home" },
+                react_1.default.createElement(MenuItem_1.default, { className: "items-wrap__home", title: 'Home', icon: free_solid_svg_icons_1.faHome })),
+            react_1.default.createElement(react_router_dom_1.Link, { to: "../home" },
+                react_1.default.createElement(MenuItem_1.default, { className: "items-wrap__itinerary", title: '作成した行程表', icon: free_solid_svg_icons_1.faMapMarkerAlt })),
+            react_1.default.createElement(react_router_dom_1.Link, { to: "../home" },
+                react_1.default.createElement(MenuItem_1.default, { className: "items-wrap__favorite", title: 'いいね', icon: free_solid_svg_icons_1.faHeart })),
+            react_1.default.createElement(react_router_dom_1.Link, { to: "../home" },
+                react_1.default.createElement(MenuItem_1.default, { className: "items-wrap__bookmark", title: 'ブックマーク', icon: free_solid_svg_icons_1.faBookmark })),
+            react_1.default.createElement(react_router_dom_1.Link, { to: "../home" },
+                react_1.default.createElement(MenuItem_1.default, { className: "items-wrap__setting", title: '設定', icon: free_solid_svg_icons_1.faCog })),
             react_1.default.createElement(MenuItem_1.default, { className: "items-wrap__logout", title: 'ログアウト', icon: free_solid_svg_icons_1.faSignOutAlt, onClick: logout })),
         react_1.default.createElement("p", { className: "policy" },
             react_1.default.createElement("span", { className: "policy__terms" }, "\u5229\u7528\u898F\u7D04"),
@@ -87634,7 +87640,6 @@ var UserMenuContainer = function (_a) {
     var iconUrl = '';
     var logout = function () {
         // ログイン情報を初期化
-        console.log('logout');
         dispatch(login_1.setLoginState(false));
         dispatch(login_1.setLoginInfo(0, 'unknown', '', '', null));
     };

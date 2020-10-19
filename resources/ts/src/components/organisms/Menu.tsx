@@ -1,6 +1,4 @@
 import React, { FC } from 'react'
-import { useSelector } from 'react-redux'
-import { RootState } from '../../reducers/index'
 import UserMenu from '../../containers/organisms/UserMenu'
 import LoginMenu from '../../containers/organisms/LoginMenu'
 
