@@ -9,11 +9,11 @@ const HeaderContainer: FC = () => {
   const [isSearchActive, setIsSearchActive] = useState(
     false
   )
-  const showMenu = () => {
+  const switchMenuDisplay = () => {
     setIsMenuActive(!isMenuActive)
     dispatch(setShouldShowMenu(!isMenuActive))
   }
-  const showSearchMenu = () => {
+  const switchSearchDisplay = () => {
     isSearchActive
       ? setIsSearchActive(false)
       : setIsSearchActive(true)
@@ -23,8 +23,8 @@ const HeaderContainer: FC = () => {
     <Header
       isMenuActive={isMenuActive}
       isSearchActive={isSearchActive}
-      showMenu={showMenu}
-      showSearchMenu={showSearchMenu}
+      switchMenuDisplay={switchMenuDisplay}
+      switchSearchDisplay={switchSearchDisplay}
     />
   )
 }

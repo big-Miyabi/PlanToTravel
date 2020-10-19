@@ -87259,12 +87259,12 @@ var NaviIcon_1 = __importDefault(__webpack_require__(/*! ../atoms/svg/NaviIcon *
 var SearchIcon_1 = __importDefault(__webpack_require__(/*! ../atoms/svg/SearchIcon */ "./resources/ts/src/components/atoms/svg/SearchIcon.tsx"));
 var Header = function (_a) {
     var props = __rest(_a, []);
-    var isMenuActive = props.isMenuActive, isSearchActive = props.isSearchActive, showMenu = props.showMenu, showSearchMenu = props.showSearchMenu;
+    var isMenuActive = props.isMenuActive, isSearchActive = props.isSearchActive, switchMenuDisplay = props.switchMenuDisplay, switchSearchDisplay = props.switchSearchDisplay;
     return (react_1.default.createElement("div", { className: "header" },
-        react_1.default.createElement(NaviIcon_1.default, { className: "header__menu", color: isMenuActive ? colors_1.colors.yellow : colors_1.colors.lightGray, onClick: function () { return showMenu(); } }),
+        react_1.default.createElement(NaviIcon_1.default, { className: "header__menu", color: isMenuActive ? colors_1.colors.yellow : colors_1.colors.lightGray, onClick: function () { return switchMenuDisplay(); } }),
         react_1.default.createElement("h1", { className: "header__logo-wrap" },
             react_1.default.createElement("img", { className: "header__logo", alt: "PLAN TO TRAVEL", src: "../images/logo_yoko.png" })),
-        react_1.default.createElement(SearchIcon_1.default, { className: "header__search", color: isSearchActive ? colors_1.colors.yellow : colors_1.colors.lightGray, onClick: function () { return showSearchMenu(); } })));
+        react_1.default.createElement(SearchIcon_1.default, { className: "header__search", color: isSearchActive ? colors_1.colors.yellow : colors_1.colors.lightGray, onClick: function () { return switchSearchDisplay(); } })));
 };
 exports.default = Header;
 
@@ -87546,16 +87546,16 @@ var HeaderContainer = function () {
     var dispatch = react_redux_1.useDispatch();
     var _a = react_1.useState(false), isMenuActive = _a[0], setIsMenuActive = _a[1];
     var _b = react_1.useState(false), isSearchActive = _b[0], setIsSearchActive = _b[1];
-    var showMenu = function () {
+    var switchMenuDisplay = function () {
         setIsMenuActive(!isMenuActive);
         dispatch(menu_1.setShouldShowMenu(!isMenuActive));
     };
-    var showSearchMenu = function () {
+    var switchSearchDisplay = function () {
         isSearchActive
             ? setIsSearchActive(false)
             : setIsSearchActive(true);
     };
-    return (react_1.default.createElement(Header_1.default, { isMenuActive: isMenuActive, isSearchActive: isSearchActive, showMenu: showMenu, showSearchMenu: showSearchMenu }));
+    return (react_1.default.createElement(Header_1.default, { isMenuActive: isMenuActive, isSearchActive: isSearchActive, switchMenuDisplay: switchMenuDisplay, switchSearchDisplay: switchSearchDisplay }));
 };
 exports.default = HeaderContainer;
 
