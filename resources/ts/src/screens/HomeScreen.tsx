@@ -1,4 +1,4 @@
-import React, { FC, useRef } from 'react'
+import React, { FC } from 'react'
 import Header from '../containers/organisms/Header'
 import Menu from '../components/organisms/Menu'
 
