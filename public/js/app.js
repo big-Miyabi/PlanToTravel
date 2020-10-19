@@ -87132,8 +87132,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var FontAwesomeIconBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FontAwesomeIconBtn */ "./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx"));
 var MenuItem = function (_a) {
-    var className = _a.className, title = _a.title, icon = _a.icon;
-    return (react_1.default.createElement("div", { className: className + ' ' + 'menu-item' },
+    var className = _a.className, title = _a.title, icon = _a.icon, _b = _a.onClick, onClick = _b === void 0 ? function () { } : _b;
+    return (react_1.default.createElement("div", { className: className + ' ' + 'menu-item', onClick: onClick },
         react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "menu-item__icon", icon: icon }),
         react_1.default.createElement("p", { className: "menu-item__title" }, title)));
 };
@@ -87297,13 +87297,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 var UserMenu_1 = __importDefault(__webpack_require__(/*! ../../containers/organisms/UserMenu */ "./resources/ts/src/containers/organisms/UserMenu.tsx"));
 var LoginMenu_1 = __importDefault(__webpack_require__(/*! ../../containers/organisms/LoginMenu */ "./resources/ts/src/containers/organisms/LoginMenu.tsx"));
 var Menu = function () {
-    // const isLogin = useSelector(
-    //   (state: RootState) => state.loginReducer.state
-    // )
-    var isLogin = true;
+    var isLogin = react_redux_1.useSelector(function (state) { return state.loginReducer.state; });
+    // const isLogin = true // テスト用、後で消す
     return (react_1.default.createElement("div", { className: "menu" }, isLogin ? (react_1.default.createElement(UserMenu_1.default, { className: "menu__contents--user" })) : (react_1.default.createElement(LoginMenu_1.default, { className: "menu__contents--login" }))));
 };
 exports.default = Menu;
@@ -87369,7 +87368,7 @@ var free_solid_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-solid-svg
 var UserInfo_1 = __importDefault(__webpack_require__(/*! ../molecules/UserInfo */ "./resources/ts/src/components/molecules/UserInfo.tsx"));
 var MenuItem_1 = __importDefault(__webpack_require__(/*! ../molecules/MenuItem */ "./resources/ts/src/components/molecules/MenuItem.tsx"));
 var UserMenu = function (_a) {
-    var className = _a.className, name = _a.name, iconUrl = _a.iconUrl;
+    var className = _a.className, name = _a.name, iconUrl = _a.iconUrl, logout = _a.logout;
     return (react_1.default.createElement("div", { className: className + ' ' + 'user-menu' },
         react_1.default.createElement(UserInfo_1.default, { className: "user-menu__user-info", name: name, iconUrl: iconUrl }),
         react_1.default.createElement("div", { className: "items-wrap" },
@@ -87378,7 +87377,7 @@ var UserMenu = function (_a) {
             react_1.default.createElement(MenuItem_1.default, { className: "items-wrap__favorite", title: 'いいね', icon: free_solid_svg_icons_1.faHeart }),
             react_1.default.createElement(MenuItem_1.default, { className: "items-wrap__bookmark", title: 'ブックマーク', icon: free_solid_svg_icons_1.faBookmark }),
             react_1.default.createElement(MenuItem_1.default, { className: "items-wrap__setting", title: '設定', icon: free_solid_svg_icons_1.faCog }),
-            react_1.default.createElement(MenuItem_1.default, { className: "items-wrap__logout", title: 'ログアウト', icon: free_solid_svg_icons_1.faSignOutAlt })),
+            react_1.default.createElement(MenuItem_1.default, { className: "items-wrap__logout", title: 'ログアウト', icon: free_solid_svg_icons_1.faSignOutAlt, onClick: logout })),
         react_1.default.createElement("p", { className: "policy" },
             react_1.default.createElement("span", { className: "policy__terms" }, "\u5229\u7528\u898F\u7D04"),
             "\u30FB",
@@ -87577,12 +87576,21 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+var login_1 = __webpack_require__(/*! ../../actions/login */ "./resources/ts/src/actions/login.ts");
 var UserMenu_1 = __importDefault(__webpack_require__(/*! ../../components/organisms/UserMenu */ "./resources/ts/src/components/organisms/UserMenu.tsx"));
 var UserMenuContainer = function (_a) {
     var className = _a.className;
+    var dispatch = react_redux_1.useDispatch();
     var name = 'こんこん';
     var iconUrl = '';
-    return (react_1.default.createElement(UserMenu_1.default, { className: className, name: name, iconUrl: iconUrl }));
+    var logout = function () {
+        // ログイン情報を初期化
+        console.log('logout');
+        dispatch(login_1.setLoginState(false));
+        dispatch(login_1.setLoginInfo(0, 'unknown', '', '', null));
+    };
+    return (react_1.default.createElement(UserMenu_1.default, { className: className, name: name, iconUrl: iconUrl, logout: logout }));
 };
 exports.default = UserMenuContainer;
 

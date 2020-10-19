@@ -14,12 +14,14 @@ type Props = {
   className: string
   name: string
   iconUrl: string
+  logout: () => void
 }
 
 const UserMenu: FC<Props> = ({
   className,
   name,
   iconUrl,
+  logout,
 }) => {
   return (
     <div className={className + ' ' + 'user-menu'}>
@@ -58,6 +60,7 @@ const UserMenu: FC<Props> = ({
           className="items-wrap__logout"
           title={'ログアウト'}
           icon={faSignOutAlt}
+          onClick={logout}
         />
       </div>
 

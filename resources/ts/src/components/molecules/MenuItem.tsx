@@ -6,15 +6,20 @@ type Props = {
   className: string
   title: string
   icon: IconDefinition
+  onClick?: () => void
 }
 
 const MenuItem: FC<Props> = ({
   className,
   title,
   icon,
+  onClick = () => {},
 }) => {
   return (
-    <div className={className + ' ' + 'menu-item'}>
+    <div
+      className={className + ' ' + 'menu-item'}
+      onClick={onClick}
+    >
       <FontAwesomeIconBtn
         className="menu-item__icon"
         icon={icon}
