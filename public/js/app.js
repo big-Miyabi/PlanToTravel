@@ -87570,6 +87570,12 @@ var HeaderContainer = function () {
         };
         overlay.addEventListener('click', documentClickHandler);
     }, [isMenuActive]);
+    // アンマウント時にメニューを閉じる
+    react_1.useEffect(function () {
+        return function () {
+            dispatch(menu_1.setShouldShowMenu(false));
+        };
+    }, []);
     return (react_1.default.createElement(Header_1.default, { isMenuActive: isMenuActive, isSearchActive: isSearchActive, switchMenuDisplay: switchMenuDisplay, switchSearchDisplay: switchSearchDisplay }));
 };
 exports.default = HeaderContainer;

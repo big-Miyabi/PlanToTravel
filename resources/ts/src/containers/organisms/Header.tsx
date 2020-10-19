@@ -37,6 +37,13 @@ const HeaderContainer: FC = () => {
     overlay.addEventListener('click', documentClickHandler)
   }, [isMenuActive])
 
+  // アンマウント時にメニューを閉じる
+  useEffect(() => {
+    return () => {
+      dispatch(setShouldShowMenu(false))
+    }
+  }, [])
+
   return (
     <Header
       isMenuActive={isMenuActive}
