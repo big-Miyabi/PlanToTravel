@@ -727,8 +727,23 @@ input:-webkit-autofill {
   }
 }
 
-.home {
-  padding-top: 2.2167487685vh;
+@media screen and (max-width: 559px) {
+  .home {
+    padding-top: 2.2167487685vh;
+  }
+
+  .new-posts__row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .new-card {
+    width: 44.2666666667vw;
+    height: 51.4666666667vw;
+    margin-bottom: 3.078817734vh;
+    border-radius: 17px;
+  }
 }
 
 /*!

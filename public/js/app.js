@@ -87411,6 +87411,44 @@ exports.default = MenuItem;
 
 /***/ }),
 
+/***/ "./resources/ts/src/components/molecules/NewCard.tsx":
+/*!***********************************************************!*\
+  !*** ./resources/ts/src/components/molecules/NewCard.tsx ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var GoToLogo_1 = __importDefault(__webpack_require__(/*! ../atoms/svg/GoToLogo */ "./resources/ts/src/components/atoms/svg/GoToLogo.tsx"));
+var FontAwesomeIconBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FontAwesomeIconBtn */ "./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx"));
+var ItineraryInCard_1 = __importDefault(__webpack_require__(/*! ../molecules/ItineraryInCard */ "./resources/ts/src/components/molecules/ItineraryInCard.tsx"));
+var free_solid_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+var NewCard = function (_a) {
+    var post = _a.post;
+    var goTostyle = post.hasGoTo ? {} : { display: 'none' };
+    var bgStyle = {
+        backgroundImage: 'url(' + post.header + ')',
+    };
+    return (react_1.default.createElement("div", { className: "new-card", style: bgStyle },
+        react_1.default.createElement("div", { style: goTostyle },
+            react_1.default.createElement(GoToLogo_1.default, { className: "new-card__go-to" })),
+        react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "new-card__bookmar", icon: free_solid_svg_icons_1.faBookmark }),
+        react_1.default.createElement("div", { className: "new-card__favorite" },
+            react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "new-card__favorite-btn", icon: free_solid_svg_icons_1.faHeart }),
+            react_1.default.createElement("p", { className: "new-card__favorite-number" }, post.favNum)),
+        react_1.default.createElement(ItineraryInCard_1.default, { className: "new-card__itineray", itinerary: post.itinerary })));
+};
+exports.default = NewCard;
+
+
+/***/ }),
+
 /***/ "./resources/ts/src/components/molecules/PopularCard.tsx":
 /*!***************************************************************!*\
   !*** ./resources/ts/src/components/molecules/PopularCard.tsx ***!
@@ -87624,6 +87662,44 @@ exports.default = Menu;
 
 /***/ }),
 
+/***/ "./resources/ts/src/components/organisms/NewPosts.tsx":
+/*!************************************************************!*\
+  !*** ./resources/ts/src/components/organisms/NewPosts.tsx ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var NewCard_1 = __importDefault(__webpack_require__(/*! ../../containers/molecules/NewCard */ "./resources/ts/src/containers/molecules/NewCard.tsx"));
+var NewPosts = function (_a) {
+    var posts = _a.posts;
+    var rowPosts = [];
+    // 一列2カードの配列を作る
+    posts.forEach(function (v, i) {
+        if (i === posts.length - 1 && posts.length % 2 === 1) {
+            // 投稿数が奇数 かつ 最後の一枚だった時
+            rowPosts.push(posts.slice(i, i + 1));
+            return;
+        }
+        if (i % 2 === 0)
+            return;
+        rowPosts.push(posts.slice(i - 1, i + 1));
+    });
+    return (react_1.default.createElement("div", { className: "new-posts" },
+        react_1.default.createElement("p", { className: "new-posts__title" }, "\u65B0\u7740\u306E\u6295\u7A3F"),
+        rowPosts.map(function (rowPost, key) { return (react_1.default.createElement("div", { className: "new-posts__row", key: key }, rowPost.map(function (post, key) { return (react_1.default.createElement(NewCard_1.default, { post: post, key: key })); }))); })));
+};
+exports.default = NewPosts;
+
+
+/***/ }),
+
 /***/ "./resources/ts/src/components/organisms/PopularPosts.tsx":
 /*!****************************************************************!*\
   !*** ./resources/ts/src/components/organisms/PopularPosts.tsx ***!
@@ -87786,6 +87862,30 @@ var FormPasswordInputContainer = function (_a) {
     return (react_1.default.createElement(FormPasswordInput_1.default, { className: className, inputId: inputId, labelName: labelName, placeholder: placeholder, setValue: setValue, setShouleShowPassword: setShouleShowPassword, shouldShowPassword: shouldShowPassword }));
 };
 exports.default = FormPasswordInputContainer;
+
+
+/***/ }),
+
+/***/ "./resources/ts/src/containers/molecules/NewCard.tsx":
+/*!***********************************************************!*\
+  !*** ./resources/ts/src/containers/molecules/NewCard.tsx ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var NewCard_1 = __importDefault(__webpack_require__(/*! ../../components/molecules/NewCard */ "./resources/ts/src/components/molecules/NewCard.tsx"));
+var NewCardContainer = function (_a) {
+    var post = _a.post;
+    return react_1.default.createElement(NewCard_1.default, { post: post });
+};
+exports.default = NewCardContainer;
 
 
 /***/ }),
@@ -88008,6 +88108,176 @@ var LoginMenuContainer = function (_a) {
     return (react_1.default.createElement(LoginMenu_1.default, { className: className, setMail: setMail, setPassword: setPassword, login: login }));
 };
 exports.default = LoginMenuContainer;
+
+
+/***/ }),
+
+/***/ "./resources/ts/src/containers/organisms/NewPosts.tsx":
+/*!************************************************************!*\
+  !*** ./resources/ts/src/containers/organisms/NewPosts.tsx ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var NewPosts_1 = __importDefault(__webpack_require__(/*! ../../components/organisms/NewPosts */ "./resources/ts/src/components/organisms/NewPosts.tsx"));
+var NewPostsContainer = function () {
+    // テスト用
+    var posts = [
+        {
+            id: 2000,
+            header: '../images/post_ninki_sample1.png',
+            hasGoTo: true,
+            favNum: 123,
+            itinerary: [
+                {
+                    whether: 'sun',
+                    place: '浅草駅',
+                },
+                {
+                    whether: 'rain',
+                    place: '井の頭自然文化公園・熱帯鳥温園',
+                },
+                {
+                    whether: 'night',
+                    place: '東京駅',
+                },
+                {
+                    whether: 'snow',
+                    place: '上野駅',
+                },
+            ],
+        },
+        {
+            id: 2001,
+            header: '../images/post_defaultPho.png',
+            hasGoTo: true,
+            favNum: 100,
+            itinerary: [
+                {
+                    whether: 'sun',
+                    place: '浅草駅',
+                },
+                {
+                    whether: 'rain',
+                    place: '井の頭自然文化公園・熱帯鳥温園',
+                },
+                {
+                    whether: 'night',
+                    place: '東京駅',
+                },
+                {
+                    whether: 'snow',
+                    place: '上野駅',
+                },
+            ],
+        },
+        {
+            id: 2002,
+            header: '../images/post_ninki_sample2.png',
+            hasGoTo: true,
+            favNum: 98,
+            itinerary: [
+                {
+                    whether: 'sun',
+                    place: '浅草駅',
+                },
+                {
+                    whether: 'rain',
+                    place: '井の頭自然文化公園・熱帯鳥温園',
+                },
+                {
+                    whether: 'night',
+                    place: '東京駅',
+                },
+                {
+                    whether: 'snow',
+                    place: '上野駅',
+                },
+            ],
+        },
+        {
+            id: 2003,
+            header: '../images/post_ninki_sample1.png',
+            hasGoTo: true,
+            favNum: 123,
+            itinerary: [
+                {
+                    whether: 'sun',
+                    place: '浅草駅',
+                },
+                {
+                    whether: 'rain',
+                    place: '井の頭自然文化公園・熱帯鳥温園',
+                },
+                {
+                    whether: 'night',
+                    place: '東京駅',
+                },
+                {
+                    whether: 'snow',
+                    place: '上野駅',
+                },
+            ],
+        },
+        {
+            id: 2004,
+            header: '../images/post_defaultPho.png',
+            hasGoTo: true,
+            favNum: 100,
+            itinerary: [
+                {
+                    whether: 'sun',
+                    place: '浅草駅',
+                },
+                {
+                    whether: 'rain',
+                    place: '井の頭自然文化公園・熱帯鳥温園',
+                },
+                {
+                    whether: 'night',
+                    place: '東京駅',
+                },
+                {
+                    whether: 'snow',
+                    place: '上野駅',
+                },
+            ],
+        },
+        {
+            id: 2005,
+            header: '../images/post_ninki_sample2.png',
+            hasGoTo: true,
+            favNum: 98,
+            itinerary: [
+                {
+                    whether: 'sun',
+                    place: '浅草駅',
+                },
+                {
+                    whether: 'rain',
+                    place: '井の頭自然文化公園・熱帯鳥温園',
+                },
+                {
+                    whether: 'night',
+                    place: '東京駅',
+                },
+                {
+                    whether: 'snow',
+                    place: '上野駅',
+                },
+            ],
+        },
+    ];
+    return react_1.default.createElement(NewPosts_1.default, { posts: posts });
+};
+exports.default = NewPostsContainer;
 
 
 /***/ }),
@@ -88386,11 +88656,13 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 var Header_1 = __importDefault(__webpack_require__(/*! ../containers/organisms/Header */ "./resources/ts/src/containers/organisms/Header.tsx"));
 var Menu_1 = __importDefault(__webpack_require__(/*! ../components/organisms/Menu */ "./resources/ts/src/components/organisms/Menu.tsx"));
 var PopularPosts_1 = __importDefault(__webpack_require__(/*! ../containers/organisms/PopularPosts */ "./resources/ts/src/containers/organisms/PopularPosts.tsx"));
+var NewPosts_1 = __importDefault(__webpack_require__(/*! ../containers/organisms/NewPosts */ "./resources/ts/src/containers/organisms/NewPosts.tsx"));
 var HomeScreen = function () {
     return (react_1.default.createElement("div", { className: "home" },
         react_1.default.createElement(Header_1.default, null),
         react_1.default.createElement(Menu_1.default, null),
-        react_1.default.createElement(PopularPosts_1.default, null)));
+        react_1.default.createElement(PopularPosts_1.default, null),
+        react_1.default.createElement(NewPosts_1.default, null)));
 };
 exports.default = HomeScreen;
 
