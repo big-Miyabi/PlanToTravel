@@ -12,12 +12,14 @@ type Props = {
   className: string
   setMail: Dispatch<React.SetStateAction<string>>
   setPassword: Dispatch<React.SetStateAction<string>>
+  login: () => void
 }
 
 const LoginMenu: FC<Props> = ({
   className,
   setMail,
   setPassword,
+  login,
 }) => {
   return (
     //ここからログイン
@@ -45,7 +47,7 @@ const LoginMenu: FC<Props> = ({
         <FormBtn
           className="login__button"
           name="ログイン"
-          onClick={() => {}}
+          onClick={() => login()}
         />
         <FontAwesomeIconBtn
           className="login__twitter-icon"
