@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { setShouldShowMenu } from '../../actions/menu'
 import Header from '../../components/organisms/Header'
@@ -19,19 +19,23 @@ const HeaderContainer: FC = () => {
       : setIsSearchActive(true)
   }
 
-  const documentClickHandler = () => {
-    console.log(document)
-    switchMenuDisplay()
-    document.body.removeEventListener(
-      'click',
-      documentClickHandler
-    )
-  }
+  // メニュー外をクリックでメニューを閉じる処理
+  useEffect(() => {
+    const overlay = document.getElementsByClassName(
+      'menu-overlay'
+    )[0] as HTMLElement
 
-  document.body.addEventListener(
-    'click',
-    documentClickHandler
-  )
+    const documentClickHandler = () => {
+      if (!isMenuActive) return
+      switchMenuDisplay()
+      overlay.removeEventListener(
+        'click',
+        documentClickHandler
+      )
+    }
+
+    overlay.addEventListener('click', documentClickHandler)
+  }, [isMenuActive])
 
   return (
     <Header

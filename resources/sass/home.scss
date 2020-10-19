@@ -24,10 +24,13 @@
 
     .menu {
         %__contents {
-            margin: px-to-vh(20) auto 0px; //これと
+            position: absolute;
+            z-index: 1000;
+            top: px-to-vh(81);
+            left: px-to-vw(25);
             padding-top: px-to-vh(11);
             background-size: cover;
-            text-align: center; //これで画面真ん中に
+            text-align: center;
         }
         &__contents {
             &--login {
@@ -45,6 +48,16 @@
         }
     }
 
+    .menu-overlay {
+        display: block;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 10;
+    }
+
     .login-menu {
         &__forgetting-password {
             margin: px-to-vh(3) 0 px-to-vh(13);
@@ -53,7 +66,7 @@
             font-size: 1.2rem;
         }
 
-        &__register-btn {
+        &__register-link {
             margin: px-to-vh(15) 0 px-to-vh(23);
             text-decoration: underline;
             color: $orange;

@@ -15,13 +15,16 @@ const Menu: FC = () => {
   const style = shouldShowMenu ? {} : { display: 'none' }
 
   return (
-    <div className="menu" style={style}>
-      {isLogin ? (
-        <UserMenu className="menu__contents--user" />
-      ) : (
-        <LoginMenu className="menu__contents--login" />
-      )}
-    </div>
+    <>
+      <div className="menu" style={style}>
+        {isLogin ? (
+          <UserMenu className="menu__contents--user" />
+        ) : (
+          <LoginMenu className="menu__contents--login" />
+        )}
+      </div>
+      <div style={style} className="menu-overlay"></div>
+    </>
   )
 }
 

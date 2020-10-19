@@ -1,4 +1,5 @@
 import React, { FC, Dispatch } from 'react'
+import { Link } from 'react-router-dom'
 import {
   faTwitter,
   faFacebook,
@@ -59,9 +60,11 @@ const LoginMenu: FC<Props> = ({
         />
       </div>
 
-      <p className="login-menu__register-btn">
-        アカウントをお持ちでない方はこちら
-      </p>
+      <Link to="../regist">
+        <p className="login-menu__register-link">
+          アカウントをお持ちでない方はこちら
+        </p>
+      </Link>
 
       <p className="policy">
         <span className="policy__terms">利用規約</span>・
