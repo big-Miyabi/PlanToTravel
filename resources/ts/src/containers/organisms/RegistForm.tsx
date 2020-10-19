@@ -2,7 +2,7 @@ import React, { FC, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import * as H from 'history'
 import RegistForm from '../../components/organisms/RegistForm'
-import { registUserData } from '../../utilities/axios'
+import { postByAxios } from '../../utilities/axios'
 
 type Props = {
   history: H.History
@@ -14,12 +14,12 @@ const RegistFormContainer: FC<Props> = ({ history }) => {
   const [email, setMail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
   const regist = async () => {
-    const result = await registUserData(
+    const result = await postByAxios.regist({
       dispatch,
       username,
       email,
-      password
-    )
+      password,
+    })
     if (result === 'success') history.push('../home')
   }
 
