@@ -268,49 +268,6 @@ input:-webkit-autofill {
   .policy__privacy-policy {
     text-decoration: underline;
   }
-
-  .user-info {
-    margin: 3.078817734vh auto 0px;
-    text-align: center;
-    color: #fcbe32;
-  }
-
-  .user-info__user-icon {
-    font-size: 5.6rem;
-    float: left;
-  }
-
-  .user-info__name-wrap {
-    width: 41.8666666667vw;
-    height: 5.0492610837vh;
-    background-image: url(/images/icon_profile_name.svg?f495771c28b27860f5c2c5256b332416);
-    background-size: cover;
-  }
-
-  .user-info__name {
-    font-size: 1.4rem;
-    font-weight: bold;
-    color: black;
-  }
-
-  .menu-items {
-    margin-bottom: 1.8472906404vh;
-  }
-
-  .menu-item {
-    width: 61.0666666667vw;
-    height: auto;
-    margin: 0 auto 0px;
-    text-align: center;
-    font-size: 1.4rem;
-    color: #e5e5e5;
-    border-bottom: 0.1231527094vh solid #e5e5e5;
-  }
-
-  .menu-item__icon {
-    float: left;
-    margin-top: 0.4926108374vh;
-  }
 }
 
 /*!
