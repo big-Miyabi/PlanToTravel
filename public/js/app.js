@@ -87171,6 +87171,29 @@ exports.default = MenuItem;
 
 /***/ }),
 
+/***/ "./resources/ts/src/components/molecules/PopularCard.tsx":
+/*!***************************************************************!*\
+  !*** ./resources/ts/src/components/molecules/PopularCard.tsx ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var PopularCard = function () {
+    return (react_1.default.createElement("div", { className: "popular-card" },
+        react_1.default.createElement("p", null, "test")));
+};
+exports.default = PopularCard;
+
+
+/***/ }),
+
 /***/ "./resources/ts/src/components/molecules/RegisterWithSNS.tsx":
 /*!*******************************************************************!*\
   !*** ./resources/ts/src/components/molecules/RegisterWithSNS.tsx ***!
@@ -87360,9 +87383,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var PopularCard_1 = __importDefault(__webpack_require__(/*! ../../containers/molecules/PopularCard */ "./resources/ts/src/containers/molecules/PopularCard.tsx"));
 var PopularPosts = function () {
     return (react_1.default.createElement("div", { className: "popular-posts" },
-        react_1.default.createElement("p", { className: "popular-posts__title" }, "\u4EBA\u6C17\u306E\u6295\u7A3F")));
+        react_1.default.createElement("p", { className: "popular-posts__title" }, "\u4EBA\u6C17\u306E\u6295\u7A3F"),
+        react_1.default.createElement(PopularCard_1.default, null)));
 };
 exports.default = PopularPosts;
 
@@ -87505,6 +87530,29 @@ var FormPasswordInputContainer = function (_a) {
     return (react_1.default.createElement(FormPasswordInput_1.default, { className: className, inputId: inputId, labelName: labelName, placeholder: placeholder, setValue: setValue, setShouleShowPassword: setShouleShowPassword, shouldShowPassword: shouldShowPassword }));
 };
 exports.default = FormPasswordInputContainer;
+
+
+/***/ }),
+
+/***/ "./resources/ts/src/containers/molecules/PopularCard.tsx":
+/*!***************************************************************!*\
+  !*** ./resources/ts/src/containers/molecules/PopularCard.tsx ***!
+  \***************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var PopularCard_1 = __importDefault(__webpack_require__(/*! ../../components/molecules/PopularCard */ "./resources/ts/src/components/molecules/PopularCard.tsx"));
+var PopularCardContainer = function () {
+    return react_1.default.createElement(PopularCard_1.default, null);
+};
+exports.default = PopularCardContainer;
 
 
 /***/ }),
