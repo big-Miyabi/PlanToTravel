@@ -21,25 +21,30 @@ const FormInput: FC<Props> = ({ ...props }) => {
   } = props
 
   return (
-    <div className={className + ' form-input'}>
+    // chromeのコンソールワーニングエラーを止めるために必要
+    // 参照: https://www.chromium.org/developers/design-documents/create-amazing-password-forms
+    <form className={className + ' form-input'}>
       <label
         className={'form-input__label'}
         htmlFor={inputId}
       >
         {labelName}
       </label>
+      {/* chromeのコンソールワーニングエラーを止めるために必要 */}
+      <input type="text" autoComplete="username" hidden />
       <input
         type="password"
         id={inputId}
         className="form-input__input"
         placeholder={placeholder}
+        autoComplete="new-password"
         onChange={(e) => setValue(e.target.value)}
       />
       <FontAwesomeIconBtn
         className="password__icon"
         icon={faEye}
       />
-    </div>
+    </form>
   )
 }
 
