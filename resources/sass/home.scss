@@ -25,10 +25,10 @@
 
     .menu {
         %__contents {
-            background-size: cover;
             margin: px-to-vh(20) auto 0px; //これと
-            text-align: center; //これで画面真ん中に
             padding-top: px-to-vh(11);
+            background-size: cover;
+            text-align: center; //これで画面真ん中に
         }
         &__contents {
             &--login {
@@ -48,16 +48,16 @@
 
     .login-menu {
         &__forgetting-password {
-            text-decoration: underline;
             margin: px-to-vh(3) 0 px-to-vh(13);
+            text-decoration: underline;
             color: $gray;
             font-size: 1.2rem;
         }
 
         &__register-btn {
+            margin: px-to-vh(15) 0 px-to-vh(23);
             text-decoration: underline;
             color: $orange;
-            margin: px-to-vh(15) 0 px-to-vh(23);
         }
     }
 
@@ -119,8 +119,8 @@
         color: $yellow;
 
         &__user-icon {
-            font-size: 5.6rem;
             float: left;
+            font-size: 5.6rem;
         }
         &__name-wrap {
             width: px-to-vw(157);
@@ -143,10 +143,10 @@
         width: px-to-vw(229);
         height: auto;
         margin: 0 auto 0px; //これと
+        border-bottom: px-to-vh(1) solid $light-gray;
         text-align: center; //これで画面真ん中に
         font-size: 1.4rem;
         color: $light-gray;
-        border-bottom: px-to-vh(1) solid $light-gray;
         &__icon {
             float: left;
             margin-top: px-to-vh(4);
