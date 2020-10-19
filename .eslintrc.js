@@ -27,7 +27,8 @@ module.exports = {
     '@typescript-eslint/explicit-member-accessibility': 'off',
     'indent': 'off',
     '@typescript-eslint/indent': ['error', 2, {
-      ignoredNodes: ['TSTypeParameterInstantiation']
+      ignoredNodes: ['TSTypeParameterInstantiation'],
+      SwitchCase: 1,
     }],
     '@typescript-eslint/no-unnecessary-type-assertion': 'error',
     'eol-last': ['error', 'always'],
