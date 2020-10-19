@@ -1,3 +1,24 @@
-.home {
-    padding-top: $header-top;
+@import "variables";
+@import "function";
+
+// @include md-down()内部にstyleを記述すると、スマートフォンサイズでメディアクエリがかかるようになる
+@include md-down() {
+    .home {
+        padding-top: $header-top;
+    }
+
+    .new-posts {
+        &__row {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
+    }
+
+    .new-card {
+        width: px-to-vw(166);
+        height: px-to-vw(193); // 高さは幅に依存させる
+        margin-bottom: px-to-vh(25);
+        border-radius: 17px;
+    }
 }
