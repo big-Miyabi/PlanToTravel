@@ -185,10 +185,10 @@ input:-webkit-autofill {
 
   .menu .menu__contents--user,
   .menu .menu__contents--login {
-    background-size: cover;
     margin: 2.4630541872vh auto 0px;
-    text-align: center;
     padding-top: 1.354679803vh;
+    background-size: cover;
+    text-align: center;
   }
 
   .menu__contents--login {
@@ -204,16 +204,16 @@ input:-webkit-autofill {
   }
 
   .login-menu__forgetting-password {
-    text-decoration: underline;
     margin: 0.3694581281vh 0 1.6009852217vh;
+    text-decoration: underline;
     color: #c4c4c4;
     font-size: 1.2rem;
   }
 
   .login-menu__register-btn {
+    margin: 1.8472906404vh 0 2.8325123153vh;
     text-decoration: underline;
     color: #ff6633;
-    margin: 1.8472906404vh 0 2.8325123153vh;
   }
 
   .login {
@@ -276,8 +276,8 @@ input:-webkit-autofill {
   }
 
   .user-info__user-icon {
-    font-size: 5.6rem;
     float: left;
+    font-size: 5.6rem;
   }
 
   .user-info__name-wrap {
@@ -301,10 +301,10 @@ input:-webkit-autofill {
     width: 61.0666666667vw;
     height: auto;
     margin: 0 auto 0px;
+    border-bottom: 0.1231527094vh solid #e5e5e5;
     text-align: center;
     font-size: 1.4rem;
     color: #e5e5e5;
-    border-bottom: 0.1231527094vh solid #e5e5e5;
   }
 
   .menu-item__icon {
