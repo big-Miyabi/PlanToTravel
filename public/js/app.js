@@ -86196,12 +86196,12 @@ var FormPasswordInput_1 = __importDefault(__webpack_require__(/*! ../molecules/F
 var FormBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FormBtn */ "./resources/ts/src/components/atoms/FormBtn.tsx"));
 var RegisterWithSNS_1 = __importDefault(__webpack_require__(/*! ../../containers/molecules/RegisterWithSNS */ "./resources/ts/src/containers/molecules/RegisterWithSNS.tsx"));
 var RegistForm = function (_a) {
-    var setUserName = _a.setUserName, setMail = _a.setMail, setPassword = _a.setPassword, registUserData = _a.registUserData;
+    var setUserName = _a.setUserName, setMail = _a.setMail, setPassword = _a.setPassword, regist = _a.regist;
     return (react_1.default.createElement("div", { className: "regist-form" },
         react_1.default.createElement(FormInput_1.default, { className: "regist-form__username", inputId: "username", labelName: "\u30E6\u30FC\u30B6\u30FC\u30CD\u30FC\u30E0", placeholder: "2-15\u6587\u5B57\u4EE5\u5185", setValue: setUserName }),
         react_1.default.createElement(FormInput_1.default, { className: "regist-form__mail", inputId: "mail", labelName: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9", placeholder: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u3092\u5165\u529B", setValue: setMail }),
         react_1.default.createElement(FormPasswordInput_1.default, { className: "regist-form__password", inputId: "password", labelName: "\u30D1\u30B9\u30EF\u30FC\u30C9", placeholder: "6\u6587\u5B57\u4EE5\u4E0A\u534A\u89D2\u82F1\u6570\u5B57", setValue: setPassword }),
-        react_1.default.createElement(FormBtn_1.default, { className: "regist-form__button", name: "\u65B0\u898F\u767B\u9332", onClick: function () { return registUserData(); } }),
+        react_1.default.createElement(FormBtn_1.default, { className: "regist-form__button", name: "\u65B0\u898F\u767B\u9332", onClick: function () { return regist(); } }),
         react_1.default.createElement(RegisterWithSNS_1.default, { className: "regist-form__sns" }),
         react_1.default.createElement("div", { className: "confirm-msg" },
             react_1.default.createElement("p", null,
@@ -86384,34 +86384,17 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-var login_1 = __webpack_require__(/*! ../../actions/login */ "./resources/ts/src/actions/login.ts");
 var RegistForm_1 = __importDefault(__webpack_require__(/*! ../../components/organisms/RegistForm */ "./resources/ts/src/components/organisms/RegistForm.tsx"));
-var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
+var axios_1 = __webpack_require__(/*! ../../utilities/axios */ "./resources/ts/src/utilities/axios.ts");
 var RegistFormContainer = function () {
     var dispatch = react_redux_1.useDispatch();
     var _a = react_1.useState(''), username = _a[0], setUserName = _a[1];
     var _b = react_1.useState(''), email = _b[0], setMail = _b[1];
     var _c = react_1.useState(''), password = _c[0], setPassword = _c[1];
-    var registUserData = function () {
-        axios_1.default
-            .post('/api/register', {
-            username: username,
-            email: email,
-            password: password,
-        })
-            .then(function (res) {
-            console.log(res);
-            var userData = res.data[0];
-            console.log(userData);
-            dispatch(login_1.setLoginState(true));
-            dispatch(login_1.setLoginInfo(userData.id, userData.username, userData.header, userData.icon, userData.profile));
-        })
-            .catch(function (error) {
-            // エラー処理
-            console.log(error);
-        });
+    var regist = function () {
+        axios_1.registUserData(dispatch, username, email, password);
     };
-    return (react_1.default.createElement(RegistForm_1.default, { setUserName: setUserName, setMail: setMail, setPassword: setPassword, registUserData: registUserData }));
+    return (react_1.default.createElement(RegistForm_1.default, { setUserName: setUserName, setMail: setMail, setPassword: setPassword, regist: regist }));
 };
 exports.default = RegistFormContainer;
 
@@ -86585,6 +86568,45 @@ var RegisterScreen = function () {
             react_1.default.createElement(RegistForm_1.default, null))));
 };
 exports.default = RegisterScreen;
+
+
+/***/ }),
+
+/***/ "./resources/ts/src/utilities/axios.ts":
+/*!*********************************************!*\
+  !*** ./resources/ts/src/utilities/axios.ts ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.registUserData = void 0;
+var login_1 = __webpack_require__(/*! ../actions/login */ "./resources/ts/src/actions/login.ts");
+var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
+exports.registUserData = function (dispatch, username, email, password) {
+    axios_1.default
+        .post('/api/register', {
+        username: username,
+        email: email,
+        password: password,
+    })
+        .then(function (res) {
+        console.log(res);
+        var userData = res.data[0];
+        console.log(userData);
+        dispatch(login_1.setLoginState(true));
+        dispatch(login_1.setLoginInfo(userData.id, userData.username, userData.header, userData.icon, userData.profile));
+    })
+        .catch(function (error) {
+        // エラー処理
+        console.log(error);
+    });
+};
 
 
 /***/ }),
