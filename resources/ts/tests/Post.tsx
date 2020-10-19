@@ -20,6 +20,8 @@ const Post: FC = () => {
   // const [distance, setDistance] = useState<string>('')
   const [comment, setComment] = useState<string>('')
   const [tag_name, setTagName] = useState<string>('')
+  const [tag_name2, setTagName2] = useState<string>('')
+  const [tag_name3, setTagName3] = useState<string>('')
   const uid = '31'
   const is_public = '0'
   const addSchedule = () => {
@@ -33,6 +35,8 @@ const Post: FC = () => {
         day_f,
         is_public,
         tag_name,
+        tag_name2,
+        tag_name3,
       })
       .then((res) => {
         console.log(res.data)
@@ -69,12 +73,12 @@ const Post: FC = () => {
         ,
         <input
           type="text"
-          onChange={(e) => setTagName(e.target.value)}
+          onChange={(e) => setTagName2(e.target.value)}
         />
         ,
         <input
           type="text"
-          onChange={(e) => setTagName(e.target.value)}
+          onChange={(e) => setTagName3(e.target.value)}
         />
       </label>
       <br />
