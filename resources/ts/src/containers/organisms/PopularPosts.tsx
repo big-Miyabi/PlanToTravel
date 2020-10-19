@@ -31,7 +31,7 @@ const PopularPostsContainer: FC = () => {
     {
       id: 1001,
       hasGoTo: true,
-      favNum: 123,
+      favNum: 100,
       itinerary: [
         {
           whether: 'sun',
@@ -54,7 +54,7 @@ const PopularPostsContainer: FC = () => {
     {
       id: 1002,
       hasGoTo: true,
-      favNum: 123,
+      favNum: 98,
       itinerary: [
         {
           whether: 'sun',

@@ -13,9 +13,13 @@ type Props = {
 }
 
 const PopularCard: FC<Props> = ({ post }) => {
+  const style = post.hasGoTo ? {} : { display: 'none' }
+
   return (
     <div className="popular-card">
-      <GoToLogo className="popular-card__go-to" />
+      <div style={style}>
+        <GoToLogo className="popular-card__go-to" />
+      </div>
       <FontAwesomeIconBtn
         className="popular-card__bookmar"
         icon={faBookmark}
@@ -25,7 +29,9 @@ const PopularCard: FC<Props> = ({ post }) => {
           className="popular-card__favorite-btn"
           icon={faHeart}
         />
-        <p className="popular-card__favorite-number">123</p>
+        <p className="popular-card__favorite-number">
+          {post.favNum}
+        </p>
       </div>
       <ItineraryInCard
         className="popular-card__itineray"
