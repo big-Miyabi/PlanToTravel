@@ -4,7 +4,7 @@ import {
   faFacebook,
 } from '@fortawesome/free-brands-svg-icons'
 import FormInput from '../molecules/FormInput'
-import FormPasswordInput from '../molecules/FormPasswordInput'
+import FormPasswordInput from '../../containers/molecules/FormPasswordInput'
 import FormBtn from '../atoms/FormBtn'
 import FontAwesomeIconBtn from '../atoms/FontAwesomeIconBtn'
 

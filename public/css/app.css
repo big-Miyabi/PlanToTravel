@@ -105,10 +105,10 @@ input:-webkit-autofill {
     outline: none;
   }
 
-  .password__icon {
+  .password__icon-wrap {
     position: relative;
-    top: -1.8472906404vh;
-    left: 60.2666666667vw;
+    top: -2.0935960591vh;
+    left: 29.3333333333vw;
     color: #7390ab;
   }
 

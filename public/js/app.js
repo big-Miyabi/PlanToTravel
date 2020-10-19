@@ -87099,17 +87099,21 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var FontAwesomeIconBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FontAwesomeIconBtn */ "./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx"));
 var free_solid_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+var free_solid_svg_icons_2 = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 var FormInput = function (_a) {
     var props = __rest(_a, []);
-    var className = props.className, inputId = props.inputId, labelName = props.labelName, placeholder = props.placeholder, setValue = props.setValue;
+    var className = props.className, inputId = props.inputId, labelName = props.labelName, placeholder = props.placeholder, setValue = props.setValue, setShouleShowPassword = props.setShouleShowPassword, shouldShowPassword = props.shouldShowPassword;
     return (
     // chromeのコンソールワーニングエラーを止めるために必要
     // 参照: https://www.chromium.org/developers/design-documents/create-amazing-password-forms
     react_1.default.createElement("form", { className: className + ' form-input' },
         react_1.default.createElement("label", { className: 'form-input__label', htmlFor: inputId }, labelName),
         react_1.default.createElement("input", { type: "text", autoComplete: "username", hidden: true }),
-        react_1.default.createElement("input", { type: "password", id: inputId, className: "form-input__input", placeholder: placeholder, autoComplete: "new-password", onChange: function (e) { return setValue(e.target.value); } }),
-        react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "password__icon", icon: free_solid_svg_icons_1.faEye })));
+        react_1.default.createElement("input", { type: shouldShowPassword ? 'text' : 'password', id: inputId, className: "form-input__input", placeholder: placeholder, autoComplete: "new-password", onChange: function (e) { return setValue(e.target.value); } }),
+        react_1.default.createElement("div", { className: "password__icon-wrap", onClick: function () {
+                return setShouleShowPassword(!shouldShowPassword);
+            } },
+            react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "password__icon", icon: shouldShowPassword ? free_solid_svg_icons_2.faEyeSlash : free_solid_svg_icons_1.faEye }))));
 };
 exports.default = FormInput;
 
@@ -87257,7 +87261,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var free_brands_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-brands-svg-icons */ "./node_modules/@fortawesome/free-brands-svg-icons/index.es.js");
 var FormInput_1 = __importDefault(__webpack_require__(/*! ../molecules/FormInput */ "./resources/ts/src/components/molecules/FormInput.tsx"));
-var FormPasswordInput_1 = __importDefault(__webpack_require__(/*! ../molecules/FormPasswordInput */ "./resources/ts/src/components/molecules/FormPasswordInput.tsx"));
+var FormPasswordInput_1 = __importDefault(__webpack_require__(/*! ../../containers/molecules/FormPasswordInput */ "./resources/ts/src/containers/molecules/FormPasswordInput.tsx"));
 var FormBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FormBtn */ "./resources/ts/src/components/atoms/FormBtn.tsx"));
 var FontAwesomeIconBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FontAwesomeIconBtn */ "./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx"));
 var LoginMenu = function (_a) {
@@ -87325,7 +87329,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var FormInput_1 = __importDefault(__webpack_require__(/*! ../molecules/FormInput */ "./resources/ts/src/components/molecules/FormInput.tsx"));
-var FormPasswordInput_1 = __importDefault(__webpack_require__(/*! ../molecules/FormPasswordInput */ "./resources/ts/src/components/molecules/FormPasswordInput.tsx"));
+var FormPasswordInput_1 = __importDefault(__webpack_require__(/*! ../../containers/molecules/FormPasswordInput */ "./resources/ts/src/containers/molecules/FormPasswordInput.tsx"));
 var FormBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FormBtn */ "./resources/ts/src/components/atoms/FormBtn.tsx"));
 var RegisterWithSNS_1 = __importDefault(__webpack_require__(/*! ../../containers/molecules/RegisterWithSNS */ "./resources/ts/src/containers/molecules/RegisterWithSNS.tsx"));
 var RegistForm = function (_a) {
@@ -87390,6 +87394,62 @@ var UserMenu = function (_a) {
             react_1.default.createElement("span", { className: "policy__privacy-policy" }, "\u30D7\u30E9\u30A4\u30D0\u30B7\u30FC\u30DD\u30EA\u30B7\u30FC"))));
 };
 exports.default = UserMenu;
+
+
+/***/ }),
+
+/***/ "./resources/ts/src/containers/molecules/FormPasswordInput.tsx":
+/*!*********************************************************************!*\
+  !*** ./resources/ts/src/containers/molecules/FormPasswordInput.tsx ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var FormPasswordInput_1 = __importDefault(__webpack_require__(/*! ../../components/molecules/FormPasswordInput */ "./resources/ts/src/components/molecules/FormPasswordInput.tsx"));
+var FormPasswordInputContainer = function (_a) {
+    var props = __rest(_a, []);
+    var className = props.className, inputId = props.inputId, labelName = props.labelName, placeholder = props.placeholder, setValue = props.setValue;
+    var _b = react_1.useState(false), shouldShowPassword = _b[0], setShouleShowPassword = _b[1];
+    return (react_1.default.createElement(FormPasswordInput_1.default, { className: className, inputId: inputId, labelName: labelName, placeholder: placeholder, setValue: setValue, setShouleShowPassword: setShouleShowPassword, shouldShowPassword: shouldShowPassword }));
+};
+exports.default = FormPasswordInputContainer;
 
 
 /***/ }),

@@ -1,6 +1,6 @@
 import React, { FC, Dispatch } from 'react'
 import FormInput from '../molecules/FormInput'
-import FormPasswordInput from '../molecules/FormPasswordInput'
+import FormPasswordInput from '../../containers/molecules/FormPasswordInput'
 import FormBtn from '../atoms/FormBtn'
 import RegisterWithSNS from '../../containers/molecules/RegisterWithSNS'
 
