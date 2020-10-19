@@ -9,6 +9,10 @@ type Props = {
   labelName: string
   placeholder: string
   setValue: Dispatch<React.SetStateAction<string>>
+  setShouleShowPassword: Dispatch<
+    React.SetStateAction<boolean>
+  >
+  shouldShowPassword: boolean
 }
 
 const FormInput: FC<Props> = ({ ...props }) => {
@@ -18,6 +22,8 @@ const FormInput: FC<Props> = ({ ...props }) => {
     labelName,
     placeholder,
     setValue,
+    setShouleShowPassword,
+    shouldShowPassword,
   } = props
 
   return (
@@ -33,17 +39,25 @@ const FormInput: FC<Props> = ({ ...props }) => {
       {/* chromeのコンソールワーニングエラーを止めるために必要 */}
       <input type="text" autoComplete="username" hidden />
       <input
-        type="password"
+        type={shouldShowPassword ? 'text' : 'password'}
         id={inputId}
         className="form-input__input"
         placeholder={placeholder}
         autoComplete="new-password"
         onChange={(e) => setValue(e.target.value)}
       />
-      <FontAwesomeIconBtn
-        className="password__icon"
-        icon={faEye}
-      />
+
+      <div
+        className="password__icon-wrap"
+        onClick={() =>
+          setShouleShowPassword(!shouldShowPassword)
+        }
+      >
+        <FontAwesomeIconBtn
+          className="password__icon"
+          icon={shouldShowPassword ? faEyeSlash : faEye}
+        />
+      </div>
     </form>
   )
 }
