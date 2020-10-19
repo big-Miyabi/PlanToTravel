@@ -22,7 +22,7 @@ const MapIcon: FC<Props> = ({
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
-      <g clip-path="url(#clip0)">
+      <g clipPath="url(#clip0)">
         <path
           d="M17.4127 53C17.4127 53 -8.59257 26.4976 2.95095 7.57008C2.95095 7.57008 6.80038 0 18.3439 0C18.3439 0 33.7369 0 37.5815 15.1449C41.4261 30.2898 17.4127 53 17.4127 53Z"
           fill={color}
