@@ -3,9 +3,6 @@
 
 // @include md-down()内部にstyleを記述すると、スマートフォンサイズでメディアクエリがかかるようになる
 @include md-down() {
-    .home {
-        padding-top: $header-top;
-    }
     .header {
         display: flex;
         margin-top: px-to-vh(12);

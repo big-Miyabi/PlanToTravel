@@ -87187,7 +87187,10 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var PopularCard = function () {
     return (react_1.default.createElement("div", { className: "popular-card" },
-        react_1.default.createElement("p", null, "test")));
+        react_1.default.createElement("div", { className: "popular-card__go-to" }),
+        react_1.default.createElement("div", { className: "popular-card__bookmark" }),
+        react_1.default.createElement("div", { className: "popular-card__favorite" }),
+        react_1.default.createElement("div", { className: "popular-card__itineray" })));
 };
 exports.default = PopularCard;
 
@@ -88185,7 +88188,8 @@ exports.colors = {
     lightBlue: '#bcdbe8',
     gray: '#c4c4c4',
     lightGray: '#e5e5e5',
-    white: '#f9fcfe',
+    white: '#ffffff',
+    polarWhite: '#f9fcfe',
 };
 
 
