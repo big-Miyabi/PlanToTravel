@@ -13,11 +13,14 @@ type Props = {
 }
 
 const PopularCard: FC<Props> = ({ post }) => {
-  const style = post.hasGoTo ? {} : { display: 'none' }
+  const goTostyle = post.hasGoTo ? {} : { display: 'none' }
+  const bgStyle = {
+    backgroundImage: 'url(' + post.header + ')',
+  }
 
   return (
-    <div className="popular-card">
-      <div style={style}>
+    <div className="popular-card" style={bgStyle}>
+      <div style={goTostyle}>
         <GoToLogo className="popular-card__go-to" />
       </div>
       <FontAwesomeIconBtn
