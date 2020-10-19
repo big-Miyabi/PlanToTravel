@@ -374,6 +374,7 @@ input:-webkit-autofill {
   }
 
   .register__home-icon {
+    z-index: 2;
     position: absolute;
     top: 4.1871921182vh;
     left: 2.9333333333vw;
