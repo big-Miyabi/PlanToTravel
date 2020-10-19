@@ -567,7 +567,7 @@ input:-webkit-autofill {
   }
 
   .login {
-    margin: 0 auto 0px;
+    margin: 0 auto;
     text-align: center;
   }
 
@@ -686,18 +686,26 @@ input:-webkit-autofill {
   }
 
   .menu-item {
+    display: flex;
     width: 61.0666666667vw;
-    height: auto;
-    margin: 0 auto 0px;
+    height: 3.9408866995vh;
+    margin: 0 auto;
     border-bottom: 0.1231527094vh solid #e5e5e5;
-    text-align: center;
     font-size: 1.4rem;
     color: #e5e5e5;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .menu-item__icon {
-    float: left;
     margin-top: 0.4926108374vh;
+    margin-left: 1.8666666667vw;
+  }
+
+  .menu-item__title {
+    width: 100%;
+    margin-bottom: 0;
+    text-align: center;
   }
 }
 
