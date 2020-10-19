@@ -24,7 +24,7 @@ const initialState: State = {
   profile: null,
 }
 
-export const loginStateReducer: LoginReducer = (
+export const loginReducer: LoginReducer = (
   state = initialState,
   action: UnionedAction
 ): State => {

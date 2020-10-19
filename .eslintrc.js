@@ -26,7 +26,9 @@ module.exports = {
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-member-accessibility': 'off',
     'indent': 'off',
-    '@typescript-eslint/indent': ['error', 2],
+    '@typescript-eslint/indent': ['error', 2, {
+      ignoredNodes: ['TSTypeParameterInstantiation']
+    }],
     '@typescript-eslint/no-unnecessary-type-assertion': 'error',
     'eol-last': ['error', 'always'],
     'func-style': ['error', 'expression', { allowArrowFunctions: true }],
