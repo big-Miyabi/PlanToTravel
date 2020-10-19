@@ -14,7 +14,7 @@
             position: absolute;
             top: px-to-vh(34);
             left: px-to-vw(11);
-            color: $white;
+            color: $polar-white;
             font-size: 2.4rem;
         }
         &__content {
@@ -55,6 +55,8 @@
             color: #fff;
             text-align: center;
             text-decoration: none;
+            font-size: 1.4rem;
+            font-weight: bold;
             &:hover {
                 background-color: rgba(252, 190, 50, 0.5);
             }
@@ -89,10 +91,11 @@
         }
     }
 
-    .password__icon {
+    .password__icon-wrap {
         position: relative;
-        top: px-to-vh(-15);
+        top: px-to-vh(-17);
         left: px-to-vw(226);
+        width: 0;
         color: $light-navy;
     }
 

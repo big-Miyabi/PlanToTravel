@@ -5,26 +5,24 @@ import {
 } from '../actions/index'
 
 type State = {
-  state: boolean
+  shouldShow: boolean
 }
 
-type LoginReducer = Reducer<State, UnionedAction>
+type MenuReducer = Reducer<State, UnionedAction>
 
 const initialState: State = {
-  state: false,
+  shouldShow: false,
 }
 
-export const loginStateReducer: LoginReducer = (
+export const menuReducer: MenuReducer = (
   state = initialState,
   action: UnionedAction
 ): State => {
   switch (action.type) {
-    case ActionTypes.LOGIN_STATE:
-      console.log('hogehoge')
-
+    case ActionTypes.SET_SHOULD_SHOW_MENU:
       return {
         ...state,
-        state: action.payload.state,
+        shouldShow: action.payload.shouldShow,
       }
     default: {
       return state

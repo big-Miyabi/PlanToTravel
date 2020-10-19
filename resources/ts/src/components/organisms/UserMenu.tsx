@@ -1,59 +1,79 @@
-import React, { FC, Dispatch } from 'react'
+import React, { FC } from 'react'
+import { Link } from 'react-router-dom'
 import {
-  faTwitter,
-  faFacebook,
-} from '@fortawesome/free-brands-svg-icons'
-import FormInput from '../molecules/FormInput'
-import FormPasswordInput from '../molecules/FormPasswordInput'
-import FormBtn from '../atoms/FormBtn'
-import FontAwesomeIconBtn from '../atoms/FontAwesomeIconBtn'
+  faHome,
+  faHeart,
+  faBookmark,
+  faCog,
+  faSignOutAlt,
+  faMapMarkerAlt,
+} from '@fortawesome/free-solid-svg-icons'
+import UserInfo from '../molecules/UserInfo'
+import MenuItem from '../molecules/MenuItem'
 
 type Props = {
-  setMail: Dispatch<React.SetStateAction<string>>
-  setPassword: Dispatch<React.SetStateAction<string>>
+  className: string
+  name: string
+  iconUrl: string
+  logout: () => void
 }
 
-const UserMenu: FC<Props> = ({ setMail, setPassword }) => {
+const UserMenu: FC<Props> = ({
+  className,
+  name,
+  iconUrl,
+  logout,
+}) => {
   return (
-    <div className="user-menu">
-      <FormInput
-        className="user-manu__mail-input"
-        inputId="mail"
-        labelName="メールアドレス"
-        placeholder="メールアドレスを入力"
-        setValue={setMail}
+    <div className={className + ' ' + 'user-menu'}>
+      <UserInfo
+        className="user-menu__user-info"
+        name={name}
+        iconUrl={iconUrl}
       />
-      <FormPasswordInput
-        className="user-manu__password-input"
-        inputId="password"
-        labelName="パスワード"
-        placeholder="6文字以上半角英数字"
-        setValue={setPassword}
-      />
-
-      <p className="user-menu__forgetting-password">
-        パスワードをお忘れですか？
-      </p>
-
-      <div className="login">
-        <FormBtn
-          className="login__button"
-          name="ログイン"
-          onClick={() => {}}
-        />
-        <FontAwesomeIconBtn
-          className="login__twitter-icon"
-          icon={faTwitter}
-        />
-        <FontAwesomeIconBtn
-          className="login__facebook-icon"
-          icon={faFacebook}
+      <div className="items-wrap">
+        <Link to="../home">
+          <MenuItem
+            className="items-wrap__home"
+            title={'Home'}
+            icon={faHome}
+          />
+        </Link>
+        <Link to="../home">
+          <MenuItem
+            className="items-wrap__itinerary"
+            title={'作成した行程表'}
+            icon={faMapMarkerAlt}
+          />
+        </Link>
+        <Link to="../home">
+          <MenuItem
+            className="items-wrap__favorite"
+            title={'いいね'}
+            icon={faHeart}
+          />
+        </Link>
+        <Link to="../home">
+          <MenuItem
+            className="items-wrap__bookmark"
+            title={'ブックマーク'}
+            icon={faBookmark}
+          />
+        </Link>
+        <Link to="../home">
+          <MenuItem
+            className="items-wrap__setting"
+            title={'設定'}
+            icon={faCog}
+          />
+        </Link>
+        <MenuItem
+          className="items-wrap__logout"
+          title={'ログアウト'}
+          icon={faSignOutAlt}
+          onClick={logout}
         />
       </div>
-
-      <p className="user-menu__register-btn">
-        アカウントをお持ちでない方はこちら
-      </p>
 
       <p className="policy">
         <span className="policy__terms">利用規約</span>・

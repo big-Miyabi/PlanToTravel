@@ -1,30 +1,55 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useState, useEffect } from 'react'
+import { useDispatch } from 'react-redux'
+import { setShouldShowMenu } from '../../actions/menu'
 import Header from '../../components/organisms/Header'
 
 const HeaderContainer: FC = () => {
-  const [isUserMenuActive, setIsUserMenuActive] = useState(
-    false
-  )
+  const dispatch = useDispatch()
+  const [isMenuActive, setIsMenuActive] = useState(false)
   const [isSearchActive, setIsSearchActive] = useState(
     false
   )
-  const showUserMenu = () => {
-    isUserMenuActive
-      ? setIsUserMenuActive(false)
-      : setIsUserMenuActive(true)
+  const switchMenuDisplay = () => {
+    setIsMenuActive(!isMenuActive)
+    dispatch(setShouldShowMenu(!isMenuActive))
   }
-  const showSearchMenu = () => {
+  const switchSearchDisplay = () => {
     isSearchActive
       ? setIsSearchActive(false)
       : setIsSearchActive(true)
   }
 
+  // メニュー外をクリックでメニューを閉じる処理
+  useEffect(() => {
+    const overlay = document.getElementsByClassName(
+      'menu-overlay'
+    )[0] as HTMLElement
+
+    const documentClickHandler = () => {
+      if (!isMenuActive) return
+      switchMenuDisplay()
+      overlay.removeEventListener(
+        'click',
+        documentClickHandler
+      )
+    }
+
+    overlay.addEventListener('click', documentClickHandler)
+  }, [isMenuActive])
+
+  // アンマウント時にメニューを閉じる
+  useEffect(() => {
+    return () => {
+      dispatch(setShouldShowMenu(false))
+    }
+  }, [])
+
   return (
     <Header
-      isMenuActive={isUserMenuActive}
+      isMenuActive={isMenuActive}
       isSearchActive={isSearchActive}
-      showUserMenu={showUserMenu}
-      showSearchMenu={showSearchMenu}
+      switchMenuDisplay={switchMenuDisplay}
+      switchSearchDisplay={switchSearchDisplay}
     />
   )
 }
