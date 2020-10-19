@@ -24,7 +24,7 @@ const NewCard: FC<Props> = ({ post }) => {
         <GoToLogo className="new-card__go-to" />
       </div>
       <FontAwesomeIconBtn
-        className="new-card__bookmar"
+        className="new-card__bookmark"
         icon={faBookmark}
       />
       <div className="new-card__favorite">
@@ -37,7 +37,7 @@ const NewCard: FC<Props> = ({ post }) => {
         </p>
       </div>
       <ItineraryInCard
-        className="new-card__itineray"
+        className="new-card__itinerary"
         itinerary={post.itinerary}
       />
     </div>
