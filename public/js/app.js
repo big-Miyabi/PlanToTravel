@@ -87346,6 +87346,29 @@ exports.default = Menu;
 
 /***/ }),
 
+/***/ "./resources/ts/src/components/organisms/PopularPosts.tsx":
+/*!****************************************************************!*\
+  !*** ./resources/ts/src/components/organisms/PopularPosts.tsx ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var PopularPosts = function () {
+    return (react_1.default.createElement("div", { className: "popular-posts" },
+        react_1.default.createElement("p", { className: "popular-posts__title" }, "\u4EBA\u6C17\u306E\u6295\u7A3F")));
+};
+exports.default = PopularPosts;
+
+
+/***/ }),
+
 /***/ "./resources/ts/src/components/organisms/RegistForm.tsx":
 /*!**************************************************************!*\
   !*** ./resources/ts/src/components/organisms/RegistForm.tsx ***!
@@ -87684,6 +87707,29 @@ exports.default = LoginMenuContainer;
 
 /***/ }),
 
+/***/ "./resources/ts/src/containers/organisms/PopularPosts.tsx":
+/*!****************************************************************!*\
+  !*** ./resources/ts/src/containers/organisms/PopularPosts.tsx ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var PopularPosts_1 = __importDefault(__webpack_require__(/*! ../../components/organisms/PopularPosts */ "./resources/ts/src/components/organisms/PopularPosts.tsx"));
+var PopularPostsContainer = function () {
+    return react_1.default.createElement(PopularPosts_1.default, null);
+};
+exports.default = PopularPostsContainer;
+
+
+/***/ }),
+
 /***/ "./resources/ts/src/containers/organisms/RegistForm.tsx":
 /*!**************************************************************!*\
   !*** ./resources/ts/src/containers/organisms/RegistForm.tsx ***!
@@ -87959,10 +88005,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var Header_1 = __importDefault(__webpack_require__(/*! ../containers/organisms/Header */ "./resources/ts/src/containers/organisms/Header.tsx"));
 var Menu_1 = __importDefault(__webpack_require__(/*! ../components/organisms/Menu */ "./resources/ts/src/components/organisms/Menu.tsx"));
+var PopularPosts_1 = __importDefault(__webpack_require__(/*! ../containers/organisms/PopularPosts */ "./resources/ts/src/containers/organisms/PopularPosts.tsx"));
 var HomeScreen = function () {
     return (react_1.default.createElement("div", { className: "home" },
         react_1.default.createElement(Header_1.default, null),
-        react_1.default.createElement(Menu_1.default, null)));
+        react_1.default.createElement(Menu_1.default, null),
+        react_1.default.createElement(PopularPosts_1.default, null)));
 };
 exports.default = HomeScreen;
 
