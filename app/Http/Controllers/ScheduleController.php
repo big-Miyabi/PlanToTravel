@@ -9,7 +9,7 @@ use App\Schedule;
 use App\Tag;
 use App\Place;
 
-class PostController extends Controller
+class ScheduleController extends Controller
 {
   public function create(Request $request)
   {
