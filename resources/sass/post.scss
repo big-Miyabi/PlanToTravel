@@ -41,15 +41,43 @@
         }
 
         &__h2 {
+            margin: 0;
             font-size: 1.4rem;
             font-weight: bold;
             color: $navy;
+        }
+
+        &__row-flex-wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         &__title {
             width: px-to-vw(227);
             border: none;
             border-bottom: 1px solid $navy;
+            &:focus {
+                outline: none;
+            }
+        }
+
+        &__public-switch-btn {
+            border: 1px solid $light-gray;
+            background-color: $white;
+            color: $light-gray;
+            font-weight: normal;
+        }
+
+        &__tag-input {
+            width: px-to-vw(231);
+        }
+
+        &__tag-wrap {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin-top: px-to-vh(17);
         }
     }
 }

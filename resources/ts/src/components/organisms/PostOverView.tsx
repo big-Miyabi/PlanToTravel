@@ -8,25 +8,35 @@ const PostOverview: FC = () => {
     <div className="post-overview">
       <div className="post-overview__content-wrap">
         <h2 className="post-overview__h2">タイトル*</h2>
-        <input
-          type="text"
-          className="post-overview__title"
-        />
-        <FormBtn
-          className="post-overview__public-switch-btn"
-          name="非公開"
-          onClick={() => {}}
-        />
+        <div className="post-overview__row-flex-wrap">
+          <input
+            type="text"
+            className="post-overview__title"
+          />
+          <FormBtn
+            className="post-overview__public-switch-btn"
+            name="非公開"
+            onClick={() => {}}
+          />
+        </div>
       </div>
 
       <div className="post-overview__content-wrap">
-        <h2 className="post-overview__h2">タグ</h2>
-        <InputBox
-          type="text"
-          className="post-overview__tag"
-          placeholder="タグを追加してください"
-        />
-        <PostTag tagName="hoge" onClick={() => {}} />
+        <div className="post-overview__row-flex-wrap">
+          <h2 className="post-overview__h2">タグ</h2>
+          <InputBox
+            type="text"
+            className="post-overview__tag-input"
+            placeholder="タグを追加してください"
+          />
+        </div>
+        <div className="post-overview__tag-wrap">
+          <PostTag
+            tagName="hoge"
+            isPost={true}
+            onClick={() => {}}
+          />
+        </div>
       </div>
 
       <div className="post-overview__content-wrap">
