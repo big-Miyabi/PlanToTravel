@@ -33,4 +33,23 @@
             align-items: center;
         }
     }
+
+    .post-overview {
+        &__content-wrap {
+            width: px-to-vw(290);
+            margin: px-to-vw(40) auto;
+        }
+
+        &__h2 {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: $navy;
+        }
+
+        &__title {
+            width: px-to-vw(227);
+            border: none;
+            border-bottom: 1px solid $navy;
+        }
+    }
 }
