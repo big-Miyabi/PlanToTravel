@@ -32,24 +32,28 @@ const PopularCard: FC<Props> = ({ post }) => {
           <GoToLogo className="popular-card__go-to" />
         </div>
 
-        <ItineraryInCard
-          className="popular-card__itinerary"
-          itinerary={post.itinerary}
-        />
-
-        <div className="popular-card__icon-wrap">
-          <FontAwesomeIconBtn
-            className="popular-card__bookmark"
-            icon={faBookmark}
-          />
-          <div className="popular-card__favorite">
-            <FontAwesomeIconBtn
-              className="popular-card__favorite-btn"
-              icon={faHeart}
+        <div className="popular-card__wrap-itineraryicon">
+          <div className="popular-card__itinerary-wrap">
+            <ItineraryInCard
+              className="popular-card__itinerary"
+              itinerary={post.itinerary}
             />
-            <p className="popular-card__favorite-number">
-              {post.favNum}
-            </p>
+          </div>
+
+          <div className="popular-card__icon-wrap">
+            <FontAwesomeIconBtn
+              className="popular-card__bookmark"
+              icon={faBookmark}
+            />
+            <div className="popular-card__favorite">
+              <FontAwesomeIconBtn
+                className="popular-card__favorite-btn"
+                icon={faHeart}
+              />
+              <p className="popular-card__favorite-number">
+                {post.favNum}
+              </p>
+            </div>
           </div>
         </div>
       </div>
