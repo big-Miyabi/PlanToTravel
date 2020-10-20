@@ -87855,6 +87855,29 @@ exports.default = Header;
 
 /***/ }),
 
+/***/ "./resources/ts/src/components/organisms/PostOverView.tsx":
+/*!****************************************************************!*\
+  !*** ./resources/ts/src/components/organisms/PostOverView.tsx ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var PostOverview = function () {
+    return (react_1.default.createElement("div", { className: "post-overview" },
+        react_1.default.createElement("p", null, "hogehoge")));
+};
+exports.default = PostOverview;
+
+
+/***/ }),
+
 /***/ "./resources/ts/src/components/organisms/RegistForm.tsx":
 /*!**************************************************************!*\
   !*** ./resources/ts/src/components/organisms/RegistForm.tsx ***!
@@ -88534,6 +88557,29 @@ exports.default = PopularPostsContainer;
 
 /***/ }),
 
+/***/ "./resources/ts/src/containers/organisms/PostOverview.tsx":
+/*!****************************************************************!*\
+  !*** ./resources/ts/src/containers/organisms/PostOverview.tsx ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var PostOverView_1 = __importDefault(__webpack_require__(/*! ../../components/organisms/PostOverView */ "./resources/ts/src/components/organisms/PostOverView.tsx"));
+var PostOverviewContainer = function () {
+    return react_1.default.createElement(PostOverView_1.default, null);
+};
+exports.default = PostOverviewContainer;
+
+
+/***/ }),
+
 /***/ "./resources/ts/src/containers/organisms/RegistForm.tsx":
 /*!**************************************************************!*\
   !*** ./resources/ts/src/containers/organisms/RegistForm.tsx ***!
@@ -88839,11 +88885,13 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 var Header_1 = __importDefault(__webpack_require__(/*! ../containers/organisms/Header */ "./resources/ts/src/containers/organisms/Header.tsx"));
 var Menu_1 = __importDefault(__webpack_require__(/*! ../components/organisms/Menu */ "./resources/ts/src/components/organisms/Menu.tsx"));
 var ProgressBar_1 = __importDefault(__webpack_require__(/*! ../components/molecules/ProgressBar */ "./resources/ts/src/components/molecules/ProgressBar.tsx"));
+var PostOverview_1 = __importDefault(__webpack_require__(/*! ../containers/organisms/PostOverview */ "./resources/ts/src/containers/organisms/PostOverview.tsx"));
 var PostScreen = function () {
     return (react_1.default.createElement("div", { className: "post-screen" },
         react_1.default.createElement(Header_1.default, { isPost: false }),
         react_1.default.createElement(Menu_1.default, null),
-        react_1.default.createElement(ProgressBar_1.default, null)));
+        react_1.default.createElement(ProgressBar_1.default, null),
+        react_1.default.createElement(PostOverview_1.default, null)));
 };
 exports.default = PostScreen;
 

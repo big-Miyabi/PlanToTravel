@@ -2,6 +2,7 @@ import React, { FC } from 'react'
 import Header from '../containers/organisms/Header'
 import Menu from '../components/organisms/Menu'
 import ProgressBar from '../components/molecules/ProgressBar'
+import PostOverview from '../containers/organisms/PostOverview'
 
 const PostScreen: FC = () => {
   return (
@@ -9,6 +10,7 @@ const PostScreen: FC = () => {
       <Header isPost={false} />
       <Menu />
       <ProgressBar />
+      <PostOverview />
     </div>
   )
 }
