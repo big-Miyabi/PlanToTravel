@@ -365,6 +365,20 @@ input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 1000px white inset;
 }
 
+.form-btn {
+  border: none;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.form-btn:focus {
+  outline: none;
+}
+
 @media screen and (max-width: 559px) {
   .register-screen {
     width: 100vw;
@@ -417,22 +431,12 @@ input:-webkit-autofill {
     width: 65.6vw;
     height: 4.0640394089vh;
     margin-top: 1.2315270936vh;
-    border: none;
-    border-radius: 8px;
     background-color: #fcbe32;
     color: #fff;
-    text-align: center;
-    text-decoration: none;
-    font-size: 1.4rem;
-    font-weight: bold;
   }
 
   .regist-form__button:hover {
     background-color: rgba(252, 190, 50, 0.5);
-  }
-
-  .regist-form__button:focus {
-    outline: none;
   }
 
   .form-input {
@@ -592,18 +596,8 @@ input:-webkit-autofill {
   .login__button {
     width: 35.4666666667vw;
     height: 4.0640394089vh;
-    border: none;
-    border-radius: 8px;
     background-color: #fcbe32;
     color: #fff;
-    text-align: center;
-    text-decoration: none;
-    font-size: 1.4rem;
-    font-weight: bold;
-  }
-
-  .login__button:hover {
-    background-color: rgba(252, 190, 50, 0.5);
   }
 
   .login__button:focus {
