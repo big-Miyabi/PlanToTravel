@@ -19,7 +19,7 @@ const Post: FC = () => {
   const [transport_detail, setTransD] = useState<string>('')
   // const [distance, setDistance] = useState<string>('')
   const [comment, setComment] = useState<string>('')
-  const [tags, setTags] = useState<string[]>([''])
+  const [tag_name, setTags] = useState<string[]>([''])
   const uid = '31'
   const is_public = '0'
   const addSchedule = () => {
@@ -42,7 +42,7 @@ const Post: FC = () => {
         transport,
         transport_detail,
         comment,
-        tags,
+        tag_name,
       })
       .then((res) => {
         console.log(res.data)
@@ -54,7 +54,7 @@ const Post: FC = () => {
 
   return (
     <>
-      <p>{tags}</p>
+      <p>{tag_name}</p>
       <label>
         ヘッダー画像追加
         <input
@@ -76,7 +76,7 @@ const Post: FC = () => {
         <input
           type="text"
           onChange={(e) => {
-            const newTags = tags.slice()
+            const newTags = tag_name.slice()
             newTags[0] = e.target.value
             setTags(newTags)
           }}
@@ -85,7 +85,7 @@ const Post: FC = () => {
         <input
           type="text"
           onChange={(e) => {
-            const newTags = tags.slice()
+            const newTags = tag_name.slice()
             newTags[1] = e.target.value
             setTags(newTags)
           }}
@@ -94,7 +94,7 @@ const Post: FC = () => {
         <input
           type="text"
           onChange={(e) => {
-            const newTags = tags.slice()
+            const newTags = tag_name.slice()
             newTags[2] = e.target.value
             setTags(newTags)
           }}
