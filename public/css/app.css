@@ -861,13 +861,12 @@ input:-webkit-autofill {
 }
 
 @media screen and (max-width: 559px) {
-  .post-screen {
-    padding-top: 2.2167487685vh;
-  }
-
-  .post-header {
+  .post-header__icons {
     display: flex;
-    margin: 1.4778325123vh 3.4666666667vw 0 3.4666666667vw;
+    position: absolute;
+    width: 100%;
+    margin-top: calc(2.2167487685vh + 1.4778325123vh);
+    padding: 0 3.4666666667vw;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
@@ -876,6 +875,20 @@ input:-webkit-autofill {
   .post-header__close {
     font-size: 2.4rem;
     color: #e5e5e5;
+  }
+
+  .post-image {
+    width: 100vw;
+    height: 55.2vw;
+    background-size: cover;
+  }
+
+  .post-image__plus-image-wrap {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
   }
 }
 
