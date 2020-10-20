@@ -87169,6 +87169,32 @@ exports.default = NaviIcon;
 
 /***/ }),
 
+/***/ "./resources/ts/src/components/atoms/svg/PlusImage.tsx":
+/*!*************************************************************!*\
+  !*** ./resources/ts/src/components/atoms/svg/PlusImage.tsx ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var colors_1 = __webpack_require__(/*! ../../../utilities/colors */ "./resources/ts/src/utilities/colors.ts");
+var PlusImage = function (_a) {
+    var className = _a.className, _b = _a.color, color = _b === void 0 ? colors_1.colors.navyBlue : _b, _c = _a.opacity, opacity = _c === void 0 ? 1 : _c, _d = _a.onClick, onClick = _d === void 0 ? function () { } : _d;
+    return (react_1.default.createElement("svg", { className: className, onClick: onClick, width: "53", height: "45", viewBox: "0 0 53 45", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
+        react_1.default.createElement("path", { d: "M45.75 40H22.125C18.9609 40 16.5 37.5391 16.5 34.375V19.75H15.375C13.4766 19.75 12 21.2969 12 23.125V41.125C12 43.0234 13.4766 44.5 15.375 44.5H42.375C44.2031 44.5 45.75 43.0234 45.75 41.125V40ZM52.5 34.375V16.375C52.5 14.5469 50.9531 13 49.125 13H22.125C20.2266 13 18.75 14.5469 18.75 16.375V34.375C18.75 36.2734 20.2266 37.75 22.125 37.75H49.125C50.9531 37.75 52.5 36.2734 52.5 34.375ZM30 19.75C30 21.6484 28.4531 23.125 26.625 23.125C24.7266 23.125 23.25 21.6484 23.25 19.75C23.25 17.9219 24.7266 16.375 26.625 16.375C28.4531 16.375 30 17.9219 30 19.75ZM23.25 29.875L27.1172 26.0078C27.4688 25.6562 27.9609 25.6562 28.3125 26.0078L31.125 28.75L40.6172 19.2578C40.9688 18.9062 41.4609 18.9062 41.8125 19.2578L48 25.375V33.25H23.25V29.875Z", fill: color, "fill-opacity": opacity }),
+        react_1.default.createElement("path", { d: "M9 0C4.02823 0 0 4.02823 0 9C0 13.9718 4.02823 18 9 18C13.9718 18 18 13.9718 18 9C18 4.02823 13.9718 0 9 0ZM14.2258 10.0161C14.2258 10.2702 14.0081 10.4516 13.7903 10.4516H10.4516V13.7903C10.4516 14.0444 10.2339 14.2258 10.0161 14.2258H7.98387C7.72984 14.2258 7.54839 14.0444 7.54839 13.7903V10.4516H4.20968C3.95565 10.4516 3.77419 10.2702 3.77419 10.0161V7.98387C3.77419 7.76613 3.95565 7.54839 4.20968 7.54839H7.54839V4.20968C7.54839 3.99194 7.72984 3.77419 7.98387 3.77419H10.0161C10.2339 3.77419 10.4516 3.99194 10.4516 4.20968V7.54839H13.7903C14.0081 7.54839 14.2258 7.76613 14.2258 7.98387V10.0161Z", fill: color, "fill-opacity": opacity })));
+};
+exports.default = PlusImage;
+
+
+/***/ }),
+
 /***/ "./resources/ts/src/components/atoms/svg/RainyPin.tsx":
 /*!************************************************************!*\
   !*** ./resources/ts/src/components/atoms/svg/RainyPin.tsx ***!
@@ -87493,6 +87519,34 @@ exports.default = PopularCard;
 
 /***/ }),
 
+/***/ "./resources/ts/src/components/molecules/PostImage.tsx":
+/*!*************************************************************!*\
+  !*** ./resources/ts/src/components/molecules/PostImage.tsx ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var PlusImage_1 = __importDefault(__webpack_require__(/*! ../atoms/svg/PlusImage */ "./resources/ts/src/components/atoms/svg/PlusImage.tsx"));
+var PostImage = function () {
+    var style = {
+        backgroundImage: 'url("../images/ninki_listimg_bg.png")',
+    };
+    return (react_1.default.createElement("div", { className: "post-image", style: style },
+        react_1.default.createElement("div", { className: "post-image__plus-image-wrap" },
+            react_1.default.createElement(PlusImage_1.default, { className: "post-image__plus-image", opacity: 1 }))));
+};
+exports.default = PostImage;
+
+
+/***/ }),
+
 /***/ "./resources/ts/src/components/molecules/RegisterWithSNS.tsx":
 /*!*******************************************************************!*\
   !*** ./resources/ts/src/components/molecules/RegisterWithSNS.tsx ***!
@@ -87758,15 +87812,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var colors_1 = __webpack_require__(/*! ../../utilities/colors */ "./resources/ts/src/utilities/colors.ts");
+var free_solid_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 var NaviIcon_1 = __importDefault(__webpack_require__(/*! ../atoms/svg/NaviIcon */ "./resources/ts/src/components/atoms/svg/NaviIcon.tsx"));
 var FontAwesomeIconBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FontAwesomeIconBtn */ "./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx"));
-var free_solid_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+var PostImage_1 = __importDefault(__webpack_require__(/*! ../../containers/molecules/PostImage */ "./resources/ts/src/containers/molecules/PostImage.tsx"));
 var Header = function (_a) {
     var props = __rest(_a, []);
     var isMenuActive = props.isMenuActive, switchMenuDisplay = props.switchMenuDisplay;
     return (react_1.default.createElement("div", { className: "post-header" },
-        react_1.default.createElement(NaviIcon_1.default, { className: "post-header__menu", color: isMenuActive ? colors_1.colors.yellow : colors_1.colors.lightGray, onClick: function () { return switchMenuDisplay(); } }),
-        react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "post-header__close", icon: free_solid_svg_icons_1.faTimes })));
+        react_1.default.createElement("div", { className: "post-header__icons" },
+            react_1.default.createElement(NaviIcon_1.default, { className: "post-header__menu", color: isMenuActive ? colors_1.colors.yellow : colors_1.colors.lightGray, onClick: function () { return switchMenuDisplay(); } }),
+            react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "post-header__close", icon: free_solid_svg_icons_1.faTimes })),
+        react_1.default.createElement(PostImage_1.default, null)));
 };
 exports.default = Header;
 
@@ -87957,6 +88014,29 @@ var PopularCardContainer = function (_a) {
     return react_1.default.createElement(PopularCard_1.default, { post: post });
 };
 exports.default = PopularCardContainer;
+
+
+/***/ }),
+
+/***/ "./resources/ts/src/containers/molecules/PostImage.tsx":
+/*!*************************************************************!*\
+  !*** ./resources/ts/src/containers/molecules/PostImage.tsx ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var PostImage_1 = __importDefault(__webpack_require__(/*! ../../components/molecules/PostImage */ "./resources/ts/src/components/molecules/PostImage.tsx"));
+var PostImageContainer = function () {
+    return react_1.default.createElement(PostImage_1.default, null);
+};
+exports.default = PostImageContainer;
 
 
 /***/ }),
