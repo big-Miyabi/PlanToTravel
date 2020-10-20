@@ -12,9 +12,11 @@ const PostOverview: FC = () => {
           type="text"
           className="post-overview__title"
         />
-        <button className="post-overview__public-switch-btn">
-          非公開
-        </button>
+        <FormBtn
+          className="post-overview__public-switch-btn"
+          name="非公開"
+          onClick={() => {}}
+        />
       </div>
 
       <div className="post-overview__content-wrap">

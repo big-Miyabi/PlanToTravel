@@ -890,6 +890,23 @@ input:-webkit-autofill {
     justify-content: center;
     align-items: center;
   }
+
+  .post-overview__content-wrap {
+    width: 77.3333333333vw;
+    margin: 10.6666666667vw auto;
+  }
+
+  .post-overview__h2 {
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #003666;
+  }
+
+  .post-overview__title {
+    width: 60.5333333333vw;
+    border: none;
+    border-bottom: 1px solid #003666;
+  }
 }
 
 /*!
