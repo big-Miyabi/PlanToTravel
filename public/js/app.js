@@ -87473,18 +87473,18 @@ var PopularCard = function (_a) {
     var bgStyle = {
         backgroundImage: 'url(' + post.header + ')',
     };
-    return (react_1.default.createElement("div", { className: "popularcard" },
-        react_1.default.createElement("div", { className: "popular-card", style: bgStyle },
-            react_1.default.createElement("div", { className: "popular-card__ninki_whithbg" },
-                react_1.default.createElement("img", { src: "../images/ninki_listimg_white.png", alt: "" })),
+    return (react_1.default.createElement("div", { className: "popular-card" },
+        react_1.default.createElement("div", { className: "popular-card__white-bg-wrap" },
+            react_1.default.createElement("img", { className: "popular-card__white-bg", src: "../images/ninki_listimg_white.png", alt: "" })),
+        react_1.default.createElement("div", { className: "popular-card__wrap", style: bgStyle },
             react_1.default.createElement("div", { style: goTostyle },
                 react_1.default.createElement(GoToLogo_1.default, { className: "popular-card__go-to" })),
-            react_1.default.createElement("div", { className: "popular-card__defaultform" },
-                react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "popular-card__bookmar", icon: free_solid_svg_icons_1.faBookmark }),
+            react_1.default.createElement(ItineraryInCard_1.default, { className: "popular-card__itinerary", itinerary: post.itinerary }),
+            react_1.default.createElement("div", { className: "popular-card__icon-wrap" },
+                react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "popular-card__bookmark", icon: free_solid_svg_icons_1.faBookmark }),
                 react_1.default.createElement("div", { className: "popular-card__favorite" },
                     react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "popular-card__favorite-btn", icon: free_solid_svg_icons_1.faHeart }),
-                    react_1.default.createElement("p", { className: "popular-card__favorite-number" }, post.favNum)),
-                react_1.default.createElement(ItineraryInCard_1.default, { className: "popular-card__itineray", itinerary: post.itinerary })))));
+                    react_1.default.createElement("p", { className: "popular-card__favorite-number" }, post.favNum))))));
 };
 exports.default = PopularCard;
 
@@ -88807,8 +88807,8 @@ exports.colors = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\hyeeun\planto\PlanToTravel\resources\ts\app.tsx */"./resources/ts/app.tsx");
-module.exports = __webpack_require__(/*! C:\Users\hyeeun\planto\PlanToTravel\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /Users/ryoga/projects/PlanToTravel/resources/ts/app.tsx */"./resources/ts/app.tsx");
+module.exports = __webpack_require__(/*! /Users/ryoga/projects/PlanToTravel/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

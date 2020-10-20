@@ -7,6 +7,86 @@
         padding-top: $header-top;
     }
 
+    // ↓コンさん担当エリア
+    .popular-posts {
+        color: $navy;
+        margin-top: px-to-vh(25);
+
+        &__title {
+            font-size: 1.4rem;
+            letter-spacing: px-to-vw(5);
+            text-align: center;
+        }
+    }
+
+    .popular-card {
+        width: px-to-vw(347);
+        height: px-to-vw(193);
+        margin: 0 auto;
+        &__wrap {
+            z-index: 2;
+            display: flex;
+            width: px-to-vw(347);
+            height: px-to-vw(193); // 高さは幅に依存させる
+            margin: px-to-vh(26) auto 0px;
+            background-size: cover;
+            border-radius: px-to-vw(17);
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        &__white-bg-wrap {
+            z-index: 1;
+            position: absolute;
+        }
+
+        &__white-bg {
+            width: px-to-vw(347);
+            height: px-to-vw(193); // 高さは幅に依存させる
+        }
+
+        &__go-to {
+            position: relative;
+            z-index: 1;
+            top: px-to-vh(-18);
+            left: px-to-vw(-4);
+        }
+
+        &__itinerary {
+            position: relative;
+            z-index: 1;
+        }
+
+        &__icon-wrap {
+            display: flex;
+            position: relative;
+            z-index: 1;
+            height: 100%;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        &__bookmark {
+            font-size: 3.1rem;
+            color: rgba(188, 219, 232, 0.7);
+            &:hover {
+                color: $navy;
+            }
+            &:focus {
+                outline: none;
+            }
+        }
+        &__favorite-btn {
+            position: relative;
+            font-size: 2.4rem;
+            color: $orange;
+            &:visited {
+                color: $yellow;
+            }
+        }
+    }
+
+    // ↓大田担当エリア
     .new-posts {
         &__row {
             display: flex;
@@ -56,77 +136,6 @@
         &__itinerary {
             position: relative;
             z-index: 1;
-        }
-    }
-}
-
-.popular-posts {
-    color: $navy;
-    margin-top: px-to-vh(25);
-}
-.popular-posts__title {
-    font-size: 1.4rem;
-    letter-spacing: px-to-vw(5);
-    text-align: center;
-}
-.popularcard {
-    width: px-to-vw(347);
-    overflow: hidden;
-    margin: 0 auto 0px;
-}
-.popular-card {
-    width: px-to-vw(347);
-    height: px-to-vh(193);
-    background-size: cover;
-    border-radius: px-to-vw(17);
-    margin: px-to-vh(26) auto 0px; //これと
-    //text-align: center;
-    display: flex;
-    flex-direction: row;
-
-    &header {
-        z-index: 1;
-        position: relative;
-    }
-
-    &__ninki_whithbg {
-        z-index: 2;
-        position: relative;
-        img {
-            width: px-to-vw(347);
-            height: px-to-vh(193);
-        }
-    }
-
-    &__go-to {
-        margin-top: 0;
-        z-index: 5;
-        position: relative;
-        left: px-to-vw(-343);
-        top: px-to-vh(-18);
-    }
-
-    &__defaultform {
-        width: px-to-vw(136);
-        height: px-to-vh(189);
-        z-index: 4;
-        position: relative;
-        left: px-to-vw(-150);
-        top: px-to-vh(-18);
-        &__bookmar {
-            color: rgba(188, 219, 232, 0.7);
-            &:hover {
-                color: $navy;
-            }
-            &:focus {
-                outline: none;
-            }
-        }
-        &__favorite {
-            color: $orange;
-            &:visited {
-                color: yellow;
-            }
         }
     }
 }
