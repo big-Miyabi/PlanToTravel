@@ -13,3 +13,16 @@ body {
 input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 1000px white inset;
 }
+
+.form-btn {
+    border: none;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: bold;
+    cursor: pointer;
+    &:focus {
+        outline: none;
+    }
+}
