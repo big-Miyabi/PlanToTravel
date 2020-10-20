@@ -19,6 +19,9 @@ const GlobalNav: FC = () => {
         <Link to="/post">
           <li>Post</li>
         </Link>
+        <Link to="/postEdit">
+          <li>PostEdit</li>
+        </Link>
       </ul>
     </nav>
   )
