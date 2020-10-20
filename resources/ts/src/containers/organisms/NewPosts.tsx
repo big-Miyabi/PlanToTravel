@@ -7,7 +7,7 @@ const NewPostsContainer: FC = () => {
   const posts: PostCardType[] = [
     {
       id: 2000,
-      header: '../images/post_ninki_sample1.png',
+      header: '../images/listimg_sampleBg1.png',
       hasGoTo: true,
       favNum: 123,
       itinerary: [
@@ -17,7 +17,7 @@ const NewPostsContainer: FC = () => {
         },
         {
           whether: 'rain',
-          place: '井の頭自然文化公園・熱帯鳥温園',
+          place: '井の頭自然..',
         },
         {
           whether: 'night',
@@ -41,7 +41,7 @@ const NewPostsContainer: FC = () => {
         },
         {
           whether: 'rain',
-          place: '井の頭自然文化公園・熱帯鳥温園',
+          place: '井の頭自然..',
         },
         {
           whether: 'night',
@@ -65,7 +65,7 @@ const NewPostsContainer: FC = () => {
         },
         {
           whether: 'rain',
-          place: '井の頭自然文化公園・熱帯鳥温園',
+          place: '井の頭自然..',
         },
         {
           whether: 'night',
@@ -89,7 +89,7 @@ const NewPostsContainer: FC = () => {
         },
         {
           whether: 'rain',
-          place: '井の頭自然文化公園・熱帯鳥温園',
+          place: '井の頭自然..',
         },
         {
           whether: 'night',
@@ -113,7 +113,7 @@ const NewPostsContainer: FC = () => {
         },
         {
           whether: 'rain',
-          place: '井の頭自然文化公園・熱帯鳥温園',
+          place: '井の頭自然..',
         },
         {
           whether: 'night',
@@ -137,7 +137,7 @@ const NewPostsContainer: FC = () => {
         },
         {
           whether: 'rain',
-          place: '井の頭自然文化公園・熱帯鳥温園',
+          place: '井の頭自然..',
         },
         {
           whether: 'night',

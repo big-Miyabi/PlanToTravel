@@ -87375,9 +87375,11 @@ var ItineraryInCard = function (_a) {
     return (react_1.default.createElement("div", { className: className + ' ' + 'itinerary-in-card' }, itinerary.map(function (item, key) {
         if (key > 2)
             return;
-        return (react_1.default.createElement("div", { className: "itinerary-in-card__place", key: key },
-            react_1.default.createElement(WhetherPin_1.default, { className: "itinerary-in-card__pin", whether: item.whether }),
-            react_1.default.createElement("p", { className: "itinerary-in-card__place-name" }, item.place)));
+        return (react_1.default.createElement(react_1.default.Fragment, null,
+            react_1.default.createElement("div", { className: "itinerary-in-card__place", key: key },
+                react_1.default.createElement(WhetherPin_1.default, { className: "itinerary-in-card__pin", whether: item.whether }),
+                react_1.default.createElement("p", { className: "itinerary-in-card__place-name" }, item.place)),
+            react_1.default.createElement("div", { className: "itinerary-in-card__line" })));
     })));
 };
 exports.default = ItineraryInCard;
@@ -87438,11 +87440,13 @@ var NewCard = function (_a) {
     return (react_1.default.createElement("div", { className: "new-card", style: bgStyle },
         react_1.default.createElement("div", { style: goTostyle },
             react_1.default.createElement(GoToLogo_1.default, { className: "new-card__go-to" })),
-        react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "new-card__bookmark", icon: free_solid_svg_icons_1.faBookmark }),
-        react_1.default.createElement("div", { className: "new-card__favorite" },
-            react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "new-card__favorite-btn", icon: free_solid_svg_icons_1.faHeart }),
-            react_1.default.createElement("p", { className: "new-card__favorite-number" }, post.favNum)),
-        react_1.default.createElement(ItineraryInCard_1.default, { className: "new-card__itinerary", itinerary: post.itinerary })));
+        react_1.default.createElement("div", { className: "new-card__wrap-itineraryicon" },
+            react_1.default.createElement(ItineraryInCard_1.default, { className: "new-card__itinerary", itinerary: post.itinerary }),
+            react_1.default.createElement("div", { className: "new-card__icon-wrap" },
+                react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "new-card__bookmark", icon: free_solid_svg_icons_1.faBookmark }),
+                react_1.default.createElement("div", { className: "new-card__favorite" },
+                    react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "new-card__favorite-btn", icon: free_solid_svg_icons_1.faHeart }),
+                    react_1.default.createElement("p", { className: "new-card__favorite-number" }, post.favNum))))));
 };
 exports.default = NewCard;
 
@@ -87479,12 +87483,14 @@ var PopularCard = function (_a) {
         react_1.default.createElement("div", { className: "popular-card__wrap", style: bgStyle },
             react_1.default.createElement("div", { style: goTostyle },
                 react_1.default.createElement(GoToLogo_1.default, { className: "popular-card__go-to" })),
-            react_1.default.createElement(ItineraryInCard_1.default, { className: "popular-card__itinerary", itinerary: post.itinerary }),
-            react_1.default.createElement("div", { className: "popular-card__icon-wrap" },
-                react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "popular-card__bookmark", icon: free_solid_svg_icons_1.faBookmark }),
-                react_1.default.createElement("div", { className: "popular-card__favorite" },
-                    react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "popular-card__favorite-btn", icon: free_solid_svg_icons_1.faHeart }),
-                    react_1.default.createElement("p", { className: "popular-card__favorite-number" }, post.favNum))))));
+            react_1.default.createElement("div", { className: "popular-card__wrap-itineraryicon" },
+                react_1.default.createElement("div", { className: "popular-card__itinerary-wrap" },
+                    react_1.default.createElement(ItineraryInCard_1.default, { className: "popular-card__itinerary", itinerary: post.itinerary })),
+                react_1.default.createElement("div", { className: "popular-card__icon-wrap" },
+                    react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "popular-card__bookmark", icon: free_solid_svg_icons_1.faBookmark }),
+                    react_1.default.createElement("div", { className: "popular-card__favorite" },
+                        react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "popular-card__favorite-btn", icon: free_solid_svg_icons_1.faHeart }),
+                        react_1.default.createElement("p", { className: "popular-card__favorite-number" }, post.favNum)))))));
 };
 exports.default = PopularCard;
 
@@ -88136,7 +88142,7 @@ var NewPostsContainer = function () {
     var posts = [
         {
             id: 2000,
-            header: '../images/post_ninki_sample1.png',
+            header: '../images/listimg_sampleBg1.png',
             hasGoTo: true,
             favNum: 123,
             itinerary: [
@@ -88146,7 +88152,7 @@ var NewPostsContainer = function () {
                 },
                 {
                     whether: 'rain',
-                    place: '井の頭自然文化公園・熱帯鳥温園',
+                    place: '井の頭自然..',
                 },
                 {
                     whether: 'night',
@@ -88170,7 +88176,7 @@ var NewPostsContainer = function () {
                 },
                 {
                     whether: 'rain',
-                    place: '井の頭自然文化公園・熱帯鳥温園',
+                    place: '井の頭自然..',
                 },
                 {
                     whether: 'night',
@@ -88194,7 +88200,7 @@ var NewPostsContainer = function () {
                 },
                 {
                     whether: 'rain',
-                    place: '井の頭自然文化公園・熱帯鳥温園',
+                    place: '井の頭自然..',
                 },
                 {
                     whether: 'night',
@@ -88218,7 +88224,7 @@ var NewPostsContainer = function () {
                 },
                 {
                     whether: 'rain',
-                    place: '井の頭自然文化公園・熱帯鳥温園',
+                    place: '井の頭自然..',
                 },
                 {
                     whether: 'night',
@@ -88242,7 +88248,7 @@ var NewPostsContainer = function () {
                 },
                 {
                     whether: 'rain',
-                    place: '井の頭自然文化公園・熱帯鳥温園',
+                    place: '井の頭自然..',
                 },
                 {
                     whether: 'night',
@@ -88266,7 +88272,7 @@ var NewPostsContainer = function () {
                 },
                 {
                     whether: 'rain',
-                    place: '井の頭自然文化公園・熱帯鳥温園',
+                    place: '井の頭自然..',
                 },
                 {
                     whether: 'night',
@@ -88316,7 +88322,7 @@ var PopularPostsContainer = function () {
                 },
                 {
                     whether: 'rain',
-                    place: '井の頭自然文化公園・熱帯鳥温園',
+                    place: '井の頭自然..',
                 },
                 {
                     whether: 'night',
@@ -88340,7 +88346,7 @@ var PopularPostsContainer = function () {
                 },
                 {
                     whether: 'rain',
-                    place: '井の頭自然文化公園・熱帯鳥温園',
+                    place: '井の頭自然..',
                 },
                 {
                     whether: 'night',
@@ -88364,7 +88370,7 @@ var PopularPostsContainer = function () {
                 },
                 {
                     whether: 'rain',
-                    place: '井の頭自然文化公園・熱帯鳥温園',
+                    place: '井の頭自然..',
                 },
                 {
                     whether: 'night',
@@ -88807,8 +88813,8 @@ exports.colors = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/ryoga/projects/PlanToTravel/resources/ts/app.tsx */"./resources/ts/app.tsx");
-module.exports = __webpack_require__(/*! /Users/ryoga/projects/PlanToTravel/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\hyeeun\planto\PlanToTravel\resources\ts\app.tsx */"./resources/ts/app.tsx");
+module.exports = __webpack_require__(/*! C:\Users\hyeeun\planto\PlanToTravel\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

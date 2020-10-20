@@ -17,18 +17,21 @@ const ItineraryInCard: FC<Props> = ({
         if (key > 2) return
 
         return (
-          <div
-            className="itinerary-in-card__place"
-            key={key}
-          >
-            <WhetherPin
-              className="itinerary-in-card__pin"
-              whether={item.whether}
-            />
-            <p className="itinerary-in-card__place-name">
-              {item.place}
-            </p>
-          </div>
+          <>
+            <div
+              className="itinerary-in-card__place"
+              key={key}
+            >
+              <WhetherPin
+                className="itinerary-in-card__pin"
+                whether={item.whether}
+              />
+              <p className="itinerary-in-card__place-name">
+                {item.place}
+              </p>
+            </div>
+            <div className="itinerary-in-card__line"></div>
+          </>
         )
       })}
     </div>
