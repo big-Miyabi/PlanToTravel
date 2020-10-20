@@ -1,0 +1,21 @@
+@import "variables";
+@import "function";
+
+// @include md-down()内部にstyleを記述すると、スマートフォンサイズでメディアクエリがかかるようになる
+@include md-down() {
+    .post-screen {
+        padding-top: $header-top;
+    }
+
+    .post-header {
+        display: flex;
+        margin: px-to-vh(12) px-to-vw(13) 0 px-to-vw(13);
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        &__close {
+            font-size: 2.4rem;
+            color: $light-gray;
+        }
+    }
+}

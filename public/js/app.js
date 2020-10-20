@@ -87732,6 +87732,47 @@ exports.default = PopularPosts;
 
 /***/ }),
 
+/***/ "./resources/ts/src/components/organisms/PostHeader.tsx":
+/*!**************************************************************!*\
+  !*** ./resources/ts/src/components/organisms/PostHeader.tsx ***!
+  \**************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var colors_1 = __webpack_require__(/*! ../../utilities/colors */ "./resources/ts/src/utilities/colors.ts");
+var NaviIcon_1 = __importDefault(__webpack_require__(/*! ../atoms/svg/NaviIcon */ "./resources/ts/src/components/atoms/svg/NaviIcon.tsx"));
+var FontAwesomeIconBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FontAwesomeIconBtn */ "./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx"));
+var free_solid_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+var Header = function (_a) {
+    var props = __rest(_a, []);
+    var isMenuActive = props.isMenuActive, switchMenuDisplay = props.switchMenuDisplay;
+    return (react_1.default.createElement("div", { className: "post-header" },
+        react_1.default.createElement(NaviIcon_1.default, { className: "post-header__menu", color: isMenuActive ? colors_1.colors.yellow : colors_1.colors.lightGray, onClick: function () { return switchMenuDisplay(); } }),
+        react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "post-header__close", icon: free_solid_svg_icons_1.faTimes })));
+};
+exports.default = Header;
+
+
+/***/ }),
+
 /***/ "./resources/ts/src/components/organisms/RegistForm.tsx":
 /*!**************************************************************!*\
   !*** ./resources/ts/src/components/organisms/RegistForm.tsx ***!
@@ -87980,10 +88021,12 @@ var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/reac
 var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 var menu_1 = __webpack_require__(/*! ../../actions/menu */ "./resources/ts/src/actions/menu.ts");
 var Header_1 = __importDefault(__webpack_require__(/*! ../../components/organisms/Header */ "./resources/ts/src/components/organisms/Header.tsx"));
-var HeaderContainer = function () {
+var PostHeader_1 = __importDefault(__webpack_require__(/*! ../../components/organisms/PostHeader */ "./resources/ts/src/components/organisms/PostHeader.tsx"));
+var HeaderContainer = function (_a) {
+    var _b = _a.isPost, isPost = _b === void 0 ? true : _b;
     var dispatch = react_redux_1.useDispatch();
-    var _a = react_1.useState(false), isMenuActive = _a[0], setIsMenuActive = _a[1];
-    var _b = react_1.useState(false), isSearchActive = _b[0], setIsSearchActive = _b[1];
+    var _c = react_1.useState(false), isMenuActive = _c[0], setIsMenuActive = _c[1];
+    var _d = react_1.useState(false), isSearchActive = _d[0], setIsSearchActive = _d[1];
     var switchMenuDisplay = function () {
         setIsMenuActive(!isMenuActive);
         dispatch(menu_1.setShouldShowMenu(!isMenuActive));
@@ -88010,7 +88053,7 @@ var HeaderContainer = function () {
             dispatch(menu_1.setShouldShowMenu(false));
         };
     }, []);
-    return (react_1.default.createElement(Header_1.default, { isMenuActive: isMenuActive, isSearchActive: isSearchActive, switchMenuDisplay: switchMenuDisplay, switchSearchDisplay: switchSearchDisplay }));
+    return (react_1.default.createElement(react_1.default.Fragment, null, isPost ? (react_1.default.createElement(Header_1.default, { isMenuActive: isMenuActive, isSearchActive: isSearchActive, switchMenuDisplay: switchMenuDisplay, switchSearchDisplay: switchSearchDisplay })) : (react_1.default.createElement(PostHeader_1.default, { isMenuActive: isMenuActive, switchMenuDisplay: switchMenuDisplay }))));
 };
 exports.default = HeaderContainer;
 
@@ -88688,8 +88731,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var Header_1 = __importDefault(__webpack_require__(/*! ../containers/organisms/Header */ "./resources/ts/src/containers/organisms/Header.tsx"));
+var Menu_1 = __importDefault(__webpack_require__(/*! ../components/organisms/Menu */ "./resources/ts/src/components/organisms/Menu.tsx"));
 var PostScreen = function () {
-    return react_1.default.createElement("div", { className: "post-screen" });
+    return (react_1.default.createElement("div", { className: "post-screen" },
+        react_1.default.createElement(Header_1.default, { isPost: false }),
+        react_1.default.createElement(Menu_1.default, null)));
 };
 exports.default = PostScreen;
 

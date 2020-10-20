@@ -860,6 +860,25 @@ input:-webkit-autofill {
   }
 }
 
+@media screen and (max-width: 559px) {
+  .post-screen {
+    padding-top: 2.2167487685vh;
+  }
+
+  .post-header {
+    display: flex;
+    margin: 1.4778325123vh 3.4666666667vw 0 3.4666666667vw;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .post-header__close {
+    font-size: 2.4rem;
+    color: #e5e5e5;
+  }
+}
+
 /*!
  * Bootstrap v4.5.2 (https://getbootstrap.com/)
  * Copyright 2011-2020 The Bootstrap Authors
