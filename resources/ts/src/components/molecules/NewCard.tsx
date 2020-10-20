@@ -23,23 +23,27 @@ const NewCard: FC<Props> = ({ post }) => {
       <div style={goTostyle}>
         <GoToLogo className="new-card__go-to" />
       </div>
-      <FontAwesomeIconBtn
-        className="new-card__bookmark"
-        icon={faBookmark}
-      />
-      <div className="new-card__favorite">
-        <FontAwesomeIconBtn
-          className="new-card__favorite-btn"
-          icon={faHeart}
+      <div className="new-card__wrap-itineraryicon">
+        <ItineraryInCard
+          className="new-card__itinerary"
+          itinerary={post.itinerary}
         />
-        <p className="new-card__favorite-number">
-          {post.favNum}
-        </p>
+        <div className="new-card__icon-wrap">
+          <FontAwesomeIconBtn
+            className="new-card__bookmark"
+            icon={faBookmark}
+          />
+          <div className="new-card__favorite">
+            <FontAwesomeIconBtn
+              className="new-card__favorite-btn"
+              icon={faHeart}
+            />
+            <p className="new-card__favorite-number">
+              {post.favNum}
+            </p>
+          </div>
+        </div>
       </div>
-      <ItineraryInCard
-        className="new-card__itinerary"
-        itinerary={post.itinerary}
-      />
     </div>
   )
 }

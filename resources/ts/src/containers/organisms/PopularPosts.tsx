@@ -17,7 +17,7 @@ const PopularPostsContainer: FC = () => {
         },
         {
           whether: 'rain',
-          place: '井の頭自然文化公園・熱帯鳥温園',
+          place: '井の頭自然..',
         },
         {
           whether: 'night',
@@ -41,7 +41,7 @@ const PopularPostsContainer: FC = () => {
         },
         {
           whether: 'rain',
-          place: '井の頭自然文化公園・熱帯鳥温園',
+          place: '井の頭自然..',
         },
         {
           whether: 'night',
@@ -65,7 +65,7 @@ const PopularPostsContainer: FC = () => {
         },
         {
           whether: 'rain',
-          place: '井の頭自然文化公園・熱帯鳥温園',
+          place: '井の頭自然..',
         },
         {
           whether: 'night',
