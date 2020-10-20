@@ -88507,14 +88507,13 @@ var UserMenu_1 = __importDefault(__webpack_require__(/*! ../../components/organi
 var UserMenuContainer = function (_a) {
     var className = _a.className;
     var dispatch = react_redux_1.useDispatch();
-    var name = 'こんこん';
-    var iconUrl = '';
+    var _b = react_redux_1.useSelector(function (state) { return state.loginReducer; }), username = _b.username, icon = _b.icon;
     var logout = function () {
         // ログイン情報を初期化
         dispatch(login_1.setLoginState(false));
         dispatch(login_1.setLoginInfo(0, 'unknown', '', '', null));
     };
-    return (react_1.default.createElement(UserMenu_1.default, { className: className, name: name, iconUrl: iconUrl, logout: logout }));
+    return (react_1.default.createElement(UserMenu_1.default, { className: className, name: username, iconUrl: icon, logout: logout }));
 };
 exports.default = UserMenuContainer;
 
