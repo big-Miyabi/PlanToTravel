@@ -366,14 +366,14 @@ input:-webkit-autofill {
 }
 
 @media screen and (max-width: 559px) {
-  .register {
+  .register-screen {
     width: 100vw;
     height: 100vh;
     background-image: url(/images/register_background.png?d194af37b2b7e100e94b557798d8626b);
     background-size: cover;
   }
 
-  .register__home-icon {
+  .register-screen__home-icon {
     z-index: 2;
     position: absolute;
     top: 4.1871921182vh;
@@ -382,7 +382,7 @@ input:-webkit-autofill {
     font-size: 2.4rem;
   }
 
-  .register__content {
+  .register-screen__content {
     display: flex;
     position: absolute;
     top: 0px;
@@ -393,11 +393,11 @@ input:-webkit-autofill {
     align-items: center;
   }
 
-  .register__logo {
+  .register-screen__logo {
     text-align: center;
   }
 
-  .register__logo-img {
+  .register-screen__logo-img {
     width: 54.4vw;
     height: auto;
   }
@@ -728,7 +728,7 @@ input:-webkit-autofill {
 }
 
 @media screen and (max-width: 559px) {
-  .home {
+  .home-screen {
     padding-top: 2.2167487685vh;
   }
 

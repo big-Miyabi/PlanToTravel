@@ -3,7 +3,7 @@
 
 // @include md-down()内部にstyleを記述すると、スマートフォンサイズでメディアクエリがかかるようになる
 @include md-down() {
-    .home {
+    .home-screen {
         padding-top: $header-top;
     }
 

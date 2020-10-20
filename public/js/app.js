@@ -86865,10 +86865,12 @@ var redux_persist_1 = __webpack_require__(/*! redux-persist */ "./node_modules/r
 var reducers_1 = __importDefault(__webpack_require__(/*! ./reducers */ "./resources/ts/src/reducers/index.ts"));
 var RegisterScreen_1 = __importDefault(__webpack_require__(/*! ./screens/RegisterScreen */ "./resources/ts/src/screens/RegisterScreen.tsx"));
 var HomeScreen_1 = __importDefault(__webpack_require__(/*! ./screens/HomeScreen */ "./resources/ts/src/screens/HomeScreen.tsx"));
+var PostScreen_1 = __importDefault(__webpack_require__(/*! ./screens/PostScreen */ "./resources/ts/src/screens/PostScreen.tsx"));
 var App = function () {
     return (react_1.default.createElement(react_router_dom_1.BrowserRouter, null,
         react_1.default.createElement(react_router_dom_1.Route, { path: "/regist", exact: true, component: RegisterScreen_1.default }),
-        react_1.default.createElement(react_router_dom_1.Route, { path: ['/', '/home'], exact: true, component: HomeScreen_1.default })));
+        react_1.default.createElement(react_router_dom_1.Route, { path: ['/', '/home'], exact: true, component: HomeScreen_1.default }),
+        react_1.default.createElement(react_router_dom_1.Route, { path: "/post", exact: true, component: PostScreen_1.default })));
 };
 var store = redux_1.createStore(reducers_1.default, window.__REDUX_DEVTOOLS_EXTENSION__ &&
     window.__REDUX_DEVTOOLS_EXTENSION__());
@@ -88661,13 +88663,35 @@ var Menu_1 = __importDefault(__webpack_require__(/*! ../components/organisms/Men
 var PopularPosts_1 = __importDefault(__webpack_require__(/*! ../containers/organisms/PopularPosts */ "./resources/ts/src/containers/organisms/PopularPosts.tsx"));
 var NewPosts_1 = __importDefault(__webpack_require__(/*! ../containers/organisms/NewPosts */ "./resources/ts/src/containers/organisms/NewPosts.tsx"));
 var HomeScreen = function () {
-    return (react_1.default.createElement("div", { className: "home" },
+    return (react_1.default.createElement("div", { className: "home-screen" },
         react_1.default.createElement(Header_1.default, null),
         react_1.default.createElement(Menu_1.default, null),
         react_1.default.createElement(PopularPosts_1.default, null),
         react_1.default.createElement(NewPosts_1.default, null)));
 };
 exports.default = HomeScreen;
+
+
+/***/ }),
+
+/***/ "./resources/ts/src/screens/PostScreen.tsx":
+/*!*************************************************!*\
+  !*** ./resources/ts/src/screens/PostScreen.tsx ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var PostScreen = function () {
+    return react_1.default.createElement("div", { className: "post-screen" });
+};
+exports.default = PostScreen;
 
 
 /***/ }),
@@ -88691,13 +88715,13 @@ var FontAwesomeIconBtn_1 = __importDefault(__webpack_require__(/*! ../components
 var free_solid_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 var RegistForm_1 = __importDefault(__webpack_require__(/*! ../containers/organisms/RegistForm */ "./resources/ts/src/containers/organisms/RegistForm.tsx"));
 var RegisterScreen = function (props) {
-    return (react_1.default.createElement("div", { className: "register" },
+    return (react_1.default.createElement("div", { className: "register-screen" },
         react_1.default.createElement(react_router_dom_1.Link, { to: "../home" },
-            react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "register__home-icon", icon: free_solid_svg_icons_1.faHome })),
-        react_1.default.createElement("div", { className: "register__content" },
-            react_1.default.createElement("div", { className: "register__logo" },
+            react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "register-screen__home-icon", icon: free_solid_svg_icons_1.faHome })),
+        react_1.default.createElement("div", { className: "register-screen__content" },
+            react_1.default.createElement("div", { className: "register-screen__logo" },
                 react_1.default.createElement(react_router_dom_1.Link, { to: "../home" },
-                    react_1.default.createElement("img", { src: "../images/logo_tate_white.png", className: "register__logo-img" }))),
+                    react_1.default.createElement("img", { src: "../images/logo_tate_white.png", className: "register-screen__logo-img" }))),
             react_1.default.createElement(RegistForm_1.default, { history: props.history }))));
 };
 exports.default = RegisterScreen;

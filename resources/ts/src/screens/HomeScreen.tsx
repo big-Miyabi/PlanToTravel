@@ -6,7 +6,7 @@ import NewPosts from '../containers/organisms/NewPosts'
 
 const HomeScreen: FC = () => {
   return (
-    <div className="home">
+    <div className="home-screen">
       <Header />
       <Menu />
       <PopularPosts />
