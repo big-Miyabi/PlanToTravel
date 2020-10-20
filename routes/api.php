@@ -20,4 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::group(['middleware' => 'api'], function () {
   Route::post('create', 'PostController@create');
 });
+
 Auth::routes();
