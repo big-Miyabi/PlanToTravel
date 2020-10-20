@@ -19,20 +19,27 @@ const PopularCard: FC<Props> = ({ post }) => {
   }
 
   return (
-    <div className="popularcard">
-      <div className="popular-card" style={bgStyle}>
-        <div className="popular-card__ninki_whithbg">
-          <img
-            src="../images/ninki_listimg_white.png"
-            alt=""
-          />
-        </div>
+    <div className="popular-card">
+      <div className="popular-card__white-bg-wrap">
+        <img
+          className="popular-card__white-bg"
+          src="../images/ninki_listimg_white.png"
+          alt=""
+        />
+      </div>
+      <div className="popular-card__wrap" style={bgStyle}>
         <div style={goTostyle}>
           <GoToLogo className="popular-card__go-to" />
         </div>
-        <div className="popular-card__defaultform">
+
+        <ItineraryInCard
+          className="popular-card__itinerary"
+          itinerary={post.itinerary}
+        />
+
+        <div className="popular-card__icon-wrap">
           <FontAwesomeIconBtn
-            className="popular-card__bookmar"
+            className="popular-card__bookmark"
             icon={faBookmark}
           />
           <div className="popular-card__favorite">
@@ -44,10 +51,6 @@ const PopularCard: FC<Props> = ({ post }) => {
               {post.favNum}
             </p>
           </div>
-          <ItineraryInCard
-            className="popular-card__itineray"
-            itinerary={post.itinerary}
-          />
         </div>
       </div>
     </div>

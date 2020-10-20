@@ -732,6 +732,89 @@ input:-webkit-autofill {
     padding-top: 2.2167487685vh;
   }
 
+  .popular-posts {
+    color: #003666;
+    margin-top: 3.078817734vh;
+  }
+
+  .popular-posts__title {
+    font-size: 1.4rem;
+    letter-spacing: 1.3333333333vw;
+    text-align: center;
+  }
+
+  .popular-card {
+    width: 92.5333333333vw;
+    height: 51.4666666667vw;
+    margin: 0 auto;
+  }
+
+  .popular-card__wrap {
+    z-index: 2;
+    display: flex;
+    width: 92.5333333333vw;
+    height: 51.4666666667vw;
+    margin: 3.2019704433vh auto 0px;
+    background-size: cover;
+    border-radius: 4.5333333333vw;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .popular-card__white-bg-wrap {
+    z-index: 1;
+    position: absolute;
+  }
+
+  .popular-card__white-bg {
+    width: 92.5333333333vw;
+    height: 51.4666666667vw;
+  }
+
+  .popular-card__go-to {
+    position: relative;
+    z-index: 1;
+    top: -2.2167487685vh;
+    left: -1.0666666667vw;
+  }
+
+  .popular-card__itinerary {
+    position: relative;
+    z-index: 1;
+  }
+
+  .popular-card__icon-wrap {
+    display: flex;
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .popular-card__bookmark {
+    font-size: 3.1rem;
+    color: rgba(188, 219, 232, 0.7);
+  }
+
+  .popular-card__bookmark:hover {
+    color: #003666;
+  }
+
+  .popular-card__bookmark:focus {
+    outline: none;
+  }
+
+  .popular-card__favorite-btn {
+    position: relative;
+    font-size: 2.4rem;
+    color: #ff6633;
+  }
+
+  .popular-card__favorite-btn:visited {
+    color: #fcbe32;
+  }
+
   .new-posts__row {
     display: flex;
     flex-direction: row;
@@ -775,85 +858,6 @@ input:-webkit-autofill {
     position: relative;
     z-index: 1;
   }
-}
-
-.popular-posts {
-  color: #003666;
-  margin-top: 3.078817734vh;
-}
-
-.popular-posts__title {
-  font-size: 1.4rem;
-  letter-spacing: 1.3333333333vw;
-  text-align: center;
-}
-
-.popularcard {
-  width: 92.5333333333vw;
-  overflow: hidden;
-  margin: 0 auto 0px;
-}
-
-.popular-card {
-  width: 92.5333333333vw;
-  height: 23.7684729064vh;
-  background-size: cover;
-  border-radius: 4.5333333333vw;
-  margin: 3.2019704433vh auto 0px;
-  display: flex;
-  flex-direction: row;
-}
-
-.popular-cardheader {
-  z-index: 1;
-  position: relative;
-}
-
-.popular-card__ninki_whithbg {
-  z-index: 2;
-  position: relative;
-}
-
-.popular-card__ninki_whithbg img {
-  width: 92.5333333333vw;
-  height: 23.7684729064vh;
-}
-
-.popular-card__go-to {
-  margin-top: 0;
-  z-index: 5;
-  position: relative;
-  left: -91.4666666667vw;
-  top: -2.2167487685vh;
-}
-
-.popular-card__defaultform {
-  width: 36.2666666667vw;
-  height: 23.275862069vh;
-  z-index: 4;
-  position: relative;
-  left: -40vw;
-  top: -2.2167487685vh;
-}
-
-.popular-card__defaultform__bookmar {
-  color: rgba(188, 219, 232, 0.7);
-}
-
-.popular-card__defaultform__bookmar:hover {
-  color: #003666;
-}
-
-.popular-card__defaultform__bookmar:focus {
-  outline: none;
-}
-
-.popular-card__defaultform__favorite {
-  color: #ff6633;
-}
-
-.popular-card__defaultform__favorite:visited {
-  color: yellow;
 }
 
 /*!
