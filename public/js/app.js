@@ -87587,10 +87587,10 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 var free_solid_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 var FontAwesomeIconBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FontAwesomeIconBtn */ "./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx"));
 var PostTag = function (_a) {
-    var tagName = _a.tagName, onClick = _a.onClick;
+    var _b = _a.isPost, isPost = _b === void 0 ? false : _b, tagName = _a.tagName, onClick = _a.onClick;
     return (react_1.default.createElement("div", { className: "post-tag" },
-        react_1.default.createElement("p", { className: "post-tag__name" }, tagName),
-        react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "post-tag__delete", onClick: onClick, icon: free_solid_svg_icons_1.faTimes })));
+        react_1.default.createElement("p", { className: isPost ? 'post-tag__name--post' : 'post-tag__name' }, tagName),
+        isPost ? (react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "post-tag__delete", onClick: onClick, icon: free_solid_svg_icons_1.faTimes })) : (react_1.default.createElement(react_1.default.Fragment, null))));
 };
 exports.default = PostTag;
 
@@ -87926,12 +87926,15 @@ var PostOverview = function () {
     return (react_1.default.createElement("div", { className: "post-overview" },
         react_1.default.createElement("div", { className: "post-overview__content-wrap" },
             react_1.default.createElement("h2", { className: "post-overview__h2" }, "\u30BF\u30A4\u30C8\u30EB*"),
-            react_1.default.createElement("input", { type: "text", className: "post-overview__title" }),
-            react_1.default.createElement(FormBtn_1.default, { className: "post-overview__public-switch-btn", name: "\u975E\u516C\u958B", onClick: function () { } })),
+            react_1.default.createElement("div", { className: "post-overview__row-flex-wrap" },
+                react_1.default.createElement("input", { type: "text", className: "post-overview__title" }),
+                react_1.default.createElement(FormBtn_1.default, { className: "post-overview__public-switch-btn", name: "\u975E\u516C\u958B", onClick: function () { } }))),
         react_1.default.createElement("div", { className: "post-overview__content-wrap" },
-            react_1.default.createElement("h2", { className: "post-overview__h2" }, "\u30BF\u30B0"),
-            react_1.default.createElement(InputBox_1.default, { type: "text", className: "post-overview__tag", placeholder: "\u30BF\u30B0\u3092\u8FFD\u52A0\u3057\u3066\u304F\u3060\u3055\u3044" }),
-            react_1.default.createElement(PostTag_1.default, { tagName: "hoge", onClick: function () { } })),
+            react_1.default.createElement("div", { className: "post-overview__row-flex-wrap" },
+                react_1.default.createElement("h2", { className: "post-overview__h2" }, "\u30BF\u30B0"),
+                react_1.default.createElement(InputBox_1.default, { type: "text", className: "post-overview__tag-input", placeholder: "\u30BF\u30B0\u3092\u8FFD\u52A0\u3057\u3066\u304F\u3060\u3055\u3044" })),
+            react_1.default.createElement("div", { className: "post-overview__tag-wrap" },
+                react_1.default.createElement(PostTag_1.default, { tagName: "hoge", isPost: true, onClick: function () { } }))),
         react_1.default.createElement("div", { className: "post-overview__content-wrap" },
             react_1.default.createElement("h2", { className: "post-overview__h2" }, "\u65E5\u4ED8*"),
             react_1.default.createElement("div", { className: "post-overview__date-wrap" },
