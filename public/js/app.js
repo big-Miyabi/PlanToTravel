@@ -87012,6 +87012,29 @@ exports.default = FormBtn;
 
 /***/ }),
 
+/***/ "./resources/ts/src/components/atoms/InputBox.tsx":
+/*!********************************************************!*\
+  !*** ./resources/ts/src/components/atoms/InputBox.tsx ***!
+  \********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var InputBox = function (_a) {
+    var type = _a.type, className = _a.className, _b = _a.placeholder, placeholder = _b === void 0 ? undefined : _b, _c = _a.onChange, onChange = _c === void 0 ? function () { } : _c;
+    return (react_1.default.createElement("input", { type: type, className: className + ' ' + 'input-box', placeholder: placeholder, onChange: onChange }));
+};
+exports.default = InputBox;
+
+
+/***/ }),
+
 /***/ "./resources/ts/src/components/atoms/WhetherPin.tsx":
 /*!**********************************************************!*\
   !*** ./resources/ts/src/components/atoms/WhetherPin.tsx ***!
@@ -87547,6 +87570,33 @@ exports.default = PostImage;
 
 /***/ }),
 
+/***/ "./resources/ts/src/components/molecules/PostTag.tsx":
+/*!***********************************************************!*\
+  !*** ./resources/ts/src/components/molecules/PostTag.tsx ***!
+  \***********************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var free_solid_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+var FontAwesomeIconBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FontAwesomeIconBtn */ "./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx"));
+var PostTag = function (_a) {
+    var tagName = _a.tagName, onClick = _a.onClick;
+    return (react_1.default.createElement("div", { className: "post-tag" },
+        react_1.default.createElement("p", { className: "post-tag__name" }, tagName),
+        react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "post-tag__delete", onClick: onClick, icon: free_solid_svg_icons_1.faTimes })));
+};
+exports.default = PostTag;
+
+
+/***/ }),
+
 /***/ "./resources/ts/src/components/molecules/ProgressBar.tsx":
 /*!***************************************************************!*\
   !*** ./resources/ts/src/components/molecules/ProgressBar.tsx ***!
@@ -87869,9 +87919,31 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var PostTag_1 = __importDefault(__webpack_require__(/*! ../molecules/PostTag */ "./resources/ts/src/components/molecules/PostTag.tsx"));
+var InputBox_1 = __importDefault(__webpack_require__(/*! ../atoms/InputBox */ "./resources/ts/src/components/atoms/InputBox.tsx"));
+var FormBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FormBtn */ "./resources/ts/src/components/atoms/FormBtn.tsx"));
 var PostOverview = function () {
     return (react_1.default.createElement("div", { className: "post-overview" },
-        react_1.default.createElement("p", null, "hogehoge")));
+        react_1.default.createElement("div", { className: "post-overview__content-wrap" },
+            react_1.default.createElement("h2", { className: "post-overview__h2" }, "\u30BF\u30A4\u30C8\u30EB*"),
+            react_1.default.createElement("input", { type: "text", className: "post-overview__title" }),
+            react_1.default.createElement("button", { className: "post-overview__public-switch-btn" }, "\u975E\u516C\u958B")),
+        react_1.default.createElement("div", { className: "post-overview__content-wrap" },
+            react_1.default.createElement("h2", { className: "post-overview__h2" }, "\u30BF\u30B0"),
+            react_1.default.createElement(InputBox_1.default, { type: "text", className: "post-overview__tag", placeholder: "\u30BF\u30B0\u3092\u8FFD\u52A0\u3057\u3066\u304F\u3060\u3055\u3044" }),
+            react_1.default.createElement(PostTag_1.default, { tagName: "hoge", onClick: function () { } })),
+        react_1.default.createElement("div", { className: "post-overview__content-wrap" },
+            react_1.default.createElement("h2", { className: "post-overview__h2" }, "\u65E5\u4ED8*"),
+            react_1.default.createElement("div", { className: "post-overview__date-wrap" },
+                react_1.default.createElement(InputBox_1.default, { type: "date", className: "post-overview__date" }),
+                react_1.default.createElement("p", null, "-"),
+                react_1.default.createElement(InputBox_1.default, { type: "date", className: "post-overview__date" }))),
+        react_1.default.createElement("div", { className: "post-overview__content-wrap" },
+            react_1.default.createElement("h2", { className: "post-overview__h2" }, "\u4EBA\u6570*"),
+            react_1.default.createElement("div", { className: "post-overview__people-input-wrap" },
+                react_1.default.createElement(InputBox_1.default, { type: "text", className: "post-overview__people" }),
+                react_1.default.createElement("p", null, "\u4EBA"))),
+        react_1.default.createElement(FormBtn_1.default, { className: "post-overview__next", name: "\u6B21\u3078", onClick: function () { } })));
 };
 exports.default = PostOverview;
 
