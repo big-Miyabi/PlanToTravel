@@ -11,6 +11,7 @@
         background-image: url("../assets/register_background.png");
         background-size: cover;
         &__home-icon {
+            z-index: 2;
             position: absolute;
             top: px-to-vh(34);
             left: px-to-vw(11);
