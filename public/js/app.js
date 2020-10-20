@@ -69810,13 +69810,9 @@ __webpack_require__(/*! ./bootstrap */ "./resources/ts/bootstrap.js");
  */
 // どちらか一方にコメントアウトをして使う
 // testsを使いたい場合(バック側)
-<<<<<<< HEAD
 __webpack_require__(/*! ./tests/App */ "./resources/ts/tests/App.tsx");
-=======
-//require('./tests/App')
->>>>>>> 8a06663c283820fbceab824191583ec9355707e3
 // Reactの実装状態を確認したい場合(フロント側)
-// require('./src/App')
+//require('./src/App')
 
 
 /***/ }),
@@ -69866,724 +69862,10 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-<<<<<<< HEAD
 /***/ "./resources/ts/tests/About.tsx":
 /*!**************************************!*\
   !*** ./resources/ts/tests/About.tsx ***!
   \**************************************/
-=======
-/***/ "./resources/ts/src/App.tsx":
-/*!**********************************!*\
-  !*** ./resources/ts/src/App.tsx ***!
-  \**********************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var react_dom_1 = __importDefault(__webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js"));
-var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-var redux_1 = __webpack_require__(/*! redux */ "./node_modules/redux/es/redux.js");
-var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-var react_2 = __webpack_require__(/*! redux-persist/integration/react */ "./node_modules/redux-persist/es/integration/react.js");
-var redux_persist_1 = __webpack_require__(/*! redux-persist */ "./node_modules/redux-persist/es/index.js");
-var reducers_1 = __importDefault(__webpack_require__(/*! ./reducers */ "./resources/ts/src/reducers/index.ts"));
-var RegisterScreen_1 = __importDefault(__webpack_require__(/*! ./screens/RegisterScreen */ "./resources/ts/src/screens/RegisterScreen.tsx"));
-var HomeScreen_1 = __importDefault(__webpack_require__(/*! ./screens/HomeScreen */ "./resources/ts/src/screens/HomeScreen.tsx"));
-var App = function () {
-    return (react_1.default.createElement(react_router_dom_1.BrowserRouter, null,
-        react_1.default.createElement(react_router_dom_1.Route, { path: "/regist", exact: true, component: RegisterScreen_1.default }),
-        react_1.default.createElement(react_router_dom_1.Route, { path: ['/', '/home'], exact: true, component: HomeScreen_1.default })));
-};
-var store = redux_1.createStore(reducers_1.default, window.__REDUX_DEVTOOLS_EXTENSION__ &&
-    window.__REDUX_DEVTOOLS_EXTENSION__());
-var persistor = redux_persist_1.persistStore(store);
-if (document.getElementById('app')) {
-    react_dom_1.default.render(react_1.default.createElement(react_redux_1.Provider, { store: store },
-        react_1.default.createElement(react_2.PersistGate, { loading: null, persistor: persistor },
-            react_1.default.createElement(App, null))), document.getElementById('app'));
-}
-
-
-/***/ }),
-
-/***/ "./resources/ts/src/actions/index.ts":
-/*!*******************************************!*\
-  !*** ./resources/ts/src/actions/index.ts ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.ActionTypes = void 0;
-var ActionTypes;
-(function (ActionTypes) {
-    ActionTypes["SET_LOGIN_STATE"] = "SET_LOGIN_STATE";
-    ActionTypes["SET_LOGIN_INFO"] = "SET_LOGIN_INFO";
-    ActionTypes["SET_SHOULD_SHOW_MENU"] = "SET_SHOULD_SHOW_MENU";
-})(ActionTypes = exports.ActionTypes || (exports.ActionTypes = {}));
-
-
-/***/ }),
-
-/***/ "./resources/ts/src/actions/login.ts":
-/*!*******************************************!*\
-  !*** ./resources/ts/src/actions/login.ts ***!
-  \*******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.setLoginInfo = exports.setLoginState = void 0;
-var index_1 = __webpack_require__(/*! ./index */ "./resources/ts/src/actions/index.ts");
-exports.setLoginState = function (state) {
-    return ({
-        type: index_1.ActionTypes.SET_LOGIN_STATE,
-        payload: {
-            state: state,
-        },
-    });
-};
-exports.setLoginInfo = function (id, username, header, icon, profile) {
-    return ({
-        type: index_1.ActionTypes.SET_LOGIN_INFO,
-        payload: {
-            id: id,
-            username: username,
-            header: header,
-            icon: icon,
-            profile: profile,
-        },
-    });
-};
-
-
-/***/ }),
-
-/***/ "./resources/ts/src/actions/menu.ts":
-/*!******************************************!*\
-  !*** ./resources/ts/src/actions/menu.ts ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.setShouldShowMenu = void 0;
-var index_1 = __webpack_require__(/*! ./index */ "./resources/ts/src/actions/index.ts");
-exports.setShouldShowMenu = function (shouldShow) {
-    return ({
-        type: index_1.ActionTypes.SET_SHOULD_SHOW_MENU,
-        payload: {
-            shouldShow: shouldShow,
-        },
-    });
-};
-
-
-/***/ }),
-
-/***/ "./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx":
-/*!******************************************************************!*\
-  !*** ./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx ***!
-  \******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var react_fontawesome_1 = __webpack_require__(/*! @fortawesome/react-fontawesome */ "./node_modules/@fortawesome/react-fontawesome/index.es.js");
-var FontAwesomeIconBtn = function (_a) {
-    var icon = _a.icon, className = _a.className, onClick = _a.onClick;
-    return (react_1.default.createElement(react_fontawesome_1.FontAwesomeIcon, { onClick: onClick, className: className, icon: icon }));
-};
-exports.default = FontAwesomeIconBtn;
-
-
-/***/ }),
-
-/***/ "./resources/ts/src/components/atoms/FormBtn.tsx":
-/*!*******************************************************!*\
-  !*** ./resources/ts/src/components/atoms/FormBtn.tsx ***!
-  \*******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var FormBtn = function (_a) {
-    var className = _a.className, name = _a.name, onClick = _a.onClick;
-    return (react_1.default.createElement("button", { className: className + ' form-btn', onClick: onClick }, name));
-};
-exports.default = FormBtn;
-
-
-/***/ }),
-
-/***/ "./resources/ts/src/components/atoms/WhetherPin.tsx":
-/*!**********************************************************!*\
-  !*** ./resources/ts/src/components/atoms/WhetherPin.tsx ***!
-  \**********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var SunnyPin_1 = __importDefault(__webpack_require__(/*! ./svg/SunnyPin */ "./resources/ts/src/components/atoms/svg/SunnyPin.tsx"));
-var CloudyPin_1 = __importDefault(__webpack_require__(/*! ./svg/CloudyPin */ "./resources/ts/src/components/atoms/svg/CloudyPin.tsx"));
-var RainyPin_1 = __importDefault(__webpack_require__(/*! ./svg/RainyPin */ "./resources/ts/src/components/atoms/svg/RainyPin.tsx"));
-var SnowyPin_1 = __importDefault(__webpack_require__(/*! ./svg/SnowyPin */ "./resources/ts/src/components/atoms/svg/SnowyPin.tsx"));
-var MoonyPin_1 = __importDefault(__webpack_require__(/*! ./svg/MoonyPin */ "./resources/ts/src/components/atoms/svg/MoonyPin.tsx"));
-var WhetherPin = function (_a) {
-    var className = _a.className, whether = _a.whether;
-    switch (whether) {
-        case 'sun':
-            return (react_1.default.createElement(SunnyPin_1.default, { className: className + ' ' + 'whether-pin' }));
-        case 'cloud':
-            return (react_1.default.createElement(CloudyPin_1.default, { className: className + ' ' + 'whether-pin' }));
-        case 'rain':
-            return (react_1.default.createElement(RainyPin_1.default, { className: className + ' ' + 'whether-pin' }));
-        case 'snow':
-            return (react_1.default.createElement(SnowyPin_1.default, { className: className + ' ' + 'whether-pin' }));
-        default:
-            return (react_1.default.createElement(MoonyPin_1.default, { className: className + ' ' + 'whether-pin' }));
-    }
-};
-exports.default = WhetherPin;
-
-
-/***/ }),
-
-/***/ "./resources/ts/src/components/atoms/svg/CloudyPin.tsx":
-/*!*************************************************************!*\
-  !*** ./resources/ts/src/components/atoms/svg/CloudyPin.tsx ***!
-  \*************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var colors_1 = __webpack_require__(/*! ../../../utilities/colors */ "./resources/ts/src/utilities/colors.ts");
-var CloudyPin = function (_a) {
-    var className = _a.className;
-    return (react_1.default.createElement("svg", { className: className, width: "39", height: "53", viewBox: "0 0 39 53", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
-        react_1.default.createElement("path", { d: "M17.4164 53C17.4164 53 -8.58891 26.4976 2.95461 7.57008C2.95461 7.57008 6.80405 0 18.3476 0C18.3476 0 33.7405 0 37.5852 15.1449C41.4298 30.2898 17.4164 53 17.4164 53Z", fill: colors_1.colors.navyBlue }),
-        react_1.default.createElement("path", { d: "M27.1375 16.3996C27.2875 15.9821 27.4 15.5647 27.4 15.0714C27.4 13.0603 25.7875 11.4286 23.8 11.4286C23.05 11.4286 22.3375 11.6562 21.775 12.0737C20.7625 10.2522 18.8125 9 16.6 9C13.2625 9 10.6 11.7321 10.6 15.0714C10.6 15.1853 10.6 15.2991 10.6 15.4129C8.5 16.1339 7 18.183 7 20.5357C7 23.5714 9.4 26 12.4 26H26.2C28.825 26 31 23.8371 31 21.1429C31 18.8281 29.35 16.8549 27.1375 16.3996Z", fill: colors_1.colors.gray })));
-};
-exports.default = CloudyPin;
-
-
-/***/ }),
-
-/***/ "./resources/ts/src/components/atoms/svg/GoToLogo.tsx":
-/*!************************************************************!*\
-  !*** ./resources/ts/src/components/atoms/svg/GoToLogo.tsx ***!
-  \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var colors_1 = __webpack_require__(/*! ../../../utilities/colors */ "./resources/ts/src/utilities/colors.ts");
-var GoToLogo = function (_a) {
-    var className = _a.className;
-    return (react_1.default.createElement("svg", { className: className, width: "72", height: "40", viewBox: "0 0 72 40", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
-        react_1.default.createElement("path", { d: "M7.58679 32.3436L8.78471 8.78469C8.78471 8.51849 9.26387 7.82636 11.1805 7.18747C13.5764 6.38887 13.1771 6.38887 15.1736 5.59026C17.1701 4.79165 16.3715 5.59026 18.368 5.59026C20.3645 5.59026 20.3645 5.19095 21.9617 5.59026C23.559 5.98956 25.1562 6.38887 27.552 7.18747C29.9478 7.98608 28.7499 7.18747 31.1458 7.18747C32.743 7.18747 34.3402 7.98608 37.9339 7.98608C41.5277 7.98608 41.1284 7.98608 45.5207 7.18747C49.9131 6.38887 50.3124 7.98608 53.5068 7.98608H59.4964C62.3713 7.98608 62.8239 10.1157 62.6908 11.1805L61.4929 20.3645C61.4929 20.8969 60.3748 22.6805 55.9026 25.5555C49.9131 26.7534 49.5137 27.552 47.9165 27.552H43.1249H39.5311H37.1353C36.3367 27.552 31.9444 28.3506 29.5485 28.7499C27.1527 29.1492 24.7569 30.7464 23.559 31.545C22.3611 32.3436 14.375 33.9409 13.1771 34.3402C12.2187 34.6596 9.05091 33.1423 7.58679 32.3436Z", fill: "white" }),
-        react_1.default.createElement("path", { d: "M65.5207 8.51095C65.3574 8.14057 65.1424 7.82196 64.8835 7.5392C63.4697 6.00592 60.7894 5.65545 58.9415 5.4165C55.2776 4.93859 52.5256 4.85097 48.8378 4.9147C47.0655 4.94656 45.2973 4.99435 43.525 5.03417C42.7922 5.0501 41.8842 5.2333 41.1674 5.05408C40.343 4.85097 40.7731 3.8872 40.8687 3.30176C40.9364 2.87164 40.8766 2.71234 40.4664 2.62472C39.9009 2.50525 39.2677 2.50525 38.6942 2.47737C37.2406 2.4017 35.7909 2.48932 34.3373 2.44949C30.8565 2.35391 27.3718 2.42958 23.899 2.69243C20.4899 2.94731 17.0769 3.37743 13.7315 4.11818C10.8681 4.75539 7.96477 5.60368 5.39204 7.08917C4.91015 7.36795 4.44419 7.66664 3.99814 8.00516C2.62416 9.03664 2.80736 9.19595 3.54015 10.6177C3.81893 11.1554 4.04195 11.7249 4.23311 12.3023C4.63933 13.5449 4.87829 14.8392 5.03361 16.1375C5.37611 19.0249 5.3084 21.96 5.09334 24.8514C4.88227 27.6471 4.51587 30.4309 4.03797 33.1909C3.85477 34.2462 3.65564 35.2976 3.44058 36.3451C3.36093 36.7393 3.27332 37.1296 3.1857 37.5199C3.06224 38.0695 2.91887 38.6748 3.73131 38.4319C10.4101 36.4167 16.9932 34.079 23.6959 32.1355C27.4395 31.0482 31.211 30.0805 35.0063 29.2043C35.532 29.0848 36.0617 28.9255 36.5914 28.8459C36.8821 28.8021 37.1967 28.7662 37.364 29.0729C37.5592 29.4273 37.3441 29.8694 37.2525 30.2199C37.2246 30.3354 37.0494 30.8053 37.149 30.9128C37.2724 31.0482 37.7424 30.9447 37.8857 30.9288C38.4114 30.873 38.9371 30.7735 39.4549 30.6699C41.3107 30.3075 43.1148 29.73 44.9588 29.3357C47.5833 28.7782 50.2396 28.3799 52.892 27.9857C54.6165 27.7308 56.3449 27.4918 58.0733 27.2847C58.2087 27.2688 58.3481 27.2568 58.4835 27.2409C58.9415 27.1931 58.7145 27.217 59.296 27.1414C59.9571 27.0537 59.9411 27.0657 60.5943 26.9343L61.566 26.6435L61.9683 26.5081C62.1515 26.4444 62.3386 26.3807 62.4143 26.317C62.5816 26.2254 62.709 25.9944 62.7608 25.8311C62.8325 25.6678 62.9719 25.1939 63.0316 24.931C63.1869 24.2261 63.3462 23.3062 63.4936 22.6291C63.6091 22.1114 63.7524 21.1476 63.8998 20.6378C63.9157 20.5781 64.1587 19.4471 64.2383 19.0727C64.5609 17.1332 64.8715 15.8707 65.1503 13.983C65.2897 13.0351 65.4331 12.0833 65.6561 11.1514C65.8831 10.2075 65.9229 9.42693 65.5207 8.51095ZM25.0141 19.3793C24.7592 19.3913 24.5362 19.467 24.349 19.6103C24.1618 19.7537 24.0065 19.9329 23.8831 20.144C23.7596 20.3551 23.664 20.5622 23.5963 20.7653C23.5326 20.9564 23.4689 21.1914 23.4051 21.4622H23.4211L23.0626 24.0628L23.0587 24.0828C23.0547 24.1106 23.0507 24.1465 23.0427 24.1863L22.983 24.477C22.975 24.5447 22.9631 24.6084 22.9591 24.6642C22.9272 24.8036 22.8954 24.943 22.8595 25.0824C22.8038 25.2934 22.748 25.5005 22.6923 25.7116C22.6246 25.9227 22.5489 26.1258 22.4653 26.3209C22.1347 27.1613 21.6608 27.9578 21.0475 28.7145C20.4182 29.4712 19.6974 30.0924 18.877 30.5783C18.0606 31.0522 17.2322 31.3669 16.3919 31.5222C15.5635 31.6934 14.751 31.7293 13.9585 31.6377C13.162 31.558 12.4093 31.3191 11.7004 30.9168C10.9915 30.5186 10.414 29.965 9.97596 29.268C9.5339 28.5671 9.2591 27.8064 9.14361 26.9821C9.09183 26.5718 9.06794 26.1656 9.07192 25.7634L9.0759 25.4528L9.09582 25.162L9.13564 24.8713L9.13962 24.8514C9.13962 24.7558 9.15157 24.6642 9.17547 24.5806L10.6012 14.2379L10.6092 14.1741L10.653 13.8635C10.7207 13.4613 10.8163 13.059 10.9397 12.6528C11.0234 12.4417 11.099 12.2307 11.1667 12.0236C11.2265 11.8842 11.2942 11.7368 11.3699 11.5815C11.3898 11.5257 11.4176 11.47 11.4535 11.4142C11.8517 10.5859 12.3934 9.81722 13.0784 9.11629C13.7793 8.42731 14.544 7.87772 15.3803 7.47548C16.2286 7.08519 17.0609 6.83827 17.8813 6.73871C18.7017 6.63914 19.5022 6.66702 20.2868 6.83031C21.0714 6.99359 21.7922 7.31618 22.4493 7.80205C23.1065 8.28792 23.6162 8.90124 23.9667 9.64597C24.3172 10.4066 24.5203 11.1992 24.5641 12.0236C24.572 12.163 24.572 12.2984 24.5681 12.4377C24.5601 12.4935 24.5601 12.5572 24.5641 12.6249L24.5601 12.9356L24.5322 13.2223L24.4924 13.513L24.4884 13.6803L24.4725 13.7839L24.1499 16.1136L20.1395 16.269C19.9363 16.2769 19.789 16.2809 19.6934 16.2849C19.5978 16.2889 19.4903 16.2929 19.3708 16.2968C19.2474 16.3008 19.0602 16.3088 18.8053 16.3207C18.8212 16.2092 18.8332 16.1216 18.8411 16.0499C19.112 16.038 19.339 15.9583 19.5301 15.807C19.7173 15.6557 19.8726 15.4764 19.9961 15.2693C20.1195 15.0662 20.2151 14.8591 20.2828 14.6481C20.3505 14.437 20.4142 14.1941 20.466 13.9153C20.47 13.8874 20.474 13.8595 20.478 13.8316L20.4899 13.748L20.4939 13.5807L20.5138 13.4334L20.5178 13.2661C20.5218 13.2263 20.5218 13.1825 20.5138 13.1427C20.5218 13.0869 20.5218 13.0312 20.5178 12.9754C20.4939 12.5771 20.4103 12.2346 20.2749 11.9479C20.1395 11.6651 19.9443 11.4302 19.6854 11.247C19.4425 11.0638 19.1438 10.9284 18.7933 10.8487C18.4389 10.781 18.0606 10.7651 17.6504 10.8089C16.8299 10.9244 16.1609 11.239 15.6471 11.7567C15.3843 12.0156 15.1652 12.3223 14.998 12.6727C14.9781 12.7165 14.9581 12.7564 14.9422 12.8002C14.9223 12.844 14.9024 12.8918 14.8825 12.9475C14.8426 13.0471 14.8068 13.1427 14.7829 13.2422C14.763 13.298 14.7471 13.3537 14.7391 13.4095C14.6913 13.5648 14.6555 13.7161 14.6356 13.8675L14.5917 14.0348L14.5878 14.0746L13.162 24.4173C13.154 24.485 13.1461 24.5407 13.1381 24.5846C13.1381 24.5965 13.1341 24.6124 13.1341 24.6244V24.7677L13.1102 24.935L13.1063 25.1023C13.0983 25.2536 13.1063 25.405 13.1222 25.5563C13.1301 25.5961 13.1381 25.6399 13.1461 25.6798C13.1899 26.0382 13.3014 26.3488 13.4806 26.6196C13.8112 27.1453 14.3528 27.456 15.1055 27.5476C15.4878 27.5874 15.8821 27.5715 16.2804 27.5038C16.6667 27.4201 17.0211 27.2807 17.3437 27.0896C17.9729 26.7192 18.4389 26.1577 18.7456 25.401C18.7854 25.3014 18.8252 25.2058 18.865 25.1063L18.9487 24.7916C18.9566 24.7359 18.9646 24.6682 18.9765 24.5846C18.9805 24.5567 18.9925 24.5208 19.0124 24.481L19.0363 24.3137C19.0403 24.2859 19.0442 24.258 19.0482 24.2301L19.0522 24.2102L19.3151 22.2946L16.0972 22.418L16.5113 19.4271L23.7198 19.1484C23.895 19.1404 24.0264 19.1364 24.114 19.1324C24.2017 19.1284 24.2853 19.1245 24.3649 19.1245C24.4446 19.1205 24.5601 19.1165 24.7114 19.1125C24.807 19.1085 24.9185 19.1046 25.0539 19.1006C25.038 19.2041 25.0261 19.2957 25.0141 19.3793ZM37.1529 13.6285C37.145 13.6763 37.141 13.7162 37.137 13.756C37.133 13.7958 37.129 13.8277 37.1251 13.8516L36.1892 20.6219C36.1852 20.6458 36.1812 20.6777 36.1732 20.7255L36.1573 20.8449C36.1414 20.8927 36.1294 20.9365 36.1215 20.9843C36.1055 21.1118 36.0816 21.2312 36.0537 21.3467C35.8905 22.0397 35.5918 22.7247 35.1537 23.4017C34.6957 24.0708 34.1222 24.6363 33.4372 25.0943C32.7642 25.5324 32.0752 25.8152 31.3703 25.9466C30.6853 26.074 30.0202 26.078 29.367 25.9546C28.694 25.8311 28.0926 25.5603 27.5629 25.1341C27.0253 24.6762 26.647 24.1146 26.4279 23.4495C26.2208 22.7844 26.1451 22.1154 26.2049 21.4383L26.2367 21.1954C26.2447 21.1516 26.2447 21.1078 26.2447 21.068C26.2447 21.0281 26.2447 20.9963 26.2487 20.9724L27.1846 14.202C27.1886 14.1781 27.1965 14.1502 27.2125 14.1144L27.2165 14.0985L27.2324 13.979C27.2404 13.9352 27.2443 13.8834 27.2523 13.8237C27.2682 13.7082 27.2961 13.5927 27.332 13.4772C27.4952 12.7842 27.7939 12.0992 28.232 11.4222C28.69 10.7531 29.2595 10.1916 29.9326 9.72961C30.6136 9.29153 31.3105 9.00877 32.0154 8.87734C32.6885 8.7499 33.3576 8.74592 34.0187 8.86938C34.6798 8.99284 35.2811 9.26763 35.8228 9.68978C36.3485 10.1478 36.7228 10.7093 36.9379 11.3744C37.145 12.0395 37.2206 12.7086 37.1609 13.3856L37.1529 13.6285ZM51.3946 12.151C51.3667 12.3422 51.3468 12.4816 51.3348 12.5692C51.3229 12.6568 51.3069 12.7603 51.291 12.8758C51.2751 12.9913 51.2512 13.1666 51.2154 13.4095C51.1158 13.4135 51.0282 13.4175 50.9565 13.4175C50.9923 13.1626 50.9605 12.9595 50.8569 12.8041C50.7534 12.6488 50.622 12.5333 50.4547 12.4497C50.2874 12.3661 50.1162 12.3103 49.933 12.2784C49.7538 12.2466 49.5387 12.2307 49.2958 12.2267L47.193 12.3063L45.7592 22.9676C45.7433 23.0831 45.7393 23.2862 45.7473 23.577C45.7553 23.8677 45.827 24.1465 45.9624 24.4133C46.0978 24.6801 46.3487 24.8076 46.723 24.7916C46.7111 24.8673 46.6991 24.9509 46.6872 25.0386C46.5637 25.0425 46.4562 25.0465 46.3726 25.0505C46.2252 25.0545 46.1137 25.0585 46.038 25.0625C45.9624 25.0664 45.8867 25.0664 45.807 25.0704C45.7274 25.0744 45.6119 25.0784 45.4645 25.0824C45.4526 25.0824 45.2813 25.0903 44.9468 25.1023C44.6123 25.1142 44.2299 25.1302 43.7958 25.1461C43.3617 25.162 42.9754 25.178 42.6369 25.1899C42.2984 25.2018 42.1033 25.2098 42.0515 25.2098C41.9519 25.2138 41.8723 25.2178 41.8086 25.2178C41.7329 25.2218 41.6652 25.2218 41.6054 25.2257C41.482 25.2297 41.3864 25.2337 41.3187 25.2377C41.251 25.2417 41.1634 25.2417 41.0598 25.2457C40.9563 25.2496 40.797 25.2536 40.5859 25.2616C40.5979 25.174 40.6098 25.0903 40.6217 25.0147C40.8687 25.0067 41.0758 24.931 41.243 24.7916C41.4103 24.6523 41.5497 24.489 41.6612 24.3018C41.7727 24.1146 41.8603 23.9274 41.924 23.7402C41.9878 23.5531 42.0475 23.3261 42.1112 23.0592L43.541 12.4338L41.5258 12.4377C41.2749 12.4616 41.0558 12.4935 40.8647 12.5373C40.6735 12.5811 40.4824 12.6528 40.2912 12.7484C40.1 12.844 39.9288 12.9754 39.7735 13.1387C39.6221 13.302 39.5265 13.513 39.4907 13.7639C39.427 13.7679 39.3473 13.7679 39.2478 13.7719C39.2836 13.5051 39.3553 13.0152 39.4549 12.3023C39.5544 11.5895 39.654 10.8885 39.7496 10.1956C39.8451 9.5026 39.8213 9.68182 39.8611 9.40304L51.8326 9.03266L51.3946 12.151ZM56.7272 23.1628C56.4405 23.2185 56.1537 23.2464 55.867 23.2464C55.6041 23.2464 55.3492 23.2225 55.0944 23.1787C54.5408 23.0831 54.035 22.8561 53.5969 22.5096C53.1429 22.1273 52.8243 21.6574 52.6411 21.1078C52.4659 20.5662 52.4022 20.0126 52.4499 19.463L52.4778 19.2639C52.4818 19.24 52.4818 19.2161 52.4818 19.1922C52.4818 19.1484 52.4818 19.1125 52.4858 19.0886L53.1748 13.8277C53.1788 13.7958 53.1867 13.7639 53.2026 13.7321L53.2305 13.533C53.2425 13.4334 53.2664 13.3298 53.2982 13.2303C53.4217 12.6887 53.6606 12.1311 54.0111 11.5815C54.3815 11.0359 54.8395 10.5739 55.3811 10.1996C55.9347 9.84112 56.5042 9.60217 57.0777 9.49464C57.6233 9.38711 58.1689 9.38313 58.7105 9.47871C59.2561 9.57827 59.7619 9.80129 60.208 10.1478C60.654 10.5341 60.9686 11 61.1558 11.5496C61.3311 12.0913 61.3948 12.6448 61.351 13.1905L61.3151 13.5608L60.6022 18.997C60.5823 19.0647 60.5784 19.0846 60.5744 19.1046C60.5624 19.2081 60.5425 19.3077 60.5226 19.4032C60.3951 19.9648 60.1522 20.5223 59.8057 21.068C59.4354 21.6136 58.9734 22.0755 58.4238 22.4499C57.8662 22.8163 57.3047 23.0513 56.7272 23.1628Z", fill: colors_1.colors.navyBlue }),
-        react_1.default.createElement("path", { d: "M33.1305 13.2661C32.9991 13.1626 32.8318 13.0909 32.6247 13.0471C32.4097 13.0073 32.1787 13.0033 31.9318 13.0431C31.7047 13.0909 31.5056 13.1745 31.3344 13.29C31.1751 13.4055 31.0357 13.5449 30.9162 13.7082C30.7967 13.8795 30.7051 14.0985 30.6374 14.3574C30.6215 14.3972 30.6135 14.437 30.6056 14.4768C30.6016 14.5087 30.5976 14.5326 30.5936 14.5525L30.5856 14.5963L30.5817 14.6122C30.5817 14.6202 30.5777 14.6361 30.5737 14.6561L29.7652 20.5303C29.7613 20.5702 29.7533 20.606 29.7493 20.6339L29.7453 20.6498V20.7534C29.7175 21.0122 29.7374 21.2273 29.8011 21.4065C29.8608 21.5937 29.9564 21.737 30.0878 21.8406C30.2193 21.9441 30.3865 22.0158 30.5936 22.0596C30.8087 22.0995 31.0357 22.1034 31.2746 22.0636C31.5016 22.0158 31.7008 21.9322 31.872 21.8167C32.0433 21.7012 32.1866 21.5618 32.3061 21.3985C32.4176 21.2273 32.5052 21.0082 32.569 20.7494C32.5849 20.7095 32.5929 20.6697 32.6008 20.6299C32.6048 20.61 32.6088 20.5861 32.6128 20.5542L32.6207 20.5104C32.6207 20.5025 32.6247 20.4905 32.6327 20.4786C32.6367 20.4666 32.6406 20.4586 32.6446 20.4467L33.4531 14.5724C33.4571 14.5525 33.4571 14.5366 33.4531 14.5206C33.4491 14.5047 33.4491 14.4888 33.4531 14.4689L33.4571 14.4529L33.473 14.3494C33.4889 14.0905 33.465 13.8755 33.4053 13.7002C33.3495 13.5131 33.2619 13.3697 33.1305 13.2661Z", fill: colors_1.colors.navyBlue }),
-        react_1.default.createElement("path", { d: "M56.1856 14.21L55.4926 19.2001C55.4727 19.3993 55.4846 19.5506 55.5245 19.6701C55.5643 19.7935 55.6201 19.8772 55.6957 19.9409C55.7754 20.0086 55.8869 20.0524 56.0263 20.0803C56.1776 20.1082 56.3409 20.1121 56.5121 20.0843C56.6635 20.0524 56.8069 19.9967 56.9224 19.917C57.0418 19.8374 57.1454 19.7378 57.229 19.6223C57.3007 19.5108 57.3644 19.3515 57.4122 19.1603C57.4281 19.1205 57.4321 19.1006 57.4361 19.0807L57.4441 19.0169C57.4481 18.9692 57.46 18.9373 57.4719 18.9094L58.145 14.1423V14.1264L58.1649 13.9551C58.1769 13.7839 58.1609 13.6285 58.1171 13.513C58.0813 13.3856 58.0295 13.302 57.9578 13.2422C57.8742 13.1785 57.7667 13.1307 57.6273 13.1028C57.5516 13.0869 57.4719 13.0789 57.3883 13.0789C57.3047 13.0789 57.2171 13.0869 57.1294 13.0989C56.9781 13.1307 56.8347 13.1865 56.7192 13.2661C56.6077 13.3458 56.5082 13.4453 56.4245 13.5608C56.3409 13.6803 56.2732 13.8356 56.2254 14.0268C56.2095 14.0666 56.2055 14.0865 56.2015 14.1064L56.1935 14.1542L56.1856 14.21Z", fill: colors_1.colors.navyBlue }),
-        react_1.default.createElement("path", { d: "M59.1526 27.6392C59.3517 27.7945 59.5787 27.9896 59.9212 28.1808C60.3593 28.4277 61.0204 28.6906 61.4465 28.4237C62.1953 27.9538 62.2669 27.6113 62.4701 26.7192C61.9284 27.1812 61.339 27.3246 60.7456 27.4201C60.2159 27.5038 59.6863 27.5755 59.1526 27.6392Z", fill: colors_1.colors.navyBlue }),
-        react_1.default.createElement("path", { d: "M65.9827 19.5705C65.5446 19.4909 65.1862 19.5068 64.6684 19.6741C64.6605 19.7219 64.6525 19.7696 64.6406 19.8134L64.2901 21.5498C64.0511 22.7048 63.7923 23.8597 63.4856 25.0067C63.4259 25.2098 63.3781 25.393 63.3184 25.5921C63.9954 24.9828 64.78 24.2102 65.2618 23.8876C67.6593 22.2986 69.3479 22.1034 70.6064 21.8565C69.3679 20.7175 67.6474 19.8812 65.9827 19.5705Z", fill: colors_1.colors.navyBlue }),
-        react_1.default.createElement("path", { d: "M0.441694 39.6546C0.421782 39.6546 0.401869 39.6546 0.381956 39.6506C0.15495 39.6187 -0.0282475 39.5829 0.00361293 39.3479C0.604979 35.1384 1.1028 30.658 1.43335 26.4006C1.83957 21.1277 2.0626 15.6238 2.05065 10.327C2.05065 10.092 2.19004 10.0522 2.44492 10.0443C2.67193 10.0443 2.86309 10.0482 2.86309 10.2832C2.87504 15.6039 2.67193 21.1715 2.26172 26.4683C1.93117 30.7456 1.45725 35.0587 0.851898 39.2922C0.820037 39.5032 0.644805 39.6546 0.441694 39.6546Z", fill: colors_1.colors.navyBlue }),
-        react_1.default.createElement("path", { d: "M63.1073 4.20182C63.1033 4.20182 63.0993 4.20182 63.0914 4.20182C63.0237 4.19385 62.9798 4.13411 62.9878 4.06641L63.3423 1.0317C63.3502 0.963996 63.402 0.920188 63.4777 0.92417C63.5454 0.932135 63.5892 0.991874 63.5812 1.05958L63.2268 4.09429C63.2188 4.15801 63.167 4.20182 63.1073 4.20182Z", fill: colors_1.colors.navyBlue }),
-        react_1.default.createElement("path", { d: "M63.5254 0.657373C63.5214 0.657373 63.5175 0.657373 63.5135 0.657373C63.4458 0.649408 63.398 0.589669 63.406 0.521966L63.4498 0.10778C63.4577 0.0400762 63.5175 -0.00373189 63.5812 0.000250666C63.6489 0.00821578 63.6967 0.0679542 63.6887 0.135658L63.6449 0.549844C63.6409 0.609582 63.5852 0.657373 63.5254 0.657373Z", fill: colors_1.colors.navyBlue }),
-        react_1.default.createElement("path", { d: "M65.9747 6.10152C65.9468 6.10152 65.9189 6.09356 65.899 6.07364C65.8472 6.02984 65.8392 5.95417 65.883 5.90239L68.177 3.08672C68.2208 3.03495 68.2965 3.02699 68.3483 3.07079C68.4 3.1146 68.408 3.19027 68.3642 3.24204L66.0702 6.05771C66.0424 6.08559 66.0105 6.10152 65.9747 6.10152Z", fill: colors_1.colors.navyBlue }),
-        react_1.default.createElement("path", { d: "M68.5275 2.9792C68.4996 2.9792 68.4757 2.97123 68.4518 2.95132C68.4001 2.90751 68.3921 2.83184 68.4359 2.78007L68.6948 2.45748C68.7386 2.40571 68.8142 2.39774 68.866 2.44155C68.9178 2.48536 68.9258 2.56103 68.882 2.6128L68.6231 2.93539C68.5992 2.96327 68.5634 2.9792 68.5275 2.9792Z", fill: colors_1.colors.navyBlue }),
-        react_1.default.createElement("path", { d: "M64.8238 5.01825C64.8079 5.01825 64.7919 5.01427 64.776 5.01028C64.7163 4.98639 64.6844 4.9147 64.7123 4.85098L65.2778 3.46107C65.3017 3.39735 65.3734 3.36947 65.4371 3.39337C65.4969 3.41726 65.5287 3.48895 65.5008 3.55267L64.9353 4.94258C64.9154 4.99037 64.8716 5.01825 64.8238 5.01825Z", fill: colors_1.colors.navyBlue }),
-        react_1.default.createElement("path", { d: "M65.5406 3.22611C65.5246 3.22611 65.5087 3.22213 65.4928 3.21416C65.433 3.18628 65.4052 3.1146 65.433 3.05486L65.68 2.48137C65.7078 2.41765 65.7795 2.38977 65.8393 2.41765C65.899 2.44553 65.9269 2.51721 65.899 2.57695L65.6521 3.15044C65.6322 3.19823 65.5884 3.22611 65.5406 3.22611Z", fill: colors_1.colors.navyBlue }),
-        react_1.default.createElement("path", { d: "M66.8508 7.11305C66.811 7.11305 66.7712 7.09314 66.7473 7.05332C66.7114 6.99756 66.7314 6.92189 66.7911 6.88605L68.0655 6.11343C68.1213 6.08157 68.1969 6.0975 68.2288 6.15724C68.2646 6.213 68.2447 6.28866 68.185 6.32451L66.9106 7.09712C66.8906 7.10907 66.8707 7.11305 66.8508 7.11305Z", fill: colors_1.colors.navyBlue }),
-        react_1.default.createElement("path", { d: "M68.4837 6.10946C68.4399 6.10946 68.4 6.08557 68.3801 6.04972C68.3483 5.98998 68.3682 5.91432 68.4239 5.88246L68.9616 5.57182C69.0173 5.53995 69.093 5.55987 69.1249 5.61562C69.1567 5.67536 69.1368 5.75103 69.0811 5.78289L68.5434 6.09353C68.5235 6.10548 68.5036 6.10946 68.4837 6.10946Z", fill: colors_1.colors.navyBlue }),
-        react_1.default.createElement("path", { d: "M67.3963 8.5747C67.3446 8.5747 67.2928 8.53886 67.2809 8.4831C67.2649 8.41938 67.3048 8.35168 67.3685 8.33575L70.1403 7.54322C70.2041 7.52729 70.2718 7.56711 70.2877 7.63083C70.3036 7.69455 70.2638 7.76226 70.2001 7.77819L67.4282 8.57072C67.4163 8.5747 67.4083 8.5747 67.3963 8.5747Z", fill: colors_1.colors.navyBlue }),
-        react_1.default.createElement("path", { d: "M70.5587 7.69453C70.5069 7.69453 70.4551 7.65869 70.4432 7.60293C70.4272 7.53921 70.4631 7.47151 70.5268 7.45558L70.925 7.34805C70.9888 7.33212 71.0565 7.36796 71.0724 7.43567C71.0883 7.49939 71.0525 7.56709 70.9888 7.58302L70.5905 7.69055C70.5786 7.69055 70.5706 7.69453 70.5587 7.69453Z", fill: colors_1.colors.navyBlue })));
-};
-exports.default = GoToLogo;
-
-
-/***/ }),
-
-/***/ "./resources/ts/src/components/atoms/svg/MoonyPin.tsx":
-/*!************************************************************!*\
-  !*** ./resources/ts/src/components/atoms/svg/MoonyPin.tsx ***!
-  \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var colors_1 = __webpack_require__(/*! ../../../utilities/colors */ "./resources/ts/src/utilities/colors.ts");
-var MoonyPin = function (_a) {
-    var className = _a.className;
-    return (react_1.default.createElement("svg", { className: className, width: "39", height: "53", viewBox: "0 0 39 53", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
-        react_1.default.createElement("path", { d: "M17.4164 53C17.4164 53 -8.58891 26.4976 2.95461 7.57008C2.95461 7.57008 6.80405 0 18.3476 0C18.3476 0 33.7405 0 37.5852 15.1449C41.4298 30.2898 17.4164 53 17.4164 53Z", fill: colors_1.colors.navyBlue }),
-        react_1.default.createElement("path", { d: "M20.0693 31C23.1766 31 26.0086 29.4961 27.8966 26.9609C28.1719 26.5742 27.8573 26.0156 27.4246 26.1016C22.5473 27.1328 18.0633 23.0508 18.0633 17.6367C18.0633 14.543 19.558 11.707 22.036 10.1602C22.4293 9.90234 22.3113 9.30078 21.8786 9.21484C21.2886 9.08594 20.6986 9.04297 20.0693 9C14.484 9 10 13.9414 10 20C10 26.1016 14.484 31 20.0693 31Z", fill: colors_1.colors.yellow })));
-};
-exports.default = MoonyPin;
-
-
-/***/ }),
-
-/***/ "./resources/ts/src/components/atoms/svg/NaviIcon.tsx":
-/*!************************************************************!*\
-  !*** ./resources/ts/src/components/atoms/svg/NaviIcon.tsx ***!
-  \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var colors_1 = __webpack_require__(/*! ../../../utilities/colors */ "./resources/ts/src/utilities/colors.ts");
-var NaviIcon = function (_a) {
-    var className = _a.className, _b = _a.color, color = _b === void 0 ? colors_1.colors.yellow : _b, onClick = _a.onClick;
-    return (react_1.default.createElement("svg", { className: className, onClick: onClick, width: "23", height: "28", viewBox: "0 0 23 28", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
-        react_1.default.createElement("path", { d: "M2 10L11.5 19L21 10", stroke: color, strokeWidth: "3", strokeLinecap: "round", strokeLinejoin: "round" })));
-};
-exports.default = NaviIcon;
-
-
-/***/ }),
-
-/***/ "./resources/ts/src/components/atoms/svg/RainyPin.tsx":
-/*!************************************************************!*\
-  !*** ./resources/ts/src/components/atoms/svg/RainyPin.tsx ***!
-  \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var colors_1 = __webpack_require__(/*! ../../../utilities/colors */ "./resources/ts/src/utilities/colors.ts");
-var RainyPin = function (_a) {
-    var className = _a.className;
-    return (react_1.default.createElement("svg", { className: className, width: "39", height: "53", viewBox: "0 0 39 53", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
-        react_1.default.createElement("path", { d: "M17.4164 53C17.4164 53 -8.58891 26.4976 2.95461 7.57008C2.95461 7.57008 6.80405 0 18.3476 0C18.3476 0 33.7405 0 37.5852 15.1449C41.4298 30.2898 17.4164 53 17.4164 53Z", fill: colors_1.colors.navyBlue }),
-        react_1.default.createElement("path", { d: "M30.9888 20.0742C29.7725 14.2305 24.9942 10.707 19.9118 10.1484V9.375C19.9118 8.64453 19.2602 8 18.5217 8C17.7398 8 17.1316 8.64453 17.1316 9.375V10.1484C12.0058 10.707 7.2709 14.2305 6.01115 20.0742C5.92427 20.5039 6.35867 21.0195 6.8365 20.5898C9.09535 18.2266 11.4845 18.3125 13.6999 22.1797C13.9171 22.5664 14.3515 22.5234 14.5687 22.1797C15.4375 20.6328 16.5235 19 18.5217 19C21.0412 19 22.3444 21.9648 22.4313 22.1797C22.6485 22.5234 23.0828 22.5664 23.3 22.1797C25.5155 18.3125 27.9481 18.2266 30.2069 20.5898C30.6413 21.0195 31.0757 20.5039 30.9888 20.0742ZM17.1316 20.9766V26.5625C17.1316 26.9492 16.7841 27.25 16.4366 27.25C16.0891 27.25 15.8285 27.0352 15.7416 26.8203C15.5244 26.0898 14.699 25.7031 14.004 25.9609C13.2655 26.2188 12.8746 26.9922 13.1352 27.7227C13.6131 29.0977 14.9597 30 16.4366 30C18.3479 30 19.9118 28.4531 19.9118 26.5625V20.9766C19.4774 20.6328 19.043 20.375 18.5217 20.375C17.957 20.418 17.5226 20.5898 17.1316 20.9766Z", fill: colors_1.colors.lightBlue })));
-};
-exports.default = RainyPin;
-
-
-/***/ }),
-
-/***/ "./resources/ts/src/components/atoms/svg/SearchIcon.tsx":
-/*!**************************************************************!*\
-  !*** ./resources/ts/src/components/atoms/svg/SearchIcon.tsx ***!
-  \**************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var colors_1 = __webpack_require__(/*! ../../../utilities/colors */ "./resources/ts/src/utilities/colors.ts");
-var SearchIcon = function (_a) {
-    var className = _a.className, _b = _a.color, color = _b === void 0 ? colors_1.colors.yellow : _b, onClick = _a.onClick;
-    return (react_1.default.createElement("svg", { className: className, onClick: onClick, width: "22", height: "25", viewBox: "0 0 22 25", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
-        react_1.default.createElement("path", { d: "M21.6992 20.7852L17.4023 16.4883C17.1875 16.3164 16.9297 16.1875 16.6719 16.1875H15.9844C17.1445 14.6836 17.875 12.793 17.875 10.6875C17.875 5.78906 13.8359 1.75 8.9375 1.75C3.99609 1.75 0 5.78906 0 10.6875C0 15.6289 3.99609 19.625 8.9375 19.625C11 19.625 12.8906 18.9375 14.4375 17.7344V18.4648C14.4375 18.7227 14.5234 18.9805 14.7383 19.1953L18.9922 23.4492C19.4219 23.8789 20.0664 23.8789 20.4531 23.4492L21.6562 22.2461C22.0859 21.8594 22.0859 21.2148 21.6992 20.7852ZM8.9375 16.1875C5.88672 16.1875 3.4375 13.7383 3.4375 10.6875C3.4375 7.67969 5.88672 5.1875 8.9375 5.1875C11.9453 5.1875 14.4375 7.67969 14.4375 10.6875C14.4375 13.7383 11.9453 16.1875 8.9375 16.1875Z", fill: color })));
-};
-exports.default = SearchIcon;
-
-
-/***/ }),
-
-/***/ "./resources/ts/src/components/atoms/svg/SnowyPin.tsx":
-/*!************************************************************!*\
-  !*** ./resources/ts/src/components/atoms/svg/SnowyPin.tsx ***!
-  \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var colors_1 = __webpack_require__(/*! ../../../utilities/colors */ "./resources/ts/src/utilities/colors.ts");
-var SnowyPin = function (_a) {
-    var className = _a.className;
-    return (react_1.default.createElement("svg", { className: className, width: "39", height: "53", viewBox: "0 0 39 53", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
-        react_1.default.createElement("path", { d: "M17.4164 53C17.4164 53 -8.58891 26.4976 2.95461 7.57008C2.95461 7.57008 6.80405 0 18.3476 0C18.3476 0 33.7405 0 37.5852 15.1449C41.4298 30.2898 17.4164 53 17.4164 53Z", fill: colors_1.colors.navyBlue }),
-        react_1.default.createElement("path", { d: "M28.6492 24.2188L27.0553 23.2812L28.2742 22.9531C28.6492 22.8594 28.8836 22.4375 28.7899 22.0625L28.6023 21.3594C28.5086 20.9844 28.0867 20.75 27.7116 20.8438L24.3833 21.7344L21.383 20L24.3833 18.3125L27.7116 19.2031C28.0867 19.2969 28.5086 19.0625 28.6023 18.6875L28.7899 17.9844C28.8836 17.6094 28.6492 17.1875 28.2742 17.0938L27.0553 16.7656L28.6492 15.8281C28.9774 15.6406 29.118 15.2188 28.8836 14.8438L28.1804 13.5781C27.9929 13.25 27.5241 13.1562 27.196 13.3438L25.6021 14.2344L25.9303 13.0156C26.024 12.6406 25.7896 12.2656 25.4146 12.125L24.7114 11.9375C24.3364 11.8438 23.9614 12.0781 23.8207 12.4531L22.93 15.7812L20.0236 17.4688V13.8594L22.5081 11.3281C22.7894 11.0469 22.7894 10.5781 22.5081 10.25L21.9925 9.73438C21.7112 9.45312 21.2424 9.45312 20.9142 9.73438L20.0236 10.6719V8.75C20.0236 8.375 19.6485 8 19.2735 8H17.7734C17.3515 8 17.0233 8.375 17.0233 8.75V10.6719L16.0858 9.73438C15.8045 9.45312 15.2888 9.45312 15.0075 9.73438L14.4919 10.25C14.2106 10.5781 14.2106 11.0469 14.4919 11.3281L17.0233 13.8594V17.4688L14.07 15.7812L13.1793 12.4531C13.0855 12.0781 12.6636 11.8438 12.2886 11.9375L11.5854 12.125C11.2104 12.2656 10.976 12.6406 11.0697 13.0156L11.3979 14.2344L9.80402 13.3438C9.47587 13.1094 9.00709 13.25 8.81957 13.5781L8.11639 14.8438C7.882 15.2188 8.02264 15.6406 8.35079 15.8281L9.94466 16.7656L8.72582 17.0938C8.35079 17.1875 8.11639 17.5625 8.21015 17.9844L8.39767 18.6875C8.49142 19.0625 8.91333 19.2969 9.28836 19.2031L12.6167 18.3125L15.617 20L12.6167 21.7344L9.28836 20.8438C8.91333 20.75 8.49142 20.9844 8.39767 21.3594L8.21015 22.0625C8.11639 22.4375 8.35079 22.8594 8.72582 22.9531L9.94466 23.2812L8.35079 24.2188C8.02264 24.4062 7.882 24.8281 8.11639 25.2031L8.81957 26.4688C9.00709 26.7969 9.47587 26.8906 9.80402 26.7031L11.3979 25.8125L11.0697 27.0312C10.976 27.4062 11.2104 27.7812 11.5854 27.9219L12.2886 28.1094C12.6636 28.2031 13.0386 27.9688 13.1793 27.5938L14.07 24.2656L16.9764 22.5781V26.1875L14.4919 28.7188C14.1637 29 14.1637 29.4688 14.4919 29.7969L15.0075 30.3125C15.2888 30.5938 15.7576 30.5938 16.0858 30.3125L16.9764 29.375V31.25C16.9764 31.6719 17.3515 32 17.7265 32H19.2266C19.6485 32 19.9767 31.6719 19.9767 31.25V29.375L20.9142 30.3125C21.1955 30.5938 21.6643 30.5938 21.9925 30.3125L22.5081 29.75C22.7894 29.4688 22.7894 29 22.5081 28.7188L20.0236 26.1875V22.5781L22.93 24.2656L23.8207 27.5938C23.9614 27.9688 24.3364 28.2031 24.7114 28.1094L25.4146 27.9219C25.7896 27.7812 26.024 27.4062 25.9303 27.0312L25.6021 25.8125L27.196 26.7031C27.5241 26.8906 27.9929 26.7969 28.1804 26.4219L28.8836 25.2031C29.118 24.8281 28.9774 24.4062 28.6492 24.2188Z", fill: colors_1.colors.white })));
-};
-exports.default = SnowyPin;
-
-
-/***/ }),
-
-/***/ "./resources/ts/src/components/atoms/svg/SunnyPin.tsx":
-/*!************************************************************!*\
-  !*** ./resources/ts/src/components/atoms/svg/SunnyPin.tsx ***!
-  \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var colors_1 = __webpack_require__(/*! ../../../utilities/colors */ "./resources/ts/src/utilities/colors.ts");
-var SunnyPin = function (_a) {
-    var className = _a.className;
-    return (react_1.default.createElement("svg", { className: className, width: "39", height: "53", viewBox: "0 0 39 53", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
-        react_1.default.createElement("path", { d: "M17.4164 53C17.4164 53 -8.58891 26.4976 2.95461 7.57008C2.95461 7.57008 6.80405 0 18.3476 0C18.3476 0 33.7405 0 37.5852 15.1449C41.4298 30.2898 17.4164 53 17.4164 53Z", fill: colors_1.colors.navyBlue }),
-        react_1.default.createElement("path", { d: "M19.0234 14.481C16.5415 14.481 14.5278 16.5415 14.5278 18.9766C14.5278 21.4585 16.5415 23.4722 19.0234 23.4722C21.4585 23.4722 23.519 21.4585 23.519 18.9766C23.519 16.5415 21.4585 14.481 19.0234 14.481ZM30.5434 18.2741L26.0946 16.0732L27.6868 11.3434C27.8741 10.7346 27.2654 10.1259 26.6566 10.3132L21.9268 11.9054L19.7259 7.45659C19.4449 6.8478 18.5551 6.8478 18.2741 7.45659L16.0732 11.9054L11.3434 10.3132C10.7346 10.1259 10.1259 10.7346 10.3132 11.3434L11.9054 16.0732L7.45659 18.2741C6.8478 18.5551 6.8478 19.4449 7.45659 19.7259L11.9054 21.9268L10.3132 26.6566C10.1259 27.2654 10.7346 27.8741 11.3434 27.6868L16.0732 26.0946L18.2741 30.5434C18.5551 31.1522 19.4449 31.1522 19.7259 30.5434L21.9268 26.0946L26.6566 27.6868C27.2654 27.8741 27.8741 27.2654 27.6868 26.6566L26.0946 21.9268L30.5434 19.7259C31.1522 19.4449 31.1522 18.5551 30.5434 18.2741ZM23.238 23.238C20.8966 25.5795 17.1034 25.5795 14.762 23.238C12.4205 20.8966 12.4205 17.1034 14.762 14.762C17.1034 12.4205 20.8966 12.4205 23.238 14.762C25.5795 17.1034 25.5795 20.8966 23.238 23.238Z", fill: colors_1.colors.orange })));
-};
-exports.default = SunnyPin;
-
-
-/***/ }),
-
-/***/ "./resources/ts/src/components/molecules/FormInput.tsx":
-/*!*************************************************************!*\
-  !*** ./resources/ts/src/components/molecules/FormInput.tsx ***!
-  \*************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __rest = (this && this.__rest) || function (s, e) {
-    var t = {};
-    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
-        t[p] = s[p];
-    if (s != null && typeof Object.getOwnPropertySymbols === "function")
-        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
-            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
-                t[p[i]] = s[p[i]];
-        }
-    return t;
-};
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var FormInput = function (_a) {
-    var props = __rest(_a, []);
-    var className = props.className, inputId = props.inputId, labelName = props.labelName, placeholder = props.placeholder, setValue = props.setValue;
-    return (react_1.default.createElement("div", { className: className + ' ' + 'form-input' },
-        react_1.default.createElement("label", { className: "form-input__label", htmlFor: inputId }, labelName),
-        react_1.default.createElement("input", { type: "text", id: inputId, className: "form-input__input", placeholder: placeholder, onChange: function (e) { return setValue(e.target.value); } })));
-};
-exports.default = FormInput;
-
-
-/***/ }),
-
-/***/ "./resources/ts/src/components/molecules/FormPasswordInput.tsx":
-/*!*********************************************************************!*\
-  !*** ./resources/ts/src/components/molecules/FormPasswordInput.tsx ***!
-  \*********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __rest = (this && this.__rest) || function (s, e) {
-    var t = {};
-    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
-        t[p] = s[p];
-    if (s != null && typeof Object.getOwnPropertySymbols === "function")
-        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
-            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
-                t[p[i]] = s[p[i]];
-        }
-    return t;
-};
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var FontAwesomeIconBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FontAwesomeIconBtn */ "./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx"));
-var free_solid_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
-var free_solid_svg_icons_2 = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
-var FormInput = function (_a) {
-    var props = __rest(_a, []);
-    var className = props.className, inputId = props.inputId, labelName = props.labelName, placeholder = props.placeholder, setValue = props.setValue, setShouleShowPassword = props.setShouleShowPassword, shouldShowPassword = props.shouldShowPassword;
-    return (
-    // chromeのコンソールワーニングエラーを止めるために必要
-    // 参照: https://www.chromium.org/developers/design-documents/create-amazing-password-forms
-    react_1.default.createElement("form", { className: className + ' form-input' },
-        react_1.default.createElement("label", { className: 'form-input__label', htmlFor: inputId }, labelName),
-        react_1.default.createElement("input", { type: "text", autoComplete: "username", hidden: true }),
-        react_1.default.createElement("input", { type: shouldShowPassword ? 'text' : 'password', id: inputId, className: "form-input__input", placeholder: placeholder, autoComplete: "new-password", onChange: function (e) { return setValue(e.target.value); } }),
-        react_1.default.createElement("div", { className: "password__icon-wrap", onClick: function () {
-                return setShouleShowPassword(!shouldShowPassword);
-            } },
-            react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "password__icon", icon: shouldShowPassword ? free_solid_svg_icons_2.faEyeSlash : free_solid_svg_icons_1.faEye }))));
-};
-exports.default = FormInput;
-
-
-/***/ }),
-
-/***/ "./resources/ts/src/components/molecules/ItineraryInCard.tsx":
-/*!*******************************************************************!*\
-  !*** ./resources/ts/src/components/molecules/ItineraryInCard.tsx ***!
-  \*******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var WhetherPin_1 = __importDefault(__webpack_require__(/*! ../atoms/WhetherPin */ "./resources/ts/src/components/atoms/WhetherPin.tsx"));
-var ItineraryInCard = function (_a) {
-    var className = _a.className, itinerary = _a.itinerary;
-    return (react_1.default.createElement("div", { className: className + ' ' + 'itinerary-in-card' }, itinerary.map(function (item, key) {
-        if (key > 2)
-            return;
-        return (react_1.default.createElement("div", { className: "itinerary-in-card__place", key: key },
-            react_1.default.createElement(WhetherPin_1.default, { className: "itinerary-in-card__pin", whether: item.whether }),
-            react_1.default.createElement("p", { className: "itinerary-in-card__place-name" }, item.place)));
-    })));
-};
-exports.default = ItineraryInCard;
-
-
-/***/ }),
-
-/***/ "./resources/ts/src/components/molecules/MenuItem.tsx":
-/*!************************************************************!*\
-  !*** ./resources/ts/src/components/molecules/MenuItem.tsx ***!
-  \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var FontAwesomeIconBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FontAwesomeIconBtn */ "./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx"));
-var MenuItem = function (_a) {
-    var className = _a.className, title = _a.title, icon = _a.icon, _b = _a.onClick, onClick = _b === void 0 ? function () { } : _b;
-    return (react_1.default.createElement("div", { className: className + ' ' + 'menu-item', onClick: onClick },
-        react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "menu-item__icon", icon: icon }),
-        react_1.default.createElement("p", { className: "menu-item__title" }, title)));
-};
-exports.default = MenuItem;
-
-
-/***/ }),
-
-/***/ "./resources/ts/src/components/molecules/NewCard.tsx":
-/*!***********************************************************!*\
-  !*** ./resources/ts/src/components/molecules/NewCard.tsx ***!
-  \***********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var GoToLogo_1 = __importDefault(__webpack_require__(/*! ../atoms/svg/GoToLogo */ "./resources/ts/src/components/atoms/svg/GoToLogo.tsx"));
-var FontAwesomeIconBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FontAwesomeIconBtn */ "./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx"));
-var ItineraryInCard_1 = __importDefault(__webpack_require__(/*! ../molecules/ItineraryInCard */ "./resources/ts/src/components/molecules/ItineraryInCard.tsx"));
-var free_solid_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
-var NewCard = function (_a) {
-    var post = _a.post;
-    var goTostyle = post.hasGoTo ? {} : { display: 'none' };
-    var bgStyle = {
-        backgroundImage: 'url(' + post.header + ')',
-    };
-    return (react_1.default.createElement("div", { className: "new-card", style: bgStyle },
-        react_1.default.createElement("div", { style: goTostyle },
-            react_1.default.createElement(GoToLogo_1.default, { className: "new-card__go-to" })),
-        react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "new-card__bookmark", icon: free_solid_svg_icons_1.faBookmark }),
-        react_1.default.createElement("div", { className: "new-card__favorite" },
-            react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "new-card__favorite-btn", icon: free_solid_svg_icons_1.faHeart }),
-            react_1.default.createElement("p", { className: "new-card__favorite-number" }, post.favNum)),
-        react_1.default.createElement(ItineraryInCard_1.default, { className: "new-card__itinerary", itinerary: post.itinerary })));
-};
-exports.default = NewCard;
-
-
-/***/ }),
-
-/***/ "./resources/ts/src/components/molecules/PopularCard.tsx":
-/*!***************************************************************!*\
-  !*** ./resources/ts/src/components/molecules/PopularCard.tsx ***!
-  \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var GoToLogo_1 = __importDefault(__webpack_require__(/*! ../atoms/svg/GoToLogo */ "./resources/ts/src/components/atoms/svg/GoToLogo.tsx"));
-var FontAwesomeIconBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FontAwesomeIconBtn */ "./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx"));
-var ItineraryInCard_1 = __importDefault(__webpack_require__(/*! ../molecules/ItineraryInCard */ "./resources/ts/src/components/molecules/ItineraryInCard.tsx"));
-var free_solid_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
-var PopularCard = function (_a) {
-    var post = _a.post;
-    var goTostyle = post.hasGoTo ? {} : { display: 'none' };
-    var bgStyle = {
-        backgroundImage: 'url(' + post.header + ')',
-    };
-    return (react_1.default.createElement("div", { className: "popular-card" },
-        react_1.default.createElement("div", { className: "popular-card__white-bg-wrap" },
-            react_1.default.createElement("img", { className: "popular-card__white-bg", src: "../images/ninki_listimg_white.png", alt: "" })),
-        react_1.default.createElement("div", { className: "popular-card__wrap", style: bgStyle },
-            react_1.default.createElement("div", { style: goTostyle },
-                react_1.default.createElement(GoToLogo_1.default, { className: "popular-card__go-to" })),
-            react_1.default.createElement(ItineraryInCard_1.default, { className: "popular-card__itinerary", itinerary: post.itinerary }),
-            react_1.default.createElement("div", { className: "popular-card__icon-wrap" },
-                react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "popular-card__bookmark", icon: free_solid_svg_icons_1.faBookmark }),
-                react_1.default.createElement("div", { className: "popular-card__favorite" },
-                    react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "popular-card__favorite-btn", icon: free_solid_svg_icons_1.faHeart }),
-                    react_1.default.createElement("p", { className: "popular-card__favorite-number" }, post.favNum))))));
-};
-exports.default = PopularCard;
-
-
-/***/ }),
-
-/***/ "./resources/ts/src/components/molecules/RegisterWithSNS.tsx":
-/*!*******************************************************************!*\
-  !*** ./resources/ts/src/components/molecules/RegisterWithSNS.tsx ***!
-  \*******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var FontAwesomeIconBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FontAwesomeIconBtn */ "./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx"));
-var free_brands_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-brands-svg-icons */ "./node_modules/@fortawesome/free-brands-svg-icons/index.es.js");
-var RegisterWithSNS = function (_a) {
-    var className = _a.className;
-    return (react_1.default.createElement("div", { className: className + ' ' + 'register-with-sns' },
-        react_1.default.createElement("p", { className: "register-with-sns__p" }, "SNS\u3067\u65B0\u898F\u767B\u9332"),
-        react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "register-with-sns__icon-twitter", icon: free_brands_svg_icons_1.faTwitter }),
-        react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "register-with-sns__icon-facebook", icon: free_brands_svg_icons_1.faFacebook })));
-};
-exports.default = RegisterWithSNS;
-
-
-/***/ }),
-
-/***/ "./resources/ts/src/components/molecules/UserInfo.tsx":
-/*!************************************************************!*\
-  !*** ./resources/ts/src/components/molecules/UserInfo.tsx ***!
-  \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var FontAwesomeIconBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FontAwesomeIconBtn */ "./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx"));
-var free_solid_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
-var UserInfo = function (_a) {
-    var className = _a.className, iconUrl = _a.iconUrl, name = _a.name;
-    return (react_1.default.createElement("div", { className: className + ' ' + 'user-info' },
-        react_1.default.createElement("div", { className: "user-info__icon-name-wrap" },
-            react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "user-info__user-icon", icon: free_solid_svg_icons_1.faUserCircle }),
-            react_1.default.createElement("div", { className: "user-info__name-wrap" },
-                react_1.default.createElement("p", { className: "user-info__name" }, name))),
-        react_1.default.createElement("p", { className: "user-info__show-profile" }, "\u30DE\u30A4\u30D7\u30ED\u30D5\u30A3\u30FC\u30EB\u3092\u898B\u308B")));
-};
-exports.default = UserInfo;
-
-
-/***/ }),
-
-/***/ "./resources/ts/src/components/organisms/Header.tsx":
-/*!**********************************************************!*\
-  !*** ./resources/ts/src/components/organisms/Header.tsx ***!
-  \**********************************************************/
->>>>>>> 8a06663c283820fbceab824191583ec9355707e3
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -70618,13 +69900,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var react_dom_1 = __importDefault(__webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js"));
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-<<<<<<< HEAD
 var GlobalNav_1 = __importDefault(__webpack_require__(/*! ./GlobalNav */ "./resources/ts/tests/GlobalNav.tsx"));
 var Top_1 = __importDefault(__webpack_require__(/*! ./Top */ "./resources/ts/tests/Top.tsx"));
 var About_1 = __importDefault(__webpack_require__(/*! ./About */ "./resources/ts/tests/About.tsx"));
 var Register_1 = __importDefault(__webpack_require__(/*! ./Register */ "./resources/ts/tests/Register.tsx"));
 var Login_1 = __importDefault(__webpack_require__(/*! ./Login */ "./resources/ts/tests/Login.tsx"));
 var Post_1 = __importDefault(__webpack_require__(/*! ./Post */ "./resources/ts/tests/Post.tsx"));
+var PostEdit_1 = __importDefault(__webpack_require__(/*! ./PostEdit */ "./resources/ts/tests/PostEdit.tsx"));
 var App = function () {
     return (react_1.default.createElement(react_router_dom_1.BrowserRouter, null,
         react_1.default.createElement(GlobalNav_1.default, null),
@@ -70632,167 +69914,8 @@ var App = function () {
         react_1.default.createElement(react_router_dom_1.Route, { path: "/about", component: About_1.default }),
         react_1.default.createElement(react_router_dom_1.Route, { path: "/hoge", component: Register_1.default }),
         react_1.default.createElement(react_router_dom_1.Route, { path: "/hogehoge", component: Login_1.default }),
-        react_1.default.createElement(react_router_dom_1.Route, { path: "/post", component: Post_1.default })));
-=======
-var free_brands_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-brands-svg-icons */ "./node_modules/@fortawesome/free-brands-svg-icons/index.es.js");
-var FormInput_1 = __importDefault(__webpack_require__(/*! ../molecules/FormInput */ "./resources/ts/src/components/molecules/FormInput.tsx"));
-var FormPasswordInput_1 = __importDefault(__webpack_require__(/*! ../../containers/molecules/FormPasswordInput */ "./resources/ts/src/containers/molecules/FormPasswordInput.tsx"));
-var FormBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FormBtn */ "./resources/ts/src/components/atoms/FormBtn.tsx"));
-var FontAwesomeIconBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FontAwesomeIconBtn */ "./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx"));
-var LoginMenu = function (_a) {
-    var className = _a.className, setMail = _a.setMail, setPassword = _a.setPassword, login = _a.login;
-    return (
-    //ここからログイン
-    react_1.default.createElement("div", { className: className + ' ' + 'login-menu' },
-        react_1.default.createElement(FormInput_1.default, { className: "login-menu__mail-input", inputId: "mail", labelName: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9", placeholder: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u3092\u5165\u529B", setValue: setMail }),
-        react_1.default.createElement(FormPasswordInput_1.default, { className: "login-menu__password-input", inputId: "password", labelName: "\u30D1\u30B9\u30EF\u30FC\u30C9", placeholder: "6\u6587\u5B57\u4EE5\u4E0A\u534A\u89D2\u82F1\u6570\u5B57", setValue: setPassword }),
-        react_1.default.createElement("p", { className: "login-menu__forgetting-password" }, "\u30D1\u30B9\u30EF\u30FC\u30C9\u3092\u304A\u5FD8\u308C\u3067\u3059\u304B\uFF1F"),
-        react_1.default.createElement("div", { className: "login" },
-            react_1.default.createElement(FormBtn_1.default, { className: "login__button", name: "\u30ED\u30B0\u30A4\u30F3", onClick: function () { return login(); } }),
-            react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "login__twitter-icon", icon: free_brands_svg_icons_1.faTwitter }),
-            react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "login__facebook-icon", icon: free_brands_svg_icons_1.faFacebook })),
-        react_1.default.createElement(react_router_dom_1.Link, { to: "../regist" },
-            react_1.default.createElement("p", { className: "login-menu__register-link" }, "\u30A2\u30AB\u30A6\u30F3\u30C8\u3092\u304A\u6301\u3061\u3067\u306A\u3044\u65B9\u306F\u3053\u3061\u3089")),
-        react_1.default.createElement("p", { className: "policy" },
-            react_1.default.createElement("span", { className: "policy__terms" }, "\u5229\u7528\u898F\u7D04"),
-            "\u30FB",
-            react_1.default.createElement("span", { className: "policy__privacy-policy" }, "\u30D7\u30E9\u30A4\u30D0\u30B7\u30FC\u30DD\u30EA\u30B7\u30FC"))));
-};
-exports.default = LoginMenu;
-
-
-/***/ }),
-
-/***/ "./resources/ts/src/components/organisms/Menu.tsx":
-/*!********************************************************!*\
-  !*** ./resources/ts/src/components/organisms/Menu.tsx ***!
-  \********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
-var UserMenu_1 = __importDefault(__webpack_require__(/*! ../../containers/organisms/UserMenu */ "./resources/ts/src/containers/organisms/UserMenu.tsx"));
-var LoginMenu_1 = __importDefault(__webpack_require__(/*! ../../containers/organisms/LoginMenu */ "./resources/ts/src/containers/organisms/LoginMenu.tsx"));
-var Menu = function () {
-    var isLogin = react_redux_1.useSelector(function (state) { return state.loginReducer.state; });
-    // const isLogin = true // テスト用、後で消す
-    var shouldShowMenu = react_redux_1.useSelector(function (state) { return state.menuReducer.shouldShow; });
-    var style = shouldShowMenu ? {} : { display: 'none' };
-    return (react_1.default.createElement(react_1.default.Fragment, null,
-        react_1.default.createElement("div", { className: "menu", style: style }, isLogin ? (react_1.default.createElement(UserMenu_1.default, { className: "menu__contents--user" })) : (react_1.default.createElement(LoginMenu_1.default, { className: "menu__contents--login" }))),
-        react_1.default.createElement("div", { style: style, className: "menu-overlay" })));
-};
-exports.default = Menu;
-
-
-/***/ }),
-
-/***/ "./resources/ts/src/components/organisms/NewPosts.tsx":
-/*!************************************************************!*\
-  !*** ./resources/ts/src/components/organisms/NewPosts.tsx ***!
-  \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var NewCard_1 = __importDefault(__webpack_require__(/*! ../../containers/molecules/NewCard */ "./resources/ts/src/containers/molecules/NewCard.tsx"));
-var NewPosts = function (_a) {
-    var posts = _a.posts;
-    var rowPosts = [];
-    // 一列2カードの配列を作る
-    posts.forEach(function (v, i) {
-        if (i === posts.length - 1 && posts.length % 2 === 1) {
-            // 投稿数が奇数 かつ 最後の一枚だった時
-            rowPosts.push(posts.slice(i, i + 1));
-            return;
-        }
-        if (i % 2 === 0)
-            return;
-        rowPosts.push(posts.slice(i - 1, i + 1));
-    });
-    return (react_1.default.createElement("div", { className: "new-posts" },
-        react_1.default.createElement("p", { className: "new-posts__title" }, "\u65B0\u7740\u306E\u6295\u7A3F"),
-        rowPosts.map(function (rowPost, key) { return (react_1.default.createElement("div", { className: "new-posts__row", key: key }, rowPost.map(function (post, key) { return (react_1.default.createElement(NewCard_1.default, { post: post, key: key })); }))); })));
-};
-exports.default = NewPosts;
-
-
-/***/ }),
-
-/***/ "./resources/ts/src/components/organisms/PopularPosts.tsx":
-/*!****************************************************************!*\
-  !*** ./resources/ts/src/components/organisms/PopularPosts.tsx ***!
-  \****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var PopularCard_1 = __importDefault(__webpack_require__(/*! ../../containers/molecules/PopularCard */ "./resources/ts/src/containers/molecules/PopularCard.tsx"));
-var PopularPosts = function (_a) {
-    var posts = _a.posts;
-    return (react_1.default.createElement("div", { className: "popular-posts" },
-        react_1.default.createElement("p", { className: "popular-posts__title" }, "\u4EBA\u6C17\u306E\u6295\u7A3F"),
-        posts.map(function (post, index) { return (react_1.default.createElement(PopularCard_1.default, { post: post, key: index })); })));
-};
-exports.default = PopularPosts;
-
-
-/***/ }),
-
-/***/ "./resources/ts/src/components/organisms/RegistForm.tsx":
-/*!**************************************************************!*\
-  !*** ./resources/ts/src/components/organisms/RegistForm.tsx ***!
-  \**************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var FormInput_1 = __importDefault(__webpack_require__(/*! ../molecules/FormInput */ "./resources/ts/src/components/molecules/FormInput.tsx"));
-var FormPasswordInput_1 = __importDefault(__webpack_require__(/*! ../../containers/molecules/FormPasswordInput */ "./resources/ts/src/containers/molecules/FormPasswordInput.tsx"));
-var FormBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FormBtn */ "./resources/ts/src/components/atoms/FormBtn.tsx"));
-var RegisterWithSNS_1 = __importDefault(__webpack_require__(/*! ../../containers/molecules/RegisterWithSNS */ "./resources/ts/src/containers/molecules/RegisterWithSNS.tsx"));
-var RegistForm = function (_a) {
-    var setUserName = _a.setUserName, setMail = _a.setMail, setPassword = _a.setPassword, regist = _a.regist;
-    return (react_1.default.createElement("div", { className: "regist-form" },
-        react_1.default.createElement(FormInput_1.default, { className: "regist-form__username", inputId: "username", labelName: "\u30E6\u30FC\u30B6\u30FC\u30CD\u30FC\u30E0", placeholder: "2-15\u6587\u5B57\u4EE5\u5185", setValue: setUserName }),
-        react_1.default.createElement(FormInput_1.default, { className: "regist-form__mail", inputId: "mail", labelName: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9", placeholder: "\u30E1\u30FC\u30EB\u30A2\u30C9\u30EC\u30B9\u3092\u5165\u529B", setValue: setMail }),
-        react_1.default.createElement(FormPasswordInput_1.default, { className: "regist-form__password", inputId: "password", labelName: "\u30D1\u30B9\u30EF\u30FC\u30C9", placeholder: "6\u6587\u5B57\u4EE5\u4E0A\u534A\u89D2\u82F1\u6570\u5B57", setValue: setPassword }),
-        react_1.default.createElement(FormBtn_1.default, { className: "regist-form__button", name: "\u65B0\u898F\u767B\u9332", onClick: function () { return regist(); } }),
-        react_1.default.createElement(RegisterWithSNS_1.default, { className: "regist-form__sns" }),
-        react_1.default.createElement("div", { className: "confirm-msg" },
-            react_1.default.createElement("p", null,
-                "\u767B\u9332\u3059\u308B\u3053\u3068\u3067\u3001",
-                react_1.default.createElement("span", { className: "confirm-msg__link" }, "\u5229\u7528\u898F\u7D04"),
-                "\u53CA\u3073",
-                react_1.default.createElement("br", null),
-                react_1.default.createElement("span", { className: "confirm-msg__link" }, "\u30D7\u30E9\u30A4\u30D0\u30B7\u30FC\u30DD\u30EA\u30B7\u30FC"),
-                "\u306B\u540C\u610F\u3059\u308B\u3082\u306E\u3068\u3057\u307E\u3059\u3002"))));
->>>>>>> 8a06663c283820fbceab824191583ec9355707e3
+        react_1.default.createElement(react_router_dom_1.Route, { path: "/post", component: Post_1.default }),
+        react_1.default.createElement(react_router_dom_1.Route, { path: "/postEdit", component: PostEdit_1.default })));
 };
 if (document.getElementById('app')) {
     react_dom_1.default.render(react_1.default.createElement(App, null), document.getElementById('app'));
@@ -70816,7 +69939,6 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-<<<<<<< HEAD
 var GlobalNav = function () {
     return (react_1.default.createElement("nav", null,
         react_1.default.createElement("ul", null,
@@ -70829,164 +69951,11 @@ var GlobalNav = function () {
             react_1.default.createElement(react_router_dom_1.Link, { to: "/hogehoge" },
                 react_1.default.createElement("li", null, "Login")),
             react_1.default.createElement(react_router_dom_1.Link, { to: "/post" },
-                react_1.default.createElement("li", null, "Post")))));
+                react_1.default.createElement("li", null, "Post")),
+            react_1.default.createElement(react_router_dom_1.Link, { to: "/postEdit" },
+                react_1.default.createElement("li", null, "PostEdit")))));
 };
 exports.default = GlobalNav;
-=======
-var free_solid_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
-var UserInfo_1 = __importDefault(__webpack_require__(/*! ../molecules/UserInfo */ "./resources/ts/src/components/molecules/UserInfo.tsx"));
-var MenuItem_1 = __importDefault(__webpack_require__(/*! ../molecules/MenuItem */ "./resources/ts/src/components/molecules/MenuItem.tsx"));
-var UserMenu = function (_a) {
-    var className = _a.className, name = _a.name, iconUrl = _a.iconUrl, logout = _a.logout;
-    return (react_1.default.createElement("div", { className: className + ' ' + 'user-menu' },
-        react_1.default.createElement(UserInfo_1.default, { className: "user-menu__user-info", name: name, iconUrl: iconUrl }),
-        react_1.default.createElement("div", { className: "items-wrap" },
-            react_1.default.createElement(react_router_dom_1.Link, { to: "../home" },
-                react_1.default.createElement(MenuItem_1.default, { className: "items-wrap__home", title: 'Home', icon: free_solid_svg_icons_1.faHome })),
-            react_1.default.createElement(react_router_dom_1.Link, { to: "../home" },
-                react_1.default.createElement(MenuItem_1.default, { className: "items-wrap__itinerary", title: '作成した行程表', icon: free_solid_svg_icons_1.faMapMarkerAlt })),
-            react_1.default.createElement(react_router_dom_1.Link, { to: "../home" },
-                react_1.default.createElement(MenuItem_1.default, { className: "items-wrap__favorite", title: 'いいね', icon: free_solid_svg_icons_1.faHeart })),
-            react_1.default.createElement(react_router_dom_1.Link, { to: "../home" },
-                react_1.default.createElement(MenuItem_1.default, { className: "items-wrap__bookmark", title: 'ブックマーク', icon: free_solid_svg_icons_1.faBookmark })),
-            react_1.default.createElement(react_router_dom_1.Link, { to: "../home" },
-                react_1.default.createElement(MenuItem_1.default, { className: "items-wrap__setting", title: '設定', icon: free_solid_svg_icons_1.faCog })),
-            react_1.default.createElement(MenuItem_1.default, { className: "items-wrap__logout", title: 'ログアウト', icon: free_solid_svg_icons_1.faSignOutAlt, onClick: logout })),
-        react_1.default.createElement("p", { className: "policy" },
-            react_1.default.createElement("span", { className: "policy__terms" }, "\u5229\u7528\u898F\u7D04"),
-            "\u30FB",
-            react_1.default.createElement("span", { className: "policy__privacy-policy" }, "\u30D7\u30E9\u30A4\u30D0\u30B7\u30FC\u30DD\u30EA\u30B7\u30FC"))));
-};
-exports.default = UserMenu;
-
-
-/***/ }),
-
-/***/ "./resources/ts/src/containers/molecules/FormPasswordInput.tsx":
-/*!*********************************************************************!*\
-  !*** ./resources/ts/src/containers/molecules/FormPasswordInput.tsx ***!
-  \*********************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
-}) : (function(o, m, k, k2) {
-    if (k2 === undefined) k2 = k;
-    o[k2] = m[k];
-}));
-var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
-    Object.defineProperty(o, "default", { enumerable: true, value: v });
-}) : function(o, v) {
-    o["default"] = v;
-});
-var __importStar = (this && this.__importStar) || function (mod) {
-    if (mod && mod.__esModule) return mod;
-    var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
-    __setModuleDefault(result, mod);
-    return result;
-};
-var __rest = (this && this.__rest) || function (s, e) {
-    var t = {};
-    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
-        t[p] = s[p];
-    if (s != null && typeof Object.getOwnPropertySymbols === "function")
-        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
-            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
-                t[p[i]] = s[p[i]];
-        }
-    return t;
-};
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var FormPasswordInput_1 = __importDefault(__webpack_require__(/*! ../../components/molecules/FormPasswordInput */ "./resources/ts/src/components/molecules/FormPasswordInput.tsx"));
-var FormPasswordInputContainer = function (_a) {
-    var props = __rest(_a, []);
-    var className = props.className, inputId = props.inputId, labelName = props.labelName, placeholder = props.placeholder, setValue = props.setValue;
-    var _b = react_1.useState(false), shouldShowPassword = _b[0], setShouleShowPassword = _b[1];
-    return (react_1.default.createElement(FormPasswordInput_1.default, { className: className, inputId: inputId, labelName: labelName, placeholder: placeholder, setValue: setValue, setShouleShowPassword: setShouleShowPassword, shouldShowPassword: shouldShowPassword }));
-};
-exports.default = FormPasswordInputContainer;
-
-
-/***/ }),
-
-/***/ "./resources/ts/src/containers/molecules/NewCard.tsx":
-/*!***********************************************************!*\
-  !*** ./resources/ts/src/containers/molecules/NewCard.tsx ***!
-  \***********************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var NewCard_1 = __importDefault(__webpack_require__(/*! ../../components/molecules/NewCard */ "./resources/ts/src/components/molecules/NewCard.tsx"));
-var NewCardContainer = function (_a) {
-    var post = _a.post;
-    return react_1.default.createElement(NewCard_1.default, { post: post });
-};
-exports.default = NewCardContainer;
-
-
-/***/ }),
-
-/***/ "./resources/ts/src/containers/molecules/PopularCard.tsx":
-/*!***************************************************************!*\
-  !*** ./resources/ts/src/containers/molecules/PopularCard.tsx ***!
-  \***************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var PopularCard_1 = __importDefault(__webpack_require__(/*! ../../components/molecules/PopularCard */ "./resources/ts/src/components/molecules/PopularCard.tsx"));
-var PopularCardContainer = function (_a) {
-    var post = _a.post;
-    return react_1.default.createElement(PopularCard_1.default, { post: post });
-};
-exports.default = PopularCardContainer;
-
-
-/***/ }),
-
-/***/ "./resources/ts/src/containers/molecules/RegisterWithSNS.tsx":
-/*!*******************************************************************!*\
-  !*** ./resources/ts/src/containers/molecules/RegisterWithSNS.tsx ***!
-  \*******************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var RegisterWithSNS_1 = __importDefault(__webpack_require__(/*! ../../components/molecules/RegisterWithSNS */ "./resources/ts/src/components/molecules/RegisterWithSNS.tsx"));
-var RegisterWithSNSContainer = function (_a) {
-    var className = _a.className;
-    return react_1.default.createElement(RegisterWithSNS_1.default, { className: className });
-};
-exports.default = RegisterWithSNSContainer;
->>>>>>> 8a06663c283820fbceab824191583ec9355707e3
 
 
 /***/ }),
@@ -71244,285 +70213,217 @@ exports.default = Post;
 
 /***/ }),
 
-<<<<<<< HEAD
+/***/ "./resources/ts/tests/PostEdit.tsx":
+/*!*****************************************!*\
+  !*** ./resources/ts/tests/PostEdit.tsx ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
+var PostEdit = function () {
+    var _a = react_1.useState(''), title = _a[0], setTitle = _a[1];
+    var _b = react_1.useState(''), header = _b[0], setHeader = _b[1];
+    var _c = react_1.useState(''), people = _c[0], setPeople = _c[1];
+    var _d = react_1.useState(''), day_s = _d[0], setDayS = _d[1];
+    var _e = react_1.useState(''), day_f = _e[0], setDayf = _e[1];
+    var _f = react_1.useState(''), order_number = _f[0], setOrderNum = _f[1];
+    var _g = react_1.useState(''), day = _g[0], setDay = _g[1];
+    var _h = react_1.useState(''), img = _h[0], setImg = _h[1];
+    var _j = react_1.useState(''), place_name = _j[0], setPlaceName = _j[1];
+    var _k = react_1.useState(''), longitude = _k[0], setLongitude = _k[1];
+    var _l = react_1.useState(''), latitude = _l[0], setLatitude = _l[1];
+    var _m = react_1.useState(''), rating = _m[0], setRating = _m[1];
+    var _o = react_1.useState(''), weather = _o[0], setWeather = _o[1];
+    var _p = react_1.useState(''), transport = _p[0], setTransport = _p[1];
+    var _q = react_1.useState(''), transport_detail = _q[0], setTransD = _q[1];
+    // const [distance, setDistance] = useState<string>('')
+    var _r = react_1.useState(''), comment = _r[0], setComment = _r[1];
+    var _s = react_1.useState(''), tag_name = _s[0], setTagName = _s[1];
+    var _t = react_1.useState(''), tag_name2 = _t[0], setTagName2 = _t[1];
+    var _u = react_1.useState(''), tag_name3 = _u[0], setTagName3 = _u[1];
+    var uid = '31';
+    var is_public = '0';
+    var addSchedule = function () {
+        axios_1.default
+            .post('/api/create', {
+            uid: uid,
+            title: title,
+            header: header,
+            people: people,
+            day_s: day_s,
+            day_f: day_f,
+            is_public: is_public,
+            tag_name: tag_name,
+            tag_name2: tag_name2,
+            tag_name3: tag_name3,
+        })
+            .then(function (res) {
+            console.log(res.data);
+        })
+            .catch(function (error) {
+            console.log(error);
+        });
+    };
+    return (react_1.default.createElement(react_1.default.Fragment, null,
+        react_1.default.createElement("label", null,
+            "\u30D8\u30C3\u30C0\u30FC\u753B\u50CF\u8FFD\u52A0",
+            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setHeader(e.target.value); } })),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("label", null,
+            "\u30BF\u30A4\u30C8\u30EB*",
+            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setTitle(e.target.value); } })),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("label", null,
+            "\u30BF\u30B0",
+            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setTagName(e.target.value); } }),
+            ",",
+            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setTagName2(e.target.value); } }),
+            ",",
+            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setTagName3(e.target.value); } })),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("label", null,
+            "\u65E5\u4ED8*",
+            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setDayS(e.target.value); } }),
+            "\uFF5E",
+            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setDayf(e.target.value); } })),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("label", null,
+            "\u4EBA\u6570*",
+            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setPeople(e.target.value); } }),
+            "\u4EBA"),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("h2", null, "\u884C\u7A0B*"),
+        react_1.default.createElement("label", null,
+            "\u5834\u6240",
+            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setPlaceName(e.target.value); } }),
+            "\u5929\u6C17",
+            react_1.default.createElement("select", { onChange: function (e) { return setWeather(e.target.value); } },
+                react_1.default.createElement("option", { value: "sun" }, "sun"),
+                react_1.default.createElement("option", { value: "cloud" }, "cloud"),
+                react_1.default.createElement("option", { value: "rain" }, "rain"),
+                react_1.default.createElement("option", { value: "snow" }, "snow"),
+                react_1.default.createElement("option", { value: "night" }, "night")),
+            "\u8A55\u4FA1",
+            react_1.default.createElement("select", { onChange: function (e) { return setRating(e.target.value); } },
+                react_1.default.createElement("option", { value: "0" }, "0"),
+                react_1.default.createElement("option", { value: "1" }, "1"),
+                react_1.default.createElement("option", { value: "2" }, "2"),
+                react_1.default.createElement("option", { value: "3" }, "3"))),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("label", null,
+            "\u7DEF\u5EA6",
+            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setLatitude(e.target.value); } }),
+            "\u7D4C\u5EA6",
+            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setLongitude(e.target.value); } })),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("label", null,
+            "\u5199\u771F",
+            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setImg(e.target.value); } })),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("label", null,
+            "\u30B3\u30E1\u30F3\u30C8",
+            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setComment(e.target.value); } })),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("label", null,
+            "\u79FB\u52D5\u624B\u6BB5",
+            react_1.default.createElement("select", { onChange: function (e) { return setTransport(e.target.value); } },
+                react_1.default.createElement("option", { value: "\u5F92\u6B69" }, "\u5F92\u6B69"),
+                react_1.default.createElement("option", { value: "\u81EA\u8EE2\u8ECA" }, "\u81EA\u8EE2\u8ECA"),
+                react_1.default.createElement("option", { value: "\u8ECA" }, "\u8ECA"),
+                react_1.default.createElement("option", { value: "\u30D0\u30B9" }, "\u30D0\u30B9"),
+                react_1.default.createElement("option", { value: "\u96FB\u8ECA" }, "\u96FB\u8ECA"),
+                react_1.default.createElement("option", { value: "\u8239" }, "\u8239"),
+                react_1.default.createElement("option", { value: "\u98DB\u884C\u6A5F" }, "\u98DB\u884C\u6A5F"))),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("label", null,
+            "\u79FB\u52D5\u624B\u6BB5\u8A73\u7D30",
+            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setTransD(e.target.value); } })),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("label", null,
+            "\u5834\u6240",
+            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setPlaceName(e.target.value); } }),
+            "\u5929\u6C17",
+            react_1.default.createElement("select", { onChange: function (e) { return setWeather(e.target.value); } },
+                react_1.default.createElement("option", null, "sun"),
+                react_1.default.createElement("option", null, "cloud"),
+                react_1.default.createElement("option", null, "rain"),
+                react_1.default.createElement("option", null, "snow"),
+                react_1.default.createElement("option", null, "night")),
+            "\u8A55\u4FA1",
+            react_1.default.createElement("select", { onChange: function (e) { return setRating(e.target.value); } },
+                react_1.default.createElement("option", null, "0"),
+                react_1.default.createElement("option", null, "1"),
+                react_1.default.createElement("option", null, "2"),
+                react_1.default.createElement("option", null, "3"))),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("label", null,
+            "\u7DEF\u5EA6",
+            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setLatitude(e.target.value); } }),
+            "\u7D4C\u5EA6",
+            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setLongitude(e.target.value); } })),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("label", null,
+            "\u5199\u771F",
+            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setImg(e.target.value); } })),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("label", null,
+            "\u30B3\u30E1\u30F3\u30C8",
+            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setComment(e.target.value); } })),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("label", null,
+            "\u79FB\u52D5\u624B\u6BB5",
+            react_1.default.createElement("select", { onChange: function (e) { return setTransport(e.target.value); } },
+                react_1.default.createElement("option", null, "\u5F92\u6B69"),
+                react_1.default.createElement("option", null, "\u81EA\u8EE2\u8ECA"),
+                react_1.default.createElement("option", null, "\u8ECA"),
+                react_1.default.createElement("option", null, "\u30D0\u30B9"),
+                react_1.default.createElement("option", null, "\u96FB\u8ECA"),
+                react_1.default.createElement("option", null, "\u8239"),
+                react_1.default.createElement("option", null, "\u98DB\u884C\u6A5F"))),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("label", null,
+            "\u79FB\u52D5\u624B\u6BB5\u8A73\u7D30",
+            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setTransD(e.target.value); } })),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("button", null, "\u7DE8\u96C6\u78BA\u5B9A")));
+};
+exports.default = PostEdit;
+
+
+/***/ }),
+
 /***/ "./resources/ts/tests/Register.tsx":
 /*!*****************************************!*\
   !*** ./resources/ts/tests/Register.tsx ***!
   \*****************************************/
-=======
-/***/ "./resources/ts/src/containers/organisms/NewPosts.tsx":
-/*!************************************************************!*\
-  !*** ./resources/ts/src/containers/organisms/NewPosts.tsx ***!
-  \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var NewPosts_1 = __importDefault(__webpack_require__(/*! ../../components/organisms/NewPosts */ "./resources/ts/src/components/organisms/NewPosts.tsx"));
-var NewPostsContainer = function () {
-    // テスト用
-    var posts = [
-        {
-            id: 2000,
-            header: '../images/post_ninki_sample1.png',
-            hasGoTo: true,
-            favNum: 123,
-            itinerary: [
-                {
-                    whether: 'sun',
-                    place: '浅草駅',
-                },
-                {
-                    whether: 'rain',
-                    place: '井の頭自然文化公園・熱帯鳥温園',
-                },
-                {
-                    whether: 'night',
-                    place: '東京駅',
-                },
-                {
-                    whether: 'snow',
-                    place: '上野駅',
-                },
-            ],
-        },
-        {
-            id: 2001,
-            header: '../images/post_defaultPho.png',
-            hasGoTo: true,
-            favNum: 100,
-            itinerary: [
-                {
-                    whether: 'sun',
-                    place: '浅草駅',
-                },
-                {
-                    whether: 'rain',
-                    place: '井の頭自然文化公園・熱帯鳥温園',
-                },
-                {
-                    whether: 'night',
-                    place: '東京駅',
-                },
-                {
-                    whether: 'snow',
-                    place: '上野駅',
-                },
-            ],
-        },
-        {
-            id: 2002,
-            header: '../images/post_ninki_sample2.png',
-            hasGoTo: true,
-            favNum: 98,
-            itinerary: [
-                {
-                    whether: 'sun',
-                    place: '浅草駅',
-                },
-                {
-                    whether: 'rain',
-                    place: '井の頭自然文化公園・熱帯鳥温園',
-                },
-                {
-                    whether: 'night',
-                    place: '東京駅',
-                },
-                {
-                    whether: 'snow',
-                    place: '上野駅',
-                },
-            ],
-        },
-        {
-            id: 2003,
-            header: '../images/post_ninki_sample1.png',
-            hasGoTo: true,
-            favNum: 123,
-            itinerary: [
-                {
-                    whether: 'sun',
-                    place: '浅草駅',
-                },
-                {
-                    whether: 'rain',
-                    place: '井の頭自然文化公園・熱帯鳥温園',
-                },
-                {
-                    whether: 'night',
-                    place: '東京駅',
-                },
-                {
-                    whether: 'snow',
-                    place: '上野駅',
-                },
-            ],
-        },
-        {
-            id: 2004,
-            header: '../images/post_defaultPho.png',
-            hasGoTo: true,
-            favNum: 100,
-            itinerary: [
-                {
-                    whether: 'sun',
-                    place: '浅草駅',
-                },
-                {
-                    whether: 'rain',
-                    place: '井の頭自然文化公園・熱帯鳥温園',
-                },
-                {
-                    whether: 'night',
-                    place: '東京駅',
-                },
-                {
-                    whether: 'snow',
-                    place: '上野駅',
-                },
-            ],
-        },
-        {
-            id: 2005,
-            header: '../images/post_ninki_sample2.png',
-            hasGoTo: true,
-            favNum: 98,
-            itinerary: [
-                {
-                    whether: 'sun',
-                    place: '浅草駅',
-                },
-                {
-                    whether: 'rain',
-                    place: '井の頭自然文化公園・熱帯鳥温園',
-                },
-                {
-                    whether: 'night',
-                    place: '東京駅',
-                },
-                {
-                    whether: 'snow',
-                    place: '上野駅',
-                },
-            ],
-        },
-    ];
-    return react_1.default.createElement(NewPosts_1.default, { posts: posts });
-};
-exports.default = NewPostsContainer;
-
-
-/***/ }),
-
-/***/ "./resources/ts/src/containers/organisms/PopularPosts.tsx":
-/*!****************************************************************!*\
-  !*** ./resources/ts/src/containers/organisms/PopularPosts.tsx ***!
-  \****************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var PopularPosts_1 = __importDefault(__webpack_require__(/*! ../../components/organisms/PopularPosts */ "./resources/ts/src/components/organisms/PopularPosts.tsx"));
-var PopularPostsContainer = function () {
-    // テスト用
-    var posts = [
-        {
-            id: 1000,
-            header: '../images/post_ninki_sample1.png',
-            hasGoTo: true,
-            favNum: 123,
-            itinerary: [
-                {
-                    whether: 'sun',
-                    place: '浅草駅',
-                },
-                {
-                    whether: 'rain',
-                    place: '井の頭自然文化公園・熱帯鳥温園',
-                },
-                {
-                    whether: 'night',
-                    place: '東京駅',
-                },
-                {
-                    whether: 'snow',
-                    place: '上野駅',
-                },
-            ],
-        },
-        {
-            id: 1001,
-            header: '../images/post_defaultPho.png',
-            hasGoTo: true,
-            favNum: 100,
-            itinerary: [
-                {
-                    whether: 'sun',
-                    place: '浅草駅',
-                },
-                {
-                    whether: 'rain',
-                    place: '井の頭自然文化公園・熱帯鳥温園',
-                },
-                {
-                    whether: 'night',
-                    place: '東京駅',
-                },
-                {
-                    whether: 'snow',
-                    place: '上野駅',
-                },
-            ],
-        },
-        {
-            id: 1002,
-            header: '../images/post_ninki_sample2.png',
-            hasGoTo: true,
-            favNum: 98,
-            itinerary: [
-                {
-                    whether: 'sun',
-                    place: '浅草駅',
-                },
-                {
-                    whether: 'rain',
-                    place: '井の頭自然文化公園・熱帯鳥温園',
-                },
-                {
-                    whether: 'night',
-                    place: '東京駅',
-                },
-                {
-                    whether: 'snow',
-                    place: '上野駅',
-                },
-            ],
-        },
-    ];
-    return react_1.default.createElement(PopularPosts_1.default, { posts: posts });
-};
-exports.default = PopularPostsContainer;
-
-
-/***/ }),
-
-/***/ "./resources/ts/src/containers/organisms/RegistForm.tsx":
-/*!**************************************************************!*\
-  !*** ./resources/ts/src/containers/organisms/RegistForm.tsx ***!
-  \**************************************************************/
->>>>>>> 8a06663c283820fbceab824191583ec9355707e3
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -71578,7 +70479,6 @@ var Register = function () {
             console.log(error);
         });
     };
-<<<<<<< HEAD
     return (react_1.default.createElement(react_1.default.Fragment, null,
         react_1.default.createElement("p", null, username),
         react_1.default.createElement("p", null, email),
@@ -71601,56 +70501,6 @@ var Register = function () {
         react_1.default.createElement("button", { onClick: registUserData }, "\u767B\u9332")));
 };
 exports.default = Register;
-=======
-    return __assign.apply(this, arguments);
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.menuReducer = void 0;
-var index_1 = __webpack_require__(/*! ../actions/index */ "./resources/ts/src/actions/index.ts");
-var initialState = {
-    shouldShow: false,
-};
-exports.menuReducer = function (state, action) {
-    if (state === void 0) { state = initialState; }
-    switch (action.type) {
-        case index_1.ActionTypes.SET_SHOULD_SHOW_MENU:
-            return __assign(__assign({}, state), { shouldShow: action.payload.shouldShow });
-        default: {
-            return state;
-        }
-    }
-};
-
-
-/***/ }),
-
-/***/ "./resources/ts/src/screens/HomeScreen.tsx":
-/*!*************************************************!*\
-  !*** ./resources/ts/src/screens/HomeScreen.tsx ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var Header_1 = __importDefault(__webpack_require__(/*! ../containers/organisms/Header */ "./resources/ts/src/containers/organisms/Header.tsx"));
-var Menu_1 = __importDefault(__webpack_require__(/*! ../components/organisms/Menu */ "./resources/ts/src/components/organisms/Menu.tsx"));
-var PopularPosts_1 = __importDefault(__webpack_require__(/*! ../containers/organisms/PopularPosts */ "./resources/ts/src/containers/organisms/PopularPosts.tsx"));
-var NewPosts_1 = __importDefault(__webpack_require__(/*! ../containers/organisms/NewPosts */ "./resources/ts/src/containers/organisms/NewPosts.tsx"));
-var HomeScreen = function () {
-    return (react_1.default.createElement("div", { className: "home" },
-        react_1.default.createElement(Header_1.default, null),
-        react_1.default.createElement(Menu_1.default, null),
-        react_1.default.createElement(PopularPosts_1.default, null),
-        react_1.default.createElement(NewPosts_1.default, null)));
-};
-exports.default = HomeScreen;
->>>>>>> 8a06663c283820fbceab824191583ec9355707e3
 
 
 /***/ }),
@@ -71669,119 +70519,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-<<<<<<< HEAD
 var Top = function () {
     return react_1.default.createElement("h1", null, "Top");
-=======
-var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
-var FontAwesomeIconBtn_1 = __importDefault(__webpack_require__(/*! ../components/atoms/FontAwesomeIconBtn */ "./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx"));
-var free_solid_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
-var RegistForm_1 = __importDefault(__webpack_require__(/*! ../containers/organisms/RegistForm */ "./resources/ts/src/containers/organisms/RegistForm.tsx"));
-var RegisterScreen = function (props) {
-    return (react_1.default.createElement("div", { className: "register" },
-        react_1.default.createElement(react_router_dom_1.Link, { to: "../home" },
-            react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "register__home-icon", icon: free_solid_svg_icons_1.faHome })),
-        react_1.default.createElement("div", { className: "register__content" },
-            react_1.default.createElement("div", { className: "register__logo" },
-                react_1.default.createElement(react_router_dom_1.Link, { to: "../home" },
-                    react_1.default.createElement("img", { src: "../images/logo_tate_white.png", className: "register__logo-img" }))),
-            react_1.default.createElement(RegistForm_1.default, { history: props.history }))));
-};
-exports.default = RegisterScreen;
-
-
-/***/ }),
-
-/***/ "./resources/ts/src/utilities/axios.ts":
-/*!*********************************************!*\
-  !*** ./resources/ts/src/utilities/axios.ts ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.postByAxios = void 0;
-var login_1 = __webpack_require__(/*! ../actions/login */ "./resources/ts/src/actions/login.ts");
-var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
-exports.postByAxios = {
-    // 登録処理
-    regist: function (arg) {
-        return new Promise(function (resolve) {
-            axios_1.default
-                .post('/api/register', {
-                username: arg.username,
-                email: arg.email,
-                password: arg.password,
-            })
-                .then(function (res) {
-                console.log(res);
-                var userData = res.data[0];
-                console.log(userData);
-                arg.dispatch(login_1.setLoginState(true));
-                arg.dispatch(login_1.setLoginInfo(userData.id, userData.username, userData.header, userData.icon, userData.profile));
-                resolve('success');
-            })
-                .catch(function (error) {
-                // エラー処理
-                console.log(error);
-                resolve('failed');
-            });
-        });
-    },
-    // ログイン処理
-    login: function (arg) {
-        return new Promise(function (resolve) {
-            axios_1.default
-                .post('/api/login', {
-                email: arg.email,
-                password: arg.password,
-            })
-                .then(function (res) {
-                console.log(res);
-                var userData = res.data[0];
-                arg.dispatch(login_1.setLoginState(true));
-                arg.dispatch(login_1.setLoginInfo(userData.id, userData.username, userData.header, userData.icon, userData.profile));
-                resolve('success');
-                console.log(res.data);
-            })
-                .catch(function (error) {
-                // エラー処理
-                console.log(error);
-                resolve('failed');
-            });
-        });
-    },
-};
-
-
-/***/ }),
-
-/***/ "./resources/ts/src/utilities/colors.ts":
-/*!**********************************************!*\
-  !*** ./resources/ts/src/utilities/colors.ts ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.colors = void 0;
-exports.colors = {
-    orange: '#ff6633',
-    yellow: '#fcbe32',
-    navyBlue: '#003666',
-    lightBlue: '#bcdbe8',
-    gray: '#c4c4c4',
-    lightGray: '#e5e5e5',
-    white: '#ffffff',
-    polarWhite: '#f9fcfe',
->>>>>>> 8a06663c283820fbceab824191583ec9355707e3
 };
 exports.default = Top;
 
