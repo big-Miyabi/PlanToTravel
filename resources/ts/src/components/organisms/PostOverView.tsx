@@ -3,7 +3,11 @@ import PostTag from '../molecules/PostTag'
 import InputBox from '../atoms/InputBox'
 import FormBtn from '../atoms/FormBtn'
 
-const PostOverview: FC = () => {
+type Props = {
+  goToNext: () => void
+}
+
+const PostOverview: FC<Props> = ({ goToNext }) => {
   return (
     <div className="post-overview">
       <div className="post-overview__content-wrap">
@@ -68,7 +72,7 @@ const PostOverview: FC = () => {
       <FormBtn
         className="post-overview__next"
         name="次へ"
-        onClick={() => {}}
+        onClick={goToNext}
       />
     </div>
   )
