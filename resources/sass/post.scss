@@ -126,12 +126,13 @@
             flex-wrap: wrap;
             margin-top: px-to-vh(17);
         }
-
-        &__date {
-            width: px-to-vw(99);
-            height: px-to-vw(26);// 高さは幅に依存させる
+        &__date-wrap {
             display: flex;
             flex-direction: row;
+        }
+        &__date {
+            width: px-to-vw(129);
+            height: px-to-vw(26); // 高さは幅に依存させる
         }
     }
 }
