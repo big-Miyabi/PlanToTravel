@@ -882,7 +882,7 @@ input:-webkit-autofill {
     height: 7.1428571429vh;
   }
 
-  .itinerary-in-card--gradation {
+  .itinerary-in-card__gradation-wrap {
     background-image: linear-gradient(to bottom, #003666 0%, rgba(0, 0, 0, 0));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -905,7 +905,7 @@ input:-webkit-autofill {
     font-weight: bold;
   }
 
-  .itinerary-in-card__line {
+  .itinerary-in-card .itinerary-in-card__line {
     position: relative;
     left: 1.8666666667vw;
     width: auto;
