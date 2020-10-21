@@ -88098,19 +88098,25 @@ var PostOverview = function () {
                 react_1.default.createElement("h2", { className: "post-overview__h2" }, "\u30BF\u30B0"),
                 react_1.default.createElement(InputBox_1.default, { type: "text", className: "post-overview__tag-input", placeholder: "\u30BF\u30B0\u3092\u8FFD\u52A0\u3057\u3066\u304F\u3060\u3055\u3044" })),
             react_1.default.createElement("div", { className: "post-overview__tag-wrap" },
-                react_1.default.createElement(PostTag_1.default, { tagName: "hoge", isPost: true, onClick: function () { } }))),
+                react_1.default.createElement(PostTag_1.default, { tagName: "hoge", isPost: true, onClick: function () { } }),
+                react_1.default.createElement(PostTag_1.default, { tagName: "hoooge", isPost: true, onClick: function () { } }),
+                react_1.default.createElement(PostTag_1.default, { tagName: "hogeeeddddddddddddddee", isPost: true, onClick: function () { } }),
+                react_1.default.createElement(PostTag_1.default, { tagName: "hoge", isPost: true, onClick: function () { } }),
+                react_1.default.createElement(PostTag_1.default, { tagName: "hoge33333", isPost: true, onClick: function () { } }),
+                react_1.default.createElement(PostTag_1.default, { tagName: "hogeeeee1234", isPost: true, onClick: function () { } }))),
         react_1.default.createElement("div", { className: "post-overview__content-wrap" },
             react_1.default.createElement("h2", { className: "post-overview__h2" }, "\u65E5\u4ED8*"),
             react_1.default.createElement("div", { className: "post-overview__date-wrap" },
                 react_1.default.createElement(InputBox_1.default, { type: "date", className: "post-overview__date" }),
-                react_1.default.createElement("p", null, "-"),
+                react_1.default.createElement("p", { className: "post-overview__datebar" }, "-"),
                 react_1.default.createElement(InputBox_1.default, { type: "date", className: "post-overview__date" }))),
         react_1.default.createElement("div", { className: "post-overview__content-wrap" },
             react_1.default.createElement("h2", { className: "post-overview__h2" }, "\u4EBA\u6570*"),
             react_1.default.createElement("div", { className: "post-overview__people-input-wrap" },
                 react_1.default.createElement(InputBox_1.default, { type: "text", className: "post-overview__people" }),
-                react_1.default.createElement("p", null, "\u4EBA"))),
-        react_1.default.createElement(FormBtn_1.default, { className: "post-overview__next", name: "\u6B21\u3078", onClick: function () { } })));
+                react_1.default.createElement("p", { className: "post-overview__nin" }, "\u4EBA"))),
+        react_1.default.createElement("div", { className: "post-overview__next-wrap" },
+            react_1.default.createElement(FormBtn_1.default, { className: "post-overview__next", name: "\u6B21\u3078", onClick: function () { } }))));
 };
 exports.default = PostOverview;
 
@@ -89261,8 +89267,8 @@ exports.colors = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/ryoga/projects/PlanToTravel/resources/ts/app.tsx */"./resources/ts/app.tsx");
-module.exports = __webpack_require__(/*! /Users/ryoga/projects/PlanToTravel/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /mnt/c/users/hyeeun/planto/PlanToTravel/resources/ts/app.tsx */"./resources/ts/app.tsx");
+module.exports = __webpack_require__(/*! /mnt/c/users/hyeeun/planto/PlanToTravel/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
