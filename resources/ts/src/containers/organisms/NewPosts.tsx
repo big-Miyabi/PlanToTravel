@@ -40,10 +40,6 @@ const NewPostsContainer: FC = () => {
           place: '浅草駅',
         },
         {
-          whether: 'snow',
-          place: '井の頭自然..',
-        },
-        {
           whether: 'sun',
           place: '東京駅',
         },
@@ -90,14 +86,6 @@ const NewPostsContainer: FC = () => {
         {
           whether: 'snow',
           place: '井の頭自然..',
-        },
-        {
-          whether: 'cloud',
-          place: '東京駅',
-        },
-        {
-          whether: 'snow',
-          place: '上野駅',
         },
       ],
     },
