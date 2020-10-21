@@ -114,6 +114,8 @@
             background-color: $white;
             color: $light-gray;
             font-weight: normal;
+            position: relative;
+            top: px-to-vh(-3);
         }
 
         &__tag-input {
@@ -129,10 +131,34 @@
         &__date-wrap {
             display: flex;
             flex-direction: row;
+            margin-top: px-to-vw(9);
         }
         &__date {
-            width: px-to-vw(129);
-            height: px-to-vw(26); // 高さは幅に依存させる
+            width: px-to-vw(137);
+        }
+        &__datebar {
+            margin: auto px-to-vw(5);
+        }
+
+        &__people-input-wrap {
+            display: flex;
+            flex-direction: row;
+            margin-top: px-to-vw(9);
+        }
+        &__people {
+            width: px-to-vw(55);
+        }
+        &__nin {
+            margin: px-to-vw(5) px-to-vw(6) 0;
+        }
+
+        &__next-wrap {
+            width: px-to-vw(103);
+            margin: 0 auto;
+        }
+        &__next {
+            width: px-to-vw(103);
+            color: white;
         }
     }
 }
