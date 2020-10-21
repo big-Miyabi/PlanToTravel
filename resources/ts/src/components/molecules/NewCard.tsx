@@ -20,16 +20,21 @@ const NewCard: FC<Props> = ({ post, gradientId }) => {
   }
 
   return (
-    <div className="new-card" style={bgStyle}>
-      <div style={goTostyle}>
+    <div className="new-card">
+      <div
+        className="new-card__go-to-wrap"
+        style={goTostyle}
+      >
         <GoToLogo className="new-card__go-to" />
       </div>
-      <div className="new-card__wrap-itineraryicon">
-        <ItineraryInCard
-          className="new-card__itinerary"
-          itinerary={post.itinerary}
-          gradientId={gradientId}
-        />
+      <div className="new-card__wrap" style={bgStyle}>
+        <div className="new-card__itinerary-wrap">
+          <ItineraryInCard
+            className="new-card__itinerary"
+            itinerary={post.itinerary}
+            gradientId={gradientId}
+          />
+        </div>
         <div className="new-card__icon-wrap">
           <FontAwesomeIconBtn
             className="new-card__bookmark"
