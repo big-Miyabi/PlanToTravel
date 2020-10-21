@@ -24,15 +24,12 @@
         margin: 0 auto;
 
         &__wrap {
-            z-index: 2;
-            display: flex;
+            position: relative;
             width: px-to-vw(347);
             height: px-to-vw(193); // 高さは幅に依存させる
             margin: px-to-vh(26) auto 0px;
             background-size: cover;
             border-radius: px-to-vw(17);
-            flex-direction: row;
-            justify-content: space-between;
         }
 
         &__white-bg-wrap {
@@ -52,21 +49,21 @@
             left: px-to-vw(4);
         }
 
-        &__wrap-itineraryicon {
-            position: relative;
-            left: px-to-vw(-14);
+        &__right-wrap {
+            z-index: 1;
+            display: flex;
+            position: absolute;
+            top: 0;
+            right: 0;
+            margin-right: px-to-vw(13);
             width: px-to-vw(136);
             height: px-to-vh(189);
+            justify-content: space-between;
         }
 
         &__itinerary-wrap {
-            z-index: 1;
-            float: left;
-            position: relative;
-            margin-top: px-to-vh(12);
-            margin-right: px-to-vw(7);
-            width: px-to-vw(105);
-            height: px-to-vh(159);
+            width: px-to-vw(112);
+            margin-top: px-to-vw(17);
         }
 
         &__icon-wrap {
