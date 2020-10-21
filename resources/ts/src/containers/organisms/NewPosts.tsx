@@ -32,7 +32,7 @@ const NewPostsContainer: FC = () => {
     {
       id: 2001,
       header: '../images/post_defaultPho.png',
-      hasGoTo: true,
+      hasGoTo: false,
       favNum: 100,
       itinerary: [
         {
@@ -104,7 +104,7 @@ const NewPostsContainer: FC = () => {
     {
       id: 2004,
       header: '../images/post_defaultPho.png',
-      hasGoTo: true,
+      hasGoTo: false,
       favNum: 100,
       itinerary: [
         {

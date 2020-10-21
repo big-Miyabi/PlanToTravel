@@ -52,7 +52,7 @@ const PopularPostsContainer: FC = () => {
     {
       id: 1002,
       header: '../images/post_ninki_sample2.png',
-      hasGoTo: true,
+      hasGoTo: false,
       favNum: 98,
       itinerary: [
         {
