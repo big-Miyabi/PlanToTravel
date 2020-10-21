@@ -87571,7 +87571,7 @@ var ItineraryInCard = function (_a) {
                             ? gradientId + "_" + key
                             : undefined }),
                     react_1.default.createElement("p", { className: "itinerary-in-card__place-name" }, item.place)),
-                key < 2 || itinerary.length > 3 ? (react_1.default.createElement("div", { className: 'itinerary-in-card__line' + lineModifier })) : (react_1.default.createElement(react_1.default.Fragment, null))));
+                key === itinerary.length - 1 ? (react_1.default.createElement(react_1.default.Fragment, null)) : (react_1.default.createElement("div", { className: 'itinerary-in-card__line' + lineModifier }))));
         }))));
 };
 exports.default = ItineraryInCard;
@@ -88568,10 +88568,6 @@ var NewPostsContainer = function () {
                     place: '浅草駅',
                 },
                 {
-                    whether: 'snow',
-                    place: '井の頭自然..',
-                },
-                {
                     whether: 'sun',
                     place: '東京駅',
                 },
@@ -88618,14 +88614,6 @@ var NewPostsContainer = function () {
                 {
                     whether: 'snow',
                     place: '井の頭自然..',
-                },
-                {
-                    whether: 'cloud',
-                    place: '東京駅',
-                },
-                {
-                    whether: 'snow',
-                    place: '上野駅',
                 },
             ],
         },

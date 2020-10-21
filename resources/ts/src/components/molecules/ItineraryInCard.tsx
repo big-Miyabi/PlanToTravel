@@ -43,14 +43,14 @@ const ItineraryInCard: FC<Props> = ({
                 </p>
               </div>
 
-              {key < 2 || itinerary.length > 3 ? (
+              {key === itinerary.length - 1 ? (
+                <></>
+              ) : (
                 <div
                   className={
                     'itinerary-in-card__line' + lineModifier
                   }
                 ></div>
-              ) : (
-                <></>
               )}
             </div>
           )
