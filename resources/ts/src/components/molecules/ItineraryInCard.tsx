@@ -25,7 +25,11 @@ const ItineraryInCard: FC<Props> = ({
                 className="itinerary-in-card__pin"
                 whether={item.whether}
                 index={key}
-                gradientId={`${gradientId}_${key}`}
+                gradientId={
+                  gradientId !== undefined
+                    ? `${gradientId}_${key}`
+                    : undefined
+                }
               />
               <p className="itinerary-in-card__place-name">
                 {item.place}
