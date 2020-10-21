@@ -5,13 +5,13 @@ import {
 } from '../actions/index'
 
 type State = {
-  index: number
+  progressIndex: number
 }
 
 type PostReducer = Reducer<State, UnionedAction>
 
 const initialState: State = {
-  index: 0,
+  progressIndex: 0,
 }
 
 export const postReducer: PostReducer = (
@@ -22,7 +22,7 @@ export const postReducer: PostReducer = (
     case ActionTypes.SET_POST_PROGRESS_INDEX:
       return {
         ...state,
-        index: action.payload.index,
+        progressIndex: action.payload.progressIndex,
       }
     default: {
       return state
