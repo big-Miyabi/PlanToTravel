@@ -384,17 +384,18 @@ input:-webkit-autofill {
   border: solid 1px #003666;
   border-radius: 8px;
   font-size: 1.2rem;
+  height: 6.9333333333vw;
 }
 
-.input-box::-moz-placeholder {
+next .input-box::-moz-placeholder {
   color: #e5e5e5;
 }
 
-.input-box:-ms-input-placeholder {
+next .input-box:-ms-input-placeholder {
   color: #e5e5e5;
 }
 
-.input-box::placeholder {
+next .input-box::placeholder {
   color: #e5e5e5;
 }
 
@@ -405,6 +406,8 @@ input:-webkit-autofill {
 .post-tag {
   display: inline-flex;
   height: 6.9333333333vw;
+  margin-bottom: 2.6666666667vw;
+  margin-right: 2.6666666667vw;
   padding: 0 10px;
   border-radius: 7px;
   background-color: #bcdbe8;
@@ -1153,6 +1156,8 @@ input:-webkit-autofill {
     background-color: #fff;
     color: #e5e5e5;
     font-weight: normal;
+    position: relative;
+    top: -0.3694581281vh;
   }
 
   .post-overview__tag-input {
@@ -1169,11 +1174,39 @@ input:-webkit-autofill {
   .post-overview__date-wrap {
     display: flex;
     flex-direction: row;
+    margin-top: 2.4vw;
   }
 
   .post-overview__date {
-    width: 34.4vw;
-    height: 6.9333333333vw;
+    width: 36.5333333333vw;
+  }
+
+  .post-overview__datebar {
+    margin: auto 1.3333333333vw;
+  }
+
+  .post-overview__people-input-wrap {
+    display: flex;
+    flex-direction: row;
+    margin-top: 2.4vw;
+  }
+
+  .post-overview__people {
+    width: 14.6666666667vw;
+  }
+
+  .post-overview__nin {
+    margin: 1.3333333333vw 1.6vw 0;
+  }
+
+  .post-overview__next-wrap {
+    width: 27.4666666667vw;
+    margin: 0 auto;
+  }
+
+  .post-overview__next {
+    width: 27.4666666667vw;
+    color: white;
   }
 }
 
