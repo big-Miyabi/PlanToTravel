@@ -88090,7 +88090,7 @@ var PostOverview = function () {
             react_1.default.createElement("h2", { className: "post-overview__h2" }, "\u65E5\u4ED8*"),
             react_1.default.createElement("div", { className: "post-overview__date-wrap" },
                 react_1.default.createElement(InputBox_1.default, { type: "date", className: "post-overview__date" }),
-                react_1.default.createElement("p", null, "-"),
+                react_1.default.createElement("p", { className: "post-overview__datebar" }, "-"),
                 react_1.default.createElement(InputBox_1.default, { type: "date", className: "post-overview__date" }))),
         react_1.default.createElement("div", { className: "post-overview__content-wrap" },
             react_1.default.createElement("h2", { className: "post-overview__h2" }, "\u4EBA\u6570*"),
@@ -89248,8 +89248,8 @@ exports.colors = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/ryoga/projects/PlanToTravel/resources/ts/app.tsx */"./resources/ts/app.tsx");
-module.exports = __webpack_require__(/*! /Users/ryoga/projects/PlanToTravel/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\Users\hyeeun\planto\PlanToTravel\resources\ts\app.tsx */"./resources/ts/app.tsx");
+module.exports = __webpack_require__(/*! C:\Users\hyeeun\planto\PlanToTravel\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
