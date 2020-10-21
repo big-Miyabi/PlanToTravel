@@ -9,7 +9,11 @@ const PostScreen: FC = () => {
     <div className="post-screen">
       <Header isPost={false} />
       <Menu />
-      <ProgressBar />
+      <ProgressBar
+        className="post-screen__progress-map"
+        names={['概要', '場所', '確認']}
+        index={0}
+      />
       <PostOverview />
     </div>
   )
