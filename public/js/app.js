@@ -87527,12 +87527,14 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 var WhetherPin_1 = __importDefault(__webpack_require__(/*! ../atoms/WhetherPin */ "./resources/ts/src/components/atoms/WhetherPin.tsx"));
 var ItineraryInCard = function (_a) {
     var className = _a.className, itinerary = _a.itinerary, gradientId = _a.gradientId;
-    return (react_1.default.createElement("div", { className: className + ' ' + 'itinerary-in-card' }, itinerary.map(function (item, key) {
+    var modifier = itinerary.length > 3 ? '--gradation' : '';
+    return (react_1.default.createElement("div", { className: className + ' ' + 'itinerary-in-card' + modifier }, itinerary.map(function (item, key) {
         if (key > 2)
             return;
         return (react_1.default.createElement("div", { key: key },
             react_1.default.createElement("div", { className: "itinerary-in-card__place" },
-                react_1.default.createElement(WhetherPin_1.default, { className: "itinerary-in-card__pin", whether: item.whether, index: key, gradientId: gradientId !== undefined
+                react_1.default.createElement(WhetherPin_1.default, { className: "itinerary-in-card__pin", whether: item.whether, index: key, gradientId: gradientId !== undefined &&
+                        itinerary.length > 3
                         ? gradientId + "_" + key
                         : undefined }),
                 react_1.default.createElement("p", { className: "itinerary-in-card__place-name" }, item.place)),

@@ -831,38 +831,6 @@ input:-webkit-autofill {
     margin-right: 1.8666666667vw;
     width: 28vw;
     height: 19.5812807882vh;
-    background-image: linear-gradient(to bottom, #003666 0%, rgba(0, 0, 0, 0));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
-
-  .popular-card .itinerary-in-card {
-    height: 7.1428571429vh;
-  }
-
-  .popular-card .itinerary-in-card__place {
-    height: 3.078817734vh;
-    margin: 0.7389162562vh 0;
-  }
-
-  .popular-card .itinerary-in-card__pin {
-    float: left;
-    width: 4.8vw;
-    height: auto;
-    margin-right: 1.6vw;
-  }
-
-  .popular-card .itinerary-in-card__place-name {
-    font-size: 1.4rem;
-    font-weight: bold;
-  }
-
-  .popular-card .itinerary-in-card__line {
-    position: relative;
-    left: 1.8666666667vw;
-    width: auto;
-    height: 2.5862068966vh;
-    border-left: solid 0.5333333333vw;
   }
 
   .popular-card__icon-wrap {
@@ -908,6 +876,41 @@ input:-webkit-autofill {
   .popular-card__favorite-number {
     color: #ff6633;
     text-align: center;
+  }
+
+  .itinerary-in-card {
+    height: 7.1428571429vh;
+  }
+
+  .itinerary-in-card--gradation {
+    background-image: linear-gradient(to bottom, #003666 0%, rgba(0, 0, 0, 0));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .itinerary-in-card__place {
+    height: 3.078817734vh;
+    margin: 0.7389162562vh 0;
+  }
+
+  .itinerary-in-card__pin {
+    float: left;
+    width: 4.8vw;
+    height: auto;
+    margin-right: 1.6vw;
+  }
+
+  .itinerary-in-card__place-name {
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
+
+  .itinerary-in-card__line {
+    position: relative;
+    left: 1.8666666667vw;
+    width: auto;
+    height: 2.5862068966vh;
+    border-left: solid 0.5333333333vw;
   }
 
   .new-posts {
@@ -969,35 +972,6 @@ input:-webkit-autofill {
     height: 19.5812807882vh;
     margin-right: 1.8666666667vw;
     margin-top: 1.4778325123vh;
-  }
-
-  .new-card .itinerary-in-card {
-    height: 7.1428571429vh;
-  }
-
-  .new-card .itinerary-in-card__place {
-    height: 3.078817734vh;
-    margin: 0.7389162562vh 0;
-  }
-
-  .new-card .itinerary-in-card__pin {
-    float: left;
-    width: 4.8vw;
-    height: auto;
-    margin-right: 1.6vw;
-  }
-
-  .new-card .itinerary-in-card__place-name {
-    font-size: 1.4rem;
-    font-weight: bold;
-  }
-
-  .new-card .itinerary-in-card__line {
-    position: relative;
-    left: 1.8666666667vw;
-    width: auto;
-    height: 2.5862068966vh;
-    border-left: solid 0.5333333333vw;
   }
 
   .new-card__icon-wrap {

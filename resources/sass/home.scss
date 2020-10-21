@@ -7,7 +7,6 @@
         padding-top: $header-top;
     }
 
-    // ↓コンさん担当エリア
     .popular-posts {
         margin-top: px-to-vh(25);
         color: $navy;
@@ -23,6 +22,7 @@
         width: px-to-vw(347);
         height: px-to-vw(193);
         margin: 0 auto;
+
         &__wrap {
             z-index: 2;
             display: flex;
@@ -51,6 +51,7 @@
             top: px-to-vh(-18);
             left: px-to-vw(4);
         }
+
         &__wrap-itineraryicon {
             position: relative;
             left: px-to-vw(-14);
@@ -66,38 +67,6 @@
             margin-right: px-to-vw(7);
             width: px-to-vw(105);
             height: px-to-vh(159);
-            background-image: linear-gradient(
-                to bottom,
-                $navy 0%,
-                rgba(0, 0, 0, 0)
-            );
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .itinerary-in-card {
-            height: px-to-vh(58);
-
-            &__place {
-                height: px-to-vh(25);
-                margin: px-to-vh(6) 0;
-            }
-            &__pin {
-                float: left;
-                width: px-to-vw(18);
-                height: auto;
-                margin-right: px-to-vw(6);
-            }
-            &__place-name {
-                font-size: 1.4rem;
-                font-weight: bold;
-            }
-            &__line {
-                position: relative;
-                left: px-to-vw(7);
-                width: auto;
-                height: px-to-vh(21);
-                border-left: solid px-to-vw(2);
-            }
         }
 
         &__icon-wrap {
@@ -142,7 +111,45 @@
         }
     }
 
-    // ↓大田担当エリア
+    %itinerary-in-card {
+        height: px-to-vh(58);
+    }
+
+    .itinerary-in-card {
+        @extend %itinerary-in-card;
+        &--gradation {
+            background-image: linear-gradient(
+                to bottom,
+                $navy 0%,
+                rgba(0, 0, 0, 0)
+            );
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        &__place {
+            height: px-to-vh(25);
+            margin: px-to-vh(6) 0;
+        }
+        &__pin {
+            float: left;
+            width: px-to-vw(18);
+            height: auto;
+            margin-right: px-to-vw(6);
+        }
+        &__place-name {
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+        &__line {
+            position: relative;
+            left: px-to-vw(7);
+            width: auto;
+            height: px-to-vh(21);
+            border-left: solid px-to-vw(2);
+        }
+    }
+
     .new-posts {
         margin-top: px-to-vh(45);
         color: $navy;
@@ -203,31 +210,6 @@
             margin-top: px-to-vh(12);
         }
 
-        .itinerary-in-card {
-            height: px-to-vh(58);
-
-            &__place {
-                height: px-to-vh(25);
-                margin: px-to-vh(6) 0;
-            }
-            &__pin {
-                float: left;
-                width: px-to-vw(18);
-                height: auto;
-                margin-right: px-to-vw(6);
-            }
-            &__place-name {
-                font-size: 1.4rem;
-                font-weight: bold;
-            }
-            &__line {
-                position: relative;
-                left: px-to-vw(7);
-                width: auto;
-                height: px-to-vh(21);
-                border-left: solid px-to-vw(2);
-            }
-        }
         &__icon-wrap {
             display: flex;
             position: relative;
