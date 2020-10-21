@@ -87759,11 +87759,24 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var ProgressBar = function () {
+var ProgressBar = function (_a) {
+    var className = _a.className, names = _a.names, index = _a.index;
+    var figmaScreenWidth = 375;
+    var leftPx = [-98, 0, 97];
+    var leftVw = (leftPx[index] / figmaScreenWidth) * 100;
+    var left = leftVw + "vw";
+    var style = { left: left };
     return (
     // クラス名を`progress-bar`にするとbootstrapのクラス名とかぶるので、ここでは`progress-map`というクラス名にしている
-    react_1.default.createElement("div", { className: "progress-map" },
-        react_1.default.createElement("p", null, "\u3077\u308D\u3050\u308C\u3059\u3070\u3041")));
+    react_1.default.createElement("div", { className: className + ' ' + 'progress-map' },
+        react_1.default.createElement("div", { className: "progress-map__wrap" },
+            react_1.default.createElement("div", { className: "progress-map__name-wrap" },
+                react_1.default.createElement("p", { className: "progress-map__name" }, names[0]),
+                react_1.default.createElement("p", { className: "progress-map__name--2" }, names[1]),
+                react_1.default.createElement("p", { className: "progress-map__name--3" }, names[2])),
+            react_1.default.createElement("div", { className: "progress-map__progress" },
+                react_1.default.createElement("img", { className: "progress-map__progress-img", src: "../images/progress_bar.png", alt: "\u30D7\u30ED\u30B0\u30EC\u30B9\u30D0\u30FC" }))),
+        react_1.default.createElement("div", { className: "progress-map__circle", style: style })));
 };
 exports.default = ProgressBar;
 
@@ -89106,7 +89119,7 @@ var PostScreen = function () {
     return (react_1.default.createElement("div", { className: "post-screen" },
         react_1.default.createElement(Header_1.default, { isPost: false }),
         react_1.default.createElement(Menu_1.default, null),
-        react_1.default.createElement(ProgressBar_1.default, null),
+        react_1.default.createElement(ProgressBar_1.default, { className: "post-screen__progress-map", names: ['概要', '場所', '確認'], index: 0 }),
         react_1.default.createElement(PostOverview_1.default, null)));
 };
 exports.default = PostScreen;
