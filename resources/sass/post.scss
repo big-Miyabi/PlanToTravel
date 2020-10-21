@@ -16,7 +16,7 @@
         }
         &__close {
             font-size: 2.4rem;
-            color: $light-gray;
+            color: $navy;
         }
     }
 
@@ -25,6 +25,19 @@
         height: px-to-vw(207); // 高さは幅依存
         background-size: cover;
 
+        &:before {
+            //z-index: 5;
+            position: absolute;
+            width: 100%;
+            height: px-to-vw(207);
+            background: linear-gradient(
+                to right,
+                rgba(255, 255, 255, 0.3),
+                rgba(255, 255, 255, 0.6),
+                rgba(255, 255, 255, 0.95)
+            );
+            content: "";
+        }
         &__plus-image-wrap {
             display: flex;
             width: 100%;
@@ -78,6 +91,13 @@
             flex-direction: row;
             flex-wrap: wrap;
             margin-top: px-to-vh(17);
+        }
+
+        &__date {
+            width: px-to-vw(99);
+            height: px-to-vw(26);// 高さは幅に依存させる
+            display: flex;
+            flex-direction: row;
         }
     }
 }

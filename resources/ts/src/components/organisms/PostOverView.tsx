@@ -46,7 +46,7 @@ const PostOverview: FC = () => {
             type="date"
             className="post-overview__date"
           />
-          <p>-</p>
+          <p className="post-overview__datebar">-</p>
           <InputBox
             type="date"
             className="post-overview__date"
