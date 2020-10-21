@@ -5,35 +5,57 @@ import WhetherPin from '../atoms/WhetherPin'
 type Props = {
   className: string
   itinerary: ItineraryType[]
+  gradientId?: string
 }
 
 const ItineraryInCard: FC<Props> = ({
   className,
   itinerary,
+  gradientId,
 }) => {
+  const bemElement =
+    itinerary.length > 3 ? '__gradation-wrap' : '__wrap'
+
   return (
     <div className={className + ' ' + 'itinerary-in-card'}>
-      {itinerary.map((item, key) => {
-        if (key > 2) return
+      <div className={'itinerary-in-card' + bemElement}>
+        {itinerary.map((item, key) => {
+          if (key > 2) return
+          const lineModifier =
+            itinerary.length > 3 ? `--gradation-${key}` : ''
 
-        return (
-          <>
-            <div
-              className="itinerary-in-card__place"
-              key={key}
-            >
-              <WhetherPin
-                className="itinerary-in-card__pin"
-                whether={item.whether}
-              />
-              <p className="itinerary-in-card__place-name">
-                {item.place}
-              </p>
+          return (
+            <div key={key}>
+              <div className="itinerary-in-card__place">
+                <WhetherPin
+                  className="itinerary-in-card__pin"
+                  whether={item.whether}
+                  index={key}
+                  gradientId={
+                    gradientId !== undefined &&
+                    itinerary.length > 3
+                      ? `${gradientId}_${key}`
+                      : undefined
+                  }
+                />
+                <p className="itinerary-in-card__place-name">
+                  {item.place}
+                </p>
+              </div>
+
+              {key === itinerary.length - 1 ? (
+                <></>
+              ) : (
+                <div
+                  className={
+                    'itinerary-in-card__line' + lineModifier
+                  }
+                ></div>
+              )}
             </div>
-            <div className="itinerary-in-card__line"></div>
-          </>
-        )
-      })}
+          )
+        })}
+      </div>
     </div>
   )
 }

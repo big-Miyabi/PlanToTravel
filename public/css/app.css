@@ -365,15 +365,73 @@ input:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 1000px white inset;
 }
 
+.form-btn {
+  border: none;
+  border-radius: 8px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 1.4rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.form-btn:focus {
+  outline: none;
+}
+
+.input-box {
+  padding: 4px 12px;
+  border: solid 1px #003666;
+  border-radius: 8px;
+  font-size: 1.2rem;
+}
+
+.input-box::-moz-placeholder {
+  color: #e5e5e5;
+}
+
+.input-box:-ms-input-placeholder {
+  color: #e5e5e5;
+}
+
+.input-box::placeholder {
+  color: #e5e5e5;
+}
+
+.input-box:focus {
+  outline: none;
+}
+
+.post-tag {
+  display: inline-flex;
+  height: 6.9333333333vw;
+  padding: 0 10px;
+  border-radius: 7px;
+  background-color: #bcdbe8;
+  color: #fff;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.post-tag .post-tag__name--post,
+.post-tag .post-tag__name {
+  margin-bottom: 0;
+  font-size: 1.2rem;
+}
+
+.post-tag__name--post {
+  margin-right: 10px;
+}
+
 @media screen and (max-width: 559px) {
-  .register {
+  .register-screen {
     width: 100vw;
     height: 100vh;
     background-image: url(/images/register_background.png?d194af37b2b7e100e94b557798d8626b);
     background-size: cover;
   }
 
-  .register__home-icon {
+  .register-screen__home-icon {
     z-index: 2;
     position: absolute;
     top: 4.1871921182vh;
@@ -382,7 +440,7 @@ input:-webkit-autofill {
     font-size: 2.4rem;
   }
 
-  .register__content {
+  .register-screen__content {
     display: flex;
     position: absolute;
     top: 0px;
@@ -393,11 +451,11 @@ input:-webkit-autofill {
     align-items: center;
   }
 
-  .register__logo {
+  .register-screen__logo {
     text-align: center;
   }
 
-  .register__logo-img {
+  .register-screen__logo-img {
     width: 54.4vw;
     height: auto;
   }
@@ -417,22 +475,12 @@ input:-webkit-autofill {
     width: 65.6vw;
     height: 4.0640394089vh;
     margin-top: 1.2315270936vh;
-    border: none;
-    border-radius: 8px;
     background-color: #fcbe32;
     color: #fff;
-    text-align: center;
-    text-decoration: none;
-    font-size: 1.4rem;
-    font-weight: bold;
   }
 
   .regist-form__button:hover {
     background-color: rgba(252, 190, 50, 0.5);
-  }
-
-  .regist-form__button:focus {
-    outline: none;
   }
 
   .form-input {
@@ -592,18 +640,8 @@ input:-webkit-autofill {
   .login__button {
     width: 35.4666666667vw;
     height: 4.0640394089vh;
-    border: none;
-    border-radius: 8px;
     background-color: #fcbe32;
     color: #fff;
-    text-align: center;
-    text-decoration: none;
-    font-size: 1.4rem;
-    font-weight: bold;
-  }
-
-  .login__button:hover {
-    background-color: rgba(252, 190, 50, 0.5);
   }
 
   .login__button:focus {
@@ -728,13 +766,21 @@ input:-webkit-autofill {
 }
 
 @media screen and (max-width: 559px) {
-  .home {
+  .home-screen {
     padding-top: 2.2167487685vh;
+    padding-bottom: 5.9113300493vh;
+  }
+
+  .home-screen__map-icon {
+    position: fixed;
+    z-index: 2;
+    right: 6.1333333333vw;
+    bottom: 1.724137931vh;
   }
 
   .popular-posts {
-    color: #003666;
     margin-top: 3.078817734vh;
+    color: #003666;
   }
 
   .popular-posts__title {
@@ -750,15 +796,12 @@ input:-webkit-autofill {
   }
 
   .popular-card__wrap {
-    z-index: 2;
-    display: flex;
+    position: relative;
     width: 92.5333333333vw;
     height: 51.4666666667vw;
     margin: 3.2019704433vh auto 0px;
     background-size: cover;
     border-radius: 4.5333333333vw;
-    flex-direction: row;
-    justify-content: space-between;
   }
 
   .popular-card__white-bg-wrap {
@@ -778,74 +821,37 @@ input:-webkit-autofill {
     left: 1.0666666667vw;
   }
 
-  .popular-card__wrap-itineraryicon {
+  .popular-card__right-wrap {
+    z-index: 1;
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 3.4666666667vw;
     width: 36.2666666667vw;
     height: 23.275862069vh;
-    position: relative;
-    left: -3.7333333333vw;
+    justify-content: space-between;
   }
 
   .popular-card__itinerary-wrap {
-    width: 28vw;
-    height: 19.5812807882vh;
-    margin-right: 1.8666666667vw;
-    margin-top: 1.4778325123vh;
-    position: relative;
-    float: left;
-    z-index: 1;
-    background-image: linear-gradient(to bottom, #003666 0%, rgba(0, 0, 0, 0));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    display: inline-block;
-    opacity: 0.6;
-    filter: alpha(opacity=60);
-    -moz-opacity: 0.6;
-    -khtml-opacity: 0.6;
-  }
-
-  .popular-card .itinerary-in-card {
-    height: 7.1428571429vh;
-  }
-
-  .popular-card .itinerary-in-card__place {
-    height: 3.078817734vh;
-    margin: 0.7389162562vh 0;
-  }
-
-  .popular-card .itinerary-in-card__pin {
-    width: 4.8vw;
-    height: auto;
-    float: left;
-    margin-right: 1.6vw;
-  }
-
-  .popular-card .itinerary-in-card__place-name {
-    font-size: 1.4rem;
-    font-weight: bold;
-  }
-
-  .popular-card .itinerary-in-card__line {
-    height: 2.5862068966vh;
-    width: auto;
-    border-left: solid 0.5333333333vw;
-    position: relative;
-    left: 1.8666666667vw;
+    width: 29.8666666667vw;
+    margin-top: 4.5333333333vw;
   }
 
   .popular-card__icon-wrap {
+    z-index: 1;
     display: flex;
     position: relative;
-    z-index: 1;
     height: 100%;
     flex-direction: column;
     justify-content: space-between;
   }
 
   .popular-card__bookmark {
-    font-size: 3.1rem;
-    color: rgba(0, 54, 102, 0.1);
     position: relative;
     top: -0.3694581281vh;
+    font-size: 3.1rem;
+    color: rgba(0, 54, 102, 0.1);
   }
 
   .popular-card__bookmark:hover {
@@ -858,14 +864,14 @@ input:-webkit-autofill {
 
   .popular-card__favorite {
     position: relative;
-    margin-bottom: 0;
     bottom: -0.9852216749vh;
+    margin-bottom: 0;
   }
 
   .popular-card__favorite-btn {
     position: relative;
-    font-size: 2.4rem;
     color: #ff6633;
+    font-size: 2.4rem;
   }
 
   .popular-card__favorite-btn:visited {
@@ -877,9 +883,62 @@ input:-webkit-autofill {
     text-align: center;
   }
 
+  .itinerary-in-card {
+    height: 7.1428571429vh;
+  }
+
+  .itinerary-in-card__gradation-wrap {
+    background-image: linear-gradient(to bottom, #003666 0%, rgba(0, 0, 0, 0));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .itinerary-in-card__place {
+    height: 3.078817734vh;
+    margin: 0.7389162562vh 0;
+  }
+
+  .itinerary-in-card__pin {
+    float: left;
+    width: 4.8vw;
+    height: auto;
+    margin-right: 1.6vw;
+  }
+
+  .itinerary-in-card__place-name {
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
+
+  .itinerary-in-card .itinerary-in-card__line--gradation-2,
+  .itinerary-in-card .itinerary-in-card__line--gradation-1,
+  .itinerary-in-card .itinerary-in-card__line--gradation-0,
+  .itinerary-in-card .itinerary-in-card__line {
+    position: relative;
+    left: 1.8666666667vw;
+    width: 2px;
+    height: 2.5862068966vh;
+  }
+
+  .itinerary-in-card__line {
+    background-color: #003666;
+  }
+
+  .itinerary-in-card__line--gradation-0 {
+    background: linear-gradient(to bottom, rgba(0, 54, 102, 0.865), rgba(0, 54, 102, 0.673));
+  }
+
+  .itinerary-in-card__line--gradation-1 {
+    background: linear-gradient(to bottom, rgba(0, 54, 102, 0.4403), rgba(0, 54, 102, 0.3082));
+  }
+
+  .itinerary-in-card__line--gradation-2 {
+    background: linear-gradient(to bottom, rgba(0, 54, 102, 0.0754), rgba(0, 54, 102, 0));
+  }
+
   .new-posts {
-    color: #003666;
     margin-top: 5.5418719212vh;
+    color: #003666;
   }
 
   .new-posts__title {
@@ -895,15 +954,31 @@ input:-webkit-autofill {
   }
 
   .new-card {
+    margin: 2.0935960591vh auto 0px;
+  }
+
+  .new-card__go-to-wrap {
+    height: 0;
+  }
+
+  .new-card__go-to {
+    position: relative;
+    z-index: 1;
+    top: -0.6157635468vh;
+    left: 1.0666666667vw;
+    width: 13.0666666667vw;
+    height: 7.2vw;
+  }
+
+  .new-card__wrap {
     position: relative;
     width: 44.2666666667vw;
     height: 51.4666666667vw;
-    margin: 3.2019704433vh auto 0px;
     border-radius: 4.5333333333vw;
     background-size: cover;
   }
 
-  .new-card:before {
+  .new-card__wrap:before {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -911,76 +986,33 @@ input:-webkit-autofill {
     content: "";
   }
 
-  .new-card__go-to {
-    width: 13.0666666667vw;
-    height: 7.2vw;
-    position: relative;
-    z-index: 1;
-    top: -1.2315270936vh;
-    left: 1.0666666667vw;
-  }
-
-  .new-card__wrap-itineraryicon {
-    width: 36.2666666667vw;
-    height: 23.275862069vh;
-    position: relative;
-    margin: auto;
-    top: -3.3251231527vh;
+  .new-card__itinerary-wrap {
     z-index: 2;
-  }
-
-  .new-card__itinerary {
-    width: 28vw;
-    height: 19.5812807882vh;
-    margin-right: 1.8666666667vw;
-    margin-top: 1.4778325123vh;
     position: relative;
-    float: left;
-  }
-
-  .new-card .itinerary-in-card {
-    height: 7.1428571429vh;
-  }
-
-  .new-card .itinerary-in-card__place {
-    height: 3.078817734vh;
-    margin: 0.7389162562vh 0;
-  }
-
-  .new-card .itinerary-in-card__pin {
-    width: 4.8vw;
-    height: auto;
-    float: left;
-    margin-right: 1.6vw;
-  }
-
-  .new-card .itinerary-in-card__place-name {
-    font-size: 1.4rem;
-    font-weight: bold;
-  }
-
-  .new-card .itinerary-in-card__line {
-    height: 2.5862068966vh;
-    width: auto;
-    border-left: solid 0.5333333333vw;
-    position: relative;
-    left: 1.8666666667vw;
+    top: 4.5333333333vw;
+    left: 0;
+    width: calc(100% - 4.2666666667vw * 2);
+    height: 42.4vw;
+    margin: 0 4.2666666667vw;
   }
 
   .new-card__icon-wrap {
     display: flex;
     position: relative;
+    top: -42.4vw;
+    right: 0;
     height: 100%;
-    margin-right: 0;
+    margin-right: 3.7333333333vw;
     flex-direction: column;
     justify-content: space-between;
+    align-items: flex-end;
   }
 
   .new-card__bookmark {
-    font-size: 3.1rem;
-    color: rgba(0, 54, 102, 0.1);
     position: relative;
     top: -0.3694581281vh;
+    font-size: 3.1rem;
+    color: rgba(0, 54, 102, 0.1);
   }
 
   .new-card__bookmark:hover {
@@ -993,8 +1025,8 @@ input:-webkit-autofill {
 
   .new-card__favorite {
     position: relative;
+    bottom: -0.8620689655vh;
     margin-bottom: 0;
-    bottom: -0.9852216749vh;
   }
 
   .new-card__favorite-btn {
@@ -1010,6 +1042,84 @@ input:-webkit-autofill {
   .new-card__favorite-number {
     color: #ff6633;
     text-align: center;
+  }
+}
+
+@media screen and (max-width: 559px) {
+  .post-header__icons {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    margin-top: calc(2.2167487685vh + 1.4778325123vh);
+    padding: 0 3.4666666667vw;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .post-header__close {
+    font-size: 2.4rem;
+    color: #e5e5e5;
+  }
+
+  .post-image {
+    width: 100vw;
+    height: 55.2vw;
+    background-size: cover;
+  }
+
+  .post-image__plus-image-wrap {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .post-overview__content-wrap {
+    width: 77.3333333333vw;
+    margin: 10.6666666667vw auto;
+  }
+
+  .post-overview__h2 {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #003666;
+  }
+
+  .post-overview__row-flex-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .post-overview__title {
+    width: 60.5333333333vw;
+    border: none;
+    border-bottom: 1px solid #003666;
+  }
+
+  .post-overview__title:focus {
+    outline: none;
+  }
+
+  .post-overview__public-switch-btn {
+    border: 1px solid #e5e5e5;
+    background-color: #fff;
+    color: #e5e5e5;
+    font-weight: normal;
+  }
+
+  .post-overview__tag-input {
+    width: 61.6vw;
+  }
+
+  .post-overview__tag-wrap {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 2.0935960591vh;
   }
 }
 

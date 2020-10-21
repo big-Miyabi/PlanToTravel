@@ -47,16 +47,12 @@ const PopularPostsContainer: FC = () => {
           whether: 'night',
           place: '東京駅',
         },
-        {
-          whether: 'snow',
-          place: '上野駅',
-        },
       ],
     },
     {
       id: 1002,
       header: '../images/post_ninki_sample2.png',
-      hasGoTo: true,
+      hasGoTo: false,
       favNum: 98,
       itinerary: [
         {

@@ -4,10 +4,14 @@ import { PostCardType } from '../../utilities/types'
 
 type Props = {
   post: PostCardType
+  gradientId: string
 }
 
-const PopularCardContainer: FC<Props> = ({ post }) => {
-  return <PopularCard post={post} />
+const PopularCardContainer: FC<Props> = ({
+  post,
+  gradientId,
+}) => {
+  return <PopularCard post={post} gradientId={gradientId} />
 }
 
 export default PopularCardContainer
