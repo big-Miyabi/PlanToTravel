@@ -69797,22 +69797,22 @@ module.exports = function(module) {
 
 "use strict";
 
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes React and other helpers. It's a great starting point while
- * building robust, powerful web applications using React + Laravel.
- */
+// /**
+//  * First we will load all of this project's JavaScript dependencies which
+//  * includes React and other helpers. It's a great starting point while
+//  * building robust, powerful web applications using React + Laravel.
+//  */
 __webpack_require__(/*! ./bootstrap */ "./resources/ts/bootstrap.js");
-/**
- * Next, we will create a fresh React component instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
-// どちらか一方にコメントアウトをして使う
-// testsを使いたい場合(バック側)
+// /**
+//  * Next, we will create a fresh React component instance and attach it to
+//  * the page. Then, you may begin adding components to this application
+//  * or customize the JavaScript scaffolding to fit your unique needs.
+//  */
+// // どちらか一方にコメントアウトをして使う
+// // testsを使いたい場合(バック側)
 __webpack_require__(/*! ./tests/App */ "./resources/ts/tests/App.tsx");
-// Reactの実装状態を確認したい場合(フロント側)
-// require('./src/App')
+// // Reactの実装状態を確認したい場合(フロント側)
+// // require('./src/App')
 
 
 /***/ }),
@@ -70107,6 +70107,16 @@ var Post = function () {
     var _r = react_1.useState(['']), tag_name = _r[0], setTags = _r[1];
     var uid = '31';
     var is_public = '0';
+    var showSchedule = function () {
+        axios_1.default
+            .get('/api/index')
+            .then(function (res) {
+            console.log(res.data);
+        })
+            .catch(function () {
+            console.log('通信に失敗しました');
+        });
+    };
     var addSchedule = function () {
         axios_1.default
             .post('/api/create', {
@@ -70363,7 +70373,8 @@ var Post = function () {
                     newTransportDs[1] = e.target.value;
                     setTransDs(newTransportDs);
                 } })),
-        react_1.default.createElement("button", { onClick: addSchedule }, "\u78BA\u5B9A")));
+        react_1.default.createElement("button", { onClick: addSchedule }, "\u78BA\u5B9A"),
+        react_1.default.createElement("button", { onClick: showSchedule }, "\u78BA\u8A8D")));
 };
 exports.default = Post;
 
