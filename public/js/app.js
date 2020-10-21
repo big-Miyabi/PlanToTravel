@@ -87540,7 +87540,7 @@ var ItineraryInCard = function (_a) {
                             ? gradientId + "_" + key
                             : undefined }),
                     react_1.default.createElement("p", { className: "itinerary-in-card__place-name" }, item.place)),
-                key < 2 || itinerary.length > 3 ? (react_1.default.createElement("div", { className: "itinerary-in-card__line" })) : (react_1.default.createElement(react_1.default.Fragment, null))));
+                key < 2 || itinerary.length > 3 ? (react_1.default.createElement("div", { className: 'itinerary-in-card__line' + lineModifier })) : (react_1.default.createElement(react_1.default.Fragment, null))));
         }))));
 };
 exports.default = ItineraryInCard;
@@ -88528,7 +88528,7 @@ var NewPostsContainer = function () {
         {
             id: 2001,
             header: '../images/post_defaultPho.png',
-            hasGoTo: true,
+            hasGoTo: false,
             favNum: 100,
             itinerary: [
                 {
@@ -88600,7 +88600,7 @@ var NewPostsContainer = function () {
         {
             id: 2004,
             header: '../images/post_defaultPho.png',
-            hasGoTo: true,
+            hasGoTo: false,
             favNum: 100,
             itinerary: [
                 {
@@ -88718,7 +88718,7 @@ var PopularPostsContainer = function () {
         {
             id: 1002,
             header: '../images/post_ninki_sample2.png',
-            hasGoTo: true,
+            hasGoTo: false,
             favNum: 98,
             itinerary: [
                 {

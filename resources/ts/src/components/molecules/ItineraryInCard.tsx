@@ -44,7 +44,11 @@ const ItineraryInCard: FC<Props> = ({
               </div>
 
               {key < 2 || itinerary.length > 3 ? (
-                <div className="itinerary-in-card__line"></div>
+                <div
+                  className={
+                    'itinerary-in-card__line' + lineModifier
+                  }
+                ></div>
               ) : (
                 <></>
               )}

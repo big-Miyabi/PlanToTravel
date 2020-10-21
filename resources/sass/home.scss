@@ -148,13 +148,37 @@
         %__line {
             position: relative;
             left: px-to-vw(7);
-            width: auto;
+            width: 2px;
             height: px-to-vh(21);
-            border-left: solid px-to-vw(2);
         }
 
         &__line {
             @extend %__line;
+            background-color: $navy;
+            &--gradation-0 {
+                @extend %__line;
+                background: linear-gradient(
+                    to bottom,
+                    rgba($navy, 0.865),
+                    rgba($navy, 0.673)
+                );
+            }
+            &--gradation-1 {
+                @extend %__line;
+                background: linear-gradient(
+                    to bottom,
+                    rgba($navy, 0.4403),
+                    rgba($navy, 0.3082)
+                );
+            }
+            &--gradation-2 {
+                @extend %__line;
+                background: linear-gradient(
+                    to bottom,
+                    rgba($navy, 0.0754),
+                    rgba($navy, 0)
+                );
+            }
         }
     }
 
