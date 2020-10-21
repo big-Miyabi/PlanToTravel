@@ -1166,11 +1166,14 @@ input:-webkit-autofill {
     margin-top: 2.0935960591vh;
   }
 
-  .post-overview__date {
-    width: 26.4vw;
-    height: 6.9333333333vw;
+  .post-overview__date-wrap {
     display: flex;
     flex-direction: row;
+  }
+
+  .post-overview__date {
+    width: 34.4vw;
+    height: 6.9333333333vw;
   }
 }
 
