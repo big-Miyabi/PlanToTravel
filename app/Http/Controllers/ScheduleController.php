@@ -143,20 +143,20 @@ class ScheduleController extends Controller
       $day_f = $schedule->day_f;
       $is_public = $schedule->is_public;
       $texts = [
-        $id,
-        $userid,
-        $title,
-        $header,
-        $people,
-        $day_s,
-        $day_f,
-        $is_public
+        'id' => $id,
+        'userid' => $userid,
+        'title' => $title,
+        'header' => $header,
+        'people' => $people,
+        'day_s' => $day_s,
+        'day_f' => $day_f,
+        'is_public' => $is_public
       ];
       //タグデータ
       foreach ($schedule->schedules_tags  as $tagKey => $st) {
         foreach ($tags as $tag) {
           if ($st->tag_id == $tag->id) {
-            $tagBox[$tagKey] = $tag->tag_name;
+            $tagBox[$tagKey] = ['tagname' => $tag->tag_name];
           }
         }
       }
@@ -177,18 +177,18 @@ class ScheduleController extends Controller
             $distance = $place->distance;
             $comment = $place->comment;
             $placeBox[$placeKey] = [
-              $placeName,
-              $orderNumber,
-              $day,
-              $img,
-              $longitude,
-              $latitude,
-              $rating,
-              $weather,
-              $transport,
-              $transportD,
-              $distance,
-              $comment
+              'placename' => $placeName,
+              'ordernumber' => $orderNumber,
+              'day' => $day,
+              'img' => $img,
+              'longitude' => $longitude,
+              'latitude' => $latitude,
+              'rating' => $rating,
+              'weather' => $weather,
+              'transport' => $transport,
+              'transportD' => $transportD,
+              'distance' => $distance,
+              'comment' => $comment
             ];
           }
         }
