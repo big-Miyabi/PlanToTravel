@@ -22,6 +22,7 @@ const ItineraryInCard: FC<Props> = ({
               <WhetherPin
                 className="itinerary-in-card__pin"
                 whether={item.whether}
+                index={key}
               />
               <p className="itinerary-in-card__place-name">
                 {item.place}

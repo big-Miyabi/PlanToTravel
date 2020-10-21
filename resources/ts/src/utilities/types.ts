@@ -10,3 +10,8 @@ export type PostCardType = {
   favNum: number
   itinerary: ItineraryType[]
 }
+
+export type OpacityGradientType = {
+  start: number
+  end: number
+}
