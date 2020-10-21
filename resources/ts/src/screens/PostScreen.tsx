@@ -1,4 +1,4 @@
-import React, { FC, useEffect } from 'react'
+import React, { FC, useState, useEffect } from 'react'
 import { RouteComponentProps as Props } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from '../reducers/index'
@@ -11,8 +11,26 @@ import PostOverview from '../containers/organisms/PostOverview'
 const PostScreen: FC<Props> = (props) => {
   const dispatch = useDispatch()
   const index = useSelector(
-    (state: RootState) => state.postReducer.index
+    (state: RootState) => state.postReducer.progressIndex
   )
+  const [hoge, setHoge] = useState(0)
+
+  const pathnames = {
+    '/post/overview': 0,
+    '/post/location': 1,
+    '/post/confirm': 2,
+  }
+
+  useEffect(() => {
+    ;(() => { // eslint-disable-line
+      if (props.location.pathname === '/post') {
+        setHoge(index)
+
+        return
+      }
+      // setHoge()
+    })()
+  }, [props.location.pathname])
 
   useEffect(() => {
     dispatch(setPostProgressIndex(0))

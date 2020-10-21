@@ -1,9 +1,11 @@
 import { ActionTypes } from './index'
 
-export const setPostProgressIndex = (index: number) =>
+export const setPostProgressIndex = (
+  progressIndex: number
+) =>
   ({
     type: ActionTypes.SET_POST_PROGRESS_INDEX,
     payload: {
-      index,
+      progressIndex,
     },
   } as const)

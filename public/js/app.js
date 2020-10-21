@@ -86983,11 +86983,11 @@ exports.setShouldShowMenu = function (shouldShow) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.setPostProgressIndex = void 0;
 var index_1 = __webpack_require__(/*! ./index */ "./resources/ts/src/actions/index.ts");
-exports.setPostProgressIndex = function (index) {
+exports.setPostProgressIndex = function (progressIndex) {
     return ({
         type: index_1.ActionTypes.SET_POST_PROGRESS_INDEX,
         payload: {
-            index: index,
+            progressIndex: progressIndex,
         },
     });
 };
@@ -89126,13 +89126,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.postReducer = void 0;
 var index_1 = __webpack_require__(/*! ../actions/index */ "./resources/ts/src/actions/index.ts");
 var initialState = {
-    index: 0,
+    progressIndex: 0,
 };
 exports.postReducer = function (state, action) {
     if (state === void 0) { state = initialState; }
     switch (action.type) {
         case index_1.ActionTypes.SET_POST_PROGRESS_INDEX:
-            return __assign(__assign({}, state), { index: action.payload.index });
+            return __assign(__assign({}, state), { progressIndex: action.payload.progressIndex });
         default: {
             return state;
         }
@@ -89219,7 +89219,23 @@ var ProgressBar_1 = __importDefault(__webpack_require__(/*! ../components/molecu
 var PostOverview_1 = __importDefault(__webpack_require__(/*! ../containers/organisms/PostOverview */ "./resources/ts/src/containers/organisms/PostOverview.tsx"));
 var PostScreen = function (props) {
     var dispatch = react_redux_1.useDispatch();
-    var index = react_redux_1.useSelector(function (state) { return state.postReducer.index; });
+    var index = react_redux_1.useSelector(function (state) { return state.postReducer.progressIndex; });
+    var _a = react_1.useState(0), hoge = _a[0], setHoge = _a[1];
+    var pathnames = {
+        '/post/overview': 0,
+        '/post/location': 1,
+        '/post/confirm': 2,
+    };
+    react_1.useEffect(function () {
+        ;
+        (function () {
+            if (props.location.pathname === '/post') {
+                setHoge(index);
+                return;
+            }
+            // setHoge()
+        })();
+    }, [props.location.pathname]);
     react_1.useEffect(function () {
         dispatch(post_1.setPostProgressIndex(0));
     }, []);
