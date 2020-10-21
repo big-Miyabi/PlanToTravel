@@ -7,7 +7,7 @@ const NewPostsContainer: FC = () => {
   const posts: PostCardType[] = [
     {
       id: 2000,
-      header: '../images/post_ninki_sample1.png',
+      header: '../images/listimg_sampleBg1.png',
       hasGoTo: true,
       favNum: 123,
       itinerary: [
@@ -17,7 +17,7 @@ const NewPostsContainer: FC = () => {
         },
         {
           whether: 'rain',
-          place: '井の頭自然文化公園・熱帯鳥温園',
+          place: '井の頭自然..',
         },
         {
           whether: 'night',
@@ -32,19 +32,15 @@ const NewPostsContainer: FC = () => {
     {
       id: 2001,
       header: '../images/post_defaultPho.png',
-      hasGoTo: true,
+      hasGoTo: false,
       favNum: 100,
       itinerary: [
         {
-          whether: 'sun',
+          whether: 'night',
           place: '浅草駅',
         },
         {
-          whether: 'rain',
-          place: '井の頭自然文化公園・熱帯鳥温園',
-        },
-        {
-          whether: 'night',
+          whether: 'sun',
           place: '東京駅',
         },
         {
@@ -60,15 +56,15 @@ const NewPostsContainer: FC = () => {
       favNum: 98,
       itinerary: [
         {
-          whether: 'sun',
+          whether: 'snow',
           place: '浅草駅',
         },
         {
-          whether: 'rain',
-          place: '井の頭自然文化公園・熱帯鳥温園',
+          whether: 'cloud',
+          place: '井の頭自然..',
         },
         {
-          whether: 'night',
+          whether: 'rain',
           place: '東京駅',
         },
         {
@@ -84,39 +80,31 @@ const NewPostsContainer: FC = () => {
       favNum: 123,
       itinerary: [
         {
-          whether: 'sun',
+          whether: 'rain',
           place: '浅草駅',
         },
         {
-          whether: 'rain',
-          place: '井の頭自然文化公園・熱帯鳥温園',
-        },
-        {
-          whether: 'night',
-          place: '東京駅',
-        },
-        {
           whether: 'snow',
-          place: '上野駅',
+          place: '井の頭自然..',
         },
       ],
     },
     {
       id: 2004,
       header: '../images/post_defaultPho.png',
-      hasGoTo: true,
+      hasGoTo: false,
       favNum: 100,
       itinerary: [
         {
-          whether: 'sun',
+          whether: 'snow',
           place: '浅草駅',
         },
         {
-          whether: 'rain',
-          place: '井の頭自然文化公園・熱帯鳥温園',
+          whether: 'night',
+          place: '井の頭自然..',
         },
         {
-          whether: 'night',
+          whether: 'rain',
           place: '東京駅',
         },
         {
@@ -137,7 +125,7 @@ const NewPostsContainer: FC = () => {
         },
         {
           whether: 'rain',
-          place: '井の頭自然文化公園・熱帯鳥温園',
+          place: '井の頭自然..',
         },
         {
           whether: 'night',

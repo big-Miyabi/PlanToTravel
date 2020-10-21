@@ -17,7 +17,7 @@ const PopularPostsContainer: FC = () => {
         },
         {
           whether: 'rain',
-          place: '井の頭自然文化公園・熱帯鳥温園',
+          place: '井の頭自然..',
         },
         {
           whether: 'night',
@@ -41,22 +41,18 @@ const PopularPostsContainer: FC = () => {
         },
         {
           whether: 'rain',
-          place: '井の頭自然文化公園・熱帯鳥温園',
+          place: '井の頭自然..',
         },
         {
           whether: 'night',
           place: '東京駅',
-        },
-        {
-          whether: 'snow',
-          place: '上野駅',
         },
       ],
     },
     {
       id: 1002,
       header: '../images/post_ninki_sample2.png',
-      hasGoTo: true,
+      hasGoTo: false,
       favNum: 98,
       itinerary: [
         {
@@ -65,7 +61,7 @@ const PopularPostsContainer: FC = () => {
         },
         {
           whether: 'rain',
-          place: '井の頭自然文化公園・熱帯鳥温園',
+          place: '井の頭自然..',
         },
         {
           whether: 'night',
