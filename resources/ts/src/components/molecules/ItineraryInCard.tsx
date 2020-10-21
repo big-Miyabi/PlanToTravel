@@ -13,8 +13,14 @@ const ItineraryInCard: FC<Props> = ({
   itinerary,
   gradientId,
 }) => {
+  const modifier = itinerary.length > 3 ? '--gradation' : ''
+
   return (
-    <div className={className + ' ' + 'itinerary-in-card'}>
+    <div
+      className={
+        className + ' ' + 'itinerary-in-card' + modifier
+      }
+    >
       {itinerary.map((item, key) => {
         if (key > 2) return
 
@@ -26,7 +32,8 @@ const ItineraryInCard: FC<Props> = ({
                 whether={item.whether}
                 index={key}
                 gradientId={
-                  gradientId !== undefined
+                  gradientId !== undefined &&
+                  itinerary.length > 3
                     ? `${gradientId}_${key}`
                     : undefined
                 }
