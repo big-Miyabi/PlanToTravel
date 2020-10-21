@@ -1084,6 +1084,42 @@ input:-webkit-autofill {
     align-items: center;
   }
 
+  .progress-map {
+    position: relative;
+    margin: 5.3333333333vw 0 -5.3333333333vw;
+  }
+
+  .progress-map__wrap {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .progress-map__name-wrap {
+    display: flex;
+    width: 58.4vw;
+    color: #003666;
+    font-size: 1.2rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .progress-map__progress-img {
+    width: 56.8vw;
+    height: 4.8vw;
+  }
+
+  .progress-map__circle {
+    position: relative;
+    top: -3.7333333333vw;
+    margin: 0 auto;
+    width: 2.6666666667vw;
+    height: 2.6666666667vw;
+    border-radius: 100%;
+    background-color: #003666;
+  }
+
   .post-overview__content-wrap {
     width: 77.3333333333vw;
     margin: 10.6666666667vw auto;
