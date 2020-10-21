@@ -47,10 +47,6 @@ const PopularPostsContainer: FC = () => {
           whether: 'night',
           place: '東京駅',
         },
-        {
-          whether: 'snow',
-          place: '上野駅',
-        },
       ],
     },
     {
