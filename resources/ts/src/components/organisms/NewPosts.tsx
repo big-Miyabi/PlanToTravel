@@ -27,9 +27,17 @@ const NewPosts: FC<Props> = ({ posts }) => {
 
       {rowPosts.map((rowPost, rowKey) => (
         <div className="new-posts__row" key={rowKey}>
-          {rowPost.map((post, cardKey) => (
-            <NewCard post={post} key={cardKey} />
-          ))}
+          {rowPost.map((post, cardKey) => {
+            const id = rowKey * 2 + cardKey
+
+            return (
+              <NewCard
+                post={post}
+                key={cardKey}
+                gradientId={`new_post_${id}`}
+              />
+            )
+          })}
         </div>
       ))}
     </div>
