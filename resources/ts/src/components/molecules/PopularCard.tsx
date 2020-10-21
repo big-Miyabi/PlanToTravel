@@ -10,9 +10,10 @@ import { PostCardType } from '../../utilities/types'
 
 type Props = {
   post: PostCardType
+  gradientId: string
 }
 
-const PopularCard: FC<Props> = ({ post }) => {
+const PopularCard: FC<Props> = ({ post, gradientId }) => {
   const goTostyle = post.hasGoTo ? {} : { display: 'none' }
   const bgStyle = {
     backgroundImage: 'url(' + post.header + ')',
@@ -37,6 +38,7 @@ const PopularCard: FC<Props> = ({ post }) => {
             <ItineraryInCard
               className="popular-card__itinerary"
               itinerary={post.itinerary}
+              gradientId={gradientId}
             />
           </div>
 

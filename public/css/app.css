@@ -771,8 +771,8 @@ input:-webkit-autofill {
   }
 
   .popular-posts {
-    color: #003666;
     margin-top: 3.078817734vh;
+    color: #003666;
   }
 
   .popular-posts__title {
@@ -817,28 +817,23 @@ input:-webkit-autofill {
   }
 
   .popular-card__wrap-itineraryicon {
-    width: 36.2666666667vw;
-    height: 23.275862069vh;
     position: relative;
     left: -3.7333333333vw;
+    width: 36.2666666667vw;
+    height: 23.275862069vh;
   }
 
   .popular-card__itinerary-wrap {
+    z-index: 1;
+    float: left;
+    position: relative;
+    margin-top: 1.4778325123vh;
+    margin-right: 1.8666666667vw;
     width: 28vw;
     height: 19.5812807882vh;
-    margin-right: 1.8666666667vw;
-    margin-top: 1.4778325123vh;
-    position: relative;
-    float: left;
-    z-index: 1;
     background-image: linear-gradient(to bottom, #003666 0%, rgba(0, 0, 0, 0));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    display: inline-block;
-    opacity: 0.6;
-    filter: alpha(opacity=60);
-    -moz-opacity: 0.6;
-    -khtml-opacity: 0.6;
   }
 
   .popular-card .itinerary-in-card {
@@ -851,9 +846,9 @@ input:-webkit-autofill {
   }
 
   .popular-card .itinerary-in-card__pin {
+    float: left;
     width: 4.8vw;
     height: auto;
-    float: left;
     margin-right: 1.6vw;
   }
 
@@ -863,27 +858,27 @@ input:-webkit-autofill {
   }
 
   .popular-card .itinerary-in-card__line {
-    height: 2.5862068966vh;
-    width: auto;
-    border-left: solid 0.5333333333vw;
     position: relative;
     left: 1.8666666667vw;
+    width: auto;
+    height: 2.5862068966vh;
+    border-left: solid 0.5333333333vw;
   }
 
   .popular-card__icon-wrap {
+    z-index: 1;
     display: flex;
     position: relative;
-    z-index: 1;
     height: 100%;
     flex-direction: column;
     justify-content: space-between;
   }
 
   .popular-card__bookmark {
-    font-size: 3.1rem;
-    color: rgba(0, 54, 102, 0.1);
     position: relative;
     top: -0.3694581281vh;
+    font-size: 3.1rem;
+    color: rgba(0, 54, 102, 0.1);
   }
 
   .popular-card__bookmark:hover {
@@ -896,14 +891,14 @@ input:-webkit-autofill {
 
   .popular-card__favorite {
     position: relative;
-    margin-bottom: 0;
     bottom: -0.9852216749vh;
+    margin-bottom: 0;
   }
 
   .popular-card__favorite-btn {
     position: relative;
-    font-size: 2.4rem;
     color: #ff6633;
+    font-size: 2.4rem;
   }
 
   .popular-card__favorite-btn:visited {
@@ -916,8 +911,8 @@ input:-webkit-autofill {
   }
 
   .new-posts {
-    color: #003666;
     margin-top: 5.5418719212vh;
+    color: #003666;
   }
 
   .new-posts__title {
@@ -950,30 +945,30 @@ input:-webkit-autofill {
   }
 
   .new-card__go-to {
-    width: 13.0666666667vw;
-    height: 7.2vw;
     position: relative;
     z-index: 1;
     top: -1.2315270936vh;
     left: 1.0666666667vw;
+    width: 13.0666666667vw;
+    height: 7.2vw;
   }
 
   .new-card__wrap-itineraryicon {
+    z-index: 2;
+    position: relative;
+    top: -3.3251231527vh;
     width: 36.2666666667vw;
     height: 23.275862069vh;
-    position: relative;
     margin: auto;
-    top: -3.3251231527vh;
-    z-index: 2;
   }
 
   .new-card__itinerary {
+    position: relative;
+    float: left;
     width: 28vw;
     height: 19.5812807882vh;
     margin-right: 1.8666666667vw;
     margin-top: 1.4778325123vh;
-    position: relative;
-    float: left;
   }
 
   .new-card .itinerary-in-card {
@@ -986,9 +981,9 @@ input:-webkit-autofill {
   }
 
   .new-card .itinerary-in-card__pin {
+    float: left;
     width: 4.8vw;
     height: auto;
-    float: left;
     margin-right: 1.6vw;
   }
 
@@ -998,11 +993,11 @@ input:-webkit-autofill {
   }
 
   .new-card .itinerary-in-card__line {
-    height: 2.5862068966vh;
-    width: auto;
-    border-left: solid 0.5333333333vw;
     position: relative;
     left: 1.8666666667vw;
+    width: auto;
+    height: 2.5862068966vh;
+    border-left: solid 0.5333333333vw;
   }
 
   .new-card__icon-wrap {
@@ -1015,10 +1010,10 @@ input:-webkit-autofill {
   }
 
   .new-card__bookmark {
-    font-size: 3.1rem;
-    color: rgba(0, 54, 102, 0.1);
     position: relative;
     top: -0.3694581281vh;
+    font-size: 3.1rem;
+    color: rgba(0, 54, 102, 0.1);
   }
 
   .new-card__bookmark:hover {
@@ -1031,8 +1026,8 @@ input:-webkit-autofill {
 
   .new-card__favorite {
     position: relative;
-    margin-bottom: 0;
     bottom: -0.9852216749vh;
+    margin-bottom: 0;
   }
 
   .new-card__favorite-btn {
