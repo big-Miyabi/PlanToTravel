@@ -1,4 +1,9 @@
-import React, { FC, useState, useEffect } from 'react'
+import React, {
+  FC,
+  Dispatch,
+  useState,
+  useEffect,
+} from 'react'
 import { RouteComponentProps as Props } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { RootState } from '../reducers/index'
@@ -8,32 +13,69 @@ import Menu from '../components/organisms/Menu'
 import ProgressBar from '../components/molecules/ProgressBar'
 import PostOverview from '../containers/organisms/PostOverview'
 
+const checkAndMovePages = (
+  path: string,
+  previousIndex: number,
+  pathnames: string[],
+  setPageIndex: Dispatch<React.SetStateAction<number>>,
+  props: Props
+) => {
+  if (path === '/post') {
+    // '/post'は強制的に最初の画面に遷移
+    setPageIndex(previousIndex)
+
+    return
+  }
+  const pathIndex = pathnames.indexOf(path)
+  if (pathIndex === -1) return
+
+  if (pathIndex < previousIndex) {
+    // 戻るなどをして前の画面に遷移した時
+    setPageIndex(pathIndex)
+
+    return
+  }
+  if (pathIndex === previousIndex) {
+    // ページのリロードなどで同じ画面に遷移した時
+    setPageIndex(previousIndex)
+
+    return
+  }
+  // URLを手打ちで入力するなどして非正規の手続きで次の画面に遷移した時
+
+  setPageIndex(previousIndex)
+  props.history.push(pathnames[previousIndex])
+}
+
 const PostScreen: FC<Props> = (props) => {
   const dispatch = useDispatch()
-  const index = useSelector(
+  const previousIndex = useSelector(
     (state: RootState) => state.postReducer.progressIndex
   )
-  const [hoge, setHoge] = useState(0)
+  const [pageIndex, setPageIndex] = useState(0)
 
-  const pathnames = {
-    '/post/overview': 0,
-    '/post/location': 1,
-    '/post/confirm': 2,
-  }
+  const pathnames = [
+    '/post/overview',
+    '/post/location',
+    '/post/confirm',
+  ]
 
+  // pathによって画面状態を変更する
   useEffect(() => {
-    ;(() => { // eslint-disable-line
-      if (props.location.pathname === '/post') {
-        setHoge(index)
-
-        return
-      }
-      // setHoge()
-    })()
+    const path = props.location.pathname
+    checkAndMovePages(
+      path,
+      previousIndex,
+      pathnames,
+      setPageIndex,
+      props
+    )
   }, [props.location.pathname])
 
   useEffect(() => {
-    dispatch(setPostProgressIndex(0))
+    return () => {
+      dispatch(setPostProgressIndex(0))
+    }
   }, [])
 
   return (
@@ -43,9 +85,9 @@ const PostScreen: FC<Props> = (props) => {
       <ProgressBar
         className="post-screen__progress-map"
         names={['概要', '場所', '確認']}
-        index={index}
+        index={pageIndex}
       />
-      {index === 0 ? (
+      {pageIndex === 0 ? (
         <PostOverview history={props.history} />
       ) : (
         <></>
