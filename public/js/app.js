@@ -87536,7 +87536,7 @@ var ItineraryInCard = function (_a) {
                         ? gradientId + "_" + key
                         : undefined }),
                 react_1.default.createElement("p", { className: "itinerary-in-card__place-name" }, item.place)),
-            react_1.default.createElement("div", { className: "itinerary-in-card__line" })));
+            key < 2 || itinerary.length > 3 ? (react_1.default.createElement("div", { className: "itinerary-in-card__line" })) : (react_1.default.createElement(react_1.default.Fragment, null))));
     })));
 };
 exports.default = ItineraryInCard;
@@ -88708,10 +88708,6 @@ var PopularPostsContainer = function () {
                 {
                     whether: 'night',
                     place: '東京駅',
-                },
-                {
-                    whether: 'snow',
-                    place: '上野駅',
                 },
             ],
         },
