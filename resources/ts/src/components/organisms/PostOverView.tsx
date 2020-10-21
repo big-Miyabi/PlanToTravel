@@ -36,6 +36,31 @@ const PostOverview: FC = () => {
             isPost={true}
             onClick={() => {}}
           />
+          <PostTag
+            tagName="hoooge"
+            isPost={true}
+            onClick={() => {}}
+          />
+          <PostTag
+            tagName="hogeeeddddddddddddddee"
+            isPost={true}
+            onClick={() => {}}
+          />
+          <PostTag
+            tagName="hoge"
+            isPost={true}
+            onClick={() => {}}
+          />
+          <PostTag
+            tagName="hoge33333"
+            isPost={true}
+            onClick={() => {}}
+          />
+          <PostTag
+            tagName="hogeeeee1234"
+            isPost={true}
+            onClick={() => {}}
+          />
         </div>
       </div>
 
@@ -46,7 +71,7 @@ const PostOverview: FC = () => {
             type="date"
             className="post-overview__date"
           />
-          <p>-</p>
+          <p className="post-overview__datebar">-</p>
           <InputBox
             type="date"
             className="post-overview__date"
@@ -61,15 +86,16 @@ const PostOverview: FC = () => {
             type="text"
             className="post-overview__people"
           />
-          <p>人</p>
+          <p className="post-overview__nin">人</p>
         </div>
       </div>
-
-      <FormBtn
-        className="post-overview__next"
-        name="次へ"
-        onClick={() => {}}
-      />
+      <div className="post-overview__next-wrap">
+        <FormBtn
+          className="post-overview__next"
+          name="次へ"
+          onClick={() => {}}
+        />
+      </div>
     </div>
   )
 }
