@@ -89001,7 +89001,7 @@ var postReducer_1 = __webpack_require__(/*! ./postReducer */ "./resources/ts/src
 var persistConfig = {
     key: 'root',
     storage: storage_1.default,
-    whitelist: ['loginReducer'],
+    whitelist: ['loginReducer', 'postReducer'],
 };
 // 永続化設定されたReducerとして定義
 var rootReducer = redux_1.combineReducers({
@@ -89132,6 +89132,7 @@ exports.postReducer = function (state, action) {
     if (state === void 0) { state = initialState; }
     switch (action.type) {
         case index_1.ActionTypes.SET_POST_PROGRESS_INDEX:
+            console.log('reducer: ' + action.payload.progressIndex);
             return __assign(__assign({}, state), { progressIndex: action.payload.progressIndex });
         default: {
             return state;
@@ -89217,33 +89218,53 @@ var Header_1 = __importDefault(__webpack_require__(/*! ../containers/organisms/H
 var Menu_1 = __importDefault(__webpack_require__(/*! ../components/organisms/Menu */ "./resources/ts/src/components/organisms/Menu.tsx"));
 var ProgressBar_1 = __importDefault(__webpack_require__(/*! ../components/molecules/ProgressBar */ "./resources/ts/src/components/molecules/ProgressBar.tsx"));
 var PostOverview_1 = __importDefault(__webpack_require__(/*! ../containers/organisms/PostOverview */ "./resources/ts/src/containers/organisms/PostOverview.tsx"));
+var checkAndMovePages = function (path, previousIndex, pathnames, setPageIndex, props) {
+    if (path === '/post') {
+        // '/post'は強制的に最初の画面に遷移
+        setPageIndex(previousIndex);
+        return;
+    }
+    var pathIndex = pathnames.indexOf(path);
+    if (pathIndex === -1)
+        return;
+    if (pathIndex < previousIndex) {
+        // 戻るなどをして前の画面に遷移した時
+        setPageIndex(pathIndex);
+        return;
+    }
+    if (pathIndex === previousIndex) {
+        // ページのリロードなどで同じ画面に遷移した時
+        setPageIndex(previousIndex);
+        return;
+    }
+    // URLを手打ちで入力するなどして非正規の手続きで次の画面に遷移した時
+    setPageIndex(previousIndex);
+    props.history.push(pathnames[previousIndex]);
+};
 var PostScreen = function (props) {
     var dispatch = react_redux_1.useDispatch();
-    var index = react_redux_1.useSelector(function (state) { return state.postReducer.progressIndex; });
-    var _a = react_1.useState(0), hoge = _a[0], setHoge = _a[1];
-    var pathnames = {
-        '/post/overview': 0,
-        '/post/location': 1,
-        '/post/confirm': 2,
-    };
+    var previousIndex = react_redux_1.useSelector(function (state) { return state.postReducer.progressIndex; });
+    var _a = react_1.useState(0), pageIndex = _a[0], setPageIndex = _a[1];
+    var pathnames = [
+        '/post/overview',
+        '/post/location',
+        '/post/confirm',
+    ];
+    // pathによって画面状態を変更する
     react_1.useEffect(function () {
-        ;
-        (function () {
-            if (props.location.pathname === '/post') {
-                setHoge(index);
-                return;
-            }
-            // setHoge()
-        })();
+        var path = props.location.pathname;
+        checkAndMovePages(path, previousIndex, pathnames, setPageIndex, props);
     }, [props.location.pathname]);
     react_1.useEffect(function () {
-        dispatch(post_1.setPostProgressIndex(0));
+        return function () {
+            dispatch(post_1.setPostProgressIndex(0));
+        };
     }, []);
     return (react_1.default.createElement("div", { className: "post-screen" },
         react_1.default.createElement(Header_1.default, { isPost: false }),
         react_1.default.createElement(Menu_1.default, null),
-        react_1.default.createElement(ProgressBar_1.default, { className: "post-screen__progress-map", names: ['概要', '場所', '確認'], index: index }),
-        index === 0 ? (react_1.default.createElement(PostOverview_1.default, { history: props.history })) : (react_1.default.createElement(react_1.default.Fragment, null))));
+        react_1.default.createElement(ProgressBar_1.default, { className: "post-screen__progress-map", names: ['概要', '場所', '確認'], index: pageIndex }),
+        pageIndex === 0 ? (react_1.default.createElement(PostOverview_1.default, { history: props.history })) : (react_1.default.createElement(react_1.default.Fragment, null))));
 };
 exports.default = PostScreen;
 
