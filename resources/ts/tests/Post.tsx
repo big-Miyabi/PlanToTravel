@@ -7,7 +7,6 @@ const Post: FC = () => {
   const [people, setPeople] = useState<string>('')
   const [day_s, setDayS] = useState<string>('')
   const [day_f, setDayf] = useState<string>('')
-  const [order_number, setOrderNum] = useState<string>('')
   const [day, setDays] = useState<string[]>([''])
   const [img, setImgs] = useState<string[]>([''])
   const [place_name, setPlaceNames] = useState<string[]>([
