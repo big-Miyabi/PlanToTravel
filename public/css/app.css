@@ -768,6 +768,14 @@ input:-webkit-autofill {
 @media screen and (max-width: 559px) {
   .home-screen {
     padding-top: 2.2167487685vh;
+    padding-bottom: 5.9113300493vh;
+  }
+
+  .home-screen__map-icon {
+    position: fixed;
+    z-index: 2;
+    right: 6.1333333333vw;
+    bottom: 1.724137931vh;
   }
 
   .popular-posts {
@@ -1017,7 +1025,7 @@ input:-webkit-autofill {
 
   .new-card__favorite {
     position: relative;
-    bottom: -0.9852216749vh;
+    bottom: -0.8620689655vh;
     margin-bottom: 0;
   }
 
