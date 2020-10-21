@@ -10,12 +10,14 @@ type Props = {
   className: string
   whether: string
   index?: number
+  gradientId?: string
 }
 
 const WhetherPin: FC<Props> = ({
   className,
   whether,
   index,
+  gradientId,
 }) => {
   const opacity: OpacityGradientType[] = [
     {
@@ -40,6 +42,7 @@ const WhetherPin: FC<Props> = ({
           opacityGradient={
             index !== undefined ? opacity[index] : undefined
           }
+          gradientId={gradientId}
         />
       )
     case 'cloud':
@@ -49,6 +52,7 @@ const WhetherPin: FC<Props> = ({
           opacityGradient={
             index !== undefined ? opacity[index] : undefined
           }
+          gradientId={gradientId}
         />
       )
     case 'rain':
@@ -58,6 +62,7 @@ const WhetherPin: FC<Props> = ({
           opacityGradient={
             index !== undefined ? opacity[index] : undefined
           }
+          gradientId={gradientId}
         />
       )
     case 'snow':
@@ -67,6 +72,7 @@ const WhetherPin: FC<Props> = ({
           opacityGradient={
             index !== undefined ? opacity[index] : undefined
           }
+          gradientId={gradientId}
         />
       )
     default:
@@ -76,6 +82,7 @@ const WhetherPin: FC<Props> = ({
           opacityGradient={
             index !== undefined ? opacity[index] : undefined
           }
+          gradientId={gradientId}
         />
       )
   }

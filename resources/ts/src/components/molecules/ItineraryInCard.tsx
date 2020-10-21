@@ -5,11 +5,13 @@ import WhetherPin from '../atoms/WhetherPin'
 type Props = {
   className: string
   itinerary: ItineraryType[]
+  gradientId?: string
 }
 
 const ItineraryInCard: FC<Props> = ({
   className,
   itinerary,
+  gradientId,
 }) => {
   return (
     <div className={className + ' ' + 'itinerary-in-card'}>
@@ -23,6 +25,7 @@ const ItineraryInCard: FC<Props> = ({
                 className="itinerary-in-card__pin"
                 whether={item.whether}
                 index={key}
+                gradientId={`${gradientId}_${key}`}
               />
               <p className="itinerary-in-card__place-name">
                 {item.place}
