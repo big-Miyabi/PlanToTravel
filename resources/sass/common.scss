@@ -1,3 +1,5 @@
+@import "variables";
+
 html {
     width: 100%;
     height: 100%;
@@ -12,4 +14,54 @@ body {
 
 input:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 1000px white inset;
+}
+
+.form-btn {
+    border: none;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: bold;
+    cursor: pointer;
+    &:focus {
+        outline: none;
+    }
+}
+
+.input-box {
+    padding: 4px 12px;
+    border: solid 1px $navy;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    &::placeholder {
+        color: $light-gray;
+    }
+    &:focus {
+        outline: none;
+    }
+}
+
+.post-tag {
+    display: inline-flex;
+    height: px-to-vw(26);
+    padding: 0 10px;
+    border-radius: 7px;
+    background-color: $light-blue;
+    color: $white;
+    justify-content: space-between;
+    align-items: center;
+
+    %__name {
+        margin-bottom: 0;
+        font-size: 1.2rem;
+    }
+
+    &__name {
+        @extend %__name;
+        &--post {
+            @extend %__name;
+            margin-right: 10px;
+        }
+    }
 }

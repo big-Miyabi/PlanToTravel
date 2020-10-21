@@ -2,8 +2,13 @@ import React, { FC, useState, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 import { setShouldShowMenu } from '../../actions/menu'
 import Header from '../../components/organisms/Header'
+import PostHeader from '../../components/organisms/PostHeader'
 
-const HeaderContainer: FC = () => {
+type Props = {
+  isPost?: boolean
+}
+
+const HeaderContainer: FC<Props> = ({ isPost = true }) => {
   const dispatch = useDispatch()
   const [isMenuActive, setIsMenuActive] = useState(false)
   const [isSearchActive, setIsSearchActive] = useState(
@@ -45,12 +50,21 @@ const HeaderContainer: FC = () => {
   }, [])
 
   return (
-    <Header
-      isMenuActive={isMenuActive}
-      isSearchActive={isSearchActive}
-      switchMenuDisplay={switchMenuDisplay}
-      switchSearchDisplay={switchSearchDisplay}
-    />
+    <>
+      {isPost ? (
+        <Header
+          isMenuActive={isMenuActive}
+          isSearchActive={isSearchActive}
+          switchMenuDisplay={switchMenuDisplay}
+          switchSearchDisplay={switchSearchDisplay}
+        />
+      ) : (
+        <PostHeader
+          isMenuActive={isMenuActive}
+          switchMenuDisplay={switchMenuDisplay}
+        />
+      )}
+    </>
   )
 }
 
