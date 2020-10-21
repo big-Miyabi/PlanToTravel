@@ -34,6 +34,40 @@
         }
     }
 
+    .progress-map {
+        position: relative;
+        margin: px-to-vw(20) 0 px-to-vw(-20);
+
+        &__wrap {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &__name-wrap {
+            display: flex;
+            width: px-to-vw(219);
+            color: $navy;
+            font-size: 1.2rem;
+            justify-content: space-between;
+            align-items: center;
+        }
+        &__progress-img {
+            width: px-to-vw(213);
+            height: px-to-vw(18);
+        }
+        &__circle {
+            position: relative;
+            top: px-to-vw(-14);
+            margin: 0 auto;
+            width: px-to-vw(10);
+            height: px-to-vw(10);
+            border-radius: 100%;
+            background-color: $navy;
+        }
+    }
+
     .post-overview {
         &__content-wrap {
             width: px-to-vw(290);
