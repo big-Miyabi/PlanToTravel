@@ -87112,13 +87112,20 @@ var CloudyPin = function (_a) {
     var bgFill = gradientId
         ? 'url(#' + gradientId + ')'
         : colors_1.colors.navyBlue;
+    var iconGradientId = gradientId + "_icon";
+    var iconFill = gradientId
+        ? 'url(#' + iconGradientId + ')'
+        : colors_1.colors.gray;
     return (react_1.default.createElement("svg", { className: className, width: "39", height: "53", viewBox: "0 0 39 53", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
         react_1.default.createElement("defs", null,
             react_1.default.createElement("linearGradient", { id: gradientId, x1: "0", x2: "0", y1: "0", y2: "1" },
                 react_1.default.createElement("stop", { offset: "0%", stopColor: colors_1.colors.navyBlue, stopOpacity: opacityGradient.start }),
-                react_1.default.createElement("stop", { offset: "100%", stopColor: colors_1.colors.navyBlue, stopOpacity: opacityGradient.end }))),
+                react_1.default.createElement("stop", { offset: "100%", stopColor: colors_1.colors.navyBlue, stopOpacity: opacityGradient.end })),
+            react_1.default.createElement("linearGradient", { id: iconGradientId, x1: "0", x2: "0", y1: "0", y2: "1" },
+                react_1.default.createElement("stop", { offset: "0%", stopColor: colors_1.colors.gray, stopOpacity: opacityGradient.start - 0.0244 }),
+                react_1.default.createElement("stop", { offset: "100%", stopColor: colors_1.colors.gray, stopOpacity: opacityGradient.end + 0.0684 }))),
         react_1.default.createElement("path", { d: "M17.4164 53C17.4164 53 -8.58891 26.4976 2.95461 7.57008C2.95461 7.57008 6.80405 0 18.3476 0C18.3476 0 33.7405 0 37.5852 15.1449C41.4298 30.2898 17.4164 53 17.4164 53Z", fill: bgFill }),
-        react_1.default.createElement("path", { d: "M27.1375 16.3996C27.2875 15.9821 27.4 15.5647 27.4 15.0714C27.4 13.0603 25.7875 11.4286 23.8 11.4286C23.05 11.4286 22.3375 11.6562 21.775 12.0737C20.7625 10.2522 18.8125 9 16.6 9C13.2625 9 10.6 11.7321 10.6 15.0714C10.6 15.1853 10.6 15.2991 10.6 15.4129C8.5 16.1339 7 18.183 7 20.5357C7 23.5714 9.4 26 12.4 26H26.2C28.825 26 31 23.8371 31 21.1429C31 18.8281 29.35 16.8549 27.1375 16.3996Z", fill: colors_1.colors.gray })));
+        react_1.default.createElement("path", { d: "M27.1375 16.3996C27.2875 15.9821 27.4 15.5647 27.4 15.0714C27.4 13.0603 25.7875 11.4286 23.8 11.4286C23.05 11.4286 22.3375 11.6562 21.775 12.0737C20.7625 10.2522 18.8125 9 16.6 9C13.2625 9 10.6 11.7321 10.6 15.0714C10.6 15.1853 10.6 15.2991 10.6 15.4129C8.5 16.1339 7 18.183 7 20.5357C7 23.5714 9.4 26 12.4 26H26.2C28.825 26 31 23.8371 31 21.1429C31 18.8281 29.35 16.8549 27.1375 16.3996Z", fill: iconFill })));
 };
 exports.default = CloudyPin;
 
@@ -87190,13 +87197,20 @@ var MoonyPin = function (_a) {
     var bgFill = gradientId
         ? 'url(#' + gradientId + ')'
         : colors_1.colors.navyBlue;
+    var iconGradientId = gradientId + "_icon";
+    var iconFill = gradientId
+        ? 'url(#' + iconGradientId + ')'
+        : colors_1.colors.yellow;
     return (react_1.default.createElement("svg", { className: className, width: "39", height: "53", viewBox: "0 0 39 53", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
         react_1.default.createElement("defs", null,
             react_1.default.createElement("linearGradient", { id: gradientId, x1: "0", x2: "0", y1: "0", y2: "1" },
                 react_1.default.createElement("stop", { offset: "0%", stopColor: colors_1.colors.navyBlue, stopOpacity: opacityGradient.start }),
-                react_1.default.createElement("stop", { offset: "100%", stopColor: colors_1.colors.navyBlue, stopOpacity: opacityGradient.end }))),
+                react_1.default.createElement("stop", { offset: "100%", stopColor: colors_1.colors.navyBlue, stopOpacity: opacityGradient.end })),
+            react_1.default.createElement("linearGradient", { id: iconGradientId, x1: "0", x2: "0", y1: "0", y2: "1" },
+                react_1.default.createElement("stop", { offset: "0%", stopColor: colors_1.colors.yellow, stopOpacity: opacityGradient.start - 0.0244 }),
+                react_1.default.createElement("stop", { offset: "100%", stopColor: colors_1.colors.yellow, stopOpacity: opacityGradient.end + 0.0684 }))),
         react_1.default.createElement("path", { d: "M17.4164 53C17.4164 53 -8.58891 26.4976 2.95461 7.57008C2.95461 7.57008 6.80405 0 18.3476 0C18.3476 0 33.7405 0 37.5852 15.1449C41.4298 30.2898 17.4164 53 17.4164 53Z", fill: bgFill }),
-        react_1.default.createElement("path", { d: "M20.0693 31C23.1766 31 26.0086 29.4961 27.8966 26.9609C28.1719 26.5742 27.8573 26.0156 27.4246 26.1016C22.5473 27.1328 18.0633 23.0508 18.0633 17.6367C18.0633 14.543 19.558 11.707 22.036 10.1602C22.4293 9.90234 22.3113 9.30078 21.8786 9.21484C21.2886 9.08594 20.6986 9.04297 20.0693 9C14.484 9 10 13.9414 10 20C10 26.1016 14.484 31 20.0693 31Z", fill: colors_1.colors.yellow })));
+        react_1.default.createElement("path", { d: "M20.0693 31C23.1766 31 26.0086 29.4961 27.8966 26.9609C28.1719 26.5742 27.8573 26.0156 27.4246 26.1016C22.5473 27.1328 18.0633 23.0508 18.0633 17.6367C18.0633 14.543 19.558 11.707 22.036 10.1602C22.4293 9.90234 22.3113 9.30078 21.8786 9.21484C21.2886 9.08594 20.6986 9.04297 20.0693 9C14.484 9 10 13.9414 10 20C10 26.1016 14.484 31 20.0693 31Z", fill: iconFill })));
 };
 exports.default = MoonyPin;
 
@@ -87278,13 +87292,20 @@ var RainyPin = function (_a) {
     var bgFill = gradientId
         ? 'url(#' + gradientId + ')'
         : colors_1.colors.navyBlue;
+    var iconGradientId = gradientId + "_icon";
+    var iconFill = gradientId
+        ? 'url(#' + iconGradientId + ')'
+        : colors_1.colors.lightBlue;
     return (react_1.default.createElement("svg", { className: className, width: "39", height: "53", viewBox: "0 0 39 53", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
         react_1.default.createElement("defs", null,
             react_1.default.createElement("linearGradient", { id: gradientId, x1: "0", x2: "0", y1: "0", y2: "1" },
                 react_1.default.createElement("stop", { offset: "0%", stopColor: colors_1.colors.navyBlue, stopOpacity: opacityGradient.start }),
-                react_1.default.createElement("stop", { offset: "100%", stopColor: colors_1.colors.navyBlue, stopOpacity: opacityGradient.end }))),
+                react_1.default.createElement("stop", { offset: "100%", stopColor: colors_1.colors.navyBlue, stopOpacity: opacityGradient.end })),
+            react_1.default.createElement("linearGradient", { id: iconGradientId, x1: "0", x2: "0", y1: "0", y2: "1" },
+                react_1.default.createElement("stop", { offset: "0%", stopColor: colors_1.colors.lightBlue, stopOpacity: opacityGradient.start - 0.0244 }),
+                react_1.default.createElement("stop", { offset: "100%", stopColor: colors_1.colors.lightBlue, stopOpacity: opacityGradient.end + 0.0684 }))),
         react_1.default.createElement("path", { d: "M17.4164 53C17.4164 53 -8.58891 26.4976 2.95461 7.57008C2.95461 7.57008 6.80405 0 18.3476 0C18.3476 0 33.7405 0 37.5852 15.1449C41.4298 30.2898 17.4164 53 17.4164 53Z", fill: bgFill }),
-        react_1.default.createElement("path", { d: "M30.9888 20.0742C29.7725 14.2305 24.9942 10.707 19.9118 10.1484V9.375C19.9118 8.64453 19.2602 8 18.5217 8C17.7398 8 17.1316 8.64453 17.1316 9.375V10.1484C12.0058 10.707 7.2709 14.2305 6.01115 20.0742C5.92427 20.5039 6.35867 21.0195 6.8365 20.5898C9.09535 18.2266 11.4845 18.3125 13.6999 22.1797C13.9171 22.5664 14.3515 22.5234 14.5687 22.1797C15.4375 20.6328 16.5235 19 18.5217 19C21.0412 19 22.3444 21.9648 22.4313 22.1797C22.6485 22.5234 23.0828 22.5664 23.3 22.1797C25.5155 18.3125 27.9481 18.2266 30.2069 20.5898C30.6413 21.0195 31.0757 20.5039 30.9888 20.0742ZM17.1316 20.9766V26.5625C17.1316 26.9492 16.7841 27.25 16.4366 27.25C16.0891 27.25 15.8285 27.0352 15.7416 26.8203C15.5244 26.0898 14.699 25.7031 14.004 25.9609C13.2655 26.2188 12.8746 26.9922 13.1352 27.7227C13.6131 29.0977 14.9597 30 16.4366 30C18.3479 30 19.9118 28.4531 19.9118 26.5625V20.9766C19.4774 20.6328 19.043 20.375 18.5217 20.375C17.957 20.418 17.5226 20.5898 17.1316 20.9766Z", fill: colors_1.colors.lightBlue })));
+        react_1.default.createElement("path", { d: "M30.9888 20.0742C29.7725 14.2305 24.9942 10.707 19.9118 10.1484V9.375C19.9118 8.64453 19.2602 8 18.5217 8C17.7398 8 17.1316 8.64453 17.1316 9.375V10.1484C12.0058 10.707 7.2709 14.2305 6.01115 20.0742C5.92427 20.5039 6.35867 21.0195 6.8365 20.5898C9.09535 18.2266 11.4845 18.3125 13.6999 22.1797C13.9171 22.5664 14.3515 22.5234 14.5687 22.1797C15.4375 20.6328 16.5235 19 18.5217 19C21.0412 19 22.3444 21.9648 22.4313 22.1797C22.6485 22.5234 23.0828 22.5664 23.3 22.1797C25.5155 18.3125 27.9481 18.2266 30.2069 20.5898C30.6413 21.0195 31.0757 20.5039 30.9888 20.0742ZM17.1316 20.9766V26.5625C17.1316 26.9492 16.7841 27.25 16.4366 27.25C16.0891 27.25 15.8285 27.0352 15.7416 26.8203C15.5244 26.0898 14.699 25.7031 14.004 25.9609C13.2655 26.2188 12.8746 26.9922 13.1352 27.7227C13.6131 29.0977 14.9597 30 16.4366 30C18.3479 30 19.9118 28.4531 19.9118 26.5625V20.9766C19.4774 20.6328 19.043 20.375 18.5217 20.375C17.957 20.418 17.5226 20.5898 17.1316 20.9766Z", fill: iconFill })));
 };
 exports.default = RainyPin;
 
@@ -87340,13 +87361,20 @@ var SnowyPin = function (_a) {
     var bgFill = gradientId
         ? 'url(#' + gradientId + ')'
         : colors_1.colors.navyBlue;
+    var iconGradientId = gradientId + "_icon";
+    var iconFill = gradientId
+        ? 'url(#' + iconGradientId + ')'
+        : colors_1.colors.white;
     return (react_1.default.createElement("svg", { className: className, width: "39", height: "53", viewBox: "0 0 39 53", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
         react_1.default.createElement("defs", null,
             react_1.default.createElement("linearGradient", { id: gradientId, x1: "0", x2: "0", y1: "0", y2: "1" },
                 react_1.default.createElement("stop", { offset: "0%", stopColor: colors_1.colors.navyBlue, stopOpacity: opacityGradient.start }),
-                react_1.default.createElement("stop", { offset: "100%", stopColor: colors_1.colors.navyBlue, stopOpacity: opacityGradient.end }))),
+                react_1.default.createElement("stop", { offset: "100%", stopColor: colors_1.colors.navyBlue, stopOpacity: opacityGradient.end })),
+            react_1.default.createElement("linearGradient", { id: iconGradientId, x1: "0", x2: "0", y1: "0", y2: "1" },
+                react_1.default.createElement("stop", { offset: "0%", stopColor: colors_1.colors.white, stopOpacity: opacityGradient.start - 0.0244 }),
+                react_1.default.createElement("stop", { offset: "100%", stopColor: colors_1.colors.white, stopOpacity: opacityGradient.end + 0.0684 }))),
         react_1.default.createElement("path", { d: "M17.4164 53C17.4164 53 -8.58891 26.4976 2.95461 7.57008C2.95461 7.57008 6.80405 0 18.3476 0C18.3476 0 33.7405 0 37.5852 15.1449C41.4298 30.2898 17.4164 53 17.4164 53Z", fill: bgFill }),
-        react_1.default.createElement("path", { d: "M28.6492 24.2188L27.0553 23.2812L28.2742 22.9531C28.6492 22.8594 28.8836 22.4375 28.7899 22.0625L28.6023 21.3594C28.5086 20.9844 28.0867 20.75 27.7116 20.8438L24.3833 21.7344L21.383 20L24.3833 18.3125L27.7116 19.2031C28.0867 19.2969 28.5086 19.0625 28.6023 18.6875L28.7899 17.9844C28.8836 17.6094 28.6492 17.1875 28.2742 17.0938L27.0553 16.7656L28.6492 15.8281C28.9774 15.6406 29.118 15.2188 28.8836 14.8438L28.1804 13.5781C27.9929 13.25 27.5241 13.1562 27.196 13.3438L25.6021 14.2344L25.9303 13.0156C26.024 12.6406 25.7896 12.2656 25.4146 12.125L24.7114 11.9375C24.3364 11.8438 23.9614 12.0781 23.8207 12.4531L22.93 15.7812L20.0236 17.4688V13.8594L22.5081 11.3281C22.7894 11.0469 22.7894 10.5781 22.5081 10.25L21.9925 9.73438C21.7112 9.45312 21.2424 9.45312 20.9142 9.73438L20.0236 10.6719V8.75C20.0236 8.375 19.6485 8 19.2735 8H17.7734C17.3515 8 17.0233 8.375 17.0233 8.75V10.6719L16.0858 9.73438C15.8045 9.45312 15.2888 9.45312 15.0075 9.73438L14.4919 10.25C14.2106 10.5781 14.2106 11.0469 14.4919 11.3281L17.0233 13.8594V17.4688L14.07 15.7812L13.1793 12.4531C13.0855 12.0781 12.6636 11.8438 12.2886 11.9375L11.5854 12.125C11.2104 12.2656 10.976 12.6406 11.0697 13.0156L11.3979 14.2344L9.80402 13.3438C9.47587 13.1094 9.00709 13.25 8.81957 13.5781L8.11639 14.8438C7.882 15.2188 8.02264 15.6406 8.35079 15.8281L9.94466 16.7656L8.72582 17.0938C8.35079 17.1875 8.11639 17.5625 8.21015 17.9844L8.39767 18.6875C8.49142 19.0625 8.91333 19.2969 9.28836 19.2031L12.6167 18.3125L15.617 20L12.6167 21.7344L9.28836 20.8438C8.91333 20.75 8.49142 20.9844 8.39767 21.3594L8.21015 22.0625C8.11639 22.4375 8.35079 22.8594 8.72582 22.9531L9.94466 23.2812L8.35079 24.2188C8.02264 24.4062 7.882 24.8281 8.11639 25.2031L8.81957 26.4688C9.00709 26.7969 9.47587 26.8906 9.80402 26.7031L11.3979 25.8125L11.0697 27.0312C10.976 27.4062 11.2104 27.7812 11.5854 27.9219L12.2886 28.1094C12.6636 28.2031 13.0386 27.9688 13.1793 27.5938L14.07 24.2656L16.9764 22.5781V26.1875L14.4919 28.7188C14.1637 29 14.1637 29.4688 14.4919 29.7969L15.0075 30.3125C15.2888 30.5938 15.7576 30.5938 16.0858 30.3125L16.9764 29.375V31.25C16.9764 31.6719 17.3515 32 17.7265 32H19.2266C19.6485 32 19.9767 31.6719 19.9767 31.25V29.375L20.9142 30.3125C21.1955 30.5938 21.6643 30.5938 21.9925 30.3125L22.5081 29.75C22.7894 29.4688 22.7894 29 22.5081 28.7188L20.0236 26.1875V22.5781L22.93 24.2656L23.8207 27.5938C23.9614 27.9688 24.3364 28.2031 24.7114 28.1094L25.4146 27.9219C25.7896 27.7812 26.024 27.4062 25.9303 27.0312L25.6021 25.8125L27.196 26.7031C27.5241 26.8906 27.9929 26.7969 28.1804 26.4219L28.8836 25.2031C29.118 24.8281 28.9774 24.4062 28.6492 24.2188Z", fill: colors_1.colors.white })));
+        react_1.default.createElement("path", { d: "M28.6492 24.2188L27.0553 23.2812L28.2742 22.9531C28.6492 22.8594 28.8836 22.4375 28.7899 22.0625L28.6023 21.3594C28.5086 20.9844 28.0867 20.75 27.7116 20.8438L24.3833 21.7344L21.383 20L24.3833 18.3125L27.7116 19.2031C28.0867 19.2969 28.5086 19.0625 28.6023 18.6875L28.7899 17.9844C28.8836 17.6094 28.6492 17.1875 28.2742 17.0938L27.0553 16.7656L28.6492 15.8281C28.9774 15.6406 29.118 15.2188 28.8836 14.8438L28.1804 13.5781C27.9929 13.25 27.5241 13.1562 27.196 13.3438L25.6021 14.2344L25.9303 13.0156C26.024 12.6406 25.7896 12.2656 25.4146 12.125L24.7114 11.9375C24.3364 11.8438 23.9614 12.0781 23.8207 12.4531L22.93 15.7812L20.0236 17.4688V13.8594L22.5081 11.3281C22.7894 11.0469 22.7894 10.5781 22.5081 10.25L21.9925 9.73438C21.7112 9.45312 21.2424 9.45312 20.9142 9.73438L20.0236 10.6719V8.75C20.0236 8.375 19.6485 8 19.2735 8H17.7734C17.3515 8 17.0233 8.375 17.0233 8.75V10.6719L16.0858 9.73438C15.8045 9.45312 15.2888 9.45312 15.0075 9.73438L14.4919 10.25C14.2106 10.5781 14.2106 11.0469 14.4919 11.3281L17.0233 13.8594V17.4688L14.07 15.7812L13.1793 12.4531C13.0855 12.0781 12.6636 11.8438 12.2886 11.9375L11.5854 12.125C11.2104 12.2656 10.976 12.6406 11.0697 13.0156L11.3979 14.2344L9.80402 13.3438C9.47587 13.1094 9.00709 13.25 8.81957 13.5781L8.11639 14.8438C7.882 15.2188 8.02264 15.6406 8.35079 15.8281L9.94466 16.7656L8.72582 17.0938C8.35079 17.1875 8.11639 17.5625 8.21015 17.9844L8.39767 18.6875C8.49142 19.0625 8.91333 19.2969 9.28836 19.2031L12.6167 18.3125L15.617 20L12.6167 21.7344L9.28836 20.8438C8.91333 20.75 8.49142 20.9844 8.39767 21.3594L8.21015 22.0625C8.11639 22.4375 8.35079 22.8594 8.72582 22.9531L9.94466 23.2812L8.35079 24.2188C8.02264 24.4062 7.882 24.8281 8.11639 25.2031L8.81957 26.4688C9.00709 26.7969 9.47587 26.8906 9.80402 26.7031L11.3979 25.8125L11.0697 27.0312C10.976 27.4062 11.2104 27.7812 11.5854 27.9219L12.2886 28.1094C12.6636 28.2031 13.0386 27.9688 13.1793 27.5938L14.07 24.2656L16.9764 22.5781V26.1875L14.4919 28.7188C14.1637 29 14.1637 29.4688 14.4919 29.7969L15.0075 30.3125C15.2888 30.5938 15.7576 30.5938 16.0858 30.3125L16.9764 29.375V31.25C16.9764 31.6719 17.3515 32 17.7265 32H19.2266C19.6485 32 19.9767 31.6719 19.9767 31.25V29.375L20.9142 30.3125C21.1955 30.5938 21.6643 30.5938 21.9925 30.3125L22.5081 29.75C22.7894 29.4688 22.7894 29 22.5081 28.7188L20.0236 26.1875V22.5781L22.93 24.2656L23.8207 27.5938C23.9614 27.9688 24.3364 28.2031 24.7114 28.1094L25.4146 27.9219C25.7896 27.7812 26.024 27.4062 25.9303 27.0312L25.6021 25.8125L27.196 26.7031C27.5241 26.8906 27.9929 26.7969 28.1804 26.4219L28.8836 25.2031C29.118 24.8281 28.9774 24.4062 28.6492 24.2188Z", fill: iconFill })));
 };
 exports.default = SnowyPin;
 
@@ -87377,13 +87405,20 @@ var SunnyPin = function (_a) {
     var bgFill = gradientId
         ? 'url(#' + gradientId + ')'
         : colors_1.colors.navyBlue;
+    var iconGradientId = gradientId + "_icon";
+    var iconFill = gradientId
+        ? 'url(#' + iconGradientId + ')'
+        : colors_1.colors.orange;
     return (react_1.default.createElement("svg", { className: className, width: "39", height: "53", viewBox: "0 0 39 53", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
         react_1.default.createElement("defs", null,
             react_1.default.createElement("linearGradient", { id: gradientId, x1: "0", x2: "0", y1: "0", y2: "1" },
                 react_1.default.createElement("stop", { offset: "0%", stopColor: colors_1.colors.navyBlue, stopOpacity: opacityGradient.start }),
-                react_1.default.createElement("stop", { offset: "100%", stopColor: colors_1.colors.navyBlue, stopOpacity: opacityGradient.end }))),
+                react_1.default.createElement("stop", { offset: "100%", stopColor: colors_1.colors.navyBlue, stopOpacity: opacityGradient.end })),
+            react_1.default.createElement("linearGradient", { id: iconGradientId, x1: "0", x2: "0", y1: "0", y2: "1" },
+                react_1.default.createElement("stop", { offset: "0%", stopColor: colors_1.colors.orange, stopOpacity: opacityGradient.start - 0.0244 }),
+                react_1.default.createElement("stop", { offset: "100%", stopColor: colors_1.colors.orange, stopOpacity: opacityGradient.end + 0.0684 }))),
         react_1.default.createElement("path", { d: "M17.4164 53C17.4164 53 -8.58891 26.4976 2.95461 7.57008C2.95461 7.57008 6.80405 0 18.3476 0C18.3476 0 33.7405 0 37.5852 15.1449C41.4298 30.2898 17.4164 53 17.4164 53Z", fill: bgFill }),
-        react_1.default.createElement("path", { d: "M19.0234 14.481C16.5415 14.481 14.5278 16.5415 14.5278 18.9766C14.5278 21.4585 16.5415 23.4722 19.0234 23.4722C21.4585 23.4722 23.519 21.4585 23.519 18.9766C23.519 16.5415 21.4585 14.481 19.0234 14.481ZM30.5434 18.2741L26.0946 16.0732L27.6868 11.3434C27.8741 10.7346 27.2654 10.1259 26.6566 10.3132L21.9268 11.9054L19.7259 7.45659C19.4449 6.8478 18.5551 6.8478 18.2741 7.45659L16.0732 11.9054L11.3434 10.3132C10.7346 10.1259 10.1259 10.7346 10.3132 11.3434L11.9054 16.0732L7.45659 18.2741C6.8478 18.5551 6.8478 19.4449 7.45659 19.7259L11.9054 21.9268L10.3132 26.6566C10.1259 27.2654 10.7346 27.8741 11.3434 27.6868L16.0732 26.0946L18.2741 30.5434C18.5551 31.1522 19.4449 31.1522 19.7259 30.5434L21.9268 26.0946L26.6566 27.6868C27.2654 27.8741 27.8741 27.2654 27.6868 26.6566L26.0946 21.9268L30.5434 19.7259C31.1522 19.4449 31.1522 18.5551 30.5434 18.2741ZM23.238 23.238C20.8966 25.5795 17.1034 25.5795 14.762 23.238C12.4205 20.8966 12.4205 17.1034 14.762 14.762C17.1034 12.4205 20.8966 12.4205 23.238 14.762C25.5795 17.1034 25.5795 20.8966 23.238 23.238Z", fill: colors_1.colors.orange })));
+        react_1.default.createElement("path", { d: "M19.0234 14.481C16.5415 14.481 14.5278 16.5415 14.5278 18.9766C14.5278 21.4585 16.5415 23.4722 19.0234 23.4722C21.4585 23.4722 23.519 21.4585 23.519 18.9766C23.519 16.5415 21.4585 14.481 19.0234 14.481ZM30.5434 18.2741L26.0946 16.0732L27.6868 11.3434C27.8741 10.7346 27.2654 10.1259 26.6566 10.3132L21.9268 11.9054L19.7259 7.45659C19.4449 6.8478 18.5551 6.8478 18.2741 7.45659L16.0732 11.9054L11.3434 10.3132C10.7346 10.1259 10.1259 10.7346 10.3132 11.3434L11.9054 16.0732L7.45659 18.2741C6.8478 18.5551 6.8478 19.4449 7.45659 19.7259L11.9054 21.9268L10.3132 26.6566C10.1259 27.2654 10.7346 27.8741 11.3434 27.6868L16.0732 26.0946L18.2741 30.5434C18.5551 31.1522 19.4449 31.1522 19.7259 30.5434L21.9268 26.0946L26.6566 27.6868C27.2654 27.8741 27.8741 27.2654 27.6868 26.6566L26.0946 21.9268L30.5434 19.7259C31.1522 19.4449 31.1522 18.5551 30.5434 18.2741ZM23.238 23.238C20.8966 25.5795 17.1034 25.5795 14.762 23.238C12.4205 20.8966 12.4205 17.1034 14.762 14.762C17.1034 12.4205 20.8966 12.4205 23.238 14.762C25.5795 17.1034 25.5795 20.8966 23.238 23.238Z", fill: iconFill })));
 };
 exports.default = SunnyPin;
 
@@ -87497,7 +87532,9 @@ var ItineraryInCard = function (_a) {
             return;
         return (react_1.default.createElement("div", { key: key },
             react_1.default.createElement("div", { className: "itinerary-in-card__place" },
-                react_1.default.createElement(WhetherPin_1.default, { className: "itinerary-in-card__pin", whether: item.whether, index: key, gradientId: gradientId + "_" + key }),
+                react_1.default.createElement(WhetherPin_1.default, { className: "itinerary-in-card__pin", whether: item.whether, index: key, gradientId: gradientId !== undefined
+                        ? gradientId + "_" + key
+                        : undefined }),
                 react_1.default.createElement("p", { className: "itinerary-in-card__place-name" }, item.place)),
             react_1.default.createElement("div", { className: "itinerary-in-card__line" })));
     })));
@@ -88491,15 +88528,15 @@ var NewPostsContainer = function () {
             favNum: 100,
             itinerary: [
                 {
-                    whether: 'sun',
+                    whether: 'night',
                     place: '浅草駅',
                 },
                 {
-                    whether: 'rain',
+                    whether: 'snow',
                     place: '井の頭自然..',
                 },
                 {
-                    whether: 'night',
+                    whether: 'sun',
                     place: '東京駅',
                 },
                 {
@@ -88515,15 +88552,15 @@ var NewPostsContainer = function () {
             favNum: 98,
             itinerary: [
                 {
-                    whether: 'sun',
+                    whether: 'snow',
                     place: '浅草駅',
                 },
                 {
-                    whether: 'rain',
+                    whether: 'cloud',
                     place: '井の頭自然..',
                 },
                 {
-                    whether: 'night',
+                    whether: 'rain',
                     place: '東京駅',
                 },
                 {
@@ -88539,15 +88576,15 @@ var NewPostsContainer = function () {
             favNum: 123,
             itinerary: [
                 {
-                    whether: 'sun',
+                    whether: 'rain',
                     place: '浅草駅',
                 },
                 {
-                    whether: 'rain',
+                    whether: 'snow',
                     place: '井の頭自然..',
                 },
                 {
-                    whether: 'night',
+                    whether: 'cloud',
                     place: '東京駅',
                 },
                 {
@@ -88563,15 +88600,15 @@ var NewPostsContainer = function () {
             favNum: 100,
             itinerary: [
                 {
-                    whether: 'sun',
+                    whether: 'snow',
                     place: '浅草駅',
                 },
                 {
-                    whether: 'rain',
+                    whether: 'night',
                     place: '井の頭自然..',
                 },
                 {
-                    whether: 'night',
+                    whether: 'rain',
                     place: '東京駅',
                 },
                 {

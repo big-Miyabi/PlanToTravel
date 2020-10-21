@@ -36,15 +36,15 @@ const NewPostsContainer: FC = () => {
       favNum: 100,
       itinerary: [
         {
-          whether: 'sun',
+          whether: 'night',
           place: '浅草駅',
         },
         {
-          whether: 'rain',
+          whether: 'snow',
           place: '井の頭自然..',
         },
         {
-          whether: 'night',
+          whether: 'sun',
           place: '東京駅',
         },
         {
@@ -60,15 +60,15 @@ const NewPostsContainer: FC = () => {
       favNum: 98,
       itinerary: [
         {
-          whether: 'sun',
+          whether: 'snow',
           place: '浅草駅',
         },
         {
-          whether: 'rain',
+          whether: 'cloud',
           place: '井の頭自然..',
         },
         {
-          whether: 'night',
+          whether: 'rain',
           place: '東京駅',
         },
         {
@@ -84,15 +84,15 @@ const NewPostsContainer: FC = () => {
       favNum: 123,
       itinerary: [
         {
-          whether: 'sun',
+          whether: 'rain',
           place: '浅草駅',
         },
         {
-          whether: 'rain',
+          whether: 'snow',
           place: '井の頭自然..',
         },
         {
-          whether: 'night',
+          whether: 'cloud',
           place: '東京駅',
         },
         {
@@ -108,15 +108,15 @@ const NewPostsContainer: FC = () => {
       favNum: 100,
       itinerary: [
         {
-          whether: 'sun',
+          whether: 'snow',
           place: '浅草駅',
         },
         {
-          whether: 'rain',
+          whether: 'night',
           place: '井の頭自然..',
         },
         {
-          whether: 'night',
+          whether: 'rain',
           place: '東京駅',
         },
         {
