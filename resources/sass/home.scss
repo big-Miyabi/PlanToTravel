@@ -9,8 +9,8 @@
 
     // ↓コンさん担当エリア
     .popular-posts {
-        color: $navy;
         margin-top: px-to-vh(25);
+        color: $navy;
 
         &__title {
             font-size: 1.4rem;
@@ -52,22 +52,20 @@
             left: px-to-vw(4);
         }
         &__wrap-itineraryicon {
-            width: px-to-vw(136);
-            height: px-to-vh(189);
             position: relative;
             left: px-to-vw(-14);
+            width: px-to-vw(136);
+            height: px-to-vh(189);
         }
 
         &__itinerary-wrap {
+            z-index: 1;
+            float: left;
+            position: relative;
+            margin-top: px-to-vh(12);
+            margin-right: px-to-vw(7);
             width: px-to-vw(105);
             height: px-to-vh(159);
-            margin-right: px-to-vw(7);
-            margin-top: px-to-vh(12);
-            position: relative;
-            float: left;
-            z-index: 1;
-
-            //fadeout途中
             background-image: linear-gradient(
                 to bottom,
                 $navy 0%,
@@ -75,12 +73,6 @@
             );
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            display: inline-block;
-            opacity: 0.6;
-            filter: alpha(opacity=60);
-            -moz-opacity: 0.6;
-            -khtml-opacity: 0.6;
-            //ここまでfadeout
         }
         .itinerary-in-card {
             height: px-to-vh(58);
@@ -90,9 +82,9 @@
                 margin: px-to-vh(6) 0;
             }
             &__pin {
+                float: left;
                 width: px-to-vw(18);
                 height: auto;
-                float: left;
                 margin-right: px-to-vw(6);
             }
             &__place-name {
@@ -100,29 +92,28 @@
                 font-weight: bold;
             }
             &__line {
-                height: px-to-vh(21);
-                width: auto;
-                border-left: solid px-to-vw(2);
                 position: relative;
                 left: px-to-vw(7);
+                width: auto;
+                height: px-to-vh(21);
+                border-left: solid px-to-vw(2);
             }
         }
 
         &__icon-wrap {
+            z-index: 1;
             display: flex;
             position: relative;
-            z-index: 1;
             height: 100%;
-
             flex-direction: column;
             justify-content: space-between;
         }
 
         &__bookmark {
-            font-size: 3.1rem;
-            color: rgba(0, 54, 102, 0.1);
             position: relative;
             top: px-to-vh(-3);
+            font-size: 3.1rem;
+            color: rgba(0, 54, 102, 0.1);
 
             &:hover {
                 color: $navy;
@@ -133,13 +124,13 @@
         }
         &__favorite {
             position: relative;
-            margin-bottom: 0;
             bottom: px-to-vh(-8);
+            margin-bottom: 0;
         }
         &__favorite-btn {
             position: relative;
-            font-size: 2.4rem;
             color: $orange;
+            font-size: 2.4rem;
             &:visited {
                 color: $yellow;
             }
@@ -153,8 +144,8 @@
 
     // ↓大田担当エリア
     .new-posts {
-        color: $navy;
         margin-top: px-to-vh(45);
+        color: $navy;
         &__title {
             font-size: 1.4rem;
             letter-spacing: px-to-vw(5);
@@ -189,29 +180,28 @@
         }
 
         &__go-to {
-            width: px-to-vw(49);
-            height: px-to-vw(27);
             position: relative;
             z-index: 1;
             top: px-to-vh(-10);
             left: px-to-vw(4);
+            width: px-to-vw(49);
+            height: px-to-vw(27);
         }
         &__wrap-itineraryicon {
+            z-index: 2;
+            position: relative;
+            top: px-to-vh(-27);
             width: px-to-vw(136);
             height: px-to-vh(189);
-            position: relative;
             margin: auto;
-            top: px-to-vh(-27);
-            z-index: 2;
         }
         &__itinerary {
+            position: relative;
+            float: left;
             width: px-to-vw(105);
             height: px-to-vh(159);
             margin-right: px-to-vw(7);
             margin-top: px-to-vh(12);
-            position: relative;
-            float: left;
-            //z-index: 1;
         }
 
         .itinerary-in-card {
@@ -222,9 +212,9 @@
                 margin: px-to-vh(6) 0;
             }
             &__pin {
+                float: left;
                 width: px-to-vw(18);
                 height: auto;
-                float: left;
                 margin-right: px-to-vw(6);
             }
             &__place-name {
@@ -232,27 +222,26 @@
                 font-weight: bold;
             }
             &__line {
-                height: px-to-vh(21);
-                width: auto;
-                border-left: solid px-to-vw(2);
                 position: relative;
                 left: px-to-vw(7);
+                width: auto;
+                height: px-to-vh(21);
+                border-left: solid px-to-vw(2);
             }
         }
         &__icon-wrap {
             display: flex;
             position: relative;
-            //z-index: 1;
             height: 100%;
             margin-right: 0;
             flex-direction: column;
             justify-content: space-between;
         }
         &__bookmark {
-            font-size: 3.1rem;
-            color: rgba(0, 54, 102, 0.1);
             position: relative;
             top: px-to-vh(-3);
+            font-size: 3.1rem;
+            color: rgba(0, 54, 102, 0.1);
 
             &:hover {
                 color: $navy;
@@ -264,8 +253,8 @@
 
         &__favorite {
             position: relative;
-            margin-bottom: 0;
             bottom: px-to-vh(-8);
+            margin-bottom: 0;
         }
 
         &__favorite-btn {

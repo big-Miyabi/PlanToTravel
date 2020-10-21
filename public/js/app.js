@@ -87629,7 +87629,7 @@ var FontAwesomeIconBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/Font
 var ItineraryInCard_1 = __importDefault(__webpack_require__(/*! ../molecules/ItineraryInCard */ "./resources/ts/src/components/molecules/ItineraryInCard.tsx"));
 var free_solid_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 var PopularCard = function (_a) {
-    var post = _a.post;
+    var post = _a.post, gradientId = _a.gradientId;
     var goTostyle = post.hasGoTo ? {} : { display: 'none' };
     var bgStyle = {
         backgroundImage: 'url(' + post.header + ')',
@@ -87642,7 +87642,7 @@ var PopularCard = function (_a) {
                 react_1.default.createElement(GoToLogo_1.default, { className: "popular-card__go-to" })),
             react_1.default.createElement("div", { className: "popular-card__wrap-itineraryicon" },
                 react_1.default.createElement("div", { className: "popular-card__itinerary-wrap" },
-                    react_1.default.createElement(ItineraryInCard_1.default, { className: "popular-card__itinerary", itinerary: post.itinerary })),
+                    react_1.default.createElement(ItineraryInCard_1.default, { className: "popular-card__itinerary", itinerary: post.itinerary, gradientId: gradientId })),
                 react_1.default.createElement("div", { className: "popular-card__icon-wrap" },
                     react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "popular-card__bookmark", icon: free_solid_svg_icons_1.faBookmark }),
                     react_1.default.createElement("div", { className: "popular-card__favorite" },
@@ -87969,7 +87969,7 @@ var PopularPosts = function (_a) {
     var posts = _a.posts;
     return (react_1.default.createElement("div", { className: "popular-posts" },
         react_1.default.createElement("p", { className: "popular-posts__title" }, "\u4EBA\u6C17\u306E\u6295\u7A3F"),
-        posts.map(function (post, index) { return (react_1.default.createElement(PopularCard_1.default, { post: post, key: index })); })));
+        posts.map(function (post, index) { return (react_1.default.createElement(PopularCard_1.default, { post: post, key: index, gradientId: "popular_post_" + index })); })));
 };
 exports.default = PopularPosts;
 
@@ -88248,8 +88248,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var PopularCard_1 = __importDefault(__webpack_require__(/*! ../../components/molecules/PopularCard */ "./resources/ts/src/components/molecules/PopularCard.tsx"));
 var PopularCardContainer = function (_a) {
-    var post = _a.post;
-    return react_1.default.createElement(PopularCard_1.default, { post: post });
+    var post = _a.post, gradientId = _a.gradientId;
+    return react_1.default.createElement(PopularCard_1.default, { post: post, gradientId: gradientId });
 };
 exports.default = PopularCardContainer;
 
