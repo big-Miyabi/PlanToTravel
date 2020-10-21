@@ -117,7 +117,8 @@
 
     .itinerary-in-card {
         @extend %itinerary-in-card;
-        &--gradation {
+
+        &__gradation-wrap {
             background-image: linear-gradient(
                 to bottom,
                 $navy 0%,
@@ -131,22 +132,29 @@
             height: px-to-vh(25);
             margin: px-to-vh(6) 0;
         }
+
         &__pin {
             float: left;
             width: px-to-vw(18);
             height: auto;
             margin-right: px-to-vw(6);
         }
+
         &__place-name {
             font-size: 1.4rem;
             font-weight: bold;
         }
-        &__line {
+
+        %__line {
             position: relative;
             left: px-to-vw(7);
             width: auto;
             height: px-to-vh(21);
             border-left: solid px-to-vw(2);
+        }
+
+        &__line {
+            @extend %__line;
         }
     }
 
