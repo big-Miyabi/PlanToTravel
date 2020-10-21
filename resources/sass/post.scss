@@ -16,7 +16,7 @@
         }
         &__close {
             font-size: 2.4rem;
-            color: $light-gray;
+            color: $navy;
         }
     }
 
@@ -25,6 +25,19 @@
         height: px-to-vw(207); // 高さは幅依存
         background-size: cover;
 
+        &:before {
+            //z-index: 5;
+            position: absolute;
+            width: 100%;
+            height: px-to-vw(207);
+            background: linear-gradient(
+                to right,
+                rgba(255, 255, 255, 0.3),
+                rgba(255, 255, 255, 0.6),
+                rgba(255, 255, 255, 0.95)
+            );
+            content: "";
+        }
         &__plus-image-wrap {
             display: flex;
             width: 100%;
@@ -101,6 +114,8 @@
             background-color: $white;
             color: $light-gray;
             font-weight: normal;
+            position: relative;
+            top: px-to-vh(-3);
         }
 
         &__tag-input {
@@ -112,6 +127,38 @@
             flex-direction: row;
             flex-wrap: wrap;
             margin-top: px-to-vh(17);
+        }
+        &__date-wrap {
+            display: flex;
+            flex-direction: row;
+            margin-top: px-to-vw(9);
+        }
+        &__date {
+            width: px-to-vw(137);
+        }
+        &__datebar {
+            margin: auto px-to-vw(5);
+        }
+
+        &__people-input-wrap {
+            display: flex;
+            flex-direction: row;
+            margin-top: px-to-vw(9);
+        }
+        &__people {
+            width: px-to-vw(55);
+        }
+        &__nin {
+            margin: px-to-vw(5) px-to-vw(6) 0;
+        }
+
+        &__next-wrap {
+            width: px-to-vw(103);
+            margin: 0 auto;
+        }
+        &__next {
+            width: px-to-vw(103);
+            color: white;
         }
     }
 }
