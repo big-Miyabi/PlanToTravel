@@ -946,15 +946,31 @@ input:-webkit-autofill {
   }
 
   .new-card {
+    margin: 2.0935960591vh auto 0px;
+  }
+
+  .new-card__go-to-wrap {
+    height: 0;
+  }
+
+  .new-card__go-to {
+    position: relative;
+    z-index: 1;
+    top: -0.6157635468vh;
+    left: 1.0666666667vw;
+    width: 13.0666666667vw;
+    height: 7.2vw;
+  }
+
+  .new-card__wrap {
     position: relative;
     width: 44.2666666667vw;
     height: 51.4666666667vw;
-    margin: 3.2019704433vh auto 0px;
     border-radius: 4.5333333333vw;
     background-size: cover;
   }
 
-  .new-card:before {
+  .new-card__wrap:before {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -962,40 +978,26 @@ input:-webkit-autofill {
     content: "";
   }
 
-  .new-card__go-to {
-    position: relative;
-    z-index: 1;
-    top: -1.2315270936vh;
-    left: 1.0666666667vw;
-    width: 13.0666666667vw;
-    height: 7.2vw;
-  }
-
-  .new-card__wrap-itineraryicon {
+  .new-card__itinerary-wrap {
     z-index: 2;
     position: relative;
-    top: -3.3251231527vh;
-    width: 36.2666666667vw;
-    height: 23.275862069vh;
-    margin: auto;
-  }
-
-  .new-card__itinerary {
-    position: relative;
-    float: left;
-    width: 28vw;
-    height: 19.5812807882vh;
-    margin-right: 1.8666666667vw;
-    margin-top: 1.4778325123vh;
+    top: 4.5333333333vw;
+    left: 0;
+    width: calc(100% - 4.2666666667vw * 2);
+    height: 42.4vw;
+    margin: 0 4.2666666667vw;
   }
 
   .new-card__icon-wrap {
     display: flex;
     position: relative;
+    top: -42.4vw;
+    right: 0;
     height: 100%;
-    margin-right: 0;
+    margin-right: 3.7333333333vw;
     flex-direction: column;
     justify-content: space-between;
+    align-items: flex-end;
   }
 
   .new-card__bookmark {

@@ -87598,11 +87598,12 @@ var NewCard = function (_a) {
     var bgStyle = {
         backgroundImage: 'url(' + post.header + ')',
     };
-    return (react_1.default.createElement("div", { className: "new-card", style: bgStyle },
-        react_1.default.createElement("div", { style: goTostyle },
+    return (react_1.default.createElement("div", { className: "new-card" },
+        react_1.default.createElement("div", { className: "new-card__go-to-wrap", style: goTostyle },
             react_1.default.createElement(GoToLogo_1.default, { className: "new-card__go-to" })),
-        react_1.default.createElement("div", { className: "new-card__wrap-itineraryicon" },
-            react_1.default.createElement(ItineraryInCard_1.default, { className: "new-card__itinerary", itinerary: post.itinerary, gradientId: gradientId }),
+        react_1.default.createElement("div", { className: "new-card__wrap", style: bgStyle },
+            react_1.default.createElement("div", { className: "new-card__itinerary-wrap" },
+                react_1.default.createElement(ItineraryInCard_1.default, { className: "new-card__itinerary", itinerary: post.itinerary, gradientId: gradientId })),
             react_1.default.createElement("div", { className: "new-card__icon-wrap" },
                 react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "new-card__bookmark", icon: free_solid_svg_icons_1.faBookmark }),
                 react_1.default.createElement("div", { className: "new-card__favorite" },

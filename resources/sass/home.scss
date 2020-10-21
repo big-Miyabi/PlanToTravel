@@ -195,57 +195,60 @@
     }
 
     .new-card {
-        position: relative;
-        width: px-to-vw(166);
-        height: px-to-vw(193); // 高さは幅に依存させる
-        margin: px-to-vh(26) auto 0px;
-        border-radius: px-to-vw(17);
-        background-size: cover;
-        &:before {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                to right,
-                rgba(255, 255, 255, 0.9),
-                rgba(255, 255, 255, 0.8),
-                rgba(255, 255, 255, 0.55)
-            );
-            content: "";
+        margin: px-to-vh(17) auto 0px;
+        &__go-to-wrap {
+            height: 0;
         }
 
         &__go-to {
             position: relative;
             z-index: 1;
-            top: px-to-vh(-10);
+            top: px-to-vh(-5);
             left: px-to-vw(4);
             width: px-to-vw(49);
             height: px-to-vw(27);
         }
-        &__wrap-itineraryicon {
+
+        &__wrap {
+            position: relative;
+            width: px-to-vw(166);
+            height: px-to-vw(193); // 高さは幅に依存させる
+            border-radius: px-to-vw(17);
+            background-size: cover;
+            &:before {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(
+                    to right,
+                    rgba(255, 255, 255, 0.9),
+                    rgba(255, 255, 255, 0.8),
+                    rgba(255, 255, 255, 0.55)
+                );
+                content: "";
+            }
+        }
+
+        &__itinerary-wrap {
             z-index: 2;
             position: relative;
-            top: px-to-vh(-27);
-            width: px-to-vw(136);
-            height: px-to-vh(189);
-            margin: auto;
-        }
-        &__itinerary {
-            position: relative;
-            float: left;
-            width: px-to-vw(105);
-            height: px-to-vh(159);
-            margin-right: px-to-vw(7);
-            margin-top: px-to-vh(12);
+            top: px-to-vw(17);
+            left: 0;
+            width: calc(100% - #{px-to-vw(16)} * 2);
+            height: px-to-vw(159);
+            margin: 0 px-to-vw(16);
         }
 
         &__icon-wrap {
             display: flex;
             position: relative;
+            top: -#{px-to-vw(159)};
+            right: 0;
             height: 100%;
-            margin-right: 0;
+            margin-right: px-to-vw(14);
             flex-direction: column;
             justify-content: space-between;
+            align-items: flex-end;
         }
         &__bookmark {
             position: relative;
