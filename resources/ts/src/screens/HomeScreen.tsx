@@ -9,7 +9,7 @@ import MapIcon from '../components/atoms/svg/MapIcon'
 
 const HomeScreen: FC<Props> = (props) => {
   const onClick = () => {
-    props.history.push('../post')
+    props.history.push('../post/overview')
   }
 
   return (

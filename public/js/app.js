@@ -86870,7 +86870,12 @@ var App = function () {
     return (react_1.default.createElement(react_router_dom_1.BrowserRouter, null,
         react_1.default.createElement(react_router_dom_1.Route, { path: "/regist", exact: true, component: RegisterScreen_1.default }),
         react_1.default.createElement(react_router_dom_1.Route, { path: ['/', '/home'], exact: true, component: HomeScreen_1.default }),
-        react_1.default.createElement(react_router_dom_1.Route, { path: "/post", exact: true, component: PostScreen_1.default })));
+        react_1.default.createElement(react_router_dom_1.Route, { path: [
+                '/post',
+                '/post/overview',
+                '/post/location',
+                '/post/confirm',
+            ], exact: true, component: PostScreen_1.default })));
 };
 var store = redux_1.createStore(reducers_1.default, window.__REDUX_DEVTOOLS_EXTENSION__ &&
     window.__REDUX_DEVTOOLS_EXTENSION__());
@@ -86900,6 +86905,7 @@ var ActionTypes;
     ActionTypes["SET_LOGIN_STATE"] = "SET_LOGIN_STATE";
     ActionTypes["SET_LOGIN_INFO"] = "SET_LOGIN_INFO";
     ActionTypes["SET_SHOULD_SHOW_MENU"] = "SET_SHOULD_SHOW_MENU";
+    ActionTypes["SET_POST_PROGRESS_INDEX"] = "SET_POST_PROGRESS_INDEX";
 })(ActionTypes = exports.ActionTypes || (exports.ActionTypes = {}));
 
 
@@ -88957,6 +88963,7 @@ var redux_persist_1 = __webpack_require__(/*! redux-persist */ "./node_modules/r
 var storage_1 = __importDefault(__webpack_require__(/*! redux-persist/lib/storage */ "./node_modules/redux-persist/lib/storage/index.js"));
 var loginReducer_1 = __webpack_require__(/*! ./loginReducer */ "./resources/ts/src/reducers/loginReducer.ts");
 var menuReducer_1 = __webpack_require__(/*! ./menuReducer */ "./resources/ts/src/reducers/menuReducer.ts");
+var postReducer_1 = __webpack_require__(/*! ./postReducer */ "./resources/ts/src/reducers/postReducer.ts");
 // 永続化の設定
 var persistConfig = {
     key: 'root',
@@ -88967,6 +88974,7 @@ var persistConfig = {
 var rootReducer = redux_1.combineReducers({
     loginReducer: loginReducer_1.loginReducer,
     menuReducer: menuReducer_1.menuReducer,
+    postReducer: postReducer_1.postReducer,
 });
 var persistedReducer = redux_persist_1.persistReducer(persistConfig, rootReducer);
 exports.default = persistedReducer;
@@ -89061,6 +89069,46 @@ exports.menuReducer = function (state, action) {
 
 /***/ }),
 
+/***/ "./resources/ts/src/reducers/postReducer.ts":
+/*!**************************************************!*\
+  !*** ./resources/ts/src/reducers/postReducer.ts ***!
+  \**************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.postReducer = void 0;
+var index_1 = __webpack_require__(/*! ../actions/index */ "./resources/ts/src/actions/index.ts");
+var initialState = {
+    index: 0,
+};
+exports.postReducer = function (state, action) {
+    if (state === void 0) { state = initialState; }
+    switch (action.type) {
+        case index_1.ActionTypes.SET_POST_PROGRESS_INDEX:
+            return __assign(__assign({}, state), { index: action.payload.index });
+        default: {
+            return state;
+        }
+    }
+};
+
+
+/***/ }),
+
 /***/ "./resources/ts/src/screens/HomeScreen.tsx":
 /*!*************************************************!*\
   !*** ./resources/ts/src/screens/HomeScreen.tsx ***!
@@ -89083,7 +89131,7 @@ var NewPosts_1 = __importDefault(__webpack_require__(/*! ../containers/organisms
 var MapIcon_1 = __importDefault(__webpack_require__(/*! ../components/atoms/svg/MapIcon */ "./resources/ts/src/components/atoms/svg/MapIcon.tsx"));
 var HomeScreen = function (props) {
     var onClick = function () {
-        props.history.push('../post');
+        props.history.push('../post/overview');
     };
     return (react_1.default.createElement("div", { className: "home-screen" },
         react_1.default.createElement(Header_1.default, null),
@@ -89111,16 +89159,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 var Header_1 = __importDefault(__webpack_require__(/*! ../containers/organisms/Header */ "./resources/ts/src/containers/organisms/Header.tsx"));
 var Menu_1 = __importDefault(__webpack_require__(/*! ../components/organisms/Menu */ "./resources/ts/src/components/organisms/Menu.tsx"));
 var ProgressBar_1 = __importDefault(__webpack_require__(/*! ../components/molecules/ProgressBar */ "./resources/ts/src/components/molecules/ProgressBar.tsx"));
 var PostOverview_1 = __importDefault(__webpack_require__(/*! ../containers/organisms/PostOverview */ "./resources/ts/src/containers/organisms/PostOverview.tsx"));
 var PostScreen = function () {
+    var index = react_redux_1.useSelector(function (state) { return state.postReducer.index; });
     return (react_1.default.createElement("div", { className: "post-screen" },
         react_1.default.createElement(Header_1.default, { isPost: false }),
         react_1.default.createElement(Menu_1.default, null),
-        react_1.default.createElement(ProgressBar_1.default, { className: "post-screen__progress-map", names: ['概要', '場所', '確認'], index: 0 }),
-        react_1.default.createElement(PostOverview_1.default, null)));
+        react_1.default.createElement(ProgressBar_1.default, { className: "post-screen__progress-map", names: ['概要', '場所', '確認'], index: index }),
+        index === 0 ? react_1.default.createElement(PostOverview_1.default, null) : react_1.default.createElement(react_1.default.Fragment, null)));
 };
 exports.default = PostScreen;
 
