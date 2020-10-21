@@ -8,11 +8,13 @@ use App\User;
 use App\Schedule;
 use App\Tag;
 use App\Place;
+use App\Schedules_place;
 
 class ScheduleController extends Controller
 {
   public function create(Request $request)
   {
+    // return Schedules_place::select('id')->where('schedule_id', 100)->count();
     // scheduleTableのばりで
     $params = $request->validate([
       'uid' => 'required|exists:users,id',
@@ -43,7 +45,7 @@ class ScheduleController extends Controller
         Tag::create($params);
       }
       // tagTableのID取得
-      $TagId = Tag::select('id')->where('tag_name',  $request->tag_name)->value('id');
+      $TagId = Tag::select('id')->where('tag_name',  $val)->value('id');
       // 実際にあるかの判定
       $post = Schedule::findOrFail($ScheduleId);
       $post = Tag::findOrFail($TagId);
@@ -74,6 +76,7 @@ class ScheduleController extends Controller
       //   'latitude' => 'required|integer',
       //   'weather' => 'required'
       // ]);
+
       // //SQL実行
       $params = Place::create([
         'day' => $request->input('day')[$key],
