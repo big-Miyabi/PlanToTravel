@@ -788,15 +788,12 @@ input:-webkit-autofill {
   }
 
   .popular-card__wrap {
-    z-index: 2;
-    display: flex;
+    position: relative;
     width: 92.5333333333vw;
     height: 51.4666666667vw;
     margin: 3.2019704433vh auto 0px;
     background-size: cover;
     border-radius: 4.5333333333vw;
-    flex-direction: row;
-    justify-content: space-between;
   }
 
   .popular-card__white-bg-wrap {
@@ -816,21 +813,21 @@ input:-webkit-autofill {
     left: 1.0666666667vw;
   }
 
-  .popular-card__wrap-itineraryicon {
-    position: relative;
-    left: -3.7333333333vw;
+  .popular-card__right-wrap {
+    z-index: 1;
+    display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 3.4666666667vw;
     width: 36.2666666667vw;
     height: 23.275862069vh;
+    justify-content: space-between;
   }
 
   .popular-card__itinerary-wrap {
-    z-index: 1;
-    float: left;
-    position: relative;
-    margin-top: 1.4778325123vh;
-    margin-right: 1.8666666667vw;
-    width: 28vw;
-    height: 19.5812807882vh;
+    width: 29.8666666667vw;
+    margin-top: 4.5333333333vw;
   }
 
   .popular-card__icon-wrap {

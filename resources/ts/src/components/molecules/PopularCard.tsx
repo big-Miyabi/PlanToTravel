@@ -33,7 +33,7 @@ const PopularCard: FC<Props> = ({ post, gradientId }) => {
           <GoToLogo className="popular-card__go-to" />
         </div>
 
-        <div className="popular-card__wrap-itineraryicon">
+        <div className="popular-card__right-wrap">
           <div className="popular-card__itinerary-wrap">
             <ItineraryInCard
               className="popular-card__itinerary"

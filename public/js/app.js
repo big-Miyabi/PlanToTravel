@@ -87644,7 +87644,7 @@ var PopularCard = function (_a) {
         react_1.default.createElement("div", { className: "popular-card__wrap", style: bgStyle },
             react_1.default.createElement("div", { style: goTostyle },
                 react_1.default.createElement(GoToLogo_1.default, { className: "popular-card__go-to" })),
-            react_1.default.createElement("div", { className: "popular-card__wrap-itineraryicon" },
+            react_1.default.createElement("div", { className: "popular-card__right-wrap" },
                 react_1.default.createElement("div", { className: "popular-card__itinerary-wrap" },
                     react_1.default.createElement(ItineraryInCard_1.default, { className: "popular-card__itinerary", itinerary: post.itinerary, gradientId: gradientId })),
                 react_1.default.createElement("div", { className: "popular-card__icon-wrap" },
