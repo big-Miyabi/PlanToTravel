@@ -86971,6 +86971,30 @@ exports.setShouldShowMenu = function (shouldShow) {
 
 /***/ }),
 
+/***/ "./resources/ts/src/actions/post.ts":
+/*!******************************************!*\
+  !*** ./resources/ts/src/actions/post.ts ***!
+  \******************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.setPostProgressIndex = void 0;
+var index_1 = __webpack_require__(/*! ./index */ "./resources/ts/src/actions/index.ts");
+exports.setPostProgressIndex = function (index) {
+    return ({
+        type: index_1.ActionTypes.SET_POST_PROGRESS_INDEX,
+        payload: {
+            index: index,
+        },
+    });
+};
+
+
+/***/ }),
+
 /***/ "./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx":
 /*!******************************************************************!*\
   !*** ./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx ***!
@@ -88092,7 +88116,8 @@ var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/r
 var PostTag_1 = __importDefault(__webpack_require__(/*! ../molecules/PostTag */ "./resources/ts/src/components/molecules/PostTag.tsx"));
 var InputBox_1 = __importDefault(__webpack_require__(/*! ../atoms/InputBox */ "./resources/ts/src/components/atoms/InputBox.tsx"));
 var FormBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FormBtn */ "./resources/ts/src/components/atoms/FormBtn.tsx"));
-var PostOverview = function () {
+var PostOverview = function (_a) {
+    var goToNext = _a.goToNext;
     return (react_1.default.createElement("div", { className: "post-overview" },
         react_1.default.createElement("div", { className: "post-overview__content-wrap" },
             react_1.default.createElement("h2", { className: "post-overview__h2" }, "\u30BF\u30A4\u30C8\u30EB*"),
@@ -88116,7 +88141,7 @@ var PostOverview = function () {
             react_1.default.createElement("div", { className: "post-overview__people-input-wrap" },
                 react_1.default.createElement(InputBox_1.default, { type: "text", className: "post-overview__people" }),
                 react_1.default.createElement("p", null, "\u4EBA"))),
-        react_1.default.createElement(FormBtn_1.default, { className: "post-overview__next", name: "\u6B21\u3078", onClick: function () { } })));
+        react_1.default.createElement(FormBtn_1.default, { className: "post-overview__next", name: "\u6B21\u3078", onClick: goToNext })));
 };
 exports.default = PostOverview;
 
@@ -88800,9 +88825,17 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+var post_1 = __webpack_require__(/*! ../../actions/post */ "./resources/ts/src/actions/post.ts");
 var PostOverView_1 = __importDefault(__webpack_require__(/*! ../../components/organisms/PostOverView */ "./resources/ts/src/components/organisms/PostOverView.tsx"));
-var PostOverviewContainer = function () {
-    return react_1.default.createElement(PostOverView_1.default, null);
+var PostOverviewContainer = function (_a) {
+    var history = _a.history;
+    var dispatch = react_redux_1.useDispatch();
+    var goToNext = function () {
+        dispatch(post_1.setPostProgressIndex(1));
+        history.push('/post/location');
+    };
+    return react_1.default.createElement(PostOverView_1.default, { goToNext: goToNext });
 };
 exports.default = PostOverviewContainer;
 
@@ -89154,23 +89187,47 @@ exports.default = HomeScreen;
 
 "use strict";
 
+var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+}) : (function(o, m, k, k2) {
+    if (k2 === undefined) k2 = k;
+    o[k2] = m[k];
+}));
+var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (function(o, v) {
+    Object.defineProperty(o, "default", { enumerable: true, value: v });
+}) : function(o, v) {
+    o["default"] = v;
+});
+var __importStar = (this && this.__importStar) || function (mod) {
+    if (mod && mod.__esModule) return mod;
+    var result = {};
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    __setModuleDefault(result, mod);
+    return result;
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
+var post_1 = __webpack_require__(/*! ../actions/post */ "./resources/ts/src/actions/post.ts");
 var Header_1 = __importDefault(__webpack_require__(/*! ../containers/organisms/Header */ "./resources/ts/src/containers/organisms/Header.tsx"));
 var Menu_1 = __importDefault(__webpack_require__(/*! ../components/organisms/Menu */ "./resources/ts/src/components/organisms/Menu.tsx"));
 var ProgressBar_1 = __importDefault(__webpack_require__(/*! ../components/molecules/ProgressBar */ "./resources/ts/src/components/molecules/ProgressBar.tsx"));
 var PostOverview_1 = __importDefault(__webpack_require__(/*! ../containers/organisms/PostOverview */ "./resources/ts/src/containers/organisms/PostOverview.tsx"));
-var PostScreen = function () {
+var PostScreen = function (props) {
+    var dispatch = react_redux_1.useDispatch();
     var index = react_redux_1.useSelector(function (state) { return state.postReducer.index; });
+    react_1.useEffect(function () {
+        dispatch(post_1.setPostProgressIndex(0));
+    }, []);
     return (react_1.default.createElement("div", { className: "post-screen" },
         react_1.default.createElement(Header_1.default, { isPost: false }),
         react_1.default.createElement(Menu_1.default, null),
         react_1.default.createElement(ProgressBar_1.default, { className: "post-screen__progress-map", names: ['概要', '場所', '確認'], index: index }),
-        index === 0 ? react_1.default.createElement(PostOverview_1.default, null) : react_1.default.createElement(react_1.default.Fragment, null)));
+        index === 0 ? (react_1.default.createElement(PostOverview_1.default, { history: props.history })) : (react_1.default.createElement(react_1.default.Fragment, null))));
 };
 exports.default = PostScreen;
 
