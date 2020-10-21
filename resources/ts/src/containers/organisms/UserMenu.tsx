@@ -1,9 +1,10 @@
 import React, { FC } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import {
   setLoginState,
   setLoginInfo,
 } from '../../actions/login'
+import { RootState } from '../../reducers/index'
 import UserMenu from '../../components/organisms/UserMenu'
 
 type Props = {
@@ -12,8 +13,9 @@ type Props = {
 
 const UserMenuContainer: FC<Props> = ({ className }) => {
   const dispatch = useDispatch()
-  const name = 'こんこん'
-  const iconUrl = ''
+  const { username, icon } = useSelector(
+    (state: RootState) => state.loginReducer
+  )
 
   const logout = () => {
     // ログイン情報を初期化
@@ -24,8 +26,8 @@ const UserMenuContainer: FC<Props> = ({ className }) => {
   return (
     <UserMenu
       className={className}
-      name={name}
-      iconUrl={iconUrl}
+      name={username}
+      iconUrl={icon}
       logout={logout}
     />
   )

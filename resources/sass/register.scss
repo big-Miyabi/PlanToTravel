@@ -5,7 +5,7 @@
 @include md-down() {
     //スタイルはここに書くこと
 
-    .register {
+    .register-screen {
         width: 100vw;
         height: 100vh;
         background-image: url("../assets/register_background.png");
@@ -50,19 +50,10 @@
             width: px-to-vw(246);
             height: px-to-vh(33);
             margin-top: px-to-vh(10);
-            border: none;
-            border-radius: 8px;
             background-color: $yellow;
             color: #fff;
-            text-align: center;
-            text-decoration: none;
-            font-size: 1.4rem;
-            font-weight: bold;
             &:hover {
                 background-color: rgba(252, 190, 50, 0.5);
-            }
-            &:focus {
-                outline: none;
             }
         }
     }

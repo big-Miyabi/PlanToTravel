@@ -11,7 +11,11 @@ const PopularPosts: FC<Props> = ({ posts }) => {
     <div className="popular-posts">
       <p className="popular-posts__title">人気の投稿</p>
       {posts.map((post, index) => (
-        <PopularCard post={post} key={index} />
+        <PopularCard
+          post={post}
+          key={index}
+          gradientId={`popular_post_${index}`}
+        />
       ))}
     </div>
   )

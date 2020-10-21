@@ -9,19 +9,19 @@ import RegistForm from '../containers/organisms/RegistForm'
 
 const RegisterScreen: FC<Props> = (props) => {
   return (
-    <div className="register">
+    <div className="register-screen">
       <Link to="../home">
         <FontAwesomeIconBtn
-          className="register__home-icon"
+          className="register-screen__home-icon"
           icon={faHome}
         />
       </Link>
-      <div className="register__content">
-        <div className="register__logo">
+      <div className="register-screen__content">
+        <div className="register-screen__logo">
           <Link to="../home">
             <img
               src="../images/logo_tate_white.png"
-              className="register__logo-img"
+              className="register-screen__logo-img"
             />
           </Link>
         </div>
