@@ -14,7 +14,11 @@ require('./bootstrap')
 
 // どちらか一方にコメントアウトをして使う
 // testsを使いたい場合(バック側)
+<<<<<<< HEAD
 require('./tests/App')
+=======
+// require('./tests/App')
+>>>>>>> 4282555193f5b518e2eb09e3cc3b0a406b4b91c5
 
 // Reactの実装状態を確認したい場合(フロント側)
 //require('./src/App')

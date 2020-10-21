@@ -9,6 +9,7 @@ import { persistStore } from 'redux-persist'
 import persistedReducer, { RootState } from './reducers'
 import RegisterScreen from './screens/RegisterScreen'
 import HomeScreen from './screens/HomeScreen'
+import PostScreen from './screens/PostScreen'
 
 const App: FC = () => {
   return (
@@ -24,6 +25,7 @@ const App: FC = () => {
         exact
         component={HomeScreen}
       />
+      <Route path="/post" exact component={PostScreen} />
     </BrowserRouter>
   )
 }

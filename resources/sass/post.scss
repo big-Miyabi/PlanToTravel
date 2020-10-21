@@ -1,0 +1,117 @@
+@import "variables";
+@import "function";
+
+// @include md-down()内部にstyleを記述すると、スマートフォンサイズでメディアクエリがかかるようになる
+@include md-down() {
+    .post-header {
+        &__icons {
+            display: flex;
+            position: absolute;
+            width: 100%;
+            margin-top: calc(#{$header-top} + #{px-to-vh(12)});
+            padding: 0 px-to-vw(13);
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+        &__close {
+            font-size: 2.4rem;
+            color: $light-gray;
+        }
+    }
+
+    .post-image {
+        width: 100vw;
+        height: px-to-vw(207); // 高さは幅依存
+        background-size: cover;
+
+        &__plus-image-wrap {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    .progress-map {
+        position: relative;
+        margin: px-to-vw(20) 0 px-to-vw(-20);
+
+        &__wrap {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &__name-wrap {
+            display: flex;
+            width: px-to-vw(219);
+            color: $navy;
+            font-size: 1.2rem;
+            justify-content: space-between;
+            align-items: center;
+        }
+        &__progress-img {
+            width: px-to-vw(213);
+            height: px-to-vw(18);
+        }
+        &__circle {
+            position: relative;
+            top: px-to-vw(-14);
+            margin: 0 auto;
+            width: px-to-vw(10);
+            height: px-to-vw(10);
+            border-radius: 100%;
+            background-color: $navy;
+        }
+    }
+
+    .post-overview {
+        &__content-wrap {
+            width: px-to-vw(290);
+            margin: px-to-vw(40) auto;
+        }
+
+        &__h2 {
+            margin: 0;
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: $navy;
+        }
+
+        &__row-flex-wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        &__title {
+            width: px-to-vw(227);
+            border: none;
+            border-bottom: 1px solid $navy;
+            &:focus {
+                outline: none;
+            }
+        }
+
+        &__public-switch-btn {
+            border: 1px solid $light-gray;
+            background-color: $white;
+            color: $light-gray;
+            font-weight: normal;
+        }
+
+        &__tag-input {
+            width: px-to-vw(231);
+        }
+
+        &__tag-wrap {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin-top: px-to-vh(17);
+        }
+    }
+}
