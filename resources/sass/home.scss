@@ -5,6 +5,14 @@
 @include md-down() {
     .home-screen {
         padding-top: $header-top;
+        padding-bottom: px-to-vh(48);
+
+        &__map-icon {
+            position: fixed;
+            z-index: 2;
+            right: px-to-vw(23);
+            bottom: px-to-vh(14);
+        }
     }
 
     .popular-posts {
@@ -266,7 +274,7 @@
 
         &__favorite {
             position: relative;
-            bottom: px-to-vh(-8);
+            bottom: px-to-vh(-7);
             margin-bottom: 0;
         }
 
