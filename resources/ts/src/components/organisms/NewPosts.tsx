@@ -25,10 +25,10 @@ const NewPosts: FC<Props> = ({ posts }) => {
     <div className="new-posts">
       <p className="new-posts__title">新着の投稿</p>
 
-      {rowPosts.map((rowPost, key) => (
-        <div className="new-posts__row" key={key}>
-          {rowPost.map((post, key) => (
-            <NewCard post={post} key={key} />
+      {rowPosts.map((rowPost, rowKey) => (
+        <div className="new-posts__row" key={rowKey}>
+          {rowPost.map((post, cardKey) => (
+            <NewCard post={post} key={cardKey} />
           ))}
         </div>
       ))}
