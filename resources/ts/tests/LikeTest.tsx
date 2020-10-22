@@ -1,8 +1,16 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useState, Component } from 'react'
+import ReactDOM from 'react-dom'
 import axios from 'axios'
 
 const LikeTest: FC = () => {
-  return <></>
+  
+  
+
+  return (
+    <>
+    <h2>いいね機能テスト</h2>
+    </>
+  )
 }
 
 export default LikeTest
