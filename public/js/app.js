@@ -88081,7 +88081,7 @@ var EditItinerary = function (_a) {
         react_1.default.createElement(EditPlaceDetail_1.default, { className: "edit-itinerary__place-detail" }),
         react_1.default.createElement("div", { className: "edit-itinerary__add-place" },
             react_1.default.createElement(MapIcon_1.default, { className: "edit-itinerary__map-icon", shouldHavePlus: false, color: colors_1.colors.navyBlue }),
-            react_1.default.createElement("p", null, "\u5834\u6240\u3092\u8FFD\u52A0"),
+            react_1.default.createElement("p", { className: "edit-itinerary__p" }, "\u5834\u6240\u3092\u8FFD\u52A0"),
             react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "edit-itinerary__plus", icon: free_solid_svg_icons_1.faPlus }))));
 };
 exports.default = EditItinerary;
