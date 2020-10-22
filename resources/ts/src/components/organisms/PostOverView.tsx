@@ -10,32 +10,29 @@ type Props = {
 
 const PostOverview: FC<Props> = ({ goToNext }) => {
   return (
-    <div className="post-overview">
-      <div className="post-overview__content-wrap">
-        <h2 className="post-overview__h2">タイトル*</h2>
-        <div className="post-overview__row-flex-wrap">
-          <input
-            type="text"
-            className="post-overview__title"
-          />
+    <div className="post">
+      <div className="post__content-wrap">
+        <h2 className="post__h2">タイトル*</h2>
+        <div className="post__row-flex-wrap">
+          <input type="text" className="post__title" />
           <FormBtn
-            className="post-overview__public-switch-btn"
+            className="post__public-switch-btn"
             name="非公開"
             onClick={() => {}}
           />
         </div>
       </div>
 
-      <div className="post-overview__content-wrap">
-        <div className="post-overview__row-flex-wrap">
-          <h2 className="post-overview__h2">タグ</h2>
+      <div className="post__content-wrap">
+        <div className="post__row-flex-wrap">
+          <h2 className="post__h2">タグ</h2>
           <PlusInputBox
             type="text"
-            className="post-overview__tag-input"
+            className="post__tag-input"
             placeholder="タグを追加してください"
           />
         </div>
-        <div className="post-overview__tag-wrap">
+        <div className="post__tag-wrap">
           <PostTag
             tagName="hoge"
             isPost={true}
@@ -69,35 +66,26 @@ const PostOverview: FC<Props> = ({ goToNext }) => {
         </div>
       </div>
 
-      <div className="post-overview__content-wrap">
-        <h2 className="post-overview__h2">日付*</h2>
-        <div className="post-overview__date-wrap">
-          <InputBox
-            type="date"
-            className="post-overview__date"
-          />
-          <p className="post-overview__datebar">-</p>
-          <InputBox
-            type="date"
-            className="post-overview__date"
-          />
+      <div className="post__content-wrap">
+        <h2 className="post__h2">日付*</h2>
+        <div className="post__date-wrap">
+          <InputBox type="date" className="post__date" />
+          <p className="post__datebar">-</p>
+          <InputBox type="date" className="post__date" />
         </div>
       </div>
 
-      <div className="post-overview__content-wrap">
-        <h2 className="post-overview__h2">人数*</h2>
-        <div className="post-overview__people-input-wrap">
-          <InputBox
-            type="text"
-            className="post-overview__people"
-          />
-          <p className="post-overview__nin">人</p>
+      <div className="post__content-wrap">
+        <h2 className="post__h2">人数*</h2>
+        <div className="post__people-input-wrap">
+          <InputBox type="text" className="post__people" />
+          <p className="post__nin">人</p>
         </div>
       </div>
 
-      <div className="post-overview__next-wrap">
+      <div className="post__next-wrap">
         <FormBtn
-          className="post-overview__next"
+          className="post__next"
           name="次へ"
           onClick={goToNext}
         />
