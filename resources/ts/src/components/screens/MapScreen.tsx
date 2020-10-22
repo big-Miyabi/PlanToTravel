@@ -1,12 +1,19 @@
-import React, { FC } from 'react'
+import React, { FC, Dispatch } from 'react'
 import GoogleMapReact, { Coords } from 'google-map-react'
 
 type Props = {
   center: Coords
   zoom: number
+  location: Coords
+  setLocation: Dispatch<React.SetStateAction<Coords>>
 }
 
-const MapScreen: FC<Props> = ({ center, zoom }) => {
+const MapScreen: FC<Props> = ({
+  center,
+  zoom,
+  location,
+  setLocation,
+}) => {
   return (
     <div className="map-screen">
       <GoogleMapReact
@@ -17,8 +24,9 @@ const MapScreen: FC<Props> = ({ center, zoom }) => {
         defaultZoom={zoom}
         onClick={(v) => {
           console.log(v)
+          setLocation({ lat: v.lat, lng: v.lng })
         }}
-      />
+      ></GoogleMapReact>
     </div>
   )
 }
