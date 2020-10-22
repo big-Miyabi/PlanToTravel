@@ -33,11 +33,11 @@ const EditTransport: FC<Props> = ({ className }) => {
         </p>
       </div>
       <div className="edit-transposrt__detail-wrap">
-        <PlusInputBox
+        {/* <PlusInputBox
           type="text"
           placeholder={'例）山手線　30分'}
           className="edit-transposrt__detail"
-        />
+        /> */}
       </div>
     </div>
   )

@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, ChangeEvent } from 'react'
 import FontAwesomeIconBtn from './FontAwesomeIconBtn'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import InputBox from './InputBox'
@@ -7,7 +7,7 @@ type Props = {
   type: string
   className: string // BEM設計におけるmodifier部分
   placeholder?: string | undefined
-  onChange?: () => void
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void
   onClick?: () => void
 }
 
