@@ -1,6 +1,10 @@
 import React, { FC } from 'react'
 import * as H from 'history'
 import { colors } from '../../utilities/colors'
+import DashedCircle from '../atoms/svg/DashedCircle'
+import BadFace from '../atoms/svg/BadFace'
+import SosoFace from '../atoms/svg/SosoFace'
+import GoodFace from '../atoms/svg/GoodFace'
 import FontAwesomeIconBtn from '../atoms/FontAwesomeIconBtn'
 import {
   faSun,
@@ -42,6 +46,7 @@ const PostLocation: FC<Props> = ({ history }) => {
             className="itinerary-edit__whether--sun"
             icon={faSun}
           />
+          <DashedCircle className="itinerary-edit__rating" />
         </div>
       </div>
 

@@ -87162,6 +87162,31 @@ exports.default = CloudyPin;
 
 /***/ }),
 
+/***/ "./resources/ts/src/components/atoms/svg/DashedCircle.tsx":
+/*!****************************************************************!*\
+  !*** ./resources/ts/src/components/atoms/svg/DashedCircle.tsx ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var colors_1 = __webpack_require__(/*! ../../../utilities/colors */ "./resources/ts/src/utilities/colors.ts");
+var DashedCircle = function (_a) {
+    var className = _a.className, _b = _a.color, color = _b === void 0 ? colors_1.colors.navyBlue : _b, _c = _a.onClick, onClick = _c === void 0 ? function () { } : _c;
+    return (react_1.default.createElement("svg", { className: className, onClick: onClick, width: "23", height: "23", viewBox: "0 0 23 23", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
+        react_1.default.createElement("circle", { cx: "11.1429", cy: "11.1429", r: "10.6429", stroke: color, "stroke-linejoin": "round", "stroke-dasharray": "2.52 2.52" })));
+};
+exports.default = DashedCircle;
+
+
+/***/ }),
+
 /***/ "./resources/ts/src/components/atoms/svg/GoToLogo.tsx":
 /*!************************************************************!*\
   !*** ./resources/ts/src/components/atoms/svg/GoToLogo.tsx ***!
@@ -88114,6 +88139,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var colors_1 = __webpack_require__(/*! ../../utilities/colors */ "./resources/ts/src/utilities/colors.ts");
+var DashedCircle_1 = __importDefault(__webpack_require__(/*! ../atoms/svg/DashedCircle */ "./resources/ts/src/components/atoms/svg/DashedCircle.tsx"));
 var FontAwesomeIconBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FontAwesomeIconBtn */ "./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx"));
 var free_solid_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 var InputBox_1 = __importDefault(__webpack_require__(/*! ../atoms/InputBox */ "./resources/ts/src/components/atoms/InputBox.tsx"));
@@ -88130,7 +88156,8 @@ var PostLocation = function (_a) {
             react_1.default.createElement("div", { className: "itinerary-edit__place-row-wrap" },
                 react_1.default.createElement(MapIcon_1.default, { className: "itinerary-edit__map-icon", shouldHavePlus: false, color: colors_1.colors.navyBlue }),
                 react_1.default.createElement(InputBox_1.default, { type: "text", className: "itinerary-edit__place-input" }),
-                react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "itinerary-edit__whether--sun", icon: free_solid_svg_icons_1.faSun }))),
+                react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "itinerary-edit__whether--sun", icon: free_solid_svg_icons_1.faSun }),
+                react_1.default.createElement(DashedCircle_1.default, { className: "itinerary-edit__rating" }))),
         react_1.default.createElement("div", { className: "post-location__btn-wrap" },
             react_1.default.createElement(FormBtn_1.default, { className: "post-location__return", name: "\u623B\u308B", onClick: function () { } }),
             react_1.default.createElement(FormBtn_1.default, { className: "post-location__next", name: "\u6B21\u3078", onClick: function () { } }))));
@@ -89461,6 +89488,7 @@ exports.colors = void 0;
 exports.colors = {
     orange: '#ff6633',
     yellow: '#fcbe32',
+    faceColor: '#fddb8c',
     navyBlue: '#003666',
     lightBlue: '#bcdbe8',
     gray: '#c4c4c4',
