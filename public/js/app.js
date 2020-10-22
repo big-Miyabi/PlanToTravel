@@ -87118,32 +87118,6 @@ exports.default = WhetherPin;
 
 /***/ }),
 
-/***/ "./resources/ts/src/components/atoms/svg/AddImage.tsx":
-/*!************************************************************!*\
-  !*** ./resources/ts/src/components/atoms/svg/AddImage.tsx ***!
-  \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var colors_1 = __webpack_require__(/*! ../../../utilities/colors */ "./resources/ts/src/utilities/colors.ts");
-var AddImage = function (_a) {
-    var className = _a.className, _b = _a.onClick, onClick = _b === void 0 ? function () { } : _b;
-    return (react_1.default.createElement("svg", { className: className, onClick: onClick, width: "26", height: "22", viewBox: "0 0 26 22", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
-        react_1.default.createElement("path", { d: "M22.618 19.7752H10.9382C9.37398 19.7752 8.15734 18.5586 8.15734 16.9943V9.76396H7.60116C6.6626 9.76396 5.93262 10.5287 5.93262 11.4325V20.3314C5.93262 21.2699 6.6626 21.9999 7.60116 21.9999H20.9495C21.8533 21.9999 22.618 21.2699 22.618 20.3314V19.7752ZM25.9551 16.9943V8.09542C25.9551 7.19163 25.1903 6.42688 24.2866 6.42688H10.9382C9.99968 6.42688 9.2697 7.19163 9.2697 8.09542V16.9943C9.2697 17.9329 9.99968 18.6628 10.9382 18.6628H24.2866C25.1903 18.6628 25.9551 17.9329 25.9551 16.9943ZM14.8315 9.76396C14.8315 10.7025 14.0667 11.4325 13.163 11.4325C12.2244 11.4325 11.4944 10.7025 11.4944 9.76396C11.4944 8.86017 12.2244 8.09542 13.163 8.09542C14.0667 8.09542 14.8315 8.86017 14.8315 9.76396ZM11.4944 14.7696L13.4063 12.8577C13.5801 12.6839 13.8234 12.6839 13.9972 12.8577L15.3877 14.2134L20.0804 9.52063C20.2542 9.34682 20.4976 9.34682 20.6714 9.52063L23.7304 12.5449V16.4381H11.4944V14.7696Z", fill: colors_1.colors.navyBlue }),
-        react_1.default.createElement("path", { d: "M4.44944 0C1.99148 0 0 1.99148 0 4.44944C0 6.90739 1.99148 8.89888 4.44944 8.89888C6.90739 8.89888 8.89888 6.90739 8.89888 4.44944C8.89888 1.99148 6.90739 0 4.44944 0ZM7.03298 4.95179C7.03298 5.07738 6.92534 5.16709 6.81769 5.16709H5.16709V6.81769C5.16709 6.94328 5.05944 7.03298 4.95179 7.03298H3.94708C3.82149 7.03298 3.73179 6.94328 3.73179 6.81769V5.16709H2.08119C1.9556 5.16709 1.86589 5.07738 1.86589 4.95179V3.94708C1.86589 3.83943 1.9556 3.73179 2.08119 3.73179H3.73179V2.08119C3.73179 1.97354 3.82149 1.86589 3.94708 1.86589H4.95179C5.05944 1.86589 5.16709 1.97354 5.16709 2.08119V3.73179H6.81769C6.92534 3.73179 7.03298 3.83943 7.03298 3.94708V4.95179Z", fill: colors_1.colors.navyBlue })));
-};
-exports.default = AddImage;
-
-
-/***/ }),
-
 /***/ "./resources/ts/src/components/atoms/svg/CloudyPin.tsx":
 /*!*************************************************************!*\
   !*** ./resources/ts/src/components/atoms/svg/CloudyPin.tsx ***!
@@ -88223,13 +88197,13 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var colors_1 = __webpack_require__(/*! ../../utilities/colors */ "./resources/ts/src/utilities/colors.ts");
 var DashedCircle_1 = __importDefault(__webpack_require__(/*! ../atoms/svg/DashedCircle */ "./resources/ts/src/components/atoms/svg/DashedCircle.tsx"));
-var AddImage_1 = __importDefault(__webpack_require__(/*! ../atoms/svg/AddImage */ "./resources/ts/src/components/atoms/svg/AddImage.tsx"));
 var FontAwesomeIconBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FontAwesomeIconBtn */ "./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx"));
 var free_solid_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 var InputBox_1 = __importDefault(__webpack_require__(/*! ../atoms/InputBox */ "./resources/ts/src/components/atoms/InputBox.tsx"));
 var FormBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FormBtn */ "./resources/ts/src/components/atoms/FormBtn.tsx"));
 var MapIcon_1 = __importDefault(__webpack_require__(/*! ../atoms/svg/MapIcon */ "./resources/ts/src/components/atoms/svg/MapIcon.tsx"));
 var CommentArea_1 = __importDefault(__webpack_require__(/*! ../molecules/CommentArea */ "./resources/ts/src/components/molecules/CommentArea.tsx"));
+var PlusImage_1 = __importDefault(__webpack_require__(/*! ../atoms/svg/PlusImage */ "./resources/ts/src/components/atoms/svg/PlusImage.tsx"));
 var PostLocation = function (_a) {
     var history = _a.history;
     return (react_1.default.createElement("div", { className: "post-location" },
@@ -88247,7 +88221,7 @@ var PostLocation = function (_a) {
                 react_1.default.createElement("div", { className: "itinerary-edit__left-border" }),
                 react_1.default.createElement("div", { className: "itinerary-edit__right-detai" },
                     react_1.default.createElement("div", { className: "itinerary-edit__add-image-wrap" },
-                        react_1.default.createElement(AddImage_1.default, { className: "itinerary-edit__add-image" }),
+                        react_1.default.createElement(PlusImage_1.default, { className: "itinerary-edit__add-image" }),
                         react_1.default.createElement("p", null, "\u30BF\u30C3\u30D7\u3057\u3066\u5199\u771F\u3092\u8FFD\u52A0")),
                     react_1.default.createElement(CommentArea_1.default, { maxLength: 255 }),
                     react_1.default.createElement("div", { className: "itinerary-edit__transport-wrap" },
