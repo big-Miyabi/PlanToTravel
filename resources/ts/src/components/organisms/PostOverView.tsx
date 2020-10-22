@@ -9,8 +9,8 @@ import PlusInputBox from '../atoms/PlusInputBox'
 import FormBtn from '../atoms/FormBtn'
 
 type Props = {
+  setTitle: Dispatch<React.SetStateAction<string>>
   goToNext: () => void
-  tag: string
   tags: string[]
   addTag: () => void
   deleteTag: (index: number) => void
@@ -22,8 +22,8 @@ type Props = {
 }
 
 const PostOverview: FC<Props> = ({
+  setTitle,
   goToNext,
-  tag,
   tags,
   addTag,
   deleteTag,
@@ -38,7 +38,11 @@ const PostOverview: FC<Props> = ({
       <div className="post__content-wrap">
         <h2 className="post__h2">タイトル*</h2>
         <div className="post__row-flex-wrap">
-          <input type="text" className="post__title" />
+          <input
+            type="text"
+            className="post__title"
+            onChange={getChangeEventFunc(setTitle)}
+          />
           <FormBtn
             className="post__public-switch-btn"
             name="非公開"
@@ -78,16 +82,28 @@ const PostOverview: FC<Props> = ({
       <div className="post__content-wrap">
         <h2 className="post__h2">日付*</h2>
         <div className="post__date-wrap">
-          <InputBox type="date" className="post__date" />
+          <InputBox
+            type="date"
+            className="post__date"
+            onChange={getChangeEventFunc(setDateS)}
+          />
           <p className="post__datebar">-</p>
-          <InputBox type="date" className="post__date" />
+          <InputBox
+            type="date"
+            className="post__date"
+            onChange={getChangeEventFunc(setDateF)}
+          />
         </div>
       </div>
 
       <div className="post__content-wrap">
         <h2 className="post__h2">人数*</h2>
         <div className="post__people-input-wrap">
-          <InputBox type="text" className="post__people" />
+          <InputBox
+            type="text"
+            className="post__people"
+            onChange={getChangeEventFunc(setPeople)}
+          />
           <p className="post__nin">人</p>
         </div>
       </div>

@@ -88158,12 +88158,12 @@ var InputBox_1 = __importDefault(__webpack_require__(/*! ../atoms/InputBox */ ".
 var PlusInputBox_1 = __importDefault(__webpack_require__(/*! ../atoms/PlusInputBox */ "./resources/ts/src/components/atoms/PlusInputBox.tsx"));
 var FormBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FormBtn */ "./resources/ts/src/components/atoms/FormBtn.tsx"));
 var PostOverview = function (_a) {
-    var goToNext = _a.goToNext, tag = _a.tag, tags = _a.tags, addTag = _a.addTag, deleteTag = _a.deleteTag, setTag = _a.setTag, tagInputRef = _a.tagInputRef, setDateS = _a.setDateS, setDateF = _a.setDateF, setPeople = _a.setPeople;
+    var setTitle = _a.setTitle, goToNext = _a.goToNext, tags = _a.tags, addTag = _a.addTag, deleteTag = _a.deleteTag, setTag = _a.setTag, tagInputRef = _a.tagInputRef, setDateS = _a.setDateS, setDateF = _a.setDateF, setPeople = _a.setPeople;
     return (react_1.default.createElement("div", { className: "post" },
         react_1.default.createElement("div", { className: "post__content-wrap" },
             react_1.default.createElement("h2", { className: "post__h2" }, "\u30BF\u30A4\u30C8\u30EB*"),
             react_1.default.createElement("div", { className: "post__row-flex-wrap" },
-                react_1.default.createElement("input", { type: "text", className: "post__title" }),
+                react_1.default.createElement("input", { type: "text", className: "post__title", onChange: getEventFunc_1.getChangeEventFunc(setTitle) }),
                 react_1.default.createElement(FormBtn_1.default, { className: "post__public-switch-btn", name: "\u975E\u516C\u958B", onClick: function () { } }))),
         react_1.default.createElement("div", { className: "post__content-wrap" },
             react_1.default.createElement("div", { className: "post__row-flex-wrap" },
@@ -88175,13 +88175,13 @@ var PostOverview = function (_a) {
         react_1.default.createElement("div", { className: "post__content-wrap" },
             react_1.default.createElement("h2", { className: "post__h2" }, "\u65E5\u4ED8*"),
             react_1.default.createElement("div", { className: "post__date-wrap" },
-                react_1.default.createElement(InputBox_1.default, { type: "date", className: "post__date" }),
+                react_1.default.createElement(InputBox_1.default, { type: "date", className: "post__date", onChange: getEventFunc_1.getChangeEventFunc(setDateS) }),
                 react_1.default.createElement("p", { className: "post__datebar" }, "-"),
-                react_1.default.createElement(InputBox_1.default, { type: "date", className: "post__date" }))),
+                react_1.default.createElement(InputBox_1.default, { type: "date", className: "post__date", onChange: getEventFunc_1.getChangeEventFunc(setDateF) }))),
         react_1.default.createElement("div", { className: "post__content-wrap" },
             react_1.default.createElement("h2", { className: "post__h2" }, "\u4EBA\u6570*"),
             react_1.default.createElement("div", { className: "post__people-input-wrap" },
-                react_1.default.createElement(InputBox_1.default, { type: "text", className: "post__people" }),
+                react_1.default.createElement(InputBox_1.default, { type: "text", className: "post__people", onChange: getEventFunc_1.getChangeEventFunc(setPeople) }),
                 react_1.default.createElement("p", { className: "post__nin" }, "\u4EBA"))),
         react_1.default.createElement("div", { className: "post__next-wrap" },
             react_1.default.createElement(FormBtn_1.default, { className: "post__next", name: "\u6B21\u3078", onClick: goToNext }))));
@@ -88893,11 +88893,12 @@ var PostOverView_1 = __importDefault(__webpack_require__(/*! ../../components/or
 var PostOverviewContainer = function (_a) {
     var history = _a.history;
     var dispatch = react_redux_1.useDispatch();
-    var _b = react_1.useState(''), tag = _b[0], setTag = _b[1];
-    var _c = react_1.useState(''), dateS = _c[0], setDateS = _c[1];
-    var _d = react_1.useState(''), dateF = _d[0], setDateF = _d[1];
-    var _e = react_1.useState(0), people = _e[0], setPeople = _e[1];
-    var _f = react_1.useState([]), tags = _f[0], setTags = _f[1];
+    var _b = react_1.useState(''), title = _b[0], setTitle = _b[1];
+    var _c = react_1.useState(''), tag = _c[0], setTag = _c[1];
+    var _d = react_1.useState(''), dateS = _d[0], setDateS = _d[1];
+    var _e = react_1.useState(''), dateF = _e[0], setDateF = _e[1];
+    var _f = react_1.useState(0), people = _f[0], setPeople = _f[1];
+    var _g = react_1.useState([]), tags = _g[0], setTags = _g[1];
     var tagInputRef = react_1.useRef(null);
     var addTag = function () {
         var input = tagInputRef.current;
@@ -88925,7 +88926,7 @@ var PostOverviewContainer = function (_a) {
         dispatch(post_1.setPostProgressIndex(1));
         history.push('/post/location');
     };
-    return (react_1.default.createElement(PostOverView_1.default, { goToNext: goToNext, tag: tag, tags: tags, addTag: addTag, deleteTag: deleteTag, setTag: setTag, tagInputRef: tagInputRef, setDateS: setDateS, setDateF: setDateF, setPeople: setPeople }));
+    return (react_1.default.createElement(PostOverView_1.default, { setTitle: setTitle, goToNext: goToNext, tags: tags, addTag: addTag, deleteTag: deleteTag, setTag: setTag, tagInputRef: tagInputRef, setDateS: setDateS, setDateF: setDateF, setPeople: setPeople }));
 };
 exports.default = PostOverviewContainer;
 

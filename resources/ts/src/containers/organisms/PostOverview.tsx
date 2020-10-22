@@ -10,6 +10,7 @@ type Props = {
 
 const PostOverviewContainer: FC<Props> = ({ history }) => {
   const dispatch = useDispatch()
+  const [title, setTitle] = useState<string>('')
   const [tag, setTag] = useState<string>('')
   const [dateS, setDateS] = useState<string>('')
   const [dateF, setDateF] = useState<string>('')
@@ -43,8 +44,8 @@ const PostOverviewContainer: FC<Props> = ({ history }) => {
 
   return (
     <PostOverView
+      setTitle={setTitle}
       goToNext={goToNext}
-      tag={tag}
       tags={tags}
       addTag={addTag}
       deleteTag={deleteTag}
