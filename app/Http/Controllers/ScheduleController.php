@@ -9,6 +9,7 @@ use App\Schedule;
 use App\Tag;
 use App\Place;
 use App\Schedules_place;
+use App\Schedules_tag;
 
 class ScheduleController extends Controller
 {
@@ -107,5 +108,94 @@ class ScheduleController extends Controller
       //  紐付けテーブルに格納
       $post->schedules_places()->create($params);
     }
+  }
+  //bladeの方でテスト
+  // public function index()
+  // {
+  //   $schedules = Schedule::orderBy('created_at', 'desc')->get();
+  //   $tags = Tag::orderBy('created_at', 'desc')->get();
+  //   $places = Place::orderBy('created_at', 'desc')->get();
+  //   return  view('show', ['tags' => $tags, 'places' => $places, 'schedules' => $schedules]);
+  // }
+  public function index()
+  {
+    //送るデータの格納
+    $posts = [];
+    //スケジュールデータ
+    $texts = [];
+    //タグデータ
+    $tagBox = [];
+    //場所データ
+    $placeBox = [];
+    //テーブルの値を取得
+    $schedules = Schedule::orderBy('created_at', 'desc')->get();
+    $tags = Tag::orderBy('created_at', 'desc')->get();
+    $places = Place::orderBy('created_at', 'desc')->get();
+    //値をpostsに格納する
+    foreach ($schedules as $key => $schedule) {
+      //スケジュールデータ
+      $id = $schedule->id;
+      $userid = $schedule->uid;
+      $title = $schedule->title;
+      $header = $schedule->header;
+      $people = $schedule->people;
+      $day_s = $schedule->day_s;
+      $day_f = $schedule->day_f;
+      $is_public = $schedule->is_public;
+      $texts = [
+        'id' => $id,
+        'userid' => $userid,
+        'title' => $title,
+        'header' => $header,
+        'people' => $people,
+        'day_s' => $day_s,
+        'day_f' => $day_f,
+        'is_public' => $is_public
+      ];
+      //タグデータ
+      foreach ($schedule->schedules_tags  as $tagKey => $st) {
+        foreach ($tags as $tag) {
+          if ($st->tag_id == $tag->id) {
+            $tagBox[$tagKey] = ['tagname' => $tag->tag_name];
+          }
+        }
+      }
+      // 場所データ
+      foreach ($schedule->schedules_places  as $placeKey => $sp) {
+        foreach ($places as  $place) {
+          if ($sp->place_id == $place->id) {
+            $placeName = $place->place_name;
+            $orderNumber = $place->order_number;
+            $day = $place->day;
+            $img = $place->img;
+            $longitude = $place->longitude;
+            $latitude = $place->latitude;
+            $rating = $place->rating;
+            $weather = $place->wether;
+            $transport = $place->transport;
+            $transportD = $place->transport_detail;
+            $distance = $place->distance;
+            $comment = $place->comment;
+            $placeBox[$placeKey] = [
+              'placename' => $placeName,
+              'ordernumber' => $orderNumber,
+              'day' => $day,
+              'img' => $img,
+              'longitude' => $longitude,
+              'latitude' => $latitude,
+              'rating' => $rating,
+              'weather' => $weather,
+              'transport' => $transport,
+              'transportD' => $transportD,
+              'distance' => $distance,
+              'comment' => $comment
+            ];
+          }
+        }
+      }
+      $posts[$key] = [$texts, $tagBox, $placeBox];
+    }
+    //値を返す
+    return $posts;
   }
 }
