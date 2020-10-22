@@ -14,6 +14,7 @@ type Props = {
   tags: string[]
   addTag: () => void
   setTag: Dispatch<React.SetStateAction<string>>
+  tagInputRef: React.RefObject<HTMLInputElement>
   setDateS: Dispatch<React.SetStateAction<string>>
   setDateF: Dispatch<React.SetStateAction<string>>
   setPeople: Dispatch<React.SetStateAction<number>>
@@ -25,6 +26,7 @@ const PostOverview: FC<Props> = ({
   tags,
   addTag,
   setTag,
+  tagInputRef,
   setDateS,
   setDateF,
   setPeople,
@@ -53,6 +55,7 @@ const PostOverview: FC<Props> = ({
             onChange={getChangeEventFunc(setTag)}
             onKeyPress={getKeyboardEventFunc(addTag)}
             onClick={addTag}
+            inputRef={tagInputRef}
           />
         </div>
         <div className="post__tag-wrap">

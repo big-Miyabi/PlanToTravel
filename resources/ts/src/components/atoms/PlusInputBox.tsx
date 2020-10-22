@@ -14,6 +14,7 @@ type Props = {
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void
   onClick?: () => void
   onKeyPress?: (e: KeyboardEvent<HTMLInputElement>) => void
+  inputRef?: React.RefObject<HTMLInputElement>
 }
 
 const PlusInputBox: FC<Props> = ({
@@ -22,7 +23,8 @@ const PlusInputBox: FC<Props> = ({
   placeholder = undefined,
   onChange = () => {}, // eslint-disable-line
   onClick = () => {}, // eslint-disable-line
-  onKeyPress = () => {} // eslint-disable-line
+  onKeyPress = () => {}, // eslint-disable-line
+  inputRef,
 }) => {
   return (
     <div className={className + ' ' + 'plus-input-box'}>
@@ -32,6 +34,7 @@ const PlusInputBox: FC<Props> = ({
         placeholder={placeholder}
         onChange={onChange}
         onKeyPress={onKeyPress}
+        inputRef={inputRef}
       />
       <FontAwesomeIconBtn
         onClick={onClick}

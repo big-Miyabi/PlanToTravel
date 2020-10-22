@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useState, useRef } from 'react'
 import * as H from 'history'
 import { useDispatch } from 'react-redux'
 import { setPostProgressIndex } from '../../actions/post'
@@ -15,10 +15,13 @@ const PostOverviewContainer: FC<Props> = ({ history }) => {
   const [dateF, setDateF] = useState<string>('')
   const [people, setPeople] = useState<number>(0)
   const [tags, setTags] = useState<string[]>([])
+  const tagInputRef = useRef<HTMLInputElement>(null)
 
   const addTag = () => {
     tags.push(tag)
     setTags(tags.slice())
+    if (tagInputRef.current === null) return
+    tagInputRef.current.value = ''
   }
 
   const goToNext = () => {
@@ -33,6 +36,7 @@ const PostOverviewContainer: FC<Props> = ({ history }) => {
       tags={tags}
       addTag={addTag}
       setTag={setTag}
+      tagInputRef={tagInputRef}
       setDateS={setDateS}
       setDateF={setDateF}
       setPeople={setPeople}

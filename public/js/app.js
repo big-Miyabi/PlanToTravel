@@ -87058,11 +87058,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var InputBox = function (_a) {
     var type = _a.type, className = _a.className, _b = _a.placeholder, placeholder = _b === void 0 ? undefined : _b, _c = _a.onChange, onChange = _c === void 0 ? function () { } : _c, // eslint-disable-line
-    _d = _a.onKeyPress // eslint-disable-line
-    , // eslint-disable-line
-    onKeyPress = _d === void 0 ? function () { } : _d // eslint-disable-line
-    ;
-    return (react_1.default.createElement("input", { type: type, className: className + ' ' + 'input-box', placeholder: placeholder, onChange: onChange, onKeyPress: onKeyPress }));
+    _d = _a.onKeyPress, // eslint-disable-line
+    onKeyPress = _d === void 0 ? function () { } : _d, // eslint-disable-line
+    _e = _a.inputRef, // eslint-disable-line
+    inputRef = _e === void 0 ? null : _e;
+    return (react_1.default.createElement("input", { type: type, className: className + ' ' + 'input-box', placeholder: placeholder, onChange: onChange, onKeyPress: onKeyPress, ref: inputRef }));
 };
 exports.default = InputBox;
 
@@ -87090,12 +87090,11 @@ var PlusInputBox = function (_a) {
     var type = _a.type, className = _a.className, _b = _a.placeholder, placeholder = _b === void 0 ? undefined : _b, _c = _a.onChange, onChange = _c === void 0 ? function () { } : _c, // eslint-disable-line
     _d = _a.onClick, // eslint-disable-line
     onClick = _d === void 0 ? function () { } : _d, // eslint-disable-line
-    _e = _a.onKeyPress // eslint-disable-line
-    , // eslint-disable-line
-    onKeyPress = _e === void 0 ? function () { } : _e // eslint-disable-line
-    ;
+    _e = _a.onKeyPress, // eslint-disable-line
+    onKeyPress = _e === void 0 ? function () { } : _e, // eslint-disable-line
+    inputRef = _a.inputRef;
     return (react_1.default.createElement("div", { className: className + ' ' + 'plus-input-box' },
-        react_1.default.createElement(InputBox_1.default, { type: type, className: 'plus-input-box__input', placeholder: placeholder, onChange: onChange, onKeyPress: onKeyPress }),
+        react_1.default.createElement(InputBox_1.default, { type: type, className: 'plus-input-box__input', placeholder: placeholder, onChange: onChange, onKeyPress: onKeyPress, inputRef: inputRef }),
         react_1.default.createElement(FontAwesomeIconBtn_1.default, { onClick: onClick, className: "plus-input-box__plus", icon: free_solid_svg_icons_1.faPlus })));
 };
 exports.default = PlusInputBox;
@@ -88159,7 +88158,7 @@ var InputBox_1 = __importDefault(__webpack_require__(/*! ../atoms/InputBox */ ".
 var PlusInputBox_1 = __importDefault(__webpack_require__(/*! ../atoms/PlusInputBox */ "./resources/ts/src/components/atoms/PlusInputBox.tsx"));
 var FormBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FormBtn */ "./resources/ts/src/components/atoms/FormBtn.tsx"));
 var PostOverview = function (_a) {
-    var goToNext = _a.goToNext, tag = _a.tag, tags = _a.tags, addTag = _a.addTag, setTag = _a.setTag, setDateS = _a.setDateS, setDateF = _a.setDateF, setPeople = _a.setPeople;
+    var goToNext = _a.goToNext, tag = _a.tag, tags = _a.tags, addTag = _a.addTag, setTag = _a.setTag, tagInputRef = _a.tagInputRef, setDateS = _a.setDateS, setDateF = _a.setDateF, setPeople = _a.setPeople;
     return (react_1.default.createElement("div", { className: "post" },
         react_1.default.createElement("div", { className: "post__content-wrap" },
             react_1.default.createElement("h2", { className: "post__h2" }, "\u30BF\u30A4\u30C8\u30EB*"),
@@ -88169,7 +88168,7 @@ var PostOverview = function (_a) {
         react_1.default.createElement("div", { className: "post__content-wrap" },
             react_1.default.createElement("div", { className: "post__row-flex-wrap" },
                 react_1.default.createElement("h2", { className: "post__h2" }, "\u30BF\u30B0"),
-                react_1.default.createElement(PlusInputBox_1.default, { type: "text", className: "post__tag-input", placeholder: "\u30BF\u30B0\u3092\u8FFD\u52A0\u3057\u3066\u304F\u3060\u3055\u3044", onChange: getEventFunc_1.getChangeEventFunc(setTag), onKeyPress: getEventFunc_1.getKeyboardEventFunc(addTag), onClick: addTag })),
+                react_1.default.createElement(PlusInputBox_1.default, { type: "text", className: "post__tag-input", placeholder: "\u30BF\u30B0\u3092\u8FFD\u52A0\u3057\u3066\u304F\u3060\u3055\u3044", onChange: getEventFunc_1.getChangeEventFunc(setTag), onKeyPress: getEventFunc_1.getKeyboardEventFunc(addTag), onClick: addTag, inputRef: tagInputRef })),
             react_1.default.createElement("div", { className: "post__tag-wrap" }, tags.map(function (value, index) { return (react_1.default.createElement(PostTag_1.default, { key: index, tagName: value, isPost: true, onClick: function () { } })); }))),
         react_1.default.createElement("div", { className: "post__content-wrap" },
             react_1.default.createElement("h2", { className: "post__h2" }, "\u65E5\u4ED8*"),
@@ -88897,15 +88896,19 @@ var PostOverviewContainer = function (_a) {
     var _d = react_1.useState(''), dateF = _d[0], setDateF = _d[1];
     var _e = react_1.useState(0), people = _e[0], setPeople = _e[1];
     var _f = react_1.useState([]), tags = _f[0], setTags = _f[1];
+    var tagInputRef = react_1.useRef(null);
     var addTag = function () {
         tags.push(tag);
         setTags(tags.slice());
+        if (tagInputRef.current === null)
+            return;
+        tagInputRef.current.value = '';
     };
     var goToNext = function () {
         dispatch(post_1.setPostProgressIndex(1));
         history.push('/post/location');
     };
-    return (react_1.default.createElement(PostOverView_1.default, { goToNext: goToNext, tag: tag, tags: tags, addTag: addTag, setTag: setTag, setDateS: setDateS, setDateF: setDateF, setPeople: setPeople }));
+    return (react_1.default.createElement(PostOverView_1.default, { goToNext: goToNext, tag: tag, tags: tags, addTag: addTag, setTag: setTag, tagInputRef: tagInputRef, setDateS: setDateS, setDateF: setDateF, setPeople: setPeople }));
 };
 exports.default = PostOverviewContainer;
 

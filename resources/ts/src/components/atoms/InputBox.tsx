@@ -10,6 +10,7 @@ type Props = {
   placeholder?: string | undefined
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void
   onKeyPress?: (e: KeyboardEvent<HTMLInputElement>) => void
+  inputRef?: React.RefObject<HTMLInputElement>
 }
 
 const InputBox: FC<Props> = ({
@@ -17,7 +18,8 @@ const InputBox: FC<Props> = ({
   className,
   placeholder = undefined,
   onChange = () => {}, // eslint-disable-line
-  onKeyPress = () => {} // eslint-disable-line
+  onKeyPress = () => {}, // eslint-disable-line
+  inputRef = null,
 }) => {
   return (
     <input
@@ -26,6 +28,7 @@ const InputBox: FC<Props> = ({
       placeholder={placeholder}
       onChange={onChange}
       onKeyPress={onKeyPress}
+      ref={inputRef}
     />
   )
 }
