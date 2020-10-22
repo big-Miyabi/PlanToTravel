@@ -70099,9 +70099,7 @@ var Post = function () {
     var _q = react_1.useState(''), transport_detail = _q[0], setTransD = _q[1];
     // const [distance, setDistance] = useState<string>('')
     var _r = react_1.useState(''), comment = _r[0], setComment = _r[1];
-    var _s = react_1.useState(''), tag_name = _s[0], setTagName = _s[1];
-    var _t = react_1.useState(''), tag_name2 = _t[0], setTagName2 = _t[1];
-    var _u = react_1.useState(''), tag_name3 = _u[0], setTagName3 = _u[1];
+    var _s = react_1.useState(['']), tag_name = _s[0], setTags = _s[1];
     var uid = '31';
     var is_public = '0';
     var addSchedule = function () {
@@ -70114,9 +70112,6 @@ var Post = function () {
             day_s: day_s,
             day_f: day_f,
             is_public: is_public,
-            tag_name: tag_name,
-            tag_name2: tag_name2,
-            tag_name3: tag_name3,
             day: day,
             img: img,
             place_name: place_name,
@@ -70127,6 +70122,7 @@ var Post = function () {
             transport: transport,
             transport_detail: transport_detail,
             comment: comment,
+            tag_name: tag_name,
         })
             .then(function (res) {
             console.log(res.data);
@@ -70136,6 +70132,7 @@ var Post = function () {
         });
     };
     return (react_1.default.createElement(react_1.default.Fragment, null,
+        react_1.default.createElement("p", null, tag_name),
         react_1.default.createElement("label", null,
             "\u30D8\u30C3\u30C0\u30FC\u753B\u50CF\u8FFD\u52A0",
             react_1.default.createElement("input", { type: "text", onChange: function (e) { return setHeader(e.target.value); } })),
@@ -70146,11 +70143,23 @@ var Post = function () {
         react_1.default.createElement("br", null),
         react_1.default.createElement("label", null,
             "\u30BF\u30B0",
-            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setTagName(e.target.value); } }),
+            react_1.default.createElement("input", { type: "text", onChange: function (e) {
+                    var newTags = tag_name.slice();
+                    newTags[0] = e.target.value;
+                    setTags(newTags);
+                } }),
             ",",
-            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setTagName2(e.target.value); } }),
+            react_1.default.createElement("input", { type: "text", onChange: function (e) {
+                    var newTags = tag_name.slice();
+                    newTags[1] = e.target.value;
+                    setTags(newTags);
+                } }),
             ",",
-            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setTagName3(e.target.value); } })),
+            react_1.default.createElement("input", { type: "text", onChange: function (e) {
+                    var newTags = tag_name.slice();
+                    newTags[2] = e.target.value;
+                    setTags(newTags);
+                } })),
         react_1.default.createElement("br", null),
         react_1.default.createElement("label", null,
             "\u65E5\u4ED8*",
