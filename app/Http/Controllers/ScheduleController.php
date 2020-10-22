@@ -8,11 +8,15 @@ use App\User;
 use App\Schedule;
 use App\Tag;
 use App\Place;
+use App\Schedules_place;
 
 class ScheduleController extends Controller
 {
   public function create(Request $request)
   {
+    $tempDay = null;
+    $order = 0;
+    // return Schedules_place::select('id')->where('schedule_id', 100)->count();
     // scheduleTableのばりで
     $params = $request->validate([
       'uid' => 'required|exists:users,id',
@@ -43,7 +47,7 @@ class ScheduleController extends Controller
         Tag::create($params);
       }
       // tagTableのID取得
-      $TagId = Tag::select('id')->where('tag_name',  $request->tag_name)->value('id');
+      $TagId = Tag::select('id')->where('tag_name',  $val)->value('id');
       // 実際にあるかの判定
       $post = Schedule::findOrFail($ScheduleId);
       $post = Tag::findOrFail($TagId);
@@ -67,7 +71,7 @@ class ScheduleController extends Controller
       'comment'
     ) as $key => $val) {
       // バリデートをどうするかで悩み
-      // $params = $request->validate([
+      // $params = $val->validate([
       //   'day' => 'required|date',
       //   'place_name' => 'required|string|max:63',
       //   'longitude' => 'required|integer',
@@ -75,6 +79,11 @@ class ScheduleController extends Controller
       //   'weather' => 'required'
       // ]);
       // //SQL実行
+      if ($tempDay !== $request->input('day')[$key]) {
+        $tempDay = $request->input('day')[$key];
+        $order = 0;
+      }
+      $order++;
       $params = Place::create([
         'day' => $request->input('day')[$key],
         'place_name' => $request->input('place_name')[$key],
@@ -87,7 +96,7 @@ class ScheduleController extends Controller
         'comment' => $request->input('comment')[$key],
         'distance' => $request->input('distance')[$key],
         'rating' => $request->input('rating')[$key],
-        'order_number' => 1
+        'order_number' => $order
       ]);
       // placeTableのID取得
       $PlaceId = $params['id'];
@@ -95,7 +104,7 @@ class ScheduleController extends Controller
       $post = Place::findOrFail($PlaceId);
       // paramsに格納
       $params = ['place_id' => $PlaceId, 'schedule_id' => $ScheduleId];
-      //  paramsに入れた値を'$post = Tag::findOrFail($TagId);'の中にあるschedules_tags()を使ってschedules_tagsに格納
+      //  紐付けテーブルに格納
       $post->schedules_places()->create($params);
     }
   }
