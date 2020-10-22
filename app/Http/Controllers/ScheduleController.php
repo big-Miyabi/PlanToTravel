@@ -8,8 +8,7 @@ use App\User;
 use App\Schedule;
 use App\Tag;
 use App\Place;
-use App\Schedules_place;
-use App\Schedules_tag;
+use App\Like;
 
 class ScheduleController extends Controller
 {
@@ -128,11 +127,11 @@ class ScheduleController extends Controller
     //場所データ
     $placeBox = [];
     //いいねの値
-    $likeBox = [];
     //テーブルの値を取得
     $schedules = Schedule::orderBy('created_at', 'desc')->get();
     $tags = Tag::orderBy('created_at', 'desc')->get();
     $places = Place::orderBy('created_at', 'desc')->get();
+    $likes = Like::orderBy('created_at', 'desc')->get();
     //値をpostsに格納する
     foreach ($schedules as $key => $schedule) {
       //スケジュールデータ
@@ -195,7 +194,15 @@ class ScheduleController extends Controller
           }
         }
       }
-      $posts[$key] = [$texts, $tagBox, $placeBox];
+      //初期化
+      $likeCount = 0;
+      //いいねの数の取得
+      foreach ($likes as  $like) {
+        if ($like->schedule_id == $schedule->id) {
+          $likeCount++;
+        }
+      }
+      $posts[$key] = [$texts, $tagBox, $placeBox, $likeCount];
     }
     //値を返す
     return $posts;
