@@ -133,7 +133,6 @@ class ScheduleController extends Controller
     $places = Place::orderBy('created_at', 'desc')->get();
     //値をpostsに格納する
     foreach ($schedules as $key => $schedule) {
-      return $schedule;
       //スケジュールデータ
       $id = $schedule->id;
       $userid = $schedule->uid;
