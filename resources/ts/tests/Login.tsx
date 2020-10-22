@@ -1,36 +1,38 @@
-import React, { FC, useState, Component } from 'react'
-import ReactDOM from 'react-dom'
-import axios from 'axios'
+import React, { FC, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { postByAxios } from '../src/utilities/axios'
+import {
+  setLoginState,
+  setLoginInfo,
+} from '../src/actions/login'
+import { RootState } from '../src/reducers/index'
 
 const Login: FC = () => {
+  const dispatch = useDispatch()
   const [email, setMail] = useState<string>('')
   const [password, setPassword] = useState<string>('')
 
-  const loginUser = () => {
-    axios
-      .post('/api/login', {
-        email,
-        password,
-      })
-      .then((res) => {
-        console.log(res.data)
-      })
-      .catch((error) => {
-        console.log(email)
-        console.log(password)
-        console.log(error)
-      })
+  // ログイン情報を取得
+  const loginInfo = useSelector(
+    (state: RootState) => state.loginReducer
+  )
+
+  // ログイン処理
+  const loginUser = async () => {
+    const result = await postByAxios.login({
+      dispatch,
+      email,
+      password,
+    })
+    if (result === 'success')
+      console.log('Login was successful')
   }
+
+  //ログアウト処理
   const logoutUser = () => {
-    axios
-      .post('/api/logout')
-      .then((res) => {
-        console.log(res.data)
-      })
-      .catch((error) => {
-        console.log({ loginUser })
-        console.log(error)
-      })
+    // ログイン情報を初期化
+    dispatch(setLoginState(false))
+    dispatch(setLoginInfo(-1, 'unknown', '', '', null))
   }
 
   return (
@@ -67,6 +69,13 @@ const Login: FC = () => {
         <a href="#">パスワードをお忘れですか？</a>
       </p>
       <button onClick={logoutUser}>ログアウト</button>
+      <div>
+        <h1>
+          {loginInfo.state ? 'ログイン中' : 'ログアウト'}
+        </h1>
+        <p>id: {loginInfo.id}</p>
+        <p>ユーザー名: {loginInfo.username}</p>
+      </div>
     </>
   )
 }
