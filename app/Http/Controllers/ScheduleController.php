@@ -127,6 +127,8 @@ class ScheduleController extends Controller
     $tagBox = [];
     //場所データ
     $placeBox = [];
+    //いいねの値
+    $likeBox = [];
     //テーブルの値を取得
     $schedules = Schedule::orderBy('created_at', 'desc')->get();
     $tags = Tag::orderBy('created_at', 'desc')->get();
@@ -198,6 +200,7 @@ class ScheduleController extends Controller
     //値を返す
     return $posts;
   }
+  //詳細ページ
   public function show(Request $request)
   {
     $post = Schedule::findOrFail($request);

@@ -33,11 +33,24 @@ const Post: FC = () => {
   const [tag_name, setTags] = useState<string[]>([''])
   const uid = loginInfo.id
   const is_public = '0'
-  const sid = '109'
+  const sid = '132'
   const showSchedule = () => {
     axios
       .post('/api/show', {
         sid,
+      })
+      .then((res) => {
+        console.log(res.data)
+      })
+      .catch(() => {
+        console.log('通信に失敗しました')
+      })
+  }
+  const likeSchedule = () => {
+    axios
+      .post('/api/like', {
+        sid,
+        uid,
       })
       .then((res) => {
         console.log(res.data)
@@ -423,6 +436,7 @@ const Post: FC = () => {
       <button onClick={addSchedule}>確定</button>
       <button onClick={indexSchedule}>一覧確認</button>
       <button onClick={showSchedule}>確認</button>
+      <button onClick={likeSchedule}>いいね</button>
     </>
   )
 }

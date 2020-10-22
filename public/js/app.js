@@ -73979,11 +73979,24 @@ var Post = function () {
     var _r = react_1.useState(['']), tag_name = _r[0], setTags = _r[1];
     var uid = loginInfo.id;
     var is_public = '0';
-    var sid = '109';
+    var sid = '132';
     var showSchedule = function () {
         axios_1.default
             .post('/api/show', {
             sid: sid,
+        })
+            .then(function (res) {
+            console.log(res.data);
+        })
+            .catch(function () {
+            console.log('通信に失敗しました');
+        });
+    };
+    var likeSchedule = function () {
+        axios_1.default
+            .post('/api/like', {
+            sid: sid,
+            uid: uid,
         })
             .then(function (res) {
             console.log(res.data);
@@ -74266,7 +74279,8 @@ var Post = function () {
                 } })),
         react_1.default.createElement("button", { onClick: addSchedule }, "\u78BA\u5B9A"),
         react_1.default.createElement("button", { onClick: indexSchedule }, "\u4E00\u89A7\u78BA\u8A8D"),
-        react_1.default.createElement("button", { onClick: showSchedule }, "\u78BA\u8A8D")));
+        react_1.default.createElement("button", { onClick: showSchedule }, "\u78BA\u8A8D"),
+        react_1.default.createElement("button", { onClick: likeSchedule }, "\u3044\u3044\u306D")));
 };
 exports.default = Post;
 
