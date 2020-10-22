@@ -15,6 +15,7 @@ type Props = {
   onClick?: () => void
   onKeyPress?: (e: KeyboardEvent<HTMLInputElement>) => void
   inputRef?: React.RefObject<HTMLInputElement>
+  maxLength?: number
 }
 
 const PlusInputBox: FC<Props> = ({
@@ -25,6 +26,7 @@ const PlusInputBox: FC<Props> = ({
   onClick = () => {}, // eslint-disable-line
   onKeyPress = () => {}, // eslint-disable-line
   inputRef,
+  maxLength,
 }) => {
   return (
     <div className={className + ' ' + 'plus-input-box'}>
@@ -35,6 +37,7 @@ const PlusInputBox: FC<Props> = ({
         onChange={onChange}
         onKeyPress={onKeyPress}
         inputRef={inputRef}
+        maxLength={maxLength}
       />
       <FontAwesomeIconBtn
         onClick={onClick}
