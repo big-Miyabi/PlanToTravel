@@ -1,10 +1,15 @@
-import React, { FC, ChangeEvent } from 'react'
+import React, {
+  FC,
+  ChangeEvent,
+  KeyboardEvent,
+} from 'react'
 
 type Props = {
   type: string
   className: string // BEM設計におけるmodifier部分
   placeholder?: string | undefined
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void
+  onKeyPress?: (e: KeyboardEvent<HTMLInputElement>) => void
 }
 
 const InputBox: FC<Props> = ({
@@ -12,6 +17,7 @@ const InputBox: FC<Props> = ({
   className,
   placeholder = undefined,
   onChange = () => {}, // eslint-disable-line
+  onKeyPress = () => {} // eslint-disable-line
 }) => {
   return (
     <input
@@ -19,6 +25,7 @@ const InputBox: FC<Props> = ({
       className={className + ' ' + 'input-box'}
       placeholder={placeholder}
       onChange={onChange}
+      onKeyPress={onKeyPress}
     />
   )
 }

@@ -87057,8 +87057,12 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var InputBox = function (_a) {
-    var type = _a.type, className = _a.className, _b = _a.placeholder, placeholder = _b === void 0 ? undefined : _b, _c = _a.onChange, onChange = _c === void 0 ? function () { } : _c;
-    return (react_1.default.createElement("input", { type: type, className: className + ' ' + 'input-box', placeholder: placeholder, onChange: onChange }));
+    var type = _a.type, className = _a.className, _b = _a.placeholder, placeholder = _b === void 0 ? undefined : _b, _c = _a.onChange, onChange = _c === void 0 ? function () { } : _c, // eslint-disable-line
+    _d = _a.onKeyPress // eslint-disable-line
+    , // eslint-disable-line
+    onKeyPress = _d === void 0 ? function () { } : _d // eslint-disable-line
+    ;
+    return (react_1.default.createElement("input", { type: type, className: className + ' ' + 'input-box', placeholder: placeholder, onChange: onChange, onKeyPress: onKeyPress }));
 };
 exports.default = InputBox;
 
@@ -87085,9 +87089,13 @@ var InputBox_1 = __importDefault(__webpack_require__(/*! ./InputBox */ "./resour
 var PlusInputBox = function (_a) {
     var type = _a.type, className = _a.className, _b = _a.placeholder, placeholder = _b === void 0 ? undefined : _b, _c = _a.onChange, onChange = _c === void 0 ? function () { } : _c, // eslint-disable-line
     _d = _a.onClick, // eslint-disable-line
-    onClick = _d === void 0 ? function () { } : _d;
+    onClick = _d === void 0 ? function () { } : _d, // eslint-disable-line
+    _e = _a.onKeyPress // eslint-disable-line
+    , // eslint-disable-line
+    onKeyPress = _e === void 0 ? function () { } : _e // eslint-disable-line
+    ;
     return (react_1.default.createElement("div", { className: className + ' ' + 'plus-input-box' },
-        react_1.default.createElement(InputBox_1.default, { type: type, className: 'plus-input-box__input', placeholder: placeholder, onChange: onChange }),
+        react_1.default.createElement(InputBox_1.default, { type: type, className: 'plus-input-box__input', placeholder: placeholder, onChange: onChange, onKeyPress: onKeyPress }),
         react_1.default.createElement(FontAwesomeIconBtn_1.default, { onClick: onClick, className: "plus-input-box__plus", icon: free_solid_svg_icons_1.faPlus })));
 };
 exports.default = PlusInputBox;
@@ -88161,7 +88169,7 @@ var PostOverview = function (_a) {
         react_1.default.createElement("div", { className: "post__content-wrap" },
             react_1.default.createElement("div", { className: "post__row-flex-wrap" },
                 react_1.default.createElement("h2", { className: "post__h2" }, "\u30BF\u30B0"),
-                react_1.default.createElement(PlusInputBox_1.default, { type: "text", className: "post__tag-input", placeholder: "\u30BF\u30B0\u3092\u8FFD\u52A0\u3057\u3066\u304F\u3060\u3055\u3044", onChange: getEventFunc_1.getChangeEventFunc(setTag), onClick: addTag })),
+                react_1.default.createElement(PlusInputBox_1.default, { type: "text", className: "post__tag-input", placeholder: "\u30BF\u30B0\u3092\u8FFD\u52A0\u3057\u3066\u304F\u3060\u3055\u3044", onChange: getEventFunc_1.getChangeEventFunc(setTag), onKeyPress: getEventFunc_1.getKeyboardEventFunc(addTag), onClick: addTag })),
             react_1.default.createElement("div", { className: "post__tag-wrap" }, tags.map(function (value, index) { return (react_1.default.createElement(PostTag_1.default, { key: index, tagName: value, isPost: true, onClick: function () { } })); }))),
         react_1.default.createElement("div", { className: "post__content-wrap" },
             react_1.default.createElement("h2", { className: "post__h2" }, "\u65E5\u4ED8*"),
@@ -89477,12 +89485,19 @@ exports.colors = {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getChangeEventFunc = void 0;
+exports.getKeyboardEventFunc = exports.getChangeEventFunc = void 0;
 exports.getChangeEventFunc = function (setValue) {
     return function (e) {
         e.persist();
         console.log(e.target.value);
         setValue(e.target.value);
+    };
+};
+exports.getKeyboardEventFunc = function (func) {
+    return function (e) {
+        if (e.key !== 'Enter')
+            return;
+        func();
     };
 };
 
