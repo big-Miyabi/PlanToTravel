@@ -18,6 +18,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
   return $request->user();
 });
 Route::group(['middleware' => 'api'], function () {
-  Route::post('create', 'PostController@create');
+  Route::post('create', 'ScheduleController@create');
 });
 Auth::routes();
