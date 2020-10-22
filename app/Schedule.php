@@ -27,4 +27,8 @@ class Schedule extends Model
   {
     return $this->hasMany('App\Like');
   }
+  public function Bookmarks()
+  {
+    return $this->hasMany('App\Bookmark');
+  }
 }
