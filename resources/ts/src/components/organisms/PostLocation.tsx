@@ -5,6 +5,7 @@ import DashedCircle from '../atoms/svg/DashedCircle'
 import BadFace from '../atoms/svg/BadFace'
 import SosoFace from '../atoms/svg/SosoFace'
 import GoodFace from '../atoms/svg/GoodFace'
+import AddImage from '../atoms/svg/AddImage'
 import FontAwesomeIconBtn from '../atoms/FontAwesomeIconBtn'
 import {
   faSun,
@@ -16,6 +17,7 @@ import {
 import InputBox from '../atoms/InputBox'
 import FormBtn from '../atoms/FormBtn'
 import MapIcon from '../atoms/svg/MapIcon'
+import CommentArea from '../molecules/CommentArea'
 
 type Props = {
   history: H.History
@@ -48,18 +50,31 @@ const PostLocation: FC<Props> = ({ history }) => {
           />
           <DashedCircle className="itinerary-edit__rating" />
         </div>
+
+        <div className="itinerary-edit__place-detail-wrap">
+          <div className="itinerary-edit__left-border"></div>
+
+          <div className="itinerary-edit__right-detai">
+            <div className="itinerary-edit__add-image-wrap">
+              <AddImage className="itinerary-edit__add-image" />
+              <p>タップして写真を追加</p>
+            </div>
+
+            <CommentArea maxLength={255} />
+          </div>
+        </div>
       </div>
 
       <div className="post-location__btn-wrap">
         <FormBtn
           className="post-location__return"
           name="戻る"
-          onClick={() => {}}
+          onClick={() => {}} // eslint-disable-line
         />
         <FormBtn
           className="post-location__next"
           name="次へ"
-          onClick={() => {}}
+          onClick={() => {}} // eslint-disable-line
         />
       </div>
     </div>

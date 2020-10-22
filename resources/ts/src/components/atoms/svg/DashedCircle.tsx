@@ -27,8 +27,8 @@ const DashedCircle: FC<Props> = ({
         cy="11.1429"
         r="10.6429"
         stroke={color}
-        stroke-linejoin="round"
-        stroke-dasharray="2.52 2.52"
+        strokeLinejoin="round"
+        strokeDasharray="2.52 2.52"
       />
     </svg>
   )
