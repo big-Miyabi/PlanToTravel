@@ -19,8 +19,16 @@ class Schedule extends Model
   {
     return $this->hasMany('App\Schedules_tag');
   }
-  public function like_users()
+  public function schedules_places()
   {
-    return $this->belongsToMany(User::class, 'likes', 'schedule_id', 'user_id')->withTimestamps();
+    return $this->hasMany('App\Schedules_place');
+  }
+  public function likes()
+  {
+    return $this->hasMany('App\Like');
+  }
+  public function Bookmarks()
+  {
+    return $this->hasMany('App\Bookmark');
   }
 }

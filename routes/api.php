@@ -18,11 +18,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
   return $request->user();
 });
 Route::group(['middleware' => 'api'], function () {
-  Route::post('create', 'PostController@create');
-  Route::post('like', 'LikeController@store')->name('likes.like');
-  Route::delete('unlike', 'LikeController@destroy')->name('likes.unlike');
+  Route::post('create', 'ScheduleController@create');
+  Route::get('index', 'ScheduleController@index');
+  Route::post('show', 'ScheduleController@show');
+  Route::post('like', 'LikeController@like');
+  Route::post('bookmark', 'BookmarkController@bookmark');
 });
-
-
-
 Auth::routes();
