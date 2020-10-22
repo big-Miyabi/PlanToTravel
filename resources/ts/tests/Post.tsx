@@ -8,17 +8,25 @@ const Post: FC = () => {
   const [day_s, setDayS] = useState<string>('')
   const [day_f, setDayf] = useState<string>('')
   const [order_number, setOrderNum] = useState<string>('')
-  const [day, setDay] = useState<string>('')
-  const [img, setImg] = useState<string>('')
-  const [place_name, setPlaceName] = useState<string>('')
-  const [longitude, setLongitude] = useState<string>('')
-  const [latitude, setLatitude] = useState<string>('')
-  const [rating, setRating] = useState<string>('')
-  const [weather, setWeather] = useState<string>('')
-  const [transport, setTransport] = useState<string>('')
-  const [transport_detail, setTransD] = useState<string>('')
+  const [day, setDays] = useState<string[]>([''])
+  const [img, setImgs] = useState<string[]>([''])
+  const [place_name, setPlaceNames] = useState<string[]>([
+    '',
+  ])
+  const [longitude, setLongitudes] = useState<string[]>([
+    '',
+  ])
+  const [latitude, setLatitudes] = useState<string[]>([''])
+  const [rating, setRatings] = useState<string[]>([''])
+  const [weather, setWeathers] = useState<string[]>([''])
+  const [transport, setTransports] = useState<string[]>([
+    '',
+  ])
+  const [transport_detail, setTransDs] = useState<string[]>(
+    ['']
+  )
   // const [distance, setDistance] = useState<string>('')
-  const [comment, setComment] = useState<string>('')
+  const [comment, setComments] = useState<string[]>([''])
   const [tag_name, setTags] = useState<string[]>([''])
   const uid = '31'
   const is_public = '0'
@@ -129,18 +137,30 @@ const Post: FC = () => {
         日にち
         <input
           type="text"
-          onChange={(e) => setDay(e.target.value)}
+          onChange={(e) => {
+            const newDays = day.slice()
+            newDays[0] = e.target.value
+            setDays(newDays)
+          }}
         />
       </label>
       <label>
         場所
         <input
           type="text"
-          onChange={(e) => setPlaceName(e.target.value)}
+          onChange={(e) => {
+            const newPlaces = place_name.slice()
+            newPlaces[0] = e.target.value
+            setPlaceNames(newPlaces)
+          }}
         />
         天気
         <select
-          onChange={(e) => setWeather(e.target.value)}
+          onChange={(e) => {
+            const newWeathers = weather.slice()
+            newWeathers[0] = e.target.value
+            setWeathers(newWeathers)
+          }}
         >
           <option>選択してください</option>
           <option value="sun">sun</option>
@@ -150,7 +170,13 @@ const Post: FC = () => {
           <option value="night">night</option>
         </select>
         評価
-        <select onChange={(e) => setRating(e.target.value)}>
+        <select
+          onChange={(e) => {
+            const newRatings = rating.slice()
+            newRatings[0] = e.target.value
+            setRatings(newRatings)
+          }}
+        >
           <option>選択してください</option>
           <option value="0">0</option>
           <option value="1">1</option>
@@ -163,12 +189,20 @@ const Post: FC = () => {
         緯度
         <input
           type="text"
-          onChange={(e) => setLatitude(e.target.value)}
+          onChange={(e) => {
+            const newLongitudes = longitude.slice()
+            newLongitudes[0] = e.target.value
+            setLongitudes(newLongitudes)
+          }}
         />
         経度
         <input
           type="text"
-          onChange={(e) => setLongitude(e.target.value)}
+          onChange={(e) => {
+            const newLatitudes = latitude.slice()
+            newLatitudes[0] = e.target.value
+            setLatitudes(newLatitudes)
+          }}
         />
       </label>
       <br />
@@ -176,7 +210,11 @@ const Post: FC = () => {
         写真
         <input
           type="text"
-          onChange={(e) => setImg(e.target.value)}
+          onChange={(e) => {
+            const newImgs = img.slice()
+            newImgs[0] = e.target.value
+            setImgs(newImgs)
+          }}
         />
       </label>
       <br />
@@ -184,14 +222,22 @@ const Post: FC = () => {
         コメント
         <input
           type="text"
-          onChange={(e) => setComment(e.target.value)}
+          onChange={(e) => {
+            const newComments = comment.slice()
+            newComments[0] = e.target.value
+            setComments(newComments)
+          }}
         />
       </label>
       <br />
       <label>
         移動手段
         <select
-          onChange={(e) => setTransport(e.target.value)}
+          onChange={(e) => {
+            const newTransports = transport.slice()
+            newTransports[0] = e.target.value
+            setTransports(newTransports)
+          }}
         >
           <option>選択してください</option>
           <option value="徒歩">徒歩</option>
@@ -208,33 +254,65 @@ const Post: FC = () => {
         移動手段詳細
         <input
           type="text"
-          onChange={(e) => setTransD(e.target.value)}
+          onChange={(e) => {
+            const newTransportDs = transport_detail.slice()
+            newTransportDs[0] = e.target.value
+            setTransDs(newTransportDs)
+          }}
         />
       </label>
       <br />
       <br />
-      {/* <label>
+      {/* ここから二つ目 */}
+      <label htmlFor="">
+        日にち
+        <input
+          type="text"
+          onChange={(e) => {
+            const newDays = day.slice()
+            newDays[1] = e.target.value
+            setDays(newDays)
+          }}
+        />
+      </label>
+      <label>
         場所
         <input
           type="text"
-          onChange={(e) => setPlaceName(e.target.value)}
+          onChange={(e) => {
+            const newPlaces = place_name.slice()
+            newPlaces[1] = e.target.value
+            setPlaceNames(newPlaces)
+          }}
         />
         天気
         <select
-          onChange={(e) => setWeather(e.target.value)}
+          onChange={(e) => {
+            const newWeathers = weather.slice()
+            newWeathers[1] = e.target.value
+            setWeathers(newWeathers)
+          }}
         >
-          <option>sun</option>
-          <option>cloud</option>
-          <option>rain</option>
-          <option>snow</option>
-          <option>night</option>
+          <option>選択してください</option>
+          <option value="sun">sun</option>
+          <option value="cloud">cloud</option>
+          <option value="rain">rain</option>
+          <option value="snow">snow</option>
+          <option value="night">night</option>
         </select>
         評価
-        <select onChange={(e) => setRating(e.target.value)}>
-          <option>0</option>
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
+        <select
+          onChange={(e) => {
+            const newRatings = rating.slice()
+            newRatings[1] = e.target.value
+            setRatings(newRatings)
+          }}
+        >
+          <option>選択してください</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
         </select>
       </label>
       <br />
@@ -242,12 +320,20 @@ const Post: FC = () => {
         緯度
         <input
           type="text"
-          onChange={(e) => setLatitude(e.target.value)}
+          onChange={(e) => {
+            const newLongitudes = longitude.slice()
+            newLongitudes[1] = e.target.value
+            setLongitudes(newLongitudes)
+          }}
         />
         経度
         <input
           type="text"
-          onChange={(e) => setLongitude(e.target.value)}
+          onChange={(e) => {
+            const newLatitudes = latitude.slice()
+            newLatitudes[1] = e.target.value
+            setLatitudes(newLatitudes)
+          }}
         />
       </label>
       <br />
@@ -255,7 +341,11 @@ const Post: FC = () => {
         写真
         <input
           type="text"
-          onChange={(e) => setImg(e.target.value)}
+          onChange={(e) => {
+            const newImgs = img.slice()
+            newImgs[1] = e.target.value
+            setImgs(newImgs)
+          }}
         />
       </label>
       <br />
@@ -263,22 +353,31 @@ const Post: FC = () => {
         コメント
         <input
           type="text"
-          onChange={(e) => setComment(e.target.value)}
+          onChange={(e) => {
+            const newComments = comment.slice()
+            newComments[1] = e.target.value
+            setComments(newComments)
+          }}
         />
       </label>
       <br />
       <label>
         移動手段
         <select
-          onChange={(e) => setTransport(e.target.value)}
+          onChange={(e) => {
+            const newTransports = transport.slice()
+            newTransports[1] = e.target.value
+            setTransports(newTransports)
+          }}
         >
-          <option>徒歩</option>
-          <option>自転車</option>
-          <option>車</option>
-          <option>バス</option>
-          <option>電車</option>
-          <option>船</option>
-          <option>飛行機</option>
+          <option>選択してください</option>
+          <option value="徒歩">徒歩</option>
+          <option value="自転車">自転車</option>
+          <option value="車">車</option>
+          <option value="バス">バス</option>
+          <option value="電車">電車</option>
+          <option value="船">船</option>
+          <option value="飛行機">飛行機</option>
         </select>
       </label>
       <br />
@@ -286,10 +385,13 @@ const Post: FC = () => {
         移動手段詳細
         <input
           type="text"
-          onChange={(e) => setTransD(e.target.value)}
+          onChange={(e) => {
+            const newTransportDs = transport_detail.slice()
+            newTransportDs[1] = e.target.value
+            setTransDs(newTransportDs)
+          }}
         />
       </label>
-      <br /> */}
       <button onClick={addSchedule}>確定</button>
     </>
   )

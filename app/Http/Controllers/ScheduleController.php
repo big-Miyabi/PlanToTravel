@@ -54,35 +54,49 @@ class ScheduleController extends Controller
     }
     //palaceTable
     //validate処理
-    $params = $request->validate([
-      'day' => 'required|date',
-      'place_name' => 'required|string|max:63',
-      'longitude' => 'required|integer',
-      'latitude' => 'required|integer',
-      'weather' => 'required'
-    ]);
-    // //SQL実行
-    $params = Place::create([
-      'day' => $request->day,
-      'place_name' => $request->place_name,
-      'longitude' => $request->longitude,
-      'latitude' => $request->latitude,
-      'weather' => $request->weather,
-      'img' => $request->img,
-      'transport' => $request->transport,
-      'transport_detail' => $request->transport_detail,
-      'comment' => $request->comment,
-      'distance' => $request->distance,
-      'rating' => $request->rating,
-      'order_number' => 1
-    ]);
-    // placeTableのID取得
-    $PlaceId = $params['id'];
-    // 実際にあるかの判定
-    $post = Place::findOrFail($PlaceId);
-    // paramsに格納
-    $params = ['place_id' => $PlaceId, 'schedule_id' => $ScheduleId];
-    //  paramsに入れた値を'$post = Tag::findOrFail($TagId);'の中にあるschedules_tags()を使ってschedules_tagsに格納
-    $post->schedules_places()->create($params);
+    foreach ($request->input(
+      'day',
+      'img',
+      'place_name',
+      'longitude',
+      'latitude',
+      'rating',
+      'weather',
+      'transport',
+      'transport_detail',
+      'comment'
+    ) as $key => $val) {
+      // バリデートをどうするかで悩み
+      // $params = $request->validate([
+      //   'day' => 'required|date',
+      //   'place_name' => 'required|string|max:63',
+      //   'longitude' => 'required|integer',
+      //   'latitude' => 'required|integer',
+      //   'weather' => 'required'
+      // ]);
+      // //SQL実行
+      $params = Place::create([
+        'day' => $request->input('day')[$key],
+        'place_name' => $request->input('place_name')[$key],
+        'longitude' => $request->input('longitude')[$key],
+        'latitude' => $request->input('latitude')[$key],
+        'weather' => $request->input('weather')[$key],
+        'img' => $request->input('img')[$key],
+        'transport' => $request->input('transport')[$key],
+        'transport_detail' => $request->input('transport_detail')[$key],
+        'comment' => $request->input('comment')[$key],
+        'distance' => $request->input('distance')[$key],
+        'rating' => $request->input('rating')[$key],
+        'order_number' => 1
+      ]);
+      // placeTableのID取得
+      $PlaceId = $params['id'];
+      // 実際にあるかの判定
+      $post = Place::findOrFail($PlaceId);
+      // paramsに格納
+      $params = ['place_id' => $PlaceId, 'schedule_id' => $ScheduleId];
+      //  paramsに入れた値を'$post = Tag::findOrFail($TagId);'の中にあるschedules_tags()を使ってschedules_tagsに格納
+      $post->schedules_places()->create($params);
+    }
   }
 }
