@@ -21,13 +21,15 @@ const EditTransport: FC<Props> = ({ className }) => {
         移動手段を追加
       </p>
       <div className="edit-transposrt__select-transport">
-        <FontAwesomeIconBtn
-          className="edit-transposrt__shoe-prints-icon"
-          icon={faShoePrints}
-        />
-        <p className="edit-transposrt__select-box">
-          徒歩 ▾
-        </p>
+        <div className="edit-transposrt__select-wrap">
+          <FontAwesomeIconBtn
+            className="edit-transposrt__shoe-prints-icon fa-rotate-90"
+            icon={faShoePrints}
+          />
+          <p className="edit-transposrt__select-box">
+            徒歩 ▾
+          </p>
+        </div>
         <p className="edit-transposrt__message">
           アイコンを選択してください
         </p>

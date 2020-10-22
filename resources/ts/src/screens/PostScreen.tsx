@@ -76,7 +76,7 @@ const PostScreen: FC<Props> = (props) => {
     )
   }, [props.location.pathname])
 
-  useEffect(() => {
+  /*useEffect(() => {
     window.addEventListener('beforeunload', () => {
       dispatch(setPostProgressIndex(0))
     })
@@ -84,7 +84,7 @@ const PostScreen: FC<Props> = (props) => {
     return () => {
       dispatch(setPostProgressIndex(0))
     }
-  }, [])
+  }, [])*/
 
   return (
     <div className="post-screen">

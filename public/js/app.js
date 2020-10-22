@@ -87586,7 +87586,7 @@ var free_solid_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-solid-svg
 var CommentArea = function (_a) {
     var maxLength = _a.maxLength, _b = _a.onClick, onClick = _b === void 0 ? function () { } : _b;
     return (react_1.default.createElement("div", { className: "comment-area" },
-        react_1.default.createElement("div", { className: "coment-area__header" },
+        react_1.default.createElement("div", { className: "comment-area__header" },
             react_1.default.createElement("p", { className: "comment-area__p" },
                 react_1.default.createElement(EditIcon_1.default, { className: "comment-area__edit-icon" }),
                 "\u30B3\u30E1\u30F3\u30C8"),
@@ -87655,8 +87655,9 @@ var EditTransport = function (_a) {
             react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "edit-transposrt__walking-icon", icon: free_solid_svg_icons_1.faWalking }),
             "\u79FB\u52D5\u624B\u6BB5\u3092\u8FFD\u52A0"),
         react_1.default.createElement("div", { className: "edit-transposrt__select-transport" },
-            react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "edit-transposrt__shoe-prints-icon", icon: free_solid_svg_icons_1.faShoePrints }),
-            react_1.default.createElement("p", { className: "edit-transposrt__select-box" }, "\u5F92\u6B69 \u25BE"),
+            react_1.default.createElement("div", { className: "edit-transposrt__select-wrap" },
+                react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "edit-transposrt__shoe-prints-icon fa-rotate-90", icon: free_solid_svg_icons_1.faShoePrints }),
+                react_1.default.createElement("p", { className: "edit-transposrt__select-box" }, "\u5F92\u6B69 \u25BE")),
             react_1.default.createElement("p", { className: "edit-transposrt__message" }, "\u30A2\u30A4\u30B3\u30F3\u3092\u9078\u629E\u3057\u3066\u304F\u3060\u3055\u3044")),
         react_1.default.createElement("div", { className: "edit-transposrt__detail-wrap" },
             react_1.default.createElement(PlusInputBox_1.default, { type: "text", placeholder: '例）山手線　30分', className: "edit-transposrt__detail" }))));
@@ -87881,8 +87882,6 @@ var PopularCard = function (_a) {
         backgroundImage: 'url(' + post.header + ')',
     };
     return (react_1.default.createElement("div", { className: "popular-card" },
-        react_1.default.createElement("div", { className: "popular-card__white-bg-wrap" },
-            react_1.default.createElement("img", { className: "popular-card__white-bg", src: "../images/ninki_listimg_white.png", alt: "" })),
         react_1.default.createElement("div", { className: "popular-card__wrap", style: bgStyle },
             react_1.default.createElement("div", { style: goTostyle },
                 react_1.default.createElement(GoToLogo_1.default, { className: "popular-card__go-to" })),
@@ -88077,8 +88076,23 @@ var EditItinerary = function (_a) {
         react_1.default.createElement("div", { className: "edit-itinerary__date-wrap" },
             react_1.default.createElement("div", { className: "edit-itinerary__date-border" }),
             react_1.default.createElement("p", { className: "edit-itinerary__date" }, "2020.10.06")),
-        react_1.default.createElement(EditPlace_1.default, { className: "edit-itinerary__edit-place" }),
-        react_1.default.createElement(EditPlaceDetail_1.default, { className: "edit-itinerary__place-detail" }),
+        react_1.default.createElement("div", { className: "edit-itinerary__add-place-detail-wrap" },
+            react_1.default.createElement(EditPlace_1.default, { className: "edit-itinerary__edit-place" }),
+            react_1.default.createElement(EditPlaceDetail_1.default, { className: "edit-itinerary__place-detail" })),
+        react_1.default.createElement("div", { className: "edit-itinerary__add-place" },
+            react_1.default.createElement(MapIcon_1.default, { className: "edit-itinerary__map-icon", shouldHavePlus: false, color: colors_1.colors.navyBlue }),
+            react_1.default.createElement("p", { className: "edit-itinerary__p" }, "\u5834\u6240\u3092\u8FFD\u52A0"),
+            react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "edit-itinerary__plus", icon: free_solid_svg_icons_1.faPlus })),
+        react_1.default.createElement("div", { className: "edit-itinerary__date-wrap" },
+            react_1.default.createElement("div", { className: "edit-itinerary__date-border" }),
+            react_1.default.createElement("p", { className: "edit-itinerary__date" }, "2020.10.07")),
+        react_1.default.createElement("div", { className: "edit-itinerary__add-place" },
+            react_1.default.createElement(MapIcon_1.default, { className: "edit-itinerary__map-icon", shouldHavePlus: false, color: colors_1.colors.navyBlue }),
+            react_1.default.createElement("p", { className: "edit-itinerary__p" }, "\u5834\u6240\u3092\u8FFD\u52A0"),
+            react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "edit-itinerary__plus", icon: free_solid_svg_icons_1.faPlus })),
+        react_1.default.createElement("div", { className: "edit-itinerary__date-wrap" },
+            react_1.default.createElement("div", { className: "edit-itinerary__date-border" }),
+            react_1.default.createElement("p", { className: "edit-itinerary__date" }, "2020.10.08")),
         react_1.default.createElement("div", { className: "edit-itinerary__add-place" },
             react_1.default.createElement(MapIcon_1.default, { className: "edit-itinerary__map-icon", shouldHavePlus: false, color: colors_1.colors.navyBlue }),
             react_1.default.createElement("p", { className: "edit-itinerary__p" }, "\u5834\u6240\u3092\u8FFD\u52A0"),
@@ -88113,7 +88127,7 @@ var EditPlaceDetail = function (_a) {
         react_1.default.createElement("div", { className: "edit-place-detail__right" },
             react_1.default.createElement("div", { className: "edit-place-detail__plus-img-wrap" },
                 react_1.default.createElement(PlusImage_1.default, { className: "edit-place-detail__plus-img" }),
-                react_1.default.createElement("p", null, "\u30BF\u30C3\u30D7\u3057\u3066\u5199\u771F\u3092\u8FFD\u52A0")),
+                react_1.default.createElement("p", { className: "edit-place-detail__plus-img-text" }, "\u30BF\u30C3\u30D7\u3057\u3066\u5199\u771F\u3092\u8FFD\u52A0")),
             react_1.default.createElement(CommentArea_1.default, { maxLength: 255 }),
             react_1.default.createElement(EditTransport_1.default, { className: "edit-place-detail__transport" }))));
 };
@@ -89668,14 +89682,15 @@ var PostScreen = function (props) {
         var path = props.location.pathname;
         checkAndMovePages(path, previousIndex, pathnames, setPageIndex, props, dispatch);
     }, [props.location.pathname]);
-    react_1.useEffect(function () {
-        window.addEventListener('beforeunload', function () {
-            dispatch(post_1.setPostProgressIndex(0));
-        });
-        return function () {
-            dispatch(post_1.setPostProgressIndex(0));
-        };
-    }, []);
+    /*useEffect(() => {
+      window.addEventListener('beforeunload', () => {
+        dispatch(setPostProgressIndex(0))
+      })
+  
+      return () => {
+        dispatch(setPostProgressIndex(0))
+      }
+    }, [])*/
     return (react_1.default.createElement("div", { className: "post-screen" },
         react_1.default.createElement(Header_1.default, { isPost: false }),
         react_1.default.createElement(Menu_1.default, null),
@@ -89822,8 +89837,8 @@ exports.colors = {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /Users/ryoga/projects/PlanToTravel/resources/ts/app.tsx */"./resources/ts/app.tsx");
-module.exports = __webpack_require__(/*! /Users/ryoga/projects/PlanToTravel/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /mnt/c/users/hyeeun/planto/PlanToTravel/resources/ts/app.tsx */"./resources/ts/app.tsx");
+module.exports = __webpack_require__(/*! /mnt/c/users/hyeeun/planto/PlanToTravel/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
