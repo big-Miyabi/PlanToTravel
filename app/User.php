@@ -47,38 +47,4 @@ class User extends Authenticatable
   {
     return $this->hasMany('App\Schedule');
   }
-
-  public function likes()
-    {
-        return $this->belongsToMany(Movie::class, 'likes', 'user_id', 'schedule_id')->withTimestamps();
-    }
-
-    public function like($scheduleId)
-    {
-        $exist = $this->is_like($scheduleId);
-
-        if($exist){
-            return false;
-        }else{
-            $this->likes()->attach($scheduleId);
-            return true;
-        }
-    }
-
-    public function unlike($scheduleId)
-    {
-        $exist = $this->is_like($scheduleId);
-
-        if($exist){
-            $this->likes()->detach($scheduleId);
-            return true;
-        }else{
-            return false;
-        }
-    }
-
-    public function is_like($scheduleId)
-    {
-        return $this->likes()->where('schedule_id',$scheduleId)->exists();
-    }
 }

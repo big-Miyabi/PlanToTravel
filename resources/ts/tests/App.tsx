@@ -16,7 +16,7 @@ import Register from './Register'
 import Login from './Login'
 import Post from './Post'
 import PostEdit from './PostEdit'
-import LikeTest from './likeTest'
+import ProfEdit from './ProfEdit'
 
 const App: FC = () => {
   return (
@@ -28,8 +28,8 @@ const App: FC = () => {
       <Route path="/hoge" component={Register} />
       <Route path="/hogehoge" component={Login} />
       <Route path="/post" component={Post} />
+      <Route path="/profEdit" component={ProfEdit} />
       <Route path="/postEdit" component={PostEdit} />
-      <Route path="/likeTest" component={LikeTest} />
     </BrowserRouter>
   )
 }

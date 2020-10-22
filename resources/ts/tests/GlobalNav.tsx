@@ -22,8 +22,8 @@ const GlobalNav: FC = () => {
         <Link to="/postEdit">
           <li>PostEdit</li>
         </Link>
-        <Link to="/likeTest">
-          <li>likeTest</li>
+        <Link to="/profEdit">
+          <li>profEdit</li>
         </Link>
       </ul>
     </nav>
