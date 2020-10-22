@@ -19,7 +19,9 @@ const Post: FC = () => {
   const [transport_detail, setTransD] = useState<string>('')
   // const [distance, setDistance] = useState<string>('')
   const [comment, setComment] = useState<string>('')
-  const [tags, setTags] = useState<string[]>([''])
+  const [tag_name, setTagName] = useState<string>('')
+  const [tag_name2, setTagName2] = useState<string>('')
+  const [tag_name3, setTagName3] = useState<string>('')
   const uid = '31'
   const is_public = '0'
   const addSchedule = () => {
@@ -32,7 +34,19 @@ const Post: FC = () => {
         day_s,
         day_f,
         is_public,
-        tags,
+        tag_name,
+        tag_name2,
+        tag_name3,
+        day,
+        img,
+        place_name,
+        longitude,
+        latitude,
+        rating,
+        weather,
+        transport,
+        transport_detail,
+        comment,
       })
       .then((res) => {
         console.log(res.data)
@@ -44,7 +58,6 @@ const Post: FC = () => {
 
   return (
     <>
-      <p>{tags}</p>
       <label>
         ヘッダー画像追加
         <input
@@ -65,29 +78,17 @@ const Post: FC = () => {
         タグ
         <input
           type="text"
-          onChange={(e) => {
-            const newTags = tags.slice()
-            newTags[0] = e.target.value
-            setTags(newTags)
-          }}
+          onChange={(e) => setTagName(e.target.value)}
         />
         ,
         <input
           type="text"
-          onChange={(e) => {
-            const newTags = tags.slice()
-            newTags[1] = e.target.value
-            setTags(newTags)
-          }}
+          onChange={(e) => setTagName2(e.target.value)}
         />
         ,
         <input
           type="text"
-          onChange={(e) => {
-            const newTags = tags.slice()
-            newTags[2] = e.target.value
-            setTags(newTags)
-          }}
+          onChange={(e) => setTagName3(e.target.value)}
         />
       </label>
       <br />
@@ -115,6 +116,13 @@ const Post: FC = () => {
       <button onClick={addSchedule}>投稿</button>
       <br />
       <h2>行程*</h2>
+      <label htmlFor="">
+        日にち
+        <input
+          type="text"
+          onChange={(e) => setDay(e.target.value)}
+        />
+      </label>
       <label>
         場所
         <input
@@ -125,6 +133,7 @@ const Post: FC = () => {
         <select
           onChange={(e) => setWeather(e.target.value)}
         >
+          <option>選択してください</option>
           <option value="sun">sun</option>
           <option value="cloud">cloud</option>
           <option value="rain">rain</option>
@@ -133,6 +142,7 @@ const Post: FC = () => {
         </select>
         評価
         <select onChange={(e) => setRating(e.target.value)}>
+          <option>選択してください</option>
           <option value="0">0</option>
           <option value="1">1</option>
           <option value="2">2</option>
@@ -174,6 +184,7 @@ const Post: FC = () => {
         <select
           onChange={(e) => setTransport(e.target.value)}
         >
+          <option>選択してください</option>
           <option value="徒歩">徒歩</option>
           <option value="自転車">自転車</option>
           <option value="車">車</option>
@@ -270,7 +281,7 @@ const Post: FC = () => {
         />
       </label>
       <br /> */}
-      <button>確定</button>
+      <button onClick={addSchedule}>確定</button>
     </>
   )
 }
