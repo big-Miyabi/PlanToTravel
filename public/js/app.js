@@ -87631,6 +87631,41 @@ exports.default = EditPlace;
 
 /***/ }),
 
+/***/ "./resources/ts/src/components/molecules/EditTransport.tsx":
+/*!*****************************************************************!*\
+  !*** ./resources/ts/src/components/molecules/EditTransport.tsx ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var FontAwesomeIconBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FontAwesomeIconBtn */ "./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx"));
+var free_solid_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+var PlusInputBox_1 = __importDefault(__webpack_require__(/*! ../atoms/PlusInputBox */ "./resources/ts/src/components/atoms/PlusInputBox.tsx"));
+var EditTransport = function (_a) {
+    var className = _a.className;
+    return (react_1.default.createElement("div", { className: className + ' ' + 'edit-transposrt' },
+        react_1.default.createElement("p", { className: "edit-transposrt__title" },
+            react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "edit-transposrt__walking-icon", icon: free_solid_svg_icons_1.faWalking }),
+            "\u79FB\u52D5\u624B\u6BB5\u3092\u8FFD\u52A0"),
+        react_1.default.createElement("div", { className: "edit-transposrt__select-transport" },
+            react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "edit-transposrt__shoe-prints-icon", icon: free_solid_svg_icons_1.faShoePrints }),
+            react_1.default.createElement("p", { className: "edit-transposrt__select-box" }, "\u5F92\u6B69 \u25BE"),
+            react_1.default.createElement("p", { className: "edit-transposrt__message" }, "\u30A2\u30A4\u30B3\u30F3\u3092\u9078\u629E\u3057\u3066\u304F\u3060\u3055\u3044")),
+        react_1.default.createElement("div", { className: "edit-transposrt__detail-wrap" },
+            react_1.default.createElement(PlusInputBox_1.default, { type: "text", placeholder: '例）山手線　30分', className: "edit-transposrt__detail" }))));
+};
+exports.default = EditTransport;
+
+
+/***/ }),
+
 /***/ "./resources/ts/src/components/molecules/FormInput.tsx":
 /*!*************************************************************!*\
   !*** ./resources/ts/src/components/molecules/FormInput.tsx ***!
@@ -88030,11 +88065,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var FontAwesomeIconBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FontAwesomeIconBtn */ "./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx"));
-var free_solid_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
-var PlusInputBox_1 = __importDefault(__webpack_require__(/*! ../atoms/PlusInputBox */ "./resources/ts/src/components/atoms/PlusInputBox.tsx"));
 var CommentArea_1 = __importDefault(__webpack_require__(/*! ../molecules/CommentArea */ "./resources/ts/src/components/molecules/CommentArea.tsx"));
 var PlusImage_1 = __importDefault(__webpack_require__(/*! ../atoms/svg/PlusImage */ "./resources/ts/src/components/atoms/svg/PlusImage.tsx"));
+var EditTransport_1 = __importDefault(__webpack_require__(/*! ../../containers/molecules/EditTransport */ "./resources/ts/src/containers/molecules/EditTransport.tsx"));
 var EditPlaceDetail = function (_a) {
     var className = _a.className;
     return (react_1.default.createElement("div", { className: className + ' ' + 'edit-place-detail' },
@@ -88044,16 +88077,7 @@ var EditPlaceDetail = function (_a) {
                 react_1.default.createElement(PlusImage_1.default, { className: "edit-place-detail__plus-img" }),
                 react_1.default.createElement("p", null, "\u30BF\u30C3\u30D7\u3057\u3066\u5199\u771F\u3092\u8FFD\u52A0")),
             react_1.default.createElement(CommentArea_1.default, { maxLength: 255 }),
-            react_1.default.createElement("div", { className: "edit-place-detail__transport-wrap" },
-                react_1.default.createElement("p", { className: "edit-place-detail__transport-title" },
-                    react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "edit-place-detail__walking-icon", icon: free_solid_svg_icons_1.faWalking }),
-                    "\u79FB\u52D5\u624B\u6BB5\u3092\u8FFD\u52A0"),
-                react_1.default.createElement("div", { className: "edit-place-detail__select-transport" },
-                    react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "edit-place-detail__shoe-prints-icon", icon: free_solid_svg_icons_1.faShoePrints }),
-                    react_1.default.createElement("p", { className: "edit-place-detail__select-box" }, "\u5F92\u6B69 \u25BE"),
-                    react_1.default.createElement("p", { className: "edit-place-detail__transport-message" }, "\u30A2\u30A4\u30B3\u30F3\u3092\u9078\u629E\u3057\u3066\u304F\u3060\u3055\u3044")),
-                react_1.default.createElement("div", { className: "edit-place-detail__transport-detail-wrap" },
-                    react_1.default.createElement(PlusInputBox_1.default, { type: "text", placeholder: '例）山手線　30分', className: "edit-place-detail__transport-detail" }))))));
+            react_1.default.createElement(EditTransport_1.default, { className: "edit-place-detail__transport" }))));
 };
 exports.default = EditPlaceDetail;
 
@@ -88492,6 +88516,30 @@ var EditPlaceContainer = function (_a) {
     return react_1.default.createElement(EditPlace_1.default, { className: className });
 };
 exports.default = EditPlaceContainer;
+
+
+/***/ }),
+
+/***/ "./resources/ts/src/containers/molecules/EditTransport.tsx":
+/*!*****************************************************************!*\
+  !*** ./resources/ts/src/containers/molecules/EditTransport.tsx ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var EditTransport_1 = __importDefault(__webpack_require__(/*! ../../components/molecules/EditTransport */ "./resources/ts/src/components/molecules/EditTransport.tsx"));
+var EditTransportContainer = function (_a) {
+    var className = _a.className;
+    return react_1.default.createElement(EditTransport_1.default, { className: className });
+};
+exports.default = EditTransportContainer;
 
 
 /***/ }),
