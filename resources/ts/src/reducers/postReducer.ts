@@ -20,10 +20,6 @@ export const postReducer: PostReducer = (
 ): State => {
   switch (action.type) {
     case ActionTypes.SET_POST_PROGRESS_INDEX:
-      console.log(
-        'reducer: ' + action.payload.progressIndex
-      )
-
       return {
         ...state,
         progressIndex: action.payload.progressIndex,
