@@ -1,7 +1,11 @@
 import React, { FC, useState, Component } from 'react'
 import axios from 'axios'
-
+import { useDispatch, useSelector } from 'react-redux'
+import { RootState } from '../src/reducers/index'
 const Post: FC = () => {
+  const loginInfo = useSelector(
+    (state: RootState) => state.loginReducer
+  )
   const [title, setTitle] = useState<string>('')
   const [header, setHeader] = useState<string>('')
   const [people, setPeople] = useState<string>('')
@@ -27,7 +31,7 @@ const Post: FC = () => {
   // const [distance, setDistance] = useState<string>('')
   const [comment, setComments] = useState<string[]>([''])
   const [tag_name, setTags] = useState<string[]>([''])
-  const uid = '31'
+  const uid = loginInfo.id
   const is_public = '0'
   const sid = '109'
   const showSchedule = () => {
@@ -84,6 +88,8 @@ const Post: FC = () => {
 
   return (
     <>
+      <p>id: {loginInfo.id}</p>
+      <p>ユーザー名: {loginInfo.username}</p>
       <p>{tag_name}</p>
       <label>
         ヘッダー画像追加

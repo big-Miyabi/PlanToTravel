@@ -73951,7 +73951,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importStar(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var axios_1 = __importDefault(__webpack_require__(/*! axios */ "./node_modules/axios/index.js"));
+var react_redux_1 = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 var Post = function () {
+    var loginInfo = react_redux_1.useSelector(function (state) { return state.loginReducer; });
     var _a = react_1.useState(''), title = _a[0], setTitle = _a[1];
     var _b = react_1.useState(''), header = _b[0], setHeader = _b[1];
     var _c = react_1.useState(''), people = _c[0], setPeople = _c[1];
@@ -73975,7 +73977,7 @@ var Post = function () {
     // const [distance, setDistance] = useState<string>('')
     var _q = react_1.useState(['']), comment = _q[0], setComments = _q[1];
     var _r = react_1.useState(['']), tag_name = _r[0], setTags = _r[1];
-    var uid = '31';
+    var uid = loginInfo.id;
     var is_public = '0';
     var sid = '109';
     var showSchedule = function () {
@@ -74030,6 +74032,12 @@ var Post = function () {
         });
     };
     return (react_1.default.createElement(react_1.default.Fragment, null,
+        react_1.default.createElement("p", null,
+            "id: ",
+            loginInfo.id),
+        react_1.default.createElement("p", null,
+            "\u30E6\u30FC\u30B6\u30FC\u540D: ",
+            loginInfo.username),
         react_1.default.createElement("p", null, tag_name),
         react_1.default.createElement("label", null,
             "\u30D8\u30C3\u30C0\u30FC\u753B\u50CF\u8FFD\u52A0",
