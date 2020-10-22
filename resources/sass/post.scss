@@ -5,6 +5,7 @@
 @include md-down() {
     .post-header {
         &__icons {
+            z-index: 1;
             display: flex;
             position: absolute;
             width: 100%;
@@ -16,7 +17,7 @@
         }
         &__close {
             font-size: 2.4rem;
-            color: $navy;
+            color: $gray;
         }
     }
 

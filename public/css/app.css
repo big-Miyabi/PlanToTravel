@@ -1050,6 +1050,7 @@ next .input-box::placeholder {
 
 @media screen and (max-width: 559px) {
   .post-header__icons {
+    z-index: 1;
     display: flex;
     position: absolute;
     width: 100%;
@@ -1062,7 +1063,7 @@ next .input-box::placeholder {
 
   .post-header__close {
     font-size: 2.4rem;
-    color: #003666;
+    color: #c4c4c4;
   }
 
   .post-image {
