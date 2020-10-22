@@ -25,7 +25,16 @@ const App: FC = () => {
         exact
         component={HomeScreen}
       />
-      <Route path="/post" exact component={PostScreen} />
+      <Route
+        path={[
+          '/post',
+          '/post/overview',
+          '/post/location',
+          '/post/confirm',
+        ]}
+        exact
+        component={PostScreen}
+      />
     </BrowserRouter>
   )
 }
