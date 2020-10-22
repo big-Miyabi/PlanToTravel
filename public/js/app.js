@@ -88051,6 +88051,44 @@ exports.default = UserInfo;
 
 /***/ }),
 
+/***/ "./resources/ts/src/components/organisms/EditItinerary.tsx":
+/*!*****************************************************************!*\
+  !*** ./resources/ts/src/components/organisms/EditItinerary.tsx ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var colors_1 = __webpack_require__(/*! ../../utilities/colors */ "./resources/ts/src/utilities/colors.ts");
+var EditPlace_1 = __importDefault(__webpack_require__(/*! ../../containers/molecules/EditPlace */ "./resources/ts/src/containers/molecules/EditPlace.tsx"));
+var EditPlaceDetail_1 = __importDefault(__webpack_require__(/*! ../../containers/organisms/EditPlaceDetail */ "./resources/ts/src/containers/organisms/EditPlaceDetail.tsx"));
+var FontAwesomeIconBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FontAwesomeIconBtn */ "./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx"));
+var free_solid_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+var MapIcon_1 = __importDefault(__webpack_require__(/*! ../atoms/svg/MapIcon */ "./resources/ts/src/components/atoms/svg/MapIcon.tsx"));
+var EditItinerary = function (_a) {
+    var className = _a.className, history = _a.history;
+    return (react_1.default.createElement("div", { className: className + ' ' + 'edit-itinerary' },
+        react_1.default.createElement("div", { className: "edit-itinerary__date-wrap" },
+            react_1.default.createElement("div", { className: "edit-itinerary__date-border" }),
+            react_1.default.createElement("p", { className: "edit-itinerary__date" }, "2020.10.06")),
+        react_1.default.createElement(EditPlace_1.default, { className: "edit-itinerary__edit-place" }),
+        react_1.default.createElement(EditPlaceDetail_1.default, { className: "edit-itinerary__place-detail" }),
+        react_1.default.createElement("div", { className: "edit-itinerary__add-place" },
+            react_1.default.createElement(MapIcon_1.default, { className: "edit-itinerary__map-icon", shouldHavePlus: false, color: colors_1.colors.navyBlue }),
+            react_1.default.createElement("p", null, "\u5834\u6240\u3092\u8FFD\u52A0"),
+            react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "edit-itinerary__plus", icon: free_solid_svg_icons_1.faPlus }))));
+};
+exports.default = EditItinerary;
+
+
+/***/ }),
+
 /***/ "./resources/ts/src/components/organisms/EditPlaceDetail.tsx":
 /*!*******************************************************************!*\
   !*** ./resources/ts/src/components/organisms/EditPlaceDetail.tsx ***!
@@ -88326,27 +88364,13 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
-var colors_1 = __webpack_require__(/*! ../../utilities/colors */ "./resources/ts/src/utilities/colors.ts");
-var EditPlace_1 = __importDefault(__webpack_require__(/*! ../../containers/molecules/EditPlace */ "./resources/ts/src/containers/molecules/EditPlace.tsx"));
-var EditPlaceDetail_1 = __importDefault(__webpack_require__(/*! ../../containers/organisms/EditPlaceDetail */ "./resources/ts/src/containers/organisms/EditPlaceDetail.tsx"));
-var FontAwesomeIconBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FontAwesomeIconBtn */ "./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx"));
-var free_solid_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 var FormBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FormBtn */ "./resources/ts/src/components/atoms/FormBtn.tsx"));
-var MapIcon_1 = __importDefault(__webpack_require__(/*! ../atoms/svg/MapIcon */ "./resources/ts/src/components/atoms/svg/MapIcon.tsx"));
+var EditItinerary_1 = __importDefault(__webpack_require__(/*! ../../containers/organisms/EditItinerary */ "./resources/ts/src/containers/organisms/EditItinerary.tsx"));
 var PostLocation = function (_a) {
     var history = _a.history;
     return (react_1.default.createElement("div", { className: "post-location" },
         react_1.default.createElement("h2", { className: "post-location__h2" }, "\u884C\u7A0B*"),
-        react_1.default.createElement("div", { className: "itinerary-edit" },
-            react_1.default.createElement("div", { className: "itinerary-edit__date-wrap" },
-                react_1.default.createElement("div", { className: "itinerary-edit__date-border" }),
-                react_1.default.createElement("p", { className: "itinerary-edit__date" }, "2020.10.06")),
-            react_1.default.createElement(EditPlace_1.default, { className: "itinerary-edit__edit-place" }),
-            react_1.default.createElement(EditPlaceDetail_1.default, { className: "itinerary-edit__place-detail" }),
-            react_1.default.createElement("div", { className: "itinerary-edit__add-place" },
-                react_1.default.createElement(MapIcon_1.default, { className: "itinerary-edit__map-icon", shouldHavePlus: false, color: colors_1.colors.navyBlue }),
-                react_1.default.createElement("p", null, "\u5834\u6240\u3092\u8FFD\u52A0"),
-                react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "itinerary-edit__plus", icon: free_solid_svg_icons_1.faPlus }))),
+        react_1.default.createElement(EditItinerary_1.default, { className: "post-location__edit-itinerary", history: history }),
         react_1.default.createElement("div", { className: "post-location__btn-wrap" },
             react_1.default.createElement(FormBtn_1.default, { className: "post-location__return", name: "\u623B\u308B", onClick: function () { } }),
             react_1.default.createElement(FormBtn_1.default, { className: "post-location__next", name: "\u6B21\u3078", onClick: function () { } }))));
@@ -88691,6 +88715,30 @@ var RegisterWithSNSContainer = function (_a) {
     return react_1.default.createElement(RegisterWithSNS_1.default, { className: className });
 };
 exports.default = RegisterWithSNSContainer;
+
+
+/***/ }),
+
+/***/ "./resources/ts/src/containers/organisms/EditItinerary.tsx":
+/*!*****************************************************************!*\
+  !*** ./resources/ts/src/containers/organisms/EditItinerary.tsx ***!
+  \*****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var EditItinerary_1 = __importDefault(__webpack_require__(/*! ../../components/organisms/EditItinerary */ "./resources/ts/src/components/organisms/EditItinerary.tsx"));
+var EditItineraryContainer = function (_a) {
+    var className = _a.className, history = _a.history;
+    return (react_1.default.createElement(EditItinerary_1.default, { className: className, history: history }));
+};
+exports.default = EditItineraryContainer;
 
 
 /***/ }),
