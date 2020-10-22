@@ -1,5 +1,8 @@
-import React, { FC, Dispatch, ChangeEvent } from 'react'
-import { getChangeEventFunc } from '../../utilities/getEventFunc'
+import React, { FC, Dispatch } from 'react'
+import {
+  getChangeEventFunc,
+  getKeyboardEventFunc,
+} from '../../utilities/getEventFunc'
 import PostTag from '../molecules/PostTag'
 import InputBox from '../atoms/InputBox'
 import PlusInputBox from '../atoms/PlusInputBox'
@@ -48,6 +51,7 @@ const PostOverview: FC<Props> = ({
             className="post__tag-input"
             placeholder="タグを追加してください"
             onChange={getChangeEventFunc(setTag)}
+            onKeyPress={getKeyboardEventFunc(addTag)}
             onClick={addTag}
           />
         </div>

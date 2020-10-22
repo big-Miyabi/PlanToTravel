@@ -1,7 +1,10 @@
-import { Dispatch, ChangeEvent } from 'react'
+import { Dispatch, ChangeEvent, KeyboardEvent } from 'react'
 
 type OnChangeFunc = (
   e: ChangeEvent<HTMLInputElement>
+) => void
+type OnKeyPressFunc = (
+  e: KeyboardEvent<HTMLInputElement>
 ) => void
 
 export const getChangeEventFunc = (
@@ -11,5 +14,14 @@ export const getChangeEventFunc = (
     e.persist()
     console.log(e.target.value)
     setValue(e.target.value)
+  }
+}
+
+export const getKeyboardEventFunc = (
+  func: () => void
+): OnKeyPressFunc => {
+  return (e: KeyboardEvent<HTMLInputElement>) => {
+    if (e.key !== 'Enter') return
+    func()
   }
 }

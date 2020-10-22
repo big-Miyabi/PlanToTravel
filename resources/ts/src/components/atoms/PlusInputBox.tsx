@@ -1,4 +1,8 @@
-import React, { FC, ChangeEvent } from 'react'
+import React, {
+  FC,
+  ChangeEvent,
+  KeyboardEvent,
+} from 'react'
 import FontAwesomeIconBtn from './FontAwesomeIconBtn'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import InputBox from './InputBox'
@@ -9,6 +13,7 @@ type Props = {
   placeholder?: string | undefined
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void
   onClick?: () => void
+  onKeyPress?: (e: KeyboardEvent<HTMLInputElement>) => void
 }
 
 const PlusInputBox: FC<Props> = ({
@@ -17,6 +22,7 @@ const PlusInputBox: FC<Props> = ({
   placeholder = undefined,
   onChange = () => {}, // eslint-disable-line
   onClick = () => {}, // eslint-disable-line
+  onKeyPress = () => {} // eslint-disable-line
 }) => {
   return (
     <div className={className + ' ' + 'plus-input-box'}>
@@ -25,6 +31,7 @@ const PlusInputBox: FC<Props> = ({
         className={'plus-input-box__input'}
         placeholder={placeholder}
         onChange={onChange}
+        onKeyPress={onKeyPress}
       />
       <FontAwesomeIconBtn
         onClick={onClick}
