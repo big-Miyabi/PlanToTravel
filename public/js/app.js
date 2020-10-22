@@ -70087,25 +70087,24 @@ var Post = function () {
     var _c = react_1.useState(''), people = _c[0], setPeople = _c[1];
     var _d = react_1.useState(''), day_s = _d[0], setDayS = _d[1];
     var _e = react_1.useState(''), day_f = _e[0], setDayf = _e[1];
-    var _f = react_1.useState(''), order_number = _f[0], setOrderNum = _f[1];
-    var _g = react_1.useState(['']), day = _g[0], setDays = _g[1];
-    var _h = react_1.useState(['']), img = _h[0], setImgs = _h[1];
+    var _f = react_1.useState(['']), day = _f[0], setDays = _f[1];
+    var _g = react_1.useState(['']), img = _g[0], setImgs = _g[1];
+    var _h = react_1.useState([
+        '',
+    ]), place_name = _h[0], setPlaceNames = _h[1];
     var _j = react_1.useState([
         '',
-    ]), place_name = _j[0], setPlaceNames = _j[1];
-    var _k = react_1.useState([
+    ]), longitude = _j[0], setLongitudes = _j[1];
+    var _k = react_1.useState(['']), latitude = _k[0], setLatitudes = _k[1];
+    var _l = react_1.useState(['']), rating = _l[0], setRatings = _l[1];
+    var _m = react_1.useState(['']), weather = _m[0], setWeathers = _m[1];
+    var _o = react_1.useState([
         '',
-    ]), longitude = _k[0], setLongitudes = _k[1];
-    var _l = react_1.useState(['']), latitude = _l[0], setLatitudes = _l[1];
-    var _m = react_1.useState(['']), rating = _m[0], setRatings = _m[1];
-    var _o = react_1.useState(['']), weather = _o[0], setWeathers = _o[1];
-    var _p = react_1.useState([
-        '',
-    ]), transport = _p[0], setTransports = _p[1];
-    var _q = react_1.useState(['']), transport_detail = _q[0], setTransDs = _q[1];
+    ]), transport = _o[0], setTransports = _o[1];
+    var _p = react_1.useState(['']), transport_detail = _p[0], setTransDs = _p[1];
     // const [distance, setDistance] = useState<string>('')
-    var _r = react_1.useState(['']), comment = _r[0], setComments = _r[1];
-    var _s = react_1.useState(['']), tag_name = _s[0], setTags = _s[1];
+    var _q = react_1.useState(['']), comment = _q[0], setComments = _q[1];
+    var _r = react_1.useState(['']), tag_name = _r[0], setTags = _r[1];
     var uid = '31';
     var is_public = '0';
     var addSchedule = function () {
