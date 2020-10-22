@@ -77,6 +77,10 @@ const PostScreen: FC<Props> = (props) => {
   }, [props.location.pathname])
 
   useEffect(() => {
+    window.addEventListener('beforeunload', () => {
+      dispatch(setPostProgressIndex(0))
+    })
+
     return () => {
       dispatch(setPostProgressIndex(0))
     }
