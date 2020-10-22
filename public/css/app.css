@@ -1144,35 +1144,35 @@ next .input-box::placeholder {
     background-color: #003666;
   }
 
-  .post-overview__content-wrap {
+  .post__content-wrap {
     width: 77.3333333333vw;
     margin: 10.6666666667vw auto;
   }
 
-  .post-overview__h2 {
+  .post__h2 {
     margin: 0;
     font-size: 1.4rem;
     font-weight: bold;
     color: #003666;
   }
 
-  .post-overview__row-flex-wrap {
+  .post__row-flex-wrap {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 
-  .post-overview__title {
+  .post__title {
     width: 60.5333333333vw;
     border: none;
     border-bottom: 1px solid #003666;
   }
 
-  .post-overview__title:focus {
+  .post__title:focus {
     outline: none;
   }
 
-  .post-overview__public-switch-btn {
+  .post__public-switch-btn {
     border: 1px solid #e5e5e5;
     background-color: #fff;
     color: #e5e5e5;
@@ -1181,51 +1181,51 @@ next .input-box::placeholder {
     top: -0.3694581281vh;
   }
 
-  .post-overview__tag-input {
+  .post__tag-input {
     width: 61.6vw;
   }
 
-  .post-overview__tag-wrap {
+  .post__tag-wrap {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     margin-top: 2.0935960591vh;
   }
 
-  .post-overview__date-wrap {
+  .post__date-wrap {
     display: flex;
     flex-direction: row;
     margin-top: 2.4vw;
   }
 
-  .post-overview__date {
+  .post__date {
     width: 36.5333333333vw;
   }
 
-  .post-overview__datebar {
+  .post__datebar {
     margin: auto 1.3333333333vw;
   }
 
-  .post-overview__people-input-wrap {
+  .post__people-input-wrap {
     display: flex;
     flex-direction: row;
     margin-top: 2.4vw;
   }
 
-  .post-overview__people {
+  .post__people {
     width: 14.6666666667vw;
   }
 
-  .post-overview__nin {
+  .post__nin {
     margin: 1.3333333333vw 1.6vw 0;
   }
 
-  .post-overview__next-wrap {
+  .post__next-wrap {
     width: 27.4666666667vw;
     margin: 0 auto;
   }
 
-  .post-overview__next {
+  .post__next {
     width: 27.4666666667vw;
     color: white;
   }

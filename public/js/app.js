@@ -88368,12 +88368,13 @@ var FormBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FormBtn */ "./r
 var EditItinerary_1 = __importDefault(__webpack_require__(/*! ../../containers/organisms/EditItinerary */ "./resources/ts/src/containers/organisms/EditItinerary.tsx"));
 var PostLocation = function (_a) {
     var history = _a.history;
-    return (react_1.default.createElement("div", { className: "post-location" },
-        react_1.default.createElement("h2", { className: "post-location__h2" }, "\u884C\u7A0B*"),
-        react_1.default.createElement(EditItinerary_1.default, { className: "post-location__edit-itinerary", history: history }),
-        react_1.default.createElement("div", { className: "post-location__btn-wrap" },
-            react_1.default.createElement(FormBtn_1.default, { className: "post-location__return", name: "\u623B\u308B", onClick: function () { } }),
-            react_1.default.createElement(FormBtn_1.default, { className: "post-location__next", name: "\u6B21\u3078", onClick: function () { } }))));
+    return (react_1.default.createElement("div", { className: "post" },
+        react_1.default.createElement("div", { className: "post__content-wrap" },
+            react_1.default.createElement("h2", { className: "post__h2" }, "\u884C\u7A0B*"),
+            react_1.default.createElement(EditItinerary_1.default, { className: "post__edit-itinerary", history: history }),
+            react_1.default.createElement("div", { className: "post__btn-wrap" },
+                react_1.default.createElement(FormBtn_1.default, { className: "post__return", name: "\u623B\u308B", onClick: function () { } }),
+                react_1.default.createElement(FormBtn_1.default, { className: "post__next", name: "\u6B21\u3078", onClick: function () { } })))));
 };
 exports.default = PostLocation;
 
@@ -88400,36 +88401,36 @@ var PlusInputBox_1 = __importDefault(__webpack_require__(/*! ../atoms/PlusInputB
 var FormBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FormBtn */ "./resources/ts/src/components/atoms/FormBtn.tsx"));
 var PostOverview = function (_a) {
     var goToNext = _a.goToNext;
-    return (react_1.default.createElement("div", { className: "post-overview" },
-        react_1.default.createElement("div", { className: "post-overview__content-wrap" },
-            react_1.default.createElement("h2", { className: "post-overview__h2" }, "\u30BF\u30A4\u30C8\u30EB*"),
-            react_1.default.createElement("div", { className: "post-overview__row-flex-wrap" },
-                react_1.default.createElement("input", { type: "text", className: "post-overview__title" }),
-                react_1.default.createElement(FormBtn_1.default, { className: "post-overview__public-switch-btn", name: "\u975E\u516C\u958B", onClick: function () { } }))),
-        react_1.default.createElement("div", { className: "post-overview__content-wrap" },
-            react_1.default.createElement("div", { className: "post-overview__row-flex-wrap" },
-                react_1.default.createElement("h2", { className: "post-overview__h2" }, "\u30BF\u30B0"),
-                react_1.default.createElement(PlusInputBox_1.default, { type: "text", className: "post-overview__tag-input", placeholder: "\u30BF\u30B0\u3092\u8FFD\u52A0\u3057\u3066\u304F\u3060\u3055\u3044" })),
-            react_1.default.createElement("div", { className: "post-overview__tag-wrap" },
+    return (react_1.default.createElement("div", { className: "post" },
+        react_1.default.createElement("div", { className: "post__content-wrap" },
+            react_1.default.createElement("h2", { className: "post__h2" }, "\u30BF\u30A4\u30C8\u30EB*"),
+            react_1.default.createElement("div", { className: "post__row-flex-wrap" },
+                react_1.default.createElement("input", { type: "text", className: "post__title" }),
+                react_1.default.createElement(FormBtn_1.default, { className: "post__public-switch-btn", name: "\u975E\u516C\u958B", onClick: function () { } }))),
+        react_1.default.createElement("div", { className: "post__content-wrap" },
+            react_1.default.createElement("div", { className: "post__row-flex-wrap" },
+                react_1.default.createElement("h2", { className: "post__h2" }, "\u30BF\u30B0"),
+                react_1.default.createElement(PlusInputBox_1.default, { type: "text", className: "post__tag-input", placeholder: "\u30BF\u30B0\u3092\u8FFD\u52A0\u3057\u3066\u304F\u3060\u3055\u3044" })),
+            react_1.default.createElement("div", { className: "post__tag-wrap" },
                 react_1.default.createElement(PostTag_1.default, { tagName: "hoge", isPost: true, onClick: function () { } }),
                 react_1.default.createElement(PostTag_1.default, { tagName: "hoooge", isPost: true, onClick: function () { } }),
                 react_1.default.createElement(PostTag_1.default, { tagName: "hogeeeddddddddddddddee", isPost: true, onClick: function () { } }),
                 react_1.default.createElement(PostTag_1.default, { tagName: "hoge", isPost: true, onClick: function () { } }),
                 react_1.default.createElement(PostTag_1.default, { tagName: "hoge33333", isPost: true, onClick: function () { } }),
                 react_1.default.createElement(PostTag_1.default, { tagName: "hogeeeee1234", isPost: true, onClick: function () { } }))),
-        react_1.default.createElement("div", { className: "post-overview__content-wrap" },
-            react_1.default.createElement("h2", { className: "post-overview__h2" }, "\u65E5\u4ED8*"),
-            react_1.default.createElement("div", { className: "post-overview__date-wrap" },
-                react_1.default.createElement(InputBox_1.default, { type: "date", className: "post-overview__date" }),
-                react_1.default.createElement("p", { className: "post-overview__datebar" }, "-"),
-                react_1.default.createElement(InputBox_1.default, { type: "date", className: "post-overview__date" }))),
-        react_1.default.createElement("div", { className: "post-overview__content-wrap" },
-            react_1.default.createElement("h2", { className: "post-overview__h2" }, "\u4EBA\u6570*"),
-            react_1.default.createElement("div", { className: "post-overview__people-input-wrap" },
-                react_1.default.createElement(InputBox_1.default, { type: "text", className: "post-overview__people" }),
-                react_1.default.createElement("p", { className: "post-overview__nin" }, "\u4EBA"))),
-        react_1.default.createElement("div", { className: "post-overview__next-wrap" },
-            react_1.default.createElement(FormBtn_1.default, { className: "post-overview__next", name: "\u6B21\u3078", onClick: goToNext }))));
+        react_1.default.createElement("div", { className: "post__content-wrap" },
+            react_1.default.createElement("h2", { className: "post__h2" }, "\u65E5\u4ED8*"),
+            react_1.default.createElement("div", { className: "post__date-wrap" },
+                react_1.default.createElement(InputBox_1.default, { type: "date", className: "post__date" }),
+                react_1.default.createElement("p", { className: "post__datebar" }, "-"),
+                react_1.default.createElement(InputBox_1.default, { type: "date", className: "post__date" }))),
+        react_1.default.createElement("div", { className: "post__content-wrap" },
+            react_1.default.createElement("h2", { className: "post__h2" }, "\u4EBA\u6570*"),
+            react_1.default.createElement("div", { className: "post__people-input-wrap" },
+                react_1.default.createElement(InputBox_1.default, { type: "text", className: "post__people" }),
+                react_1.default.createElement("p", { className: "post__nin" }, "\u4EBA"))),
+        react_1.default.createElement("div", { className: "post__next-wrap" },
+            react_1.default.createElement(FormBtn_1.default, { className: "post__next", name: "\u6B21\u3078", onClick: goToNext }))));
 };
 exports.default = PostOverview;
 

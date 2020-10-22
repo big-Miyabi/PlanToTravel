@@ -85,7 +85,7 @@
         }
     }
 
-    .post-overview {
+    .post {
         &__content-wrap {
             width: px-to-vw(290);
             margin: px-to-vw(40) auto;
@@ -165,6 +165,8 @@
             color: white;
         }
     }
+
+    // ここから場所入力画面
 
     .edit-place {
         %__whether {
