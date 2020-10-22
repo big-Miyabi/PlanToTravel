@@ -16,7 +16,7 @@ import {
   faShoePrints,
   faPlus,
 } from '@fortawesome/free-solid-svg-icons'
-import InputBox from '../atoms/InputBox'
+import PlusInputBox from '../atoms/PlusInputBox'
 import FormBtn from '../atoms/FormBtn'
 import MapIcon from '../atoms/svg/MapIcon'
 import CommentArea from '../molecules/CommentArea'
@@ -43,7 +43,7 @@ const PostLocation: FC<Props> = ({ history }) => {
             shouldHavePlus={false}
             color={colors.navyBlue}
           />
-          <InputBox
+          <PlusInputBox
             type="text"
             className="itinerary-edit__place-input"
           />
@@ -86,7 +86,7 @@ const PostLocation: FC<Props> = ({ history }) => {
                 </p>
               </div>
               <div className="itinerary-edit__transport-detail-wrap">
-                <InputBox
+                <PlusInputBox
                   type="text"
                   placeholder={'例）山手線　30分'}
                   className="itinerary-edit__transport-detail"

@@ -87065,6 +87065,36 @@ exports.default = InputBox;
 
 /***/ }),
 
+/***/ "./resources/ts/src/components/atoms/PlusInputBox.tsx":
+/*!************************************************************!*\
+  !*** ./resources/ts/src/components/atoms/PlusInputBox.tsx ***!
+  \************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var FontAwesomeIconBtn_1 = __importDefault(__webpack_require__(/*! ./FontAwesomeIconBtn */ "./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx"));
+var free_solid_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+var InputBox_1 = __importDefault(__webpack_require__(/*! ./InputBox */ "./resources/ts/src/components/atoms/InputBox.tsx"));
+var PlusInputBox = function (_a) {
+    var type = _a.type, className = _a.className, _b = _a.placeholder, placeholder = _b === void 0 ? undefined : _b, _c = _a.onChange, onChange = _c === void 0 ? function () { } : _c, // eslint-disable-line
+    _d = _a.onClick, // eslint-disable-line
+    onClick = _d === void 0 ? function () { } : _d;
+    return (react_1.default.createElement("div", { className: className + ' ' + 'plus-input-box' },
+        react_1.default.createElement(InputBox_1.default, { type: type, className: 'plus-input-box__input', placeholder: placeholder, onChange: onChange }),
+        react_1.default.createElement(FontAwesomeIconBtn_1.default, { onClick: onClick, className: "plus-input-box__plus", icon: free_solid_svg_icons_1.faPlus })));
+};
+exports.default = PlusInputBox;
+
+
+/***/ }),
+
 /***/ "./resources/ts/src/components/atoms/WhetherPin.tsx":
 /*!**********************************************************!*\
   !*** ./resources/ts/src/components/atoms/WhetherPin.tsx ***!
@@ -88199,7 +88229,7 @@ var colors_1 = __webpack_require__(/*! ../../utilities/colors */ "./resources/ts
 var DashedCircle_1 = __importDefault(__webpack_require__(/*! ../atoms/svg/DashedCircle */ "./resources/ts/src/components/atoms/svg/DashedCircle.tsx"));
 var FontAwesomeIconBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FontAwesomeIconBtn */ "./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx"));
 var free_solid_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
-var InputBox_1 = __importDefault(__webpack_require__(/*! ../atoms/InputBox */ "./resources/ts/src/components/atoms/InputBox.tsx"));
+var PlusInputBox_1 = __importDefault(__webpack_require__(/*! ../atoms/PlusInputBox */ "./resources/ts/src/components/atoms/PlusInputBox.tsx"));
 var FormBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FormBtn */ "./resources/ts/src/components/atoms/FormBtn.tsx"));
 var MapIcon_1 = __importDefault(__webpack_require__(/*! ../atoms/svg/MapIcon */ "./resources/ts/src/components/atoms/svg/MapIcon.tsx"));
 var CommentArea_1 = __importDefault(__webpack_require__(/*! ../molecules/CommentArea */ "./resources/ts/src/components/molecules/CommentArea.tsx"));
@@ -88214,7 +88244,7 @@ var PostLocation = function (_a) {
                 react_1.default.createElement("p", { className: "itinerary-edit__date" }, "2020.10.06")),
             react_1.default.createElement("div", { className: "itinerary-edit__edit-place" },
                 react_1.default.createElement(MapIcon_1.default, { className: "itinerary-edit__map-icon", shouldHavePlus: false, color: colors_1.colors.navyBlue }),
-                react_1.default.createElement(InputBox_1.default, { type: "text", className: "itinerary-edit__place-input" }),
+                react_1.default.createElement(PlusInputBox_1.default, { type: "text", className: "itinerary-edit__place-input" }),
                 react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "itinerary-edit__whether--sun", icon: free_solid_svg_icons_1.faSun }),
                 react_1.default.createElement(DashedCircle_1.default, { className: "itinerary-edit__rating" })),
             react_1.default.createElement("div", { className: "itinerary-edit__place-detail-wrap" },
@@ -88233,7 +88263,7 @@ var PostLocation = function (_a) {
                             react_1.default.createElement("p", { className: "itinerary-edit__select-box" }, "\u5F92\u6B69 \u25BE"),
                             react_1.default.createElement("p", { className: "itinerary-edit__transport-message" }, "\u30A2\u30A4\u30B3\u30F3\u3092\u9078\u629E\u3057\u3066\u304F\u3060\u3055\u3044")),
                         react_1.default.createElement("div", { className: "itinerary-edit__transport-detail-wrap" },
-                            react_1.default.createElement(InputBox_1.default, { type: "text", placeholder: '例）山手線　30分', className: "itinerary-edit__transport-detail" }))))),
+                            react_1.default.createElement(PlusInputBox_1.default, { type: "text", placeholder: '例）山手線　30分', className: "itinerary-edit__transport-detail" }))))),
             react_1.default.createElement("div", { className: "itinerary-edit__add-place" },
                 react_1.default.createElement(MapIcon_1.default, { className: "itinerary-edit__map-icon", shouldHavePlus: false, color: colors_1.colors.navyBlue }),
                 react_1.default.createElement("p", null, "\u5834\u6240\u3092\u8FFD\u52A0"),
@@ -88263,6 +88293,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var PostTag_1 = __importDefault(__webpack_require__(/*! ../molecules/PostTag */ "./resources/ts/src/components/molecules/PostTag.tsx"));
 var InputBox_1 = __importDefault(__webpack_require__(/*! ../atoms/InputBox */ "./resources/ts/src/components/atoms/InputBox.tsx"));
+var PlusInputBox_1 = __importDefault(__webpack_require__(/*! ../atoms/PlusInputBox */ "./resources/ts/src/components/atoms/PlusInputBox.tsx"));
 var FormBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FormBtn */ "./resources/ts/src/components/atoms/FormBtn.tsx"));
 var PostOverview = function (_a) {
     var goToNext = _a.goToNext;
@@ -88275,7 +88306,7 @@ var PostOverview = function (_a) {
         react_1.default.createElement("div", { className: "post-overview__content-wrap" },
             react_1.default.createElement("div", { className: "post-overview__row-flex-wrap" },
                 react_1.default.createElement("h2", { className: "post-overview__h2" }, "\u30BF\u30B0"),
-                react_1.default.createElement(InputBox_1.default, { type: "text", className: "post-overview__tag-input", placeholder: "\u30BF\u30B0\u3092\u8FFD\u52A0\u3057\u3066\u304F\u3060\u3055\u3044" })),
+                react_1.default.createElement(PlusInputBox_1.default, { type: "text", className: "post-overview__tag-input", placeholder: "\u30BF\u30B0\u3092\u8FFD\u52A0\u3057\u3066\u304F\u3060\u3055\u3044" })),
             react_1.default.createElement("div", { className: "post-overview__tag-wrap" },
                 react_1.default.createElement(PostTag_1.default, { tagName: "hoge", isPost: true, onClick: function () { } }),
                 react_1.default.createElement(PostTag_1.default, { tagName: "hoooge", isPost: true, onClick: function () { } }),

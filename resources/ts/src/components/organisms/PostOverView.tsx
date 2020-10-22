@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 import PostTag from '../molecules/PostTag'
 import InputBox from '../atoms/InputBox'
+import PlusInputBox from '../atoms/PlusInputBox'
 import FormBtn from '../atoms/FormBtn'
 
 type Props = {
@@ -28,7 +29,7 @@ const PostOverview: FC<Props> = ({ goToNext }) => {
       <div className="post-overview__content-wrap">
         <div className="post-overview__row-flex-wrap">
           <h2 className="post-overview__h2">タグ</h2>
-          <InputBox
+          <PlusInputBox
             type="text"
             className="post-overview__tag-input"
             placeholder="タグを追加してください"

@@ -403,6 +403,22 @@ next .input-box::placeholder {
   outline: none;
 }
 
+.plus-input-box {
+  position: relative;
+}
+
+.plus-input-box__input {
+  width: 100%;
+}
+
+.plus-input-box__plus {
+  position: absolute;
+  top: 1.8666666667vw;
+  right: 2.1333333333vw;
+  font-size: 1.2rem;
+  color: #003666;
+}
+
 .post-tag {
   display: inline-flex;
   height: 6.9333333333vw;
