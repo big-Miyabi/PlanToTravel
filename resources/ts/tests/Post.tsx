@@ -29,7 +29,20 @@ const Post: FC = () => {
   const [tag_name, setTags] = useState<string[]>([''])
   const uid = '31'
   const is_public = '0'
+  const sid = '109'
   const showSchedule = () => {
+    axios
+      .post('/api/show', {
+        sid,
+      })
+      .then((res) => {
+        console.log(res.data)
+      })
+      .catch(() => {
+        console.log('通信に失敗しました')
+      })
+  }
+  const indexSchedule = () => {
     axios
       .get('/api/index')
       .then((res) => {
@@ -402,6 +415,7 @@ const Post: FC = () => {
         />
       </label>
       <button onClick={addSchedule}>確定</button>
+      <button onClick={indexSchedule}>一覧確認</button>
       <button onClick={showSchedule}>確認</button>
     </>
   )
