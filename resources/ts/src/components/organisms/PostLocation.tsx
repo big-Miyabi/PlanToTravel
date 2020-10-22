@@ -13,6 +13,9 @@ import {
   faUmbrella,
   faSnowflake,
   faMoon,
+  faWalking,
+  faShoePrints,
+  faPlus,
 } from '@fortawesome/free-solid-svg-icons'
 import InputBox from '../atoms/InputBox'
 import FormBtn from '../atoms/FormBtn'
@@ -34,7 +37,7 @@ const PostLocation: FC<Props> = ({ history }) => {
           <p className="itinerary-edit__date">2020.10.06</p>
         </div>
 
-        <div className="itinerary-edit__place-row-wrap">
+        <div className="itinerary-edit__edit-place">
           <MapIcon
             className="itinerary-edit__map-icon"
             shouldHavePlus={false}
@@ -61,7 +64,49 @@ const PostLocation: FC<Props> = ({ history }) => {
             </div>
 
             <CommentArea maxLength={255} />
+
+            <div className="itinerary-edit__transport-wrap">
+              <p className="itinerary-edit__transport-title">
+                <FontAwesomeIconBtn
+                  className="itinerary-edit__walking-icon"
+                  icon={faWalking}
+                />
+                移動手段を追加
+              </p>
+              <div className="itinerary-edit__select-transport">
+                <FontAwesomeIconBtn
+                  className="itinerary-edit__shoe-prints-icon"
+                  icon={faShoePrints}
+                />
+                <p className="itinerary-edit__select-box">
+                  徒歩 ▾
+                </p>
+                <p className="itinerary-edit__transport-message">
+                  アイコンを選択してください
+                </p>
+              </div>
+              <div className="itinerary-edit__transport-detail-wrap">
+                <InputBox
+                  type="text"
+                  placeholder={'例）山手線　30分'}
+                  className="itinerary-edit__transport-detail"
+                />
+              </div>
+            </div>
           </div>
+        </div>
+
+        <div className="itinerary-edit__add-place">
+          <MapIcon
+            className="itinerary-edit__map-icon"
+            shouldHavePlus={false}
+            color={colors.navyBlue}
+          />
+          <p>場所を追加</p>
+          <FontAwesomeIconBtn
+            className="itinerary-edit__plus"
+            icon={faPlus}
+          />
         </div>
       </div>
 
