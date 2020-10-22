@@ -25,4 +25,6 @@ Auth::routes();
 Route::get('/', function () {
   return view('welcome');
 });
+Route::get('/show', 'ScheduleController@index')->name('top');
+
 // Route::get('/home', 'HomeController@index')->name('home');

@@ -19,10 +19,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::group(['middleware' => 'api'], function () {
   Route::post('create', 'PostController@create');
-  Route::post('like','LikeController@store')->name('likes.like');
-  Route::delete('unlike','LikeController@destroy')->name('likes.unlike');
+  Route::post('like', 'LikeController@store')->name('likes.like');
+  Route::delete('unlike', 'LikeController@destroy')->name('likes.unlike');
 });
- 
+
 
 
 Auth::routes();

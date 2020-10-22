@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import { Link } from 'react-router-dom'
 import { colors } from '../../utilities/colors'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import NaviIcon from '../atoms/svg/NaviIcon'
@@ -23,10 +24,12 @@ const Header: FC<Props> = ({ ...props }) => {
           }
           onClick={() => switchMenuDisplay()}
         />
-        <FontAwesomeIconBtn
-          className="post-header__close"
-          icon={faTimes}
-        />
+        <Link to="/home">
+          <FontAwesomeIconBtn
+            className="post-header__close"
+            icon={faTimes}
+          />
+        </Link>
       </div>
       <PostImage />
     </div>
