@@ -69811,8 +69811,6 @@ __webpack_require__(/*! ./bootstrap */ "./resources/ts/bootstrap.js");
 // どちらか一方にコメントアウトをして使う
 // testsを使いたい場合(バック側)
 __webpack_require__(/*! ./tests/App */ "./resources/ts/tests/App.tsx");
-// Reactの実装状態を確認したい場合(フロント側)
-//require('./src/App')
 
 
 /***/ }),
@@ -69907,6 +69905,7 @@ var Register_1 = __importDefault(__webpack_require__(/*! ./Register */ "./resour
 var Login_1 = __importDefault(__webpack_require__(/*! ./Login */ "./resources/ts/tests/Login.tsx"));
 var Post_1 = __importDefault(__webpack_require__(/*! ./Post */ "./resources/ts/tests/Post.tsx"));
 var PostEdit_1 = __importDefault(__webpack_require__(/*! ./PostEdit */ "./resources/ts/tests/PostEdit.tsx"));
+var likeTest_1 = __importDefault(__webpack_require__(/*! ./likeTest */ "./resources/ts/tests/likeTest.tsx"));
 var App = function () {
     return (react_1.default.createElement(react_router_dom_1.BrowserRouter, null,
         react_1.default.createElement(GlobalNav_1.default, null),
@@ -69915,7 +69914,8 @@ var App = function () {
         react_1.default.createElement(react_router_dom_1.Route, { path: "/hoge", component: Register_1.default }),
         react_1.default.createElement(react_router_dom_1.Route, { path: "/hogehoge", component: Login_1.default }),
         react_1.default.createElement(react_router_dom_1.Route, { path: "/post", component: Post_1.default }),
-        react_1.default.createElement(react_router_dom_1.Route, { path: "/postEdit", component: PostEdit_1.default })));
+        react_1.default.createElement(react_router_dom_1.Route, { path: "/postEdit", component: PostEdit_1.default }),
+        react_1.default.createElement(react_router_dom_1.Route, { path: "/likeTest", component: likeTest_1.default })));
 };
 if (document.getElementById('app')) {
     react_dom_1.default.render(react_1.default.createElement(App, null), document.getElementById('app'));
@@ -69953,7 +69953,9 @@ var GlobalNav = function () {
             react_1.default.createElement(react_router_dom_1.Link, { to: "/post" },
                 react_1.default.createElement("li", null, "Post")),
             react_1.default.createElement(react_router_dom_1.Link, { to: "/postEdit" },
-                react_1.default.createElement("li", null, "PostEdit")))));
+                react_1.default.createElement("li", null, "PostEdit")),
+            react_1.default.createElement(react_router_dom_1.Link, { to: "/likeTest" },
+                react_1.default.createElement("li", null, "likeTest")))));
 };
 exports.default = GlobalNav;
 
@@ -70103,9 +70105,7 @@ var Post = function () {
     var _q = react_1.useState(''), transport_detail = _q[0], setTransD = _q[1];
     // const [distance, setDistance] = useState<string>('')
     var _r = react_1.useState(''), comment = _r[0], setComment = _r[1];
-    var _s = react_1.useState(''), tag_name = _s[0], setTagName = _s[1];
-    var _t = react_1.useState(''), tag_name2 = _t[0], setTagName2 = _t[1];
-    var _u = react_1.useState(''), tag_name3 = _u[0], setTagName3 = _u[1];
+    var _s = react_1.useState(['']), tags = _s[0], setTags = _s[1];
     var uid = '31';
     var is_public = '0';
     var addSchedule = function () {
@@ -70118,9 +70118,7 @@ var Post = function () {
             day_s: day_s,
             day_f: day_f,
             is_public: is_public,
-            tag_name: tag_name,
-            tag_name2: tag_name2,
-            tag_name3: tag_name3,
+            tags: tags,
         })
             .then(function (res) {
             console.log(res.data);
@@ -70130,6 +70128,7 @@ var Post = function () {
         });
     };
     return (react_1.default.createElement(react_1.default.Fragment, null,
+        react_1.default.createElement("p", null, tags),
         react_1.default.createElement("label", null,
             "\u30D8\u30C3\u30C0\u30FC\u753B\u50CF\u8FFD\u52A0",
             react_1.default.createElement("input", { type: "text", onChange: function (e) { return setHeader(e.target.value); } })),
@@ -70140,11 +70139,23 @@ var Post = function () {
         react_1.default.createElement("br", null),
         react_1.default.createElement("label", null,
             "\u30BF\u30B0",
-            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setTagName(e.target.value); } }),
+            react_1.default.createElement("input", { type: "text", onChange: function (e) {
+                    var newTags = tags.slice();
+                    newTags[0] = e.target.value;
+                    setTags(newTags);
+                } }),
             ",",
-            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setTagName2(e.target.value); } }),
+            react_1.default.createElement("input", { type: "text", onChange: function (e) {
+                    var newTags = tags.slice();
+                    newTags[1] = e.target.value;
+                    setTags(newTags);
+                } }),
             ",",
-            react_1.default.createElement("input", { type: "text", onChange: function (e) { return setTagName3(e.target.value); } })),
+            react_1.default.createElement("input", { type: "text", onChange: function (e) {
+                    var newTags = tags.slice();
+                    newTags[2] = e.target.value;
+                    setTags(newTags);
+                } })),
         react_1.default.createElement("br", null),
         react_1.default.createElement("label", null,
             "\u65E5\u4ED8*",
@@ -70523,6 +70534,29 @@ var Top = function () {
     return react_1.default.createElement("h1", null, "Top");
 };
 exports.default = Top;
+
+
+/***/ }),
+
+/***/ "./resources/ts/tests/likeTest.tsx":
+/*!*****************************************!*\
+  !*** ./resources/ts/tests/likeTest.tsx ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var LikeTest = function () {
+    return (react_1.default.createElement(react_1.default.Fragment, null,
+        react_1.default.createElement("h2", null, "\u3044\u3044\u306D\u6A5F\u80FD\u30C6\u30B9\u30C8")));
+};
+exports.default = LikeTest;
 
 
 /***/ }),
