@@ -88331,6 +88331,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var react_router_dom_1 = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/esm/react-router-dom.js");
 var colors_1 = __webpack_require__(/*! ../../utilities/colors */ "./resources/ts/src/utilities/colors.ts");
 var free_solid_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 var NaviIcon_1 = __importDefault(__webpack_require__(/*! ../atoms/svg/NaviIcon */ "./resources/ts/src/components/atoms/svg/NaviIcon.tsx"));
@@ -88342,7 +88343,8 @@ var Header = function (_a) {
     return (react_1.default.createElement("div", { className: "post-header" },
         react_1.default.createElement("div", { className: "post-header__icons" },
             react_1.default.createElement(NaviIcon_1.default, { className: "post-header__menu", color: isMenuActive ? colors_1.colors.yellow : colors_1.colors.lightGray, onClick: function () { return switchMenuDisplay(); } }),
-            react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "post-header__close", icon: free_solid_svg_icons_1.faTimes })),
+            react_1.default.createElement(react_router_dom_1.Link, { to: "/home" },
+                react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "post-header__close", icon: free_solid_svg_icons_1.faTimes }))),
         react_1.default.createElement(PostImage_1.default, null)));
 };
 exports.default = Header;
