@@ -7,8 +7,9 @@ import FormBtn from '../atoms/FormBtn'
 
 type Props = {
   goToNext: () => void
+  tag: string
   tags: string[]
-  addTag: (tag: string) => void
+  addTag: () => void
   setTag: Dispatch<React.SetStateAction<string>>
   setDateS: Dispatch<React.SetStateAction<string>>
   setDateF: Dispatch<React.SetStateAction<string>>
@@ -17,6 +18,7 @@ type Props = {
 
 const PostOverview: FC<Props> = ({
   goToNext,
+  tag,
   tags,
   addTag,
   setTag,
@@ -46,11 +48,13 @@ const PostOverview: FC<Props> = ({
             className="post__tag-input"
             placeholder="タグを追加してください"
             onChange={getChangeEventFunc(setTag)}
+            onClick={addTag}
           />
         </div>
         <div className="post__tag-wrap">
           {tags.map((value, index) => (
             <PostTag
+              key={index}
               tagName={value}
               isPost={true}
               onClick={() => {}}

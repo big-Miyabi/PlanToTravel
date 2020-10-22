@@ -14,10 +14,11 @@ const PostOverviewContainer: FC<Props> = ({ history }) => {
   const [dateS, setDateS] = useState<string>('')
   const [dateF, setDateF] = useState<string>('')
   const [people, setPeople] = useState<number>(0)
-  const tags: string[] = []
+  const [tags, setTags] = useState<string[]>([])
 
-  const addTag = (tag: string) => {
+  const addTag = () => {
     tags.push(tag)
+    setTags(tags.slice())
   }
 
   const goToNext = () => {
@@ -28,6 +29,7 @@ const PostOverviewContainer: FC<Props> = ({ history }) => {
   return (
     <PostOverView
       goToNext={goToNext}
+      tag={tag}
       tags={tags}
       addTag={addTag}
       setTag={setTag}
