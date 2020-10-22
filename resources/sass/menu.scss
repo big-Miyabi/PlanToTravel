@@ -1,0 +1,197 @@
+@import "variables";
+@import "function";
+
+// @include md-down()内部にstyleを記述すると、スマートフォンサイズでメディアクエリがかかるようになる
+@include md-down() {
+    .header {
+        display: flex;
+        margin-top: px-to-vh(12);
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        &__logo {
+            width: px-to-vw(226.8);
+        }
+    }
+    .form-input {
+        &__label {
+            margin-bottom: 0;
+        }
+    }
+
+    .menu {
+        %__contents {
+            position: absolute;
+            z-index: 1000;
+            top: px-to-vh(81);
+            left: px-to-vw(25);
+            padding-top: px-to-vh(11);
+            background-size: cover;
+            text-align: center;
+        }
+        &__contents {
+            &--login {
+                @extend %__contents;
+                width: px-to-vw(325);
+                height: px-to-vw(320); // 縦横比固定のためvwを使用
+                background-image: url("../assets/navi_loginBg.png");
+            }
+            &--user {
+                @extend %__contents;
+                width: px-to-vw(325);
+                height: px-to-vw(368); // 縦横比固定のためvwを使用
+                background-image: url("../assets/navi_myBg.png");
+            }
+        }
+    }
+
+    .menu-overlay {
+        display: block;
+        position: fixed;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 10;
+    }
+
+    .login-menu {
+        &__forgetting-password {
+            margin: px-to-vh(3) 0 px-to-vh(13);
+            text-decoration: underline;
+            color: $gray;
+            font-size: 1.2rem;
+        }
+
+        &__register-link {
+            margin: px-to-vh(15) 0 px-to-vh(23);
+            text-decoration: underline;
+            color: $orange;
+        }
+    }
+
+    .login {
+        margin: 0 auto;
+        text-align: center;
+        &__button {
+            width: px-to-vw(133);
+            height: px-to-vh(33);
+            background-color: $yellow;
+            color: #fff;
+            &:focus {
+                outline: none;
+            }
+        }
+
+        &__twitter-icon {
+            position: relative;
+            top: px-to-vh(5);
+            margin: 0 px-to-vw(15) 0;
+            color: $yellow;
+            font-size: 2.4rem;
+        }
+
+        &__facebook-icon {
+            position: relative;
+            top: px-to-vh(5);
+            color: $yellow;
+            font-size: 2.4rem;
+        }
+    }
+
+    .policy {
+        color: $gray;
+        &__terms {
+            text-decoration: underline;
+        }
+
+        &__privacy-policy {
+            text-decoration: underline;
+        }
+    }
+
+    .user-info {
+        width: px-to-vw(229);
+        margin: px-to-vh(25) auto 0px;
+        color: $yellow;
+
+        &__icon-name-wrap {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        &__user-icon {
+            float: left;
+            font-size: 5.6rem;
+        }
+
+        &__name-wrap {
+            display: flex;
+            position: relative;
+            width: px-to-vw(157);
+            height: px-to-vh(41);
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            flex-direction: column;
+            justify-content: center;
+            &:before,
+            &:after {
+                position: absolute;
+                top: 0;
+                content: "";
+                width: px-to-vw(11);
+                height: 100%;
+                border-top: 4px solid $yellow;
+                border-bottom: 4px solid $yellow;
+                -webkit-box-sizing: border-box;
+                box-sizing: border-box;
+            }
+            &:before {
+                left: 0;
+                border-left: 4px solid $yellow;
+            }
+            &:after {
+                right: 0;
+                border-right: 4px solid $yellow;
+            }
+        }
+
+        &__name {
+            margin-bottom: 0;
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: black;
+        }
+
+        &__show-profile {
+            margin-top: px-to-vh(-5);
+            text-align: right;
+        }
+    }
+    .items-wrap {
+        margin-bottom: px-to-vh(15);
+    }
+
+    .menu-item {
+        display: flex;
+        width: px-to-vw(229);
+        height: px-to-vh(32);
+        margin: 0 auto;
+        border-bottom: px-to-vh(1) solid $light-gray;
+        font-size: 1.4rem;
+        color: $light-gray;
+        justify-content: space-between;
+        align-items: center;
+        &__icon {
+            margin-top: px-to-vh(4);
+            margin-left: px-to-vw(7);
+        }
+        &__title {
+            width: 100%;
+            margin-bottom: 0;
+            text-align: center;
+        }
+    }
+}

@@ -1,0 +1,252 @@
+@import "variables";
+@import "function";
+
+// @include md-down()内部にstyleを記述すると、スマートフォンサイズでメディアクエリがかかるようになる
+@include md-down() {
+    .post-header {
+        &__icons {
+            z-index: 1;
+            display: flex;
+            position: absolute;
+            width: 100%;
+            margin-top: calc(#{$header-top} + #{px-to-vh(12)});
+            padding: 0 px-to-vw(13);
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+        &__close {
+            font-size: 2.4rem;
+            color: $gray;
+        }
+    }
+
+    .post-image {
+        width: 100vw;
+        height: px-to-vw(207); // 高さは幅依存
+        background-size: cover;
+
+        &:before {
+            //z-index: 5;
+            position: absolute;
+            width: 100%;
+            height: px-to-vw(207);
+            background: linear-gradient(
+                to right,
+                rgba(255, 255, 255, 0.3),
+                rgba(255, 255, 255, 0.6),
+                rgba(255, 255, 255, 0.95)
+            );
+            content: "";
+        }
+        &__plus-image-wrap {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+        &__plus-image {
+            z-index: 1;
+        }
+    }
+
+    .progress-map {
+        position: relative;
+        margin: px-to-vw(20) 0 px-to-vw(-20);
+
+        &__wrap {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &__name-wrap {
+            display: flex;
+            width: px-to-vw(219);
+            color: $navy;
+            font-size: 1.2rem;
+            justify-content: space-between;
+            align-items: center;
+        }
+        &__progress-img {
+            width: px-to-vw(213);
+            height: px-to-vw(18);
+        }
+        &__circle {
+            position: relative;
+            top: px-to-vw(-14);
+            margin: 0 auto;
+            width: px-to-vw(10);
+            height: px-to-vw(10);
+            border-radius: 100%;
+            background-color: $navy;
+        }
+    }
+
+    .post {
+        &__content-wrap {
+            width: px-to-vw(290);
+            margin: px-to-vw(40) auto;
+        }
+
+        &__h2 {
+            margin: 0;
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: $navy;
+        }
+
+        &__row-flex-wrap {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        &__title {
+            width: px-to-vw(227);
+            border: none;
+            border-bottom: 1px solid $navy;
+            &:focus {
+                outline: none;
+            }
+        }
+
+        &__public-switch-btn {
+            border: 1px solid $light-gray;
+            background-color: $white;
+            color: $light-gray;
+            font-weight: normal;
+            position: relative;
+            top: px-to-vh(-3);
+        }
+
+        &__tag-input {
+            width: px-to-vw(231);
+        }
+
+        &__tag-wrap {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin-top: px-to-vh(17);
+        }
+        &__date-wrap {
+            display: flex;
+            flex-direction: row;
+            margin-top: px-to-vw(9);
+        }
+        &__date {
+            width: px-to-vw(137);
+        }
+        &__datebar {
+            margin: auto px-to-vw(5);
+        }
+
+        &__people-input-wrap {
+            display: flex;
+            flex-direction: row;
+            margin-top: px-to-vw(9);
+        }
+        &__people {
+            width: px-to-vw(55);
+        }
+        &__nin {
+            margin: px-to-vw(5) px-to-vw(6) 0;
+        }
+
+        &__next-wrap {
+            width: px-to-vw(103);
+            margin: 0 auto;
+        }
+        &__next {
+            width: px-to-vw(103);
+            color: white;
+        }
+    }
+
+    // ここから場所入力画面
+
+    .edit-itinerary {
+        &__date-wrap {
+            display: flex;
+            align-items: center;
+        }
+        &__date-border {
+            height: 2px;
+            margin-right: px-to-vw(5);
+            background-color: $light-blue;
+            flex-basis: 80%;
+        }
+        &__date {
+            margin-bottom: 0;
+            font-size: 1rem;
+            font-weight: bold;
+            color: $light-blue;
+            flex-basis: 20%;
+        }
+        &__add-place {
+            display: flex;
+            align-items: center;
+        }
+        &__p {
+            margin-bottom: 0;
+        }
+        &__map-icon {
+            width: px-to-vw(14);
+            height: px-to-vw(20);
+        }
+    }
+
+    .edit-place {
+        display: flex;
+        width: px-to-vw(232);
+        justify-content: space-between;
+
+        &__map-icon {
+            width: px-to-vw(14);
+            height: px-to-vw(20);
+        }
+
+        &__input {
+            width: px-to-vw(149);
+        }
+
+        %__whether {
+            font-size: 2.4rem;
+        }
+        &__whether {
+            @extend %__whether;
+            &--sun {
+                @extend %__whether;
+                color: $orange;
+            }
+            &--cloud {
+                @extend %__whether;
+                color: $gray;
+            }
+            &--rain {
+                @extend %__whether;
+                color: $navy;
+            }
+            &--snow {
+                @extend %__whether;
+                color: $light-blue;
+            }
+            &--night {
+                @extend %__whether;
+                color: $yellow;
+            }
+        }
+    }
+
+    .edit-place-detail {
+        display: flex;
+
+        &__left {
+            width: 1px;
+            background-color: $navy;
+        }
+    }
+}
