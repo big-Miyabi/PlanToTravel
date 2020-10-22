@@ -161,4 +161,33 @@
             color: white;
         }
     }
+
+    .itinerary-edit {
+        %__whether {
+            font-size: 2.4rem;
+        }
+        &__whether {
+            @extend %__whether;
+            &--sun {
+                @extend %__whether;
+                color: $orange;
+            }
+            &--cloud {
+                @extend %__whether;
+                color: $gray;
+            }
+            &--rain {
+                @extend %__whether;
+                color: $navy;
+            }
+            &--snow {
+                @extend %__whether;
+                color: $light-blue;
+            }
+            &--night {
+                @extend %__whether;
+                color: $yellow;
+            }
+        }
+    }
 }
