@@ -9,7 +9,7 @@ import { persistStore } from 'redux-persist'
 import persistedReducer, { RootState } from './reducers'
 import RegisterScreen from './components/screens/RegisterScreen'
 import HomeScreen from './components/screens/HomeScreen'
-import PostScreen from './components/screens/PostScreen'
+import PostScreen from './containers/screens/PostScreen'
 
 const App: FC = () => {
   return (
