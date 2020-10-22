@@ -94,11 +94,13 @@ const PostOverview: FC<Props> = ({ goToNext }) => {
         </div>
       </div>
 
-      <FormBtn
-        className="post-overview__next"
-        name="次へ"
-        onClick={goToNext}
-      />
+      <div className="post-overview__next-wrap">
+        <FormBtn
+          className="post-overview__next"
+          name="次へ"
+          onClick={goToNext}
+        />
+      </div>
     </div>
   )
 }

@@ -19,4 +19,8 @@ class Schedule extends Model
   {
     return $this->hasMany('App\Schedules_tag');
   }
+  public function schedules_places()
+  {
+    return $this->hasMany('App\Schedules_place');
+  }
 }
