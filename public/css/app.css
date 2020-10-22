@@ -403,6 +403,22 @@ next .input-box::placeholder {
   outline: none;
 }
 
+.plus-input-box {
+  position: relative;
+}
+
+.plus-input-box__input {
+  width: 100%;
+}
+
+.plus-input-box__plus {
+  position: absolute;
+  top: 1.8666666667vw;
+  right: 2.1333333333vw;
+  font-size: 1.2rem;
+  color: #003666;
+}
+
 .post-tag {
   display: inline-flex;
   height: 6.9333333333vw;
@@ -1050,6 +1066,7 @@ next .input-box::placeholder {
 
 @media screen and (max-width: 559px) {
   .post-header__icons {
+    z-index: 1;
     display: flex;
     position: absolute;
     width: 100%;
@@ -1062,7 +1079,7 @@ next .input-box::placeholder {
 
   .post-header__close {
     font-size: 2.4rem;
-    color: #003666;
+    color: #c4c4c4;
   }
 
   .post-image {
@@ -1085,6 +1102,10 @@ next .input-box::placeholder {
     height: 100%;
     justify-content: center;
     align-items: center;
+  }
+
+  .post-image__plus-image {
+    z-index: 1;
   }
 
   .progress-map {
@@ -1123,35 +1144,35 @@ next .input-box::placeholder {
     background-color: #003666;
   }
 
-  .post-overview__content-wrap {
+  .post__content-wrap {
     width: 77.3333333333vw;
     margin: 10.6666666667vw auto;
   }
 
-  .post-overview__h2 {
+  .post__h2 {
     margin: 0;
     font-size: 1.4rem;
     font-weight: bold;
     color: #003666;
   }
 
-  .post-overview__row-flex-wrap {
+  .post__row-flex-wrap {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
 
-  .post-overview__title {
+  .post__title {
     width: 60.5333333333vw;
     border: none;
     border-bottom: 1px solid #003666;
   }
 
-  .post-overview__title:focus {
+  .post__title:focus {
     outline: none;
   }
 
-  .post-overview__public-switch-btn {
+  .post__public-switch-btn {
     border: 1px solid #e5e5e5;
     background-color: #fff;
     color: #e5e5e5;
@@ -1160,53 +1181,140 @@ next .input-box::placeholder {
     top: -0.3694581281vh;
   }
 
-  .post-overview__tag-input {
+  .post__tag-input {
     width: 61.6vw;
   }
 
-  .post-overview__tag-wrap {
+  .post__tag-wrap {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     margin-top: 2.0935960591vh;
   }
 
-  .post-overview__date-wrap {
+  .post__date-wrap {
     display: flex;
     flex-direction: row;
     margin-top: 2.4vw;
   }
 
-  .post-overview__date {
+  .post__date {
     width: 36.5333333333vw;
   }
 
-  .post-overview__datebar {
+  .post__datebar {
     margin: auto 1.3333333333vw;
   }
 
-  .post-overview__people-input-wrap {
+  .post__people-input-wrap {
     display: flex;
     flex-direction: row;
     margin-top: 2.4vw;
   }
 
-  .post-overview__people {
+  .post__people {
     width: 14.6666666667vw;
   }
 
-  .post-overview__nin {
+  .post__nin {
     margin: 1.3333333333vw 1.6vw 0;
   }
 
-  .post-overview__next-wrap {
+  .post__next-wrap {
     width: 27.4666666667vw;
     margin: 0 auto;
   }
 
-  .post-overview__next {
+  .post__next {
     width: 27.4666666667vw;
     color: white;
+  }
+
+  .edit-itinerary__date-wrap {
+    display: flex;
+    align-items: center;
+  }
+
+  .edit-itinerary__date-border {
+    height: 2px;
+    margin-right: 1.3333333333vw;
+    background-color: #bcdbe8;
+    flex-basis: 80%;
+  }
+
+  .edit-itinerary__date {
+    margin-bottom: 0;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #bcdbe8;
+    flex-basis: 20%;
+  }
+
+  .edit-itinerary__add-place {
+    display: flex;
+    align-items: center;
+  }
+
+  .edit-itinerary__p {
+    margin-bottom: 0;
+  }
+
+  .edit-itinerary__map-icon {
+    width: 3.7333333333vw;
+    height: 5.3333333333vw;
+  }
+
+  .edit-place {
+    display: flex;
+    width: 61.8666666667vw;
+    justify-content: space-between;
+  }
+
+  .edit-place__map-icon {
+    width: 3.7333333333vw;
+    height: 5.3333333333vw;
+  }
+
+  .edit-place__input {
+    width: 39.7333333333vw;
+  }
+
+  .edit-place .edit-place__whether--night,
+  .edit-place .edit-place__whether--snow,
+  .edit-place .edit-place__whether--rain,
+  .edit-place .edit-place__whether--cloud,
+  .edit-place .edit-place__whether--sun,
+  .edit-place .edit-place__whether {
+    font-size: 2.4rem;
+  }
+
+  .edit-place__whether--sun {
+    color: #ff6633;
+  }
+
+  .edit-place__whether--cloud {
+    color: #c4c4c4;
+  }
+
+  .edit-place__whether--rain {
+    color: #003666;
+  }
+
+  .edit-place__whether--snow {
+    color: #bcdbe8;
+  }
+
+  .edit-place__whether--night {
+    color: #fcbe32;
+  }
+
+  .edit-place-detail {
+    display: flex;
+  }
+
+  .edit-place-detail__left {
+    width: 1px;
+    background-color: #003666;
   }
 }
 

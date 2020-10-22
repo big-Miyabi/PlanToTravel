@@ -20,7 +20,7 @@ const UserMenuContainer: FC<Props> = ({ className }) => {
   const logout = () => {
     // ログイン情報を初期化
     dispatch(setLoginState(false))
-    dispatch(setLoginInfo(0, 'unknown', '', '', null))
+    dispatch(setLoginInfo(-1, 'unknown', '', '', null))
   }
 
   return (

@@ -4,12 +4,13 @@ import storage from 'redux-persist/lib/storage'
 
 import { loginReducer } from './loginReducer'
 import { menuReducer } from './menuReducer'
+import { postReducer } from './postReducer'
 
 // 永続化の設定
 const persistConfig = {
   key: 'root', // Storageに保存されるキー名を指定する
   storage, // 保存先としてlocalStorageがここで設定される
-  whitelist: ['loginReducer'], // Stateは`loginReducer`のみStorageに保存する
+  whitelist: ['loginReducer', 'postReducer'], // Stateは`loginReducer`のみStorageに保存する
   // blacklist: ['hoge'] // `hoge`は保存しない
 }
 
@@ -17,6 +18,7 @@ const persistConfig = {
 const rootReducer = combineReducers({
   loginReducer,
   menuReducer,
+  postReducer,
 })
 const persistedReducer = persistReducer(
   persistConfig,
