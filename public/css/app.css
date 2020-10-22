@@ -442,6 +442,29 @@ next .input-box::placeholder {
   margin-right: 10px;
 }
 
+.post__btn-wrap {
+  width: 62.4vw;
+  height: 6.9333333333vw;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+}
+
+.post__return {
+  width: 27.4666666667vw;
+  color: white;
+  background-color: #bcdbe8;
+}
+
+.post__next {
+  width: 27.4666666667vw;
+  color: white;
+}
+
+.comment-area__textarea:focus {
+  outline: none;
+}
+
 @media screen and (max-width: 559px) {
   .register-screen {
     width: 100vw;
@@ -821,6 +844,14 @@ next .input-box::placeholder {
     margin: 3.2019704433vh auto 0px;
     background-size: cover;
     border-radius: 4.5333333333vw;
+  }
+
+  .popular-card__wrap:before {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.1));
+    content: "";
   }
 
   .popular-card__white-bg-wrap {
@@ -1225,9 +1256,9 @@ next .input-box::placeholder {
     margin: 0 auto;
   }
 
-  .post__next {
-    width: 27.4666666667vw;
-    color: white;
+  .edit-itinerary {
+    color: #003666;
+    margin-bottom: 19.4666666667vw;
   }
 
   .edit-itinerary__date-wrap {
@@ -1239,11 +1270,11 @@ next .input-box::placeholder {
     height: 2px;
     margin-right: 1.3333333333vw;
     background-color: #bcdbe8;
-    flex-basis: 80%;
+    flex-basis: 85%;
   }
 
   .edit-itinerary__date {
-    margin-bottom: 0;
+    margin-bottom: 1.6vw;
     font-size: 1rem;
     font-weight: bold;
     color: #bcdbe8;
@@ -1253,15 +1284,36 @@ next .input-box::placeholder {
   .edit-itinerary__add-place {
     display: flex;
     align-items: center;
+    margin-left: 3.7333333333vw;
   }
 
   .edit-itinerary__p {
+    font-weight: bold;
+    font-size: 1.4rem;
     margin-bottom: 0;
+    margin-left: 1.8666666667vw;
+  }
+
+  .edit-itinerary__plus {
+    font-weight: bold;
+    margin-left: 1.8666666667vw;
   }
 
   .edit-itinerary__map-icon {
     width: 3.7333333333vw;
     height: 5.3333333333vw;
+  }
+
+  .edit-itinerary__add-place-detail-wrap {
+    width: 61.8666666667vw;
+    height: auto;
+    margin-left: 3.7333333333vw;
+    margin-bottom: 2.4vw;
+  }
+
+  .edit-itinerary__place-detail {
+    margin-left: 1.6vw;
+    margin-top: 1.6vw;
   }
 
   .edit-place {
@@ -1273,6 +1325,7 @@ next .input-box::placeholder {
   .edit-place__map-icon {
     width: 3.7333333333vw;
     height: 5.3333333333vw;
+    margin: 0.8vw 0;
   }
 
   .edit-place__input {
@@ -1314,7 +1367,97 @@ next .input-box::placeholder {
 
   .edit-place-detail__left {
     width: 1px;
+    height: auto;
     background-color: #003666;
+    margin-right: 3.7333333333vw;
+  }
+
+  .edit-place-detail__plus-img-wrap {
+    display: flex;
+    flex-direction: row;
+    margin: 3.4666666667vw 0;
+  }
+
+  .edit-place-detail__plus-img-wrap p {
+    margin: 0.8vw 0;
+  }
+
+  .edit-place-detail__plus-img {
+    width: 6.9333333333vw;
+    height: 5.8666666667vw;
+    margin-right: 1.6vw;
+  }
+
+  .comment-area {
+    width: 53.3333333333vw;
+    height: 27.4666666667vw;
+    border: solid #003666 1px;
+    border-radius: 7px;
+    padding: 1.3333333333vw;
+    margin-bottom: 6.6666666667vw;
+  }
+
+  .comment-area__header {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .comment-area__p {
+    font-size: 1.2rem;
+    margin-right: 29.3333333333vw;
+    margin-bottom: 0;
+  }
+
+  .comment-area__edit-icon {
+    margin-right: 1.6vw;
+  }
+
+  .comment-area__textarea {
+    resize: none;
+    border: none;
+    width: 49.3333333333vw;
+    height: 20vw;
+  }
+
+  .edit-transposrt {
+    margin-bottom: 3.4666666667vw;
+  }
+
+  .edit-transposrt__title {
+    font-size: 1.2rem;
+  }
+
+  .edit-transposrt__walking-icon {
+    font-size: 1.6rem;
+    margin-right: 1.6vw;
+  }
+
+  .edit-transposrt__select-transport {
+    display: flex;
+    flex-direction: row;
+    color: #c4c4c4;
+    margin-left: 4vw;
+  }
+
+  .edit-transposrt__select-wrap {
+    display: flex;
+    flex-direction: row;
+    color: #7390ab;
+    margin-right: 3.4666666667vw;
+  }
+
+  .edit-transposrt__shoe-prints-icon {
+    font-size: 1.1rem;
+    margin-top: 0.8vw;
+    margin-right: 0.8vw;
+  }
+
+  .edit-transposrt__detail-wrap {
+    margin-left: 3.2vw;
+  }
+
+  .edit-transposrt__detail {
+    width: 49.3333333333vw;
   }
 }
 

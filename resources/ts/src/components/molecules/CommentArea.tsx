@@ -15,7 +15,7 @@ const CommentArea: FC<Props> = ({
 }) => {
   return (
     <div className="comment-area">
-      <div className="coment-area__header">
+      <div className="comment-area__header">
         <p className="comment-area__p">
           <EditIcon className="comment-area__edit-icon" />
           コメント
