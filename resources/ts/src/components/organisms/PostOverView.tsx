@@ -13,6 +13,7 @@ type Props = {
   tag: string
   tags: string[]
   addTag: () => void
+  deleteTag: (index: number) => void
   setTag: Dispatch<React.SetStateAction<string>>
   tagInputRef: React.RefObject<HTMLInputElement>
   setDateS: Dispatch<React.SetStateAction<string>>
@@ -25,6 +26,7 @@ const PostOverview: FC<Props> = ({
   tag,
   tags,
   addTag,
+  deleteTag,
   setTag,
   tagInputRef,
   setDateS,
@@ -52,6 +54,7 @@ const PostOverview: FC<Props> = ({
             type="text"
             className="post__tag-input"
             placeholder="タグを追加してください"
+            maxLength={12}
             onChange={getChangeEventFunc(setTag)}
             onKeyPress={getKeyboardEventFunc(addTag)}
             onClick={addTag}
@@ -64,7 +67,9 @@ const PostOverview: FC<Props> = ({
               key={index}
               tagName={value}
               isPost={true}
-              onClick={() => {}}
+              onClick={() => {
+                deleteTag(index)
+              }}
             />
           ))}
         </div>

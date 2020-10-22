@@ -18,10 +18,22 @@ const PostOverviewContainer: FC<Props> = ({ history }) => {
   const tagInputRef = useRef<HTMLInputElement>(null)
 
   const addTag = () => {
-    tags.push(tag)
+    const input = tagInputRef.current
+    if (input === null) return
+    if (tags.length >= 5) return
+    if (input.value.length > 12) return
+    if (input.value === '') return
+    const regexp = /^\s+(?!.+)/g // 空白のみの時
+    if (regexp.test(input.value)) return
+    tags.push(tag.trim()) // trimは前後の空白を削除するメソッド
     setTags(tags.slice())
-    if (tagInputRef.current === null) return
-    tagInputRef.current.value = ''
+    input.value = ''
+    setTag('')
+  }
+
+  const deleteTag = (index: number) => {
+    tags.splice(index, 1)
+    setTags(tags.slice())
   }
 
   const goToNext = () => {
@@ -35,6 +47,7 @@ const PostOverviewContainer: FC<Props> = ({ history }) => {
       tag={tag}
       tags={tags}
       addTag={addTag}
+      deleteTag={deleteTag}
       setTag={setTag}
       tagInputRef={tagInputRef}
       setDateS={setDateS}
