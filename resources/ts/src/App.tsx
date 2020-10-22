@@ -7,9 +7,9 @@ import { PersistGate } from 'redux-persist/integration/react'
 import { PersistPartial } from 'redux-persist/es/persistReducer'
 import { persistStore } from 'redux-persist'
 import persistedReducer, { RootState } from './reducers'
-import RegisterScreen from './screens/RegisterScreen'
-import HomeScreen from './screens/HomeScreen'
-import PostScreen from './screens/PostScreen'
+import RegisterScreen from './components/screens/RegisterScreen'
+import HomeScreen from './components/screens/HomeScreen'
+import PostScreen from './components/screens/PostScreen'
 
 const App: FC = () => {
   return (

@@ -6,13 +6,13 @@ import React, {
 } from 'react'
 import { RouteComponentProps as Props } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { RootState } from '../reducers/index'
-import { setPostProgressIndex } from '../actions/post'
-import Header from '../containers/organisms/Header'
-import Menu from '../components/organisms/Menu'
-import ProgressBar from '../components/molecules/ProgressBar'
-import PostOverview from '../containers/organisms/PostOverview'
-import PostLocation from '../containers/organisms/PostLocation'
+import { RootState } from '../../reducers/index'
+import { setPostProgressIndex } from '../../actions/post'
+import Header from '../../containers/organisms/Header'
+import Menu from '../../components/organisms/Menu'
+import ProgressBar from '../../components/molecules/ProgressBar'
+import PostOverview from '../../containers/organisms/PostOverview'
+import PostLocation from '../../containers/organisms/PostLocation'
 
 const checkAndMovePages = (
   path: string,
