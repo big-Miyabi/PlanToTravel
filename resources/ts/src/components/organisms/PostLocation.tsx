@@ -2,17 +2,11 @@ import React, { FC } from 'react'
 import * as H from 'history'
 import { colors } from '../../utilities/colors'
 import EditPlace from '../../containers/molecules/EditPlace'
+import EditPlaceDetail from '../../containers/organisms/EditPlaceDetail'
 import FontAwesomeIconBtn from '../atoms/FontAwesomeIconBtn'
-import {
-  faWalking,
-  faShoePrints,
-  faPlus,
-} from '@fortawesome/free-solid-svg-icons'
-import PlusInputBox from '../atoms/PlusInputBox'
+import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import FormBtn from '../atoms/FormBtn'
 import MapIcon from '../atoms/svg/MapIcon'
-import CommentArea from '../molecules/CommentArea'
-import PlusImage from '../atoms/svg/PlusImage'
 
 type Props = {
   history: H.History
@@ -31,47 +25,7 @@ const PostLocation: FC<Props> = ({ history }) => {
 
         <EditPlace className="itinerary-edit__edit-place" />
 
-        <div className="itinerary-edit__place-detail-wrap">
-          <div className="itinerary-edit__left-border"></div>
-
-          <div className="itinerary-edit__right-detai">
-            <div className="itinerary-edit__add-image-wrap">
-              <PlusImage className="itinerary-edit__add-image" />
-              <p>タップして写真を追加</p>
-            </div>
-
-            <CommentArea maxLength={255} />
-
-            <div className="itinerary-edit__transport-wrap">
-              <p className="itinerary-edit__transport-title">
-                <FontAwesomeIconBtn
-                  className="itinerary-edit__walking-icon"
-                  icon={faWalking}
-                />
-                移動手段を追加
-              </p>
-              <div className="itinerary-edit__select-transport">
-                <FontAwesomeIconBtn
-                  className="itinerary-edit__shoe-prints-icon"
-                  icon={faShoePrints}
-                />
-                <p className="itinerary-edit__select-box">
-                  徒歩 ▾
-                </p>
-                <p className="itinerary-edit__transport-message">
-                  アイコンを選択してください
-                </p>
-              </div>
-              <div className="itinerary-edit__transport-detail-wrap">
-                <PlusInputBox
-                  type="text"
-                  placeholder={'例）山手線　30分'}
-                  className="itinerary-edit__transport-detail"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
+        <EditPlaceDetail className="itinerary-edit__place-detail" />
 
         <div className="itinerary-edit__add-place">
           <MapIcon
