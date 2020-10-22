@@ -5,7 +5,6 @@ import DashedCircle from '../atoms/svg/DashedCircle'
 import BadFace from '../atoms/svg/BadFace'
 import SosoFace from '../atoms/svg/SosoFace'
 import GoodFace from '../atoms/svg/GoodFace'
-import AddImage from '../atoms/svg/AddImage'
 import FontAwesomeIconBtn from '../atoms/FontAwesomeIconBtn'
 import {
   faSun,
@@ -21,6 +20,7 @@ import InputBox from '../atoms/InputBox'
 import FormBtn from '../atoms/FormBtn'
 import MapIcon from '../atoms/svg/MapIcon'
 import CommentArea from '../molecules/CommentArea'
+import PlusImage from '../atoms/svg/PlusImage'
 
 type Props = {
   history: H.History
@@ -59,7 +59,7 @@ const PostLocation: FC<Props> = ({ history }) => {
 
           <div className="itinerary-edit__right-detai">
             <div className="itinerary-edit__add-image-wrap">
-              <AddImage className="itinerary-edit__add-image" />
+              <PlusImage className="itinerary-edit__add-image" />
               <p>タップして写真を追加</p>
             </div>
 
