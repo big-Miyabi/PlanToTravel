@@ -34,7 +34,8 @@ input:-webkit-autofill {
     border: solid 1px $navy;
     border-radius: 8px;
     font-size: 1.2rem;
-    &::placeholder {
+    height: px-to-vw(26);
+    next &::placeholder {
         color: $light-gray;
     }
     &:focus {
@@ -42,9 +43,26 @@ input:-webkit-autofill {
     }
 }
 
+.plus-input-box {
+    position: relative;
+    &__input {
+        width: 100%;
+    }
+    &__plus {
+        position: absolute;
+        top: px-to-vw(7);
+        right: px-to-vw(8);
+        font-size: 1.2rem;
+        color: $navy;
+    }
+}
+
 .post-tag {
     display: inline-flex;
     height: px-to-vw(26);
+
+    margin-bottom: px-to-vw(10);
+    margin-right: px-to-vw(10);
     padding: 0 10px;
     border-radius: 7px;
     background-color: $light-blue;
