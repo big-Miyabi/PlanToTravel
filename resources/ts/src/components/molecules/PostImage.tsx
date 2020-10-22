@@ -12,7 +12,7 @@ const PostImage: FC = () => {
       <div className="post-image__plus-image-wrap">
         <PlusImage
           className="post-image__plus-image"
-          opacity={1}
+          opacity={0.34}
         />
       </div>
     </div>
