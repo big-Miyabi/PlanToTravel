@@ -1,12 +1,7 @@
 import React, { FC } from 'react'
 import * as H from 'history'
-import { colors } from '../../utilities/colors'
-import EditPlace from '../../containers/molecules/EditPlace'
-import EditPlaceDetail from '../../containers/organisms/EditPlaceDetail'
-import FontAwesomeIconBtn from '../atoms/FontAwesomeIconBtn'
-import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import FormBtn from '../atoms/FormBtn'
-import MapIcon from '../atoms/svg/MapIcon'
+import EditItinerary from '../../containers/organisms/EditItinerary'
 
 type Props = {
   history: H.History
@@ -17,29 +12,10 @@ const PostLocation: FC<Props> = ({ history }) => {
     <div className="post-location">
       <h2 className="post-location__h2">行程*</h2>
 
-      <div className="itinerary-edit">
-        <div className="itinerary-edit__date-wrap">
-          <div className="itinerary-edit__date-border"></div>
-          <p className="itinerary-edit__date">2020.10.06</p>
-        </div>
-
-        <EditPlace className="itinerary-edit__edit-place" />
-
-        <EditPlaceDetail className="itinerary-edit__place-detail" />
-
-        <div className="itinerary-edit__add-place">
-          <MapIcon
-            className="itinerary-edit__map-icon"
-            shouldHavePlus={false}
-            color={colors.navyBlue}
-          />
-          <p>場所を追加</p>
-          <FontAwesomeIconBtn
-            className="itinerary-edit__plus"
-            icon={faPlus}
-          />
-        </div>
-      </div>
+      <EditItinerary
+        className="post-location__edit-itinerary"
+        history={history}
+      />
 
       <div className="post-location__btn-wrap">
         <FormBtn
