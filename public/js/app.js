@@ -87823,7 +87823,7 @@ var PostImage = function () {
     };
     return (react_1.default.createElement("div", { className: "post-image", style: style },
         react_1.default.createElement("div", { className: "post-image__plus-image-wrap" },
-            react_1.default.createElement(PlusImage_1.default, { className: "post-image__plus-image", opacity: 1 }))));
+            react_1.default.createElement(PlusImage_1.default, { className: "post-image__plus-image", opacity: 0.34 }))));
 };
 exports.default = PostImage;
 

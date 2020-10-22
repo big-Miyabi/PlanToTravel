@@ -1088,6 +1088,10 @@ next .input-box::placeholder {
     align-items: center;
   }
 
+  .post-image__plus-image {
+    z-index: 1;
+  }
+
   .progress-map {
     position: relative;
     margin: 5.3333333333vw 0 -5.3333333333vw;
