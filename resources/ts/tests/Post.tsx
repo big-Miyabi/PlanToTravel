@@ -1,7 +1,11 @@
 import React, { FC, useState, Component } from 'react'
 import axios from 'axios'
-
+import { useDispatch, useSelector } from 'react-redux'
+import { RootState } from '../src/reducers/index'
 const Post: FC = () => {
+  const loginInfo = useSelector(
+    (state: RootState) => state.loginReducer
+  )
   const [title, setTitle] = useState<string>('')
   const [header, setHeader] = useState<string>('')
   const [people, setPeople] = useState<string>('')
@@ -27,9 +31,35 @@ const Post: FC = () => {
   // const [distance, setDistance] = useState<string>('')
   const [comment, setComments] = useState<string[]>([''])
   const [tag_name, setTags] = useState<string[]>([''])
-  const uid = '31'
+  const uid = loginInfo.id
   const is_public = '0'
+  const sid = '132'
   const showSchedule = () => {
+    axios
+      .post('/api/show', {
+        sid,
+      })
+      .then((res) => {
+        console.log(res.data)
+      })
+      .catch(() => {
+        console.log('通信に失敗しました')
+      })
+  }
+  const likeSchedule = () => {
+    axios
+      .post('/api/like', {
+        sid,
+        uid,
+      })
+      .then((res) => {
+        console.log(res.data)
+      })
+      .catch(() => {
+        console.log('通信に失敗しました')
+      })
+  }
+  const indexSchedule = () => {
     axios
       .get('/api/index')
       .then((res) => {
@@ -71,6 +101,8 @@ const Post: FC = () => {
 
   return (
     <>
+      <p>id: {loginInfo.id}</p>
+      <p>ユーザー名: {loginInfo.username}</p>
       <p>{tag_name}</p>
       <label>
         ヘッダー画像追加
@@ -402,7 +434,9 @@ const Post: FC = () => {
         />
       </label>
       <button onClick={addSchedule}>確定</button>
+      <button onClick={indexSchedule}>一覧確認</button>
       <button onClick={showSchedule}>確認</button>
+      <button onClick={likeSchedule}>いいね</button>
     </>
   )
 }

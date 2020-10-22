@@ -23,4 +23,8 @@ class Schedule extends Model
   {
     return $this->hasMany('App\Schedules_place');
   }
+  public function likes()
+  {
+    return $this->hasMany('App\Like');
+  }
 }
