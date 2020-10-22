@@ -31,9 +31,15 @@ const Post: FC = () => {
   // const [distance, setDistance] = useState<string>('')
   const [comment, setComments] = useState<string[]>([''])
   const [tag_name, setTags] = useState<string[]>([''])
+<<<<<<< HEAD
   const uid = '1'
   const is_public = '0'
   const sid = '1'
+=======
+  const uid = loginInfo.id
+  const is_public = '0'
+  const sid = '132'
+>>>>>>> 517a982629c3e74995081fe154b3a0c197cefdc1
   const showSchedule = () => {
     axios
       .post('/api/show', {
@@ -450,7 +456,10 @@ const Post: FC = () => {
       <button onClick={indexSchedule}>一覧確認</button>
       <button onClick={showSchedule}>確認</button>
       <button onClick={likeSchedule}>いいね</button>
+<<<<<<< HEAD
       <button onClick={bookMark}>ブックマーク</button>
+=======
+>>>>>>> 517a982629c3e74995081fe154b3a0c197cefdc1
     </>
   )
 }
