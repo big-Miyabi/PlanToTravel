@@ -10,6 +10,7 @@ import persistedReducer, { RootState } from './reducers'
 import RegisterScreen from './components/screens/RegisterScreen'
 import HomeScreen from './components/screens/HomeScreen'
 import PostScreen from './containers/screens/PostScreen'
+import MapScreen from './containers/screens/MapScreen'
 
 const App: FC = () => {
   return (
@@ -35,6 +36,7 @@ const App: FC = () => {
         exact
         component={PostScreen}
       />
+      <Route path={'/map'} exact component={MapScreen} />
     </BrowserRouter>
   )
 }
