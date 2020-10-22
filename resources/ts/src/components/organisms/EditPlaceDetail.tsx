@@ -16,7 +16,7 @@ const EditPlaceDetail: FC<Props> = ({ className }) => {
       <div className="edit-place-detail__right">
         <div className="edit-place-detail__plus-img-wrap">
           <PlusImage className="edit-place-detail__plus-img" />
-          <p>タップして写真を追加</p>
+          <p className="edit-place-detail__plus-img-text">タップして写真を追加</p>
         </div>
 
         <CommentArea maxLength={255} />
