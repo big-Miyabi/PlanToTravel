@@ -1208,6 +1208,35 @@ next .input-box::placeholder {
     width: 27.4666666667vw;
     color: white;
   }
+
+  .itinerary-edit .itinerary-edit__whether--night,
+  .itinerary-edit .itinerary-edit__whether--snow,
+  .itinerary-edit .itinerary-edit__whether--rain,
+  .itinerary-edit .itinerary-edit__whether--cloud,
+  .itinerary-edit .itinerary-edit__whether--sun,
+  .itinerary-edit .itinerary-edit__whether {
+    font-size: 2.4rem;
+  }
+
+  .itinerary-edit__whether--sun {
+    color: #ff6633;
+  }
+
+  .itinerary-edit__whether--cloud {
+    color: #c4c4c4;
+  }
+
+  .itinerary-edit__whether--rain {
+    color: #003666;
+  }
+
+  .itinerary-edit__whether--snow {
+    color: #bcdbe8;
+  }
+
+  .itinerary-edit__whether--night {
+    color: #fcbe32;
+  }
 }
 
 /*!

@@ -12,6 +12,7 @@ import Header from '../containers/organisms/Header'
 import Menu from '../components/organisms/Menu'
 import ProgressBar from '../components/molecules/ProgressBar'
 import PostOverview from '../containers/organisms/PostOverview'
+import PostLocation from '../containers/organisms/PostLocation'
 
 const checkAndMovePages = (
   path: string,
@@ -93,7 +94,7 @@ const PostScreen: FC<Props> = (props) => {
       {pageIndex === 0 ? (
         <PostOverview history={props.history} />
       ) : (
-        <></>
+        <PostLocation history={props.history} />
       )}
     </div>
   )

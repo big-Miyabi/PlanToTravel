@@ -87219,12 +87219,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var colors_1 = __webpack_require__(/*! ../../../utilities/colors */ "./resources/ts/src/utilities/colors.ts");
 var MapIcon = function (_a) {
-    var className = _a.className, _b = _a.color, color = _b === void 0 ? colors_1.colors.navyBlue : _b, _c = _a.onClick, onClick = _c === void 0 ? function () { } : _c;
+    var className = _a.className, _b = _a.color, color = _b === void 0 ? colors_1.colors.navyBlue : _b, _c = _a.onClick, onClick = _c === void 0 ? function () { } : _c, _d = _a.shouldHavePlus, shouldHavePlus = _d === void 0 ? true : _d;
     return (react_1.default.createElement("svg", { className: className, onClick: onClick, width: "38", height: "53", viewBox: "0 0 38 53", fill: "none", xmlns: "http://www.w3.org/2000/svg" },
         react_1.default.createElement("g", { clipPath: "url(#clip0)" },
             react_1.default.createElement("path", { d: "M17.4127 53C17.4127 53 -8.59257 26.4976 2.95095 7.57008C2.95095 7.57008 6.80038 0 18.3439 0C18.3439 0 33.7369 0 37.5815 15.1449C41.4261 30.2898 17.4127 53 17.4127 53Z", fill: color }),
             react_1.default.createElement("path", { d: "M18.3448 30.285C24.7201 30.285 29.8883 25.2001 29.8883 18.9276C29.8883 12.655 24.7201 7.57007 18.3448 7.57007C11.9695 7.57007 6.80127 12.655 6.80127 18.9276C6.80127 25.2001 11.9695 30.285 18.3448 30.285Z", fill: "white" }),
-            react_1.default.createElement("path", { d: "M9.78198 18.7859C9.78198 18.4932 9.82518 18.2004 9.91638 17.9076C10.0076 17.6148 10.142 17.3503 10.334 17.1189C10.5212 16.8828 10.7707 16.6939 11.0779 16.5475C11.3851 16.4011 11.7547 16.3303 12.1915 16.3303H15.4025V13.2607C15.4025 12.3068 15.6761 11.6031 16.2185 11.1545C16.7609 10.7058 17.3993 10.4839 18.1336 10.4839C18.868 10.4839 19.5064 10.7106 20.0488 11.1545C20.5911 11.6031 20.8647 12.3068 20.8647 13.2607V16.3303H24.0758C24.5126 16.3303 24.8821 16.4011 25.1893 16.5475C25.4965 16.6939 25.7461 16.8828 25.9333 17.1189C26.1205 17.355 26.2597 17.6148 26.3509 17.9076C26.4421 18.2004 26.4853 18.4932 26.4853 18.7859C26.4853 19.0787 26.4421 19.3763 26.3509 19.6785C26.2645 19.9807 26.1157 20.2546 25.9189 20.4955C25.7221 20.741 25.4725 20.9394 25.1749 21.0952C24.8773 21.2511 24.5126 21.3313 24.0758 21.3313H20.8647V24.4009C20.8647 25.3549 20.5911 26.0585 20.0488 26.5071C19.5016 26.9558 18.8632 27.1777 18.1336 27.1777C17.4041 27.1777 16.7609 26.9558 16.2185 26.5071C15.6713 26.0585 15.4025 25.3596 15.4025 24.4009V21.3313H12.1915C11.7547 21.3313 11.3851 21.2558 11.0779 21.0952C10.7707 20.9394 10.5212 20.741 10.334 20.4955C10.1468 20.2499 10.0076 19.9807 9.91638 19.6785C9.82518 19.3763 9.78198 19.0787 9.78198 18.7859Z", fill: color })),
+            shouldHavePlus ? (react_1.default.createElement("path", { d: "M9.78198 18.7859C9.78198 18.4932 9.82518 18.2004 9.91638 17.9076C10.0076 17.6148 10.142 17.3503 10.334 17.1189C10.5212 16.8828 10.7707 16.6939 11.0779 16.5475C11.3851 16.4011 11.7547 16.3303 12.1915 16.3303H15.4025V13.2607C15.4025 12.3068 15.6761 11.6031 16.2185 11.1545C16.7609 10.7058 17.3993 10.4839 18.1336 10.4839C18.868 10.4839 19.5064 10.7106 20.0488 11.1545C20.5911 11.6031 20.8647 12.3068 20.8647 13.2607V16.3303H24.0758C24.5126 16.3303 24.8821 16.4011 25.1893 16.5475C25.4965 16.6939 25.7461 16.8828 25.9333 17.1189C26.1205 17.355 26.2597 17.6148 26.3509 17.9076C26.4421 18.2004 26.4853 18.4932 26.4853 18.7859C26.4853 19.0787 26.4421 19.3763 26.3509 19.6785C26.2645 19.9807 26.1157 20.2546 25.9189 20.4955C25.7221 20.741 25.4725 20.9394 25.1749 21.0952C24.8773 21.2511 24.5126 21.3313 24.0758 21.3313H20.8647V24.4009C20.8647 25.3549 20.5911 26.0585 20.0488 26.5071C19.5016 26.9558 18.8632 27.1777 18.1336 27.1777C17.4041 27.1777 16.7609 26.9558 16.2185 26.5071C15.6713 26.0585 15.4025 25.3596 15.4025 24.4009V21.3313H12.1915C11.7547 21.3313 11.3851 21.2558 11.0779 21.0952C10.7707 20.9394 10.5212 20.741 10.334 20.4955C10.1468 20.2499 10.0076 19.9807 9.91638 19.6785C9.82518 19.3763 9.78198 19.0787 9.78198 18.7859Z", fill: color })) : (react_1.default.createElement(react_1.default.Fragment, null))),
         react_1.default.createElement("defs", null,
             react_1.default.createElement("clipPath", { id: "clip0" },
                 react_1.default.createElement("rect", { width: "38", height: "53", fill: "transparent" })))));
@@ -88099,6 +88099,47 @@ exports.default = Header;
 
 /***/ }),
 
+/***/ "./resources/ts/src/components/organisms/PostLocation.tsx":
+/*!****************************************************************!*\
+  !*** ./resources/ts/src/components/organisms/PostLocation.tsx ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var colors_1 = __webpack_require__(/*! ../../utilities/colors */ "./resources/ts/src/utilities/colors.ts");
+var FontAwesomeIconBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FontAwesomeIconBtn */ "./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx"));
+var free_solid_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+var InputBox_1 = __importDefault(__webpack_require__(/*! ../atoms/InputBox */ "./resources/ts/src/components/atoms/InputBox.tsx"));
+var FormBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FormBtn */ "./resources/ts/src/components/atoms/FormBtn.tsx"));
+var MapIcon_1 = __importDefault(__webpack_require__(/*! ../atoms/svg/MapIcon */ "./resources/ts/src/components/atoms/svg/MapIcon.tsx"));
+var PostLocation = function (_a) {
+    var history = _a.history;
+    return (react_1.default.createElement("div", { className: "post-location" },
+        react_1.default.createElement("h2", { className: "post-location__h2" }, "\u884C\u7A0B*"),
+        react_1.default.createElement("div", { className: "itinerary-edit" },
+            react_1.default.createElement("div", { className: "itinerary-edit__date-wrap" },
+                react_1.default.createElement("div", { className: "itinerary-edit__date-border" }),
+                react_1.default.createElement("p", { className: "itinerary-edit__date" }, "2020.10.06")),
+            react_1.default.createElement("div", { className: "itinerary-edit__place-row-wrap" },
+                react_1.default.createElement(MapIcon_1.default, { className: "itinerary-edit__map-icon", shouldHavePlus: false, color: colors_1.colors.navyBlue }),
+                react_1.default.createElement(InputBox_1.default, { type: "text", className: "itinerary-edit__place-input" }),
+                react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "itinerary-edit__whether--sun", icon: free_solid_svg_icons_1.faSun }))),
+        react_1.default.createElement("div", { className: "post-location__btn-wrap" },
+            react_1.default.createElement(FormBtn_1.default, { className: "post-location__return", name: "\u623B\u308B", onClick: function () { } }),
+            react_1.default.createElement(FormBtn_1.default, { className: "post-location__next", name: "\u6B21\u3078", onClick: function () { } }))));
+};
+exports.default = PostLocation;
+
+
+/***/ }),
+
 /***/ "./resources/ts/src/components/organisms/PostOverView.tsx":
 /*!****************************************************************!*\
   !*** ./resources/ts/src/components/organisms/PostOverView.tsx ***!
@@ -88817,6 +88858,30 @@ exports.default = PopularPostsContainer;
 
 /***/ }),
 
+/***/ "./resources/ts/src/containers/organisms/PostLocation.tsx":
+/*!****************************************************************!*\
+  !*** ./resources/ts/src/containers/organisms/PostLocation.tsx ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var PostLocation_1 = __importDefault(__webpack_require__(/*! ../../components/organisms/PostLocation */ "./resources/ts/src/components/organisms/PostLocation.tsx"));
+var PostLocationContainer = function (_a) {
+    var history = _a.history;
+    return react_1.default.createElement(PostLocation_1.default, { history: history });
+};
+exports.default = PostLocationContainer;
+
+
+/***/ }),
+
 /***/ "./resources/ts/src/containers/organisms/PostOverview.tsx":
 /*!****************************************************************!*\
   !*** ./resources/ts/src/containers/organisms/PostOverview.tsx ***!
@@ -89224,6 +89289,7 @@ var Header_1 = __importDefault(__webpack_require__(/*! ../containers/organisms/H
 var Menu_1 = __importDefault(__webpack_require__(/*! ../components/organisms/Menu */ "./resources/ts/src/components/organisms/Menu.tsx"));
 var ProgressBar_1 = __importDefault(__webpack_require__(/*! ../components/molecules/ProgressBar */ "./resources/ts/src/components/molecules/ProgressBar.tsx"));
 var PostOverview_1 = __importDefault(__webpack_require__(/*! ../containers/organisms/PostOverview */ "./resources/ts/src/containers/organisms/PostOverview.tsx"));
+var PostLocation_1 = __importDefault(__webpack_require__(/*! ../containers/organisms/PostLocation */ "./resources/ts/src/containers/organisms/PostLocation.tsx"));
 var checkAndMovePages = function (path, previousIndex, pathnames, setPageIndex, props, dispatch) {
     if (path === '/post') {
         // '/post'は強制的に最初の画面に遷移
@@ -89272,7 +89338,7 @@ var PostScreen = function (props) {
         react_1.default.createElement(Header_1.default, { isPost: false }),
         react_1.default.createElement(Menu_1.default, null),
         react_1.default.createElement(ProgressBar_1.default, { className: "post-screen__progress-map", names: ['概要', '場所', '確認'], index: pageIndex }),
-        pageIndex === 0 ? (react_1.default.createElement(PostOverview_1.default, { history: props.history })) : (react_1.default.createElement(react_1.default.Fragment, null))));
+        pageIndex === 0 ? (react_1.default.createElement(PostOverview_1.default, { history: props.history })) : (react_1.default.createElement(PostLocation_1.default, { history: props.history }))));
 };
 exports.default = PostScreen;
 
