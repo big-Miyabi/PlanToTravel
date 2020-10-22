@@ -17,7 +17,7 @@ type LoginReducer = Reducer<State, UnionedAction>
 
 const initialState: State = {
   state: false,
-  id: 0,
+  id: -1,
   username: 'unknown',
   header: '',
   icon: '',

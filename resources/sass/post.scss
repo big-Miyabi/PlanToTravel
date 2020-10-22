@@ -5,6 +5,7 @@
 @include md-down() {
     .post-header {
         &__icons {
+            z-index: 1;
             display: flex;
             position: absolute;
             width: 100%;
@@ -16,7 +17,7 @@
         }
         &__close {
             font-size: 2.4rem;
-            color: $navy;
+            color: $gray;
         }
     }
 
@@ -44,6 +45,9 @@
             height: 100%;
             justify-content: center;
             align-items: center;
+        }
+        &__plus-image {
+            z-index: 1;
         }
     }
 
@@ -81,7 +85,7 @@
         }
     }
 
-    .post-overview {
+    .post {
         &__content-wrap {
             width: px-to-vw(290);
             margin: px-to-vw(40) auto;
@@ -159,6 +163,90 @@
         &__next {
             width: px-to-vw(103);
             color: white;
+        }
+    }
+
+    // ここから場所入力画面
+
+    .edit-itinerary {
+        &__date-wrap {
+            display: flex;
+            align-items: center;
+        }
+        &__date-border {
+            height: 2px;
+            margin-right: px-to-vw(5);
+            background-color: $light-blue;
+            flex-basis: 80%;
+        }
+        &__date {
+            margin-bottom: 0;
+            font-size: 1rem;
+            font-weight: bold;
+            color: $light-blue;
+            flex-basis: 20%;
+        }
+        &__add-place {
+            display: flex;
+            align-items: center;
+        }
+        &__p {
+            margin-bottom: 0;
+        }
+        &__map-icon {
+            width: px-to-vw(14);
+            height: px-to-vw(20);
+        }
+    }
+
+    .edit-place {
+        display: flex;
+        width: px-to-vw(232);
+        justify-content: space-between;
+
+        &__map-icon {
+            width: px-to-vw(14);
+            height: px-to-vw(20);
+        }
+
+        &__input {
+            width: px-to-vw(149);
+        }
+
+        %__whether {
+            font-size: 2.4rem;
+        }
+        &__whether {
+            @extend %__whether;
+            &--sun {
+                @extend %__whether;
+                color: $orange;
+            }
+            &--cloud {
+                @extend %__whether;
+                color: $gray;
+            }
+            &--rain {
+                @extend %__whether;
+                color: $navy;
+            }
+            &--snow {
+                @extend %__whether;
+                color: $light-blue;
+            }
+            &--night {
+                @extend %__whether;
+                color: $yellow;
+            }
+        }
+    }
+
+    .edit-place-detail {
+        display: flex;
+
+        &__left {
+            width: 1px;
+            background-color: $navy;
         }
     }
 }
