@@ -88151,7 +88151,7 @@ var InputBox_1 = __importDefault(__webpack_require__(/*! ../atoms/InputBox */ ".
 var PlusInputBox_1 = __importDefault(__webpack_require__(/*! ../atoms/PlusInputBox */ "./resources/ts/src/components/atoms/PlusInputBox.tsx"));
 var FormBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FormBtn */ "./resources/ts/src/components/atoms/FormBtn.tsx"));
 var PostOverview = function (_a) {
-    var goToNext = _a.goToNext, tags = _a.tags, addTag = _a.addTag, setTag = _a.setTag, setDateS = _a.setDateS, setDateF = _a.setDateF, setPeople = _a.setPeople;
+    var goToNext = _a.goToNext, tag = _a.tag, tags = _a.tags, addTag = _a.addTag, setTag = _a.setTag, setDateS = _a.setDateS, setDateF = _a.setDateF, setPeople = _a.setPeople;
     return (react_1.default.createElement("div", { className: "post" },
         react_1.default.createElement("div", { className: "post__content-wrap" },
             react_1.default.createElement("h2", { className: "post__h2" }, "\u30BF\u30A4\u30C8\u30EB*"),
@@ -88161,8 +88161,8 @@ var PostOverview = function (_a) {
         react_1.default.createElement("div", { className: "post__content-wrap" },
             react_1.default.createElement("div", { className: "post__row-flex-wrap" },
                 react_1.default.createElement("h2", { className: "post__h2" }, "\u30BF\u30B0"),
-                react_1.default.createElement(PlusInputBox_1.default, { type: "text", className: "post__tag-input", placeholder: "\u30BF\u30B0\u3092\u8FFD\u52A0\u3057\u3066\u304F\u3060\u3055\u3044", onChange: getEventFunc_1.getChangeEventFunc(setTag) })),
-            react_1.default.createElement("div", { className: "post__tag-wrap" }, tags.map(function (value, index) { return (react_1.default.createElement(PostTag_1.default, { tagName: value, isPost: true, onClick: function () { } })); }))),
+                react_1.default.createElement(PlusInputBox_1.default, { type: "text", className: "post__tag-input", placeholder: "\u30BF\u30B0\u3092\u8FFD\u52A0\u3057\u3066\u304F\u3060\u3055\u3044", onChange: getEventFunc_1.getChangeEventFunc(setTag), onClick: addTag })),
+            react_1.default.createElement("div", { className: "post__tag-wrap" }, tags.map(function (value, index) { return (react_1.default.createElement(PostTag_1.default, { key: index, tagName: value, isPost: true, onClick: function () { } })); }))),
         react_1.default.createElement("div", { className: "post__content-wrap" },
             react_1.default.createElement("h2", { className: "post__h2" }, "\u65E5\u4ED8*"),
             react_1.default.createElement("div", { className: "post__date-wrap" },
@@ -88888,15 +88888,16 @@ var PostOverviewContainer = function (_a) {
     var _c = react_1.useState(''), dateS = _c[0], setDateS = _c[1];
     var _d = react_1.useState(''), dateF = _d[0], setDateF = _d[1];
     var _e = react_1.useState(0), people = _e[0], setPeople = _e[1];
-    var tags = [];
-    var addTag = function (tag) {
+    var _f = react_1.useState([]), tags = _f[0], setTags = _f[1];
+    var addTag = function () {
         tags.push(tag);
+        setTags(tags.slice());
     };
     var goToNext = function () {
         dispatch(post_1.setPostProgressIndex(1));
         history.push('/post/location');
     };
-    return (react_1.default.createElement(PostOverView_1.default, { goToNext: goToNext, tags: tags, addTag: addTag, setTag: setTag, setDateS: setDateS, setDateF: setDateF, setPeople: setPeople }));
+    return (react_1.default.createElement(PostOverView_1.default, { goToNext: goToNext, tag: tag, tags: tags, addTag: addTag, setTag: setTag, setDateS: setDateS, setDateF: setDateF, setPeople: setPeople }));
 };
 exports.default = PostOverviewContainer;
 
