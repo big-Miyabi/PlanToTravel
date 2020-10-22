@@ -19,5 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::group(['middleware' => 'api'], function () {
   Route::post('create', 'ScheduleController@create');
+  Route::get('index', 'ScheduleController@index');
 });
 Auth::routes();

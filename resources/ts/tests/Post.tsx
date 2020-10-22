@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useState, Component } from 'react'
 import axios from 'axios'
 
 const Post: FC = () => {
@@ -29,6 +29,16 @@ const Post: FC = () => {
   const [tag_name, setTags] = useState<string[]>([''])
   const uid = '31'
   const is_public = '0'
+  const showSchedule = () => {
+    axios
+      .get('/api/index')
+      .then((res) => {
+        console.log(res.data)
+      })
+      .catch(() => {
+        console.log('通信に失敗しました')
+      })
+  }
   const addSchedule = () => {
     axios
       .post('/api/create', {
@@ -392,6 +402,7 @@ const Post: FC = () => {
         />
       </label>
       <button onClick={addSchedule}>確定</button>
+      <button onClick={showSchedule}>確認</button>
     </>
   )
 }

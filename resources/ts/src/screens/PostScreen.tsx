@@ -18,11 +18,13 @@ const checkAndMovePages = (
   previousIndex: number,
   pathnames: string[],
   setPageIndex: Dispatch<React.SetStateAction<number>>,
-  props: Props
+  props: Props,
+  dispatch: Dispatch<any>
 ) => {
   if (path === '/post') {
     // '/post'は強制的に最初の画面に遷移
     setPageIndex(previousIndex)
+    dispatch(setPostProgressIndex(0))
 
     return
   }
@@ -32,6 +34,7 @@ const checkAndMovePages = (
   if (pathIndex < previousIndex) {
     // 戻るなどをして前の画面に遷移した時
     setPageIndex(pathIndex)
+    dispatch(setPostProgressIndex(pathIndex))
 
     return
   }
@@ -42,7 +45,6 @@ const checkAndMovePages = (
     return
   }
   // URLを手打ちで入力するなどして非正規の手続きで次の画面に遷移した時
-
   setPageIndex(previousIndex)
   props.history.push(pathnames[previousIndex])
 }
@@ -68,7 +70,8 @@ const PostScreen: FC<Props> = (props) => {
       previousIndex,
       pathnames,
       setPageIndex,
-      props
+      props,
+      dispatch
     )
   }, [props.location.pathname])
 
