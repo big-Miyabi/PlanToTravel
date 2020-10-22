@@ -33,7 +33,7 @@ const EditItinerary: FC<Props> = ({
           shouldHavePlus={false}
           color={colors.navyBlue}
         />
-        <p>場所を追加</p>
+        <p className="edit-itinerary__p">場所を追加</p>
         <FontAwesomeIconBtn
           className="edit-itinerary__plus"
           icon={faPlus}

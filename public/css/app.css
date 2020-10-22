@@ -1230,6 +1230,55 @@ next .input-box::placeholder {
     color: white;
   }
 
+  .edit-itinerary__date-wrap {
+    display: flex;
+    align-items: center;
+  }
+
+  .edit-itinerary__date-border {
+    height: 2px;
+    margin-right: 1.3333333333vw;
+    background-color: #bcdbe8;
+    flex-basis: 80%;
+  }
+
+  .edit-itinerary__date {
+    margin-bottom: 0;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #bcdbe8;
+    flex-basis: 20%;
+  }
+
+  .edit-itinerary__add-place {
+    display: flex;
+    align-items: center;
+  }
+
+  .edit-itinerary__p {
+    margin-bottom: 0;
+  }
+
+  .edit-itinerary__map-icon {
+    width: 3.7333333333vw;
+    height: 5.3333333333vw;
+  }
+
+  .edit-place {
+    display: flex;
+    width: 61.8666666667vw;
+    justify-content: space-between;
+  }
+
+  .edit-place__map-icon {
+    width: 3.7333333333vw;
+    height: 5.3333333333vw;
+  }
+
+  .edit-place__input {
+    width: 39.7333333333vw;
+  }
+
   .edit-place .edit-place__whether--night,
   .edit-place .edit-place__whether--snow,
   .edit-place .edit-place__whether--rain,
@@ -1257,6 +1306,15 @@ next .input-box::placeholder {
 
   .edit-place__whether--night {
     color: #fcbe32;
+  }
+
+  .edit-place-detail {
+    display: flex;
+  }
+
+  .edit-place-detail__left {
+    width: 1px;
+    background-color: #003666;
   }
 }
 
