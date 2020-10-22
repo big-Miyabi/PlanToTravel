@@ -1,17 +1,17 @@
-import React, { FC } from 'react'
+import React, { FC, ChangeEvent } from 'react'
 
 type Props = {
   type: string
   className: string // BEM設計におけるmodifier部分
   placeholder?: string | undefined
-  onChange?: () => void
+  onChange?: (e: ChangeEvent<HTMLInputElement>) => void
 }
 
 const InputBox: FC<Props> = ({
   type,
   className,
   placeholder = undefined,
-  onChange = () => {},
+  onChange = () => {}, // eslint-disable-line
 }) => {
   return (
     <input

@@ -27,10 +27,10 @@ const EditPlace: FC<Props> = ({ className }) => {
         shouldHavePlus={false}
         color={colors.navyBlue}
       />
-      <PlusInputBox
+      {/* <PlusInputBox
         type="text"
         className="edit-place__input"
-      />
+      /> */}
       <FontAwesomeIconBtn
         className="edit-place__whether--sun"
         icon={faSun}

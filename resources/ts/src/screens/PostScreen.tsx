@@ -76,15 +76,14 @@ const PostScreen: FC<Props> = (props) => {
     )
   }, [props.location.pathname])
 
-  useEffect(() => {
-    window.addEventListener('beforeunload', () => {
-      dispatch(setPostProgressIndex(0))
-    })
-
-    return () => {
-      dispatch(setPostProgressIndex(0))
-    }
-  }, [])
+  // useEffect(() => {
+  // window.addEventListener('beforeunload', () => {
+  //   dispatch(setPostProgressIndex(0))
+  // })
+  // return () => {
+  //   dispatch(setPostProgressIndex(0))
+  // }
+  // }, [])
 
   return (
     <div className="post-screen">
@@ -98,7 +97,8 @@ const PostScreen: FC<Props> = (props) => {
       {pageIndex === 0 ? (
         <PostOverview history={props.history} />
       ) : (
-        <PostLocation history={props.history} />
+        <></>
+        // <PostLocation history={props.history} />
       )}
     </div>
   )

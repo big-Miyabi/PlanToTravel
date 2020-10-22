@@ -1,4 +1,5 @@
-import React, { FC } from 'react'
+import React, { FC, Dispatch, ChangeEvent } from 'react'
+import { getChangeEventFunc } from '../../utilities/getEventFunc'
 import PostTag from '../molecules/PostTag'
 import InputBox from '../atoms/InputBox'
 import PlusInputBox from '../atoms/PlusInputBox'
@@ -6,9 +7,23 @@ import FormBtn from '../atoms/FormBtn'
 
 type Props = {
   goToNext: () => void
+  tags: string[]
+  addTag: (tag: string) => void
+  setTag: Dispatch<React.SetStateAction<string>>
+  setDateS: Dispatch<React.SetStateAction<string>>
+  setDateF: Dispatch<React.SetStateAction<string>>
+  setPeople: Dispatch<React.SetStateAction<number>>
 }
 
-const PostOverview: FC<Props> = ({ goToNext }) => {
+const PostOverview: FC<Props> = ({
+  goToNext,
+  tags,
+  addTag,
+  setTag,
+  setDateS,
+  setDateF,
+  setPeople,
+}) => {
   return (
     <div className="post">
       <div className="post__content-wrap">
@@ -30,39 +45,17 @@ const PostOverview: FC<Props> = ({ goToNext }) => {
             type="text"
             className="post__tag-input"
             placeholder="タグを追加してください"
+            onChange={getChangeEventFunc(setTag)}
           />
         </div>
         <div className="post__tag-wrap">
-          <PostTag
-            tagName="hoge"
-            isPost={true}
-            onClick={() => {}}
-          />
-          <PostTag
-            tagName="hoooge"
-            isPost={true}
-            onClick={() => {}}
-          />
-          <PostTag
-            tagName="hogeeeddddddddddddddee"
-            isPost={true}
-            onClick={() => {}}
-          />
-          <PostTag
-            tagName="hoge"
-            isPost={true}
-            onClick={() => {}}
-          />
-          <PostTag
-            tagName="hoge33333"
-            isPost={true}
-            onClick={() => {}}
-          />
-          <PostTag
-            tagName="hogeeeee1234"
-            isPost={true}
-            onClick={() => {}}
-          />
+          {tags.map((value, index) => (
+            <PostTag
+              tagName={value}
+              isPost={true}
+              onClick={() => {}}
+            />
+          ))}
         </div>
       </div>
 
