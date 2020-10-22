@@ -43,6 +43,20 @@ input:-webkit-autofill {
     }
 }
 
+.plus-input-box {
+    position: relative;
+    &__input {
+        width: 100%;
+    }
+    &__plus {
+        position: absolute;
+        top: px-to-vw(7);
+        right: px-to-vw(8);
+        font-size: 1.2rem;
+        color: $navy;
+    }
+}
+
 .post-tag {
     display: inline-flex;
     height: px-to-vw(26);
