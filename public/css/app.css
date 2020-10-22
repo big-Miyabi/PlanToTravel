@@ -1230,32 +1230,32 @@ next .input-box::placeholder {
     color: white;
   }
 
-  .itinerary-edit .itinerary-edit__whether--night,
-  .itinerary-edit .itinerary-edit__whether--snow,
-  .itinerary-edit .itinerary-edit__whether--rain,
-  .itinerary-edit .itinerary-edit__whether--cloud,
-  .itinerary-edit .itinerary-edit__whether--sun,
-  .itinerary-edit .itinerary-edit__whether {
+  .edit-place .edit-place__whether--night,
+  .edit-place .edit-place__whether--snow,
+  .edit-place .edit-place__whether--rain,
+  .edit-place .edit-place__whether--cloud,
+  .edit-place .edit-place__whether--sun,
+  .edit-place .edit-place__whether {
     font-size: 2.4rem;
   }
 
-  .itinerary-edit__whether--sun {
+  .edit-place__whether--sun {
     color: #ff6633;
   }
 
-  .itinerary-edit__whether--cloud {
+  .edit-place__whether--cloud {
     color: #c4c4c4;
   }
 
-  .itinerary-edit__whether--rain {
+  .edit-place__whether--rain {
     color: #003666;
   }
 
-  .itinerary-edit__whether--snow {
+  .edit-place__whether--snow {
     color: #bcdbe8;
   }
 
-  .itinerary-edit__whether--night {
+  .edit-place__whether--night {
     color: #fcbe32;
   }
 }

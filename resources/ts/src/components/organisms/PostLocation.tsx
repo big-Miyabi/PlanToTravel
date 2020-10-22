@@ -1,17 +1,9 @@
 import React, { FC } from 'react'
 import * as H from 'history'
 import { colors } from '../../utilities/colors'
-import DashedCircle from '../atoms/svg/DashedCircle'
-import BadFace from '../atoms/svg/BadFace'
-import SosoFace from '../atoms/svg/SosoFace'
-import GoodFace from '../atoms/svg/GoodFace'
+import EditPlace from '../../containers/molecules/EditPlace'
 import FontAwesomeIconBtn from '../atoms/FontAwesomeIconBtn'
 import {
-  faSun,
-  faCloud,
-  faUmbrella,
-  faSnowflake,
-  faMoon,
   faWalking,
   faShoePrints,
   faPlus,
@@ -37,22 +29,7 @@ const PostLocation: FC<Props> = ({ history }) => {
           <p className="itinerary-edit__date">2020.10.06</p>
         </div>
 
-        <div className="itinerary-edit__edit-place">
-          <MapIcon
-            className="itinerary-edit__map-icon"
-            shouldHavePlus={false}
-            color={colors.navyBlue}
-          />
-          <PlusInputBox
-            type="text"
-            className="itinerary-edit__place-input"
-          />
-          <FontAwesomeIconBtn
-            className="itinerary-edit__whether--sun"
-            icon={faSun}
-          />
-          <DashedCircle className="itinerary-edit__rating" />
-        </div>
+        <EditPlace className="itinerary-edit__edit-place" />
 
         <div className="itinerary-edit__place-detail-wrap">
           <div className="itinerary-edit__left-border"></div>

@@ -87598,6 +87598,39 @@ exports.default = CommentArea;
 
 /***/ }),
 
+/***/ "./resources/ts/src/components/molecules/EditPlace.tsx":
+/*!*************************************************************!*\
+  !*** ./resources/ts/src/components/molecules/EditPlace.tsx ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var colors_1 = __webpack_require__(/*! ../../utilities/colors */ "./resources/ts/src/utilities/colors.ts");
+var FontAwesomeIconBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FontAwesomeIconBtn */ "./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx"));
+var free_solid_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
+var DashedCircle_1 = __importDefault(__webpack_require__(/*! ../atoms/svg/DashedCircle */ "./resources/ts/src/components/atoms/svg/DashedCircle.tsx"));
+var MapIcon_1 = __importDefault(__webpack_require__(/*! ../atoms/svg/MapIcon */ "./resources/ts/src/components/atoms/svg/MapIcon.tsx"));
+var PlusInputBox_1 = __importDefault(__webpack_require__(/*! ../atoms/PlusInputBox */ "./resources/ts/src/components/atoms/PlusInputBox.tsx"));
+var EditPlace = function (_a) {
+    var className = _a.className;
+    return (react_1.default.createElement("div", { className: className + ' ' + 'edit-place' },
+        react_1.default.createElement(MapIcon_1.default, { className: "edit-place__map-icon", shouldHavePlus: false, color: colors_1.colors.navyBlue }),
+        react_1.default.createElement(PlusInputBox_1.default, { type: "text", className: "edit-place__input" }),
+        react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "edit-place__whether--sun", icon: free_solid_svg_icons_1.faSun }),
+        react_1.default.createElement(DashedCircle_1.default, { className: "edit-place__rating" })));
+};
+exports.default = EditPlace;
+
+
+/***/ }),
+
 /***/ "./resources/ts/src/components/molecules/FormInput.tsx":
 /*!*************************************************************!*\
   !*** ./resources/ts/src/components/molecules/FormInput.tsx ***!
@@ -88226,7 +88259,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
 var colors_1 = __webpack_require__(/*! ../../utilities/colors */ "./resources/ts/src/utilities/colors.ts");
-var DashedCircle_1 = __importDefault(__webpack_require__(/*! ../atoms/svg/DashedCircle */ "./resources/ts/src/components/atoms/svg/DashedCircle.tsx"));
+var EditPlace_1 = __importDefault(__webpack_require__(/*! ../../containers/molecules/EditPlace */ "./resources/ts/src/containers/molecules/EditPlace.tsx"));
 var FontAwesomeIconBtn_1 = __importDefault(__webpack_require__(/*! ../atoms/FontAwesomeIconBtn */ "./resources/ts/src/components/atoms/FontAwesomeIconBtn.tsx"));
 var free_solid_svg_icons_1 = __webpack_require__(/*! @fortawesome/free-solid-svg-icons */ "./node_modules/@fortawesome/free-solid-svg-icons/index.es.js");
 var PlusInputBox_1 = __importDefault(__webpack_require__(/*! ../atoms/PlusInputBox */ "./resources/ts/src/components/atoms/PlusInputBox.tsx"));
@@ -88242,11 +88275,7 @@ var PostLocation = function (_a) {
             react_1.default.createElement("div", { className: "itinerary-edit__date-wrap" },
                 react_1.default.createElement("div", { className: "itinerary-edit__date-border" }),
                 react_1.default.createElement("p", { className: "itinerary-edit__date" }, "2020.10.06")),
-            react_1.default.createElement("div", { className: "itinerary-edit__edit-place" },
-                react_1.default.createElement(MapIcon_1.default, { className: "itinerary-edit__map-icon", shouldHavePlus: false, color: colors_1.colors.navyBlue }),
-                react_1.default.createElement(PlusInputBox_1.default, { type: "text", className: "itinerary-edit__place-input" }),
-                react_1.default.createElement(FontAwesomeIconBtn_1.default, { className: "itinerary-edit__whether--sun", icon: free_solid_svg_icons_1.faSun }),
-                react_1.default.createElement(DashedCircle_1.default, { className: "itinerary-edit__rating" })),
+            react_1.default.createElement(EditPlace_1.default, { className: "itinerary-edit__edit-place" }),
             react_1.default.createElement("div", { className: "itinerary-edit__place-detail-wrap" },
                 react_1.default.createElement("div", { className: "itinerary-edit__left-border" }),
                 react_1.default.createElement("div", { className: "itinerary-edit__right-detai" },
@@ -88413,6 +88442,30 @@ var UserMenu = function (_a) {
             react_1.default.createElement("span", { className: "policy__privacy-policy" }, "\u30D7\u30E9\u30A4\u30D0\u30B7\u30FC\u30DD\u30EA\u30B7\u30FC"))));
 };
 exports.default = UserMenu;
+
+
+/***/ }),
+
+/***/ "./resources/ts/src/containers/molecules/EditPlace.tsx":
+/*!*************************************************************!*\
+  !*** ./resources/ts/src/containers/molecules/EditPlace.tsx ***!
+  \*************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+var react_1 = __importDefault(__webpack_require__(/*! react */ "./node_modules/react/index.js"));
+var EditPlace_1 = __importDefault(__webpack_require__(/*! ../../components/molecules/EditPlace */ "./resources/ts/src/components/molecules/EditPlace.tsx"));
+var EditPlaceContainer = function (_a) {
+    var className = _a.className;
+    return react_1.default.createElement(EditPlace_1.default, { className: className });
+};
+exports.default = EditPlaceContainer;
 
 
 /***/ }),
