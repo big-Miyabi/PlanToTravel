@@ -46,6 +46,18 @@ const Post: FC = () => {
         console.log('通信に失敗しました')
       })
   }
+  const deleteSchedule = () => {
+    axios
+      .post('/api/delete', {
+        sid,
+      })
+      .then((res) => {
+        console.log(res.data)
+      })
+      .catch(() => {
+        console.log('通信に失敗しました')
+      })
+  }
   const likeSchedule = () => {
     axios
       .post('/api/like', {
@@ -437,6 +449,7 @@ const Post: FC = () => {
       <button onClick={indexSchedule}>一覧確認</button>
       <button onClick={showSchedule}>確認</button>
       <button onClick={likeSchedule}>いいね</button>
+      <button onClick={deleteSchedule}>削除</button>
     </>
   )
 }

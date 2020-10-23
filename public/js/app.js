@@ -73992,6 +73992,18 @@ var Post = function () {
             console.log('通信に失敗しました');
         });
     };
+    var deleteSchedule = function () {
+        axios_1.default
+            .post('/api/delete', {
+            sid: sid,
+        })
+            .then(function (res) {
+            console.log(res.data);
+        })
+            .catch(function () {
+            console.log('通信に失敗しました');
+        });
+    };
     var likeSchedule = function () {
         axios_1.default
             .post('/api/like', {
@@ -74280,7 +74292,8 @@ var Post = function () {
         react_1.default.createElement("button", { onClick: addSchedule }, "\u78BA\u5B9A"),
         react_1.default.createElement("button", { onClick: indexSchedule }, "\u4E00\u89A7\u78BA\u8A8D"),
         react_1.default.createElement("button", { onClick: showSchedule }, "\u78BA\u8A8D"),
-        react_1.default.createElement("button", { onClick: likeSchedule }, "\u3044\u3044\u306D")));
+        react_1.default.createElement("button", { onClick: likeSchedule }, "\u3044\u3044\u306D"),
+        react_1.default.createElement("button", { onClick: deleteSchedule }, "\u524A\u9664")));
 };
 exports.default = Post;
 
