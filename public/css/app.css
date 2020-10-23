@@ -1463,8 +1463,77 @@ next .input-box::placeholder {
 
 @media screen and (max-width: 559px) {
   .map-screen {
+    position: relative;
     width: 100vw;
     height: 100vh;
+  }
+
+  .map-screen__header {
+    z-index: 1;
+    display: flex;
+    position: absolute;
+    top: 4.4334975369vh;
+    left: 5.8666666667vw;
+    width: 85.0666666667vw;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .map-screen__close {
+    font-size: 2.2rem;
+    color: #003666;
+  }
+
+  .map-screen__pin {
+    position: relative;
+    bottom: calc(14.1333333333vw);
+    right: calc(10.1333333333vw / 2);
+    width: 10.1333333333vw;
+    height: 14.1333333333vw;
+  }
+
+  .map-screen__add-btn {
+    z-index: 1;
+    position: absolute;
+    left: 11.4666666667vw;
+    bottom: 13.3333333333vw;
+    width: 77.3333333333vw;
+    height: 6.9333333333vw;
+    background-color: #003666;
+    color: #fff;
+  }
+
+  .location-search {
+    display: flex;
+    padding: 4px 2.1333333333vw;
+    width: 77.3333333333vw;
+    height: 6.9333333333vw;
+    border: solid 1px #003666;
+    border-radius: 8px;
+    background-color: #fff;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .location-search__map-icon {
+    width: 3.7333333333vw;
+    height: 5.3333333333vw;
+  }
+
+  .location-search__search-input {
+    width: 100%;
+    border: none;
+    margin: 0 2.1333333333vw;
+    font-size: 1.2rem;
+  }
+
+  .location-search__search-input:focus {
+    outline: none;
+  }
+
+  .location-search__search-icon {
+    font-size: 1.1rem;
+    color: #e5e5e5;
   }
 }
 
