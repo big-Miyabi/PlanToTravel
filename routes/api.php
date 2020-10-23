@@ -24,5 +24,6 @@ Route::group(['middleware' => 'api'], function () {
   Route::post('like', 'LikeController@like');
   Route::post('delete', 'ScheduleController@delete');
   Route::post('bookmark', 'BookmarkController@bookmark');
+  Route::post('search', 'ScheduleController@search');
 });
 Auth::routes();
