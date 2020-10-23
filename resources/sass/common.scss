@@ -83,3 +83,30 @@ input:-webkit-autofill {
         }
     }
 }
+
+.post {
+    &__btn-wrap {
+        width: px-to-vw(234);
+        height: px-to-vw(26);
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+    }
+    &__return {
+        width: px-to-vw(103);
+        color: white;
+        background-color: $light-blue;
+    }
+    &__next {
+        width: px-to-vw(103);
+        color: white;
+    }
+}
+
+.comment-area {
+    &__textarea {
+        &:focus {
+            outline: none;
+        }
+    }
+}
