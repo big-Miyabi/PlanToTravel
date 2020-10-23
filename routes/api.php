@@ -22,6 +22,7 @@ Route::group(['middleware' => 'api'], function () {
   Route::get('index', 'ScheduleController@index');
   Route::post('show', 'ScheduleController@show');
   Route::post('like', 'LikeController@like');
+  Route::post('delete', 'ScheduleController@delete');
   Route::post('bookmark', 'BookmarkController@bookmark');
 });
 Auth::routes();
