@@ -9,3 +9,21 @@ export const setPostProgressIndex = (
       progressIndex,
     },
   } as const)
+
+export const setPostOverview = (
+  title: string,
+  dateS: string,
+  dateF: string,
+  people: number,
+  tags: string[]
+) =>
+  ({
+    type: ActionTypes.SET_POST_OVERVIEW,
+    payload: {
+      title,
+      dateS,
+      dateF,
+      people,
+      tags,
+    },
+  } as const)

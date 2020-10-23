@@ -160,27 +160,26 @@
             width: px-to-vw(103);
             margin: 0 auto;
         }
-        &__next {
-            width: px-to-vw(103);
-            color: white;
-        }
     }
 
     // ここから場所入力画面
 
     .edit-itinerary {
+        color: $navy;
+        margin-bottom: px-to-vw(73);
         &__date-wrap {
             display: flex;
             align-items: center;
+            //margin: px-to-vw(3) 0;
         }
         &__date-border {
             height: 2px;
             margin-right: px-to-vw(5);
             background-color: $light-blue;
-            flex-basis: 80%;
+            flex-basis: 85%;
         }
         &__date {
-            margin-bottom: 0;
+            margin-bottom: px-to-vw(6);
             font-size: 1rem;
             font-weight: bold;
             color: $light-blue;
@@ -189,13 +188,34 @@
         &__add-place {
             display: flex;
             align-items: center;
+
+            margin-left: px-to-vw(14);
         }
         &__p {
+            font-weight: bold;
+            font-size: 1.4rem;
             margin-bottom: 0;
+            margin-left: px-to-vw(7);
+        }
+        &__plus {
+            font-weight: bold;
+            margin-left: px-to-vw(7);
         }
         &__map-icon {
             width: px-to-vw(14);
             height: px-to-vw(20);
+        }
+
+        &__add-place-detail-wrap {
+            width: px-to-vw(232);
+            height: auto;
+            //margin-top: px-to-vw(9);
+            margin-left: px-to-vw(14);
+            margin-bottom: px-to-vw(9);
+        }
+        &__place-detail {
+            margin-left: px-to-vw(6);
+            margin-top: px-to-vw(6);
         }
     }
 
@@ -207,6 +227,7 @@
         &__map-icon {
             width: px-to-vw(14);
             height: px-to-vw(20);
+            margin: px-to-vw(3) 0;
         }
 
         &__input {
@@ -246,7 +267,86 @@
 
         &__left {
             width: 1px;
+            height: auto;
             background-color: $navy;
+            margin-right: px-to-vw(14);
+        }
+
+        &__plus-img-wrap {
+            display: flex;
+            flex-direction: row;
+            margin: px-to-vw(13) 0;
+            & p {
+                margin: px-to-vw(3) 0;
+            }
+        }
+        &__plus-img {
+            width: px-to-vw(26);
+            height: px-to-vw(22);
+            margin-right: px-to-vw(6);
+        }
+    }
+
+    .comment-area {
+        width: px-to-vw(200);
+        height: px-to-vw(103);
+        border: solid $navy 1px;
+        border-radius: 7px;
+        padding: px-to-vw(5);
+        margin-bottom: px-to-vw(25);
+        &__header {
+            display: flex;
+            flex-direction: row;
+        }
+
+        &__p {
+            font-size: 1.2rem;
+            margin-right: px-to-vw(110);
+            margin-bottom: 0;
+        }
+        &__edit-icon {
+            margin-right: px-to-vw(6);
+        }
+        &__textarea {
+            resize: none;
+            border: none;
+            width: px-to-vw(185);
+            height: px-to-vw(75);
+            
+        }
+    }
+
+    .edit-transposrt {
+        margin-bottom: px-to-vw(13);
+        &__title {
+            font-size: 1.2rem;
+        }
+        &__walking-icon {
+            font-size: 1.6rem;
+            margin-right: px-to-vw(6);
+        }
+        &__select-transport {
+            display: flex;
+            flex-direction: row;
+            color: $gray;
+            margin-left: px-to-vw(15);
+        }
+        &__select-wrap {
+            display: flex;
+            flex-direction: row;
+            color: $light-navy;
+            margin-right: px-to-vw(13);
+        }
+        &__shoe-prints-icon {
+            font-size: 1.1rem;
+            margin-top: px-to-vw(3);
+            margin-right: px-to-vw(3);
+        }
+        &__detail-wrap {
+            margin-left: px-to-vw(12);
+        }
+        &__detail {
+            width: px-to-vw(185);
         }
     }
 }
