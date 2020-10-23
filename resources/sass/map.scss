@@ -7,12 +7,65 @@
         position: relative;
         width: 100vw;
         height: 100vh;
+        &__header {
+            z-index: 1;
+            display: flex;
+            position: absolute;
+            top: px-to-vh(36);
+            left: px-to-vw(22);
+            width: px-to-vw(319);
+            justify-content: space-between;
+            align-items: center;
+        }
+        &__close {
+            font-size: 2.2rem;
+            color: $navy;
+        }
         &__pin {
             position: relative;
             bottom: calc(#{px-to-vw(53)});
             right: calc(#{px-to-vw(38)} / 2);
             width: px-to-vw(38);
             height: px-to-vw(53);
+        }
+        &__add-btn {
+            z-index: 1;
+            position: absolute;
+            left: px-to-vw(43);
+            bottom: px-to-vw(50);
+            width: px-to-vw(290);
+            height: px-to-vw(26);
+            background-color: $navy;
+            color: $white;
+        }
+    }
+
+    .location-search {
+        display: flex;
+        padding: 4px px-to-vw(8);
+        width: px-to-vw(290);
+        height: px-to-vw(26);
+        border: solid 1px $navy;
+        border-radius: 8px;
+        background-color: $white;
+        justify-content: space-between;
+        align-items: center;
+        &__map-icon {
+            width: px-to-vw(14);
+            height: px-to-vw(20);
+        }
+        &__search-input {
+            width: 100%;
+            border: none;
+            margin: 0 px-to-vw(8);
+            font-size: 1.2rem;
+            &:focus {
+                outline: none;
+            }
+        }
+        &__search-icon {
+            font-size: 1.1rem;
+            color: $light-gray;
         }
     }
 }
