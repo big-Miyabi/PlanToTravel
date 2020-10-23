@@ -1,5 +1,8 @@
 import React, { FC, Dispatch } from 'react'
-import GoogleMapReact, { Coords } from 'google-map-react'
+import GoogleMapReact, {
+  Coords,
+  Props as MapProps,
+} from 'google-map-react'
 import MapIcon from '../atoms/svg/MapIcon'
 
 type Props = {
@@ -7,6 +10,7 @@ type Props = {
   zoom: number
   location: Coords
   setLocation: Dispatch<React.SetStateAction<Coords>>
+  initGeocoder: MapProps['onGoogleApiLoaded']
 }
 
 const MapScreen: FC<Props> = ({
@@ -14,12 +18,15 @@ const MapScreen: FC<Props> = ({
   zoom,
   location,
   setLocation,
+  initGeocoder,
 }) => {
   return (
     <div className="map-screen">
       <GoogleMapReact
         bootstrapURLKeys={{
           key: `${process.env.MIX_GOOGLE_MAPS_API_KEY}`,
+          language: 'ja',
+          region: 'ja',
         }}
         defaultCenter={center}
         defaultZoom={zoom}
@@ -28,6 +35,7 @@ const MapScreen: FC<Props> = ({
           console.log(v)
           setLocation({ lat: v.lat, lng: v.lng })
         }}
+        onGoogleApiLoaded={initGeocoder}
       >
         <MapIcon
           className={'map-screen__pin'}
