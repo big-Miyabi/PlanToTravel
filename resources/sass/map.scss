@@ -1,0 +1,10 @@
+@import "variables";
+@import "function";
+
+// @include md-down()内部にstyleを記述すると、スマートフォンサイズでメディアクエリがかかるようになる
+@include md-down() {
+  .map-screen {
+    width: 100vw;
+    height: 100vh;
+  }
+}

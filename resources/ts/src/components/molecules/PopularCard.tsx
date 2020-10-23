@@ -21,13 +21,6 @@ const PopularCard: FC<Props> = ({ post, gradientId }) => {
 
   return (
     <div className="popular-card">
-      <div className="popular-card__white-bg-wrap">
-        <img
-          className="popular-card__white-bg"
-          src="../images/ninki_listimg_white.png"
-          alt=""
-        />
-      </div>
       <div className="popular-card__wrap" style={bgStyle}>
         <div style={goTostyle}>
           <GoToLogo className="popular-card__go-to" />

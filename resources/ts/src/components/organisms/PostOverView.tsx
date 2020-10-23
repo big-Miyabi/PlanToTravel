@@ -1,20 +1,48 @@
-import React, { FC } from 'react'
+import React, { FC, Dispatch } from 'react'
+import {
+  getChangeEventFunc,
+  getKeyboardEventFunc,
+} from '../../utilities/getEventFunc'
 import PostTag from '../molecules/PostTag'
 import InputBox from '../atoms/InputBox'
 import PlusInputBox from '../atoms/PlusInputBox'
 import FormBtn from '../atoms/FormBtn'
 
 type Props = {
+  setTitle: Dispatch<React.SetStateAction<string>>
   goToNext: () => void
+  tags: string[]
+  addTag: () => void
+  deleteTag: (index: number) => void
+  setTag: Dispatch<React.SetStateAction<string>>
+  tagInputRef: React.RefObject<HTMLInputElement>
+  setDateS: Dispatch<React.SetStateAction<string>>
+  setDateF: Dispatch<React.SetStateAction<string>>
+  setPeople: Dispatch<React.SetStateAction<number>>
 }
 
-const PostOverview: FC<Props> = ({ goToNext }) => {
+const PostOverview: FC<Props> = ({
+  setTitle,
+  goToNext,
+  tags,
+  addTag,
+  deleteTag,
+  setTag,
+  tagInputRef,
+  setDateS,
+  setDateF,
+  setPeople,
+}) => {
   return (
     <div className="post">
       <div className="post__content-wrap">
         <h2 className="post__h2">タイトル*</h2>
         <div className="post__row-flex-wrap">
-          <input type="text" className="post__title" />
+          <input
+            type="text"
+            className="post__title"
+            onChange={getChangeEventFunc(setTitle)}
+          />
           <FormBtn
             className="post__public-switch-btn"
             name="非公開"
@@ -30,55 +58,52 @@ const PostOverview: FC<Props> = ({ goToNext }) => {
             type="text"
             className="post__tag-input"
             placeholder="タグを追加してください"
+            maxLength={12}
+            onChange={getChangeEventFunc(setTag)}
+            onKeyPress={getKeyboardEventFunc(addTag)}
+            onClick={addTag}
+            inputRef={tagInputRef}
           />
         </div>
         <div className="post__tag-wrap">
-          <PostTag
-            tagName="hoge"
-            isPost={true}
-            onClick={() => {}}
-          />
-          <PostTag
-            tagName="hoooge"
-            isPost={true}
-            onClick={() => {}}
-          />
-          <PostTag
-            tagName="hogeeeddddddddddddddee"
-            isPost={true}
-            onClick={() => {}}
-          />
-          <PostTag
-            tagName="hoge"
-            isPost={true}
-            onClick={() => {}}
-          />
-          <PostTag
-            tagName="hoge33333"
-            isPost={true}
-            onClick={() => {}}
-          />
-          <PostTag
-            tagName="hogeeeee1234"
-            isPost={true}
-            onClick={() => {}}
-          />
+          {tags.map((value, index) => (
+            <PostTag
+              key={index}
+              tagName={value}
+              isPost={true}
+              onClick={() => {
+                deleteTag(index)
+              }}
+            />
+          ))}
         </div>
       </div>
 
       <div className="post__content-wrap">
         <h2 className="post__h2">日付*</h2>
         <div className="post__date-wrap">
-          <InputBox type="date" className="post__date" />
+          <InputBox
+            type="date"
+            className="post__date"
+            onChange={getChangeEventFunc(setDateS)}
+          />
           <p className="post__datebar">-</p>
-          <InputBox type="date" className="post__date" />
+          <InputBox
+            type="date"
+            className="post__date"
+            onChange={getChangeEventFunc(setDateF)}
+          />
         </div>
       </div>
 
       <div className="post__content-wrap">
         <h2 className="post__h2">人数*</h2>
         <div className="post__people-input-wrap">
-          <InputBox type="text" className="post__people" />
+          <InputBox
+            type="text"
+            className="post__people"
+            onChange={getChangeEventFunc(setPeople)}
+          />
           <p className="post__nin">人</p>
         </div>
       </div>
