@@ -33,7 +33,20 @@ const Post: FC = () => {
   const [tag_name, setTags] = useState<string[]>([''])
   const uid = loginInfo.id
   const is_public = '0'
-  const sid = '132'
+  const sid = '134'
+  const [search, setSearch] = useState<string>('')
+  const searchSchedule = () => {
+    axios
+      .post('/api/search', {
+        search,
+      })
+      .then((res) => {
+        console.log(res.data)
+      })
+      .catch(() => {
+        console.log('通信に失敗しました')
+      })
+  }
   const showSchedule = () => {
     axios
       .post('/api/show', {
@@ -463,6 +476,11 @@ const Post: FC = () => {
       <button onClick={showSchedule}>確認</button>
       <button onClick={likeSchedule}>いいね</button>
       <button onClick={deleteSchedule}>削除</button>
+      <input
+        type="text"
+        onChange={(e) => setSearch(e.target.value)}
+      />
+      <button onClick={searchSchedule}>検索</button>
     </>
   )
 }

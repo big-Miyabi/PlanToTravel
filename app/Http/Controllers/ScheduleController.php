@@ -1,4 +1,3 @@
-
 <?php
 
 namespace App\Http\Controllers;
@@ -298,5 +297,12 @@ class ScheduleController extends Controller
     $post->likes()->delete();
     $post->delete();
     return "delete";
+  }
+  public function search(Request $request)
+  {
+    $query = Schedule::query();
+    $set = $request->search;
+    $post = $query->where('title', 'LIKE', '%' . $set . '%')->get();
+    return $post;
   }
 }
