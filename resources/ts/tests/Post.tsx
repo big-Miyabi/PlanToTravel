@@ -71,6 +71,19 @@ const Post: FC = () => {
         console.log('通信に失敗しました')
       })
   }
+  const bookMark = () => {
+    axios
+      .post('/api/bookmark', {
+        sid,
+        uid,
+      })
+      .then((res) => {
+        console.log(res.data)
+      })
+      .catch(() => {
+        console.log('通信に失敗しました')
+      })
+  }
   const indexSchedule = () => {
     axios
       .get('/api/index')
