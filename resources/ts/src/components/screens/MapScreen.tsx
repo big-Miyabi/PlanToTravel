@@ -1,5 +1,6 @@
 import React, { FC, Dispatch } from 'react'
 import GoogleMapReact, { Coords } from 'google-map-react'
+import MapIcon from '../atoms/svg/MapIcon'
 
 type Props = {
   center: Coords
@@ -22,11 +23,18 @@ const MapScreen: FC<Props> = ({
         }}
         defaultCenter={center}
         defaultZoom={zoom}
+        yesIWantToUseGoogleMapApiInternals
         onClick={(v) => {
           console.log(v)
           setLocation({ lat: v.lat, lng: v.lng })
         }}
-      ></GoogleMapReact>
+      >
+        <MapIcon
+          className={'map-screen__pin'}
+          lat={location.lat}
+          lng={location.lng}
+        />
+      </GoogleMapReact>
     </div>
   )
 }
