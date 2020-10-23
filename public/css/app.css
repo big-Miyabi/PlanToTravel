@@ -1472,16 +1472,16 @@ next .input-box::placeholder {
     z-index: 1;
     display: flex;
     position: absolute;
-    top: 4.4334975369vh;
-    left: 5.8666666667vw;
+    top: 5.2vw;
+    left: 3.2vw;
     width: 85.0666666667vw;
-    justify-content: space-between;
     align-items: center;
   }
 
   .map-screen__close {
     font-size: 2.2rem;
     color: #003666;
+    margin-bottom: 0vh;
   }
 
   .map-screen__pin {
@@ -1495,22 +1495,25 @@ next .input-box::placeholder {
   .map-screen__add-btn {
     z-index: 1;
     position: absolute;
-    left: 11.4666666667vw;
-    bottom: 13.3333333333vw;
-    width: 77.3333333333vw;
-    height: 6.9333333333vw;
+    left: 29.8666666667vw;
+    bottom: 6.1333333333vw;
+    width: 40vw;
+    height: 10.6666666667vw;
     background-color: #003666;
+    opacity: 0.9;
     color: #fff;
+    box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.4);
   }
 
   .location-search {
     display: flex;
+    position: absolute;
+    left: 9.8666666667vw;
     padding: 4px 2.1333333333vw;
-    width: 77.3333333333vw;
-    height: 6.9333333333vw;
-    border: solid 1px #003666;
-    border-radius: 8px;
-    background-color: #fff;
+    width: 72vw;
+    height: 10.6666666667vw;
+    box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.9);
     justify-content: space-between;
     align-items: center;
   }
@@ -1522,13 +1525,16 @@ next .input-box::placeholder {
 
   .location-search__search-input {
     width: 100%;
+    background-color: rgba(255, 255, 255, 0.1);
     border: none;
     margin: 0 2.1333333333vw;
     font-size: 1.2rem;
+    border-bottom: solid 1px #003666;
   }
 
   .location-search__search-input:focus {
     outline: none;
+    background-color: rgba(255, 255, 255, 0.1);
   }
 
   .location-search__search-icon {
