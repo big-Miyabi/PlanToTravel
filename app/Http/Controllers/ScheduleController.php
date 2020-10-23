@@ -210,7 +210,6 @@ class ScheduleController extends Controller
   //詳細ページ
   public function show(Request $request)
   {
-    $post = Schedule::findOrFail($request);
     $schedules = Schedule::orderBy('created_at', 'desc')->get();
     $tags = Tag::orderBy('created_at', 'desc')->get();
     $places = Place::orderBy('created_at', 'desc')->get();
@@ -287,5 +286,16 @@ class ScheduleController extends Controller
       }
     }
     return [$texts, $tagBox, $placeBox];
+  }
+
+  //削除機能
+  public function delete(Request $request)
+  {
+    $post = Schedule::findOrFail($request->sid);
+    $post->schedules_places()->delete();
+    $post->schedules_tags()->delete();
+    $post->likes()->delete();
+    $post->delete();
+    return "delete";
   }
 }
