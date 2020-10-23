@@ -4,11 +4,12 @@ import MapScreen from '../../components/screens/MapScreen'
 
 const MapScreenContainer: FC = () => {
   const center: Coords = {
-    lat: 36.41032863354583,
-    lng: 138.34662204985045,
+    // 東京駅の座標
+    lat: 35.68122839120453,
+    lng: 139.7670679211538,
   }
   const [location, setLocation] = useState<Coords>(center)
-  const zoom = 4.8
+  const zoom = 15 // 4.8にすると日本全体が見える
 
   return (
     <MapScreen

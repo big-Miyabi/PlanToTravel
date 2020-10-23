@@ -3,8 +3,16 @@
 
 // @include md-down()内部にstyleを記述すると、スマートフォンサイズでメディアクエリがかかるようになる
 @include md-down() {
-  .map-screen {
-    width: 100vw;
-    height: 100vh;
-  }
+    .map-screen {
+        position: relative;
+        width: 100vw;
+        height: 100vh;
+        &__pin {
+            position: relative;
+            bottom: calc(#{px-to-vw(53)});
+            right: calc(#{px-to-vw(38)} / 2);
+            width: px-to-vw(38);
+            height: px-to-vw(53);
+        }
+    }
 }

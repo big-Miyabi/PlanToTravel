@@ -1463,8 +1463,17 @@ next .input-box::placeholder {
 
 @media screen and (max-width: 559px) {
   .map-screen {
+    position: relative;
     width: 100vw;
     height: 100vh;
+  }
+
+  .map-screen__pin {
+    position: relative;
+    bottom: calc(14.1333333333vw);
+    right: calc(10.1333333333vw / 2);
+    width: 10.1333333333vw;
+    height: 14.1333333333vw;
   }
 }
 
