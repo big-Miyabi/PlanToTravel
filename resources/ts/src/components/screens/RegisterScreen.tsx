@@ -3,9 +3,9 @@ import {
   Link,
   RouteComponentProps as Props,
 } from 'react-router-dom'
-import FontAwesomeIconBtn from '../components/atoms/FontAwesomeIconBtn'
+import FontAwesomeIconBtn from '../../components/atoms/FontAwesomeIconBtn'
 import { faHome } from '@fortawesome/free-solid-svg-icons'
-import RegistForm from '../containers/organisms/RegistForm'
+import RegistForm from '../../containers/organisms/RegistForm'
 
 const RegisterScreen: FC<Props> = (props) => {
   return (

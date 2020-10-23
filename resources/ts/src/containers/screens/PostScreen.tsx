@@ -6,13 +6,9 @@ import React, {
 } from 'react'
 import { RouteComponentProps as Props } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { RootState } from '../reducers/index'
-import { setPostProgressIndex } from '../actions/post'
-import Header from '../containers/organisms/Header'
-import Menu from '../components/organisms/Menu'
-import ProgressBar from '../components/molecules/ProgressBar'
-import PostOverview from '../containers/organisms/PostOverview'
-import PostLocation from '../containers/organisms/PostLocation'
+import { RootState } from '../../reducers/index'
+import { setPostProgressIndex } from '../../actions/post'
+import PostScreen from '../../components/screens/PostScreen'
 
 const checkAndMovePages = (
   path: string,
@@ -50,7 +46,7 @@ const checkAndMovePages = (
   props.history.push(pathnames[previousIndex])
 }
 
-const PostScreen: FC<Props> = (props) => {
+const PostScreenContainer: FC<Props> = (props) => {
   const dispatch = useDispatch()
   const previousIndex = useSelector(
     (state: RootState) => state.postReducer.progressIndex
@@ -76,32 +72,21 @@ const PostScreen: FC<Props> = (props) => {
     )
   }, [props.location.pathname])
 
-  /*useEffect(() => {
-    window.addEventListener('beforeunload', () => {
-      dispatch(setPostProgressIndex(0))
-    })
-
-    return () => {
-      dispatch(setPostProgressIndex(0))
-    }
-  }, [])*/
+  // useEffect(() => {
+  // window.addEventListener('beforeunload', () => {
+  //   dispatch(setPostProgressIndex(0))
+  // })
+  // return () => {
+  //   dispatch(setPostProgressIndex(0))
+  // }
+  // }, [])
 
   return (
-    <div className="post-screen">
-      <Header isPost={false} />
-      <Menu />
-      <ProgressBar
-        className="post-screen__progress-map"
-        names={['概要', '場所', '確認']}
-        index={pageIndex}
-      />
-      {pageIndex === 0 ? (
-        <PostOverview history={props.history} />
-      ) : (
-        <PostLocation history={props.history} />
-      )}
-    </div>
+    <PostScreen
+      pageIndex={pageIndex}
+      history={props.history}
+    />
   )
 }
 
-export default PostScreen
+export default PostScreenContainer
