@@ -119,6 +119,19 @@ const Post: FC = () => {
         console.log('通信に失敗しました')
       })
   }
+  const getWeather = () => {
+    axios
+      .post('/api/getWeather', {
+        latitude,
+        longitude,
+      })
+      .then((res) => {
+        console.log(res.data)
+      })
+      .catch(() => {
+        console.log('通信に失敗しました')
+      })
+  }
   const addSchedule = () => {
     axios
       .post('/api/create', {
@@ -615,6 +628,8 @@ const Post: FC = () => {
         />
       </label>
       <button onClick={addSchedule}>確定</button>
+      <br />
+      <br />
       <button onClick={indexSchedule}>一覧確認</button>
       <button onClick={showSchedule}>確認</button>
       <button onClick={likeSchedule}>いいね</button>
@@ -624,9 +639,14 @@ const Post: FC = () => {
         onChange={(e) => setSearch(e.target.value)}
       />
       <button onClick={searchSchedule}>検索</button>
+      <br />
+      <br />
       <button onClick={userShowSchedule}>
         ユーザごとのスケジュール表示
       </button>
+      <br />
+      <br />
+      <button onClick={getWeather}>天気取得</button>
     </>
   )
 }
