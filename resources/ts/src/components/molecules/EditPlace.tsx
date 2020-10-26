@@ -17,9 +17,10 @@ import PlusInputBox from '../atoms/PlusInputBox'
 
 type Props = {
   className: string
+  inputRef: React.RefObject<HTMLInputElement>
 }
 
-const EditPlace: FC<Props> = ({ className }) => {
+const EditPlace: FC<Props> = ({ className, inputRef }) => {
   return (
     <div className={className + ' ' + 'edit-place'}>
       <MapIcon
@@ -30,6 +31,8 @@ const EditPlace: FC<Props> = ({ className }) => {
       <PlusInputBox
         type="text"
         className="edit-place__input"
+        placeholder="場所名を入力"
+        inputRef={inputRef}
       />
       <FontAwesomeIconBtn
         className="edit-place__whether--sun"
