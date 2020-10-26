@@ -31,32 +31,33 @@ const AddPlaceContainer: FC<Props> = ({
   const { target, lat, lng, name } = useSelector(
     (state: RootState) => state.mapReducer
   )
-  const [tempTarget, setTempTarget] = useState<Target>(
-    initialTarget
-  )
   const [
     isChoosingLocation,
     setIsChoosingLocation,
   ] = useState<boolean>(false)
 
+  // placesの内容を書き換える
   useEffect(() => {
     ;(() => { // eslint-disable-line
       if (
         target.dateIndex === dateIndex &&
         target.placeIndex === placeIndex
       ) {
+        // 場所追加ボタンが押されたのが自分のコンポーネントだった時
         setIsChoosingLocation(true)
 
         return
       }
+      if (!isChoosingLocation) return
+
       const place = places[placeIndex]
-      if (isChoosingLocation && place.name === null) {
+      if (place.name === null) {
         place.name = name
         place.location = { lat, lng }
         setPlaces(places.slice())
         console.log('ok!')
         console.log(name)
-      } else if (isChoosingLocation && !!place.name) {
+      } else if (place.name) {
         places.push({
           name,
           location: {

@@ -21,23 +21,6 @@ const EditDailyItineraryContainer: FC<Props> = ({
     },
   ])
 
-  // useEffect(() => {
-  //   ;(() => { // eslint-disable-line
-  //     if (target.dateIndex === dateIndex) {
-  //       setIsTarget(true)
-
-  //       return
-  //     }
-  //     if (isTarget) {
-  //       setLocation({ lat, lng })
-  //       setPlaceName(name)
-  //       console.log('ok!')
-  //       console.log(name)
-  //     }
-  //     setIsTarget(false)
-  //   })()
-  // }, [target.dateIndex, target.placeIndex])
-
   return (
     <EditDailyItinerary
       history={history}
