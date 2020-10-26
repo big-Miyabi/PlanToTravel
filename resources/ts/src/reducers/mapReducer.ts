@@ -6,6 +6,7 @@ import {
 
 type State = {
   shouldAppear: boolean
+  index: number | null
   name: string
   lat: number
   lng: number
@@ -15,6 +16,7 @@ type MapReducer = Reducer<State, UnionedAction>
 
 const initialState: State = {
   shouldAppear: false,
+  index: null,
   name: '',
   lat: 0,
   lng: 0,
@@ -29,6 +31,7 @@ export const mapReducer: MapReducer = (
       return {
         ...state,
         shouldAppear: action.payload.shouldAppear,
+        index: action.payload.index,
       }
     case ActionTypes.SET_PLACE_INFO:
       return {

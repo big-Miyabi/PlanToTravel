@@ -31,7 +31,7 @@ const getPlaceName = (
 }
 
 type NameSearch = {
-  targetName: string
+  inputValue: string
   setPlaceName: Dispatch<React.SetStateAction<string>>
   setLocation: Dispatch<React.SetStateAction<Coords>>
 }
@@ -48,7 +48,7 @@ const searchWithGeocoder = (
   Geocoder.geocode(
     {
       address:
-        'targetName' in arg ? arg.targetName : undefined,
+        'inputValue' in arg ? arg.inputValue : undefined,
       location:
         'location' in arg ? arg.location : undefined,
     },
@@ -70,7 +70,7 @@ const searchWithGeocoder = (
       if ('setLocation' in arg) {
         const name = place.isSuccess
           ? place.result.name
-          : arg.targetName
+          : arg.inputValue
         const lat = results[0].geometry.location.lat()
         const lng = results[0].geometry.location.lng()
         arg.setPlaceName(name)
@@ -97,18 +97,19 @@ const MapScreenContainer: FC = () => {
   }
   const zoom = 15 // 4.8にすると日本全体が見える
   const [isReady, setIsReady] = useState<boolean>(false)
-  const [targetName, setTargetName] = useState<string>('')
+  const [inputValue, setInputValue] = useState<string>('')
   const [location, setLocation] = useState<Coords>(center)
   const [placeName, setPlaceName] = useState<string>('')
 
   const initGeocoder = () => {
     setIsReady(true)
+    setPlaceName('東京駅')
   }
 
   const search = () => {
-    if (!isReady || targetName === '') return
+    if (!isReady || inputValue === '') return
     searchWithGeocoder({
-      targetName,
+      inputValue,
       setPlaceName,
       setLocation,
     })
@@ -124,11 +125,11 @@ const MapScreenContainer: FC = () => {
   }
 
   const hideMapScreen = () => {
-    dispatch(setShouldAppearMap(false))
+    dispatch(setShouldAppearMap(false, null))
   }
 
   const decidePlace = () => {
-    dispatch(setShouldAppearMap(false))
+    dispatch(setShouldAppearMap(false, null))
     dispatch(
       setPlaceInfo(placeName, location.lat, location.lng)
     )
@@ -141,7 +142,7 @@ const MapScreenContainer: FC = () => {
       location={location}
       initGeocoder={initGeocoder}
       onPutPin={onPutPin}
-      setTargetName={setTargetName}
+      setInputValue={setInputValue}
       search={search}
       hideMapScreen={hideMapScreen}
       decidePlace={decidePlace}

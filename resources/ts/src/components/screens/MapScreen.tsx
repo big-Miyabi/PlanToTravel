@@ -21,7 +21,7 @@ type Props = {
   location: Coords
   initGeocoder: () => void
   onPutPin: (v: ClickEventValue) => void
-  setTargetName: Dispatch<React.SetStateAction<string>>
+  setInputValue: Dispatch<React.SetStateAction<string>>
   search: () => void
   hideMapScreen: () => void
   decidePlace: () => void
@@ -33,7 +33,7 @@ const MapScreen: FC<Props> = ({
   location,
   initGeocoder,
   onPutPin,
-  setTargetName,
+  setInputValue,
   search,
   hideMapScreen,
   decidePlace,
@@ -54,7 +54,7 @@ const MapScreen: FC<Props> = ({
           <input
             className="location-search__search-input"
             type="text"
-            onChange={getChangeEventFunc(setTargetName)}
+            onChange={getChangeEventFunc(setInputValue)}
             onKeyPress={getKeyboardEventFunc(search)}
           />
           <FontAwesomeIconBtn
