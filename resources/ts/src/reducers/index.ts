@@ -5,6 +5,7 @@ import storage from 'redux-persist/lib/storage'
 import { loginReducer } from './loginReducer'
 import { menuReducer } from './menuReducer'
 import { postReducer } from './postReducer'
+import { mapReducer } from './mapReducer'
 
 // 永続化の設定
 const persistConfig = {
@@ -19,6 +20,7 @@ const rootReducer = combineReducers({
   loginReducer,
   menuReducer,
   postReducer,
+  mapReducer,
 })
 const persistedReducer = persistReducer(
   persistConfig,
