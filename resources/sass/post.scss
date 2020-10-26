@@ -421,18 +421,18 @@
     }
 
     .comment-area {
+        position: relative;
         width: px-to-vw(200);
         height: px-to-vw(103);
+        margin-bottom: px-to-vw(25);
+        padding: px-to-vw(5);
         border: solid $navy 1px;
         border-radius: 7px;
-        padding: px-to-vw(5);
-        margin-bottom: px-to-vw(25);
         &__header {
             display: flex;
             flex-direction: row;
         }
-
-        &__p {
+        &__title {
             font-size: 1.2rem;
             margin-right: px-to-vw(110);
             margin-bottom: 0;
@@ -445,6 +445,21 @@
             border: none;
             width: px-to-vw(185);
             height: px-to-vw(75);
+        }
+        %__progress {
+            position: absolute;
+            bottom: px-to-vw(-17);
+            right: px-to-vw(2);
+            margin-bottom: 0;
+            font-size: 1rem;
+        }
+        &__progress {
+            @extend %__progress;
+            color: $gray;
+            &--over {
+                @extend %__progress;
+                color: $orange;
+            }
         }
     }
 
