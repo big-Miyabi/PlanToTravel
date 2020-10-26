@@ -8,12 +8,14 @@ type Props = {
   index: number
   classNamePrefix: string
   selectedClass?: string
+  onClick?: () => void
 }
 
 const RatingIcons: FC<Props> = ({
   index,
   classNamePrefix,
   selectedClass = '',
+  onClick = () => {}, // eslint-disable-line
 }) => {
   switch (index) {
     case 1:
@@ -22,6 +24,7 @@ const RatingIcons: FC<Props> = ({
           className={
             classNamePrefix + 'bad' + selectedClass
           }
+          onClick={onClick}
         />
       )
     case 2:
@@ -30,6 +33,7 @@ const RatingIcons: FC<Props> = ({
           className={
             classNamePrefix + 'soso' + selectedClass
           }
+          onClick={onClick}
         />
       )
     case 3:
@@ -38,6 +42,7 @@ const RatingIcons: FC<Props> = ({
           className={
             classNamePrefix + 'good' + selectedClass
           }
+          onClick={onClick}
         />
       )
     default:
