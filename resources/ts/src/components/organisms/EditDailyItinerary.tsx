@@ -36,19 +36,21 @@ const EditDailyItinerary: FC<Props> = ({
             className="edit-daily-itinerary__place"
             key={index}
           >
-            {value.name === null ? (
-              <AddPlace
-                dateIndex={dateIndex}
-                places={places}
-                setPlaces={setPlaces}
-              />
-            ) : (
+            {value.name !== null ? (
               <div className="edit-daily-itinerary__add-place-detail-wrap">
                 <EditPlace className="edit-daily-itinerary__edit-place" />
 
                 <EditPlaceDetail className="edit-daily-itinerary__place-detail" />
               </div>
+            ) : (
+              <></>
             )}
+            <AddPlace
+              dateIndex={dateIndex}
+              placeIndex={index}
+              places={places}
+              setPlaces={setPlaces}
+            />
           </div>
         )
       })}
