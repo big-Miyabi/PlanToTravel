@@ -11,15 +11,16 @@
             z-index: 1;
             display: flex;
             position: absolute;
-            top: px-to-vh(36);
-            left: px-to-vw(22);
+            top: px-to-vw(19.5);
+            left: px-to-vw(12);
             width: px-to-vw(319);
-            justify-content: space-between;
+            //justify-content: space-between;
             align-items: center;
         }
         &__close {
             font-size: 2.2rem;
             color: $navy;
+            margin-bottom: px-to-vh(0);
         }
         &__pin {
             position: relative;
@@ -31,23 +32,32 @@
         &__add-btn {
             z-index: 1;
             position: absolute;
-            left: px-to-vw(43);
-            bottom: px-to-vw(50);
-            width: px-to-vw(290);
-            height: px-to-vw(26);
+            left: px-to-vw(112);
+            bottom: px-to-vw(23);
+            width: px-to-vw(150);
+            height: px-to-vw(40);
             background-color: $navy;
+            opacity: 0.9;
             color: $white;
+            -webkit-box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.4);
+            -moz-box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.4);
+            box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.4);
         }
     }
 
     .location-search {
         display: flex;
+        position: absolute;
+        left: px-to-vw(37);
         padding: 4px px-to-vw(8);
-        width: px-to-vw(290);
-        height: px-to-vw(26);
-        border: solid 1px $navy;
-        border-radius: 8px;
-        background-color: $white;
+        width: px-to-vw(270);
+        height: px-to-vw(40);
+        -webkit-box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.2);
+        -moz-box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.2);
+        box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.2);
+
+        //border-radius: 8px;
+        background-color: rgba(255, 255, 255, 0.9);
         justify-content: space-between;
         align-items: center;
         &__map-icon {
@@ -56,11 +66,14 @@
         }
         &__search-input {
             width: 100%;
+            background-color: rgba(255, 255, 255, 0.1);
             border: none;
             margin: 0 px-to-vw(8);
             font-size: 1.2rem;
+            border-bottom: solid 1px $navy;
             &:focus {
                 outline: none;
+                background-color: rgba(255, 255, 255, 0.1);
             }
         }
         &__search-icon {
