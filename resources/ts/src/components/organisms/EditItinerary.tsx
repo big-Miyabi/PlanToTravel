@@ -10,11 +10,13 @@ import MapIcon from '../atoms/svg/MapIcon'
 type Props = {
   className: string
   history: H.History
+  showMap: () => void
 }
 
 const EditItinerary: FC<Props> = ({
   className,
   history,
+  showMap,
 }) => {
   return (
     <>
@@ -28,7 +30,10 @@ const EditItinerary: FC<Props> = ({
 
           <EditPlaceDetail className="edit-itinerary__place-detail" />
         </div>
-        <div className="edit-itinerary__add-place">
+        <div
+          className="edit-itinerary__add-place"
+          onClick={showMap}
+        >
           <MapIcon
             className="edit-itinerary__map-icon"
             shouldHavePlus={false}
@@ -45,7 +50,10 @@ const EditItinerary: FC<Props> = ({
           <div className="edit-itinerary__date-border"></div>
           <p className="edit-itinerary__date">2020.10.07</p>
         </div>
-        <div className="edit-itinerary__add-place">
+        <div
+          className="edit-itinerary__add-place"
+          onClick={showMap}
+        >
           <MapIcon
             className="edit-itinerary__map-icon"
             shouldHavePlus={false}
@@ -61,7 +69,10 @@ const EditItinerary: FC<Props> = ({
           <div className="edit-itinerary__date-border"></div>
           <p className="edit-itinerary__date">2020.10.08</p>
         </div>
-        <div className="edit-itinerary__add-place">
+        <div
+          className="edit-itinerary__add-place"
+          onClick={showMap}
+        >
           <MapIcon
             className="edit-itinerary__map-icon"
             shouldHavePlus={false}
@@ -71,6 +82,7 @@ const EditItinerary: FC<Props> = ({
           <FontAwesomeIconBtn
             className="edit-itinerary__plus"
             icon={faPlus}
+            onClick={showMap}
           />
         </div>
       </div>

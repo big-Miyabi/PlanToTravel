@@ -32,3 +32,24 @@ $screen-height: 812;
     $vh: $px-num / $screen-height * 100;
     @return #{$vh}vh;
 }
+
+@mixin keyframes($animation-name: animaton) {
+    @-webkit-keyframes #{$animation-name} {
+        @content;
+    }
+    @-moz-keyframes #{$animation-name} {
+        @content;
+    }
+    @keyframes #{$animation-name} {
+        @content;
+    }
+}
+
+@mixin animation($animation-name) {
+    -webkit-animation: $animation-name;
+    -moz-animation: $animation-name;
+    animation: $animation-name;
+    -webkit-animation-fill-mode: both;
+    -moz-animation-fill-mode: both;
+    animation-fill-mode: both;
+}
