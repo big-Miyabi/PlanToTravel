@@ -9,11 +9,7 @@ import {
   setShouldAppearMap,
   setSettingPlaceType,
 } from '../../actions/map'
-import {
-  Target,
-  Place,
-  initialTarget,
-} from '../../utilities/types'
+import { Place } from '../../utilities/types'
 import { RootState } from '../../reducers'
 import AddPlace from '../../components/molecules/AddPlace'
 
