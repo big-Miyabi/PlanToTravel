@@ -1,5 +1,8 @@
 import React, { FC, Dispatch } from 'react'
-import GoogleMapReact, { Coords } from 'google-map-react'
+import GoogleMapReact, {
+  Coords,
+  ClickEventValue,
+} from 'google-map-react'
 import {
   getKeyboardEventFunc,
   getChangeEventFunc,
@@ -17,8 +20,8 @@ type Props = {
   zoom: number
   location: Coords
   initGeocoder: () => void
-  setLocation: Dispatch<React.SetStateAction<Coords>>
-  setSearchName: Dispatch<React.SetStateAction<string>>
+  onPutPin: (v: ClickEventValue) => void
+  setTargetName: Dispatch<React.SetStateAction<string>>
   search: () => void
 }
 
@@ -27,8 +30,8 @@ const MapScreen: FC<Props> = ({
   zoom,
   location,
   initGeocoder,
-  setLocation,
-  setSearchName,
+  onPutPin,
+  setTargetName,
   search,
 }) => {
   return (
@@ -46,7 +49,7 @@ const MapScreen: FC<Props> = ({
           <input
             className="location-search__search-input"
             type="text"
-            onChange={getChangeEventFunc(setSearchName)}
+            onChange={getChangeEventFunc(setTargetName)}
             onKeyPress={getKeyboardEventFunc(search)}
           />
           <FontAwesomeIconBtn
@@ -65,10 +68,7 @@ const MapScreen: FC<Props> = ({
         defaultCenter={center}
         defaultZoom={zoom}
         yesIWantToUseGoogleMapApiInternals
-        onClick={(v) => {
-          console.log(v)
-          setLocation({ lat: v.lat, lng: v.lng })
-        }}
+        onClick={onPutPin}
         onGoogleApiLoaded={initGeocoder}
       >
         <MapIcon
