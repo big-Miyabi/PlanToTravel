@@ -59,10 +59,15 @@ export const initialPlace: Place = {
 export type WhetherIcon = {
   icon: IconDefinition
   name: Whether
+}
+
+export type WhetherItem = {
+  icon: IconDefinition
+  name: Whether
   isSelected: boolean
 }
 
-export const initialWhetherIcons: WhetherIcon[] = [
+export const initialWhetherItems: WhetherItem[] = [
   {
     icon: faSun,
     name: 'sun',

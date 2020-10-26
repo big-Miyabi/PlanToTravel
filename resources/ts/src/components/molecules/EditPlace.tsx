@@ -1,15 +1,11 @@
 import React, { FC, Dispatch } from 'react'
 import { colors } from '../../utilities/colors'
 import { getChangeEventFunc } from '../../utilities/getEventFunc'
-import { WhetherIcon } from '../../utilities/types'
-import FontAwesomeIconBtn from '../atoms/FontAwesomeIconBtn'
 import {
-  faSun,
-  faCloud,
-  faUmbrella,
-  faSnowflake,
-  faMoon,
-} from '@fortawesome/free-solid-svg-icons'
+  WhetherIcon,
+  WhetherItem,
+} from '../../utilities/types'
+import FontAwesomeIconBtn from '../atoms/FontAwesomeIconBtn'
 import DashedCircle from '../atoms/svg/DashedCircle'
 import BadFace from '../atoms/svg/BadFace'
 import SosoFace from '../atoms/svg/SosoFace'
@@ -26,8 +22,9 @@ type Props = {
   setShouldShowWhetherBox: Dispatch<
     React.SetStateAction<boolean>
   >
-  whetherIcons: WhetherIcon[]
+  whetherItems: WhetherItem[]
   onSelectWhether: (index: number) => void
+  selectedWhether: WhetherIcon
 }
 
 const EditPlace: FC<Props> = ({
@@ -37,8 +34,9 @@ const EditPlace: FC<Props> = ({
   showMap,
   shouldShowWhetherBox,
   setShouldShowWhetherBox,
-  whetherIcons,
+  whetherItems,
   onSelectWhether,
+  selectedWhether,
 }) => {
   return (
     <div className={className + ' ' + 'edit-place'}>
@@ -56,15 +54,17 @@ const EditPlace: FC<Props> = ({
         onClick={showMap}
       />
       <FontAwesomeIconBtn
-        className="edit-place__whether--sun"
-        icon={faSun}
+        className={
+          'edit-place__whether--' + selectedWhether.name
+        }
+        icon={selectedWhether.icon}
         onClick={() => {
           setShouldShowWhetherBox(!shouldShowWhetherBox)
         }}
       />
       {shouldShowWhetherBox ? (
         <div className="whether-box">
-          {whetherIcons.map((value, index) => {
+          {whetherItems.map((value, index) => {
             const selectedClass = value.isSelected
               ? '-selected'
               : ''

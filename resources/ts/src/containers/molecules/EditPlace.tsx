@@ -12,9 +12,11 @@ import {
 import {
   Place,
   WhetherIcon,
-  initialWhetherIcons,
+  WhetherItem,
+  initialWhetherItems,
 } from '../../utilities/types'
 import EditPlace from '../../components/molecules/EditPlace'
+import { faSun } from '@fortawesome/free-solid-svg-icons'
 
 type Props = {
   className: string
@@ -35,9 +37,12 @@ const EditPlaceContainer: FC<Props> = ({
     shouldShowWhetherBox,
     setShouldShowWhetherBox,
   ] = useState<boolean>(false)
-  const [whetherIcons, setWhetherIcons] = useState<
-    WhetherIcon[]
-  >(initialWhetherIcons)
+  const [whetherItems, setWhetherItems] = useState<
+    WhetherItem[]
+  >(initialWhetherItems)
+  const [selectedWhether, setSelectedWheter] = useState<
+    WhetherIcon
+  >({ icon: faSun, name: 'sun' })
   const setCustomName = (value: string) => {
     places[placeIndex].name = value
   }
@@ -63,12 +68,16 @@ const EditPlaceContainer: FC<Props> = ({
   }
 
   const onSelectWhether = (index: number) => {
-    whetherIcons.some((_, i) => {
+    whetherItems.some((_, i) => {
       if (i === index) return
-      whetherIcons[i].isSelected = false
+      whetherItems[i].isSelected = false
     })
-    whetherIcons[index].isSelected = true
-    setWhetherIcons(whetherIcons.slice())
+    whetherItems[index].isSelected = true
+    setWhetherItems(whetherItems.slice())
+    setSelectedWheter({
+      icon: whetherItems[index].icon,
+      name: whetherItems[index].name,
+    })
   }
 
   return (
@@ -79,8 +88,9 @@ const EditPlaceContainer: FC<Props> = ({
       showMap={showMap}
       shouldShowWhetherBox={shouldShowWhetherBox}
       setShouldShowWhetherBox={setShouldShowWhetherBox}
-      whetherIcons={whetherIcons}
+      whetherItems={whetherItems}
       onSelectWhether={onSelectWhether}
+      selectedWhether={selectedWhether}
     />
   )
 }
