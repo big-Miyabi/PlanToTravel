@@ -26,3 +26,13 @@ export const setPlaceInfo = (
       lng,
     },
   } as const)
+
+export const setSettingPlaceType = (
+  setType: 'add' | 'edit' | 'none'
+) =>
+  ({
+    type: ActionTypes.SET_SETTING_PLACE_TYPE,
+    payload: {
+      setType,
+    },
+  } as const)
