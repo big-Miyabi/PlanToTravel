@@ -6,6 +6,8 @@ type Props = {
   color?: string
   onClick?: () => void
   shouldHavePlus?: boolean
+  lat?: number
+  lng?: number
 }
 
 const MapIcon: FC<Props> = ({
@@ -13,6 +15,8 @@ const MapIcon: FC<Props> = ({
   color = colors.navyBlue,
   onClick = () => {},
   shouldHavePlus = true,
+  lat,
+  lng,
 }) => {
   return (
     <svg
