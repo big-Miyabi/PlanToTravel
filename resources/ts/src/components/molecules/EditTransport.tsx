@@ -43,31 +43,48 @@ const EditTransport: FC<Props> = ({
             setIsShownBox(!isShownBox)
           }}
         >
-          <FontAwesomeIconBtn
-            className="edit-transport__shoe-prints-icon fa-rotate-90"
-            icon={faShoePrints}
+          <TransportSelectIcon
+            className={'edit-transport__selected-icon'}
+            index={selectedIndex}
+            classNamePrefix="selected-icon__"
+            isSelectedIcon={true}
           />
-          <p className="edit-transport__selected">徒歩 ▾</p>
+          <p className="edit-transport__selected">
+            {transports[selectedIndex]} ▾
+          </p>
+
+          {transports[selectedIndex] === '入力なし' ? (
+            <p className="edit-transport__message">
+              アイコンを選択してください
+            </p>
+          ) : (
+            <></>
+          )}
 
           {isShownBox ? (
             <div className="transport-box">
               {transports.map((value, index) => {
-                const selectedClass =
+                const isSelectedIcon =
                   selectedIndex === index
-                    ? '--selected'
-                    : ''
+                const selectedClass = isSelectedIcon
+                  ? '--selected'
+                  : ''
 
                 return (
-                  <div className="transport-box__row">
+                  <div
+                    className="transport-box__row"
+                    onClick={() => {
+                      setSelectedIndex(index)
+                    }}
+                    key={index}
+                  >
                     <div className="transport-box__icon-wrap">
                       <TransportSelectIcon
                         index={index}
                         classNamePrefix="transport-box__"
                         selectedClass={selectedClass}
+                        isSelectedIcon={isSelectedIcon}
                         key={index}
-                        onClick={() => {
-                          setSelectedIndex(index)
-                        }}
                       />
                     </div>
                     <p
@@ -86,9 +103,6 @@ const EditTransport: FC<Props> = ({
             <></>
           )}
         </div>
-        <p className="edit-transport__message">
-          アイコンを選択してください
-        </p>
       </div>
       <div className="edit-transport__detail-wrap">
         <PlusInputBox

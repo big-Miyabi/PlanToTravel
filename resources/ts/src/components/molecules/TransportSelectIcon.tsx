@@ -8,30 +8,37 @@ import {
   faTrain,
 } from '@fortawesome/free-solid-svg-icons'
 import React, { FC } from 'react'
+import { colors } from '../../utilities/colors'
 import FontAwesomeIconBtn from '../atoms/FontAwesomeIconBtn'
 import DashedCircle from '../atoms/svg/DashedCircle'
 
 type Props = {
   index: number
+  className?: string
   classNamePrefix: string
   selectedClass?: string
-  onClick: () => void
+  isSelectedIcon?: boolean
 }
 
 const TransportSelectIcon: FC<Props> = ({
   index,
+  className = '',
   classNamePrefix,
   selectedClass = '',
-  onClick,
+  isSelectedIcon = false,
 }) => {
+  const propsClass = className ? `${className} ` : ''
+
   switch (index) {
     case 0:
       return (
         <FontAwesomeIconBtn
           className={
-            classNamePrefix + 'walking' + selectedClass
+            propsClass +
+            classNamePrefix +
+            'walking' +
+            selectedClass
           }
-          onClick={onClick}
           icon={faShoePrints}
         />
       )
@@ -39,9 +46,11 @@ const TransportSelectIcon: FC<Props> = ({
       return (
         <FontAwesomeIconBtn
           className={
-            classNamePrefix + 'bicycle' + selectedClass
+            propsClass +
+            classNamePrefix +
+            'bicycle' +
+            selectedClass
           }
-          onClick={onClick}
           icon={faBicycle}
         />
       )
@@ -49,9 +58,11 @@ const TransportSelectIcon: FC<Props> = ({
       return (
         <FontAwesomeIconBtn
           className={
-            classNamePrefix + 'car' + selectedClass
+            propsClass +
+            classNamePrefix +
+            'car' +
+            selectedClass
           }
-          onClick={onClick}
           icon={faCar}
         />
       )
@@ -59,9 +70,11 @@ const TransportSelectIcon: FC<Props> = ({
       return (
         <FontAwesomeIconBtn
           className={
-            classNamePrefix + 'bus' + selectedClass
+            propsClass +
+            classNamePrefix +
+            'bus' +
+            selectedClass
           }
-          onClick={onClick}
           icon={faBus}
         />
       )
@@ -69,9 +82,11 @@ const TransportSelectIcon: FC<Props> = ({
       return (
         <FontAwesomeIconBtn
           className={
-            classNamePrefix + 'train' + selectedClass
+            propsClass +
+            classNamePrefix +
+            'train' +
+            selectedClass
           }
-          onClick={onClick}
           icon={faTrain}
         />
       )
@@ -79,9 +94,11 @@ const TransportSelectIcon: FC<Props> = ({
       return (
         <FontAwesomeIconBtn
           className={
-            classNamePrefix + 'ship' + selectedClass
+            propsClass +
+            classNamePrefix +
+            'ship' +
+            selectedClass
           }
-          onClick={onClick}
           icon={faShip}
         />
       )
@@ -89,21 +106,31 @@ const TransportSelectIcon: FC<Props> = ({
       return (
         <FontAwesomeIconBtn
           className={
-            classNamePrefix + 'airplane' + selectedClass
+            propsClass +
+            classNamePrefix +
+            'airplane' +
+            selectedClass
           }
-          onClick={onClick}
           icon={faPlane}
         />
       )
-    default:
+    default: {
+      const color = isSelectedIcon
+        ? colors.navyBlue
+        : colors.lightNavy
+
       return (
         <DashedCircle
           className={
-            classNamePrefix + 'none' + selectedClass
+            propsClass +
+            classNamePrefix +
+            'none' +
+            selectedClass
           }
-          onClick={onClick}
+          color={color}
         />
       )
+    }
   }
 }
 

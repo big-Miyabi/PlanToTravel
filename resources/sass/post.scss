@@ -223,7 +223,7 @@
         }
 
         &__add-place-detail-wrap {
-            width: px-to-vw(232);
+            width: auto;
             height: auto;
             //margin-top: px-to-vw(9);
             margin-left: px-to-vw(14);
@@ -482,19 +482,50 @@
         &__select-wrap {
             display: flex;
             flex-direction: row;
+            align-items: center;
             color: $light-navy;
             margin-right: px-to-vw(13);
+            margin-bottom: px-to-vw(7);
         }
-        &__shoe-prints-icon {
+        &__selected {
+            margin-bottom: 0;
+        }
+        &__selected-icon {
             font-size: 1.1rem;
             margin-top: px-to-vw(3);
-            margin-right: px-to-vw(3);
+            margin-right: px-to-vw(5);
+        }
+        &__message {
+            margin-left: px-to-vw(8);
+            margin-bottom: 0;
+            font-size: 1rem;
+            color: $gray;
         }
         &__detail-wrap {
             margin-left: px-to-vw(12);
         }
         &__detail {
             width: px-to-vw(185);
+        }
+    }
+
+    .selected-icon {
+        &__walking,
+        &__bicycle,
+        &__car,
+        &__bus,
+        &__train,
+        &__ship,
+        &__airplane {
+            font-size: 1.1rem;
+        }
+        &__none {
+            width: px-to-vw(14);
+            height: px-to-vw(14);
+            &--selected {
+                width: px-to-vw(14);
+                height: px-to-vw(14);
+            }
         }
     }
 
@@ -540,10 +571,17 @@
         &__ship,
         &__airplane {
             font-size: 1.1rem;
+            &--selected {
+                color: $light-navy;
+            }
         }
         &__none {
             width: px-to-vw(13);
             height: px-to-vw(13);
+            &--selected {
+                width: px-to-vw(13);
+                height: px-to-vw(13);
+            }
         }
     }
 
