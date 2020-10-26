@@ -51,6 +51,9 @@ const PostScreenContainer: FC<Props> = (props) => {
   const previousIndex = useSelector(
     (state: RootState) => state.postReducer.progressIndex
   )
+  const shouldAppearMap = useSelector(
+    (state: RootState) => state.mapReducer.shouldAppear
+  )
   const [pageIndex, setPageIndex] = useState(0)
 
   const pathnames = [
@@ -85,6 +88,7 @@ const PostScreenContainer: FC<Props> = (props) => {
     <PostScreen
       pageIndex={pageIndex}
       history={props.history}
+      shouldAppearMap={shouldAppearMap}
     />
   )
 }

@@ -1,8 +1,12 @@
 import React, { FC, Dispatch } from 'react'
 import GoogleMapReact, {
   Coords,
-  Props as MapProps,
+  ClickEventValue,
 } from 'google-map-react'
+import {
+  getKeyboardEventFunc,
+  getChangeEventFunc,
+} from '../../utilities/getEventFunc'
 import MapIcon from '../atoms/svg/MapIcon'
 import FormBtn from '../atoms/FormBtn'
 import FontAwesomeIconBtn from '../atoms/FontAwesomeIconBtn'
@@ -15,16 +19,26 @@ type Props = {
   center: Coords
   zoom: number
   location: Coords
-  setLocation: Dispatch<React.SetStateAction<Coords>>
-  initGeocoder: MapProps['onGoogleApiLoaded']
+  initGeocoder: () => void
+  onPutPin: (v: ClickEventValue) => void
+  setInputValue: Dispatch<React.SetStateAction<string>>
+  search: () => void
+  hideMapScreen: () => void
+  decidePlace: () => void
+  isDisabled: boolean
 }
 
 const MapScreen: FC<Props> = ({
   center,
   zoom,
   location,
-  setLocation,
   initGeocoder,
+  onPutPin,
+  setInputValue,
+  search,
+  hideMapScreen,
+  decidePlace,
+  isDisabled,
 }) => {
   return (
     <div className="map-screen">
@@ -32,6 +46,7 @@ const MapScreen: FC<Props> = ({
         <FontAwesomeIconBtn
           className="map-screen__close"
           icon={faTimes}
+          onClick={hideMapScreen}
         />
         <div className="location-search">
           <MapIcon
@@ -41,10 +56,13 @@ const MapScreen: FC<Props> = ({
           <input
             className="location-search__search-input"
             type="text"
+            onChange={getChangeEventFunc(setInputValue)}
+            onKeyPress={getKeyboardEventFunc(search)}
           />
           <FontAwesomeIconBtn
             className="location-search__search-icon"
             icon={faSearch}
+            onClick={search}
           />
         </div>
       </div>
@@ -56,12 +74,14 @@ const MapScreen: FC<Props> = ({
         }}
         defaultCenter={center}
         defaultZoom={zoom}
+        center={location}
+        zoom={zoom}
         yesIWantToUseGoogleMapApiInternals
-        onClick={(v) => {
-          console.log(v)
-          setLocation({ lat: v.lat, lng: v.lng })
-        }}
+        onClick={onPutPin}
         onGoogleApiLoaded={initGeocoder}
+        options={{
+          gestureHandling: 'greedy',
+        }}
       >
         <MapIcon
           className={'map-screen__pin'}
@@ -72,7 +92,8 @@ const MapScreen: FC<Props> = ({
       <FormBtn
         className="map-screen__add-btn"
         name="この場所を追加"
-          onClick={() => {}} // eslint-disable-line
+        onClick={decidePlace}
+        isDisabled={isDisabled}
       />
     </div>
   )
