@@ -1,3 +1,5 @@
+import { Coords } from 'google-map-react'
+
 export type ItineraryType = {
   whether: string
   place: string
@@ -14,4 +16,19 @@ export type PostCardType = {
 export type OpacityGradientType = {
   start: number
   end: number
+}
+
+export type Target = {
+  dateIndex: number | null
+  placeIndex: number | null
+}
+
+export const initialTarget = {
+  dateIndex: null,
+  placeIndex: null,
+}
+
+export type Place = {
+  name: string | null
+  location: Coords | null
 }

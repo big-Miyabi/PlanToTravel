@@ -1,61 +1,50 @@
 import React, { FC, useState, useEffect } from 'react'
 import * as H from 'history'
-import { Coords } from 'google-map-react'
-import { useDispatch, useSelector } from 'react-redux'
-import { RootState } from '../../reducers'
-import { setShouldAppearMap } from '../../actions/map'
 import EditDailyItinerary from '../../components/organisms/EditDailyItinerary'
+import { Place } from '../../utilities/types'
 
 type Props = {
   history: H.History
   date: string
-  index: number
+  dateIndex: number
 }
 
 const EditDailyItineraryContainer: FC<Props> = ({
   history,
   date,
-  index,
+  dateIndex,
 }) => {
-  const dispatch = useDispatch()
-  const { index: mapIndex, lat, lng, name } = useSelector(
-    (state: RootState) => state.mapReducer
-  )
-  const [isTarget, setIsTarget] = useState<boolean>(false)
-  const [location, setLocation] = useState<Coords | null>(
-    null
-  )
-  const [placeName, setPlaceName] = useState<string | null>(
-    null
-  )
-  const showMap = () => {
-    dispatch(setShouldAppearMap(true, index))
-  }
+  const [places, setPlaces] = useState<Place[]>([
+    {
+      name: null,
+      location: null,
+    },
+  ])
 
-  useEffect(() => {
-    ;(() => { // eslint-disable-line
-      if (mapIndex === index) {
-        setIsTarget(true)
+  // useEffect(() => {
+  //   ;(() => { // eslint-disable-line
+  //     if (target.dateIndex === dateIndex) {
+  //       setIsTarget(true)
 
-        return
-      }
-      if (isTarget) {
-        setLocation({ lat, lng })
-        setPlaceName(name)
-        console.log('ok!')
-        console.log(name)
-      }
-      setIsTarget(false)
-    })()
-  }, [mapIndex])
+  //       return
+  //     }
+  //     if (isTarget) {
+  //       setLocation({ lat, lng })
+  //       setPlaceName(name)
+  //       console.log('ok!')
+  //       console.log(name)
+  //     }
+  //     setIsTarget(false)
+  //   })()
+  // }, [target.dateIndex, target.placeIndex])
 
   return (
     <EditDailyItinerary
       history={history}
       date={date}
-      index={index}
-      showMap={showMap}
-      placeName={placeName}
+      dateIndex={dateIndex}
+      places={places}
+      setPlaces={setPlaces}
     />
   )
 }

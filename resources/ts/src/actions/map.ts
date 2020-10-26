@@ -1,14 +1,15 @@
 import { ActionTypes } from './index'
+import { Target } from '../utilities/types'
 
 export const setShouldAppearMap = (
   shouldAppear: boolean,
-  index: number | null
+  target: Target
 ) =>
   ({
     type: ActionTypes.SET_SHOULD_APPEAR_MAP,
     payload: {
       shouldAppear,
-      index,
+      target,
     },
   } as const)
 

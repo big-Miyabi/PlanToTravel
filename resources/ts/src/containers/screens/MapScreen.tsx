@@ -125,11 +125,21 @@ const MapScreenContainer: FC = () => {
   }
 
   const hideMapScreen = () => {
-    dispatch(setShouldAppearMap(false, null))
+    dispatch(
+      setShouldAppearMap(false, {
+        dateIndex: null,
+        placeIndex: null,
+      })
+    )
   }
 
   const decidePlace = () => {
-    dispatch(setShouldAppearMap(false, null))
+    dispatch(
+      setShouldAppearMap(false, {
+        dateIndex: null,
+        placeIndex: null,
+      })
+    )
     dispatch(
       setPlaceInfo(placeName, location.lat, location.lng)
     )
