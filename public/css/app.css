@@ -1489,6 +1489,11 @@ next .input-box::placeholder {
     margin-right: 3.7333333333vw;
   }
 
+  .edit-place-detail__right {
+    display: flex;
+    flex-direction: column;
+  }
+
   .edit-place-detail__plus-img-wrap {
     display: flex;
     flex-direction: row;
@@ -1503,6 +1508,29 @@ next .input-box::placeholder {
     width: 6.9333333333vw;
     height: 5.8666666667vw;
     margin-right: 1.6vw;
+  }
+
+  .edit-place-detail__image-wrap {
+    position: relative;
+    width: 40.2666666667vw;
+    height: 21.0666666667vw;
+    margin-bottom: 4.5333333333vw;
+  }
+
+  .edit-place-detail__image {
+    -o-object-fit: cover;
+       object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 1.6vw;
+  }
+
+  .edit-place-detail__delete-image {
+    position: absolute;
+    top: 0;
+    right: -2.6666666667vw;
+    font-size: 1rem;
+    color: #e5e5e5;
   }
 
   .comment-area {

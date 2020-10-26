@@ -37,10 +37,11 @@ export const useFileInput = (
 ): [
   RefObject<HTMLInputElement>,
   string,
-  (e: ChangeEvent<HTMLInputElement>) => void
+  (e: ChangeEvent<HTMLInputElement>) => void,
+  () => void
 ] => {
   const inputRef = useRef<HTMLInputElement>(null)
-  const [image, setImage] = useState<File>()
+  const [image, setImage] = useState<File | null>(null)
   const [base64, setBase64] = useState<string>('')
 
   const onFileChange = (
@@ -50,6 +51,11 @@ export const useFileInput = (
     if (e.target.files === null) return
     setImage(e.target.files[0])
     if (func) func(e.target.files[0])
+  }
+
+  const deleteImage = () => {
+    setImage(null)
+    setBase64('')
   }
 
   useEffect(() => {
@@ -62,5 +68,5 @@ export const useFileInput = (
     if (image) fileReader.readAsDataURL(image)
   }, [image])
 
-  return [inputRef, base64, onFileChange]
+  return [inputRef, base64, onFileChange, deleteImage]
 }

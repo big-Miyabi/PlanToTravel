@@ -1,8 +1,9 @@
 import React, { FC, ChangeEvent } from 'react'
-
+import FontAwesomeIconBtn from '../atoms/FontAwesomeIconBtn'
 import CommentArea from '../molecules/CommentArea'
 import PlusImage from '../atoms/svg/PlusImage'
 import EditTransport from '../../containers/molecules/EditTransport'
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
 
 type Props = {
   className: string
@@ -11,6 +12,7 @@ type Props = {
   onFileChange: (e: ChangeEvent<HTMLInputElement>) => void
   src: string
   placeName: string | null
+  deleteImage: () => void
 }
 
 const EditPlaceDetail: FC<Props> = ({
@@ -20,6 +22,7 @@ const EditPlaceDetail: FC<Props> = ({
   onFileChange,
   src,
   placeName,
+  deleteImage,
 }) => {
   return (
     <div className={className + ' ' + 'edit-place-detail'}>
@@ -46,7 +49,16 @@ const EditPlaceDetail: FC<Props> = ({
 
         {src && placeName ? (
           <div className="edit-place-detail__image-wrap">
-            <img src={src} alt={placeName} />
+            <img
+              className="edit-place-detail__image"
+              src={src}
+              alt={placeName}
+            />
+            <FontAwesomeIconBtn
+              className="edit-place-detail__delete-image"
+              icon={faTimes}
+              onClick={deleteImage}
+            />
           </div>
         ) : (
           <></>
