@@ -15,6 +15,8 @@ type Props = {
   deleteImage: () => void
   text: string
   setText: Dispatch<React.SetStateAction<string>>
+  dateIndex: number
+  placeIndex: number
 }
 
 const EditPlaceDetail: FC<Props> = ({
@@ -27,6 +29,8 @@ const EditPlaceDetail: FC<Props> = ({
   deleteImage,
   text,
   setText,
+  dateIndex,
+  placeIndex,
 }) => {
   return (
     <div className={className + ' ' + 'edit-place-detail'}>
@@ -79,7 +83,11 @@ const EditPlaceDetail: FC<Props> = ({
           }}
         />
 
-        <EditTransport className="edit-place-detail__transport" />
+        <EditTransport
+          className="edit-place-detail__transport"
+          dateIndex={dateIndex}
+          placeIndex={placeIndex}
+        />
       </div>
     </div>
   )

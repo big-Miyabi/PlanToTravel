@@ -13,6 +13,9 @@ type Props = {
   transports: Transport[]
   selectedIndex: number
   setSelectedIndex: Dispatch<React.SetStateAction<number>>
+  overlayClass: string
+  isShownBox: boolean
+  setIsShownBox: Dispatch<React.SetStateAction<boolean>>
 }
 
 const EditTransport: FC<Props> = ({
@@ -20,6 +23,9 @@ const EditTransport: FC<Props> = ({
   transports,
   selectedIndex,
   setSelectedIndex,
+  overlayClass,
+  isShownBox,
+  setIsShownBox,
 }) => {
   return (
     <div className={className + ' ' + 'edit-transport'}>
@@ -31,41 +37,54 @@ const EditTransport: FC<Props> = ({
         移動手段を追加
       </p>
       <div className="edit-transport__select-transport">
-        <div className="edit-transport__select-wrap">
+        <div
+          className="edit-transport__select-wrap"
+          onClick={() => {
+            setIsShownBox(!isShownBox)
+          }}
+        >
           <FontAwesomeIconBtn
             className="edit-transport__shoe-prints-icon fa-rotate-90"
             icon={faShoePrints}
           />
           <p className="edit-transport__selected">徒歩 ▾</p>
-          <div className="transport-box">
-            {transports.map((value, index) => {
-              const selectedClass =
-                selectedIndex === index ? '--selected' : ''
 
-              return (
-                <div className="transport-box__row">
-                  <div className="transport-box__icon-wrap">
-                    <TransportSelectIcon
-                      index={index}
-                      classNamePrefix="transport-box__"
-                      selectedClass={selectedClass}
-                      key={index}
-                      onClick={() => {
-                        setSelectedIndex(index)
-                      }}
-                    />
+          {isShownBox ? (
+            <div className="transport-box">
+              {transports.map((value, index) => {
+                const selectedClass =
+                  selectedIndex === index
+                    ? '--selected'
+                    : ''
+
+                return (
+                  <div className="transport-box__row">
+                    <div className="transport-box__icon-wrap">
+                      <TransportSelectIcon
+                        index={index}
+                        classNamePrefix="transport-box__"
+                        selectedClass={selectedClass}
+                        key={index}
+                        onClick={() => {
+                          setSelectedIndex(index)
+                        }}
+                      />
+                    </div>
+                    <p
+                      className={
+                        'transport-box__name' +
+                        selectedClass
+                      }
+                    >
+                      {value}
+                    </p>
                   </div>
-                  <p
-                    className={
-                      'transport-box__name' + selectedClass
-                    }
-                  >
-                    {value}
-                  </p>
-                </div>
-              )
-            })}
-          </div>
+                )
+              })}
+            </div>
+          ) : (
+            <></>
+          )}
         </div>
         <p className="edit-transport__message">
           アイコンを選択してください
@@ -78,6 +97,10 @@ const EditTransport: FC<Props> = ({
           className="edit-transport__detail"
         />
       </div>
+      <div
+        style={isShownBox ? {} : { display: 'none' }}
+        className={`box-overlay ${overlayClass}`}
+      ></div>
     </div>
   )
 }
