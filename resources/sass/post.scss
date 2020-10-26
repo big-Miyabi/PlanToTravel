@@ -251,29 +251,29 @@
             width: px-to-vw(149);
         }
 
-        %__whether {
+        %__weather {
             font-size: 2.4rem;
         }
-        &__whether {
-            @extend %__whether;
+        &__weather {
+            @extend %__weather;
             &--sun {
-                @extend %__whether;
+                @extend %__weather;
                 color: $orange;
             }
             &--cloud {
-                @extend %__whether;
+                @extend %__weather;
                 color: $gray;
             }
             &--rain {
-                @extend %__whether;
+                @extend %__weather;
                 color: $navy;
             }
             &--snow {
-                @extend %__whether;
+                @extend %__weather;
                 color: $light-blue;
             }
             &--night {
-                @extend %__whether;
+                @extend %__weather;
                 color: $yellow;
             }
         }
@@ -314,7 +314,7 @@
         }
     }
 
-    .whether-box {
+    .weather-box {
         z-index: 1000;
         position: absolute;
         top: calc(100% + #{px-to-vw(9)});

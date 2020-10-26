@@ -1346,32 +1346,32 @@ next .input-box::placeholder {
     width: 39.7333333333vw;
   }
 
-  .edit-place .edit-place__whether--night,
-  .edit-place .edit-place__whether--snow,
-  .edit-place .edit-place__whether--rain,
-  .edit-place .edit-place__whether--cloud,
-  .edit-place .edit-place__whether--sun,
-  .edit-place .edit-place__whether {
+  .edit-place .edit-place__weather--night,
+  .edit-place .edit-place__weather--snow,
+  .edit-place .edit-place__weather--rain,
+  .edit-place .edit-place__weather--cloud,
+  .edit-place .edit-place__weather--sun,
+  .edit-place .edit-place__weather {
     font-size: 2.4rem;
   }
 
-  .edit-place__whether--sun {
+  .edit-place__weather--sun {
     color: #ff6633;
   }
 
-  .edit-place__whether--cloud {
+  .edit-place__weather--cloud {
     color: #c4c4c4;
   }
 
-  .edit-place__whether--rain {
+  .edit-place__weather--rain {
     color: #003666;
   }
 
-  .edit-place__whether--snow {
+  .edit-place__weather--snow {
     color: #bcdbe8;
   }
 
-  .edit-place__whether--night {
+  .edit-place__weather--night {
     color: #fcbe32;
   }
 
@@ -1416,7 +1416,7 @@ next .input-box::placeholder {
     filter: drop-shadow(0.2666666667vw 0.5333333333vw 0.8vw rgba(0, 0, 0, 0.25));
   }
 
-  .whether-box {
+  .weather-box {
     z-index: 1000;
     position: absolute;
     top: calc(100% + 2.4vw);
@@ -1433,47 +1433,47 @@ next .input-box::placeholder {
     align-items: center;
   }
 
-  .whether-box__sun {
+  .weather-box__sun {
     color: rgba(255, 102, 51, 0.4);
   }
 
-  .whether-box__cloud {
+  .weather-box__cloud {
     color: rgba(196, 196, 196, 0.4);
   }
 
-  .whether-box__rain {
+  .weather-box__rain {
     color: rgba(0, 54, 102, 0.4);
   }
 
-  .whether-box__snow {
+  .weather-box__snow {
     color: rgba(188, 219, 232, 0.4);
   }
 
-  .whether-box__night {
+  .weather-box__night {
     color: rgba(252, 190, 50, 0.4);
   }
 
-  .whether-box__sun-selected {
+  .weather-box__sun-selected {
     color: #ff6633;
     filter: drop-shadow(0.2666666667vw 0.5333333333vw 0.8vw rgba(0, 0, 0, 0.25));
   }
 
-  .whether-box__cloud-selected {
+  .weather-box__cloud-selected {
     color: #c4c4c4;
     filter: drop-shadow(0.2666666667vw 0.5333333333vw 0.8vw rgba(0, 0, 0, 0.25));
   }
 
-  .whether-box__rain-selected {
+  .weather-box__rain-selected {
     color: #003666;
     filter: drop-shadow(0.2666666667vw 0.5333333333vw 0.8vw rgba(0, 0, 0, 0.25));
   }
 
-  .whether-box__snow-selected {
+  .weather-box__snow-selected {
     color: #bcdbe8;
     filter: drop-shadow(0.2666666667vw 0.5333333333vw 0.8vw rgba(0, 0, 0, 0.25));
   }
 
-  .whether-box__night-selected {
+  .weather-box__night-selected {
     color: #fcbe32;
     filter: drop-shadow(0.2666666667vw 0.5333333333vw 0.8vw rgba(0, 0, 0, 0.25));
   }
