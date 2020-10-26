@@ -16,6 +16,7 @@ import {
   initialWhetherItems,
   RatingIcon,
 } from '../../utilities/types'
+import { usePopupMenu } from '../../utilities/customHook'
 import EditPlace from '../../components/molecules/EditPlace'
 import { faSun } from '@fortawesome/free-solid-svg-icons'
 
@@ -38,7 +39,12 @@ const EditPlaceContainer: FC<Props> = ({
   const [
     isShownWhetherBox,
     setIsShownWhetherBox,
-  ] = useState<boolean>(false)
+  ] = usePopupMenu('box-overlay')
+  const [
+    isShownRatingBox,
+    setIsShownRatingBox,
+  ] = usePopupMenu('box-overlay')
+
   const [whetherItems, setWhetherItems] = useState<
     WhetherItem[]
   >(initialWhetherItems)
@@ -46,9 +52,6 @@ const EditPlaceContainer: FC<Props> = ({
     WhetherIcon
   >({ icon: faSun, name: 'sun' })
 
-  const [isShownRatingBox, setIsShownRatingBox] = useState<
-    boolean
-  >(false)
   const ratingArray = ['bad', 'soso', 'good']
   const initialRatingIcons: RatingIcon[] = [
     ...Array(3),
@@ -119,25 +122,6 @@ const EditPlaceContainer: FC<Props> = ({
     }
     writeInPlaceInput()
   }, [places[placeIndex].name])
-
-  // 天気・評価セレクトボックスの外を押すとメニューを閉じる処理
-  useEffect(() => {
-    if (!isShownWhetherBox) return
-    const overlay = document.getElementsByClassName(
-      'box-overlay'
-    )[0] as HTMLElement
-
-    const documentClickHandler = () => {
-      if (!isShownWhetherBox) return
-      setIsShownWhetherBox(false)
-      overlay.removeEventListener(
-        'click',
-        documentClickHandler
-      )
-    }
-
-    overlay.addEventListener('click', documentClickHandler)
-  }, [isShownWhetherBox])
 
   return (
     <EditPlace
