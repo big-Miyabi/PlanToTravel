@@ -1,4 +1,11 @@
-import { Dispatch, useState, useEffect } from 'react'
+import {
+  Dispatch,
+  useState,
+  useEffect,
+  useRef,
+  ChangeEvent,
+  RefObject,
+} from 'react'
 
 export const usePopupMenu = (
   overlayClassName: string
@@ -23,4 +30,37 @@ export const usePopupMenu = (
   }, [isShown])
 
   return [isShown, setIsShown]
+}
+
+export const useFileInput = (
+  func?: (file: File) => void
+): [
+  RefObject<HTMLInputElement>,
+  string,
+  (e: ChangeEvent<HTMLInputElement>) => void
+] => {
+  const inputRef = useRef<HTMLInputElement>(null)
+  const [image, setImage] = useState<File>()
+  const [base64, setBase64] = useState<string>('')
+
+  const onFileChange = (
+    e: ChangeEvent<HTMLInputElement>
+  ) => {
+    e.persist()
+    if (e.target.files === null) return
+    setImage(e.target.files[0])
+    if (func) func(e.target.files[0])
+  }
+
+  useEffect(() => {
+    const fileReader = new FileReader()
+    fileReader.onload = () => {
+      if (typeof fileReader.result === 'string')
+        setBase64(fileReader.result)
+    }
+
+    if (image) fileReader.readAsDataURL(image)
+  }, [image])
+
+  return [inputRef, base64, onFileChange]
 }
