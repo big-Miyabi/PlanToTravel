@@ -1,7 +1,7 @@
 import React, { FC, useState, useEffect } from 'react'
 import * as H from 'history'
 import EditDailyItinerary from '../../components/organisms/EditDailyItinerary'
-import { Place } from '../../utilities/types'
+import { Place, initialPlace } from '../../utilities/types'
 
 type Props = {
   history: H.History
@@ -15,10 +15,7 @@ const EditDailyItineraryContainer: FC<Props> = ({
   dateIndex,
 }) => {
   const [places, setPlaces] = useState<Place[]>([
-    {
-      name: null,
-      location: null,
-    },
+    initialPlace,
   ])
 
   return (

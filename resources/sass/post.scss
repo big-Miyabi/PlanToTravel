@@ -236,6 +236,7 @@
     }
 
     .edit-place {
+        position: relative;
         display: flex;
         width: px-to-vw(232);
         justify-content: space-between;
@@ -275,6 +276,60 @@
                 @extend %__whether;
                 color: $yellow;
             }
+        }
+    }
+
+    .whether-box {
+        position: absolute;
+        top: calc(100% + #{px-to-vw(9)});
+        left: px-to-vw(75);
+        display: flex;
+        width: px-to-vw(201);
+        height: px-to-vw(51);
+        padding: 0 px-to-vw(8);
+        border-radius: px-to-vw(7);
+        box-shadow: 0 px-to-vw(1) px-to-vw(4) rgba(0, 0, 0, 0.25);
+        background-color: $white;
+        font-size: 2.4rem;
+        justify-content: space-between;
+        align-items: center;
+
+        $icon-drop-shodw: px-to-vw(1) px-to-vw(2) px-to-vw(3)
+            rgba(0, 0, 0, 0.25);
+        &__sun {
+            color: rgba($orange, 0.4);
+        }
+        &__cloud {
+            color: rgba($gray, 0.4);
+        }
+        &__rain {
+            color: rgba($navy, 0.4);
+        }
+        &__snow {
+            color: rgba($light-blue, 0.4);
+        }
+        &__night {
+            color: rgba($yellow, 0.4);
+        }
+        &__sun-selected {
+            color: $orange;
+            filter: drop-shadow($icon-drop-shodw);
+        }
+        &__cloud-selected {
+            color: $gray;
+            filter: drop-shadow($icon-drop-shodw);
+        }
+        &__rain-selected {
+            color: $navy;
+            filter: drop-shadow($icon-drop-shodw);
+        }
+        &__snow-selected {
+            color: $light-blue;
+            filter: drop-shadow($icon-drop-shodw);
+        }
+        &__night-selected {
+            color: $yellow;
+            filter: drop-shadow($icon-drop-shodw);
         }
     }
 
