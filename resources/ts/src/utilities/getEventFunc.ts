@@ -8,11 +8,13 @@ type OnKeyPressFunc = (
 ) => void
 
 export const getChangeEventFunc = (
-  setValue: Dispatch<React.SetStateAction<any>>
+  func:
+    | Dispatch<React.SetStateAction<any>>
+    | ((value: string) => void)
 ): OnChangeFunc => {
   return (e: ChangeEvent<HTMLInputElement>) => {
     e.persist()
-    setValue(e.target.value)
+    func(e.target.value)
   }
 }
 
