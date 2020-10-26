@@ -30,6 +30,8 @@ type Props = {
   setIsShownRatingBox: Dispatch<
     React.SetStateAction<boolean>
   >
+  dateIndex: number
+  placeIndex: number
 }
 
 const EditPlace: FC<Props> = ({
@@ -47,6 +49,8 @@ const EditPlace: FC<Props> = ({
   onSelectRating,
   isShownRatingBox,
   setIsShownRatingBox,
+  dateIndex,
+  placeIndex,
 }) => {
   return (
     <div className={className + ' ' + 'edit-place'}>
@@ -129,7 +133,7 @@ const EditPlace: FC<Props> = ({
         <></>
       )}
       <div
-        className="box-overlay"
+        className={`box-overlay box-overlay__${dateIndex}-${placeIndex}`}
         style={
           isShownWhetherBox || isShownRatingBox
             ? {}
