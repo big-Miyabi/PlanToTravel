@@ -22,11 +22,14 @@ const EditPlaceDetailContainer: FC<Props> = ({
   placeIndex,
 }) => {
   const inputId = `add_place_image_${dateIndex}_${placeIndex}`
-  const [inputRef, src, onFileChange] = useFileInput(
-    (file: File) => {
-      places[placeIndex].image = file
-    }
-  )
+  const [
+    inputRef,
+    src,
+    onFileChange,
+    deleteImage,
+  ] = useFileInput((file: File) => {
+    places[placeIndex].image = file
+  })
 
   return (
     <EditPlaceDetail
@@ -36,6 +39,7 @@ const EditPlaceDetailContainer: FC<Props> = ({
       onFileChange={onFileChange}
       src={src}
       placeName={places[placeIndex].name}
+      deleteImage={deleteImage}
     />
   )
 }
