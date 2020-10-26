@@ -1,4 +1,6 @@
 import React, { FC, Dispatch, useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { setShouldAppearMap } from '../../actions/map'
 import { Coords, ClickEventValue } from 'google-map-react'
 import MapScreen from '../../components/screens/MapScreen'
 import axios from 'axios'
@@ -84,16 +86,17 @@ const searchWithGeocoder = (
 }
 
 const MapScreenContainer: FC = () => {
+  const dispatch = useDispatch()
   const center: Coords = {
     // 東京駅の座標
     lat: 35.68122839120453,
     lng: 139.7670679211538,
   }
+  const zoom = 15 // 4.8にすると日本全体が見える
   const [isReady, setIsReady] = useState<boolean>(false)
   const [targetName, setTargetName] = useState<string>('')
   const [location, setLocation] = useState<Coords>(center)
   const [placeName, setPlaceName] = useState<string>('')
-  const zoom = 15 // 4.8にすると日本全体が見える
 
   const initGeocoder = () => {
     setIsReady(true)
@@ -117,6 +120,10 @@ const MapScreenContainer: FC = () => {
     searchWithGeocoder({ location, setPlaceName })
   }
 
+  const hideMapScreen = () => {
+    dispatch(setShouldAppearMap(false))
+  }
+
   return (
     <MapScreen
       center={center}
@@ -126,6 +133,7 @@ const MapScreenContainer: FC = () => {
       onPutPin={onPutPin}
       setTargetName={setTargetName}
       search={search}
+      hideMapScreen={hideMapScreen}
     />
   )
 }

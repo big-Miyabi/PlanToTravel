@@ -23,6 +23,7 @@ type Props = {
   onPutPin: (v: ClickEventValue) => void
   setTargetName: Dispatch<React.SetStateAction<string>>
   search: () => void
+  hideMapScreen: () => void
 }
 
 const MapScreen: FC<Props> = ({
@@ -33,6 +34,7 @@ const MapScreen: FC<Props> = ({
   onPutPin,
   setTargetName,
   search,
+  hideMapScreen,
 }) => {
   return (
     <div className="map-screen">
@@ -40,6 +42,7 @@ const MapScreen: FC<Props> = ({
         <FontAwesomeIconBtn
           className="map-screen__close"
           icon={faTimes}
+          onClick={hideMapScreen}
         />
         <div className="location-search">
           <MapIcon

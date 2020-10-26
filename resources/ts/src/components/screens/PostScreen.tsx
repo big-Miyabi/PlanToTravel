@@ -20,7 +20,7 @@ const PostScreen: FC<Props> = ({
 }) => {
   const shownClass = shouldAppearMap
     ? ' post-screen__map-wrap--shown'
-    : ' post-screen__map-wrap--hidden'
+    : ''
 
   return (
     <div className="post-screen">
@@ -36,10 +36,7 @@ const PostScreen: FC<Props> = ({
       ) : (
         <PostLocation history={history} />
       )}
-      <div
-        className={'post-screen__map-wrap' + shownClass}
-        style={shouldAppearMap ? {} : { display: 'none' }}
-      >
+      <div className={'post-screen__map-wrap' + shownClass}>
         <MapScreen />
       </div>
     </div>
