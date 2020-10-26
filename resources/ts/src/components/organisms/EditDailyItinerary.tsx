@@ -45,12 +45,17 @@ const EditDailyItinerary: FC<Props> = ({
             ) : (
               <></>
             )}
-            <AddPlace
-              dateIndex={dateIndex}
-              placeIndex={index}
-              places={places}
-              setPlaces={setPlaces}
-            />
+            {value.name === null ||
+            places.length - 1 === index ? (
+              <AddPlace
+                  dateIndex={dateIndex}
+                  placeIndex={index}
+                  places={places}
+                  setPlaces={setPlaces}
+                />
+              ) : (
+                <></>
+              )}
           </div>
         )
       })}
