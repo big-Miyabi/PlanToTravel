@@ -91,11 +91,6 @@ const MapScreenContainer: FC = () => {
 
   const initGeocoder = () => {
     setIsReady(true)
-    searchWithGeocoder({
-      targetName: '国会議事堂',
-      setPlaceName,
-      setLocation,
-    })
   }
 
   const search = () => {
