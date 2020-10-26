@@ -20,8 +20,6 @@ const EditDailyItinerary: FC<Props> = ({
   index,
   showMap,
 }) => {
-  console.log(index)
-
   return (
     <div className="edit-itinerary__itinerary-for-the-day">
       <div className="edit-itinerary__date-wrap">
