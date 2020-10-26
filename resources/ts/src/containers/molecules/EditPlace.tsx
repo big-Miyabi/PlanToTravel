@@ -1,4 +1,9 @@
-import React, { FC, useEffect, useRef } from 'react'
+import React, {
+  FC,
+  useEffect,
+  useRef,
+  useState,
+} from 'react'
 import { useDispatch } from 'react-redux'
 import {
   setShouldAppearMap,
@@ -22,6 +27,10 @@ const EditPlaceContainer: FC<Props> = ({
 }) => {
   const dispatch = useDispatch()
   const inputRef = useRef<HTMLInputElement>(null)
+  const [
+    shouldShowWhetherBox,
+    setShouldShowWhetherBox,
+  ] = useState<boolean>(false)
   const setCustomName = (value: string) => {
     places[placeIndex].name = value
   }
@@ -52,6 +61,8 @@ const EditPlaceContainer: FC<Props> = ({
       inputRef={inputRef}
       setCustomName={setCustomName}
       showMap={showMap}
+      shouldShowWhetherBox={shouldShowWhetherBox}
+      setShouldShowWhetherBox={setShouldShowWhetherBox}
     />
   )
 }

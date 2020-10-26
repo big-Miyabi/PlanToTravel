@@ -9,7 +9,7 @@ import {
   setShouldAppearMap,
   setSettingPlaceType,
 } from '../../actions/map'
-import { Place } from '../../utilities/types'
+import { Place, initialPlace } from '../../utilities/types'
 import { RootState } from '../../reducers'
 import AddPlace from '../../components/molecules/AddPlace'
 
@@ -61,6 +61,7 @@ const AddPlaceContainer: FC<Props> = ({
       } else if (setType === 'add') {
         // 場所を新規で追加した時
         places.push({
+          ...initialPlace,
           name,
           location: {
             lat,

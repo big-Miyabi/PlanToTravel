@@ -31,4 +31,11 @@ export const initialTarget = {
 export type Place = {
   name: string | null
   location: Coords | null
+  whether: 'sun' | 'cloud' | 'rain' | 'snow' | 'night'
+}
+
+export const initialPlace: Place = {
+  name: null,
+  location: null,
+  whether: 'sun',
 }
