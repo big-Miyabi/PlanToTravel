@@ -21,9 +21,13 @@ Route::group(['middleware' => 'api'], function () {
   Route::post('create', 'ScheduleController@create');
   Route::get('index', 'ScheduleController@index');
   Route::post('show', 'ScheduleController@show');
+
   Route::post('like', 'LikeController@like');
   Route::post('delete', 'ScheduleController@delete');
   Route::post('bookmark', 'BookmarkController@bookmark');
   Route::post('getPlaceName', 'GoogleMapController@getPlaceName');
+  Route::post('userSchedule', 'ScheduleController@userSchedule');
+  Route::post('userLike', 'LikeController@userLike');
+  Route::post('userBookmark', 'BookmarkController@userBookmark');
 });
 Auth::routes();

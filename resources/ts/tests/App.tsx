@@ -17,7 +17,6 @@ import Login from './Login'
 import Post from './Post'
 import PostEdit from './PostEdit'
 import ProfEdit from './ProfEdit'
-import Result from './Result'
 
 const App: FC = () => {
   return (
@@ -31,7 +30,6 @@ const App: FC = () => {
       <Route path="/post" component={Post} />
       <Route path="/profEdit" component={ProfEdit} />
       <Route path="/postEdit" component={PostEdit} />
-      <Route path="/Result" component={Result} />
     </BrowserRouter>
   )
 }
