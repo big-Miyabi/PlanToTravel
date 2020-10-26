@@ -26,7 +26,7 @@ const EditTransportContainer: FC<Props> = ({
   )
   const [selectedIndex, setSelectedIndex] = useState<
     number
-  >(0)
+  >(7)
 
   return (
     <EditTransport

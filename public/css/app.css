@@ -1318,7 +1318,7 @@ next .input-box::placeholder {
   }
 
   .edit-daily-itinerary__add-place-detail-wrap {
-    width: 61.8666666667vw;
+    width: auto;
     height: auto;
     margin-left: 3.7333333333vw;
     margin-bottom: 2.4vw;
@@ -1606,14 +1606,27 @@ next .input-box::placeholder {
   .edit-transport__select-wrap {
     display: flex;
     flex-direction: row;
+    align-items: center;
     color: #7390ab;
     margin-right: 3.4666666667vw;
+    margin-bottom: 1.8666666667vw;
   }
 
-  .edit-transport__shoe-prints-icon {
+  .edit-transport__selected {
+    margin-bottom: 0;
+  }
+
+  .edit-transport__selected-icon {
     font-size: 1.1rem;
     margin-top: 0.8vw;
-    margin-right: 0.8vw;
+    margin-right: 1.3333333333vw;
+  }
+
+  .edit-transport__message {
+    margin-left: 2.1333333333vw;
+    margin-bottom: 0;
+    font-size: 1rem;
+    color: #c4c4c4;
   }
 
   .edit-transport__detail-wrap {
@@ -1622,6 +1635,26 @@ next .input-box::placeholder {
 
   .edit-transport__detail {
     width: 49.3333333333vw;
+  }
+
+  .selected-icon__walking,
+  .selected-icon__bicycle,
+  .selected-icon__car,
+  .selected-icon__bus,
+  .selected-icon__train,
+  .selected-icon__ship,
+  .selected-icon__airplane {
+    font-size: 1.1rem;
+  }
+
+  .selected-icon__none {
+    width: 3.7333333333vw;
+    height: 3.7333333333vw;
+  }
+
+  .selected-icon__none--selected {
+    width: 3.7333333333vw;
+    height: 3.7333333333vw;
   }
 
   .transport-box {
@@ -1673,7 +1706,22 @@ next .input-box::placeholder {
     font-size: 1.1rem;
   }
 
+  .transport-box__walking--selected,
+  .transport-box__bicycle--selected,
+  .transport-box__car--selected,
+  .transport-box__bus--selected,
+  .transport-box__train--selected,
+  .transport-box__ship--selected,
+  .transport-box__airplane--selected {
+    color: #7390ab;
+  }
+
   .transport-box__none {
+    width: 3.4666666667vw;
+    height: 3.4666666667vw;
+  }
+
+  .transport-box__none--selected {
     width: 3.4666666667vw;
     height: 3.4666666667vw;
   }
