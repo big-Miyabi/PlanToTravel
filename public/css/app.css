@@ -1376,6 +1376,7 @@ next .input-box::placeholder {
   }
 
   .whether-box {
+    z-index: 1000;
     position: absolute;
     top: calc(100% + 2.4vw);
     left: 20vw;
@@ -1533,6 +1534,16 @@ next .input-box::placeholder {
 
   .edit-transposrt__detail {
     width: 49.3333333333vw;
+  }
+
+  .box-overlay {
+    display: block;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
   }
 }
 

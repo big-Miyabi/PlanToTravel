@@ -34,8 +34,8 @@ const EditPlaceContainer: FC<Props> = ({
   const dispatch = useDispatch()
   const inputRef = useRef<HTMLInputElement>(null)
   const [
-    shouldShowWhetherBox,
-    setShouldShowWhetherBox,
+    isShownWhetherBox,
+    setIsShownWhetherBox,
   ] = useState<boolean>(false)
   const [whetherItems, setWhetherItems] = useState<
     WhetherItem[]
@@ -47,16 +47,6 @@ const EditPlaceContainer: FC<Props> = ({
   const setCustomName = (value: string) => {
     places[placeIndex].name = value
   }
-
-  // input.valueの中身を書き換える
-  useEffect(() => {
-    ;(() => { // eslint-disable-line
-      const input = inputRef.current
-      const name = places[placeIndex].name
-      if (input === null || name === null) return
-      input.value = name
-    })()
-  }, [places[placeIndex].name])
 
   const showMap = () => {
     dispatch(
@@ -83,14 +73,44 @@ const EditPlaceContainer: FC<Props> = ({
     places[placeIndex].whether = whether.name
   }
 
+  // input.valueの中身を書き換える
+  useEffect(() => {
+    const writeInPlaceInput = () => {
+      const input = inputRef.current
+      const name = places[placeIndex].name
+      if (input === null || name === null) return
+      input.value = name
+    }
+    writeInPlaceInput()
+  }, [places[placeIndex].name])
+
+  // 天気セレクトボックスの外を押すとメニューを閉じる処理
+  useEffect(() => {
+    if (!isShownWhetherBox) return
+    const overlay = document.getElementsByClassName(
+      'box-overlay'
+    )[0] as HTMLElement
+
+    const documentClickHandler = () => {
+      if (!isShownWhetherBox) return
+      setIsShownWhetherBox(false)
+      overlay.removeEventListener(
+        'click',
+        documentClickHandler
+      )
+    }
+
+    overlay.addEventListener('click', documentClickHandler)
+  }, [isShownWhetherBox])
+
   return (
     <EditPlace
       className={className}
       inputRef={inputRef}
       setCustomName={setCustomName}
       showMap={showMap}
-      shouldShowWhetherBox={shouldShowWhetherBox}
-      setShouldShowWhetherBox={setShouldShowWhetherBox}
+      isShownWhetherBox={isShownWhetherBox}
+      setIsShownWhetherBox={setIsShownWhetherBox}
       whetherItems={whetherItems}
       onSelectWhether={onSelectWhether}
       selectedWhether={selectedWhether}

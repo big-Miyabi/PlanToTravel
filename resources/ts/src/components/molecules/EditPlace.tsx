@@ -18,8 +18,8 @@ type Props = {
   inputRef: React.RefObject<HTMLInputElement>
   setCustomName: (value: string) => void
   showMap: () => void
-  shouldShowWhetherBox: boolean
-  setShouldShowWhetherBox: Dispatch<
+  isShownWhetherBox: boolean
+  setIsShownWhetherBox: Dispatch<
     React.SetStateAction<boolean>
   >
   whetherItems: WhetherItem[]
@@ -32,8 +32,8 @@ const EditPlace: FC<Props> = ({
   inputRef,
   setCustomName,
   showMap,
-  shouldShowWhetherBox,
-  setShouldShowWhetherBox,
+  isShownWhetherBox,
+  setIsShownWhetherBox,
   whetherItems,
   onSelectWhether,
   selectedWhether,
@@ -59,10 +59,10 @@ const EditPlace: FC<Props> = ({
         }
         icon={selectedWhether.icon}
         onClick={() => {
-          setShouldShowWhetherBox(!shouldShowWhetherBox)
+          setIsShownWhetherBox(!isShownWhetherBox)
         }}
       />
-      {shouldShowWhetherBox ? (
+      {isShownWhetherBox ? (
         <div className="whether-box">
           {whetherItems.map((value, index) => {
             const selectedClass = value.isSelected
@@ -89,6 +89,10 @@ const EditPlace: FC<Props> = ({
         <></>
       )}
       <DashedCircle className="edit-place__rating" />
+      <div
+        className="box-overlay"
+        style={isShownWhetherBox ? {} : { display: 'none' }}
+      ></div>
     </div>
   )
 }
