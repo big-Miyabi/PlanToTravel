@@ -6,13 +6,17 @@ import axios from 'axios'
 type Geocoder = google.maps.Geocoder
 
 const getPlaceName = (placeId: string) => {
-  const url = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?key=${process.env.MIX_GOOGLE_MAPS_API_KEY}&placeid=${placeId}`
   axios
-    .get(url)
+    .post('/api/getPlaceName', {
+      placeId,
+    })
     .then((res) => {
-      console.log(res)
+      const result = res.data.result
+      console.log('success')
+      console.log(result)
     })
     .catch((error) => {
+      console.log('error')
       console.log(error)
     })
 }
