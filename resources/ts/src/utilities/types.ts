@@ -38,6 +38,16 @@ export type Whether =
   | 'snow'
   | 'night'
 
+export type Transport =
+  | '徒歩'
+  | '自転車'
+  | '車'
+  | 'バス'
+  | '電車'
+  | '船'
+  | '飛行機'
+  | '入力なし'
+
 export type Place = {
   name: string | null
   location: Coords | null
@@ -45,6 +55,7 @@ export type Place = {
   rating: number
   image: File | null
   comment: string
+  transport: Transport
 }
 
 export type WhetherIcon = {
@@ -75,6 +86,7 @@ export const initialPlace: Place = {
   rating: 0,
   image: null,
   comment: '',
+  transport: '入力なし',
 }
 
 export const initialWhetherItems: WhetherItem[] = [
