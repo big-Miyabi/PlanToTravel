@@ -2,7 +2,9 @@ import React, {
   FC,
   useState,
   useRef,
+  useEffect,
   ChangeEvent,
+  Dispatch,
 } from 'react'
 import { Place } from '../../utilities/types'
 import EditPlaceDetail from '../../components/organisms/EditPlaceDetail'
@@ -13,6 +15,17 @@ type Props = {
   places: Place[]
   dateIndex: number
   placeIndex: number
+}
+
+const useTextArea = (
+  place: Place
+): [string, Dispatch<React.SetStateAction<string>>] => {
+  const [text, setText] = useState<string>('')
+  useEffect(() => {
+    place.comment = text
+  }, [text])
+
+  return [text, setText]
 }
 
 const EditPlaceDetailContainer: FC<Props> = ({
@@ -30,6 +43,7 @@ const EditPlaceDetailContainer: FC<Props> = ({
   ] = useFileInput((file: File) => {
     places[placeIndex].image = file
   })
+  const [text, setText] = useTextArea(places[placeIndex])
 
   return (
     <EditPlaceDetail
@@ -40,6 +54,8 @@ const EditPlaceDetailContainer: FC<Props> = ({
       src={src}
       placeName={places[placeIndex].name}
       deleteImage={deleteImage}
+      text={text}
+      setText={setText}
     />
   )
 }

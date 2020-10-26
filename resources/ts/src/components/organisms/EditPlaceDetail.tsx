@@ -1,4 +1,4 @@
-import React, { FC, ChangeEvent } from 'react'
+import React, { FC, ChangeEvent, Dispatch } from 'react'
 import FontAwesomeIconBtn from '../atoms/FontAwesomeIconBtn'
 import CommentArea from '../molecules/CommentArea'
 import PlusImage from '../atoms/svg/PlusImage'
@@ -13,6 +13,8 @@ type Props = {
   src: string
   placeName: string | null
   deleteImage: () => void
+  text: string
+  setText: Dispatch<React.SetStateAction<string>>
 }
 
 const EditPlaceDetail: FC<Props> = ({
@@ -23,6 +25,8 @@ const EditPlaceDetail: FC<Props> = ({
   src,
   placeName,
   deleteImage,
+  text,
+  setText,
 }) => {
   return (
     <div className={className + ' ' + 'edit-place-detail'}>
@@ -64,7 +68,16 @@ const EditPlaceDetail: FC<Props> = ({
           <></>
         )}
 
-        <CommentArea maxLength={255} />
+        <CommentArea
+          maxLength={255}
+          length={text.length}
+          onChange={(
+            e: ChangeEvent<HTMLTextAreaElement>
+          ) => {
+            e.persist()
+            setText(e.target.value)
+          }}
+        />
 
         <EditTransport className="edit-place-detail__transport" />
       </div>

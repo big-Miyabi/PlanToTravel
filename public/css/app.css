@@ -1534,12 +1534,13 @@ next .input-box::placeholder {
   }
 
   .comment-area {
+    position: relative;
     width: 53.3333333333vw;
     height: 27.4666666667vw;
+    margin-bottom: 6.6666666667vw;
+    padding: 1.3333333333vw;
     border: solid #003666 1px;
     border-radius: 7px;
-    padding: 1.3333333333vw;
-    margin-bottom: 6.6666666667vw;
   }
 
   .comment-area__header {
@@ -1547,7 +1548,7 @@ next .input-box::placeholder {
     flex-direction: row;
   }
 
-  .comment-area__p {
+  .comment-area__title {
     font-size: 1.2rem;
     margin-right: 29.3333333333vw;
     margin-bottom: 0;
@@ -1562,6 +1563,23 @@ next .input-box::placeholder {
     border: none;
     width: 49.3333333333vw;
     height: 20vw;
+  }
+
+  .comment-area .comment-area__progress--over,
+  .comment-area .comment-area__progress {
+    position: absolute;
+    bottom: -4.5333333333vw;
+    right: 0.5333333333vw;
+    margin-bottom: 0;
+    font-size: 1rem;
+  }
+
+  .comment-area__progress {
+    color: #c4c4c4;
+  }
+
+  .comment-area__progress--over {
+    color: #ff6633;
   }
 
   .edit-transposrt {
