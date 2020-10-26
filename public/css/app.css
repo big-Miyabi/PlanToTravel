@@ -409,6 +409,7 @@ next .input-box::placeholder {
 
 .plus-input-box__input {
   width: 100%;
+  padding-right: calc(1.2rem + 2.1333333333vw);
 }
 
 .plus-input-box__plus {

@@ -43,16 +43,19 @@ input:-webkit-autofill {
     }
 }
 
+$fontSize: 1.2rem;
+$right: px-to-vw(8);
 .plus-input-box {
     position: relative;
     &__input {
         width: 100%;
+        padding-right: calc(#{$fontSize} + #{$right});
     }
     &__plus {
         position: absolute;
         top: px-to-vw(7);
-        right: px-to-vw(8);
-        font-size: 1.2rem;
+        right: #{$right};
+        font-size: $fontSize;
         color: $navy;
     }
 }
