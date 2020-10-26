@@ -5,13 +5,23 @@ import Menu from '../../components/organisms/Menu'
 import ProgressBar from '../../components/molecules/ProgressBar'
 import PostOverview from '../../containers/organisms/PostOverview'
 import PostLocation from '../../containers/organisms/PostLocation'
+import MapScreen from '../../containers/screens/MapScreen'
 
 type Props = {
   pageIndex: number
   history: H.History
+  shouldAppearMap: boolean
 }
 
-const PostScreen: FC<Props> = ({ pageIndex, history }) => {
+const PostScreen: FC<Props> = ({
+  pageIndex,
+  history,
+  shouldAppearMap,
+}) => {
+  const shownClass = shouldAppearMap
+    ? ' post-screen__map-wrap--shown'
+    : ''
+
   return (
     <div className="post-screen">
       <Header isPost={false} />
@@ -26,6 +36,9 @@ const PostScreen: FC<Props> = ({ pageIndex, history }) => {
       ) : (
         <PostLocation history={history} />
       )}
+      <div className={'post-screen__map-wrap' + shownClass}>
+        <MapScreen />
+      </div>
     </div>
   )
 }
