@@ -43,9 +43,9 @@ input:-webkit-autofill {
     }
 }
 
-$fontSize: 1.2rem;
-$right: px-to-vw(8);
 .plus-input-box {
+    $fontSize: 1.2rem;
+    $right: px-to-vw(8);
     position: relative;
     &__input {
         width: 100%;

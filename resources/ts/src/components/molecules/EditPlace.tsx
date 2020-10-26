@@ -4,12 +4,10 @@ import { getChangeEventFunc } from '../../utilities/getEventFunc'
 import {
   WhetherIcon,
   WhetherItem,
+  RatingIcon,
 } from '../../utilities/types'
 import FontAwesomeIconBtn from '../atoms/FontAwesomeIconBtn'
-import DashedCircle from '../atoms/svg/DashedCircle'
-import BadFace from '../atoms/svg/BadFace'
-import SosoFace from '../atoms/svg/SosoFace'
-import GoodFace from '../atoms/svg/GoodFace'
+import RatingSelectBox from './RatingSelectBox'
 import MapIcon from '../atoms/svg/MapIcon'
 import PlusInputBox from '../atoms/PlusInputBox'
 
@@ -25,6 +23,8 @@ type Props = {
   whetherItems: WhetherItem[]
   onSelectWhether: (index: number) => void
   selectedWhether: WhetherIcon
+  ratingIcons: RatingIcon[]
+  selectedRating: number
 }
 
 const EditPlace: FC<Props> = ({
@@ -37,6 +37,8 @@ const EditPlace: FC<Props> = ({
   whetherItems,
   onSelectWhether,
   selectedWhether,
+  ratingIcons,
+  selectedRating,
 }) => {
   return (
     <div className={className + ' ' + 'edit-place'}>
@@ -88,7 +90,26 @@ const EditPlace: FC<Props> = ({
       ) : (
         <></>
       )}
-      <DashedCircle className="edit-place__rating" />
+      <RatingSelectBox
+        index={selectedRating}
+        classNamePrefix="edit-place__rating-"
+      />
+      <div className="rating-box">
+        {ratingIcons.map((value, index) => {
+          const selectedClass = value.isSelected
+            ? '-selected'
+            : ''
+
+          return (
+            <RatingSelectBox
+              index={index + 1}
+              classNamePrefix="rating-box__"
+              selectedClass={selectedClass}
+              key={index}
+            />
+          )
+        })}
+      </div>
       <div
         className="box-overlay"
         style={isShownWhetherBox ? {} : { display: 'none' }}

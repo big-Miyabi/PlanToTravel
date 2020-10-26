@@ -279,6 +279,41 @@
         }
     }
 
+    .rating-box {
+        z-index: 1000;
+        position: absolute;
+        top: calc(100% + #{px-to-vw(9)});
+        left: px-to-vw(146);
+        display: flex;
+        width: px-to-vw(130);
+        height: px-to-vw(51);
+        padding: 0 px-to-vw(16);
+        border-radius: px-to-vw(7);
+        box-shadow: 0 px-to-vw(1) px-to-vw(4) rgba(0, 0, 0, 0.25);
+        background-color: $white;
+        font-size: 2.4rem;
+        justify-content: space-between;
+        align-items: center;
+        &__bad {
+            opacity: 0.4;
+        }
+        &__soso {
+            opacity: 0.4;
+        }
+        &__good {
+            opacity: 0.4;
+        }
+        &__bad-selected {
+            filter: drop-shadow($icon-drop-shadw);
+        }
+        &__soso-selected {
+            filter: drop-shadow($icon-drop-shadw);
+        }
+        &__good-selected {
+            filter: drop-shadow($icon-drop-shadw);
+        }
+    }
+
     .whether-box {
         z-index: 1000;
         position: absolute;
@@ -295,8 +330,6 @@
         justify-content: space-between;
         align-items: center;
 
-        $icon-drop-shodw: px-to-vw(1) px-to-vw(2) px-to-vw(3)
-            rgba(0, 0, 0, 0.25);
         &__sun {
             color: rgba($orange, 0.4);
         }
@@ -314,23 +347,23 @@
         }
         &__sun-selected {
             color: $orange;
-            filter: drop-shadow($icon-drop-shodw);
+            filter: drop-shadow($icon-drop-shadw);
         }
         &__cloud-selected {
             color: $gray;
-            filter: drop-shadow($icon-drop-shodw);
+            filter: drop-shadow($icon-drop-shadw);
         }
         &__rain-selected {
             color: $navy;
-            filter: drop-shadow($icon-drop-shodw);
+            filter: drop-shadow($icon-drop-shadw);
         }
         &__snow-selected {
             color: $light-blue;
-            filter: drop-shadow($icon-drop-shodw);
+            filter: drop-shadow($icon-drop-shadw);
         }
         &__night-selected {
             color: $yellow;
-            filter: drop-shadow($icon-drop-shodw);
+            filter: drop-shadow($icon-drop-shadw);
         }
     }
 

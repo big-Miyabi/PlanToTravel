@@ -1,4 +1,3 @@
-import { faYelp } from '@fortawesome/free-brands-svg-icons'
 import { Coords } from 'google-map-react'
 import { IconDefinition } from '@fortawesome/fontawesome-common-types'
 import {
@@ -32,11 +31,6 @@ export type Target = {
   placeIndex: number | null
 }
 
-export const initialTarget = {
-  dateIndex: null,
-  placeIndex: null,
-}
-
 export type Whether =
   | 'sun'
   | 'cloud'
@@ -50,12 +44,6 @@ export type Place = {
   whether: Whether
 }
 
-export const initialPlace: Place = {
-  name: null,
-  location: null,
-  whether: 'sun',
-}
-
 export type WhetherIcon = {
   icon: IconDefinition
   name: Whether
@@ -65,6 +53,22 @@ export type WhetherItem = {
   icon: IconDefinition
   name: Whether
   isSelected: boolean
+}
+
+export type RatingIcon = {
+  isSelected: boolean
+  name: string
+}
+
+export const initialTarget = {
+  dateIndex: null,
+  placeIndex: null,
+}
+
+export const initialPlace: Place = {
+  name: null,
+  location: null,
+  whether: 'sun',
 }
 
 export const initialWhetherItems: WhetherItem[] = [

@@ -1375,6 +1375,47 @@ next .input-box::placeholder {
     color: #fcbe32;
   }
 
+  .rating-box {
+    z-index: 1000;
+    position: absolute;
+    top: calc(100% + 2.4vw);
+    left: 38.9333333333vw;
+    display: flex;
+    width: 34.6666666667vw;
+    height: 13.6vw;
+    padding: 0 4.2666666667vw;
+    border-radius: 1.8666666667vw;
+    box-shadow: 0 0.2666666667vw 1.0666666667vw rgba(0, 0, 0, 0.25);
+    background-color: #fff;
+    font-size: 2.4rem;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .rating-box__bad {
+    opacity: 0.4;
+  }
+
+  .rating-box__soso {
+    opacity: 0.4;
+  }
+
+  .rating-box__good {
+    opacity: 0.4;
+  }
+
+  .rating-box__bad-selected {
+    filter: drop-shadow(0.2666666667vw 0.5333333333vw 0.8vw rgba(0, 0, 0, 0.25));
+  }
+
+  .rating-box__soso-selected {
+    filter: drop-shadow(0.2666666667vw 0.5333333333vw 0.8vw rgba(0, 0, 0, 0.25));
+  }
+
+  .rating-box__good-selected {
+    filter: drop-shadow(0.2666666667vw 0.5333333333vw 0.8vw rgba(0, 0, 0, 0.25));
+  }
+
   .whether-box {
     z-index: 1000;
     position: absolute;
