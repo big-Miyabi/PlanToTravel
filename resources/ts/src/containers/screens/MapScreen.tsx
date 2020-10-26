@@ -1,9 +1,21 @@
 import React, { FC, useState } from 'react'
 import { Coords } from 'google-map-react'
 import MapScreen from '../../components/screens/MapScreen'
-import { getKeyboardEventFunc } from '../../utilities/getEventFunc'
+import axios from 'axios'
 /// <reference types="googlemaps" />
 type Geocoder = google.maps.Geocoder
+
+const getPlaceName = (placeId: string) => {
+  const url = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?key=${process.env.MIX_GOOGLE_MAPS_API_KEY}&placeid=${placeId}`
+  axios
+    .get(url)
+    .then((res) => {
+      console.log(res)
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+}
 
 const searchWithGeocoder = (searchName: string) => {
   const Geocoder: Geocoder = new google.maps.Geocoder()
@@ -23,6 +35,7 @@ const searchWithGeocoder = (searchName: string) => {
 
         return
       }
+      getPlaceName(results[0].place_id)
       const lat = results[0].geometry.location.lat()
       const lng = results[0].geometry.location.lng()
       console.log(lat)
@@ -40,6 +53,7 @@ const MapScreenContainer: FC = () => {
   const [location, setLocation] = useState<Coords>(center)
   const [isReady, setIsReady] = useState<boolean>(false)
   const [searchName, setSearchName] = useState<string>('')
+  const [placeName, setPlaceName] = useState<string>('')
   const zoom = 15 // 4.8にすると日本全体が見える
 
   const initGeocoder = () => {
