@@ -95939,6 +95939,99 @@ var Post = function () {
                     newTransportDs[1] = e.target.value;
                     setTransDs(newTransportDs);
                 } })),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("label", { htmlFor: "" },
+            "\u65E5\u306B\u3061",
+            react_1.default.createElement("input", { type: "text", onChange: function (e) {
+                    var newDays = day.slice();
+                    newDays[2] = e.target.value;
+                    setDays(newDays);
+                } })),
+        react_1.default.createElement("label", null,
+            "\u5834\u6240",
+            react_1.default.createElement("input", { type: "text", onChange: function (e) {
+                    var newPlaces = place_name.slice();
+                    newPlaces[2] = e.target.value;
+                    setPlaceNames(newPlaces);
+                } }),
+            "\u5929\u6C17",
+            react_1.default.createElement("select", { onChange: function (e) {
+                    var newWeathers = weather.slice();
+                    newWeathers[2] = e.target.value;
+                    setWeathers(newWeathers);
+                } },
+                react_1.default.createElement("option", null, "\u9078\u629E\u3057\u3066\u304F\u3060\u3055\u3044"),
+                react_1.default.createElement("option", { value: "sun" }, "sun"),
+                react_1.default.createElement("option", { value: "cloud" }, "cloud"),
+                react_1.default.createElement("option", { value: "rain" }, "rain"),
+                react_1.default.createElement("option", { value: "snow" }, "snow"),
+                react_1.default.createElement("option", { value: "night" }, "night")),
+            "\u8A55\u4FA1",
+            react_1.default.createElement("select", { onChange: function (e) {
+                    var newRatings = rating.slice();
+                    newRatings[2] = e.target.value;
+                    setRatings(newRatings);
+                } },
+                react_1.default.createElement("option", null, "\u9078\u629E\u3057\u3066\u304F\u3060\u3055\u3044"),
+                react_1.default.createElement("option", { value: "0" }, "0"),
+                react_1.default.createElement("option", { value: "1" }, "1"),
+                react_1.default.createElement("option", { value: "2" }, "2"),
+                react_1.default.createElement("option", { value: "3" }, "3"))),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("label", null,
+            "\u7DEF\u5EA6",
+            react_1.default.createElement("input", { type: "text", onChange: function (e) {
+                    var newLongitudes = longitude.slice();
+                    newLongitudes[2] = e.target.value;
+                    setLongitudes(newLongitudes);
+                } }),
+            "\u7D4C\u5EA6",
+            react_1.default.createElement("input", { type: "text", onChange: function (e) {
+                    var newLatitudes = latitude.slice();
+                    newLatitudes[2] = e.target.value;
+                    setLatitudes(newLatitudes);
+                } })),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("label", null,
+            "\u5199\u771F",
+            react_1.default.createElement("input", { type: "text", onChange: function (e) {
+                    var newImgs = img.slice();
+                    newImgs[2] = e.target.value;
+                    setImgs(newImgs);
+                } })),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("label", null,
+            "\u30B3\u30E1\u30F3\u30C8",
+            react_1.default.createElement("input", { type: "text", onChange: function (e) {
+                    var newComments = comment.slice();
+                    newComments[2] = e.target.value;
+                    setComments(newComments);
+                } })),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("label", null,
+            "\u79FB\u52D5\u624B\u6BB5",
+            react_1.default.createElement("select", { onChange: function (e) {
+                    var newTransports = transport.slice();
+                    newTransports[2] = e.target.value;
+                    setTransports(newTransports);
+                } },
+                react_1.default.createElement("option", null, "\u9078\u629E\u3057\u3066\u304F\u3060\u3055\u3044"),
+                react_1.default.createElement("option", { value: "\u5F92\u6B69" }, "\u5F92\u6B69"),
+                react_1.default.createElement("option", { value: "\u81EA\u8EE2\u8ECA" }, "\u81EA\u8EE2\u8ECA"),
+                react_1.default.createElement("option", { value: "\u8ECA" }, "\u8ECA"),
+                react_1.default.createElement("option", { value: "\u30D0\u30B9" }, "\u30D0\u30B9"),
+                react_1.default.createElement("option", { value: "\u96FB\u8ECA" }, "\u96FB\u8ECA"),
+                react_1.default.createElement("option", { value: "\u8239" }, "\u8239"),
+                react_1.default.createElement("option", { value: "\u98DB\u884C\u6A5F" }, "\u98DB\u884C\u6A5F"))),
+        react_1.default.createElement("br", null),
+        react_1.default.createElement("label", null,
+            "\u79FB\u52D5\u624B\u6BB5\u8A73\u7D30",
+            react_1.default.createElement("input", { type: "text", onChange: function (e) {
+                    var newTransportDs = transport_detail.slice();
+                    newTransportDs[2] = e.target.value;
+                    setTransDs(newTransportDs);
+                } })),
         react_1.default.createElement("button", { onClick: addSchedule }, "\u78BA\u5B9A"),
         react_1.default.createElement("button", { onClick: indexSchedule }, "\u4E00\u89A7\u78BA\u8A8D"),
         react_1.default.createElement("button", { onClick: showSchedule }, "\u78BA\u8A8D"),
