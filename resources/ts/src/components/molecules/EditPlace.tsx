@@ -25,6 +25,7 @@ type Props = {
   selectedWhether: WhetherIcon
   ratingIcons: RatingIcon[]
   selectedRating: number
+  onSelectRating: (index: number) => void
 }
 
 const EditPlace: FC<Props> = ({
@@ -39,6 +40,7 @@ const EditPlace: FC<Props> = ({
   selectedWhether,
   ratingIcons,
   selectedRating,
+  onSelectRating,
 }) => {
   return (
     <div className={className + ' ' + 'edit-place'}>
@@ -106,6 +108,9 @@ const EditPlace: FC<Props> = ({
               classNamePrefix="rating-box__"
               selectedClass={selectedClass}
               key={index}
+              onClick={() => {
+                onSelectRating(index)
+              }}
             />
           )
         })}
