@@ -31,13 +31,49 @@ const Post: FC = () => {
   // const [distance, setDistance] = useState<string>('')
   const [comment, setComments] = useState<string[]>([''])
   const [tag_name, setTags] = useState<string[]>([''])
-  const uid = '1'
+  const uid = '2'
   const is_public = '0'
-  const sid = '1'
+  const sid = '6'
   const showSchedule = () => {
     axios
       .post('/api/show', {
         sid,
+      })
+      .then((res) => {
+        console.log(res.data)
+      })
+      .catch(() => {
+        console.log('通信に失敗しました')
+      })
+  }
+  const userShowLike = () => {
+    axios
+      .post('/api/userLike', {
+        uid,
+      })
+      .then((res) => {
+        console.log(res.data)
+      })
+      .catch(() => {
+        console.log('通信に失敗しました')
+      })
+  }
+  const userShowBookmark = () => {
+    axios
+      .post('/api/userBookmark', {
+        uid,
+      })
+      .then((res) => {
+        console.log(res.data)
+      })
+      .catch(() => {
+        console.log('通信に失敗しました')
+      })
+  }
+  const userShowSchedule = () => {
+    axios
+      .post('/api/userSchedule', {
+        uid,
       })
       .then((res) => {
         console.log(res.data)
@@ -462,7 +498,20 @@ const Post: FC = () => {
       <button onClick={indexSchedule}>一覧確認</button>
       <button onClick={showSchedule}>確認</button>
       <button onClick={likeSchedule}>いいね</button>
+      <button onClick={bookMark}>ブックマーク</button>
       <button onClick={deleteSchedule}>削除</button>
+      <br />
+      <button onClick={userShowSchedule}>
+        ユーザごとのスケジュール表示
+      </button>
+      <br />
+      <button onClick={userShowLike}>
+        ユーザごとのいいね確認
+      </button>
+      <br />
+      <button onClick={userShowBookmark}>
+        ユーザごとのブックマーク確認
+      </button>
     </>
   )
 }
