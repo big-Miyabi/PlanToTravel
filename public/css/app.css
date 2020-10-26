@@ -1628,7 +1628,7 @@ next .input-box::placeholder {
     z-index: 1000;
     position: absolute;
     display: flex;
-    top: 0;
+    top: 4.8vw;
     left: 0;
     width: 26.9333333333vw;
     height: 62.6666666667vw;

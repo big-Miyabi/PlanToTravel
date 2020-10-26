@@ -4,14 +4,23 @@ import {
   Transport,
   initialTransports,
 } from '../../utilities/types'
+import { usePopupMenu } from '../../utilities/customHook'
 
 type Props = {
   className: string
+  dateIndex: number
+  placeIndex: number
 }
 
 const EditTransportContainer: FC<Props> = ({
   className,
+  dateIndex,
+  placeIndex,
 }) => {
+  const overlayClass = `transport-overlay__${dateIndex}-${placeIndex}`
+  const [isShownBox, setIsShownBox] = usePopupMenu(
+    overlayClass
+  )
   const [transports, setTransports] = useState<Transport[]>(
     initialTransports
   )
@@ -25,6 +34,9 @@ const EditTransportContainer: FC<Props> = ({
       transports={transports}
       selectedIndex={selectedIndex}
       setSelectedIndex={setSelectedIndex}
+      overlayClass={overlayClass}
+      isShownBox={isShownBox}
+      setIsShownBox={setIsShownBox}
     />
   )
 }

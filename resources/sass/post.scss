@@ -502,7 +502,7 @@
         z-index: 1000;
         position: absolute;
         display: flex;
-        top: 0;
+        top: px-to-vw(18);
         left: 0;
         width: px-to-vw(101);
         height: px-to-vw(235);

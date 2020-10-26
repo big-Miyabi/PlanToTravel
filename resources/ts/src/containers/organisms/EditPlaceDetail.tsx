@@ -56,6 +56,8 @@ const EditPlaceDetailContainer: FC<Props> = ({
       deleteImage={deleteImage}
       text={text}
       setText={setText}
+      dateIndex={dateIndex}
+      placeIndex={placeIndex}
     />
   )
 }
