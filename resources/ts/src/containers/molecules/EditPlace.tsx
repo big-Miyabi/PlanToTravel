@@ -11,9 +11,9 @@ import {
 } from '../../actions/map'
 import {
   Place,
-  WhetherIcon,
-  WhetherItem,
-  initialWhetherItems,
+  WeatherIcon,
+  WeatherItem,
+  initialWeatherItems,
   RatingIcon,
 } from '../../utilities/types'
 import { usePopupMenu } from '../../utilities/customHook'
@@ -36,24 +36,21 @@ const EditPlaceContainer: FC<Props> = ({
   const dispatch = useDispatch()
   const inputRef = useRef<HTMLInputElement>(null)
 
+  const overlayClass = `box-overlay__${dateIndex}-${placeIndex}`
   const [
-    isShownWhetherBox,
-    setIsShownWhetherBox,
-  ] = usePopupMenu(
-    `box-overlay__${dateIndex}-${placeIndex}`
-  )
+    isShownWeatherBox,
+    setIsShownWeatherBox,
+  ] = usePopupMenu(overlayClass)
   const [
     isShownRatingBox,
     setIsShownRatingBox,
-  ] = usePopupMenu(
-    `box-overlay__${dateIndex}-${placeIndex}`
-  )
+  ] = usePopupMenu(overlayClass)
 
-  const [whetherItems, setWhetherItems] = useState<
-    WhetherItem[]
-  >(initialWhetherItems)
-  const [selectedWhether, setSelectedWheter] = useState<
-    WhetherIcon
+  const [weatherItems, setWeatherItems] = useState<
+    WeatherItem[]
+  >(initialWeatherItems)
+  const [selectedWeather, setSelectedWheter] = useState<
+    WeatherIcon
   >({ icon: faSun, name: 'sun' })
 
   const ratingArray = ['bad', 'soso', 'good']
@@ -81,19 +78,19 @@ const EditPlaceContainer: FC<Props> = ({
     dispatch(setSettingPlaceType('edit'))
   }
 
-  const onSelectWhether = (index: number) => {
-    whetherItems.some((_, i) => {
+  const onSelectWeather = (index: number) => {
+    weatherItems.some((_, i) => {
       if (i === index) return
-      whetherItems[i].isSelected = false
+      weatherItems[i].isSelected = false
     })
-    const whether = whetherItems[index]
-    whether.isSelected = true
-    setWhetherItems(whetherItems.slice())
+    const weather = weatherItems[index]
+    weather.isSelected = true
+    setWeatherItems(weatherItems.slice())
     setSelectedWheter({
-      icon: whether.icon,
-      name: whether.name,
+      icon: weather.icon,
+      name: weather.name,
     })
-    places[placeIndex].whether = whether.name
+    places[placeIndex].weather = weather.name
   }
 
   const onSelectRating = (index: number) => {
@@ -132,18 +129,17 @@ const EditPlaceContainer: FC<Props> = ({
       inputRef={inputRef}
       setCustomName={setCustomName}
       showMap={showMap}
-      isShownWhetherBox={isShownWhetherBox}
-      setIsShownWhetherBox={setIsShownWhetherBox}
-      whetherItems={whetherItems}
-      onSelectWhether={onSelectWhether}
-      selectedWhether={selectedWhether}
+      isShownWeatherBox={isShownWeatherBox}
+      setIsShownWeatherBox={setIsShownWeatherBox}
+      weatherItems={weatherItems}
+      onSelectWeather={onSelectWeather}
+      selectedWeather={selectedWeather}
       ratingIcons={ratingIcons}
       selectedRating={places[placeIndex].rating}
       onSelectRating={onSelectRating}
       isShownRatingBox={isShownRatingBox}
       setIsShownRatingBox={setIsShownRatingBox}
-      dateIndex={dateIndex}
-      placeIndex={placeIndex}
+      overlayClass={overlayClass}
     />
   )
 }

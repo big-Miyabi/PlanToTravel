@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import { ItineraryType } from '../../utilities/types'
-import WhetherPin from '../atoms/WhetherPin'
+import WeatherPin from '../atoms/WeatherPin'
 
 type Props = {
   className: string
@@ -27,9 +27,9 @@ const ItineraryInCard: FC<Props> = ({
           return (
             <div key={key}>
               <div className="itinerary-in-card__place">
-                <WhetherPin
+                <WeatherPin
                   className="itinerary-in-card__pin"
-                  whether={item.whether}
+                  weather={item.weather}
                   index={key}
                   gradientId={
                     gradientId !== undefined &&

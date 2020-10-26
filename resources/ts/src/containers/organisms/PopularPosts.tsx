@@ -12,19 +12,19 @@ const PopularPostsContainer: FC = () => {
       favNum: 123,
       itinerary: [
         {
-          whether: 'sun',
+          weather: 'sun',
           place: '浅草駅',
         },
         {
-          whether: 'rain',
+          weather: 'rain',
           place: '井の頭自然..',
         },
         {
-          whether: 'night',
+          weather: 'night',
           place: '東京駅',
         },
         {
-          whether: 'snow',
+          weather: 'snow',
           place: '上野駅',
         },
       ],
@@ -36,15 +36,15 @@ const PopularPostsContainer: FC = () => {
       favNum: 100,
       itinerary: [
         {
-          whether: 'sun',
+          weather: 'sun',
           place: '浅草駅',
         },
         {
-          whether: 'rain',
+          weather: 'rain',
           place: '井の頭自然..',
         },
         {
-          whether: 'night',
+          weather: 'night',
           place: '東京駅',
         },
       ],
@@ -56,19 +56,19 @@ const PopularPostsContainer: FC = () => {
       favNum: 98,
       itinerary: [
         {
-          whether: 'sun',
+          weather: 'sun',
           place: '浅草駅',
         },
         {
-          whether: 'rain',
+          weather: 'rain',
           place: '井の頭自然..',
         },
         {
-          whether: 'night',
+          weather: 'night',
           place: '東京駅',
         },
         {
-          whether: 'snow',
+          weather: 'snow',
           place: '上野駅',
         },
       ],
