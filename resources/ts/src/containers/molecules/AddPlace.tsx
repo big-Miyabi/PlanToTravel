@@ -5,7 +5,10 @@ import React, {
   useEffect,
 } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { setShouldAppearMap } from '../../actions/map'
+import {
+  setShouldAppearMap,
+  setSettingPlaceType,
+} from '../../actions/map'
 import {
   Target,
   Place,
@@ -31,6 +34,9 @@ const AddPlaceContainer: FC<Props> = ({
   const { target, lat, lng, name } = useSelector(
     (state: RootState) => state.mapReducer
   )
+  const setType = useSelector(
+    (state: RootState) => state.mapReducer.setType
+  )
   const [
     isChoosingLocation,
     setIsChoosingLocation,
@@ -51,13 +57,13 @@ const AddPlaceContainer: FC<Props> = ({
       if (!isChoosingLocation) return
 
       const place = places[placeIndex]
-      if (place.name === null) {
+      if (place.name === null || setType === 'edit') {
+        // 最初の場所 or 既存の場所を上書きする
         place.name = name
         place.location = { lat, lng }
         setPlaces(places.slice())
-        console.log('ok!')
-        console.log(name)
-      } else if (place.name) {
+      } else if (setType === 'add') {
+        // 場所を新規で追加した時
         places.push({
           name,
           location: {
@@ -68,6 +74,7 @@ const AddPlaceContainer: FC<Props> = ({
         setPlaces(places.slice())
       }
       setIsChoosingLocation(false)
+      dispatch(setSettingPlaceType('none'))
     })()
   }, [target.dateIndex, target.placeIndex])
 
@@ -78,6 +85,7 @@ const AddPlaceContainer: FC<Props> = ({
         placeIndex,
       })
     )
+    dispatch(setSettingPlaceType('add'))
   }
 
   return <AddPlace showMap={showMap} />

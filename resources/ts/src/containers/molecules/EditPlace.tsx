@@ -1,6 +1,9 @@
 import React, { FC, useEffect, useRef } from 'react'
 import { useDispatch } from 'react-redux'
-import { setShouldAppearMap } from '../../actions/map'
+import {
+  setShouldAppearMap,
+  setSettingPlaceType,
+} from '../../actions/map'
 import { Place } from '../../utilities/types'
 import EditPlace from '../../components/molecules/EditPlace'
 
@@ -23,6 +26,7 @@ const EditPlaceContainer: FC<Props> = ({
     places[placeIndex].name = value
   }
 
+  // input.valueの中身を書き換える
   useEffect(() => {
     ;(() => { // eslint-disable-line
       const input = inputRef.current
@@ -30,7 +34,7 @@ const EditPlaceContainer: FC<Props> = ({
       if (input === null || name === null) return
       input.value = name
     })()
-  }, [places[placeIndex]])
+  }, [places[placeIndex].name])
 
   const showMap = () => {
     dispatch(
@@ -39,6 +43,7 @@ const EditPlaceContainer: FC<Props> = ({
         placeIndex,
       })
     )
+    dispatch(setSettingPlaceType('edit'))
   }
 
   return (
