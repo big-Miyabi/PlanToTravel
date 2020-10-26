@@ -2,8 +2,8 @@ import React, { FC, Dispatch } from 'react'
 import { colors } from '../../utilities/colors'
 import { getChangeEventFunc } from '../../utilities/getEventFunc'
 import {
-  WhetherIcon,
-  WhetherItem,
+  WeatherIcon,
+  WeatherItem,
   RatingIcon,
 } from '../../utilities/types'
 import FontAwesomeIconBtn from '../atoms/FontAwesomeIconBtn'
@@ -16,13 +16,13 @@ type Props = {
   inputRef: React.RefObject<HTMLInputElement>
   setCustomName: (value: string) => void
   showMap: () => void
-  isShownWhetherBox: boolean
-  setIsShownWhetherBox: Dispatch<
+  isShownWeatherBox: boolean
+  setIsShownWeatherBox: Dispatch<
     React.SetStateAction<boolean>
   >
-  whetherItems: WhetherItem[]
-  onSelectWhether: (index: number) => void
-  selectedWhether: WhetherIcon
+  weatherItems: WeatherItem[]
+  onSelectWeather: (index: number) => void
+  selectedWeather: WeatherIcon
   ratingIcons: RatingIcon[]
   selectedRating: number
   onSelectRating: (index: number) => void
@@ -30,8 +30,7 @@ type Props = {
   setIsShownRatingBox: Dispatch<
     React.SetStateAction<boolean>
   >
-  dateIndex: number
-  placeIndex: number
+  overlayClass: string
 }
 
 const EditPlace: FC<Props> = ({
@@ -39,18 +38,17 @@ const EditPlace: FC<Props> = ({
   inputRef,
   setCustomName,
   showMap,
-  isShownWhetherBox,
-  setIsShownWhetherBox,
-  whetherItems,
-  onSelectWhether,
-  selectedWhether,
+  isShownWeatherBox,
+  setIsShownWeatherBox,
+  weatherItems,
+  onSelectWeather,
+  selectedWeather,
   ratingIcons,
   selectedRating,
   onSelectRating,
   isShownRatingBox,
   setIsShownRatingBox,
-  dateIndex,
-  placeIndex,
+  overlayClass,
 }) => {
   return (
     <div className={className + ' ' + 'edit-place'}>
@@ -69,16 +67,16 @@ const EditPlace: FC<Props> = ({
       />
       <FontAwesomeIconBtn
         className={
-          'edit-place__whether--' + selectedWhether.name
+          'edit-place__weather--' + selectedWeather.name
         }
-        icon={selectedWhether.icon}
+        icon={selectedWeather.icon}
         onClick={() => {
-          setIsShownWhetherBox(!isShownWhetherBox)
+          setIsShownWeatherBox(!isShownWeatherBox)
         }}
       />
-      {isShownWhetherBox ? (
-        <div className="whether-box">
-          {whetherItems.map((value, index) => {
+      {isShownWeatherBox ? (
+        <div className="weather-box">
+          {weatherItems.map((value, index) => {
             const selectedClass = value.isSelected
               ? '-selected'
               : ''
@@ -86,13 +84,13 @@ const EditPlace: FC<Props> = ({
             return (
               <FontAwesomeIconBtn
                 className={
-                  'whether-box__' +
+                  'weather-box__' +
                   value.name +
                   selectedClass
                 }
                 icon={value.icon}
                 onClick={() => {
-                  onSelectWhether(index)
+                  onSelectWeather(index)
                 }}
                 key={index}
               />
@@ -133,9 +131,9 @@ const EditPlace: FC<Props> = ({
         <></>
       )}
       <div
-        className={`box-overlay box-overlay__${dateIndex}-${placeIndex}`}
+        className={`box-overlay ${overlayClass}`}
         style={
-          isShownWhetherBox || isShownRatingBox
+          isShownWeatherBox || isShownRatingBox
             ? {}
             : { display: 'none' }
         }
