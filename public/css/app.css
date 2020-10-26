@@ -1273,19 +1273,19 @@ next .input-box::placeholder {
     margin-bottom: 19.4666666667vw;
   }
 
-  .edit-itinerary__date-wrap {
+  .edit-daily-itinerary__date-wrap {
     display: flex;
     align-items: center;
   }
 
-  .edit-itinerary__date-border {
+  .edit-daily-itinerary__date-border {
     height: 2px;
     margin-right: 1.3333333333vw;
     background-color: #bcdbe8;
     flex-basis: 85%;
   }
 
-  .edit-itinerary__date {
+  .edit-daily-itinerary__date {
     margin-bottom: 1.6vw;
     font-size: 1rem;
     font-weight: bold;
@@ -1293,37 +1293,37 @@ next .input-box::placeholder {
     flex-basis: 20%;
   }
 
-  .edit-itinerary__add-place {
+  .edit-daily-itinerary__add-place {
     display: flex;
     align-items: center;
     margin-left: 3.7333333333vw;
   }
 
-  .edit-itinerary__p {
+  .edit-daily-itinerary__p {
     font-weight: bold;
     font-size: 1.4rem;
     margin-bottom: 0;
     margin-left: 1.8666666667vw;
   }
 
-  .edit-itinerary__plus {
+  .edit-daily-itinerary__plus {
     font-weight: bold;
     margin-left: 1.8666666667vw;
   }
 
-  .edit-itinerary__map-icon {
+  .edit-daily-itinerary__map-icon {
     width: 3.7333333333vw;
     height: 5.3333333333vw;
   }
 
-  .edit-itinerary__add-place-detail-wrap {
+  .edit-daily-itinerary__add-place-detail-wrap {
     width: 61.8666666667vw;
     height: auto;
     margin-left: 3.7333333333vw;
     margin-bottom: 2.4vw;
   }
 
-  .edit-itinerary__place-detail {
+  .edit-daily-itinerary__place-detail {
     margin-left: 1.6vw;
     margin-top: 1.6vw;
   }

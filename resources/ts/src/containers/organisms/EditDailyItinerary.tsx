@@ -7,14 +7,12 @@ import { setShouldAppearMap } from '../../actions/map'
 import EditDailyItinerary from '../../components/organisms/EditDailyItinerary'
 
 type Props = {
-  className: string
   history: H.History
   date: string
   index: number
 }
 
 const EditDailyItineraryContainer: FC<Props> = ({
-  className,
   history,
   date,
   index,
@@ -24,11 +22,12 @@ const EditDailyItineraryContainer: FC<Props> = ({
     (state: RootState) => state.mapReducer
   )
   const [isTarget, setIsTarget] = useState<boolean>(false)
-  const [location, setLocation] = useState<Coords>({
-    lat: 0,
-    lng: 0,
-  })
-  const [placeName, setPlaceName] = useState<string>('')
+  const [location, setLocation] = useState<Coords | null>(
+    null
+  )
+  const [placeName, setPlaceName] = useState<string | null>(
+    null
+  )
   const showMap = () => {
     dispatch(setShouldAppearMap(true, index))
   }
@@ -52,11 +51,11 @@ const EditDailyItineraryContainer: FC<Props> = ({
 
   return (
     <EditDailyItinerary
-      className={className}
       history={history}
       date={date}
       index={index}
       showMap={showMap}
+      placeName={placeName}
     />
   )
 }
