@@ -8,17 +8,17 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons'
 type Props = {
   className: string
   history: H.History
-  showMap: () => void
   date: string
   index: number
+  showMap: () => void
 }
 
 const EditDailyItinerary: FC<Props> = ({
   className,
   history,
-  showMap,
   date,
   index,
+  showMap,
 }) => {
   console.log(index)
 
