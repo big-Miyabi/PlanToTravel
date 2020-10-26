@@ -1,6 +1,7 @@
 import React, { FC, Dispatch } from 'react'
 import { colors } from '../../utilities/colors'
 import { getChangeEventFunc } from '../../utilities/getEventFunc'
+import { WhetherIcon } from '../../utilities/types'
 import FontAwesomeIconBtn from '../atoms/FontAwesomeIconBtn'
 import {
   faSun,
@@ -25,6 +26,8 @@ type Props = {
   setShouldShowWhetherBox: Dispatch<
     React.SetStateAction<boolean>
   >
+  whetherIcons: WhetherIcon[]
+  onSelectWhether: (index: number) => void
 }
 
 const EditPlace: FC<Props> = ({
@@ -34,6 +37,8 @@ const EditPlace: FC<Props> = ({
   showMap,
   shouldShowWhetherBox,
   setShouldShowWhetherBox,
+  whetherIcons,
+  onSelectWhether,
 }) => {
   return (
     <div className={className + ' ' + 'edit-place'}>
@@ -59,26 +64,26 @@ const EditPlace: FC<Props> = ({
       />
       {shouldShowWhetherBox ? (
         <div className="whether-box">
-          <FontAwesomeIconBtn
-            className="whether-box__sun-selected"
-            icon={faSun}
-          />
-          <FontAwesomeIconBtn
-            className="whether-box__cloud"
-            icon={faCloud}
-          />
-          <FontAwesomeIconBtn
-            className="whether-box__rain"
-            icon={faUmbrella}
-          />
-          <FontAwesomeIconBtn
-            className="whether-box__snow"
-            icon={faSnowflake}
-          />
-          <FontAwesomeIconBtn
-            className="whether-box__night"
-            icon={faMoon}
-          />
+          {whetherIcons.map((value, index) => {
+            const selectedClass = value.isSelected
+              ? '-selected'
+              : ''
+
+            return (
+              <FontAwesomeIconBtn
+                className={
+                  'whether-box__' +
+                  value.name +
+                  selectedClass
+                }
+                icon={value.icon}
+                onClick={() => {
+                  onSelectWhether(index)
+                }}
+                key={index}
+              />
+            )
+          })}
         </div>
       ) : (
         <></>
