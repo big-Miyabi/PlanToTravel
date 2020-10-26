@@ -19,3 +19,6 @@ $polar-white: #f9fcfe;
 
 //padding-top
 $header-top: px-to-vh(18);
+
+// 天気や評価のセレクトボックス内アイコンに使用
+$icon-drop-shadw: px-to-vw(1) px-to-vw(2) px-to-vw(3) rgba(0, 0, 0, 0.25);
