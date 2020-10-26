@@ -29,9 +29,9 @@ const BadFace: FC<Props> = ({
       <path
         d="M6.45386 15.9329C8.19625 15.6285 12.5112 15.2023 15.832 15.9329"
         stroke={colors.navyBlue}
-        stroke-width="0.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <ellipse
         cx="7.15967"

@@ -14,6 +14,7 @@ import {
   WhetherIcon,
   WhetherItem,
   initialWhetherItems,
+  RatingIcon,
 } from '../../utilities/types'
 import EditPlace from '../../components/molecules/EditPlace'
 import { faSun } from '@fortawesome/free-solid-svg-icons'
@@ -33,6 +34,7 @@ const EditPlaceContainer: FC<Props> = ({
 }) => {
   const dispatch = useDispatch()
   const inputRef = useRef<HTMLInputElement>(null)
+
   const [
     isShownWhetherBox,
     setIsShownWhetherBox,
@@ -43,6 +45,21 @@ const EditPlaceContainer: FC<Props> = ({
   const [selectedWhether, setSelectedWheter] = useState<
     WhetherIcon
   >({ icon: faSun, name: 'sun' })
+
+  const ratingArray = ['bad', 'soso', 'good']
+  const initialRatingIcons: RatingIcon[] = [
+    ...Array(3),
+  ].map((_, i) => ({
+    isSelected: false,
+    name: ratingArray[i],
+  }))
+  const [rationgIcons, setRatingIcons] = useState<
+    RatingIcon[]
+  >(initialRatingIcons)
+  // 格納されるratingは0:なし, 1:bad, 2:soso, 3:goodとなる
+  const [selectedRating, setSelectedRating] = useState<
+    number
+  >(0)
 
   const setCustomName = (value: string) => {
     places[placeIndex].name = value
@@ -114,6 +131,8 @@ const EditPlaceContainer: FC<Props> = ({
       whetherItems={whetherItems}
       onSelectWhether={onSelectWhether}
       selectedWhether={selectedWhether}
+      ratingIcons={rationgIcons}
+      selectedRating={selectedRating}
     />
   )
 }
