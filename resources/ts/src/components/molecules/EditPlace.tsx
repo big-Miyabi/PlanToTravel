@@ -130,7 +130,11 @@ const EditPlace: FC<Props> = ({
       )}
       <div
         className="box-overlay"
-        style={isShownWhetherBox ? {} : { display: 'none' }}
+        style={
+          isShownWhetherBox || isShownRatingBox
+            ? {}
+            : { display: 'none' }
+        }
       ></div>
     </div>
   )
