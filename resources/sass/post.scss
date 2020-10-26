@@ -3,6 +3,26 @@
 
 // @include md-down()内部にstyleを記述すると、スマートフォンサイズでメディアクエリがかかるようになる
 @include md-down() {
+    @include keyframes(showMap) {
+        100% {
+            // 描画コスト削減のためtransformを使用
+            transform: translateY(-100vh);
+        }
+    }
+
+    .post-screen {
+        overflow: hidden;
+        &__map-wrap {
+            z-index: 1;
+            position: fixed;
+            top: 100vh;
+            left: 0;
+            &--shown {
+                @include animation(showMap 300ms ease);
+            }
+        }
+    }
+
     .post-header {
         &__icons {
             z-index: 1;
@@ -312,7 +332,6 @@
             border: none;
             width: px-to-vw(185);
             height: px-to-vw(75);
-            
         }
     }
 

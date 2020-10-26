@@ -1096,6 +1096,36 @@ next .input-box::placeholder {
 }
 
 @media screen and (max-width: 559px) {
+@-webkit-keyframes showMap {
+    100% {
+      transform: translateY(-100vh);
+    }
+}
+
+@keyframes showMap {
+    100% {
+      transform: translateY(-100vh);
+    }
+}
+
+  .post-screen {
+    overflow: hidden;
+  }
+
+  .post-screen__map-wrap {
+    z-index: 1;
+    position: fixed;
+    top: 100vh;
+    left: 0;
+  }
+
+  .post-screen__map-wrap--shown {
+    -webkit-animation: showMap 300ms ease;
+    animation: showMap 300ms ease;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+
   .post-header__icons {
     z-index: 1;
     display: flex;

@@ -72,6 +72,9 @@ const MapScreen: FC<Props> = ({
         yesIWantToUseGoogleMapApiInternals
         onClick={onPutPin}
         onGoogleApiLoaded={initGeocoder}
+        options={{
+          gestureHandling: 'greedy',
+        }}
       >
         <MapIcon
           className={'map-screen__pin'}
