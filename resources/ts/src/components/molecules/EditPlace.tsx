@@ -7,7 +7,7 @@ import {
   RatingIcon,
 } from '../../utilities/types'
 import FontAwesomeIconBtn from '../atoms/FontAwesomeIconBtn'
-import RatingSelectBox from './RatingSelectBox'
+import RatingSelectIcon from './RatingSelectIcon'
 import MapIcon from '../atoms/svg/MapIcon'
 import PlusInputBox from '../atoms/PlusInputBox'
 
@@ -98,7 +98,7 @@ const EditPlace: FC<Props> = ({
       ) : (
         <></>
       )}
-      <RatingSelectBox
+      <RatingSelectIcon
         index={selectedRating}
         classNamePrefix="edit-place__rating-"
         onClick={() => {
@@ -113,7 +113,7 @@ const EditPlace: FC<Props> = ({
               : ''
 
             return (
-              <RatingSelectBox
+              <RatingSelectIcon
                 index={index + 1}
                 classNamePrefix="rating-box__"
                 selectedClass={selectedClass}
