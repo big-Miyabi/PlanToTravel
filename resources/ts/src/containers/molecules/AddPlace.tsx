@@ -40,7 +40,7 @@ const AddPlaceContainer: FC<Props> = ({
 
   // placesの内容を書き換える
   useEffect(() => {
-    ;(() => { // eslint-disable-line
+    (() => { // eslint-disable-line
       if (
         target.dateIndex === dateIndex &&
         target.placeIndex === placeIndex
