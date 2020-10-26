@@ -39,11 +39,15 @@ const EditPlaceContainer: FC<Props> = ({
   const [
     isShownWhetherBox,
     setIsShownWhetherBox,
-  ] = usePopupMenu('box-overlay')
+  ] = usePopupMenu(
+    `box-overlay__${dateIndex}-${placeIndex}`
+  )
   const [
     isShownRatingBox,
     setIsShownRatingBox,
-  ] = usePopupMenu('box-overlay')
+  ] = usePopupMenu(
+    `box-overlay__${dateIndex}-${placeIndex}`
+  )
 
   const [whetherItems, setWhetherItems] = useState<
     WhetherItem[]
@@ -138,6 +142,8 @@ const EditPlaceContainer: FC<Props> = ({
       onSelectRating={onSelectRating}
       isShownRatingBox={isShownRatingBox}
       setIsShownRatingBox={setIsShownRatingBox}
+      dateIndex={dateIndex}
+      placeIndex={placeIndex}
     />
   )
 }
