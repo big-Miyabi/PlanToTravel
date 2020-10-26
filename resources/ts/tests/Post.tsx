@@ -31,7 +31,7 @@ const Post: FC = () => {
   // const [distance, setDistance] = useState<string>('')
   const [comment, setComments] = useState<string[]>([''])
   const [tag_name, setTags] = useState<string[]>([''])
-  const uid = loginInfo.id
+  const uid = '49'
   const is_public = '0'
   const sid = '134'
   const [search, setSearch] = useState<string>('')
@@ -51,6 +51,18 @@ const Post: FC = () => {
     axios
       .post('/api/show', {
         sid,
+      })
+      .then((res) => {
+        console.log(res.data)
+      })
+      .catch(() => {
+        console.log('通信に失敗しました')
+      })
+  }
+  const userShowSchedule = () => {
+    axios
+      .post('/api/userSchedule', {
+        uid,
       })
       .then((res) => {
         console.log(res.data)
@@ -612,6 +624,9 @@ const Post: FC = () => {
         onChange={(e) => setSearch(e.target.value)}
       />
       <button onClick={searchSchedule}>検索</button>
+      <button onClick={userShowSchedule}>
+        ユーザごとのスケジュール表示
+      </button>
     </>
   )
 }
