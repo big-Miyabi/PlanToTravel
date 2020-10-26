@@ -34,17 +34,20 @@ type NameSearch = {
   inputValue: string
   setPlaceName: Dispatch<React.SetStateAction<string>>
   setLocation: Dispatch<React.SetStateAction<Coords>>
+  setIsDisabled: Dispatch<React.SetStateAction<boolean>>
 }
 
 type LatLngSearch = {
   location: Coords
   setPlaceName: Dispatch<React.SetStateAction<string>>
+  setIsDisabled: Dispatch<React.SetStateAction<boolean>>
 }
 
 const searchWithGeocoder = (
   arg: NameSearch | LatLngSearch // 場所名検索 or 緯度経度検索
 ) => {
   const Geocoder: Geocoder = new google.maps.Geocoder()
+  arg.setIsDisabled(true)
   Geocoder.geocode(
     {
       address:
@@ -55,12 +58,14 @@ const searchWithGeocoder = (
     async (results, status) => {
       if (status == 'ZERO_RESULTS') {
         alert('見つかりません')
+        arg.setIsDisabled(false)
 
         return
       }
       if (status !== 'OK') {
         console.log(status)
         alert('エラー発生')
+        arg.setIsDisabled(false)
 
         return
       }
@@ -84,6 +89,7 @@ const searchWithGeocoder = (
         arg.setPlaceName(name)
         console.log(name)
       }
+      arg.setIsDisabled(false)
     }
   )
 }
@@ -100,6 +106,9 @@ const MapScreenContainer: FC = () => {
   const [inputValue, setInputValue] = useState<string>('')
   const [location, setLocation] = useState<Coords>(center)
   const [placeName, setPlaceName] = useState<string>('')
+  const [isDisabled, setIsDisabled] = useState<boolean>(
+    false
+  )
 
   const initGeocoder = () => {
     setIsReady(true)
@@ -112,6 +121,7 @@ const MapScreenContainer: FC = () => {
       inputValue,
       setPlaceName,
       setLocation,
+      setIsDisabled,
     })
   }
 
@@ -121,7 +131,11 @@ const MapScreenContainer: FC = () => {
       lng: v.lng,
     }
     setLocation(location)
-    searchWithGeocoder({ location, setPlaceName })
+    searchWithGeocoder({
+      location,
+      setPlaceName,
+      setIsDisabled,
+    })
   }
 
   const hideMapScreen = () => {
@@ -134,6 +148,7 @@ const MapScreenContainer: FC = () => {
   }
 
   const decidePlace = () => {
+    if (isDisabled) return
     dispatch(
       setShouldAppearMap(false, {
         dateIndex: null,
@@ -156,6 +171,7 @@ const MapScreenContainer: FC = () => {
       search={search}
       hideMapScreen={hideMapScreen}
       decidePlace={decidePlace}
+      isDisabled={isDisabled}
     />
   )
 }

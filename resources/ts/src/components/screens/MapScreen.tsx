@@ -25,6 +25,7 @@ type Props = {
   search: () => void
   hideMapScreen: () => void
   decidePlace: () => void
+  isDisabled: boolean
 }
 
 const MapScreen: FC<Props> = ({
@@ -37,6 +38,7 @@ const MapScreen: FC<Props> = ({
   search,
   hideMapScreen,
   decidePlace,
+  isDisabled,
 }) => {
   return (
     <div className="map-screen">
@@ -91,6 +93,7 @@ const MapScreen: FC<Props> = ({
         className="map-screen__add-btn"
         name="この場所を追加"
         onClick={decidePlace}
+        isDisabled={isDisabled}
       />
     </div>
   )

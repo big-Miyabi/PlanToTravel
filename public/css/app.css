@@ -1517,6 +1517,10 @@ next .input-box::placeholder {
     box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.4);
   }
 
+  .map-screen__add-btn:disabled {
+    background-color: #7390ab;
+  }
+
   .location-search {
     display: flex;
     position: absolute;
