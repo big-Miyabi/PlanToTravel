@@ -1418,10 +1418,10 @@ next .input-box::placeholder {
 
   .weather-box {
     z-index: 1000;
+    display: flex;
     position: absolute;
     top: calc(100% + 2.4vw);
     left: 20vw;
-    display: flex;
     width: 53.6vw;
     height: 13.6vw;
     padding: 0 2.1333333333vw;
@@ -1582,45 +1582,100 @@ next .input-box::placeholder {
     color: #ff6633;
   }
 
-  .edit-transposrt {
+  .edit-transport {
     margin-bottom: 3.4666666667vw;
   }
 
-  .edit-transposrt__title {
+  .edit-transport__title {
     font-size: 1.2rem;
   }
 
-  .edit-transposrt__walking-icon {
+  .edit-transport__walking-icon {
     font-size: 1.6rem;
     margin-right: 1.6vw;
   }
 
-  .edit-transposrt__select-transport {
+  .edit-transport__select-transport {
+    position: relative;
     display: flex;
     flex-direction: row;
     color: #c4c4c4;
     margin-left: 4vw;
   }
 
-  .edit-transposrt__select-wrap {
+  .edit-transport__select-wrap {
     display: flex;
     flex-direction: row;
     color: #7390ab;
     margin-right: 3.4666666667vw;
   }
 
-  .edit-transposrt__shoe-prints-icon {
+  .edit-transport__shoe-prints-icon {
     font-size: 1.1rem;
     margin-top: 0.8vw;
     margin-right: 0.8vw;
   }
 
-  .edit-transposrt__detail-wrap {
+  .edit-transport__detail-wrap {
     margin-left: 3.2vw;
   }
 
-  .edit-transposrt__detail {
+  .edit-transport__detail {
     width: 49.3333333333vw;
+  }
+
+  .transport-box {
+    z-index: 1000;
+    position: absolute;
+    display: flex;
+    top: 0;
+    left: 0;
+    width: 26.9333333333vw;
+    height: 62.6666666667vw;
+    padding: 2.6666666667vw 3.2vw;
+    border-radius: 1.8666666667vw;
+    box-shadow: 0 0.2666666667vw 1.0666666667vw rgba(0, 0, 0, 0.25);
+    background-color: #fff;
+    font-size: 1rem;
+    color: #bcdbe8;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .transport-box__row {
+    display: flex;
+    align-items: center;
+  }
+
+  .transport-box__name {
+    margin-bottom: 0;
+    margin-left: 1.6vw;
+  }
+
+  .transport-box__name--selected {
+    margin-bottom: 0;
+    margin-left: 1.6vw;
+    color: #7390ab;
+  }
+
+  .transport-box__icon-wrap {
+    width: 4vw;
+    text-align: left;
+  }
+
+  .transport-box__walking,
+  .transport-box__bicycle,
+  .transport-box__car,
+  .transport-box__bus,
+  .transport-box__train,
+  .transport-box__ship,
+  .transport-box__airplane {
+    font-size: 1.1rem;
+  }
+
+  .transport-box__none {
+    width: 3.4666666667vw;
+    height: 3.4666666667vw;
   }
 
   .box-overlay {
