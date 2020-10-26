@@ -49,12 +49,22 @@ const AddPlaceContainer: FC<Props> = ({
 
         return
       }
-      if (isChoosingLocation) {
-        places[placeIndex].name = name
-        places[placeIndex].location = { lat, lng }
+      const place = places[placeIndex]
+      if (isChoosingLocation && place.name === null) {
+        place.name = name
+        place.location = { lat, lng }
         setPlaces(places.slice())
         console.log('ok!')
         console.log(name)
+      } else if (isChoosingLocation && !!place.name) {
+        places.push({
+          name,
+          location: {
+            lat,
+            lng,
+          },
+        })
+        setPlaces(places.slice())
       }
       setIsChoosingLocation(false)
     })()
