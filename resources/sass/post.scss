@@ -180,6 +180,9 @@
     .edit-itinerary {
         color: $navy;
         margin-bottom: px-to-vw(73);
+    }
+
+    .edit-daily-itinerary {
         &__date-wrap {
             display: flex;
             align-items: center;

@@ -31,7 +31,6 @@ const EditItinerary: FC<Props> = ({
 
         return (
           <EditDailyItinerary
-            className="edit-itinerary__itinerary-for-the-day"
             history={history}
             date={date}
             index={index}
