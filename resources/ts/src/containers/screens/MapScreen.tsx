@@ -1,6 +1,9 @@
 import React, { FC, Dispatch, useState } from 'react'
 import { useDispatch } from 'react-redux'
-import { setShouldAppearMap } from '../../actions/map'
+import {
+  setPlaceInfo,
+  setShouldAppearMap,
+} from '../../actions/map'
 import { Coords, ClickEventValue } from 'google-map-react'
 import MapScreen from '../../components/screens/MapScreen'
 import axios from 'axios'
@@ -124,6 +127,13 @@ const MapScreenContainer: FC = () => {
     dispatch(setShouldAppearMap(false))
   }
 
+  const decidePlace = () => {
+    dispatch(setShouldAppearMap(false))
+    dispatch(
+      setPlaceInfo(placeName, location.lat, location.lng)
+    )
+  }
+
   return (
     <MapScreen
       center={center}
@@ -134,6 +144,7 @@ const MapScreenContainer: FC = () => {
       setTargetName={setTargetName}
       search={search}
       hideMapScreen={hideMapScreen}
+      decidePlace={decidePlace}
     />
   )
 }

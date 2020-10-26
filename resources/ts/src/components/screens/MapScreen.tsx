@@ -24,6 +24,7 @@ type Props = {
   setTargetName: Dispatch<React.SetStateAction<string>>
   search: () => void
   hideMapScreen: () => void
+  decidePlace: () => void
 }
 
 const MapScreen: FC<Props> = ({
@@ -35,6 +36,7 @@ const MapScreen: FC<Props> = ({
   setTargetName,
   search,
   hideMapScreen,
+  decidePlace,
 }) => {
   return (
     <div className="map-screen">
@@ -88,7 +90,7 @@ const MapScreen: FC<Props> = ({
       <FormBtn
         className="map-screen__add-btn"
         name="この場所を追加"
-          onClick={() => {}} // eslint-disable-line
+        onClick={decidePlace}
       />
     </div>
   )
