@@ -1,7 +1,35 @@
-import React, { FC, useEffect, useState } from 'react'
-import { Coords, Props } from 'google-map-react'
+import React, { FC, useState } from 'react'
+import { Coords } from 'google-map-react'
 import MapScreen from '../../components/screens/MapScreen'
+import { getKeyboardEventFunc } from '../../utilities/getEventFunc'
 /// <reference types="googlemaps" />
+type Geocoder = google.maps.Geocoder
+
+const searchWithGeocoder = (searchName: string) => {
+  const Geocoder: Geocoder = new google.maps.Geocoder()
+  Geocoder.geocode(
+    {
+      address: searchName,
+    },
+    (results, status) => {
+      if (status == 'ZERO_RESULTS') {
+        alert('見つかりません')
+
+        return
+      }
+      if (status !== 'OK') {
+        console.log(status)
+        alert('エラー発生')
+
+        return
+      }
+      const lat = results[0].geometry.location.lat()
+      const lng = results[0].geometry.location.lng()
+      console.log(lat)
+      console.log(lng)
+    }
+  )
+}
 
 const MapScreenContainer: FC = () => {
   const center: Coords = {
@@ -10,21 +38,18 @@ const MapScreenContainer: FC = () => {
     lng: 139.7670679211538,
   }
   const [location, setLocation] = useState<Coords>(center)
+  const [isReady, setIsReady] = useState<boolean>(false)
+  const [searchName, setSearchName] = useState<string>('')
   const zoom = 15 // 4.8にすると日本全体が見える
 
-  const initGeocoder: Props['onGoogleApiLoaded'] = ({
-    maps,
-  }) => {
-    const Geocoder: google.maps.Geocoder = new maps.Geocoder()
-    const place = '国会議事堂'
-    Geocoder.geocode(
-      {
-        address: place,
-      },
-      (results, status) => {
-        console.log(results)
-      }
-    )
+  const initGeocoder = () => {
+    setIsReady(true)
+    searchWithGeocoder('国会議事堂')
+  }
+
+  const search = () => {
+    if (!isReady || searchName === '') return
+    searchWithGeocoder(searchName)
   }
 
   return (
@@ -32,8 +57,10 @@ const MapScreenContainer: FC = () => {
       center={center}
       zoom={zoom}
       location={location}
-      setLocation={setLocation}
       initGeocoder={initGeocoder}
+      setLocation={setLocation}
+      setSearchName={setSearchName}
+      search={search}
     />
   )
 }
