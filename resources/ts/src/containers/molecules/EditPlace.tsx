@@ -62,10 +62,6 @@ const EditPlaceContainer: FC<Props> = ({
   const [ratingIcons, setRatingIcons] = useState<
     RatingIcon[]
   >(initialRatingIcons)
-  // 格納されるratingは0:なし, 1:bad, 2:soso, 3:goodとなる
-  const [selectedRating, setSelectedRating] = useState<
-    number
-  >(0)
 
   const setCustomName = (value: string) => {
     places[placeIndex].name = value
@@ -99,8 +95,10 @@ const EditPlaceContainer: FC<Props> = ({
   const onSelectRating = (index: number) => {
     const isSelected = ratingIcons[index].isSelected
     if (isSelected) {
+      // 選択中の項目を選択した時、即ち、選択を外した時
       ratingIcons[index].isSelected = false
       setRatingIcons(ratingIcons.slice())
+      places[placeIndex].rating = 0
 
       return
     }
@@ -110,6 +108,7 @@ const EditPlaceContainer: FC<Props> = ({
       ratingIcons[i].isSelected = false
     })
     setRatingIcons(ratingIcons.slice())
+    places[placeIndex].rating = index + 1
   }
 
   // input.valueの中身を書き換える
@@ -135,7 +134,7 @@ const EditPlaceContainer: FC<Props> = ({
       onSelectWhether={onSelectWhether}
       selectedWhether={selectedWhether}
       ratingIcons={ratingIcons}
-      selectedRating={selectedRating}
+      selectedRating={places[placeIndex].rating}
       onSelectRating={onSelectRating}
       isShownRatingBox={isShownRatingBox}
       setIsShownRatingBox={setIsShownRatingBox}
