@@ -16,7 +16,6 @@ const getPlaceName = (
       })
       .then((res) => {
         const result = res.data.result
-        console.log('getPlaceName(): success')
         resolve({ result, isSuccess: true })
       })
       .catch((error) => {
@@ -61,18 +60,25 @@ const searchWithGeocoder = (
         return
       }
       const place = await getPlaceName(results[0].place_id)
-      const name = place.isSuccess ? place.result.name : ''
 
       // 場所名検索の時は緯度経度もセットする
       if ('setLocation' in arg) {
+        const name = place.isSuccess
+          ? place.result.name
+          : arg.targetName
         const lat = results[0].geometry.location.lat()
         const lng = results[0].geometry.location.lng()
+        arg.setPlaceName(name)
         arg.setLocation({ lat, lng })
-        console.log(lat)
-        console.log(lng)
+        console.log(name)
+      } else {
+        // 緯度経度検索の時
+        const name = place.isSuccess
+          ? place.result.name
+          : ''
+        arg.setPlaceName(name)
+        console.log(name)
       }
-      arg.setPlaceName(name)
-      console.log(name)
     }
   )
 }
@@ -83,9 +89,9 @@ const MapScreenContainer: FC = () => {
     lat: 35.68122839120453,
     lng: 139.7670679211538,
   }
-  const [location, setLocation] = useState<Coords>(center)
   const [isReady, setIsReady] = useState<boolean>(false)
   const [targetName, setTargetName] = useState<string>('')
+  const [location, setLocation] = useState<Coords>(center)
   const [placeName, setPlaceName] = useState<string>('')
   const zoom = 15 // 4.8にすると日本全体が見える
 
