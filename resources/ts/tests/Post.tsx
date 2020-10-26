@@ -471,6 +471,137 @@ const Post: FC = () => {
           }}
         />
       </label>
+      <br />
+      <br />
+      {/* 三個目 */}
+      <label htmlFor="">
+        日にち
+        <input
+          type="text"
+          onChange={(e) => {
+            const newDays = day.slice()
+            newDays[2] = e.target.value
+            setDays(newDays)
+          }}
+        />
+      </label>
+      <label>
+        場所
+        <input
+          type="text"
+          onChange={(e) => {
+            const newPlaces = place_name.slice()
+            newPlaces[2] = e.target.value
+            setPlaceNames(newPlaces)
+          }}
+        />
+        天気
+        <select
+          onChange={(e) => {
+            const newWeathers = weather.slice()
+            newWeathers[2] = e.target.value
+            setWeathers(newWeathers)
+          }}
+        >
+          <option>選択してください</option>
+          <option value="sun">sun</option>
+          <option value="cloud">cloud</option>
+          <option value="rain">rain</option>
+          <option value="snow">snow</option>
+          <option value="night">night</option>
+        </select>
+        評価
+        <select
+          onChange={(e) => {
+            const newRatings = rating.slice()
+            newRatings[2] = e.target.value
+            setRatings(newRatings)
+          }}
+        >
+          <option>選択してください</option>
+          <option value="0">0</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </label>
+      <br />
+      <label>
+        緯度
+        <input
+          type="text"
+          onChange={(e) => {
+            const newLongitudes = longitude.slice()
+            newLongitudes[2] = e.target.value
+            setLongitudes(newLongitudes)
+          }}
+        />
+        経度
+        <input
+          type="text"
+          onChange={(e) => {
+            const newLatitudes = latitude.slice()
+            newLatitudes[2] = e.target.value
+            setLatitudes(newLatitudes)
+          }}
+        />
+      </label>
+      <br />
+      <label>
+        写真
+        <input
+          type="text"
+          onChange={(e) => {
+            const newImgs = img.slice()
+            newImgs[2] = e.target.value
+            setImgs(newImgs)
+          }}
+        />
+      </label>
+      <br />
+      <label>
+        コメント
+        <input
+          type="text"
+          onChange={(e) => {
+            const newComments = comment.slice()
+            newComments[2] = e.target.value
+            setComments(newComments)
+          }}
+        />
+      </label>
+      <br />
+      <label>
+        移動手段
+        <select
+          onChange={(e) => {
+            const newTransports = transport.slice()
+            newTransports[2] = e.target.value
+            setTransports(newTransports)
+          }}
+        >
+          <option>選択してください</option>
+          <option value="徒歩">徒歩</option>
+          <option value="自転車">自転車</option>
+          <option value="車">車</option>
+          <option value="バス">バス</option>
+          <option value="電車">電車</option>
+          <option value="船">船</option>
+          <option value="飛行機">飛行機</option>
+        </select>
+      </label>
+      <br />
+      <label>
+        移動手段詳細
+        <input
+          type="text"
+          onChange={(e) => {
+            const newTransportDs = transport_detail.slice()
+            newTransportDs[2] = e.target.value
+            setTransDs(newTransportDs)
+          }}
+        />
+      </label>
       <button onClick={addSchedule}>確定</button>
       <button onClick={indexSchedule}>一覧確認</button>
       <button onClick={showSchedule}>確認</button>
