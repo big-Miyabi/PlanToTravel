@@ -116,3 +116,14 @@ export const initialWeatherItems: WeatherItem[] = [
     isSelected: false,
   },
 ]
+
+export const initialTransports: Transport[] = [
+  '徒歩',
+  '自転車',
+  '車',
+  'バス',
+  '電車',
+  '船',
+  '飛行機',
+  '入力なし',
+]
