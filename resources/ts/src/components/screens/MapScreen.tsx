@@ -67,6 +67,8 @@ const MapScreen: FC<Props> = ({
         }}
         defaultCenter={center}
         defaultZoom={zoom}
+        center={location}
+        zoom={zoom}
         yesIWantToUseGoogleMapApiInternals
         onClick={onPutPin}
         onGoogleApiLoaded={initGeocoder}
