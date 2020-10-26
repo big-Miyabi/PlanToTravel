@@ -43,6 +43,7 @@ const EditPlaceContainer: FC<Props> = ({
   const [selectedWhether, setSelectedWheter] = useState<
     WhetherIcon
   >({ icon: faSun, name: 'sun' })
+
   const setCustomName = (value: string) => {
     places[placeIndex].name = value
   }
@@ -72,12 +73,14 @@ const EditPlaceContainer: FC<Props> = ({
       if (i === index) return
       whetherItems[i].isSelected = false
     })
-    whetherItems[index].isSelected = true
+    const whether = whetherItems[index]
+    whether.isSelected = true
     setWhetherItems(whetherItems.slice())
     setSelectedWheter({
-      icon: whetherItems[index].icon,
-      name: whetherItems[index].name,
+      icon: whether.icon,
+      name: whether.name,
     })
+    places[placeIndex].whether = whether.name
   }
 
   return (
