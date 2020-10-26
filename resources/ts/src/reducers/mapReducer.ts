@@ -11,6 +11,7 @@ type State = {
   name: string
   lat: number
   lng: number
+  setType: 'add' | 'edit' | 'none'
 }
 
 type MapReducer = Reducer<State, UnionedAction>
@@ -21,6 +22,7 @@ const initialState: State = {
   name: '',
   lat: 0,
   lng: 0,
+  setType: 'none',
 }
 
 export const mapReducer: MapReducer = (
@@ -40,6 +42,11 @@ export const mapReducer: MapReducer = (
         name: action.payload.name,
         lat: action.payload.lat,
         lng: action.payload.lng,
+      }
+    case ActionTypes.SET_SETTING_PLACE_TYPE:
+      return {
+        ...state,
+        setType: action.payload.setType,
       }
     default: {
       return state

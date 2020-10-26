@@ -4,7 +4,11 @@ import {
   setPostProgressIndex,
   setPostOverview,
 } from './post'
-import { setShouldAppearMap, setPlaceInfo } from './map'
+import {
+  setShouldAppearMap,
+  setPlaceInfo,
+  setSettingPlaceType,
+} from './map'
 
 export enum ActionTypes {
   SET_LOGIN_STATE = 'SET_LOGIN_STATE',
@@ -14,6 +18,7 @@ export enum ActionTypes {
   SET_POST_OVERVIEW = 'SET_POST_OVERVIEW',
   SET_SHOULD_APPEAR_MAP = 'SET_SHOULD_APPEAR_MAP',
   SET_PLACE_INFO = 'SET_PLACE_INFO',
+  SET_SETTING_PLACE_TYPE = 'SET_SETTING_PLACE_TYPE',
 }
 
 export type UnionedAction =
@@ -24,3 +29,4 @@ export type UnionedAction =
   | ReturnType<typeof setPostOverview>
   | ReturnType<typeof setShouldAppearMap>
   | ReturnType<typeof setPlaceInfo>
+  | ReturnType<typeof setSettingPlaceType>
