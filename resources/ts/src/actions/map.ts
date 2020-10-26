@@ -1,5 +1,13 @@
 import { ActionTypes } from './index'
 
+export const setShouldAppearMap = (shouldAppear: boolean) =>
+  ({
+    type: ActionTypes.SET_SHOULD_APPEAR_MAP,
+    payload: {
+      shouldAppear,
+    },
+  } as const)
+
 export const setPlaceInfo = (
   name: string,
   lat: number,
