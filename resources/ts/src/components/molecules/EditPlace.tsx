@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
 import { colors } from '../../utilities/colors'
+import { getChangeEventFunc } from '../../utilities/getEventFunc'
 import FontAwesomeIconBtn from '../atoms/FontAwesomeIconBtn'
 import {
   faSun,
@@ -18,9 +19,14 @@ import PlusInputBox from '../atoms/PlusInputBox'
 type Props = {
   className: string
   inputRef: React.RefObject<HTMLInputElement>
+  setCustomName: (value: string) => void
 }
 
-const EditPlace: FC<Props> = ({ className, inputRef }) => {
+const EditPlace: FC<Props> = ({
+  className,
+  inputRef,
+  setCustomName,
+}) => {
   return (
     <div className={className + ' ' + 'edit-place'}>
       <MapIcon
@@ -33,6 +39,7 @@ const EditPlace: FC<Props> = ({ className, inputRef }) => {
         className="edit-place__input"
         placeholder="場所名を入力"
         inputRef={inputRef}
+        onChange={getChangeEventFunc(setCustomName)}
       />
       <FontAwesomeIconBtn
         className="edit-place__whether--sun"

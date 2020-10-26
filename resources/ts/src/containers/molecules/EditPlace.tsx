@@ -14,6 +14,9 @@ const EditPlaceContainer: FC<Props> = ({
   index,
 }) => {
   const inputRef = useRef<HTMLInputElement>(null)
+  const setCustomName = (value: string) => {
+    places[index].name = value
+  }
 
   useEffect(() => {
     ;(() => { // eslint-disable-line
@@ -25,7 +28,11 @@ const EditPlaceContainer: FC<Props> = ({
   }, [places[index]])
 
   return (
-    <EditPlace className={className} inputRef={inputRef} />
+    <EditPlace
+      className={className}
+      inputRef={inputRef}
+      setCustomName={setCustomName}
+    />
   )
 }
 
