@@ -29,9 +29,9 @@ const SosoFace: FC<Props> = ({
       <path
         d="M6.55469 15.9329C8.26897 16.6556 12.5144 17.6673 15.7816 15.9329"
         stroke={colors.navyBlue}
-        stroke-width="0.5"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeWidth="0.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <ellipse
         cx="7.15967"

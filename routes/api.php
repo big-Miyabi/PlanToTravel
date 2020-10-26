@@ -25,5 +25,6 @@ Route::group(['middleware' => 'api'], function () {
   Route::post('delete', 'ScheduleController@delete');
   Route::post('bookmark', 'BookmarkController@bookmark');
   Route::post('search', 'ScheduleController@search');
+  Route::post('getPlaceName', 'GoogleMapController@getPlaceName');
 });
 Auth::routes();
