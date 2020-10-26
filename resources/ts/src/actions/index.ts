@@ -4,7 +4,7 @@ import {
   setPostProgressIndex,
   setPostOverview,
 } from './post'
-import { setPlaceInfo } from './map'
+import { setShouldAppearMap, setPlaceInfo } from './map'
 
 export enum ActionTypes {
   SET_LOGIN_STATE = 'SET_LOGIN_STATE',
@@ -12,6 +12,7 @@ export enum ActionTypes {
   SET_SHOULD_SHOW_MENU = 'SET_SHOULD_SHOW_MENU',
   SET_POST_PROGRESS_INDEX = 'SET_POST_PROGRESS_INDEX',
   SET_POST_OVERVIEW = 'SET_POST_OVERVIEW',
+  SET_SHOULD_APPEAR_MAP = 'SET_SHOULD_APPEAR_MAP',
   SET_PLACE_INFO = 'SET_PLACE_INFO',
 }
 
@@ -21,4 +22,5 @@ export type UnionedAction =
   | ReturnType<typeof setShouldShowMenu>
   | ReturnType<typeof setPostProgressIndex>
   | ReturnType<typeof setPostOverview>
+  | ReturnType<typeof setShouldAppearMap>
   | ReturnType<typeof setPlaceInfo>
