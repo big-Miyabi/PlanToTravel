@@ -41,7 +41,12 @@ const EditDailyItinerary: FC<Props> = ({
                   placeIndex={index}
                 />
 
-                <EditPlaceDetail className="edit-daily-itinerary__place-detail" />
+                <EditPlaceDetail
+                  className="edit-daily-itinerary__place-detail"
+                  places={places}
+                  dateIndex={dateIndex}
+                  placeIndex={index}
+                />
               </div>
             ) : (
               <></>

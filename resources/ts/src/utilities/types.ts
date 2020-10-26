@@ -43,6 +43,7 @@ export type Place = {
   location: Coords | null
   whether: Whether
   rating: number
+  image: File | null
 }
 
 export type WhetherIcon = {
@@ -71,6 +72,7 @@ export const initialPlace: Place = {
   location: null,
   whether: 'sun',
   rating: 0,
+  image: null,
 }
 
 export const initialWhetherItems: WhetherItem[] = [
