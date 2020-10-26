@@ -26,9 +26,10 @@ const EditTransport: FC<Props> = ({ className }) => {
             className="edit-transposrt__shoe-prints-icon fa-rotate-90"
             icon={faShoePrints}
           />
-          <p className="edit-transposrt__select-box">
+          <p className="edit-transposrt__selected">
             徒歩 ▾
           </p>
+          <div className="edit-transposrt__select-box"></div>
         </div>
         <p className="edit-transposrt__message">
           アイコンを選択してください
