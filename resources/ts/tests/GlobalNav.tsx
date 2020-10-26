@@ -25,6 +25,9 @@ const GlobalNav: FC = () => {
         <Link to="/profEdit">
           <li>profEdit</li>
         </Link>
+        <Link to="/result">
+          <li>Result</li>
+        </Link>
       </ul>
     </nav>
   )
