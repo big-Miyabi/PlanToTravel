@@ -20,12 +20,14 @@ type Props = {
   className: string
   inputRef: React.RefObject<HTMLInputElement>
   setCustomName: (value: string) => void
+  showMap: () => void
 }
 
 const EditPlace: FC<Props> = ({
   className,
   inputRef,
   setCustomName,
+  showMap,
 }) => {
   return (
     <div className={className + ' ' + 'edit-place'}>
@@ -40,6 +42,7 @@ const EditPlace: FC<Props> = ({
         placeholder="場所名を入力"
         inputRef={inputRef}
         onChange={getChangeEventFunc(setCustomName)}
+        onClick={showMap}
       />
       <FontAwesomeIconBtn
         className="edit-place__whether--sun"

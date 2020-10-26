@@ -41,7 +41,8 @@ const EditDailyItinerary: FC<Props> = ({
                 <EditPlace
                   className="edit-daily-itinerary__edit-place"
                   places={places}
-                  index={index}
+                  dateIndex={dateIndex}
+                  placeIndex={index}
                 />
 
                 <EditPlaceDetail className="edit-daily-itinerary__place-detail" />
