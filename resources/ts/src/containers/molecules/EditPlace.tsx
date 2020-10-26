@@ -46,6 +46,9 @@ const EditPlaceContainer: FC<Props> = ({
     WhetherIcon
   >({ icon: faSun, name: 'sun' })
 
+  const [isShownRatingBox, setIsShownRatingBox] = useState<
+    boolean
+  >(false)
   const ratingArray = ['bad', 'soso', 'good']
   const initialRatingIcons: RatingIcon[] = [
     ...Array(3),
@@ -117,7 +120,7 @@ const EditPlaceContainer: FC<Props> = ({
     writeInPlaceInput()
   }, [places[placeIndex].name])
 
-  // 天気セレクトボックスの外を押すとメニューを閉じる処理
+  // 天気・評価セレクトボックスの外を押すとメニューを閉じる処理
   useEffect(() => {
     if (!isShownWhetherBox) return
     const overlay = document.getElementsByClassName(
@@ -150,6 +153,8 @@ const EditPlaceContainer: FC<Props> = ({
       ratingIcons={ratingIcons}
       selectedRating={selectedRating}
       onSelectRating={onSelectRating}
+      isShownRatingBox={isShownRatingBox}
+      setIsShownRatingBox={setIsShownRatingBox}
     />
   )
 }
