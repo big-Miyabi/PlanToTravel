@@ -9,7 +9,11 @@ import {
   setShouldAppearMap,
   setSettingPlaceType,
 } from '../../actions/map'
-import { Place } from '../../utilities/types'
+import {
+  Place,
+  WhetherIcon,
+  initialWhetherIcons,
+} from '../../utilities/types'
 import EditPlace from '../../components/molecules/EditPlace'
 
 type Props = {
@@ -31,6 +35,9 @@ const EditPlaceContainer: FC<Props> = ({
     shouldShowWhetherBox,
     setShouldShowWhetherBox,
   ] = useState<boolean>(false)
+  const [whetherIcons, setWhetherIcons] = useState<
+    WhetherIcon[]
+  >(initialWhetherIcons)
   const setCustomName = (value: string) => {
     places[placeIndex].name = value
   }
@@ -55,6 +62,15 @@ const EditPlaceContainer: FC<Props> = ({
     dispatch(setSettingPlaceType('edit'))
   }
 
+  const onSelectWhether = (index: number) => {
+    whetherIcons.some((_, i) => {
+      if (i === index) return
+      whetherIcons[i].isSelected = false
+    })
+    whetherIcons[index].isSelected = true
+    setWhetherIcons(whetherIcons.slice())
+  }
+
   return (
     <EditPlace
       className={className}
@@ -63,6 +79,8 @@ const EditPlaceContainer: FC<Props> = ({
       showMap={showMap}
       shouldShowWhetherBox={shouldShowWhetherBox}
       setShouldShowWhetherBox={setShouldShowWhetherBox}
+      whetherIcons={whetherIcons}
+      onSelectWhether={onSelectWhether}
     />
   )
 }
