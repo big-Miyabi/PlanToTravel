@@ -9,7 +9,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons'
 
 export type ItineraryType = {
-  whether: string
+  weather: string
   place: string
 }
 
@@ -31,7 +31,7 @@ export type Target = {
   placeIndex: number | null
 }
 
-export type Whether =
+export type Weather =
   | 'sun'
   | 'cloud'
   | 'rain'
@@ -51,21 +51,21 @@ export type Transport =
 export type Place = {
   name: string | null
   location: Coords | null
-  whether: Whether
+  weather: Weather
   rating: number
   image: File | null
   comment: string
   transport: Transport
 }
 
-export type WhetherIcon = {
+export type WeatherIcon = {
   icon: IconDefinition
-  name: Whether
+  name: Weather
 }
 
-export type WhetherItem = {
+export type WeatherItem = {
   icon: IconDefinition
-  name: Whether
+  name: Weather
   isSelected: boolean
 }
 
@@ -82,14 +82,14 @@ export const initialTarget = {
 export const initialPlace: Place = {
   name: null,
   location: null,
-  whether: 'sun',
+  weather: 'sun',
   rating: 0,
   image: null,
   comment: '',
   transport: '入力なし',
 }
 
-export const initialWhetherItems: WhetherItem[] = [
+export const initialWeatherItems: WeatherItem[] = [
   {
     icon: faSun,
     name: 'sun',

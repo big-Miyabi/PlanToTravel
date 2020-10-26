@@ -8,14 +8,14 @@ import { OpacityGradientType } from '../../utilities/types'
 
 type Props = {
   className: string
-  whether: string
+  weather: string
   index?: number
   gradientId?: string
 }
 
-const WhetherPin: FC<Props> = ({
+const WeatherPin: FC<Props> = ({
   className,
-  whether,
+  weather,
   index,
   gradientId,
 }) => {
@@ -34,11 +34,11 @@ const WhetherPin: FC<Props> = ({
     },
   ]
 
-  switch (whether) {
+  switch (weather) {
     case 'sun':
       return (
         <SunnyPin
-          className={className + ' ' + 'whether-pin'}
+          className={className + ' ' + 'weather-pin'}
           opacityGradient={
             index !== undefined ? opacity[index] : undefined
           }
@@ -48,7 +48,7 @@ const WhetherPin: FC<Props> = ({
     case 'cloud':
       return (
         <CloudyPin
-          className={className + ' ' + 'whether-pin'}
+          className={className + ' ' + 'weather-pin'}
           opacityGradient={
             index !== undefined ? opacity[index] : undefined
           }
@@ -58,7 +58,7 @@ const WhetherPin: FC<Props> = ({
     case 'rain':
       return (
         <RainyPin
-          className={className + ' ' + 'whether-pin'}
+          className={className + ' ' + 'weather-pin'}
           opacityGradient={
             index !== undefined ? opacity[index] : undefined
           }
@@ -68,7 +68,7 @@ const WhetherPin: FC<Props> = ({
     case 'snow':
       return (
         <SnowyPin
-          className={className + ' ' + 'whether-pin'}
+          className={className + ' ' + 'weather-pin'}
           opacityGradient={
             index !== undefined ? opacity[index] : undefined
           }
@@ -78,7 +78,7 @@ const WhetherPin: FC<Props> = ({
     default:
       return (
         <MoonyPin
-          className={className + ' ' + 'whether-pin'}
+          className={className + ' ' + 'weather-pin'}
           opacityGradient={
             index !== undefined ? opacity[index] : undefined
           }
@@ -88,4 +88,4 @@ const WhetherPin: FC<Props> = ({
   }
 }
 
-export default WhetherPin
+export default WeatherPin
