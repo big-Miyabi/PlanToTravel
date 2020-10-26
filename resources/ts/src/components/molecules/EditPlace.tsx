@@ -26,6 +26,10 @@ type Props = {
   ratingIcons: RatingIcon[]
   selectedRating: number
   onSelectRating: (index: number) => void
+  isShownRatingBox: boolean
+  setIsShownRatingBox: Dispatch<
+    React.SetStateAction<boolean>
+  >
 }
 
 const EditPlace: FC<Props> = ({
@@ -41,6 +45,8 @@ const EditPlace: FC<Props> = ({
   ratingIcons,
   selectedRating,
   onSelectRating,
+  isShownRatingBox,
+  setIsShownRatingBox,
 }) => {
   return (
     <div className={className + ' ' + 'edit-place'}>
@@ -95,26 +101,33 @@ const EditPlace: FC<Props> = ({
       <RatingSelectBox
         index={selectedRating}
         classNamePrefix="edit-place__rating-"
+        onClick={() => {
+          setIsShownRatingBox(!isShownRatingBox)
+        }}
       />
-      <div className="rating-box">
-        {ratingIcons.map((value, index) => {
-          const selectedClass = value.isSelected
-            ? '-selected'
-            : ''
+      {isShownRatingBox ? (
+        <div className="rating-box">
+          {ratingIcons.map((value, index) => {
+            const selectedClass = value.isSelected
+              ? '-selected'
+              : ''
 
-          return (
-            <RatingSelectBox
-              index={index + 1}
-              classNamePrefix="rating-box__"
-              selectedClass={selectedClass}
-              key={index}
-              onClick={() => {
-                onSelectRating(index)
-              }}
-            />
-          )
-        })}
-      </div>
+            return (
+              <RatingSelectBox
+                index={index + 1}
+                classNamePrefix="rating-box__"
+                selectedClass={selectedClass}
+                key={index}
+                onClick={() => {
+                  onSelectRating(index)
+                }}
+              />
+            )
+          })}
+        </div>
+      ) : (
+        <></>
+      )}
       <div
         className="box-overlay"
         style={isShownWhetherBox ? {} : { display: 'none' }}

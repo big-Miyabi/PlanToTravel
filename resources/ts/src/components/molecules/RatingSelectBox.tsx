@@ -8,14 +8,14 @@ type Props = {
   index: number
   classNamePrefix: string
   selectedClass?: string
-  onClick?: () => void
+  onClick: () => void
 }
 
 const RatingIcons: FC<Props> = ({
   index,
   classNamePrefix,
   selectedClass = '',
-  onClick = () => {}, // eslint-disable-line
+  onClick,
 }) => {
   switch (index) {
     case 1:
@@ -49,6 +49,7 @@ const RatingIcons: FC<Props> = ({
       return (
         <DashedCircle
           className={classNamePrefix + 'none'}
+          onClick={onClick}
         />
       )
   }
