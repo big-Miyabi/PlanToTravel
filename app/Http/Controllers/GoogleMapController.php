@@ -10,7 +10,7 @@ class GoogleMapController extends Controller
   public function getPlaceName(Request $request)
   {
     $api = config("app.map_api");
-    $url = "https://maps.googleapis.com/maps/api/place/details/json?key=" . $api . "&placeid=" . $request->placeId;
+    $url = "https://maps.googleapis.com/maps/api/place/details/json?language=ja&key=" . $api . "&placeid=" . $request->placeId;
     $respons = Http::get($url);
     return $respons;
   }
