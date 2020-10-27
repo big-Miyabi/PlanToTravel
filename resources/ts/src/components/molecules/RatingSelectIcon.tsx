@@ -11,7 +11,7 @@ type Props = {
   onClick: () => void
 }
 
-const RatingIcons: FC<Props> = ({
+const RatingSelectIcon: FC<Props> = ({
   index,
   classNamePrefix,
   selectedClass = '',
@@ -55,4 +55,4 @@ const RatingIcons: FC<Props> = ({
   }
 }
 
-export default RatingIcons
+export default RatingSelectIcon

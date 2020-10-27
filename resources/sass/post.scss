@@ -4,6 +4,7 @@
 // @include md-down()内部にstyleを記述すると、スマートフォンサイズでメディアクエリがかかるようになる
 @include md-down() {
     .post-screen {
+        background-size: cover;
         &__map-wrap {
             z-index: 1;
             position: fixed;
@@ -223,7 +224,7 @@
         }
 
         &__add-place-detail-wrap {
-            width: px-to-vw(232);
+            width: auto;
             height: auto;
             //margin-top: px-to-vw(9);
             margin-left: px-to-vw(14);
@@ -251,29 +252,29 @@
             width: px-to-vw(149);
         }
 
-        %__whether {
+        %__weather {
             font-size: 2.4rem;
         }
-        &__whether {
-            @extend %__whether;
+        &__weather {
+            @extend %__weather;
             &--sun {
-                @extend %__whether;
+                @extend %__weather;
                 color: $orange;
             }
             &--cloud {
-                @extend %__whether;
+                @extend %__weather;
                 color: $gray;
             }
             &--rain {
-                @extend %__whether;
+                @extend %__weather;
                 color: $navy;
             }
             &--snow {
-                @extend %__whether;
+                @extend %__weather;
                 color: $light-blue;
             }
             &--night {
-                @extend %__whether;
+                @extend %__weather;
                 color: $yellow;
             }
         }
@@ -314,12 +315,12 @@
         }
     }
 
-    .whether-box {
+    .weather-box {
         z-index: 1000;
+        display: flex;
         position: absolute;
         top: calc(100% + #{px-to-vw(9)});
         left: px-to-vw(75);
-        display: flex;
         width: px-to-vw(201);
         height: px-to-vw(51);
         padding: 0 px-to-vw(8);
@@ -377,6 +378,11 @@
             margin-right: px-to-vw(14);
         }
 
+        &__right {
+            display: flex;
+            flex-direction: column;
+        }
+
         &__plus-img-wrap {
             display: flex;
             flex-direction: row;
@@ -385,26 +391,49 @@
                 margin: px-to-vw(3) 0;
             }
         }
+
         &__plus-img {
             width: px-to-vw(26);
             height: px-to-vw(22);
             margin-right: px-to-vw(6);
         }
+
+        &__image-wrap {
+            position: relative;
+            width: px-to-vw(151);
+            height: px-to-vw(79);
+            margin-bottom: px-to-vw(17);
+        }
+
+        &__image {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+            border-radius: px-to-vw(6);
+        }
+
+        &__delete-image {
+            position: absolute;
+            top: 0;
+            right: px-to-vw(-10);
+            font-size: 1rem;
+            color: $light-gray;
+        }
     }
 
     .comment-area {
+        position: relative;
         width: px-to-vw(200);
         height: px-to-vw(103);
+        margin-bottom: px-to-vw(25);
+        padding: px-to-vw(5);
         border: solid $navy 1px;
         border-radius: 7px;
-        padding: px-to-vw(5);
-        margin-bottom: px-to-vw(25);
         &__header {
             display: flex;
             flex-direction: row;
         }
-
-        &__p {
+        &__title {
             font-size: 1.2rem;
             margin-right: px-to-vw(110);
             margin-bottom: 0;
@@ -418,9 +447,24 @@
             width: px-to-vw(185);
             height: px-to-vw(75);
         }
+        %__progress {
+            position: absolute;
+            bottom: px-to-vw(-17);
+            right: px-to-vw(2);
+            margin-bottom: 0;
+            font-size: 1rem;
+        }
+        &__progress {
+            @extend %__progress;
+            color: $gray;
+            &--over {
+                @extend %__progress;
+                color: $orange;
+            }
+        }
     }
 
-    .edit-transposrt {
+    .edit-transport {
         margin-bottom: px-to-vw(13);
         &__title {
             font-size: 1.2rem;
@@ -430,6 +474,7 @@
             margin-right: px-to-vw(6);
         }
         &__select-transport {
+            position: relative;
             display: flex;
             flex-direction: row;
             color: $gray;
@@ -438,19 +483,115 @@
         &__select-wrap {
             display: flex;
             flex-direction: row;
+            align-items: center;
             color: $light-navy;
             margin-right: px-to-vw(13);
+            margin-bottom: px-to-vw(7);
         }
-        &__shoe-prints-icon {
+        &__selected {
+            margin-bottom: 0;
+        }
+        &__selected-icon {
             font-size: 1.1rem;
             margin-top: px-to-vw(3);
-            margin-right: px-to-vw(3);
+            margin-right: px-to-vw(5);
+        }
+        &__message {
+            margin-left: px-to-vw(8);
+            margin-bottom: 0;
+            font-size: 1rem;
+            color: $gray;
         }
         &__detail-wrap {
             margin-left: px-to-vw(12);
         }
         &__detail {
             width: px-to-vw(185);
+        }
+    }
+
+    .selected-icon {
+        &__walking {
+            font-size: 1.1rem;
+            transform: rotate(90deg);
+        }
+        &__bicycle,
+        &__car,
+        &__bus,
+        &__train,
+        &__ship,
+        &__airplane {
+            font-size: 1.1rem;
+        }
+        &__none {
+            width: px-to-vw(14);
+            height: px-to-vw(14);
+            &--selected {
+                width: px-to-vw(14);
+                height: px-to-vw(14);
+            }
+        }
+    }
+
+    .transport-box {
+        z-index: 1000;
+        position: absolute;
+        display: flex;
+        top: px-to-vw(18);
+        left: 0;
+        width: px-to-vw(101);
+        height: px-to-vw(235);
+        padding: px-to-vw(10) px-to-vw(12);
+        border-radius: px-to-vw(7);
+        box-shadow: 0 px-to-vw(1) px-to-vw(4) rgba(0, 0, 0, 0.25);
+        background-color: $white;
+        font-size: 1rem;
+        color: $light-blue;
+        flex-direction: column;
+        justify-content: space-between;
+
+        &__row {
+            display: flex;
+            align-items: center;
+        }
+        &__name {
+            margin-bottom: 0;
+            margin-left: px-to-vw(6);
+            &--selected {
+                margin-bottom: 0;
+                margin-left: px-to-vw(6);
+                color: $light-navy;
+            }
+        }
+        &__icon-wrap {
+            width: px-to-vw(15);
+            text-align: left;
+        }
+        &__walking {
+            transform: rotate(90deg);
+            &--selected {
+                transform: rotate(90deg);
+            }
+        }
+        &__walking,
+        &__bicycle,
+        &__car,
+        &__bus,
+        &__train,
+        &__ship,
+        &__airplane {
+            font-size: 1.1rem;
+            &--selected {
+                color: $light-navy;
+            }
+        }
+        &__none {
+            width: px-to-vw(13);
+            height: px-to-vw(13);
+            &--selected {
+                width: px-to-vw(13);
+                height: px-to-vw(13);
+            }
         }
     }
 

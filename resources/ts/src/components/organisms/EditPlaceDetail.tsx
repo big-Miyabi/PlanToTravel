@@ -1,29 +1,97 @@
-import React, { FC } from 'react'
-
+import React, { FC, ChangeEvent, Dispatch } from 'react'
+import FontAwesomeIconBtn from '../atoms/FontAwesomeIconBtn'
 import CommentArea from '../molecules/CommentArea'
 import PlusImage from '../atoms/svg/PlusImage'
 import EditTransport from '../../containers/molecules/EditTransport'
+import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import { Place } from '../../utilities/types'
 
 type Props = {
   className: string
+  inputId: string
+  inputRef: React.RefObject<HTMLInputElement>
+  onFileChange: (e: ChangeEvent<HTMLInputElement>) => void
+  src: string
+  placeName: string | null
+  deleteImage: () => void
+  text: string
+  setText: Dispatch<React.SetStateAction<string>>
+  dateIndex: number
+  placeIndex: number
+  places: Place[]
 }
 
-const EditPlaceDetail: FC<Props> = ({ className }) => {
+const EditPlaceDetail: FC<Props> = ({
+  className,
+  inputId,
+  inputRef,
+  onFileChange,
+  src,
+  placeName,
+  deleteImage,
+  text,
+  setText,
+  dateIndex,
+  placeIndex,
+  places,
+}) => {
   return (
     <div className={className + ' ' + 'edit-place-detail'}>
       <div className="edit-place-detail__left"></div>
 
       <div className="edit-place-detail__right">
-        <div className="edit-place-detail__plus-img-wrap">
+        <label
+          className="edit-place-detail__plus-img-wrap"
+          htmlFor={inputId}
+        >
           <PlusImage className="edit-place-detail__plus-img" />
           <p className="edit-place-detail__plus-img-text">
-            タップして写真を追加
+            タップして写真を{src ? '変更' : '追加'}
           </p>
-        </div>
+          <input
+            id={inputId}
+            type="file"
+            accept="image/jpeg"
+            style={{ display: 'none' }}
+            onChange={onFileChange}
+            ref={inputRef}
+          />
+        </label>
 
-        <CommentArea maxLength={255} />
+        {src && placeName ? (
+          <div className="edit-place-detail__image-wrap">
+            <img
+              className="edit-place-detail__image"
+              src={src}
+              alt={placeName}
+            />
+            <FontAwesomeIconBtn
+              className="edit-place-detail__delete-image"
+              icon={faTimes}
+              onClick={deleteImage}
+            />
+          </div>
+        ) : (
+          <></>
+        )}
 
-        <EditTransport className="edit-place-detail__transport" />
+        <CommentArea
+          maxLength={255}
+          length={text.length}
+          onChange={(
+            e: ChangeEvent<HTMLTextAreaElement>
+          ) => {
+            e.persist()
+            setText(e.target.value)
+          }}
+        />
+
+        <EditTransport
+          className="edit-place-detail__transport"
+          dateIndex={dateIndex}
+          placeIndex={placeIndex}
+          places={places}
+        />
       </div>
     </div>
   )
