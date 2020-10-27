@@ -1,4 +1,5 @@
 import { ActionTypes } from './index'
+import { Place } from '../utilities/types'
 
 export const setPostProgressIndex = (
   progressIndex: number
@@ -25,5 +26,21 @@ export const setPostOverview = (
       dateF,
       people,
       tags,
+    },
+  } as const)
+
+export const setImageSrc = (src: string) =>
+  ({
+    type: ActionTypes.SET_IMAGE_SRC,
+    payload: {
+      src,
+    },
+  } as const)
+
+export const setCreatedItinerary = (itinerary: Place[][]) =>
+  ({
+    type: ActionTypes.SET_CREATED_ITINERARY,
+    payload: {
+      itinerary,
     },
   } as const)

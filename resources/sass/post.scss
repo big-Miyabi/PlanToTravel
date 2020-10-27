@@ -4,6 +4,7 @@
 // @include md-down()内部にstyleを記述すると、スマートフォンサイズでメディアクエリがかかるようになる
 @include md-down() {
     .post-screen {
+        background-size: cover;
         &__map-wrap {
             z-index: 1;
             position: fixed;
@@ -510,7 +511,10 @@
     }
 
     .selected-icon {
-        &__walking,
+        &__walking {
+            font-size: 1.1rem;
+            transform: rotate(90deg);
+        }
         &__bicycle,
         &__car,
         &__bus,
@@ -562,6 +566,12 @@
         &__icon-wrap {
             width: px-to-vw(15);
             text-align: left;
+        }
+        &__walking {
+            transform: rotate(90deg);
+            &--selected {
+                transform: rotate(90deg);
+            }
         }
         &__walking,
         &__bicycle,
