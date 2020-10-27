@@ -43,7 +43,7 @@ const PostLocationContainer: FC<Props> = ({ history }) => {
       .post('/api/create', {
         uid,
         title,
-        header,
+        header: 'test',
         people,
         day_s: dateS,
         day_f: dateF,

@@ -31,8 +31,8 @@ const Post: FC = () => {
   // const [distance, setDistance] = useState<string>('')
   const [comment, setComments] = useState<string[]>([''])
   const [tag_name, setTags] = useState<string[]>([''])
-  const uid = '49'
-  const is_public = '0'
+  const uid = 48
+  const is_public = false
   const sid = '134'
   const [search, setSearch] = useState<string>('')
   const searchSchedule = () => {
