@@ -8,14 +8,16 @@ type Props = {
   date: string
   dateIndex: number
   places: Place[]
-  setPlaces: Dispatch<React.SetStateAction<Place[]>>
+  itinerary: Place[][]
+  setItinerary: Dispatch<React.SetStateAction<Place[][]>>
 }
 
 const EditDailyItinerary: FC<Props> = ({
   date,
   dateIndex,
   places,
-  setPlaces,
+  itinerary,
+  setItinerary,
 }) => {
   return (
     <div className="edit-daily-itinerary__itinerary-for-the-day">
@@ -54,7 +56,8 @@ const EditDailyItinerary: FC<Props> = ({
                 dateIndex={dateIndex}
                 placeIndex={index}
                 places={places}
-                setPlaces={setPlaces}
+                itinerary={itinerary}
+                setItinerary={setItinerary}
                 date={date}
               />
             ) : (
