@@ -1,12 +1,10 @@
 import React, { FC, Dispatch } from 'react'
-import * as H from 'history'
 import { Place } from '../../utilities/types'
 import EditPlace from '../../containers/molecules/EditPlace'
 import EditPlaceDetail from '../../containers/organisms/EditPlaceDetail'
 import AddPlace from '../../containers/molecules/AddPlace'
 
 type Props = {
-  history: H.History
   date: string
   dateIndex: number
   places: Place[]
@@ -14,7 +12,6 @@ type Props = {
 }
 
 const EditDailyItinerary: FC<Props> = ({
-  history,
   date,
   dateIndex,
   places,
