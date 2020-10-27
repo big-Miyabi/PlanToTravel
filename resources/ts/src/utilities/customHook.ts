@@ -75,9 +75,7 @@ export const useFileInput = (
   return [inputRef, base64, onFileChange, deleteImage]
 }
 
-export const useRewritePlace = <
-  T extends Place[keyof Place]
->(
+export const useHooks = <T extends Place[keyof Place]>(
   initialValue: T,
   func: (state: T) => void
 ): [T, Dispatch<React.SetStateAction<T>>] => {
