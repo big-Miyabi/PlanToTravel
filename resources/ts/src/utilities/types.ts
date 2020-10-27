@@ -49,6 +49,7 @@ export type Transport =
   | '入力なし'
 
 export type Place = {
+  date: string
   name: string | null
   location: Coords | null
   weather: Weather
@@ -81,6 +82,7 @@ export const initialTarget = {
 }
 
 export const initialPlace: Place = {
+  date: '',
   name: null,
   location: null,
   weather: 'sun',

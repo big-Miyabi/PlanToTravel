@@ -1,23 +1,21 @@
 import React, { FC } from 'react'
-import * as H from 'history'
+import { Place } from '../../utilities/types'
 import moment from 'moment'
 import EditDailyItinerary from '../../containers/organisms/EditDailyItinerary'
 
 type Props = {
-  className: string
-  history: H.History
   dateDiff: number
   dateS: string
+  itinerary: Place[][]
 }
 
 const EditItinerary: FC<Props> = ({
-  className,
-  history,
   dateDiff,
   dateS,
+  itinerary,
 }) => {
   return (
-    <div className={className + ' ' + 'edit-itinerary'}>
+    <div className="edit-itinerary">
       {[...Array(dateDiff)].map((_, index) => {
         const date = moment(dateS)
           .add(index, 'd')
@@ -25,9 +23,9 @@ const EditItinerary: FC<Props> = ({
 
         return (
           <EditDailyItinerary
-            history={history}
             date={date}
             dateIndex={index}
+            itinerary={itinerary}
             key={index}
           />
         )

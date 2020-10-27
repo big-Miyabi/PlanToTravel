@@ -2,17 +2,17 @@ import React, { FC } from 'react'
 import moment from 'moment'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../reducers'
-import * as H from 'history'
+import { Place } from '../../utilities/types'
 import EditItinerary from '../../components/organisms/EditItinerary'
 
 type Props = {
   className: string
-  history: H.History
+  itinerary: Place[][]
 }
 
 const EditItineraryContainer: FC<Props> = ({
   className,
-  history,
+  itinerary,
 }) => {
   const dateS = useSelector(
     (state: RootState) => state.postReducer.dateS
@@ -25,10 +25,9 @@ const EditItineraryContainer: FC<Props> = ({
 
   return (
     <EditItinerary
-      className={className}
-      history={history}
       dateDiff={dateDiff}
       dateS={dateS}
+      itinerary={itinerary}
     />
   )
 }
