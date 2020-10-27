@@ -20,16 +20,15 @@ const EditItineraryContainer: FC<Props> = ({
   const dateF = useSelector(
     (state: RootState) => state.postReducer.dateF
   )
-  const mDateS = moment(dateS)
-  const mDateF = moment(dateF)
-  const dateDiff = mDateF.diff(mDateS, 'days') + 1
+  const dateDiff =
+    moment(dateF).diff(moment(dateS), 'days') + 1
 
   return (
     <EditItinerary
       className={className}
       history={history}
       dateDiff={dateDiff}
-      mDateS={mDateS}
+      dateS={dateS}
     />
   )
 }
