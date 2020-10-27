@@ -85,3 +85,22 @@ export const postByAxios: PostByAxios = {
     })
   },
 }
+
+// axios
+//   .post('/api/create', {
+//     uid,
+//     title,
+//     header: 'test',
+//     people,
+//     day_s: dateS,
+//     day_f: dateF,
+//     tag_name: tags,
+//     is_public: false, // 後で追加
+//     itinerary: sliced,
+//   })
+//   .then((res) => {
+//     console.log(res.data)
+//   })
+//   .catch((error) => {
+//     console.log(error)
+//   })

@@ -6,6 +6,7 @@ import ProgressBar from '../../components/molecules/ProgressBar'
 import PostOverview from '../../containers/organisms/PostOverview'
 import PostLocation from '../../containers/organisms/PostLocation'
 import MapScreen from '../../containers/screens/MapScreen'
+import PostConfirm from '../../containers/organisms/PostConfirm'
 
 type Props = {
   pageIndex: number
@@ -33,9 +34,12 @@ const PostScreen: FC<Props> = ({
       />
       {pageIndex === 0 ? (
         <PostOverview history={history} />
-      ) : (
+      ) : pageIndex === 1 ? (
         <PostLocation history={history} />
+      ) : (
+        <PostConfirm history={history} />
       )}
+
       <div className={'post-screen__map-wrap' + shownClass}>
         <MapScreen />
       </div>

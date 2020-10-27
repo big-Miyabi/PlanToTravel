@@ -2,11 +2,13 @@ import React, { FC, useState } from 'react'
 import * as H from 'history'
 import moment from 'moment'
 import { useDispatch, useSelector } from 'react-redux'
-import { setCreatedItinerary } from '../../actions/post'
+import {
+  setCreatedItinerary,
+  setPostProgressIndex,
+} from '../../actions/post'
 import { RootState } from '../../reducers'
 import PostLocation from '../../components/organisms/PostLocation'
 import { Place, initialPlace } from '../../utilities/types'
-import axios from 'axios'
 
 type Props = {
   history: H.History
@@ -34,39 +36,26 @@ const PostLocationContainer: FC<Props> = ({ history }) => {
     (state: RootState) => state.postReducer.src
   )
 
-  const onClickNext = () => {
+  const goToNext = () => {
     const sliced = itinerary.slice()
     setItinerary(sliced)
     dispatch(setCreatedItinerary(sliced))
-    console.log(sliced)
-    axios
-      .post('/api/create', {
-        uid,
-        title,
-        header: 'test',
-        people,
-        day_s: dateS,
-        day_f: dateF,
-        tag_name: tags,
-        is_public: false, // 後で追加
-        itinerary: sliced,
-      })
-      .then((res) => {
-        console.log(res.data)
-      })
-      .catch((error) => {
-        console.log(error)
-      })
+    dispatch(setPostProgressIndex(2))
+    history.push('/post/confirm')
+  }
+
+  const returnToPrevious = () => {
+    history.push('/post/overview')
   }
 
   return (
     <PostLocation
-      history={history}
       dateS={dateS}
       dateDiff={dateDiff}
       itinerary={itinerary}
       setItinerary={setItinerary}
-      onClickNext={onClickNext}
+      goToNext={goToNext}
+      returnToPrevious={returnToPrevious}
     />
   )
 }
