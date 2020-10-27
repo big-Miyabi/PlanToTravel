@@ -27,3 +27,11 @@ export const setPostOverview = (
       tags,
     },
   } as const)
+
+export const setImageSrc = (src: string) =>
+  ({
+    type: ActionTypes.SET_IMAGE_SRC,
+    payload: {
+      src,
+    },
+  } as const)
