@@ -1097,6 +1097,10 @@ next .input-box::placeholder {
 }
 
 @media screen and (max-width: 559px) {
+  .post-screen {
+    background-size: cover;
+  }
+
   .post-screen__map-wrap {
     z-index: 1;
     position: fixed;
