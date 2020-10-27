@@ -1,9 +1,7 @@
 import React, { FC, Dispatch } from 'react'
 import FontAwesomeIconBtn from '../atoms/FontAwesomeIconBtn'
-import {
-  faWalking,
-  faShoePrints,
-} from '@fortawesome/free-solid-svg-icons'
+import { faWalking } from '@fortawesome/free-solid-svg-icons'
+import { getChangeEventFunc } from '../../utilities/getEventFunc'
 import { Transport } from '../../utilities/types'
 import PlusInputBox from '../atoms/PlusInputBox'
 import TransportSelectIcon from '../molecules/TransportSelectIcon'
@@ -16,6 +14,7 @@ type Props = {
   overlayClass: string
   isShownBox: boolean
   setIsShownBox: Dispatch<React.SetStateAction<boolean>>
+  setTransportDetail: Dispatch<React.SetStateAction<string>>
 }
 
 const EditTransport: FC<Props> = ({
@@ -26,6 +25,7 @@ const EditTransport: FC<Props> = ({
   overlayClass,
   isShownBox,
   setIsShownBox,
+  setTransportDetail,
 }) => {
   return (
     <div className={className + ' ' + 'edit-transport'}>
@@ -109,6 +109,8 @@ const EditTransport: FC<Props> = ({
           type="text"
           placeholder={'例）山手線　30分'}
           className="edit-transport__detail"
+          maxLength={15}
+          onChange={getChangeEventFunc(setTransportDetail)}
         />
       </div>
       <div

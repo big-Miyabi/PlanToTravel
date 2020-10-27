@@ -4,6 +4,7 @@ import {
   UnionedAction,
 } from '../actions/index'
 import moment from 'moment'
+import { Place, initialPlace } from '../utilities/types'
 
 type State = {
   progressIndex: number
@@ -12,6 +13,8 @@ type State = {
   dateF: string
   people: number
   tags: string[]
+  src: string
+  itinerary: Place[][]
 }
 
 type PostReducer = Reducer<State, UnionedAction>
@@ -25,6 +28,8 @@ const initialState: State = {
   dateF: moment().format('YYYY-MM-DD'),
   people: 1,
   tags: [],
+  src: '',
+  itinerary: [[initialPlace]],
 }
 
 export const postReducer: PostReducer = (
@@ -45,6 +50,16 @@ export const postReducer: PostReducer = (
         dateF: action.payload.dateF,
         people: action.payload.people,
         tags: action.payload.tags,
+      }
+    case ActionTypes.SET_IMAGE_SRC:
+      return {
+        ...state,
+        src: action.payload.src,
+      }
+    case ActionTypes.SET_CREATED_ITINERARY:
+      return {
+        ...state,
+        itinerary: action.payload.itinerary,
       }
     default: {
       return state

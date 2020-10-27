@@ -10,12 +10,17 @@ use App\Tag;
 use App\Place;
 use App\Like;
 
+function stringToDate($string)
+{
+  $day = str_replace('.', '', $string);
+  $formattedDay = date('YYYY-MM-DD', strtotime($day));
+  return $formattedDay;
+}
+
 class ScheduleController extends Controller
 {
   public function create(Request $request)
   {
-    $tempDay = null;
-    $order = 0;
     // return Schedules_place::select('id')->where('schedule_id', 100)->count();
     // scheduleTableのばりで
     $params = $request->validate([
@@ -58,56 +63,46 @@ class ScheduleController extends Controller
     }
     //palaceTable
     //validate処理
-    foreach ($request->input(
-      'day',
-      'img',
-      'place_name',
-      'longitude',
-      'latitude',
-      'rating',
-      'weather',
-      'transport',
-      'transport_detail',
-      'comment'
-    ) as $key => $val) {
-      // バリデートをどうするかで悩み
-      // $params = $val->validate([
-      //   'day' => 'required|date',
-      //   'place_name' => 'required|string|max:63',
-      //   'longitude' => 'required|integer',
-      //   'latitude' => 'required|integer',
-      //   'weather' => 'required'
-      // ]);
-      // //SQL実行
-      if ($tempDay !== $request->input('day')[$key]) {
-        $tempDay = $request->input('day')[$key];
-        $order = 0;
+    foreach ($request->input('itinerary') as $places) {
+      foreach ($places as $key => $place) {
+        // バリデーションルール作成
+        $rules = [
+          'date' => ['required', 'date'],
+          'name' => 'required|string|max:63',
+          'location.lat' => 'required|integer',
+          'location.lng' => 'required|integer',
+          'weather' => 'required'
+        ];
+        // バリデーション実行
+        $this->validate($place, $rules);
+        // //SQL実行
+        $params = Place::create([
+          'day' => $place['date'],
+          'place_name' => $place['name'],
+          'latitude' => $place['location']['lat'],
+          'longitude' => $place['location']['lng'],
+          'weather' => $place['weather'],
+          'img' => $place['image'],
+          'transport' => $place['transport'],
+          'transport_detail' => $place['transportDetail'],
+          'comment' => $place['comment'],
+          'distance' => null, // 後で追加
+          'rating' => $place['rating'],
+          'order_number' => $key + 1
+        ]);
+
+        // placeTableのID取得
+        $PlaceId = $params['id'];
+        // 実際にあるかの判定
+        $post = Place::findOrFail($PlaceId);
+        // paramsに格納
+        $params = ['place_id' => $PlaceId, 'schedule_id' => $ScheduleId];
+        //  紐付けテーブルに格納
+        $post->schedules_places()->create($params);
       }
-      $order++;
-      $params = Place::create([
-        'day' => $request->input('day')[$key],
-        'place_name' => $request->input('place_name')[$key],
-        'longitude' => $request->input('longitude')[$key],
-        'latitude' => $request->input('latitude')[$key],
-        'weather' => $request->input('weather')[$key],
-        'img' => $request->input('img')[$key],
-        'transport' => $request->input('transport')[$key],
-        'transport_detail' => $request->input('transport_detail')[$key],
-        'comment' => $request->input('comment')[$key],
-        'distance' => $request->input('distance')[$key],
-        'rating' => $request->input('rating')[$key],
-        'order_number' => $order
-      ]);
-      // placeTableのID取得
-      $PlaceId = $params['id'];
-      // 実際にあるかの判定
-      $post = Place::findOrFail($PlaceId);
-      // paramsに格納
-      $params = ['place_id' => $PlaceId, 'schedule_id' => $ScheduleId];
-      //  紐付けテーブルに格納
-      $post->schedules_places()->create($params);
     }
   }
+
   //bladeの方でテスト
   // public function index()
   // {

@@ -49,13 +49,15 @@ export type Transport =
   | '入力なし'
 
 export type Place = {
+  date: string
   name: string | null
   location: Coords | null
   weather: Weather
   rating: number
-  image: File | null
+  image: string | null
   comment: string
   transport: Transport
+  transportDetail: string
 }
 
 export type WeatherIcon = {
@@ -80,6 +82,7 @@ export const initialTarget = {
 }
 
 export const initialPlace: Place = {
+  date: '',
   name: null,
   location: null,
   weather: 'sun',
@@ -87,6 +90,7 @@ export const initialPlace: Place = {
   image: null,
   comment: '',
   transport: '入力なし',
+  transportDetail: '',
 }
 
 export const initialWeatherItems: WeatherItem[] = [
@@ -115,15 +119,4 @@ export const initialWeatherItems: WeatherItem[] = [
     name: 'night',
     isSelected: false,
   },
-]
-
-export const initialTransports: Transport[] = [
-  '徒歩',
-  '自転車',
-  '車',
-  'バス',
-  '電車',
-  '船',
-  '飛行機',
-  '入力なし',
 ]

@@ -1097,6 +1097,10 @@ next .input-box::placeholder {
 }
 
 @media screen and (max-width: 559px) {
+  .post-screen {
+    background-size: cover;
+  }
+
   .post-screen__map-wrap {
     z-index: 1;
     position: fixed;
@@ -1637,7 +1641,11 @@ next .input-box::placeholder {
     width: 49.3333333333vw;
   }
 
-  .selected-icon__walking,
+  .selected-icon__walking {
+    font-size: 1.1rem;
+    transform: rotate(90deg);
+  }
+
   .selected-icon__bicycle,
   .selected-icon__car,
   .selected-icon__bus,
@@ -1694,6 +1702,14 @@ next .input-box::placeholder {
   .transport-box__icon-wrap {
     width: 4vw;
     text-align: left;
+  }
+
+  .transport-box__walking {
+    transform: rotate(90deg);
+  }
+
+  .transport-box__walking--selected {
+    transform: rotate(90deg);
   }
 
   .transport-box__walking,
