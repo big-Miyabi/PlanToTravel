@@ -6,7 +6,6 @@ import {
   ChangeEvent,
   RefObject,
 } from 'react'
-import { Place } from './types'
 
 export const usePopupMenu = (
   overlayClassName: string
@@ -34,7 +33,6 @@ export const usePopupMenu = (
 }
 
 export const useFileInput = (
-  funcInOnChange?: (file: File) => void,
   funcInUseEffect?: (src: string) => void
 ): [
   RefObject<HTMLInputElement>,
@@ -52,7 +50,6 @@ export const useFileInput = (
     e.persist()
     if (e.target.files === null) return
     setImage(e.target.files[0])
-    if (funcInOnChange) funcInOnChange(e.target.files[0])
   }
 
   const deleteImage = () => {

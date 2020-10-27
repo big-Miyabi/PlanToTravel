@@ -25,8 +25,8 @@ const EditPlaceDetailContainer: FC<Props> = ({
     src,
     onFileChange,
     deleteImage,
-  ] = useFileInput((file: File) => {
-    places[placeIndex].image = file
+  ] = useFileInput((src: string) => {
+    places[placeIndex].image = src
   })
 
   const [text, setText] = useHooks<string>('', (state) => {

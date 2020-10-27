@@ -27,10 +27,6 @@ const PostLocationContainer: FC<Props> = ({ history }) => {
     initialItinerary
   )
 
-  useEffect(() => {
-    console.log(itinerary)
-  }, [itinerary])
-
   return (
     <PostLocation
       history={history}
