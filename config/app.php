@@ -229,5 +229,7 @@ return [
 
   ],
 
-  'map_api' => env('MIX_GOOGLE_MAPS_API_KEY')
+  'map_api' => env('MIX_GOOGLE_MAPS_API_KEY'),
+
+  'weather_api' => env('MIX_WEATHER_API')
 ];

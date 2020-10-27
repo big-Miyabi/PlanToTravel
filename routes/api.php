@@ -23,10 +23,13 @@ Route::group(['middleware' => 'api'], function () {
   Route::post('show', 'ScheduleController@show');
 
   Route::post('like', 'LikeController@like');
+  Route::post('userLike', 'LikeController@userLike');
   Route::post('delete', 'ScheduleController@delete');
   Route::post('bookmark', 'BookmarkController@bookmark');
+  Route::post('search', 'ScheduleController@search');
   Route::post('getPlaceName', 'GoogleMapController@getPlaceName');
   Route::post('userSchedule', 'ScheduleController@userSchedule');
+  Route::post('getWeather', 'WeatherApiController@getWeather');
   Route::post('userLike', 'LikeController@userLike');
   Route::post('userBookmark', 'BookmarkController@userBookmark');
 });

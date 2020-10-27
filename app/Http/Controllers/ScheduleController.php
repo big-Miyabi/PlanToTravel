@@ -32,6 +32,7 @@ class ScheduleController extends Controller
       'day_f' => 'required|date',
       'is_public' => 'required',
     ]);
+
     // insert文実行
     $scheduleData = Schedule::create($params);
     // scheduleTableのId取得
@@ -66,15 +67,15 @@ class ScheduleController extends Controller
     foreach ($request->input('itinerary') as $places) {
       foreach ($places as $key => $place) {
         // バリデーションルール作成
-        $rules = [
-          'date' => ['required', 'date'],
-          'name' => 'required|string|max:63',
-          'location.lat' => 'required|integer',
-          'location.lng' => 'required|integer',
-          'weather' => 'required'
-        ];
-        // バリデーション実行
-        $this->validate($place, $rules);
+        // $rules = [
+        //   'date' => ['required'],
+        //   'name' => ['required', 'string', 'max:63'],
+        //   'location.lat' => ['required', 'integer'],
+        //   'location.lng' => ['required', 'integer'],
+        //   'weather' => ['required']
+        // ];
+        // // バリデーション実行
+        // $this->validate($place, $rules);
         // //SQL実行
         $params = Place::create([
           'day' => $place['date'],
@@ -90,7 +91,6 @@ class ScheduleController extends Controller
           'rating' => $place['rating'],
           'order_number' => $key + 1
         ]);
-
         // placeTableのID取得
         $PlaceId = $params['id'];
         // 実際にあるかの判定
@@ -102,15 +102,6 @@ class ScheduleController extends Controller
       }
     }
   }
-
-  //bladeの方でテスト
-  // public function index()
-  // {
-  //   $schedules = Schedule::orderBy('created_at', 'desc')->get();
-  //   $tags = Tag::orderBy('created_at', 'desc')->get();
-  //   $places = Place::orderBy('created_at', 'desc')->get();
-  //   return  view('show', ['tags' => $tags, 'places' => $places, 'schedules' => $schedules]);
-  // }
   public function index()
   {
     //送るデータの格納
@@ -282,17 +273,7 @@ class ScheduleController extends Controller
     }
     return [$texts, $tagBox, $placeBox];
   }
-
-  //削除機能
-  public function delete(Request $request)
-  {
-    $post = Schedule::findOrFail($request->sid);
-    $post->schedules_places()->delete();
-    $post->schedules_tags()->delete();
-    $post->likes()->delete();
-    $post->delete();
-    return "delete";
-  }
+  //ユーザごとのスケジュール表示
   public function userSchedule(Request $request)
   {
     $schedules = Schedule::orderBy('created_at', 'desc')->get();
@@ -372,6 +353,95 @@ class ScheduleController extends Controller
         $posts[$counter] = [$texts, $tagBox, $placeBox];
         $counter++;
       }
+    }
+    return $posts;
+  }
+  //削除機能
+  public function delete(Request $request)
+  {
+    $post = Schedule::findOrFail($request->sid);
+    $post->schedules_places()->delete();
+    $post->schedules_tags()->delete();
+    $post->likes()->delete();
+    $post->delete();
+    return "delete";
+  }
+
+  //検索機能
+  public function search(Request $request)
+  {
+    $query = Schedule::query();
+    $tags = Tag::orderBy('created_at', 'desc')->get();
+    $places = Place::orderBy('created_at', 'desc')->get();
+    $posts = [];
+    $set = $request->search;
+    $schedules = $query->where('title', 'LIKE', '%' . $set . '%')->get();
+    $tagBox = [];
+    $placeBox = [];
+    foreach ($schedules as $key => $schedule) {
+      //スケジュールデータ
+      $id = $schedule->id;
+      $userid = $schedule->uid;
+      $title = $schedule->title;
+      $header = $schedule->header;
+      $people = $schedule->people;
+      $day_s = $schedule->day_s;
+      $day_f = $schedule->day_f;
+      $is_public = $schedule->is_public;
+      $texts[$key] = [
+        'id' => $id,
+        'userid' => $userid,
+        'title' => $title,
+        'header' => $header,
+        'people' => $people,
+        'day_s' => $day_s,
+        'day_f' => $day_f,
+        'is_public' => $is_public
+      ];
+      foreach ($schedule->schedules_tags  as $tagKey => $st) {
+        if ($st->schedule_id == $id) {
+          foreach ($tags as $tag) {
+            if ($st->tag_id == $tag->id) {
+              $tagBox[$tagKey] = ['tagname' => $tag->tag_name];
+            }
+          }
+        }
+      }
+      foreach ($schedule->schedules_places  as $placeKey => $sp) {
+        if ($sp->schedule_id == $id) {
+          foreach ($places as  $place) {
+            if ($sp->place_id == $place->id) {
+              $placeName = $place->place_name;
+              $orderNumber = $place->order_number;
+              $day = $place->day;
+              $img = $place->img;
+              $longitude = $place->longitude;
+              $latitude = $place->latitude;
+              $rating = $place->rating;
+              $weather = $place->weather;
+              $transport = $place->transport;
+              $transportD = $place->transport_detail;
+              $distance = $place->distance;
+              $comment = $place->comment;
+              $placeBox[$placeKey] = [
+                'placename' => $placeName,
+                'ordernumber' => $orderNumber,
+                'day' => $day,
+                'img' => $img,
+                'longitude' => $longitude,
+                'latitude' => $latitude,
+                'rating' => $rating,
+                'weather' => $weather,
+                'transport' => $transport,
+                'transportD' => $transportD,
+                'distance' => $distance,
+                'comment' => $comment
+              ];
+            }
+          }
+        }
+      }
+      $posts[$key] = [$texts[$key], $tagBox, $placeBox];
     }
     return $posts;
   }
