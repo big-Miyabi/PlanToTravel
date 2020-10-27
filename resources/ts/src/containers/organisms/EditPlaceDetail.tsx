@@ -3,7 +3,7 @@ import { Place } from '../../utilities/types'
 import EditPlaceDetail from '../../components/organisms/EditPlaceDetail'
 import {
   useFileInput,
-  useRewritePlace,
+  useHooks,
 } from '../../utilities/customHook'
 
 type Props = {
@@ -29,12 +29,9 @@ const EditPlaceDetailContainer: FC<Props> = ({
     places[placeIndex].image = file
   })
 
-  const [text, setText] = useRewritePlace<string>(
-    '',
-    (state) => {
-      places[placeIndex].comment = state
-    }
-  )
+  const [text, setText] = useHooks<string>('', (state) => {
+    places[placeIndex].comment = state
+  })
 
   return (
     <EditPlaceDetail

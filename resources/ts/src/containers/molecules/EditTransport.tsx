@@ -3,7 +3,7 @@ import EditTransport from '../../components/molecules/EditTransport'
 import { Transport, Place } from '../../utilities/types'
 import {
   usePopupMenu,
-  useRewritePlace,
+  useHooks,
 } from '../../utilities/customHook'
 
 type Props = {
@@ -34,16 +34,15 @@ const EditTransportContainer: FC<Props> = ({
   const [isShownBox, setIsShownBox] = usePopupMenu(
     overlayClass
   )
-  const [selectedIndex, setSelectedIndex] = useRewritePlace<
+  const [selectedIndex, setSelectedIndex] = useHooks<
     number
   >(7, () => {
     places[placeIndex].transport = transports[selectedIndex]
   })
 
-  const [
-    transportDetail,
-    setTransportDetail,
-  ] = useRewritePlace<string>('', (state) => {
+  const [transportDetail, setTransportDetail] = useHooks<
+    string
+  >('', (state) => {
     places[placeIndex].transportDetail = state
   })
 
