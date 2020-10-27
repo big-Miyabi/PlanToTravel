@@ -4,6 +4,7 @@ import {
   setPostProgressIndex,
   setPostOverview,
   setImageSrc,
+  setCreatedItinerary,
 } from './post'
 import {
   setShouldAppearMap,
@@ -21,6 +22,7 @@ export enum ActionTypes {
   SET_PLACE_INFO = 'SET_PLACE_INFO',
   SET_SETTING_PLACE_TYPE = 'SET_SETTING_PLACE_TYPE',
   SET_IMAGE_SRC = 'SET_IMAGE_SRC',
+  SET_CREATED_ITINERARY = 'SET_CREATED_ITINERARY',
 }
 
 export type UnionedAction =
@@ -30,6 +32,7 @@ export type UnionedAction =
   | ReturnType<typeof setPostProgressIndex>
   | ReturnType<typeof setPostOverview>
   | ReturnType<typeof setImageSrc>
+  | ReturnType<typeof setCreatedItinerary>
   | ReturnType<typeof setShouldAppearMap>
   | ReturnType<typeof setPlaceInfo>
   | ReturnType<typeof setSettingPlaceType>

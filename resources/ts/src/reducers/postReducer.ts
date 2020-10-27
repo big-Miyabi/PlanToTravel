@@ -4,6 +4,7 @@ import {
   UnionedAction,
 } from '../actions/index'
 import moment from 'moment'
+import { Place, initialPlace } from '../utilities/types'
 
 type State = {
   progressIndex: number
@@ -13,6 +14,7 @@ type State = {
   people: number
   tags: string[]
   src: string
+  itinerary: Place[][]
 }
 
 type PostReducer = Reducer<State, UnionedAction>
@@ -27,6 +29,7 @@ const initialState: State = {
   people: 1,
   tags: [],
   src: '',
+  itinerary: [[initialPlace]],
 }
 
 export const postReducer: PostReducer = (
@@ -52,6 +55,11 @@ export const postReducer: PostReducer = (
       return {
         ...state,
         src: action.payload.src,
+      }
+    case ActionTypes.SET_CREATED_ITINERARY:
+      return {
+        ...state,
+        itinerary: action.payload.itinerary,
       }
     default: {
       return state
