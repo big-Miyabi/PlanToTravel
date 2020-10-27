@@ -4,6 +4,7 @@ import CommentArea from '../molecules/CommentArea'
 import PlusImage from '../atoms/svg/PlusImage'
 import EditTransport from '../../containers/molecules/EditTransport'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import { Place } from '../../utilities/types'
 
 type Props = {
   className: string
@@ -17,6 +18,7 @@ type Props = {
   setText: Dispatch<React.SetStateAction<string>>
   dateIndex: number
   placeIndex: number
+  places: Place[]
 }
 
 const EditPlaceDetail: FC<Props> = ({
@@ -31,6 +33,7 @@ const EditPlaceDetail: FC<Props> = ({
   setText,
   dateIndex,
   placeIndex,
+  places,
 }) => {
   return (
     <div className={className + ' ' + 'edit-place-detail'}>
@@ -87,6 +90,7 @@ const EditPlaceDetail: FC<Props> = ({
           className="edit-place-detail__transport"
           dateIndex={dateIndex}
           placeIndex={placeIndex}
+          places={places}
         />
       </div>
     </div>

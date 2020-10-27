@@ -1,9 +1,7 @@
 import React, {
   FC,
   useState,
-  useRef,
   useEffect,
-  ChangeEvent,
   Dispatch,
 } from 'react'
 import { Place } from '../../utilities/types'
@@ -58,6 +56,7 @@ const EditPlaceDetailContainer: FC<Props> = ({
       setText={setText}
       dateIndex={dateIndex}
       placeIndex={placeIndex}
+      places={places}
     />
   )
 }
