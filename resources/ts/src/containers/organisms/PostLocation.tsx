@@ -1,21 +1,21 @@
-import React, { FC, useEffect, useState } from 'react'
+import React, { FC, useState } from 'react'
 import * as H from 'history'
 import moment from 'moment'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { setCreatedItinerary } from '../../actions/post'
 import { RootState } from '../../reducers'
 import PostLocation from '../../components/organisms/PostLocation'
 import { Place, initialPlace } from '../../utilities/types'
+import axios from 'axios'
 
 type Props = {
   history: H.History
 }
 
 const PostLocationContainer: FC<Props> = ({ history }) => {
-  const dateS = useSelector(
-    (state: RootState) => state.postReducer.dateS
-  )
-  const dateF = useSelector(
-    (state: RootState) => state.postReducer.dateF
+  const dispatch = useDispatch()
+  const { title, dateS, dateF, people } = useSelector(
+    (state: RootState) => state.postReducer
   )
   const dateDiff =
     moment(dateF).diff(moment(dateS), 'days') + 1
@@ -27,6 +27,36 @@ const PostLocationContainer: FC<Props> = ({ history }) => {
     initialItinerary
   )
 
+  const uid = useSelector(
+    (state: RootState) => state.loginReducer.id
+  )
+  const header = useSelector(
+    (state: RootState) => state.postReducer.src
+  )
+
+  const onClickNext = () => {
+    const sliced = itinerary.slice()
+    setItinerary(sliced)
+    dispatch(setCreatedItinerary(sliced))
+    axios
+      .post('/api/create', {
+        uid,
+        title,
+        header,
+        people,
+        day_s: dateS,
+        day_f: dateF,
+        is_public: false, // 後で追加
+        itinerary: sliced,
+      })
+      .then((res) => {
+        console.log(res.data)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  }
+
   return (
     <PostLocation
       history={history}
@@ -34,6 +64,7 @@ const PostLocationContainer: FC<Props> = ({ history }) => {
       dateDiff={dateDiff}
       itinerary={itinerary}
       setItinerary={setItinerary}
+      onClickNext={onClickNext}
     />
   )
 }
