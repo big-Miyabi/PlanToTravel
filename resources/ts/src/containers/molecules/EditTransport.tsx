@@ -1,33 +1,16 @@
-import React, {
-  FC,
-  useState,
-  useEffect,
-  Dispatch,
-} from 'react'
+import React, { FC } from 'react'
 import EditTransport from '../../components/molecules/EditTransport'
 import { Transport, Place } from '../../utilities/types'
-import { usePopupMenu } from '../../utilities/customHook'
+import {
+  usePopupMenu,
+  useRewritePlace,
+} from '../../utilities/customHook'
 
 type Props = {
   className: string
   dateIndex: number
   placeIndex: number
   places: Place[]
-}
-
-const useTransport = (
-  place: Place,
-  transports: Transport[]
-): [number, Dispatch<React.SetStateAction<number>>] => {
-  const [selectedIndex, setSelectedIndex] = useState<
-    number
-  >(7)
-
-  useEffect(() => {
-    place.transport = transports[selectedIndex]
-  }, [selectedIndex])
-
-  return [selectedIndex, setSelectedIndex]
 }
 
 const EditTransportContainer: FC<Props> = ({
@@ -51,10 +34,18 @@ const EditTransportContainer: FC<Props> = ({
   const [isShownBox, setIsShownBox] = usePopupMenu(
     overlayClass
   )
-  const [selectedIndex, setSelectedIndex] = useTransport(
-    places[placeIndex],
-    transports
-  )
+  const [selectedIndex, setSelectedIndex] = useRewritePlace<
+    number
+  >(7, () => {
+    places[placeIndex].transport = transports[selectedIndex]
+  })
+
+  const [
+    transportDetail,
+    setTransportDetail,
+  ] = useRewritePlace<string>('', (state) => {
+    places[placeIndex].transportDetail = state
+  })
 
   return (
     <EditTransport
@@ -65,6 +56,7 @@ const EditTransportContainer: FC<Props> = ({
       overlayClass={overlayClass}
       isShownBox={isShownBox}
       setIsShownBox={setIsShownBox}
+      setTransportDetail={setTransportDetail}
     />
   )
 }

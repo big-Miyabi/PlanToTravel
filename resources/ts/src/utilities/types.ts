@@ -56,6 +56,7 @@ export type Place = {
   image: File | null
   comment: string
   transport: Transport
+  transportDetail: string
 }
 
 export type WeatherIcon = {
@@ -87,6 +88,7 @@ export const initialPlace: Place = {
   image: null,
   comment: '',
   transport: '入力なし',
+  transportDetail: '',
 }
 
 export const initialWeatherItems: WeatherItem[] = [
