@@ -1,29 +1,16 @@
-import React, {
-  FC,
-  useState,
-  useEffect,
-  Dispatch,
-} from 'react'
+import React, { FC } from 'react'
 import { Place } from '../../utilities/types'
 import EditPlaceDetail from '../../components/organisms/EditPlaceDetail'
-import { useFileInput } from '../../utilities/customHook'
+import {
+  useFileInput,
+  useRewritePlace,
+} from '../../utilities/customHook'
 
 type Props = {
   className: string
   places: Place[]
   dateIndex: number
   placeIndex: number
-}
-
-const useTextArea = (
-  place: Place
-): [string, Dispatch<React.SetStateAction<string>>] => {
-  const [text, setText] = useState<string>('')
-  useEffect(() => {
-    place.comment = text
-  }, [text])
-
-  return [text, setText]
 }
 
 const EditPlaceDetailContainer: FC<Props> = ({
@@ -41,7 +28,13 @@ const EditPlaceDetailContainer: FC<Props> = ({
   ] = useFileInput((file: File) => {
     places[placeIndex].image = file
   })
-  const [text, setText] = useTextArea(places[placeIndex])
+
+  const [text, setText] = useRewritePlace<string>(
+    '',
+    (state) => {
+      places[placeIndex].comment = state
+    }
+  )
 
   return (
     <EditPlaceDetail

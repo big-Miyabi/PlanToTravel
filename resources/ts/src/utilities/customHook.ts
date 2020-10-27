@@ -6,6 +6,7 @@ import {
   ChangeEvent,
   RefObject,
 } from 'react'
+import { Place } from './types'
 
 export const usePopupMenu = (
   overlayClassName: string
@@ -69,4 +70,18 @@ export const useFileInput = (
   }, [image])
 
   return [inputRef, base64, onFileChange, deleteImage]
+}
+
+export const useRewritePlace = <
+  T extends Place[keyof Place]
+>(
+  initialValue: T,
+  func: (state: T) => void
+): [T, Dispatch<React.SetStateAction<T>>] => {
+  const [state, setState] = useState<T>(initialValue)
+  useEffect(() => {
+    func(state)
+  }, [state])
+
+  return [state, setState]
 }
