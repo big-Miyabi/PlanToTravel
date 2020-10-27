@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import EditTransport from '../../components/molecules/EditTransport'
-import { Transport, Place } from '../../utilities/types'
+import { transports, Place } from '../../utilities/types'
 import {
   usePopupMenu,
   useHooks,
@@ -20,16 +20,6 @@ const EditTransportContainer: FC<Props> = ({
   places,
 }) => {
   const overlayClass = `transport-overlay__${dateIndex}-${placeIndex}`
-  const transports: Transport[] = [
-    '徒歩',
-    '自転車',
-    '車',
-    'バス',
-    '電車',
-    '船',
-    '飛行機',
-    '入力なし',
-  ]
 
   const [isShownBox, setIsShownBox] = usePopupMenu(
     overlayClass
