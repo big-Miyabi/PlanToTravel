@@ -4,6 +4,7 @@
 // @include md-down()内部にstyleを記述すると、スマートフォンサイズでメディアクエリがかかるようになる
 @include md-down() {
     .post-screen {
+        background-size: cover;
         &__map-wrap {
             z-index: 1;
             position: fixed;
