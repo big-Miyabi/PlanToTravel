@@ -11,6 +11,7 @@ type Props = {
   dateS: string
   itinerary: Place[][]
   setItinerary: Dispatch<React.SetStateAction<Place[][]>>
+  onClickNext: () => void
 }
 
 const PostLocation: FC<Props> = ({
@@ -19,6 +20,7 @@ const PostLocation: FC<Props> = ({
   dateS,
   itinerary,
   setItinerary,
+  onClickNext,
 }) => {
   return (
     <div className="post">
@@ -52,7 +54,7 @@ const PostLocation: FC<Props> = ({
           <FormBtn
             className="post__next"
             name="次へ"
-            onClick={() => {}} // eslint-disable-line
+            onClick={onClickNext}
           />
         </div>
       </div>
