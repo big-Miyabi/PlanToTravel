@@ -64,6 +64,7 @@ const EditPlace: FC<Props> = ({
         inputRef={inputRef}
         onChange={getChangeEventFunc(setCustomName)}
         onClick={showMap}
+        maxLength={63}
       />
       <FontAwesomeIconBtn
         className={
