@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import * as H from 'history'
 import moment from 'moment'
 import { useSelector } from 'react-redux'
@@ -27,12 +27,17 @@ const PostLocationContainer: FC<Props> = ({ history }) => {
     initialItinerary
   )
 
+  useEffect(() => {
+    console.log(itinerary)
+  }, [itinerary])
+
   return (
     <PostLocation
       history={history}
       dateS={dateS}
       dateDiff={dateDiff}
       itinerary={itinerary}
+      setItinerary={setItinerary}
     />
   )
 }

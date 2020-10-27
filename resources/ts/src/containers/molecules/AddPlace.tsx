@@ -15,7 +15,8 @@ import AddPlace from '../../components/molecules/AddPlace'
 
 type Props = {
   places: Place[]
-  setPlaces: Dispatch<React.SetStateAction<Place[]>>
+  itinerary: Place[][]
+  setItinerary: Dispatch<React.SetStateAction<Place[][]>>
   dateIndex: number
   placeIndex: number
   date: string
@@ -23,7 +24,8 @@ type Props = {
 
 const AddPlaceContainer: FC<Props> = ({
   places,
-  setPlaces,
+  itinerary,
+  setItinerary,
   dateIndex,
   placeIndex,
   date,
@@ -59,7 +61,7 @@ const AddPlaceContainer: FC<Props> = ({
         // 最初の場所 or 既存の場所を上書きする
         place.name = name
         place.location = { lat, lng }
-        setPlaces(places.slice())
+        setItinerary(itinerary.slice())
       } else if (setType === 'add') {
         // 場所を新規で追加した時
         places.push({
@@ -71,7 +73,7 @@ const AddPlaceContainer: FC<Props> = ({
           },
           date,
         })
-        setPlaces(places.slice())
+        setItinerary(itinerary.slice())
       }
       setIsChoosingLocation(false)
       dispatch(setSettingPlaceType('none'))

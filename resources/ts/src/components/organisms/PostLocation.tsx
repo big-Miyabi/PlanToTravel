@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, Dispatch } from 'react'
 import * as H from 'history'
 import { Place } from '../../utilities/types'
 import FormBtn from '../atoms/FormBtn'
@@ -6,17 +6,19 @@ import moment from 'moment'
 import EditDailyItinerary from '../../containers/organisms/EditDailyItinerary'
 
 type Props = {
+  history: H.History
   dateDiff: number
   dateS: string
   itinerary: Place[][]
-  history: H.History
+  setItinerary: Dispatch<React.SetStateAction<Place[][]>>
 }
 
 const PostLocation: FC<Props> = ({
+  history,
   dateDiff,
   dateS,
   itinerary,
-  history,
+  setItinerary,
 }) => {
   return (
     <div className="post">
@@ -34,6 +36,7 @@ const PostLocation: FC<Props> = ({
                 date={date}
                 dateIndex={index}
                 itinerary={itinerary}
+                setItinerary={setItinerary}
                 key={index}
               />
             )
