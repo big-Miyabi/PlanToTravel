@@ -1,6 +1,7 @@
 import React, { FC } from 'react'
 import { Place } from '../../utilities/types'
 import FormBtn from '../atoms/FormBtn'
+import PlaceContents from './PlaceContents'
 
 type Props = {
   returnToPrevious: () => void
@@ -17,17 +18,26 @@ const PostConfirm: FC<Props> = ({
         <h2 className="post__h2">行程*</h2>
 
         <div className="itinerary">
-          {itineraryInfo.map((value, index) => (
-            <div
-              className="itinerary__date-wrap"
-              key={index}
-            >
-              <div className="itinerary__date-border"></div>
-              <p className="itinerary__date">
-                {value[0].date}
-              </p>
+          {itineraryInfo.map((places, dateIndex) => (
+            <div className="itinerary__daily">
+              <div
+                className="itinerary__date-wrap"
+                key={dateIndex}
+              >
+                <div className="itinerary__date-border"></div>
+                <p className="itinerary__date">
+                  {places[0].date}
+                </p>
+              </div>
+              {places.map((place, placeIndex) => (
+                <PlaceContents
+                  place={place}
+                  key={placeIndex}
+                />
+              ))}
             </div>
           ))}
+          <div className="itinerary__end-line"></div>
         </div>
 
         <div className="post__btn-wrap">
