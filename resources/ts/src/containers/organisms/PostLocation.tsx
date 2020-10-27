@@ -14,7 +14,7 @@ type Props = {
 
 const PostLocationContainer: FC<Props> = ({ history }) => {
   const dispatch = useDispatch()
-  const { title, dateS, dateF, people } = useSelector(
+  const { title, dateS, dateF, people, tags } = useSelector(
     (state: RootState) => state.postReducer
   )
   const dateDiff =
@@ -38,6 +38,7 @@ const PostLocationContainer: FC<Props> = ({ history }) => {
     const sliced = itinerary.slice()
     setItinerary(sliced)
     dispatch(setCreatedItinerary(sliced))
+    console.log(sliced)
     axios
       .post('/api/create', {
         uid,
@@ -46,6 +47,7 @@ const PostLocationContainer: FC<Props> = ({ history }) => {
         people,
         day_s: dateS,
         day_f: dateF,
+        tag_name: tags,
         is_public: false, // 後で追加
         itinerary: sliced,
       })

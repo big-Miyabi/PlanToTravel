@@ -10,6 +10,13 @@ use App\Tag;
 use App\Place;
 use App\Like;
 
+function stringToDate($string)
+{
+  $day = str_replace('.', '', $string);
+  $formattedDay = date('YYYY-MM-DD', strtotime($day));
+  return $formattedDay;
+}
+
 class ScheduleController extends Controller
 {
   public function create(Request $request)
@@ -60,7 +67,7 @@ class ScheduleController extends Controller
       foreach ($places as $key => $place) {
         // バリデーションルール作成
         $rules = [
-          'date' => 'required|date',
+          'date' => ['required', 'date'],
           'name' => 'required|string|max:63',
           'location.lat' => 'required|integer',
           'location.lng' => 'required|integer',
