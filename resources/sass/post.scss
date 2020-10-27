@@ -604,4 +604,105 @@
         bottom: 0;
         left: 0;
     }
+
+    //ここから確認画面
+    .itinerary {
+        color: $navy;
+        margin-bottom: px-to-vw(73);
+
+        &__date-wrap {
+            display: flex;
+            align-items: center;
+            //margin: px-to-vw(3) 0;
+        }
+        &__date-border {
+            height: 2px;
+            margin-right: px-to-vw(5);
+            background-color: $light-blue;
+            flex-basis: 85%;
+        }
+        &__date {
+            margin-bottom: px-to-vw(6);
+            font-size: 1rem;
+            font-weight: bold;
+            color: $light-blue;
+            flex-basis: 20%;
+        }
+
+        /*
+        &__add-place {
+            display: flex;
+            align-items: center;
+
+            margin-left: px-to-vw(14);
+        }
+        &__p {
+            font-weight: bold;
+            font-size: 1.4rem;
+            margin-bottom: 0;
+            margin-left: px-to-vw(7);
+        }
+        &__plus {
+            font-weight: bold;
+            margin-left: px-to-vw(7);
+        }
+        &__map-icon {
+            width: px-to-vw(14);
+            height: px-to-vw(20);
+        }
+
+        &__add-place-detail-wrap {
+            width: auto;
+            height: auto;
+            //margin-top: px-to-vw(9);
+            margin-left: px-to-vw(14);
+            margin-bottom: px-to-vw(9);
+        }
+        &__place-detail {
+            margin-left: px-to-vw(6);
+            margin-top: px-to-vw(6);
+        }
+        */
+    }
+
+    .place-contents {
+        &__row {
+            display: flex;
+            flex-direction: row;
+        }
+        &__pin {
+            width: px-to-vw(18);
+            height: px-to-vw(25);
+            margin: px-to-vw(3) 0;
+        }
+    }
+
+    .place-detail {
+        position: relative;
+        display: flex;
+        width: px-to-vw(232);
+        margin: 0 0 px-to-vw(9) px-to-vw(14);
+
+        &__left {
+            width: 1px;
+            height: auto;
+            background-color: $navy;
+            margin-right: px-to-vw(14);
+        }
+
+        &__right {
+            display: flex;
+            flex-direction: column;
+        }
+
+        &__image {
+            position: relative;
+            object-fit: cover;
+            width: px-to-vw(151);
+            height: px-to-vw(79);
+            border-radius: px-to-vw(6);
+            margin-bottom: px-to-vw(17);
+            margin-top: px-to-vw(10);
+        }
+    }
 }

@@ -1751,6 +1751,106 @@ next .input-box::placeholder {
     bottom: 0;
     left: 0;
   }
+
+  .itinerary {
+    color: #003666;
+    margin-bottom: 19.4666666667vw;
+    /*
+    &__add-place {
+        display: flex;
+        align-items: center;
+
+        margin-left: px-to-vw(14);
+    }
+    &__p {
+        font-weight: bold;
+        font-size: 1.4rem;
+        margin-bottom: 0;
+        margin-left: px-to-vw(7);
+    }
+    &__plus {
+        font-weight: bold;
+        margin-left: px-to-vw(7);
+    }
+    &__map-icon {
+        width: px-to-vw(14);
+        height: px-to-vw(20);
+    }
+
+    &__add-place-detail-wrap {
+        width: auto;
+        height: auto;
+        //margin-top: px-to-vw(9);
+        margin-left: px-to-vw(14);
+        margin-bottom: px-to-vw(9);
+    }
+    &__place-detail {
+        margin-left: px-to-vw(6);
+        margin-top: px-to-vw(6);
+    }
+    */
+  }
+
+  .itinerary__date-wrap {
+    display: flex;
+    align-items: center;
+  }
+
+  .itinerary__date-border {
+    height: 2px;
+    margin-right: 1.3333333333vw;
+    background-color: #bcdbe8;
+    flex-basis: 85%;
+  }
+
+  .itinerary__date {
+    margin-bottom: 1.6vw;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #bcdbe8;
+    flex-basis: 20%;
+  }
+
+  .place-contents__row {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .place-contents__pin {
+    width: 4.8vw;
+    height: 6.6666666667vw;
+    margin: 0.8vw 0;
+  }
+
+  .place-detail {
+    position: relative;
+    display: flex;
+    width: 61.8666666667vw;
+    margin: 0 0 2.4vw 3.7333333333vw;
+  }
+
+  .place-detail__left {
+    width: 1px;
+    height: auto;
+    background-color: #003666;
+    margin-right: 3.7333333333vw;
+  }
+
+  .place-detail__right {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .place-detail__image {
+    position: relative;
+    -o-object-fit: cover;
+       object-fit: cover;
+    width: 40.2666666667vw;
+    height: 21.0666666667vw;
+    border-radius: 1.6vw;
+    margin-bottom: 4.5333333333vw;
+    margin-top: 2.6666666667vw;
+  }
 }
 
 @media screen and (max-width: 559px) {
