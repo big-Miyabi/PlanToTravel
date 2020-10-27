@@ -1,9 +1,6 @@
 import React, { FC, Dispatch } from 'react'
 import FontAwesomeIconBtn from '../atoms/FontAwesomeIconBtn'
-import {
-  faWalking,
-  faShoePrints,
-} from '@fortawesome/free-solid-svg-icons'
+import { faWalking } from '@fortawesome/free-solid-svg-icons'
 import { Transport } from '../../utilities/types'
 import PlusInputBox from '../atoms/PlusInputBox'
 import TransportSelectIcon from '../molecules/TransportSelectIcon'
