@@ -1097,6 +1097,10 @@ next .input-box::placeholder {
 }
 
 @media screen and (max-width: 559px) {
+  .post-screen {
+    background-size: cover;
+  }
+
   .post-screen__map-wrap {
     z-index: 1;
     position: fixed;
@@ -1318,7 +1322,7 @@ next .input-box::placeholder {
   }
 
   .edit-daily-itinerary__add-place-detail-wrap {
-    width: 61.8666666667vw;
+    width: auto;
     height: auto;
     margin-left: 3.7333333333vw;
     margin-bottom: 2.4vw;
@@ -1346,32 +1350,32 @@ next .input-box::placeholder {
     width: 39.7333333333vw;
   }
 
-  .edit-place .edit-place__whether--night,
-  .edit-place .edit-place__whether--snow,
-  .edit-place .edit-place__whether--rain,
-  .edit-place .edit-place__whether--cloud,
-  .edit-place .edit-place__whether--sun,
-  .edit-place .edit-place__whether {
+  .edit-place .edit-place__weather--night,
+  .edit-place .edit-place__weather--snow,
+  .edit-place .edit-place__weather--rain,
+  .edit-place .edit-place__weather--cloud,
+  .edit-place .edit-place__weather--sun,
+  .edit-place .edit-place__weather {
     font-size: 2.4rem;
   }
 
-  .edit-place__whether--sun {
+  .edit-place__weather--sun {
     color: #ff6633;
   }
 
-  .edit-place__whether--cloud {
+  .edit-place__weather--cloud {
     color: #c4c4c4;
   }
 
-  .edit-place__whether--rain {
+  .edit-place__weather--rain {
     color: #003666;
   }
 
-  .edit-place__whether--snow {
+  .edit-place__weather--snow {
     color: #bcdbe8;
   }
 
-  .edit-place__whether--night {
+  .edit-place__weather--night {
     color: #fcbe32;
   }
 
@@ -1416,12 +1420,12 @@ next .input-box::placeholder {
     filter: drop-shadow(0.2666666667vw 0.5333333333vw 0.8vw rgba(0, 0, 0, 0.25));
   }
 
-  .whether-box {
+  .weather-box {
     z-index: 1000;
+    display: flex;
     position: absolute;
     top: calc(100% + 2.4vw);
     left: 20vw;
-    display: flex;
     width: 53.6vw;
     height: 13.6vw;
     padding: 0 2.1333333333vw;
@@ -1433,47 +1437,47 @@ next .input-box::placeholder {
     align-items: center;
   }
 
-  .whether-box__sun {
+  .weather-box__sun {
     color: rgba(255, 102, 51, 0.4);
   }
 
-  .whether-box__cloud {
+  .weather-box__cloud {
     color: rgba(196, 196, 196, 0.4);
   }
 
-  .whether-box__rain {
+  .weather-box__rain {
     color: rgba(0, 54, 102, 0.4);
   }
 
-  .whether-box__snow {
+  .weather-box__snow {
     color: rgba(188, 219, 232, 0.4);
   }
 
-  .whether-box__night {
+  .weather-box__night {
     color: rgba(252, 190, 50, 0.4);
   }
 
-  .whether-box__sun-selected {
+  .weather-box__sun-selected {
     color: #ff6633;
     filter: drop-shadow(0.2666666667vw 0.5333333333vw 0.8vw rgba(0, 0, 0, 0.25));
   }
 
-  .whether-box__cloud-selected {
+  .weather-box__cloud-selected {
     color: #c4c4c4;
     filter: drop-shadow(0.2666666667vw 0.5333333333vw 0.8vw rgba(0, 0, 0, 0.25));
   }
 
-  .whether-box__rain-selected {
+  .weather-box__rain-selected {
     color: #003666;
     filter: drop-shadow(0.2666666667vw 0.5333333333vw 0.8vw rgba(0, 0, 0, 0.25));
   }
 
-  .whether-box__snow-selected {
+  .weather-box__snow-selected {
     color: #bcdbe8;
     filter: drop-shadow(0.2666666667vw 0.5333333333vw 0.8vw rgba(0, 0, 0, 0.25));
   }
 
-  .whether-box__night-selected {
+  .weather-box__night-selected {
     color: #fcbe32;
     filter: drop-shadow(0.2666666667vw 0.5333333333vw 0.8vw rgba(0, 0, 0, 0.25));
   }
@@ -1487,6 +1491,11 @@ next .input-box::placeholder {
     height: auto;
     background-color: #003666;
     margin-right: 3.7333333333vw;
+  }
+
+  .edit-place-detail__right {
+    display: flex;
+    flex-direction: column;
   }
 
   .edit-place-detail__plus-img-wrap {
@@ -1505,13 +1514,37 @@ next .input-box::placeholder {
     margin-right: 1.6vw;
   }
 
+  .edit-place-detail__image-wrap {
+    position: relative;
+    width: 40.2666666667vw;
+    height: 21.0666666667vw;
+    margin-bottom: 4.5333333333vw;
+  }
+
+  .edit-place-detail__image {
+    -o-object-fit: cover;
+       object-fit: cover;
+    width: 100%;
+    height: 100%;
+    border-radius: 1.6vw;
+  }
+
+  .edit-place-detail__delete-image {
+    position: absolute;
+    top: 0;
+    right: -2.6666666667vw;
+    font-size: 1rem;
+    color: #e5e5e5;
+  }
+
   .comment-area {
+    position: relative;
     width: 53.3333333333vw;
     height: 27.4666666667vw;
+    margin-bottom: 6.6666666667vw;
+    padding: 1.3333333333vw;
     border: solid #003666 1px;
     border-radius: 7px;
-    padding: 1.3333333333vw;
-    margin-bottom: 6.6666666667vw;
   }
 
   .comment-area__header {
@@ -1519,7 +1552,7 @@ next .input-box::placeholder {
     flex-direction: row;
   }
 
-  .comment-area__p {
+  .comment-area__title {
     font-size: 1.2rem;
     margin-right: 29.3333333333vw;
     margin-bottom: 0;
@@ -1536,45 +1569,177 @@ next .input-box::placeholder {
     height: 20vw;
   }
 
-  .edit-transposrt {
+  .comment-area .comment-area__progress--over,
+  .comment-area .comment-area__progress {
+    position: absolute;
+    bottom: -4.5333333333vw;
+    right: 0.5333333333vw;
+    margin-bottom: 0;
+    font-size: 1rem;
+  }
+
+  .comment-area__progress {
+    color: #c4c4c4;
+  }
+
+  .comment-area__progress--over {
+    color: #ff6633;
+  }
+
+  .edit-transport {
     margin-bottom: 3.4666666667vw;
   }
 
-  .edit-transposrt__title {
+  .edit-transport__title {
     font-size: 1.2rem;
   }
 
-  .edit-transposrt__walking-icon {
+  .edit-transport__walking-icon {
     font-size: 1.6rem;
     margin-right: 1.6vw;
   }
 
-  .edit-transposrt__select-transport {
+  .edit-transport__select-transport {
+    position: relative;
     display: flex;
     flex-direction: row;
     color: #c4c4c4;
     margin-left: 4vw;
   }
 
-  .edit-transposrt__select-wrap {
+  .edit-transport__select-wrap {
     display: flex;
     flex-direction: row;
+    align-items: center;
     color: #7390ab;
     margin-right: 3.4666666667vw;
+    margin-bottom: 1.8666666667vw;
   }
 
-  .edit-transposrt__shoe-prints-icon {
+  .edit-transport__selected {
+    margin-bottom: 0;
+  }
+
+  .edit-transport__selected-icon {
     font-size: 1.1rem;
     margin-top: 0.8vw;
-    margin-right: 0.8vw;
+    margin-right: 1.3333333333vw;
   }
 
-  .edit-transposrt__detail-wrap {
+  .edit-transport__message {
+    margin-left: 2.1333333333vw;
+    margin-bottom: 0;
+    font-size: 1rem;
+    color: #c4c4c4;
+  }
+
+  .edit-transport__detail-wrap {
     margin-left: 3.2vw;
   }
 
-  .edit-transposrt__detail {
+  .edit-transport__detail {
     width: 49.3333333333vw;
+  }
+
+  .selected-icon__walking {
+    font-size: 1.1rem;
+    transform: rotate(90deg);
+  }
+
+  .selected-icon__bicycle,
+  .selected-icon__car,
+  .selected-icon__bus,
+  .selected-icon__train,
+  .selected-icon__ship,
+  .selected-icon__airplane {
+    font-size: 1.1rem;
+  }
+
+  .selected-icon__none {
+    width: 3.7333333333vw;
+    height: 3.7333333333vw;
+  }
+
+  .selected-icon__none--selected {
+    width: 3.7333333333vw;
+    height: 3.7333333333vw;
+  }
+
+  .transport-box {
+    z-index: 1000;
+    position: absolute;
+    display: flex;
+    top: 4.8vw;
+    left: 0;
+    width: 26.9333333333vw;
+    height: 62.6666666667vw;
+    padding: 2.6666666667vw 3.2vw;
+    border-radius: 1.8666666667vw;
+    box-shadow: 0 0.2666666667vw 1.0666666667vw rgba(0, 0, 0, 0.25);
+    background-color: #fff;
+    font-size: 1rem;
+    color: #bcdbe8;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .transport-box__row {
+    display: flex;
+    align-items: center;
+  }
+
+  .transport-box__name {
+    margin-bottom: 0;
+    margin-left: 1.6vw;
+  }
+
+  .transport-box__name--selected {
+    margin-bottom: 0;
+    margin-left: 1.6vw;
+    color: #7390ab;
+  }
+
+  .transport-box__icon-wrap {
+    width: 4vw;
+    text-align: left;
+  }
+
+  .transport-box__walking {
+    transform: rotate(90deg);
+  }
+
+  .transport-box__walking--selected {
+    transform: rotate(90deg);
+  }
+
+  .transport-box__walking,
+  .transport-box__bicycle,
+  .transport-box__car,
+  .transport-box__bus,
+  .transport-box__train,
+  .transport-box__ship,
+  .transport-box__airplane {
+    font-size: 1.1rem;
+  }
+
+  .transport-box__walking--selected,
+  .transport-box__bicycle--selected,
+  .transport-box__car--selected,
+  .transport-box__bus--selected,
+  .transport-box__train--selected,
+  .transport-box__ship--selected,
+  .transport-box__airplane--selected {
+    color: #7390ab;
+  }
+
+  .transport-box__none {
+    width: 3.4666666667vw;
+    height: 3.4666666667vw;
+  }
+
+  .transport-box__none--selected {
+    width: 3.4666666667vw;
+    height: 3.4666666667vw;
   }
 
   .box-overlay {

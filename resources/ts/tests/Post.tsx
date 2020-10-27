@@ -59,6 +59,30 @@ const Post: FC = () => {
         console.log('通信に失敗しました')
       })
   }
+  const userShowLike = () => {
+    axios
+      .post('/api/userLike', {
+        uid,
+      })
+      .then((res) => {
+        console.log(res.data)
+      })
+      .catch(() => {
+        console.log('通信に失敗しました')
+      })
+  }
+  const userShowBookmark = () => {
+    axios
+      .post('/api/userBookmark', {
+        uid,
+      })
+      .then((res) => {
+        console.log(res.data)
+      })
+      .catch(() => {
+        console.log('通信に失敗しました')
+      })
+  }
   const userShowSchedule = () => {
     axios
       .post('/api/userSchedule', {
@@ -633,6 +657,7 @@ const Post: FC = () => {
       <button onClick={indexSchedule}>一覧確認</button>
       <button onClick={showSchedule}>確認</button>
       <button onClick={likeSchedule}>いいね</button>
+      <button onClick={bookMark}>ブックマーク</button>
       <button onClick={deleteSchedule}>削除</button>
       <input
         type="text"
@@ -647,6 +672,13 @@ const Post: FC = () => {
       <br />
       <br />
       <button onClick={getWeather}>天気取得</button>
+      <button onClick={userShowLike}>
+        ユーザごとのいいね確認
+      </button>
+      <br />
+      <button onClick={userShowBookmark}>
+        ユーザごとのブックマーク確認
+      </button>
     </>
   )
 }

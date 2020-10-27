@@ -10,12 +10,17 @@ use App\Tag;
 use App\Place;
 use App\Like;
 
+function stringToDate($string)
+{
+  $day = str_replace('.', '', $string);
+  $formattedDay = date('YYYY-MM-DD', strtotime($day));
+  return $formattedDay;
+}
+
 class ScheduleController extends Controller
 {
   public function create(Request $request)
   {
-    $tempDay = null;
-    $order = 0;
     // return Schedules_place::select('id')->where('schedule_id', 100)->count();
     // scheduleTableのばりで
     $params = $request->validate([
@@ -58,46 +63,59 @@ class ScheduleController extends Controller
     }
     //palaceTable
     //validate処理
-    foreach ($request->input(
-      'day',
-      'img',
-      'place_name',
-      'longitude',
-      'latitude',
-      'rating',
-      'weather',
-      'transport',
-      'transport_detail',
-      'comment'
-    ) as $key => $val) {
-      // //SQL実行
-      if ($tempDay !== $request->input('day')[$key]) {
-        $tempDay = $request->input('day')[$key];
-        $order = 0;
+    // foreach ($request->input(
+    //   'day',
+    //   'img',
+    //   'place_name',
+    //   'longitude',
+    //   'latitude',
+    //   'rating',
+    //   'weather',
+    //   'transport',
+    //   'transport_detail',
+    //   'comment'
+    // ) as $key => $val) {
+    //   // //SQL実行
+    //   if ($tempDay !== $request->input('day')[$key]) {
+    //     $tempDay = $request->input('day')[$key];
+    //     $order = 0;
+    foreach ($request->input('itinerary') as $places) {
+      foreach ($places as $key => $place) {
+        // バリデーションルール作成
+        $rules = [
+          'date' => ['required', 'date'],
+          'name' => 'required|string|max:63',
+          'location.lat' => 'required|integer',
+          'location.lng' => 'required|integer',
+          'weather' => 'required'
+        ];
+        // バリデーション実行
+        $this->validate($place, $rules);
+        // //SQL実行
+        $params = Place::create([
+          'day' => $place['date'],
+          'place_name' => $place['name'],
+          'latitude' => $place['location']['lat'],
+          'longitude' => $place['location']['lng'],
+          'weather' => $place['weather'],
+          'img' => $place['image'],
+          'transport' => $place['transport'],
+          'transport_detail' => $place['transportDetail'],
+          'comment' => $place['comment'],
+          'distance' => null, // 後で追加
+          'rating' => $place['rating'],
+          'order_number' => $key + 1
+        ]);
+
+        // placeTableのID取得
+        $PlaceId = $params['id'];
+        // 実際にあるかの判定
+        $post = Place::findOrFail($PlaceId);
+        // paramsに格納
+        $params = ['place_id' => $PlaceId, 'schedule_id' => $ScheduleId];
+        //  紐付けテーブルに格納
+        $post->schedules_places()->create($params);
       }
-      $order++;
-      $params = Place::create([
-        'day' => $request->input('day')[$key],
-        'place_name' => $request->input('place_name')[$key],
-        'longitude' => $request->input('longitude')[$key],
-        'latitude' => $request->input('latitude')[$key],
-        'weather' => $request->input('weather')[$key],
-        'img' => $request->input('img')[$key],
-        'transport' => $request->input('transport')[$key],
-        'transport_detail' => $request->input('transport_detail')[$key],
-        'comment' => $request->input('comment')[$key],
-        'distance' => $request->input('distance')[$key],
-        'rating' => $request->input('rating')[$key],
-        'order_number' => $order
-      ]);
-      // placeTableのID取得
-      $PlaceId = $params['id'];
-      // 実際にあるかの判定
-      $post = Place::findOrFail($PlaceId);
-      // paramsに格納
-      $params = ['place_id' => $PlaceId, 'schedule_id' => $ScheduleId];
-      //  紐付けテーブルに格納
-      $post->schedules_places()->create($params);
     }
   }
   public function index()
@@ -364,6 +382,7 @@ class ScheduleController extends Controller
     $post->delete();
     return "delete";
   }
+<<<<<<< HEAD
 
   //検索機能
   public function search(Request $request)
@@ -440,6 +459,87 @@ class ScheduleController extends Controller
         }
       }
       $posts[$key] = [$texts[$key], $tagBox, $placeBox];
+=======
+  public function userSchedule(Request $request)
+  {
+    $schedules = Schedule::orderBy('created_at', 'desc')->get();
+    $tags = Tag::orderBy('created_at', 'desc')->get();
+    $places = Place::orderBy('created_at', 'desc')->get();
+    //スケジュールデータ
+    $texts = [];
+    //タグデータ
+    $tagBox = [];
+    //場所データ
+    $placeBox = [];
+    $counter = 0;
+    foreach ($schedules as $key => $schedule) {
+      if ($schedule->uid == $request->uid) {
+        //スケジュールデータ
+        $id = $schedule->id;
+        $userid = $schedule->uid;
+        $title = $schedule->title;
+        $header = $schedule->header;
+        $people = $schedule->people;
+        $day_s = $schedule->day_s;
+        $day_f = $schedule->day_f;
+        $is_public = $schedule->is_public;
+        $texts = [
+          'id' => $id,
+          'userid' => $userid,
+          'title' => $title,
+          'header' => $header,
+          'people' => $people,
+          'day_s' => $day_s,
+          'day_f' => $day_f,
+          'is_public' => $is_public
+        ];
+        foreach ($schedule->schedules_tags  as $tagKey => $st) {
+          if ($st->schedule_id == $schedule->id) {
+            foreach ($tags as $tag) {
+              if ($st->tag_id == $tag->id) {
+                $tagBox[$tagKey] = ['tagname' => $tag->tag_name];
+              }
+            }
+          }
+        }
+        foreach ($schedule->schedules_places  as $placeKey => $sp) {
+          if ($sp->schedule_id == $schedule->id) {
+            foreach ($places as  $place) {
+              if ($sp->place_id == $place->id) {
+                $placeName = $place->place_name;
+                $orderNumber = $place->order_number;
+                $day = $place->day;
+                $img = $place->img;
+                $longitude = $place->longitude;
+                $latitude = $place->latitude;
+                $rating = $place->rating;
+                $weather = $place->weather;
+                $transport = $place->transport;
+                $transportD = $place->transport_detail;
+                $distance = $place->distance;
+                $comment = $place->comment;
+                $placeBox[$placeKey] = [
+                  'placename' => $placeName,
+                  'ordernumber' => $orderNumber,
+                  'day' => $day,
+                  'img' => $img,
+                  'longitude' => $longitude,
+                  'latitude' => $latitude,
+                  'rating' => $rating,
+                  'weather' => $weather,
+                  'transport' => $transport,
+                  'transportD' => $transportD,
+                  'distance' => $distance,
+                  'comment' => $comment
+                ];
+              }
+            }
+          }
+        }
+        $posts[$counter] = [$texts, $tagBox, $placeBox];
+        $counter++;
+      }
+>>>>>>> 48117519fa94241d46c16976bf21446f44182445
     }
     return $posts;
   }

@@ -1,24 +1,23 @@
 import React, { FC, Dispatch } from 'react'
-import * as H from 'history'
 import { Place } from '../../utilities/types'
 import EditPlace from '../../containers/molecules/EditPlace'
 import EditPlaceDetail from '../../containers/organisms/EditPlaceDetail'
 import AddPlace from '../../containers/molecules/AddPlace'
 
 type Props = {
-  history: H.History
   date: string
   dateIndex: number
   places: Place[]
-  setPlaces: Dispatch<React.SetStateAction<Place[]>>
+  itinerary: Place[][]
+  setItinerary: Dispatch<React.SetStateAction<Place[][]>>
 }
 
 const EditDailyItinerary: FC<Props> = ({
-  history,
   date,
   dateIndex,
   places,
-  setPlaces,
+  itinerary,
+  setItinerary,
 }) => {
   return (
     <div className="edit-daily-itinerary__itinerary-for-the-day">
@@ -41,7 +40,12 @@ const EditDailyItinerary: FC<Props> = ({
                   placeIndex={index}
                 />
 
-                <EditPlaceDetail className="edit-daily-itinerary__place-detail" />
+                <EditPlaceDetail
+                  className="edit-daily-itinerary__place-detail"
+                  places={places}
+                  dateIndex={dateIndex}
+                  placeIndex={index}
+                />
               </div>
             ) : (
               <></>
@@ -52,7 +56,9 @@ const EditDailyItinerary: FC<Props> = ({
                 dateIndex={dateIndex}
                 placeIndex={index}
                 places={places}
-                setPlaces={setPlaces}
+                itinerary={itinerary}
+                setItinerary={setItinerary}
+                date={date}
               />
             ) : (
               <></>
