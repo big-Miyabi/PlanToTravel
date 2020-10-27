@@ -55,6 +55,7 @@ const EditDailyItinerary: FC<Props> = ({
                 placeIndex={index}
                 places={places}
                 setPlaces={setPlaces}
+                date={date}
               />
             ) : (
               <></>

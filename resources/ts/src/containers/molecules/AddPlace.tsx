@@ -18,6 +18,7 @@ type Props = {
   setPlaces: Dispatch<React.SetStateAction<Place[]>>
   dateIndex: number
   placeIndex: number
+  date: string
 }
 
 const AddPlaceContainer: FC<Props> = ({
@@ -25,6 +26,7 @@ const AddPlaceContainer: FC<Props> = ({
   setPlaces,
   dateIndex,
   placeIndex,
+  date,
 }) => {
   const dispatch = useDispatch()
   const { target, lat, lng, name } = useSelector(
@@ -67,6 +69,7 @@ const AddPlaceContainer: FC<Props> = ({
             lat,
             lng,
           },
+          date,
         })
         setPlaces(places.slice())
       }
