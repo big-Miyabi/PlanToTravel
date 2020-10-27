@@ -12,6 +12,7 @@ type State = {
   dateF: string
   people: number
   tags: string[]
+  src: string
 }
 
 type PostReducer = Reducer<State, UnionedAction>
@@ -25,6 +26,7 @@ const initialState: State = {
   dateF: moment().format('YYYY-MM-DD'),
   people: 1,
   tags: [],
+  src: '',
 }
 
 export const postReducer: PostReducer = (
@@ -45,6 +47,11 @@ export const postReducer: PostReducer = (
         dateF: action.payload.dateF,
         people: action.payload.people,
         tags: action.payload.tags,
+      }
+    case ActionTypes.SET_IMAGE_SRC:
+      return {
+        ...state,
+        src: action.payload.src,
       }
     default: {
       return state

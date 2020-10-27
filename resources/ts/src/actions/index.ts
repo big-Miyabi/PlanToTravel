@@ -3,6 +3,7 @@ import { setShouldShowMenu } from './menu'
 import {
   setPostProgressIndex,
   setPostOverview,
+  setImageSrc,
 } from './post'
 import {
   setShouldAppearMap,
@@ -19,6 +20,7 @@ export enum ActionTypes {
   SET_SHOULD_APPEAR_MAP = 'SET_SHOULD_APPEAR_MAP',
   SET_PLACE_INFO = 'SET_PLACE_INFO',
   SET_SETTING_PLACE_TYPE = 'SET_SETTING_PLACE_TYPE',
+  SET_IMAGE_SRC = 'SET_IMAGE_SRC',
 }
 
 export type UnionedAction =
@@ -27,6 +29,7 @@ export type UnionedAction =
   | ReturnType<typeof setShouldShowMenu>
   | ReturnType<typeof setPostProgressIndex>
   | ReturnType<typeof setPostOverview>
+  | ReturnType<typeof setImageSrc>
   | ReturnType<typeof setShouldAppearMap>
   | ReturnType<typeof setPlaceInfo>
   | ReturnType<typeof setSettingPlaceType>

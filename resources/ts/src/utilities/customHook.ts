@@ -34,7 +34,8 @@ export const usePopupMenu = (
 }
 
 export const useFileInput = (
-  func?: (file: File) => void
+  funcInOnChange?: (file: File) => void,
+  funcInUseEffect?: (src: string) => void
 ): [
   RefObject<HTMLInputElement>,
   string,
@@ -51,7 +52,7 @@ export const useFileInput = (
     e.persist()
     if (e.target.files === null) return
     setImage(e.target.files[0])
-    if (func) func(e.target.files[0])
+    if (funcInOnChange) funcInOnChange(e.target.files[0])
   }
 
   const deleteImage = () => {
@@ -62,8 +63,10 @@ export const useFileInput = (
   useEffect(() => {
     const fileReader = new FileReader()
     fileReader.onload = () => {
-      if (typeof fileReader.result === 'string')
-        setBase64(fileReader.result)
+      if (typeof fileReader.result !== 'string') return
+      setBase64(fileReader.result)
+      if (funcInUseEffect)
+        funcInUseEffect(fileReader.result)
     }
 
     if (image) fileReader.readAsDataURL(image)
