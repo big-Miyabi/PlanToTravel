@@ -1,26 +1,25 @@
 import React, { FC, Dispatch } from 'react'
-import * as H from 'history'
 import { Place } from '../../utilities/types'
 import FormBtn from '../atoms/FormBtn'
 import moment from 'moment'
 import EditDailyItinerary from '../../containers/organisms/EditDailyItinerary'
 
 type Props = {
-  history: H.History
   dateDiff: number
   dateS: string
   itinerary: Place[][]
   setItinerary: Dispatch<React.SetStateAction<Place[][]>>
-  onClickNext: () => void
+  goToNext: () => void
+  returnToPrevious: () => void
 }
 
 const PostLocation: FC<Props> = ({
-  history,
   dateDiff,
   dateS,
   itinerary,
   setItinerary,
-  onClickNext,
+  goToNext,
+  returnToPrevious,
 }) => {
   return (
     <div className="post">
@@ -49,12 +48,12 @@ const PostLocation: FC<Props> = ({
           <FormBtn
             className="post__return"
             name="戻る"
-            onClick={() => {}} // eslint-disable-line
+            onClick={returnToPrevious}
           />
           <FormBtn
             className="post__next"
             name="次へ"
-            onClick={onClickNext}
+            onClick={goToNext}
           />
         </div>
       </div>
