@@ -54,7 +54,7 @@ export type Place = {
   location: Coords | null
   weather: Weather
   rating: number
-  image: File | null
+  image: string | null
   comment: string
   transport: Transport
   transportDetail: string

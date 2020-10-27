@@ -7,7 +7,6 @@ import { useFileInput } from '../../utilities/customHook'
 const PostImageContainer: FC = () => {
   const dispatch = useDispatch()
   const [inputRef, src, onFileChange] = useFileInput(
-    undefined,
     (src) => {
       dispatch(setImageSrc(src))
     }
