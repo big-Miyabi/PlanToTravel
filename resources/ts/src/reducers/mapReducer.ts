@@ -11,7 +11,7 @@ type State = {
   name: string
   lat: number
   lng: number
-  setType: 'add' | 'edit' | 'none'
+  setType: 'add' | 'edit' | 'cancel' | 'none'
 }
 
 type MapReducer = Reducer<State, UnionedAction>
