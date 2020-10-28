@@ -16,7 +16,7 @@ type Props = {
 
 const PostLocationContainer: FC<Props> = ({ history }) => {
   const dispatch = useDispatch()
-  const { title, dateS, dateF, people, tags } = useSelector(
+  const { dateS, dateF } = useSelector(
     (state: RootState) => state.postReducer
   )
   const dateDiff =
@@ -27,13 +27,6 @@ const PostLocationContainer: FC<Props> = ({ history }) => {
   ].map(() => [initialPlace])
   const [itinerary, setItinerary] = useState<Place[][]>(
     initialItinerary
-  )
-
-  const uid = useSelector(
-    (state: RootState) => state.loginReducer.id
-  )
-  const header = useSelector(
-    (state: RootState) => state.postReducer.src
   )
 
   const goToNext = () => {

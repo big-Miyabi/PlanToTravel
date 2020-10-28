@@ -19,7 +19,10 @@ const PostConfirm: FC<Props> = ({
 
         <div className="itinerary">
           {itineraryInfo.map((places, dateIndex) => (
-            <div className="itinerary__daily">
+            <div
+              className="itinerary__daily"
+              key={dateIndex}
+            >
               <div
                 className="itinerary__date-wrap"
                 key={dateIndex}
