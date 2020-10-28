@@ -215,7 +215,10 @@
         &__tag-input {
             width: px-to-vw(231);
         }
-
+        &__date-notice {
+            text-align: right;
+            color: $gray;
+        }
         &__tag-wrap {
             display: flex;
             flex-direction: row;
@@ -231,7 +234,7 @@
             width: px-to-vw(141);
         }
         &__datebar {
-            margin: auto px-to-vw(5);
+            margin: auto px-to-vw(2);
         }
 
         &__people-input-wrap {
@@ -733,41 +736,6 @@
             color: $light-blue;
             flex-basis: 20%;
         }
-
-        /*
-        &__add-place {
-            display: flex;
-            align-items: center;
-
-            margin-left: px-to-vw(14);
-        }
-        &__p {
-            font-weight: bold;
-            font-size: 1.4rem;
-            margin-bottom: 0;
-            margin-left: px-to-vw(7);
-        }
-        &__plus {
-            font-weight: bold;
-            margin-left: px-to-vw(7);
-        }
-        &__map-icon {
-            width: px-to-vw(14);
-            height: px-to-vw(20);
-        }
-
-        &__add-place-detail-wrap {
-            width: auto;
-            height: auto;
-            //margin-top: px-to-vw(9);
-            margin-left: px-to-vw(14);
-            margin-bottom: px-to-vw(9);
-        }
-        &__place-detail {
-            margin-left: px-to-vw(6);
-            margin-top: px-to-vw(6);
-        }
-        */
     }
 
     .place-contents {
@@ -847,21 +815,37 @@
             margin: px-to-vw(5) 0;
         }
         &__transport-wrap {
+            color: $light-navy;
             display: flex;
             flex-direction: row;
             height: px-to-vw(10);
             margin: px-to-vw(5) 0 0 0;
+            //アイコンによってｐとの間の余白がバラバラだったので以下を追加
+            .selected-icon__walking {
+                font-size: 1rem;
+                transform: rotate(90deg);
+            }
+            .selected-icon__bicycle,
+            .selected-icon__car,
+            .selected-icon__bus,
+            .selected-icon__train,
+            .selected-icon__ship,
+            .selected-icon__airplane {
+                font-size: 1.2rem;
+            }
         }
         &__transport-icon {
             margin: 0;
+            width: px-to-vw(151);
         }
         &__transport-detail {
             margin: 0;
             position: relative;
             top: px-to-vw(-3);
-            left: px-to-vw(6);
+            left: px-to-vw(6.5);
         }
         &__distance {
+            color: $light-navy;
             margin-bottom: 0;
             margin-left: px-to-vw(20);
         }
