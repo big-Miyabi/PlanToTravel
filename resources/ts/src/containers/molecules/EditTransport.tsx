@@ -131,12 +131,10 @@ const EditTransportContainer: FC<Props> = ({
   })
   const [selectedIndex, setSelectedIndex] = useHooks<
     number,
-    Place[]
+    string | null
   >(
     7,
     () => {
-      console.log('aaa')
-
       places[placeIndex].transport =
         transports[selectedIndex]
       getDistance(
@@ -147,7 +145,7 @@ const EditTransportContainer: FC<Props> = ({
         setTransportDetail
       )
     },
-    [places]
+    [places[placeIndex + 1].name]
   )
   const [isInputActive, setIsInputActive] = useState<
     boolean
