@@ -87,7 +87,12 @@ const EditTransportContainer: FC<Props> = ({
   const [isShownBox, setIsShownBox] = usePopupMenu(
     overlayClass
   )
-  const [distance, setDistance] = useState<string>('')
+  const [distance, setDistance] = useHooks<string>(
+    '',
+    () => {
+      places[placeIndex].distance = distance
+    }
+  )
   const [selectedIndex, setSelectedIndex] = useHooks<
     number
   >(7, () => {
