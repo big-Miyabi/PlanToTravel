@@ -1,9 +1,4 @@
-import React, {
-  FC,
-  Dispatch,
-  useState,
-  useEffect,
-} from 'react'
+import React, { FC, useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {
   setShouldAppearMap,
@@ -15,16 +10,14 @@ import AddPlace from '../../components/molecules/AddPlace'
 
 type Props = {
   places: Place[]
-  itinerary: Place[][]
-  setItinerary: Dispatch<React.SetStateAction<Place[][]>>
+  updateItinerary: () => void
   dateIndex: number
   placeIndex: number
 }
 
 const AddPlaceContainer: FC<Props> = ({
   places,
-  itinerary,
-  setItinerary,
+  updateItinerary,
   dateIndex,
   placeIndex,
 }) => {
@@ -59,7 +52,7 @@ const AddPlaceContainer: FC<Props> = ({
         // 最初の場所 or 既存の場所を上書きする
         place.name = name
         place.location = { lat, lng }
-        setItinerary(itinerary.slice())
+        updateItinerary()
       } else if (setType === 'add') {
         // 場所を新規で追加した時
         const date = place.date
@@ -72,7 +65,7 @@ const AddPlaceContainer: FC<Props> = ({
           },
           date,
         })
-        setItinerary(itinerary.slice())
+        updateItinerary()
       }
       setIsChoosingLocation(false)
       dispatch(setSettingPlaceType('none'))

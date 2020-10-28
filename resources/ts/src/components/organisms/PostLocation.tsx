@@ -8,7 +8,7 @@ type Props = {
   dateDiff: number
   dateS: string
   itinerary: Place[][]
-  setItinerary: Dispatch<React.SetStateAction<Place[][]>>
+  updateItinerary: () => void
   goToNext: () => void
   returnToPrevious: () => void
 }
@@ -17,7 +17,7 @@ const PostLocation: FC<Props> = ({
   dateDiff,
   dateS,
   itinerary,
-  setItinerary,
+  updateItinerary,
   goToNext,
   returnToPrevious,
 }) => {
@@ -37,7 +37,7 @@ const PostLocation: FC<Props> = ({
                 date={date}
                 dateIndex={index}
                 itinerary={itinerary}
-                setItinerary={setItinerary}
+                updateItinerary={updateItinerary}
                 key={index}
               />
             )
