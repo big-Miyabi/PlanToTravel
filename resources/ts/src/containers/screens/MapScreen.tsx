@@ -1,6 +1,7 @@
 import React, { FC, Dispatch, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import {
+  setSettingPlaceType,
   setPlaceInfo,
   setShouldAppearMap,
 } from '../../actions/map'
@@ -121,6 +122,7 @@ const MapScreenContainer: FC = () => {
   }
 
   const hideMapScreen = () => {
+    dispatch(setSettingPlaceType('cancel'))
     dispatch(
       setShouldAppearMap(false, {
         dateIndex: null,
