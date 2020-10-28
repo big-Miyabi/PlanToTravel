@@ -3,6 +3,7 @@ import * as H from 'history'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../reducers'
 import { Place } from '../../utilities/types'
+import { postFirebaseStorage } from '../../utilities/postFirebaseStorage'
 import PostConfirm from '../../components/organisms/PostConfirm'
 
 type Props = {
@@ -26,17 +27,53 @@ const getImages = (itineraryInfo: Place[][]): string[] => {
   return images
 }
 
+const getUrl = (
+  id: number,
+  folderName: string,
+  base64: string
+): Promise<string> => {
+  return new Promise(async (resolve) => { // eslint-disable-line
+    const {
+      uploadRef: ref,
+    } = postFirebaseStorage.getUploadRef(
+      String(id),
+      folderName
+    )
+    const storageResult = await postFirebaseStorage.uploadPostImage(
+      ref,
+      base64
+    )
+    console.log(storageResult)
+
+    const url = await postFirebaseStorage.getImageUrl(ref)
+    resolve(url)
+  })
+}
+
 const PostConfirmContainer: FC<Props> = ({ history }) => {
   const itineraryInfo: Place[][] = useSelector(
     (state: RootState) => state.postReducer.itinerary
+  )
+  const id = useSelector(
+    (state: RootState) => state.loginReducer.id
+  )
+  const { src: header } = useSelector(
+    (state: RootState) => state.postReducer
   )
   const returnToPrevious = () => {
     history.push('/post/location')
   }
 
-  const post = () => {
+  const post = async () => {
     const images = getImages(itineraryInfo)
-    console.log(images)
+    const headerUrl = await getUrl(id, 'header', header)
+    const urls = await Promise.all(
+      images.map(async (image) => {
+        return await getUrl(id, 'place', image)
+      })
+    )
+    console.log(headerUrl)
+    console.log(urls)
   }
 
   return (
