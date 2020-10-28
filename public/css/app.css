@@ -1363,6 +1363,7 @@ next .input-box::placeholder {
     justify-content: center;
   }
 
+  .post .post__public-switch-btn--disabled,
   .post .post__public-switch-btn--private,
   .post .post__public-switch-btn--public {
     background-color: #fff;
@@ -1377,6 +1378,11 @@ next .input-box::placeholder {
   }
 
   .post__public-switch-btn--private {
+    border: 1px solid #c4c4c4;
+    color: #c4c4c4;
+  }
+
+  .post__public-switch-btn--disabled {
     border: 1px solid #e5e5e5;
     color: #e5e5e5;
   }

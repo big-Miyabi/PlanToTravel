@@ -1,4 +1,4 @@
-import React, { FC, Dispatch } from 'react'
+import React, { FC } from 'react'
 import { Place } from '../../utilities/types'
 import FormBtn from '../atoms/FormBtn'
 import moment from 'moment'
