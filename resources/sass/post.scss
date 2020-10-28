@@ -63,6 +63,44 @@
         &__plus-image {
             z-index: 1;
         }
+        &__post-infos {
+            position: relative;
+        }
+        &__title {
+            margin-bottom: 0;
+            font-size: 1.4rem;
+        }
+        &__term-people {
+            margin-bottom: 0;
+            font-size: 1.2rem;
+        }
+    }
+
+    .post-image-user-info {
+        width: px-to-vw(121);
+        margin-bottom: px-to-vh(7);
+        &__user-icon {
+            font-size: 3rem;
+        }
+        &__name-wrap {
+            width: px-to-vw(84);
+            height: px-to-vh(23);
+            &:before,
+            &:after {
+                width: px-to-vw(6);
+                border-top-width: 2.6px;
+                border-bottom-width: 2.6px;
+            }
+            &:before {
+                border-left-width: 2.6px;
+            }
+            &:after {
+                border-right-width: 2.6px;
+            }
+        }
+        &__name {
+            font-size: 1.1rem;
+        }
     }
 
     .progress-map {
