@@ -7,7 +7,7 @@ import PostImage from '../../components/molecules/PostImage'
 
 const PostImageContainer: FC = () => {
   const dispatch = useDispatch()
-  const [inputRef, src, onFileChange] = useFileInput(
+  const [inputRef, base64, onFileChange] = useFileInput(
     (src) => {
       dispatch(setImageSrc(src))
     }
@@ -18,9 +18,14 @@ const PostImageContainer: FC = () => {
   const progressIndex = useSelector(
     (state: RootState) => state.postReducer.progressIndex
   )
-  const { title, dateS, dateF, people, tags } = useSelector(
-    (state: RootState) => state.postReducer
-  )
+  const {
+    title,
+    dateS,
+    dateF,
+    people,
+    tags,
+    src,
+  } = useSelector((state: RootState) => state.postReducer)
 
   return (
     <PostImage

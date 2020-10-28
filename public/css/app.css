@@ -423,9 +423,6 @@ next .input-box::placeholder {
 .post-tag {
   display: inline-flex;
   height: 6.9333333333vw;
-  margin-bottom: 2.6666666667vw;
-  margin-right: 2.6666666667vw;
-  padding: 0 10px;
   border-radius: 7px;
   background-color: #bcdbe8;
   color: #fff;
@@ -433,14 +430,8 @@ next .input-box::placeholder {
   align-items: center;
 }
 
-.post-tag .post-tag__name--post,
-.post-tag .post-tag__name {
+.post-tag__name {
   margin-bottom: 0;
-  font-size: 1.2rem;
-}
-
-.post-tag__name--post {
-  margin-right: 10px;
 }
 
 .post__btn-wrap {
@@ -1164,6 +1155,7 @@ next .input-box::placeholder {
   }
 
   .post-image {
+    position: relative;
     width: 100vw;
     height: 55.2vw;
     background-size: cover;
@@ -1190,17 +1182,25 @@ next .input-box::placeholder {
   }
 
   .post-image__post-infos {
-    position: relative;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 3.4666666667vw 3.7333333333vw;
   }
 
   .post-image__title {
     margin-bottom: 0;
     font-size: 1.4rem;
+    font-weight: bold;
   }
 
   .post-image__term-people {
     margin-bottom: 0;
     font-size: 1.2rem;
+  }
+
+  .post-image__tags {
+    margin-top: 1.3333333333vw;
   }
 
   .post-image-user-info {
@@ -1234,6 +1234,16 @@ next .input-box::placeholder {
 
   .post-image-user-info__name {
     font-size: 1.1rem;
+  }
+
+  .header-tag {
+    margin-right: 2.1333333333vw;
+    padding: 0 10px;
+  }
+
+  .header-tag__name {
+    margin: 0 auto;
+    font-size: 1.2rem;
   }
 
   .progress-map {
@@ -1351,6 +1361,17 @@ next .input-box::placeholder {
   .post__next-wrap {
     width: 27.4666666667vw;
     margin: 0 auto;
+  }
+
+  .post-overview-tag {
+    margin-bottom: 2.6666666667vw;
+    margin-right: 2.6666666667vw;
+    padding: 0 10px;
+  }
+
+  .post-overview-tag__name {
+    margin-right: 10px;
+    font-size: 1.2rem;
   }
 
   .edit-itinerary {

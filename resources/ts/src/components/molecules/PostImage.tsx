@@ -55,7 +55,11 @@ const PostImage: FC<Props> = ({
           </p>
           <div className="post-image__tags">
             {tags.map((value, index) => (
-              <PostTag tagName={value} key={index} />
+              <PostTag
+                classNamePrefix="header-tag"
+                tagName={value}
+                key={index}
+              />
             ))}
           </div>
         </div>

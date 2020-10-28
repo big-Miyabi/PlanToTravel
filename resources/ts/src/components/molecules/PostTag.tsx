@@ -1,25 +1,29 @@
 import React, { FC } from 'react'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import FontAwesomeIconBtn from '../atoms/FontAwesomeIconBtn'
+import { getClassName } from '../../utilities/utilFunc'
 
 type Props = {
+  classNamePrefix: string
   isPost?: boolean
   tagName: string
   onClick?: () => void
 }
 
 const PostTag: FC<Props> = ({
+  classNamePrefix,
   isPost = false,
   tagName,
   onClick,
 }) => {
+  const prefix = {
+    common: 'post-tag',
+    unique: classNamePrefix,
+  }
+
   return (
-    <div className="post-tag">
-      <p
-        className={
-          isPost ? 'post-tag__name--post' : 'post-tag__name'
-        }
-      >
+    <div className={getClassName(prefix, '')}>
+      <p className={getClassName(prefix, 'name')}>
         {tagName}
       </p>
       {isPost ? (
