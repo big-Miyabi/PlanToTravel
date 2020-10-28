@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useState, Dispatch } from 'react'
 import EditTransport from '../../components/molecules/EditTransport'
 import {
   Transport,
@@ -34,7 +34,8 @@ const getMode = (transport: Transport): string => {
 
 const getDistance = async (
   places: Place[],
-  placeIndex: number
+  placeIndex: number,
+  setDistance: Dispatch<React.SetStateAction<string>>
 ) => {
   const isLast = places.length - 1 === placeIndex
   if (isLast) return
@@ -60,7 +61,11 @@ const getDistance = async (
     destination,
     mode,
   })
-  console.log(result)
+  if (isSuccess) {
+    setDistance(result.distance)
+
+    return
+  }
 
   const distance = getDistanceByHubeny(
     originLocation.lat,
@@ -68,7 +73,7 @@ const getDistance = async (
     destinationLocation.lat,
     destinationLocation.lng
   )
-  console.log(distance)
+  setDistance(distance)
 }
 
 const EditTransportContainer: FC<Props> = ({
@@ -82,11 +87,12 @@ const EditTransportContainer: FC<Props> = ({
   const [isShownBox, setIsShownBox] = usePopupMenu(
     overlayClass
   )
+  const [distance, setDistance] = useState<string>('')
   const [selectedIndex, setSelectedIndex] = useHooks<
     number
   >(7, () => {
     places[placeIndex].transport = transports[selectedIndex]
-    getDistance(places, placeIndex)
+    getDistance(places, placeIndex, setDistance)
   })
 
   const [transportDetail, setTransportDetail] = useHooks<
@@ -111,6 +117,7 @@ const EditTransportContainer: FC<Props> = ({
       setTransportDetail={setTransportDetail}
       isInputActive={isInputActive}
       setIsInputActive={setIsInputActive}
+      distance={distance}
     />
   )
 }
