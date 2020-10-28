@@ -202,6 +202,11 @@
             }
             &--private {
                 @extend %__public-switch-btn;
+                border: 1px solid $gray;
+                color: $gray;
+            }
+            &--disabled {
+                @extend %__public-switch-btn;
                 border: 1px solid $light-gray;
                 color: $light-gray;
             }

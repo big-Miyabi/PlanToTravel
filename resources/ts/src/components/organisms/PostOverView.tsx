@@ -21,6 +21,8 @@ type Props = {
   setPeople: Dispatch<React.SetStateAction<number>>
   isPublic: boolean
   setIsPublic: Dispatch<React.SetStateAction<boolean>>
+  isBtnDisabled: boolean
+  validateError: string
 }
 
 const PostOverview: FC<Props> = ({
@@ -36,6 +38,8 @@ const PostOverview: FC<Props> = ({
   setPeople,
   isPublic,
   setIsPublic,
+  isBtnDisabled,
+  validateError,
 }) => {
   return (
     <div className="post">
@@ -51,10 +55,15 @@ const PostOverview: FC<Props> = ({
             <FormBtn
               className={
                 'post__public-switch-btn' +
-                (isPublic ? '--public' : '--private')
+                (isPublic
+                  ? '--public'
+                  : isBtnDisabled
+                  ? '--disabled'
+                  : '--private')
               }
               name={isPublic ? '公開' : '非公開'}
               onClick={() => {
+                if (isBtnDisabled) return
                 setIsPublic(!isPublic)
               }}
             />
@@ -115,6 +124,7 @@ const PostOverview: FC<Props> = ({
             type="text"
             className="post__people"
             onChange={getChangeEventFunc(setPeople)}
+            placeholder={'1'}
           />
           <p className="post__nin">人</p>
         </div>
@@ -122,7 +132,9 @@ const PostOverview: FC<Props> = ({
 
       <div className="post__next-wrap">
         <FormBtn
-          className="post__next"
+          className={
+            'post__next' + (validateError ? '--error' : '')
+          }
           name="次へ"
           onClick={goToNext}
         />

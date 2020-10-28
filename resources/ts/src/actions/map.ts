@@ -28,7 +28,7 @@ export const setPlaceInfo = (
   } as const)
 
 export const setSettingPlaceType = (
-  setType: 'add' | 'edit' | 'none'
+  setType: 'add' | 'edit' | 'cancel' | 'none'
 ) =>
   ({
     type: ActionTypes.SET_SETTING_PLACE_TYPE,
