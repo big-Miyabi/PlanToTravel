@@ -766,19 +766,35 @@
     }
 
     .place-contents {
+        width: px-to-vw(290);
+        margin: 0 auto;
         &__row {
             display: flex;
             flex-direction: row;
             width: px-to-vw(232);
-            height: px-to-vw(26);
+            height: auto;
             justify-content: space-between;
             position: relative;
-            left: px-to-vw(7.5);
+            left: px-to-vw(12);
+        }
+        &__row-left {
+            display: flex;
+            flex-direction: row;
         }
         &__pin {
-            width: px-to-vw(15);
+            width: px-to-vw(18);
             height: auto;
-            margin: px-to-vw(3) 0;
+            margin: 0;
+        }
+        &__name {
+            margin: 0;
+            margin-left: px-to-vw(5);
+            padding-top: px-to-vw(4);
+            font-weight: bold;
+            font-size: 1.4rem;
+        }
+        &__row-right {
+            margin-top: px-to-vw(1);
         }
     }
 
@@ -786,7 +802,7 @@
         position: relative;
         display: flex;
         width: px-to-vw(232);
-        margin: px-to-vw(6) 0 px-to-vw(9) px-to-vw(6);
+        margin: px-to-vw(6) 0 px-to-vw(6) px-to-vw(20);
 
         &__left {
             width: 1px;
@@ -798,6 +814,8 @@
         &__right {
             display: flex;
             flex-direction: column;
+            padding: px-to-vw(5) 0;
+            max-width: px-to-vw(230);
         }
 
         &__image {
@@ -806,8 +824,41 @@
             width: px-to-vw(151);
             height: px-to-vw(79);
             border-radius: px-to-vw(6);
-            margin-bottom: px-to-vw(17);
-            margin-top: px-to-vw(10);
+            margin: px-to-vw(5) 0;
+        }
+        &__comment-wrap {
+            display: flex;
+            flex-direction: row;
+
+            margin: px-to-vw(5) 0;
+            p {
+                position: relative;
+                top: px-to-vw(2);
+                margin: 0 0 0 px-to-vw(6);
+                max-width: px-to-vw(170);
+            }
+        }
+        &__comment-icon {
+            margin: px-to-vw(5) 0;
+        }
+        &__transport-wrap {
+            display: flex;
+            flex-direction: row;
+            height: px-to-vw(10);
+            margin: px-to-vw(5) 0 0 0;
+        }
+        &__transport-icon {
+            margin: 0;
+        }
+        &__transport-detail {
+            margin: 0;
+            position: relative;
+            top: px-to-vw(-3);
+            left: px-to-vw(6);
+        }
+        &__distance {
+            margin-bottom: 0;
+            margin-left: px-to-vw(20);
         }
     }
 }
