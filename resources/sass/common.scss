@@ -47,16 +47,33 @@ input:-webkit-autofill {
     $fontSize: 1.2rem;
     $right: px-to-vw(8);
     position: relative;
-    &__input {
+    %__input {
         width: 100%;
         padding-right: calc(#{$fontSize} + #{$right});
     }
-    &__plus {
+    %__plus {
         position: absolute;
         top: px-to-vw(7);
         right: #{$right};
         font-size: $fontSize;
+    }
+    &__input {
+        @extend %__input;
+        &--light-blue {
+            @extend %__input;
+            border-color: $light-blue;
+            &::placeholder {
+                color: $light-gray;
+            }
+        }
+    }
+    &__plus {
+        @extend %__plus;
         color: $navy;
+        &--light-blue {
+            @extend %__plus;
+            color: $light-blue;
+        }
     }
 }
 
