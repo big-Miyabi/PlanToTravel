@@ -7,6 +7,7 @@ import {
   setPostOverview,
 } from '../../actions/post'
 import PostOverView from '../../components/organisms/PostOverView'
+import { useHooks } from '../../utilities/customHook'
 
 type Props = {
   history: H.History
@@ -23,9 +24,22 @@ const PostOverviewContainer: FC<Props> = ({ history }) => {
   const [dateF, setDateF] = useState<string>(
     moment().format('YYYY-MM-DD')
   )
-  const [people, setPeople] = useState<number>(0)
+  const [people, setPeople] = useState<number>(1)
   const [tags, setTags] = useState<string[]>([])
-  const [isPublic, setIsPublic] = useState<boolean>(false)
+  const [isBtnDisabled, setIsBtnDisabled] = useState<
+    boolean
+  >(true)
+  const [isPublic, setIsPublic] = useHooks<boolean, string>(
+    false,
+    () => {
+      const isBefore = moment().isBefore(moment(dateS))
+      setIsBtnDisabled(isBefore)
+      if (isBefore) {
+        setIsPublic(false)
+      }
+    },
+    [dateS]
+  )
   const tagInputRef = useRef<HTMLInputElement>(null)
 
   const addTag = () => {
@@ -36,7 +50,9 @@ const PostOverviewContainer: FC<Props> = ({ history }) => {
     if (input.value === '') return
     const regexp = /^\s+(?!.+)/g // 空白のみの時
     if (regexp.test(input.value)) return
-    tags.push(tag.trim()) // trimは前後の空白を削除するメソッド
+    const trimedTag = tag.trim() // trimは前後の空白を削除するメソッド
+    if (tags.includes(trimedTag)) return
+    tags.push(trimedTag)
     setTags(tags.slice())
     input.value = ''
     setTag('')
@@ -47,15 +63,38 @@ const PostOverviewContainer: FC<Props> = ({ history }) => {
     setTags(tags.slice())
   }
 
+  const validate: () => { error: string } = () => {
+    if (!title) return { error: 'タイトルが未入力です' }
+    if (moment(dateS).isAfter(moment(dateF)))
+      return {
+        error: '終了日より前に開始日を設定してください',
+      }
+    const dateDiff =
+      moment(dateF).diff(moment(dateS), 'days') + 1
+    if (dateDiff > 14)
+      return {
+        error: '行程表の期間は2週間以内に設定してください',
+      }
+    if (people < 1 || String(people).length > 11)
+      return { error: '人数が不正です' }
+
+    return { error: '' }
+  }
+
   const goToNext = () => {
-    const deduplicatedTags: string[] = [...new Set(tags)]
+    const { error } = validate()
+    if (error) {
+      alert(error)
+
+      return
+    }
     dispatch(
       setPostOverview(
         title,
         dateS,
         dateF,
         people,
-        deduplicatedTags,
+        tags,
         isPublic
       )
     )
@@ -77,6 +116,7 @@ const PostOverviewContainer: FC<Props> = ({ history }) => {
       setPeople={setPeople}
       isPublic={isPublic}
       setIsPublic={setIsPublic}
+      isBtnDisabled={isBtnDisabled}
     />
   )
 }
