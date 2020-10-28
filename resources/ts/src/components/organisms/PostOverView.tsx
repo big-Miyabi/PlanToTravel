@@ -85,6 +85,9 @@ const PostOverview: FC<Props> = ({
             inputRef={tagInputRef}
           />
         </div>
+        <p className="post__date-notice">
+          タグは最大5個までです
+        </p>
         <div className="post__tag-wrap">
           {tags.map((value, index) => (
             <PostTag
@@ -115,6 +118,9 @@ const PostOverview: FC<Props> = ({
             onChange={getChangeEventFunc(setDateF)}
           />
         </div>
+        <p className="post__date-notice">
+          期間は最長二週間までです
+        </p>
       </div>
 
       <div className="post__content-wrap">
