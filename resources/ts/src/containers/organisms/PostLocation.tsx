@@ -30,7 +30,14 @@ const PostLocationContainer: FC<Props> = ({ history }) => {
   )
 
   const updateItinerary = () => {
-    setItinerary(itinerary.slice())
+    const newItinerary = itinerary.map((v1) => {
+      const newValue = v1.map((v2) => {
+        return Object.assign(v2)
+      })
+
+      return newValue.slice()
+    })
+    setItinerary(newItinerary.slice())
   }
 
   const goToNext = () => {
