@@ -6,11 +6,13 @@ import Itinerary from './Itinerary'
 type Props = {
   returnToPrevious: () => void
   itineraryInfo: Place[][]
+  post: () => void
 }
 
 const PostConfirm: FC<Props> = ({
   returnToPrevious,
   itineraryInfo,
+  post,
 }) => {
   return (
     <div className="post">
@@ -28,7 +30,7 @@ const PostConfirm: FC<Props> = ({
           <FormBtn
             className="post__next"
             name="この内容で投稿"
-            onClick={() => {}} // eslint-disable-line
+            onClick={post}
           />
         </div>
       </div>
