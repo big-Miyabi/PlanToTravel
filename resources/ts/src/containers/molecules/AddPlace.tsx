@@ -19,7 +19,6 @@ type Props = {
   setItinerary: Dispatch<React.SetStateAction<Place[][]>>
   dateIndex: number
   placeIndex: number
-  date: string
 }
 
 const AddPlaceContainer: FC<Props> = ({
@@ -28,7 +27,6 @@ const AddPlaceContainer: FC<Props> = ({
   setItinerary,
   dateIndex,
   placeIndex,
-  date,
 }) => {
   const dispatch = useDispatch()
   const { target, lat, lng, name } = useSelector(
@@ -64,6 +62,7 @@ const AddPlaceContainer: FC<Props> = ({
         setItinerary(itinerary.slice())
       } else if (setType === 'add') {
         // 場所を新規で追加した時
+        const date = place.date
         places.push({
           ...initialPlace,
           name,
