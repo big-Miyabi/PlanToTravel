@@ -26,6 +26,8 @@ const PostImageContainer: FC = () => {
     tags,
     src,
   } = useSelector((state: RootState) => state.postReducer)
+  const replacedDateS = dateS.replace(/-/g, '.')
+  const replacedDateF = dateF.replace(/-/g, '.')
 
   return (
     <PostImage
@@ -36,8 +38,8 @@ const PostImageContainer: FC = () => {
       icon={icon}
       username={username}
       title={title}
-      dateS={dateS}
-      dateF={dateF}
+      dateS={replacedDateS}
+      dateF={replacedDateF}
       people={people}
       tags={tags}
     />

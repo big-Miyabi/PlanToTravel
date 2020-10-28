@@ -51,7 +51,8 @@ const PostImage: FC<Props> = ({
           />
           <h1 className="post-image__title">{title}</h1>
           <p className="post-image__term-people">
-            期間: | 人数: {people}人
+            期間: {dateS} - {dateF.slice(-5)} | 人数:{' '}
+            {people}人
           </p>
           <div className="post-image__tags">
             {tags.map((value, index) => (
