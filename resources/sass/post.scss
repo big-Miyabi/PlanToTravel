@@ -181,13 +181,30 @@
             }
         }
 
-        &__public-switch-btn {
-            border: 1px solid $light-gray;
+        &__switch-btn-wrap {
+            display: flex;
+            width: px-to-vw(56);
+            justify-content: center;
+        }
+
+        %__public-switch-btn {
             background-color: $white;
-            color: $light-gray;
             font-weight: normal;
             position: relative;
             top: px-to-vh(-3);
+        }
+
+        &__public-switch-btn {
+            &--public {
+                @extend %__public-switch-btn;
+                border: 1px solid $light-blue;
+                color: $light-blue;
+            }
+            &--private {
+                @extend %__public-switch-btn;
+                border: 1px solid $light-gray;
+                color: $light-gray;
+            }
         }
 
         &__tag-input {

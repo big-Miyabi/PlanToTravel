@@ -8,8 +8,8 @@ import PostImage from '../../components/molecules/PostImage'
 const PostImageContainer: FC = () => {
   const dispatch = useDispatch()
   const [inputRef, base64, onFileChange] = useFileInput(
-    (src) => {
-      dispatch(setImageSrc(src))
+    (base64) => {
+      dispatch(setImageSrc(base64))
     }
   )
   const { username, icon } = useSelector(

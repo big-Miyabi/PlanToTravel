@@ -1310,13 +1310,28 @@ next .input-box::placeholder {
     outline: none;
   }
 
-  .post__public-switch-btn {
-    border: 1px solid #e5e5e5;
+  .post__switch-btn-wrap {
+    display: flex;
+    width: 14.9333333333vw;
+    justify-content: center;
+  }
+
+  .post .post__public-switch-btn--private,
+  .post .post__public-switch-btn--public {
     background-color: #fff;
-    color: #e5e5e5;
     font-weight: normal;
     position: relative;
     top: -0.3694581281vh;
+  }
+
+  .post__public-switch-btn--public {
+    border: 1px solid #bcdbe8;
+    color: #bcdbe8;
+  }
+
+  .post__public-switch-btn--private {
+    border: 1px solid #e5e5e5;
+    color: #e5e5e5;
   }
 
   .post__tag-input {
