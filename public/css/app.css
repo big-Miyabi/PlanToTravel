@@ -493,20 +493,33 @@ input:-webkit-autofill {
   width: 27.4666666667vw;
   color: white;
   background-color: #bcdbe8;
+  font-size: 1.2rem;
 }
 
 .post .post__next--error,
 .post .post__next {
   width: 27.4666666667vw;
+  height: 6.9333333333vw;
   color: white;
+  font-size: 1.2rem;
+}
+
+.post__post {
+  width: 27.4666666667vw;
+  height: 6.9333333333vw;
+  color: white;
+  font-size: 1.2rem;
+  background-color: #003666;
 }
 
 .post__next {
   background-color: #bcdbe8;
+  height: 6.9333333333vw;
 }
 
 .post__next--error {
   background-color: #e5e5e5;
+  height: 6.9333333333vw;
 }
 
 .comment-area__textarea:focus {
@@ -1400,6 +1413,11 @@ input:-webkit-autofill {
     width: 61.6vw;
   }
 
+  .post__date-notice {
+    text-align: right;
+    color: #c4c4c4;
+  }
+
   .post__tag-wrap {
     display: flex;
     flex-direction: row;
@@ -1418,7 +1436,7 @@ input:-webkit-autofill {
   }
 
   .post__datebar {
-    margin: auto 1.3333333333vw;
+    margin: auto 0.5333333333vw;
   }
 
   .post__people-input-wrap {
@@ -1956,40 +1974,6 @@ input:-webkit-autofill {
   .itinerary {
     color: #003666;
     margin-bottom: 19.4666666667vw;
-    /*
-    &__add-place {
-        display: flex;
-        align-items: center;
-
-        margin-left: px-to-vw(14);
-    }
-    &__p {
-        font-weight: bold;
-        font-size: 1.4rem;
-        margin-bottom: 0;
-        margin-left: px-to-vw(7);
-    }
-    &__plus {
-        font-weight: bold;
-        margin-left: px-to-vw(7);
-    }
-    &__map-icon {
-        width: px-to-vw(14);
-        height: px-to-vw(20);
-    }
-
-    &__add-place-detail-wrap {
-        width: auto;
-        height: auto;
-        //margin-top: px-to-vw(9);
-        margin-left: px-to-vw(14);
-        margin-bottom: px-to-vw(9);
-    }
-    &__place-detail {
-        margin-left: px-to-vw(6);
-        margin-top: px-to-vw(6);
-    }
-    */
   }
 
   .itinerary__date-wrap {
@@ -2099,24 +2083,41 @@ input:-webkit-autofill {
   }
 
   .place-detail__transport-wrap {
+    color: #7390ab;
     display: flex;
     flex-direction: row;
     height: 2.6666666667vw;
     margin: 1.3333333333vw 0 0 0;
   }
 
+  .place-detail__transport-wrap .selected-icon__walking {
+    font-size: 1rem;
+    transform: rotate(90deg);
+  }
+
+  .place-detail__transport-wrap .selected-icon__bicycle,
+  .place-detail__transport-wrap .selected-icon__car,
+  .place-detail__transport-wrap .selected-icon__bus,
+  .place-detail__transport-wrap .selected-icon__train,
+  .place-detail__transport-wrap .selected-icon__ship,
+  .place-detail__transport-wrap .selected-icon__airplane {
+    font-size: 1.2rem;
+  }
+
   .place-detail__transport-icon {
     margin: 0;
+    width: 40.2666666667vw;
   }
 
   .place-detail__transport-detail {
     margin: 0;
     position: relative;
     top: -0.8vw;
-    left: 1.6vw;
+    left: 1.7333333333vw;
   }
 
   .place-detail__distance {
+    color: #7390ab;
     margin-bottom: 0;
     margin-left: 5.3333333333vw;
   }

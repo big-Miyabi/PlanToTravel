@@ -26,7 +26,7 @@ const PostConfirm: FC<Props> = ({
             onClick={returnToPrevious}
           />
           <FormBtn
-            className="post__next"
+            className="post__post"
             name="この内容で投稿"
             onClick={() => {}} // eslint-disable-line
           />
