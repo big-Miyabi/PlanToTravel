@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { RootState } from '../../reducers'
 import { Place } from '../../utilities/types'
 import { postFirebaseStorage } from '../../utilities/postFirebaseStorage'
+import { postByAxios } from '../../utilities/axios'
 import PostConfirm from '../../components/organisms/PostConfirm'
 
 type Props = {
@@ -67,14 +68,18 @@ const replaceBase64ToUrl = (
 }
 
 const PostConfirmContainer: FC<Props> = ({ history }) => {
-  const itineraryInfo: Place[][] = useSelector(
-    (state: RootState) => state.postReducer.itinerary
-  )
+  const {
+    itinerary: itineraryInfo,
+    src: header,
+    title,
+    dateS,
+    dateF,
+    people,
+    tags,
+    isPublic,
+  } = useSelector((state: RootState) => state.postReducer)
   const id = useSelector(
     (state: RootState) => state.loginReducer.id
-  )
-  const { src: header } = useSelector(
-    (state: RootState) => state.postReducer
   )
   const returnToPrevious = () => {
     history.push('/post/location')
@@ -89,6 +94,18 @@ const PostConfirmContainer: FC<Props> = ({ history }) => {
       })
     )
     replaceBase64ToUrl(itineraryInfo, urls)
+    const postResult = postByAxios.postItinerary({
+      uid: String(id),
+      title,
+      header: headerUrl,
+      people,
+      day_s: dateS,
+      day_f: dateF,
+      tag_name: tags,
+      is_public: isPublic,
+      itinerary: itineraryInfo,
+    })
+    console.log(postResult)
   }
 
   return (
