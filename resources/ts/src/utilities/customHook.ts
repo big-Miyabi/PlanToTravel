@@ -72,14 +72,16 @@ export const useFileInput = (
   return [inputRef, base64, onFileChange, deleteImage]
 }
 
-export const useHooks = <T>(
+export const useHooks = <T, U = undefined>(
   initialValue: T,
-  func: (state: T) => void
+  func: (state: T) => void,
+  array?: Array<U>
 ): [T, Dispatch<React.SetStateAction<T>>] => {
   const [state, setState] = useState<T>(initialValue)
+  const arr = array ? array : []
   useEffect(() => {
     func(state)
-  }, [state])
+  }, [state, ...arr])
 
   return [state, setState]
 }
