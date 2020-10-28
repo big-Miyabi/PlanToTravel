@@ -34,7 +34,32 @@ const EditPlaceContentsContainer: FC<Props> = ({
 
   // placesの内容を書き換える
   useEffect(() => {
-    ;(() => {  // eslint-disable-line
+    const initSettingPlaceType = () => {
+      setIsChoosingLocation(false)
+      dispatch(setSettingPlaceType('none'))
+    }
+
+    const rewritePlace = () => {
+      place.name = name
+      place.location = { lat, lng }
+      updateItinerary()
+    }
+
+    const addPlace = () => {
+      const date = place.date
+      places.push({
+        ...initialPlace,
+        name,
+        location: {
+          lat,
+          lng,
+        },
+        date,
+      })
+      updateItinerary()
+    }
+
+    const handleNewPlaceInfo = () => {
       if (
         target.dateIndex === dateIndex &&
         target.placeIndex === placeIndex
@@ -48,28 +73,22 @@ const EditPlaceContentsContainer: FC<Props> = ({
       if (!isChoosingLocation) return
 
       const place = places[placeIndex]
+      if (setType === 'cancel') {
+        initSettingPlaceType()
+
+        return
+      }
       if (place.name === null || setType === 'edit') {
         // 最初の場所 or 既存の場所を上書きする
-        place.name = name
-        place.location = { lat, lng }
-        updateItinerary()
+        rewritePlace()
       } else if (setType === 'add') {
         // 場所を新規で追加した時
-        const date = place.date
-        places.push({
-          ...initialPlace,
-          name,
-          location: {
-            lat,
-            lng,
-          },
-          date,
-        })
-        updateItinerary()
+        addPlace()
       }
-      setIsChoosingLocation(false)
-      dispatch(setSettingPlaceType('none'))
-    })()
+      initSettingPlaceType()
+    }
+
+    handleNewPlaceInfo()
   }, [target.dateIndex, target.placeIndex])
 
   return (

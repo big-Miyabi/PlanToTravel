@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useState, useEffect } from 'react'
 import * as H from 'history'
 import moment from 'moment'
 import { useDispatch, useSelector } from 'react-redux'
@@ -12,6 +12,23 @@ import { Place, initialPlace } from '../../utilities/types'
 
 type Props = {
   history: H.History
+}
+
+const useValidate = (
+  validate: () => { error: string },
+  itinerary: Place[][]
+): [string] => {
+  const [validateError, setValidateError] = useState<
+    string
+  >('')
+
+  useEffect(() => {
+    const { error } = validate()
+    setValidateError(error)
+    console.log(error)
+  }, [itinerary])
+
+  return [validateError]
 }
 
 const PostLocationContainer: FC<Props> = ({ history }) => {
@@ -40,7 +57,35 @@ const PostLocationContainer: FC<Props> = ({ history }) => {
     setItinerary(newItinerary.slice())
   }
 
+  const validate: () => { error: string } = () => {
+    let error = ''
+    itinerary.some((places) => {
+      if (error) return true
+      places.some((place) => {
+        if (
+          !place.name ||
+          !place.location?.lat ||
+          !place.location?.lng
+        ) {
+          error =
+            '1日につき最低一つは場所を登録してください'
+
+          return true
+        }
+      })
+    })
+
+    return { error }
+  }
+
+  const [validateError] = useValidate(validate, itinerary)
+
   const goToNext = () => {
+    if (validateError) {
+      alert(validateError)
+
+      return
+    }
     const sliced = itinerary.slice()
     setItinerary(sliced)
     dispatch(setCreatedItinerary(sliced))
@@ -60,6 +105,7 @@ const PostLocationContainer: FC<Props> = ({ history }) => {
       updateItinerary={updateItinerary}
       goToNext={goToNext}
       returnToPrevious={returnToPrevious}
+      validateError={validateError}
     />
   )
 }
