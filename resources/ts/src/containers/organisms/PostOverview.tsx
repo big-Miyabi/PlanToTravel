@@ -25,15 +25,17 @@ const useValidate = (
   dateS: string,
   dateF: string,
   people: number
-): [boolean] => {
-  const [hasError, setHasError] = useState<boolean>(true)
+): [string] => {
+  const [validateError, setValidateError] = useState<
+    string
+  >('')
 
   useEffect(() => {
     const { error } = validate()
-    setHasError(!!error)
+    setValidateError(error)
   }, [title, dateS, dateF, people])
 
-  return [hasError]
+  return [validateError]
 }
 
 const PostOverviewContainer: FC<Props> = ({ history }) => {
@@ -103,10 +105,17 @@ const PostOverviewContainer: FC<Props> = ({ history }) => {
     setTags(tags.slice())
   }
 
+  const [validateError] = useValidate(
+    validate,
+    title,
+    dateS,
+    dateF,
+    people
+  )
+
   const goToNext = () => {
-    const { error } = validate()
-    if (error) {
-      alert(error)
+    if (validateError) {
+      alert(validateError)
 
       return
     }
@@ -124,14 +133,6 @@ const PostOverviewContainer: FC<Props> = ({ history }) => {
     history.push('/post/location')
   }
 
-  const [hasError] = useValidate(
-    validate,
-    title,
-    dateS,
-    dateF,
-    people
-  )
-
   return (
     <PostOverView
       setTitle={setTitle}
@@ -147,7 +148,7 @@ const PostOverviewContainer: FC<Props> = ({ history }) => {
       isPublic={isPublic}
       setIsPublic={setIsPublic}
       isBtnDisabled={isBtnDisabled}
-      hasError={hasError}
+      validateError={validateError}
     />
   )
 }
