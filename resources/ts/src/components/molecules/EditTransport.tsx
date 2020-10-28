@@ -111,6 +111,7 @@ const EditTransport: FC<Props> = ({
           className="edit-transport__detail"
           maxLength={15}
           onChange={getChangeEventFunc(setTransportDetail)}
+          modifier="--light-blue"
         />
       </div>
       <div
