@@ -1700,7 +1700,7 @@ next .input-box::placeholder {
     position: relative;
     width: 53.3333333333vw;
     height: 27.4666666667vw;
-    margin-bottom: 6.6666666667vw;
+    margin-bottom: 3.3333333333vw;
     padding: 1.3333333333vw;
     border: solid #003666 1px;
     border-radius: 7px;
@@ -1743,6 +1743,10 @@ next .input-box::placeholder {
 
   .comment-area__progress--over {
     color: #ff6633;
+  }
+
+  .edit-transport {
+    margin-top: 3.3333333333vw;
   }
 
   .edit-transport__title {

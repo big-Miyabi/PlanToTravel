@@ -50,6 +50,8 @@ const EditPlaceDetailContainer: FC<Props> = ({
     updateItinerary()
   }
 
+  const isLast = places.length - 1 === placeIndex
+
   return (
     <EditPlaceDetail
       className={className}
@@ -65,6 +67,7 @@ const EditPlaceDetailContainer: FC<Props> = ({
       placeIndex={placeIndex}
       places={places}
       deletePlace={deletePlace}
+      isLast={isLast}
     />
   )
 }

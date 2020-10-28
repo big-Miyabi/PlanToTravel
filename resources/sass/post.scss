@@ -521,7 +521,7 @@
         position: relative;
         width: px-to-vw(200);
         height: px-to-vw(103);
-        margin-bottom: px-to-vw(25);
+        margin-bottom: px-to-vw(12.5);
         padding: px-to-vw(5);
         border: solid $navy 1px;
         border-radius: 7px;
@@ -561,6 +561,7 @@
     }
 
     .edit-transport {
+        margin-top: px-to-vw(12.5);
         &__title {
             font-size: 1.2rem;
         }

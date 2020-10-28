@@ -23,6 +23,7 @@ type Props = {
   placeIndex: number
   places: Place[]
   deletePlace: () => void
+  isLast: boolean
 }
 
 const EditPlaceDetail: FC<Props> = ({
@@ -39,6 +40,7 @@ const EditPlaceDetail: FC<Props> = ({
   placeIndex,
   places,
   deletePlace,
+  isLast,
 }) => {
   return (
     <div className={className + ' ' + 'edit-place-detail'}>
@@ -91,12 +93,16 @@ const EditPlaceDetail: FC<Props> = ({
           }}
         />
 
-        <EditTransport
-          className="edit-place-detail__transport"
-          dateIndex={dateIndex}
-          placeIndex={placeIndex}
-          places={places}
-        />
+        {isLast ? (
+          <></>
+        ) : (
+          <EditTransport
+            className="edit-place-detail__transport"
+            dateIndex={dateIndex}
+            placeIndex={placeIndex}
+            places={places}
+          />
+        )}
 
         <div
           className="edit-place-detail__delete-place-wrap"
