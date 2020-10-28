@@ -8,7 +8,7 @@ type Props = {
   index: number
   classNamePrefix: string
   selectedClass?: string
-  onClick: () => void
+  onClick?: () => void
 }
 
 const RatingSelectIcon: FC<Props> = ({
