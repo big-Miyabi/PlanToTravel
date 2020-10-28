@@ -1,32 +1,48 @@
 import React, { FC } from 'react'
 import FontAwesomeIconBtn from '../atoms/FontAwesomeIconBtn'
 import { faUserCircle } from '@fortawesome/free-solid-svg-icons'
+import { getClassName } from '../../utilities/utilFunc'
 
 type Props = {
-  className: string
+  classNamePrefix: string
   iconUrl: string
   name: string
+  isShowProfileLink?: boolean
 }
 
 const UserInfo: FC<Props> = ({
-  className,
+  classNamePrefix,
   iconUrl,
   name,
+  isShowProfileLink = false,
 }) => {
+  const prefix = {
+    common: 'user-info',
+    unique: classNamePrefix,
+  }
+
   return (
-    <div className={className + ' ' + 'user-info'}>
-      <div className="user-info__icon-name-wrap">
+    <div className={getClassName(prefix, '')}>
+      <div
+        className={getClassName(prefix, 'icon-name-wrap')}
+      >
         <FontAwesomeIconBtn
-          className="user-info__user-icon"
+          className={getClassName(prefix, 'user-icon')}
           icon={faUserCircle}
         />
-        <div className="user-info__name-wrap">
-          <p className="user-info__name">{name}</p>
+        <div className={getClassName(prefix, 'name-wrap')}>
+          <p className={getClassName(prefix, 'name')}>
+            {name}
+          </p>
         </div>
       </div>
-      <p className="user-info__show-profile">
-        マイプロフィールを見る
-      </p>
+      {isShowProfileLink ? (
+        <p className={getClassName(prefix, 'show-profile')}>
+          マイプロフィールを見る
+        </p>
+      ) : (
+        <></>
+      )}
     </div>
   )
 }

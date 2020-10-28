@@ -113,3 +113,60 @@ input:-webkit-autofill {
         }
     }
 }
+
+.user-info {
+    color: $yellow;
+
+    &__icon-name-wrap {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__user-icon {
+        float: left;
+    }
+
+    &__name-wrap {
+        display: flex;
+        position: relative;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        flex-direction: column;
+        justify-content: center;
+        &:before,
+        &:after {
+            position: absolute;
+            top: 0;
+            content: "";
+            height: 100%;
+            border-top-style: solid;
+            border-bottom-style: solid;
+            border-color: $yellow;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        &:before {
+            left: 0;
+            border-color: $yellow;
+            border-left-style: solid;
+        }
+        &:after {
+            right: 0;
+            border-color: $yellow;
+            border-right-style: solid;
+        }
+    }
+
+    &__name {
+        margin-bottom: 0;
+        text-align: center;
+        font-weight: bold;
+        color: black;
+    }
+
+    &__show-profile {
+        text-align: right;
+    }
+}

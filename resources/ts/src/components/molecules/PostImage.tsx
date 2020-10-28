@@ -45,15 +45,17 @@ const PostImage: FC<Props> = ({
       {isConfirm ? (
         <div className="post-image__post-infos">
           <UserInfo
-            className="post-image__user-info"
+            classNamePrefix="post-image-user-info"
             name={username}
             iconUrl={icon}
           />
-          <h1>{title}</h1>
-          <p>期間: | 人数: {people}人</p>
+          <h1 className="post-image__title">{title}</h1>
+          <p className="post-image__term-people">
+            期間: | 人数: {people}人
+          </p>
           <div className="post-image__tags">
-            {tags.map((value) => (
-              <PostTag tagName={value} />
+            {tags.map((value, index) => (
+              <PostTag tagName={value} key={index} />
             ))}
           </div>
         </div>
