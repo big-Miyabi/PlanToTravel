@@ -1997,27 +1997,49 @@ next .input-box::placeholder {
     flex-basis: 20%;
   }
 
+  .place-contents {
+    width: 77.3333333333vw;
+    margin: 0 auto;
+  }
+
   .place-contents__row {
     display: flex;
     flex-direction: row;
     width: 61.8666666667vw;
-    height: 6.9333333333vw;
+    height: auto;
     justify-content: space-between;
     position: relative;
-    left: 2vw;
+    left: 3.2vw;
+  }
+
+  .place-contents__row-left {
+    display: flex;
+    flex-direction: row;
   }
 
   .place-contents__pin {
-    width: 4vw;
+    width: 4.8vw;
     height: auto;
-    margin: 0.8vw 0;
+    margin: 0;
+  }
+
+  .place-contents__name {
+    margin: 0;
+    margin-left: 1.3333333333vw;
+    padding-top: 1.0666666667vw;
+    font-weight: bold;
+    font-size: 1.4rem;
+  }
+
+  .place-contents__row-right {
+    margin-top: 0.2666666667vw;
   }
 
   .place-detail {
     position: relative;
     display: flex;
     width: 61.8666666667vw;
-    margin: 1.6vw 0 2.4vw 1.6vw;
+    margin: 1.6vw 0 1.6vw 5.3333333333vw;
   }
 
   .place-detail__left {
@@ -2030,6 +2052,8 @@ next .input-box::placeholder {
   .place-detail__right {
     display: flex;
     flex-direction: column;
+    padding: 1.3333333333vw 0;
+    max-width: 61.3333333333vw;
   }
 
   .place-detail__image {
@@ -2039,8 +2063,47 @@ next .input-box::placeholder {
     width: 40.2666666667vw;
     height: 21.0666666667vw;
     border-radius: 1.6vw;
-    margin-bottom: 4.5333333333vw;
-    margin-top: 2.6666666667vw;
+    margin: 1.3333333333vw 0;
+  }
+
+  .place-detail__comment-wrap {
+    display: flex;
+    flex-direction: row;
+    margin: 1.3333333333vw 0;
+  }
+
+  .place-detail__comment-wrap p {
+    position: relative;
+    top: 0.5333333333vw;
+    margin: 0 0 0 1.6vw;
+    max-width: 45.3333333333vw;
+  }
+
+  .place-detail__comment-icon {
+    margin: 1.3333333333vw 0;
+  }
+
+  .place-detail__transport-wrap {
+    display: flex;
+    flex-direction: row;
+    height: 2.6666666667vw;
+    margin: 1.3333333333vw 0 0 0;
+  }
+
+  .place-detail__transport-icon {
+    margin: 0;
+  }
+
+  .place-detail__transport-detail {
+    margin: 0;
+    position: relative;
+    top: -0.8vw;
+    left: 1.6vw;
+  }
+
+  .place-detail__distance {
+    margin-bottom: 0;
+    margin-left: 5.3333333333vw;
   }
 }
 
