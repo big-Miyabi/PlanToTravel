@@ -1,9 +1,4 @@
-import React, {
-  FC,
-  Dispatch,
-  useEffect,
-  useState,
-} from 'react'
+import React, { FC, useEffect } from 'react'
 import EditDailyItinerary from '../../components/organisms/EditDailyItinerary'
 import { Place, initialPlace } from '../../utilities/types'
 
@@ -11,14 +6,14 @@ type Props = {
   date: string
   dateIndex: number
   itinerary: Place[][]
-  setItinerary: Dispatch<React.SetStateAction<Place[][]>>
+  updateItinerary: () => void
 }
 
 const EditDailyItineraryContainer: FC<Props> = ({
   date,
   dateIndex,
   itinerary,
-  setItinerary,
+  updateItinerary,
 }) => {
   // ここで一旦変数にオブジェクトを再代入しておかないと、オブジェクトは参照渡しのためplaces[0]を書き換えると全てのコンポーネントも同じように書き換わってしまう
   const initialPlaceByValue = {
@@ -34,8 +29,7 @@ const EditDailyItineraryContainer: FC<Props> = ({
       date={date}
       dateIndex={dateIndex}
       places={itinerary[dateIndex]}
-      itinerary={itinerary}
-      setItinerary={setItinerary}
+      updateItinerary={updateItinerary}
     />
   )
 }

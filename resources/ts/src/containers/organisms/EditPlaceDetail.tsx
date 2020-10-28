@@ -1,4 +1,4 @@
-import React, { FC, Dispatch } from 'react'
+import React, { FC } from 'react'
 import { initialPlace, Place } from '../../utilities/types'
 import EditPlaceDetail from '../../components/organisms/EditPlaceDetail'
 import {
@@ -11,8 +11,7 @@ type Props = {
   places: Place[]
   dateIndex: number
   placeIndex: number
-  itinerary: Place[][]
-  setItinerary: Dispatch<React.SetStateAction<Place[][]>>
+  updateItinerary: () => void
 }
 
 const EditPlaceDetailContainer: FC<Props> = ({
@@ -20,8 +19,7 @@ const EditPlaceDetailContainer: FC<Props> = ({
   places,
   dateIndex,
   placeIndex,
-  itinerary,
-  setItinerary,
+  updateItinerary,
 }) => {
   const inputId = `add_place_image_${dateIndex}_${placeIndex}`
   const [
@@ -49,7 +47,7 @@ const EditPlaceDetailContainer: FC<Props> = ({
       places.splice(placeIndex, 1)
     }
 
-    setItinerary(itinerary.slice())
+    updateItinerary()
   }
 
   return (

@@ -29,6 +29,10 @@ const PostLocationContainer: FC<Props> = ({ history }) => {
     initialItinerary
   )
 
+  const updateItinerary = () => {
+    setItinerary(itinerary.slice())
+  }
+
   const goToNext = () => {
     const sliced = itinerary.slice()
     setItinerary(sliced)
@@ -46,7 +50,7 @@ const PostLocationContainer: FC<Props> = ({ history }) => {
       dateS={dateS}
       dateDiff={dateDiff}
       itinerary={itinerary}
-      setItinerary={setItinerary}
+      updateItinerary={updateItinerary}
       goToNext={goToNext}
       returnToPrevious={returnToPrevious}
     />

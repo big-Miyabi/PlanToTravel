@@ -1,4 +1,4 @@
-import React, { FC, Dispatch } from 'react'
+import React, { FC } from 'react'
 import { Place } from '../../utilities/types'
 import EditPlace from '../../containers/molecules/EditPlace'
 import EditPlaceDetail from '../../containers/organisms/EditPlaceDetail'
@@ -8,16 +8,14 @@ type Props = {
   date: string
   dateIndex: number
   places: Place[]
-  itinerary: Place[][]
-  setItinerary: Dispatch<React.SetStateAction<Place[][]>>
+  updateItinerary: () => void
 }
 
 const EditDailyItinerary: FC<Props> = ({
   date,
   dateIndex,
   places,
-  itinerary,
-  setItinerary,
+  updateItinerary,
 }) => {
   return (
     <div className="edit-daily-itinerary__itinerary-for-the-day">
@@ -45,8 +43,7 @@ const EditDailyItinerary: FC<Props> = ({
                   places={places}
                   dateIndex={dateIndex}
                   placeIndex={index}
-                  itinerary={itinerary}
-                  setItinerary={setItinerary}
+                  updateItinerary={updateItinerary}
                 />
               </div>
             ) : (
@@ -58,8 +55,7 @@ const EditDailyItinerary: FC<Props> = ({
                 dateIndex={dateIndex}
                 placeIndex={index}
                 places={places}
-                itinerary={itinerary}
-                setItinerary={setItinerary}
+                updateItinerary={updateItinerary}
               />
             ) : (
               <></>
