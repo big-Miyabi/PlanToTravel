@@ -769,10 +769,15 @@
         &__row {
             display: flex;
             flex-direction: row;
+            width: px-to-vw(232);
+            height: px-to-vw(26);
+            justify-content: space-between;
+            position: relative;
+            left: px-to-vw(7.5);
         }
         &__pin {
-            width: px-to-vw(18);
-            height: px-to-vw(25);
+            width: px-to-vw(15);
+            height: auto;
             margin: px-to-vw(3) 0;
         }
     }
@@ -781,7 +786,7 @@
         position: relative;
         display: flex;
         width: px-to-vw(232);
-        margin: 0 0 px-to-vw(9) px-to-vw(14);
+        margin: px-to-vw(6) 0 px-to-vw(9) px-to-vw(6);
 
         &__left {
             width: 1px;
