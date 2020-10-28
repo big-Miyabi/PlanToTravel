@@ -3,7 +3,10 @@ import FontAwesomeIconBtn from '../atoms/FontAwesomeIconBtn'
 import CommentArea from '../molecules/CommentArea'
 import PlusImage from '../atoms/svg/PlusImage'
 import EditTransport from '../../containers/molecules/EditTransport'
-import { faTimes } from '@fortawesome/free-solid-svg-icons'
+import {
+  faTimes,
+  faTrash,
+} from '@fortawesome/free-solid-svg-icons'
 import { Place } from '../../utilities/types'
 
 type Props = {
@@ -19,6 +22,8 @@ type Props = {
   dateIndex: number
   placeIndex: number
   places: Place[]
+  deletePlace: () => void
+  isLast: boolean
 }
 
 const EditPlaceDetail: FC<Props> = ({
@@ -34,6 +39,8 @@ const EditPlaceDetail: FC<Props> = ({
   dateIndex,
   placeIndex,
   places,
+  deletePlace,
+  isLast,
 }) => {
   return (
     <div className={className + ' ' + 'edit-place-detail'}>
@@ -86,12 +93,29 @@ const EditPlaceDetail: FC<Props> = ({
           }}
         />
 
-        <EditTransport
-          className="edit-place-detail__transport"
-          dateIndex={dateIndex}
-          placeIndex={placeIndex}
-          places={places}
-        />
+        {isLast ? (
+          <></>
+        ) : (
+          <EditTransport
+            className="edit-place-detail__transport"
+            dateIndex={dateIndex}
+            placeIndex={placeIndex}
+            places={places}
+          />
+        )}
+
+        <div
+          className="edit-place-detail__delete-place-wrap"
+          onClick={deletePlace}
+        >
+          <FontAwesomeIconBtn
+            className="edit-place-detail__trash-iocn"
+            icon={faTrash}
+          />
+          <p className="edit-place-detail__delete-place">
+            この場所を削除
+          </p>
+        </div>
       </div>
     </div>
   )

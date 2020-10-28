@@ -27,9 +27,10 @@ const UserMenu: FC<Props> = ({
   return (
     <div className={className + ' ' + 'user-menu'}>
       <UserInfo
-        className="user-menu__user-info"
+        classNamePrefix="user-menu-info"
         name={name}
         iconUrl={iconUrl}
+        isShowProfileLink={true}
       />
       <div className="items-wrap">
         <Link to="../home">

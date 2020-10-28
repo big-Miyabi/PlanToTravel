@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import { Place } from '../../utilities/types'
+import { initialPlace, Place } from '../../utilities/types'
 import EditPlaceDetail from '../../components/organisms/EditPlaceDetail'
 import {
   useFileInput,
@@ -11,6 +11,7 @@ type Props = {
   places: Place[]
   dateIndex: number
   placeIndex: number
+  updateItinerary: () => void
 }
 
 const EditPlaceDetailContainer: FC<Props> = ({
@@ -18,6 +19,7 @@ const EditPlaceDetailContainer: FC<Props> = ({
   places,
   dateIndex,
   placeIndex,
+  updateItinerary,
 }) => {
   const inputId = `add_place_image_${dateIndex}_${placeIndex}`
   const [
@@ -33,6 +35,23 @@ const EditPlaceDetailContainer: FC<Props> = ({
     places[placeIndex].comment = state
   })
 
+  const deletePlace = () => {
+    if (places.length === 1) {
+      const date = places[placeIndex].date
+      const initialPlaceByValue = {
+        ...initialPlace,
+        date,
+      }
+      places[placeIndex] = initialPlaceByValue
+    } else {
+      places.splice(placeIndex, 1)
+    }
+
+    updateItinerary()
+  }
+
+  const isLast = places.length - 1 === placeIndex
+
   return (
     <EditPlaceDetail
       className={className}
@@ -47,6 +66,8 @@ const EditPlaceDetailContainer: FC<Props> = ({
       dateIndex={dateIndex}
       placeIndex={placeIndex}
       places={places}
+      deletePlace={deletePlace}
+      isLast={isLast}
     />
   )
 }

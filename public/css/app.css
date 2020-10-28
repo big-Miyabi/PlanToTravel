@@ -407,25 +407,69 @@ next .input-box::placeholder {
   position: relative;
 }
 
-.plus-input-box__input {
+.plus-input-box .plus-input-box__input--light-navy,
+.plus-input-box .plus-input-box__input--light-blue,
+.plus-input-box .plus-input-box__input {
   width: 100%;
   padding-right: calc(1.2rem + 2.1333333333vw);
 }
 
-.plus-input-box__plus {
+.plus-input-box .plus-input-box__plus--light-navy,
+.plus-input-box .plus-input-box__plus--light-blue,
+.plus-input-box .plus-input-box__plus {
   position: absolute;
   top: 1.8666666667vw;
   right: 2.1333333333vw;
   font-size: 1.2rem;
+}
+
+.plus-input-box__input--light-blue {
+  border-color: #bcdbe8;
+}
+
+.plus-input-box__input--light-blue::-moz-placeholder {
+  color: #e5e5e5;
+}
+
+.plus-input-box__input--light-blue:-ms-input-placeholder {
+  color: #e5e5e5;
+}
+
+.plus-input-box__input--light-blue::placeholder {
+  color: #e5e5e5;
+}
+
+.plus-input-box__input--light-navy {
+  border-color: #7390ab;
+}
+
+.plus-input-box__input--light-navy::-moz-placeholder {
+  color: #e5e5e5;
+}
+
+.plus-input-box__input--light-navy:-ms-input-placeholder {
+  color: #e5e5e5;
+}
+
+.plus-input-box__input--light-navy::placeholder {
+  color: #e5e5e5;
+}
+
+.plus-input-box__plus {
   color: #003666;
+}
+
+.plus-input-box__plus--light-blue {
+  color: #bcdbe8;
+}
+
+.plus-input-box__plus--light-navy {
+  color: #7390ab;
 }
 
 .post-tag {
   display: inline-flex;
   height: 6.9333333333vw;
-  margin-bottom: 2.6666666667vw;
-  margin-right: 2.6666666667vw;
-  padding: 0 10px;
   border-radius: 7px;
   background-color: #bcdbe8;
   color: #fff;
@@ -433,14 +477,8 @@ next .input-box::placeholder {
   align-items: center;
 }
 
-.post-tag .post-tag__name--post,
-.post-tag .post-tag__name {
+.post-tag__name {
   margin-bottom: 0;
-  font-size: 1.2rem;
-}
-
-.post-tag__name--post {
-  margin-right: 10px;
 }
 
 .post__btn-wrap {
@@ -464,6 +502,64 @@ next .input-box::placeholder {
 
 .comment-area__textarea:focus {
   outline: none;
+}
+
+.user-info {
+  color: #fcbe32;
+}
+
+.user-info__icon-name-wrap {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-info__user-icon {
+  float: left;
+}
+
+.user-info__name-wrap {
+  display: flex;
+  position: relative;
+  box-sizing: border-box;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.user-info__name-wrap:before,
+.user-info__name-wrap:after {
+  position: absolute;
+  top: 0;
+  content: "";
+  height: 100%;
+  border-top-style: solid;
+  border-bottom-style: solid;
+  border-color: #fcbe32;
+  box-sizing: border-box;
+}
+
+.user-info__name-wrap:before {
+  left: 0;
+  border-color: #fcbe32;
+  border-left-style: solid;
+}
+
+.user-info__name-wrap:after {
+  right: 0;
+  border-color: #fcbe32;
+  border-right-style: solid;
+}
+
+.user-info__name {
+  margin-bottom: 0;
+  text-align: center;
+  font-weight: bold;
+  color: black;
+}
+
+.user-info__show-profile {
+  text-align: right;
 }
 
 @media screen and (max-width: 559px) {
@@ -718,66 +814,41 @@ next .input-box::placeholder {
     text-decoration: underline;
   }
 
-  .user-info {
+  .user-menu-info {
     width: 61.0666666667vw;
     margin: 3.078817734vh auto 0px;
-    color: #fcbe32;
   }
 
-  .user-info__icon-name-wrap {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .user-info__user-icon {
-    float: left;
+  .user-menu-info__user-icon {
     font-size: 5.6rem;
   }
 
-  .user-info__name-wrap {
-    display: flex;
-    position: relative;
+  .user-menu-info__name-wrap {
     width: 41.8666666667vw;
     height: 5.0492610837vh;
-    box-sizing: border-box;
-    flex-direction: column;
-    justify-content: center;
   }
 
-  .user-info__name-wrap:before,
-  .user-info__name-wrap:after {
-    position: absolute;
-    top: 0;
-    content: "";
+  .user-menu-info__name-wrap:before,
+  .user-menu-info__name-wrap:after {
     width: 2.9333333333vw;
-    height: 100%;
-    border-top: 4px solid #fcbe32;
-    border-bottom: 4px solid #fcbe32;
-    box-sizing: border-box;
+    border-top-width: 4px;
+    border-bottom-width: 4px;
   }
 
-  .user-info__name-wrap:before {
-    left: 0;
-    border-left: 4px solid #fcbe32;
+  .user-menu-info__name-wrap:before {
+    border-left-width: 4px;
   }
 
-  .user-info__name-wrap:after {
-    right: 0;
-    border-right: 4px solid #fcbe32;
+  .user-menu-info__name-wrap:after {
+    border-right-width: 4px;
   }
 
-  .user-info__name {
-    margin-bottom: 0;
+  .user-menu-info__name {
     font-size: 1.4rem;
-    font-weight: bold;
-    color: black;
   }
 
-  .user-info__show-profile {
+  .user-menu-info__show-profile {
     margin-top: -0.6157635468vh;
-    text-align: right;
   }
 
   .items-wrap {
@@ -1131,6 +1202,7 @@ next .input-box::placeholder {
   }
 
   .post-image {
+    position: relative;
     width: 100vw;
     height: 55.2vw;
     background-size: cover;
@@ -1154,6 +1226,71 @@ next .input-box::placeholder {
 
   .post-image__plus-image {
     z-index: 1;
+  }
+
+  .post-image__post-infos {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    margin: 3.4666666667vw 3.7333333333vw;
+  }
+
+  .post-image__title {
+    margin-bottom: 0;
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
+
+  .post-image__term-people {
+    margin-bottom: 0;
+    font-size: 1.2rem;
+  }
+
+  .post-image__tags {
+    margin-top: 1.3333333333vw;
+  }
+
+  .post-image-user-info {
+    width: 32.2666666667vw;
+    margin-bottom: 0.8620689655vh;
+  }
+
+  .post-image-user-info__user-icon {
+    font-size: 3rem;
+  }
+
+  .post-image-user-info__name-wrap {
+    width: 22.4vw;
+    height: 2.8325123153vh;
+  }
+
+  .post-image-user-info__name-wrap:before,
+  .post-image-user-info__name-wrap:after {
+    width: 1.6vw;
+    border-top-width: 2.6px;
+    border-bottom-width: 2.6px;
+  }
+
+  .post-image-user-info__name-wrap:before {
+    border-left-width: 2.6px;
+  }
+
+  .post-image-user-info__name-wrap:after {
+    border-right-width: 2.6px;
+  }
+
+  .post-image-user-info__name {
+    font-size: 1.1rem;
+  }
+
+  .header-tag {
+    margin-right: 2.1333333333vw;
+    padding: 0 10px;
+  }
+
+  .header-tag__name {
+    margin: 0 auto;
+    font-size: 1.2rem;
   }
 
   .progress-map {
@@ -1220,13 +1357,28 @@ next .input-box::placeholder {
     outline: none;
   }
 
-  .post__public-switch-btn {
-    border: 1px solid #e5e5e5;
+  .post__switch-btn-wrap {
+    display: flex;
+    width: 14.9333333333vw;
+    justify-content: center;
+  }
+
+  .post .post__public-switch-btn--private,
+  .post .post__public-switch-btn--public {
     background-color: #fff;
-    color: #e5e5e5;
     font-weight: normal;
     position: relative;
     top: -0.3694581281vh;
+  }
+
+  .post__public-switch-btn--public {
+    border: 1px solid #bcdbe8;
+    color: #bcdbe8;
+  }
+
+  .post__public-switch-btn--private {
+    border: 1px solid #e5e5e5;
+    color: #e5e5e5;
   }
 
   .post__tag-input {
@@ -1271,6 +1423,17 @@ next .input-box::placeholder {
   .post__next-wrap {
     width: 27.4666666667vw;
     margin: 0 auto;
+  }
+
+  .post-overview-tag {
+    margin-bottom: 2.6666666667vw;
+    margin-right: 2.6666666667vw;
+    padding: 0 10px;
+  }
+
+  .post-overview-tag__name {
+    margin-right: 10px;
+    font-size: 1.2rem;
   }
 
   .edit-itinerary {
@@ -1537,11 +1700,29 @@ next .input-box::placeholder {
     color: #e5e5e5;
   }
 
+  .edit-place-detail__delete-place-wrap {
+    display: flex;
+    width: 22.1333333333vw;
+    margin: 3.4666666667vw 0;
+    color: #c4c4c4;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .edit-place-detail__trash-icon {
+    font-size: 1rem;
+  }
+
+  .edit-place-detail__delete-place {
+    margin-bottom: 0;
+    border-bottom: 1px solid #c4c4c4;
+  }
+
   .comment-area {
     position: relative;
     width: 53.3333333333vw;
     height: 27.4666666667vw;
-    margin-bottom: 6.6666666667vw;
+    margin-bottom: 3.3333333333vw;
     padding: 1.3333333333vw;
     border: solid #003666 1px;
     border-radius: 7px;
@@ -1587,7 +1768,7 @@ next .input-box::placeholder {
   }
 
   .edit-transport {
-    margin-bottom: 3.4666666667vw;
+    margin-top: 3.3333333333vw;
   }
 
   .edit-transport__title {
@@ -1605,6 +1786,11 @@ next .input-box::placeholder {
     flex-direction: row;
     color: #c4c4c4;
     margin-left: 4vw;
+  }
+
+  .edit-transport__distance {
+    margin-left: 4vw;
+    color: #7390ab;
   }
 
   .edit-transport__select-wrap {

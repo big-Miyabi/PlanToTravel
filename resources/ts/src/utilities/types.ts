@@ -58,6 +58,7 @@ export type Place = {
   comment: string
   transport: Transport
   transportDetail: string
+  distance: string
 }
 
 export type WeatherIcon = {
@@ -91,6 +92,7 @@ export const initialPlace: Place = {
   comment: '',
   transport: '入力なし',
   transportDetail: '',
+  distance: '',
 }
 
 export const initialWeatherItems: WeatherItem[] = [

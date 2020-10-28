@@ -47,43 +47,57 @@ input:-webkit-autofill {
     $fontSize: 1.2rem;
     $right: px-to-vw(8);
     position: relative;
-    &__input {
+    %__input {
         width: 100%;
         padding-right: calc(#{$fontSize} + #{$right});
     }
-    &__plus {
+    %__plus {
         position: absolute;
         top: px-to-vw(7);
         right: #{$right};
         font-size: $fontSize;
+    }
+    &__input {
+        @extend %__input;
+        &--light-blue {
+            @extend %__input;
+            border-color: $light-blue;
+            &::placeholder {
+                color: $light-gray;
+            }
+        }
+        &--light-navy {
+            @extend %__input;
+            border-color: $light-navy;
+            &::placeholder {
+                color: $light-gray;
+            }
+        }
+    }
+    &__plus {
+        @extend %__plus;
         color: $navy;
+        &--light-blue {
+            @extend %__plus;
+            color: $light-blue;
+        }
+        &--light-navy {
+            @extend %__plus;
+            color: $light-navy;
+        }
     }
 }
 
 .post-tag {
     display: inline-flex;
     height: px-to-vw(26);
-
-    margin-bottom: px-to-vw(10);
-    margin-right: px-to-vw(10);
-    padding: 0 10px;
     border-radius: 7px;
     background-color: $light-blue;
     color: $white;
     justify-content: space-between;
     align-items: center;
-
-    %__name {
-        margin-bottom: 0;
-        font-size: 1.2rem;
-    }
-
     &__name {
-        @extend %__name;
-        &--post {
-            @extend %__name;
-            margin-right: 10px;
-        }
+        margin-bottom: 0;
     }
 }
 
@@ -111,5 +125,62 @@ input:-webkit-autofill {
         &:focus {
             outline: none;
         }
+    }
+}
+
+.user-info {
+    color: $yellow;
+
+    &__icon-name-wrap {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__user-icon {
+        float: left;
+    }
+
+    &__name-wrap {
+        display: flex;
+        position: relative;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        flex-direction: column;
+        justify-content: center;
+        &:before,
+        &:after {
+            position: absolute;
+            top: 0;
+            content: "";
+            height: 100%;
+            border-top-style: solid;
+            border-bottom-style: solid;
+            border-color: $yellow;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        &:before {
+            left: 0;
+            border-color: $yellow;
+            border-left-style: solid;
+        }
+        &:after {
+            right: 0;
+            border-color: $yellow;
+            border-right-style: solid;
+        }
+    }
+
+    &__name {
+        margin-bottom: 0;
+        text-align: center;
+        font-weight: bold;
+        color: black;
+    }
+
+    &__show-profile {
+        text-align: right;
     }
 }

@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC } from 'react'
 import * as H from 'history'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../reducers'
