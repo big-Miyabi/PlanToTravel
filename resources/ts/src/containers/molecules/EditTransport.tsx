@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import EditTransport from '../../components/molecules/EditTransport'
 import { transports, Place } from '../../utilities/types'
 import {
@@ -36,6 +36,10 @@ const EditTransportContainer: FC<Props> = ({
     places[placeIndex].transportDetail = state
   })
 
+  const [isInputActive, setIsInputActive] = useState<
+    boolean
+  >(false)
+
   return (
     <EditTransport
       className={className}
@@ -46,6 +50,8 @@ const EditTransportContainer: FC<Props> = ({
       isShownBox={isShownBox}
       setIsShownBox={setIsShownBox}
       setTransportDetail={setTransportDetail}
+      isInputActive={isInputActive}
+      setIsInputActive={setIsInputActive}
     />
   )
 }

@@ -15,6 +15,8 @@ type Props = {
   isShownBox: boolean
   setIsShownBox: Dispatch<React.SetStateAction<boolean>>
   setTransportDetail: Dispatch<React.SetStateAction<string>>
+  isInputActive: boolean
+  setIsInputActive: Dispatch<React.SetStateAction<boolean>>
 }
 
 const EditTransport: FC<Props> = ({
@@ -26,6 +28,8 @@ const EditTransport: FC<Props> = ({
   isShownBox,
   setIsShownBox,
   setTransportDetail,
+  isInputActive,
+  setIsInputActive,
 }) => {
   return (
     <div className={className + ' ' + 'edit-transport'}>
@@ -111,7 +115,15 @@ const EditTransport: FC<Props> = ({
           className="edit-transport__detail"
           maxLength={15}
           onChange={getChangeEventFunc(setTransportDetail)}
-          modifier="--light-blue"
+          onFocus={() => {
+            setIsInputActive(true)
+          }}
+          onBlur={() => {
+            setIsInputActive(false)
+          }}
+          modifier={
+            isInputActive ? '--light-navy' : '--light-blue'
+          }
         />
       </div>
       <div

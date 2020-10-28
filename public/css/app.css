@@ -407,12 +407,14 @@ next .input-box::placeholder {
   position: relative;
 }
 
+.plus-input-box .plus-input-box__input--light-navy,
 .plus-input-box .plus-input-box__input--light-blue,
 .plus-input-box .plus-input-box__input {
   width: 100%;
   padding-right: calc(1.2rem + 2.1333333333vw);
 }
 
+.plus-input-box .plus-input-box__plus--light-navy,
 .plus-input-box .plus-input-box__plus--light-blue,
 .plus-input-box .plus-input-box__plus {
   position: absolute;
@@ -437,12 +439,32 @@ next .input-box::placeholder {
   color: #e5e5e5;
 }
 
+.plus-input-box__input--light-navy {
+  border-color: #7390ab;
+}
+
+.plus-input-box__input--light-navy::-moz-placeholder {
+  color: #e5e5e5;
+}
+
+.plus-input-box__input--light-navy:-ms-input-placeholder {
+  color: #e5e5e5;
+}
+
+.plus-input-box__input--light-navy::placeholder {
+  color: #e5e5e5;
+}
+
 .plus-input-box__plus {
   color: #003666;
 }
 
 .plus-input-box__plus--light-blue {
   color: #bcdbe8;
+}
+
+.plus-input-box__plus--light-navy {
+  color: #7390ab;
 }
 
 .post-tag {

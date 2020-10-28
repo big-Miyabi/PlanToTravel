@@ -66,6 +66,13 @@ input:-webkit-autofill {
                 color: $light-gray;
             }
         }
+        &--light-navy {
+            @extend %__input;
+            border-color: $light-navy;
+            &::placeholder {
+                color: $light-gray;
+            }
+        }
     }
     &__plus {
         @extend %__plus;
@@ -73,6 +80,10 @@ input:-webkit-autofill {
         &--light-blue {
             @extend %__plus;
             color: $light-blue;
+        }
+        &--light-navy {
+            @extend %__plus;
+            color: $light-navy;
         }
     }
 }
