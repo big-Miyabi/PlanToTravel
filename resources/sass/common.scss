@@ -63,27 +63,13 @@ input:-webkit-autofill {
 .post-tag {
     display: inline-flex;
     height: px-to-vw(26);
-
-    margin-bottom: px-to-vw(10);
-    margin-right: px-to-vw(10);
-    padding: 0 10px;
     border-radius: 7px;
     background-color: $light-blue;
     color: $white;
     justify-content: space-between;
     align-items: center;
-
-    %__name {
-        margin-bottom: 0;
-        font-size: 1.2rem;
-    }
-
     &__name {
-        @extend %__name;
-        &--post {
-            @extend %__name;
-            margin-right: 10px;
-        }
+        margin-bottom: 0;
     }
 }
 

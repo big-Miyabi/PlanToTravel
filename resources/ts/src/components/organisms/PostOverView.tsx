@@ -68,12 +68,13 @@ const PostOverview: FC<Props> = ({
         <div className="post__tag-wrap">
           {tags.map((value, index) => (
             <PostTag
-              key={index}
+              classNamePrefix="post-overview-tag"
               tagName={value}
               isPost={true}
               onClick={() => {
                 deleteTag(index)
               }}
+              key={index}
             />
           ))}
         </div>
