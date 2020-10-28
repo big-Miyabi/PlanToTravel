@@ -6,29 +6,9 @@ import {
 } from '../../actions/map'
 import { Coords, ClickEventValue } from 'google-map-react'
 import MapScreen from '../../components/screens/MapScreen'
-import axios from 'axios'
+import { googleByAxios } from '../../utilities/axios'
 /// <reference types="googlemaps" />
 type Geocoder = google.maps.Geocoder
-type PlaceResult = google.maps.places.PlaceResult
-
-const getPlaceName = (
-  placeId: string
-): Promise<{ result: PlaceResult; isSuccess: boolean }> => {
-  return new Promise((resolve) => {
-    axios
-      .post('/api/getPlaceName', {
-        placeId,
-      })
-      .then((res) => {
-        const result = res.data.result
-        resolve({ result, isSuccess: true })
-      })
-      .catch((error) => {
-        console.log('getPlaceName():error')
-        resolve({ result: error, isSuccess: false })
-      })
-  })
-}
 
 type NameSearch = {
   inputValue: string
@@ -69,7 +49,9 @@ const searchWithGeocoder = (
 
         return
       }
-      const place = await getPlaceName(results[0].place_id)
+      const place = await googleByAxios.getPlaceName(
+        results[0].place_id
+      )
 
       // 場所名検索の時は緯度経度もセットする
       if ('setLocation' in arg) {
