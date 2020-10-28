@@ -1,5 +1,5 @@
-import React, { FC } from 'react'
-import { Place } from '../../utilities/types'
+import React, { FC, Dispatch } from 'react'
+import { initialPlace, Place } from '../../utilities/types'
 import EditPlaceDetail from '../../components/organisms/EditPlaceDetail'
 import {
   useFileInput,
@@ -11,6 +11,8 @@ type Props = {
   places: Place[]
   dateIndex: number
   placeIndex: number
+  itinerary: Place[][]
+  setItinerary: Dispatch<React.SetStateAction<Place[][]>>
 }
 
 const EditPlaceDetailContainer: FC<Props> = ({
@@ -18,6 +20,8 @@ const EditPlaceDetailContainer: FC<Props> = ({
   places,
   dateIndex,
   placeIndex,
+  itinerary,
+  setItinerary,
 }) => {
   const inputId = `add_place_image_${dateIndex}_${placeIndex}`
   const [
@@ -33,6 +37,21 @@ const EditPlaceDetailContainer: FC<Props> = ({
     places[placeIndex].comment = state
   })
 
+  const deletePlace = () => {
+    if (places.length === 1) {
+      const date = places[placeIndex].date
+      const initialPlaceByValue = {
+        ...initialPlace,
+        date,
+      }
+      places[placeIndex] = initialPlaceByValue
+    } else {
+      places.splice(placeIndex, 1)
+    }
+
+    setItinerary(itinerary.slice())
+  }
+
   return (
     <EditPlaceDetail
       className={className}
@@ -47,6 +66,7 @@ const EditPlaceDetailContainer: FC<Props> = ({
       dateIndex={dateIndex}
       placeIndex={placeIndex}
       places={places}
+      deletePlace={deletePlace}
     />
   )
 }

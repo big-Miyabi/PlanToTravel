@@ -1653,6 +1653,24 @@ next .input-box::placeholder {
     color: #e5e5e5;
   }
 
+  .edit-place-detail__delete-place-wrap {
+    display: flex;
+    width: 22.1333333333vw;
+    margin: 3.4666666667vw 0;
+    color: #c4c4c4;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .edit-place-detail__trash-icon {
+    font-size: 1rem;
+  }
+
+  .edit-place-detail__delete-place {
+    margin-bottom: 0;
+    border-bottom: 1px solid #c4c4c4;
+  }
+
   .comment-area {
     position: relative;
     width: 53.3333333333vw;
@@ -1700,10 +1718,6 @@ next .input-box::placeholder {
 
   .comment-area__progress--over {
     color: #ff6633;
-  }
-
-  .edit-transport {
-    margin-bottom: 3.4666666667vw;
   }
 
   .edit-transport__title {

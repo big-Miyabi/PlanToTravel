@@ -500,6 +500,21 @@
             font-size: 1rem;
             color: $light-gray;
         }
+        &__delete-place-wrap {
+            display: flex;
+            width: px-to-vw(83);
+            margin: px-to-vw(13) 0;
+            color: $gray;
+            justify-content: space-between;
+            align-items: center;
+        }
+        &__trash-icon {
+            font-size: 1rem;
+        }
+        &__delete-place {
+            margin-bottom: 0;
+            border-bottom: 1px solid $gray;
+        }
     }
 
     .comment-area {
@@ -546,7 +561,6 @@
     }
 
     .edit-transport {
-        margin-bottom: px-to-vw(13);
         &__title {
             font-size: 1.2rem;
         }

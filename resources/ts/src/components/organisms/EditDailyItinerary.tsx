@@ -45,6 +45,8 @@ const EditDailyItinerary: FC<Props> = ({
                   places={places}
                   dateIndex={dateIndex}
                   placeIndex={index}
+                  itinerary={itinerary}
+                  setItinerary={setItinerary}
                 />
               </div>
             ) : (
@@ -58,7 +60,6 @@ const EditDailyItinerary: FC<Props> = ({
                 places={places}
                 itinerary={itinerary}
                 setItinerary={setItinerary}
-                date={date}
               />
             ) : (
               <></>
