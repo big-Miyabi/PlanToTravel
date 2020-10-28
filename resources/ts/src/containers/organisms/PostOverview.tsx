@@ -25,6 +25,7 @@ const PostOverviewContainer: FC<Props> = ({ history }) => {
   )
   const [people, setPeople] = useState<number>(0)
   const [tags, setTags] = useState<string[]>([])
+  const [isPublic, setIsPublic] = useState<boolean>(false)
   const tagInputRef = useRef<HTMLInputElement>(null)
 
   const addTag = () => {
@@ -73,6 +74,8 @@ const PostOverviewContainer: FC<Props> = ({ history }) => {
       setDateS={setDateS}
       setDateF={setDateF}
       setPeople={setPeople}
+      isPublic={isPublic}
+      setIsPublic={setIsPublic}
     />
   )
 }
