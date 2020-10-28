@@ -145,7 +145,7 @@ const EditTransportContainer: FC<Props> = ({
         setTransportDetail
       )
     },
-    [places[placeIndex + 1].name]
+    [places[placeIndex].name, places[placeIndex + 1].name]
   )
   const [isInputActive, setIsInputActive] = useState<
     boolean
