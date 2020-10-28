@@ -1788,6 +1788,11 @@ next .input-box::placeholder {
     margin-left: 4vw;
   }
 
+  .edit-transport__distance {
+    margin-left: 4vw;
+    color: #7390ab;
+  }
+
   .edit-transport__select-wrap {
     display: flex;
     flex-direction: row;

@@ -576,6 +576,10 @@
             color: $gray;
             margin-left: px-to-vw(15);
         }
+        &__distance {
+            margin-left: px-to-vw(15);
+            color: $light-navy;
+        }
         &__select-wrap {
             display: flex;
             flex-direction: row;

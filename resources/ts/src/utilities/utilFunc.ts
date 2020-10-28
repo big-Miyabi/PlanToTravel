@@ -56,6 +56,6 @@ export const getDistanceByHubeny = (
     Math.round((distanceM / 1000) * 10) / 10
 
   return distanceM >= 1000
-    ? `直線距離 ${distanceKm}km`
-    : `直線距離 ${Math.floor(distanceM)}m`
+    ? `直線距離 ${distanceKm} km`
+    : `直線距離 ${Math.floor(distanceM)} m`
 }

@@ -17,6 +17,7 @@ type Props = {
   setTransportDetail: Dispatch<React.SetStateAction<string>>
   isInputActive: boolean
   setIsInputActive: Dispatch<React.SetStateAction<boolean>>
+  distance: string
 }
 
 const EditTransport: FC<Props> = ({
@@ -30,6 +31,7 @@ const EditTransport: FC<Props> = ({
   setTransportDetail,
   isInputActive,
   setIsInputActive,
+  distance,
 }) => {
   return (
     <div className={className + ' ' + 'edit-transport'}>
@@ -108,6 +110,7 @@ const EditTransport: FC<Props> = ({
           )}
         </div>
       </div>
+      <p className="edit-transport__distance">{distance}</p>
       <div className="edit-transport__detail-wrap">
         <PlusInputBox
           type="text"
