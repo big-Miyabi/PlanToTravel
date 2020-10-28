@@ -35,8 +35,8 @@ input:-webkit-autofill {
     border-radius: 8px;
     font-size: 1.2rem;
     height: px-to-vw(26);
-    next &::placeholder {
-        color: $light-gray;
+    &::placeholder {
+        color: $gray;
     }
     &:focus {
         outline: none;
@@ -114,9 +114,17 @@ input:-webkit-autofill {
         color: white;
         background-color: $light-blue;
     }
-    &__next {
+    %__next {
         width: px-to-vw(103);
         color: white;
+    }
+    &__next {
+        @extend %__next;
+        background-color: $light-blue;
+        &--error {
+            @extend %__next;
+            background-color: $light-gray;
+        }
     }
 }
 
