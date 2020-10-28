@@ -55,7 +55,8 @@ const PostOverviewContainer: FC<Props> = ({ history }) => {
         dateS,
         dateF,
         people,
-        deduplicatedTags
+        deduplicatedTags,
+        isPublic
       )
     )
     dispatch(setPostProgressIndex(1))

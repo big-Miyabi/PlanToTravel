@@ -13,6 +13,7 @@ type State = {
   dateF: string
   people: number
   tags: string[]
+  isPublic: boolean
   src: string
   itinerary: Place[][]
 }
@@ -28,6 +29,7 @@ const initialState: State = {
   dateF: moment().format('YYYY-MM-DD'),
   people: 1,
   tags: [],
+  isPublic: false,
   src: '',
   itinerary: [[initialPlace]],
 }
@@ -50,6 +52,7 @@ export const postReducer: PostReducer = (
         dateF: action.payload.dateF,
         people: action.payload.people,
         tags: action.payload.tags,
+        isPublic: action.payload.isPublic,
       }
     case ActionTypes.SET_IMAGE_SRC:
       return {
