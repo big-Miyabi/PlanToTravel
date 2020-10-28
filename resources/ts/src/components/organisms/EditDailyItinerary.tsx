@@ -1,8 +1,6 @@
 import React, { FC } from 'react'
 import { Place } from '../../utilities/types'
-import EditPlace from '../../containers/molecules/EditPlace'
-import EditPlaceDetail from '../../containers/organisms/EditPlaceDetail'
-import AddPlace from '../../containers/molecules/AddPlace'
+import EditPlaceContents from '../../containers/organisms/EditPlaceContents'
 
 type Props = {
   date: string
@@ -23,44 +21,16 @@ const EditDailyItinerary: FC<Props> = ({
         <div className="edit-daily-itinerary__date-border"></div>
         <p className="edit-daily-itinerary__date">{date}</p>
       </div>
-      {places.map((value, index) => {
+      {places.map((place, placeIndex) => {
         return (
-          <div
-            className="edit-daily-itinerary__place"
-            key={index}
-          >
-            {value.name !== null ? (
-              <div className="edit-daily-itinerary__add-place-detail-wrap">
-                <EditPlace
-                  className="edit-daily-itinerary__edit-place"
-                  places={places}
-                  dateIndex={dateIndex}
-                  placeIndex={index}
-                />
-
-                <EditPlaceDetail
-                  className="edit-daily-itinerary__place-detail"
-                  places={places}
-                  dateIndex={dateIndex}
-                  placeIndex={index}
-                  updateItinerary={updateItinerary}
-                />
-              </div>
-            ) : (
-              <></>
-            )}
-            {value.name === null ||
-            places.length - 1 === index ? (
-              <AddPlace
-                dateIndex={dateIndex}
-                placeIndex={index}
-                places={places}
-                updateItinerary={updateItinerary}
-              />
-            ) : (
-              <></>
-            )}
-          </div>
+          <EditPlaceContents
+            places={places}
+            place={place}
+            placeIndex={placeIndex}
+            dateIndex={dateIndex}
+            updateItinerary={updateItinerary}
+            key={placeIndex}
+          />
         )
       })}
     </div>
