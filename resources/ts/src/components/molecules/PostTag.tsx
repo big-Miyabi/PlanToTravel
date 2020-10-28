@@ -5,7 +5,7 @@ import FontAwesomeIconBtn from '../atoms/FontAwesomeIconBtn'
 type Props = {
   isPost?: boolean
   tagName: string
-  onClick: () => void
+  onClick?: () => void
 }
 
 const PostTag: FC<Props> = ({
