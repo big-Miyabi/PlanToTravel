@@ -11,6 +11,7 @@ type Props = {
   updateItinerary: () => void
   goToNext: () => void
   returnToPrevious: () => void
+  validateError: string
 }
 
 const PostLocation: FC<Props> = ({
@@ -20,6 +21,7 @@ const PostLocation: FC<Props> = ({
   updateItinerary,
   goToNext,
   returnToPrevious,
+  validateError,
 }) => {
   return (
     <div className="post">
@@ -51,7 +53,10 @@ const PostLocation: FC<Props> = ({
             onClick={returnToPrevious}
           />
           <FormBtn
-            className="post__next"
+            className={
+              'post__next' +
+              (validateError ? '--error' : '')
+            }
             name="次へ"
             onClick={goToNext}
           />
