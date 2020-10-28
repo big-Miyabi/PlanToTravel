@@ -387,16 +387,16 @@ input:-webkit-autofill {
   height: 6.9333333333vw;
 }
 
-next .input-box::-moz-placeholder {
-  color: #e5e5e5;
+.input-box::-moz-placeholder {
+  color: #c4c4c4;
 }
 
-next .input-box:-ms-input-placeholder {
-  color: #e5e5e5;
+.input-box:-ms-input-placeholder {
+  color: #c4c4c4;
 }
 
-next .input-box::placeholder {
-  color: #e5e5e5;
+.input-box::placeholder {
+  color: #c4c4c4;
 }
 
 .input-box:focus {
@@ -495,9 +495,18 @@ next .input-box::placeholder {
   background-color: #bcdbe8;
 }
 
-.post__next {
+.post .post__next--error,
+.post .post__next {
   width: 27.4666666667vw;
   color: white;
+}
+
+.post__next {
+  background-color: #bcdbe8;
+}
+
+.post__next--error {
+  background-color: #e5e5e5;
 }
 
 .comment-area__textarea:focus {

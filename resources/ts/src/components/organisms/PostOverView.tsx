@@ -22,6 +22,7 @@ type Props = {
   isPublic: boolean
   setIsPublic: Dispatch<React.SetStateAction<boolean>>
   isBtnDisabled: boolean
+  hasError: boolean
 }
 
 const PostOverview: FC<Props> = ({
@@ -38,6 +39,7 @@ const PostOverview: FC<Props> = ({
   isPublic,
   setIsPublic,
   isBtnDisabled,
+  hasError,
 }) => {
   return (
     <div className="post">
@@ -130,7 +132,9 @@ const PostOverview: FC<Props> = ({
 
       <div className="post__next-wrap">
         <FormBtn
-          className="post__next"
+          className={
+            'post__next' + (hasError ? '--error' : '')
+          }
           name="次へ"
           onClick={goToNext}
         />

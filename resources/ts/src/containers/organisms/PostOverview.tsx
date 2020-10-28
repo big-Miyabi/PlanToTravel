@@ -1,4 +1,10 @@
-import React, { FC, useState, useRef } from 'react'
+import React, {
+  FC,
+  Dispatch,
+  useState,
+  useRef,
+  useEffect,
+} from 'react'
 import { useDispatch } from 'react-redux'
 import * as H from 'history'
 import moment from 'moment'
@@ -13,17 +19,30 @@ type Props = {
   history: H.History
 }
 
+const useValidate = (
+  validate: () => { error: string },
+  title: string,
+  dateS: string,
+  dateF: string,
+  people: number
+): [boolean] => {
+  const [hasError, setHasError] = useState<boolean>(true)
+
+  useEffect(() => {
+    const { error } = validate()
+    setHasError(!!error)
+  }, [title, dateS, dateF, people])
+
+  return [hasError]
+}
+
 const PostOverviewContainer: FC<Props> = ({ history }) => {
   const dispatch = useDispatch()
   moment.locale('ja')
   const [title, setTitle] = useState<string>('')
   const [tag, setTag] = useState<string>('')
-  const [dateS, setDateS] = useState<string>(
-    moment().format('YYYY-MM-DD')
-  )
-  const [dateF, setDateF] = useState<string>(
-    moment().format('YYYY-MM-DD')
-  )
+  const [dateS, setDateS] = useState<string>('')
+  const [dateF, setDateF] = useState<string>('')
   const [people, setPeople] = useState<number>(1)
   const [tags, setTags] = useState<string[]>([])
   const [isBtnDisabled, setIsBtnDisabled] = useState<
@@ -40,6 +59,27 @@ const PostOverviewContainer: FC<Props> = ({ history }) => {
     },
     [dateS]
   )
+
+  const validate: () => { error: string } = () => {
+    if (!title) return { error: 'タイトルが未入力です' }
+    if (!dateS) return { error: '開始日が未入力です' }
+    if (!dateF) return { error: '終了日が未入力です' }
+    if (moment(dateS).isAfter(moment(dateF)))
+      return {
+        error: '終了日より前に開始日を設定してください',
+      }
+    const dateDiff =
+      moment(dateF).diff(moment(dateS), 'days') + 1
+    if (dateDiff > 14)
+      return {
+        error: '行程表の期間は2週間以内に設定してください',
+      }
+    if (people < 1 || String(people).length > 11)
+      return { error: '人数が不正です' }
+
+    return { error: '' }
+  }
+
   const tagInputRef = useRef<HTMLInputElement>(null)
 
   const addTag = () => {
@@ -63,24 +103,6 @@ const PostOverviewContainer: FC<Props> = ({ history }) => {
     setTags(tags.slice())
   }
 
-  const validate: () => { error: string } = () => {
-    if (!title) return { error: 'タイトルが未入力です' }
-    if (moment(dateS).isAfter(moment(dateF)))
-      return {
-        error: '終了日より前に開始日を設定してください',
-      }
-    const dateDiff =
-      moment(dateF).diff(moment(dateS), 'days') + 1
-    if (dateDiff > 14)
-      return {
-        error: '行程表の期間は2週間以内に設定してください',
-      }
-    if (people < 1 || String(people).length > 11)
-      return { error: '人数が不正です' }
-
-    return { error: '' }
-  }
-
   const goToNext = () => {
     const { error } = validate()
     if (error) {
@@ -102,6 +124,14 @@ const PostOverviewContainer: FC<Props> = ({ history }) => {
     history.push('/post/location')
   }
 
+  const [hasError] = useValidate(
+    validate,
+    title,
+    dateS,
+    dateF,
+    people
+  )
+
   return (
     <PostOverView
       setTitle={setTitle}
@@ -117,6 +147,7 @@ const PostOverviewContainer: FC<Props> = ({ history }) => {
       isPublic={isPublic}
       setIsPublic={setIsPublic}
       isBtnDisabled={isBtnDisabled}
+      hasError={hasError}
     />
   )
 }
