@@ -19,6 +19,8 @@ type Props = {
   setDateS: Dispatch<React.SetStateAction<string>>
   setDateF: Dispatch<React.SetStateAction<string>>
   setPeople: Dispatch<React.SetStateAction<number>>
+  isPublic: boolean
+  setIsPublic: Dispatch<React.SetStateAction<boolean>>
 }
 
 const PostOverview: FC<Props> = ({
@@ -32,6 +34,8 @@ const PostOverview: FC<Props> = ({
   setDateS,
   setDateF,
   setPeople,
+  isPublic,
+  setIsPublic,
 }) => {
   return (
     <div className="post">
@@ -43,11 +47,18 @@ const PostOverview: FC<Props> = ({
             className="post__title"
             onChange={getChangeEventFunc(setTitle)}
           />
-          <FormBtn
-            className="post__public-switch-btn"
-            name="非公開"
-            onClick={() => {}}
-          />
+          <div className="post__switch-btn-wrap">
+            <FormBtn
+              className={
+                'post__public-switch-btn' +
+                (isPublic ? '--public' : '--private')
+              }
+              name={isPublic ? '公開' : '非公開'}
+              onClick={() => {
+                setIsPublic(!isPublic)
+              }}
+            />
+          </div>
         </div>
       </div>
 
@@ -68,12 +79,13 @@ const PostOverview: FC<Props> = ({
         <div className="post__tag-wrap">
           {tags.map((value, index) => (
             <PostTag
-              key={index}
+              classNamePrefix="post-overview-tag"
               tagName={value}
               isPost={true}
               onClick={() => {
                 deleteTag(index)
               }}
+              key={index}
             />
           ))}
         </div>

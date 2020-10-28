@@ -2,6 +2,7 @@ import React, {
   FC,
   ChangeEvent,
   KeyboardEvent,
+  FocusEvent,
 } from 'react'
 
 type Props = {
@@ -10,6 +11,8 @@ type Props = {
   placeholder?: string | undefined
   onChange?: (e: ChangeEvent<HTMLInputElement>) => void
   onKeyPress?: (e: KeyboardEvent<HTMLInputElement>) => void
+  onFocus?: (e: FocusEvent<HTMLInputElement>) => void
+  onBlur?: (e: FocusEvent<HTMLInputElement>) => void
   inputRef?: React.RefObject<HTMLInputElement>
   maxLength?: number
 }
@@ -18,8 +21,10 @@ const InputBox: FC<Props> = ({
   type,
   className,
   placeholder = undefined,
-  onChange = () => {}, // eslint-disable-line
-  onKeyPress = () => {}, // eslint-disable-line
+  onChange,
+  onKeyPress,
+  onFocus,
+  onBlur,
   inputRef = null,
   maxLength,
 }) => {
@@ -31,6 +36,8 @@ const InputBox: FC<Props> = ({
       maxLength={maxLength}
       onChange={onChange}
       onKeyPress={onKeyPress}
+      onFocus={onFocus}
+      onBlur={onBlur}
       ref={inputRef}
     />
   )

@@ -15,6 +15,10 @@ type Props = {
   isShownBox: boolean
   setIsShownBox: Dispatch<React.SetStateAction<boolean>>
   setTransportDetail: Dispatch<React.SetStateAction<string>>
+  isInputActive: boolean
+  setIsInputActive: Dispatch<React.SetStateAction<boolean>>
+  distance: string
+  inputRef: React.RefObject<HTMLInputElement>
 }
 
 const EditTransport: FC<Props> = ({
@@ -26,6 +30,10 @@ const EditTransport: FC<Props> = ({
   isShownBox,
   setIsShownBox,
   setTransportDetail,
+  isInputActive,
+  setIsInputActive,
+  distance,
+  inputRef,
 }) => {
   return (
     <div className={className + ' ' + 'edit-transport'}>
@@ -104,13 +112,24 @@ const EditTransport: FC<Props> = ({
           )}
         </div>
       </div>
+      <p className="edit-transport__distance">{distance}</p>
       <div className="edit-transport__detail-wrap">
         <PlusInputBox
           type="text"
           placeholder={'例）山手線　30分'}
           className="edit-transport__detail"
           maxLength={15}
+          inputRef={inputRef}
           onChange={getChangeEventFunc(setTransportDetail)}
+          onFocus={() => {
+            setIsInputActive(true)
+          }}
+          onBlur={() => {
+            setIsInputActive(false)
+          }}
+          modifier={
+            isInputActive ? '--light-navy' : '--light-blue'
+          }
         />
       </div>
       <div

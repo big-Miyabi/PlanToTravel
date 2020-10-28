@@ -3,7 +3,10 @@ import {
   setLoginState,
   setLoginInfo,
 } from '../actions/login'
-import axios from 'axios'
+import axios, { AxiosResponse } from 'axios'
+/// <reference types="googlemaps" />
+type PlaceResult = google.maps.places.PlaceResult
+type DirectionsResult = google.maps.DirectionsResult
 
 type Login = {
   dispatch: Dispatch<any>
@@ -15,9 +18,34 @@ type Regist = Login & {
   username: string
 }
 
+type DistanceArg = {
+  origin: string
+  destination: string
+  mode: string
+}
+
 type PostByAxios = {
   regist: (arg: Regist) => Promise<string>
   login: (arg: Login) => Promise<string>
+}
+
+type GoogleByAxios = {
+  getPlaceName: (
+    placeId: string
+  ) => Promise<{
+    result: PlaceResult
+    isSuccess: boolean
+  }>
+  getDistance: (
+    arg: DistanceArg
+  ) => Promise<{
+    result: {
+      distance: string
+      duration: string
+      error?: string
+    }
+    isSuccess: boolean
+  }>
 }
 
 export const postByAxios: PostByAxios = {
@@ -81,6 +109,70 @@ export const postByAxios: PostByAxios = {
           // エラー処理
           console.log(error)
           resolve('failed')
+        })
+    })
+  },
+}
+
+export const googleByAxios: GoogleByAxios = {
+  // GoogleMapAPIで場所名取得
+  getPlaceName: (
+    placeId: string
+  ): Promise<{
+    result: PlaceResult
+    isSuccess: boolean
+  }> => {
+    return new Promise((resolve) => {
+      axios
+        .post('/api/getPlaceName', {
+          placeId,
+        })
+        .then((res) => {
+          const result = res.data.result
+          resolve({ result, isSuccess: true })
+        })
+        .catch((error) => {
+          console.log('getPlaceName():error')
+          resolve({ result: error, isSuccess: false })
+        })
+    })
+  },
+  // GoogleMapAPIで距離取得
+  getDistance: (
+    arg: DistanceArg
+  ): Promise<{
+    result: {
+      distance: string
+      duration: string
+      error?: string
+    }
+    isSuccess: boolean
+  }> => {
+    return new Promise((resolve) => {
+      axios
+        .post('/api/getDistance', {
+          origin: arg.origin,
+          destination: arg.destination,
+          mode: arg.mode,
+        })
+        .then((res: AxiosResponse<DirectionsResult>) => {
+          const distance =
+            res.data.routes[0].legs[0].distance.text
+          const duration =
+            res.data.routes[0].legs[0].duration.text
+          resolve({
+            result: { distance, duration },
+            isSuccess: true,
+          })
+        })
+        .catch((error) => {
+          console.log('getPlaceName():error')
+          const result = {
+            distance: '',
+            duration: '',
+            error,
+          }
+          resolve({ result, isSuccess: false })
         })
     })
   },

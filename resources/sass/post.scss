@@ -36,12 +36,12 @@
     }
 
     .post-image {
+        position: relative;
         width: 100vw;
         height: px-to-vw(207); // 高さは幅依存
         background-size: cover;
 
         &:before {
-            //z-index: 5;
             position: absolute;
             width: 100%;
             height: px-to-vw(207);
@@ -62,6 +62,60 @@
         }
         &__plus-image {
             z-index: 1;
+        }
+        &__post-infos {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            margin: px-to-vw(13) px-to-vw(14);
+        }
+        &__title {
+            margin-bottom: 0;
+            font-size: 1.4rem;
+            font-weight: bold;
+        }
+        &__term-people {
+            margin-bottom: 0;
+            font-size: 1.2rem;
+        }
+        &__tags {
+            margin-top: px-to-vw(5);
+        }
+    }
+
+    .post-image-user-info {
+        width: px-to-vw(121);
+        margin-bottom: px-to-vh(7);
+        &__user-icon {
+            font-size: 3rem;
+        }
+        &__name-wrap {
+            width: px-to-vw(84);
+            height: px-to-vh(23);
+            &:before,
+            &:after {
+                width: px-to-vw(6);
+                border-top-width: 2.6px;
+                border-bottom-width: 2.6px;
+            }
+            &:before {
+                border-left-width: 2.6px;
+            }
+            &:after {
+                border-right-width: 2.6px;
+            }
+        }
+        &__name {
+            font-size: 1.1rem;
+        }
+    }
+
+    .header-tag {
+        margin-right: px-to-vw(8);
+        padding: 0 10px;
+        &__name {
+            margin: 0 auto;
+            font-size: 1.2rem;
         }
     }
 
@@ -127,13 +181,30 @@
             }
         }
 
-        &__public-switch-btn {
-            border: 1px solid $light-gray;
+        &__switch-btn-wrap {
+            display: flex;
+            width: px-to-vw(56);
+            justify-content: center;
+        }
+
+        %__public-switch-btn {
             background-color: $white;
-            color: $light-gray;
             font-weight: normal;
             position: relative;
             top: px-to-vh(-3);
+        }
+
+        &__public-switch-btn {
+            &--public {
+                @extend %__public-switch-btn;
+                border: 1px solid $light-blue;
+                color: $light-blue;
+            }
+            &--private {
+                @extend %__public-switch-btn;
+                border: 1px solid $light-gray;
+                color: $light-gray;
+            }
         }
 
         &__tag-input {
@@ -173,6 +244,16 @@
         &__next-wrap {
             width: px-to-vw(103);
             margin: 0 auto;
+        }
+    }
+
+    .post-overview-tag {
+        margin-bottom: px-to-vw(10);
+        margin-right: px-to-vw(10);
+        padding: 0 10px;
+        &__name {
+            margin-right: 10px;
+            font-size: 1.2rem;
         }
     }
 
@@ -419,13 +500,28 @@
             font-size: 1rem;
             color: $light-gray;
         }
+        &__delete-place-wrap {
+            display: flex;
+            width: px-to-vw(83);
+            margin: px-to-vw(13) 0;
+            color: $gray;
+            justify-content: space-between;
+            align-items: center;
+        }
+        &__trash-icon {
+            font-size: 1rem;
+        }
+        &__delete-place {
+            margin-bottom: 0;
+            border-bottom: 1px solid $gray;
+        }
     }
 
     .comment-area {
         position: relative;
         width: px-to-vw(200);
         height: px-to-vw(103);
-        margin-bottom: px-to-vw(25);
+        margin-bottom: px-to-vw(12.5);
         padding: px-to-vw(5);
         border: solid $navy 1px;
         border-radius: 7px;
@@ -465,7 +561,7 @@
     }
 
     .edit-transport {
-        margin-bottom: px-to-vw(13);
+        margin-top: px-to-vw(12.5);
         &__title {
             font-size: 1.2rem;
         }
@@ -479,6 +575,10 @@
             flex-direction: row;
             color: $gray;
             margin-left: px-to-vw(15);
+        }
+        &__distance {
+            margin-left: px-to-vw(15);
+            color: $light-navy;
         }
         &__select-wrap {
             display: flex;

@@ -14,4 +14,11 @@ class GoogleMapController extends Controller
     $respons = Http::get($url);
     return $respons;
   }
+  public function getDistance(Request $request)
+  {
+    $api = config("app.map_api");
+    $url = "https://maps.googleapis.com/maps/api/directions/json?origin=" . $request->origin . "&destination=" . $request->destination . "&mode=" . $request->mode . "&language=ja&key=" . $api;
+    $respons = Http::get($url);
+    return $respons;
+  }
 }

@@ -16,7 +16,8 @@ export const setPostOverview = (
   dateS: string,
   dateF: string,
   people: number,
-  tags: string[]
+  tags: string[],
+  isPublic: boolean
 ) =>
   ({
     type: ActionTypes.SET_POST_OVERVIEW,
@@ -26,6 +27,7 @@ export const setPostOverview = (
       dateF,
       people,
       tags,
+      isPublic,
     },
   } as const)
 

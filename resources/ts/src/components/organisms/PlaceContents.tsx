@@ -44,7 +44,8 @@ const PlaceContents: FC<Props> = ({ place }) => {
               index={transports.findIndex(
                 (v) => v === place.transport
               )}
-              classNamePrefix="place-detail__transport-icon"
+              className="place-detail__transport-icon"
+              classNamePrefix="selected-icon__"
             />
             <p className="place-detail__transport-detail">
               {place.transportDetail}
