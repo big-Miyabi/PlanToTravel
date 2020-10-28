@@ -18,6 +18,7 @@ type Props = {
   isInputActive: boolean
   setIsInputActive: Dispatch<React.SetStateAction<boolean>>
   distance: string
+  inputRef: React.RefObject<HTMLInputElement>
 }
 
 const EditTransport: FC<Props> = ({
@@ -32,6 +33,7 @@ const EditTransport: FC<Props> = ({
   isInputActive,
   setIsInputActive,
   distance,
+  inputRef,
 }) => {
   return (
     <div className={className + ' ' + 'edit-transport'}>
@@ -117,6 +119,7 @@ const EditTransport: FC<Props> = ({
           placeholder={'例）山手線　30分'}
           className="edit-transport__detail"
           maxLength={15}
+          inputRef={inputRef}
           onChange={getChangeEventFunc(setTransportDetail)}
           onFocus={() => {
             setIsInputActive(true)

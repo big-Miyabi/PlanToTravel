@@ -1,4 +1,9 @@
-import React, { FC, useState, Dispatch } from 'react'
+import React, {
+  FC,
+  useState,
+  Dispatch,
+  useRef,
+} from 'react'
 import EditTransport from '../../components/molecules/EditTransport'
 import {
   Transport,
@@ -28,17 +33,19 @@ const getMode = (transport: Transport): string => {
     case '車':
       return 'driving'
     default:
-      return 'transit'
+      return ''
   }
 }
 
 const getDistance = async (
   places: Place[],
   placeIndex: number,
-  setDistance: Dispatch<React.SetStateAction<string>>
+  setDistance: Dispatch<React.SetStateAction<string>>,
+  inputRef: React.RefObject<HTMLInputElement>,
+  setTransportDetail: Dispatch<React.SetStateAction<string>>
 ) => {
   const isLast = places.length - 1 === placeIndex
-  if (isLast) return
+  if (isLast || !inputRef.current) return
 
   const originLocation = places[placeIndex].location
   const destinationLocation =
@@ -52,7 +59,27 @@ const getDistance = async (
     ',' +
     destinationLocation?.lng
   const transport = places[placeIndex].transport
+
+  const setByHubeny = () => {
+    if (!inputRef.current) return
+    const distance = getDistanceByHubeny(
+      originLocation.lat,
+      originLocation.lng,
+      destinationLocation.lat,
+      destinationLocation.lng
+    )
+    setDistance(distance)
+    inputRef.current.value = ''
+    setTransportDetail('')
+  }
+
   const mode = getMode(transport)
+  if (!mode) {
+    setByHubeny()
+
+    return
+  }
+
   const {
     result,
     isSuccess,
@@ -61,19 +88,23 @@ const getDistance = async (
     destination,
     mode,
   })
-  if (isSuccess) {
-    setDistance(result.distance)
+
+  if (!isSuccess) {
+    setByHubeny()
 
     return
   }
 
-  const distance = getDistanceByHubeny(
-    originLocation.lat,
-    originLocation.lng,
-    destinationLocation.lat,
-    destinationLocation.lng
-  )
-  setDistance(distance)
+  setDistance(result.distance)
+  if (result.duration) {
+    inputRef.current.value = result.duration
+    setTransportDetail(result.duration)
+
+    return
+  }
+
+  inputRef.current.value = ''
+  setTransportDetail('')
 }
 
 const EditTransportContainer: FC<Props> = ({
@@ -83,7 +114,7 @@ const EditTransportContainer: FC<Props> = ({
   places,
 }) => {
   const overlayClass = `transport-overlay__${dateIndex}-${placeIndex}`
-
+  const inputRef = useRef<HTMLInputElement>(null)
   const [isShownBox, setIsShownBox] = usePopupMenu(
     overlayClass
   )
@@ -93,19 +124,23 @@ const EditTransportContainer: FC<Props> = ({
       places[placeIndex].distance = distance
     }
   )
-  const [selectedIndex, setSelectedIndex] = useHooks<
-    number
-  >(7, () => {
-    places[placeIndex].transport = transports[selectedIndex]
-    getDistance(places, placeIndex, setDistance)
-  })
-
   const [transportDetail, setTransportDetail] = useHooks<
     string
   >('', (state) => {
     places[placeIndex].transportDetail = state
   })
-
+  const [selectedIndex, setSelectedIndex] = useHooks<
+    number
+  >(7, () => {
+    places[placeIndex].transport = transports[selectedIndex]
+    getDistance(
+      places,
+      placeIndex,
+      setDistance,
+      inputRef,
+      setTransportDetail
+    )
+  })
   const [isInputActive, setIsInputActive] = useState<
     boolean
   >(false)
@@ -123,6 +158,7 @@ const EditTransportContainer: FC<Props> = ({
       isInputActive={isInputActive}
       setIsInputActive={setIsInputActive}
       distance={distance}
+      inputRef={inputRef}
     />
   )
 }
