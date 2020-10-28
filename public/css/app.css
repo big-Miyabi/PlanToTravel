@@ -2000,11 +2000,16 @@ next .input-box::placeholder {
   .place-contents__row {
     display: flex;
     flex-direction: row;
+    width: 61.8666666667vw;
+    height: 6.9333333333vw;
+    justify-content: space-between;
+    position: relative;
+    left: 2vw;
   }
 
   .place-contents__pin {
-    width: 4.8vw;
-    height: 6.6666666667vw;
+    width: 4vw;
+    height: auto;
     margin: 0.8vw 0;
   }
 
@@ -2012,7 +2017,7 @@ next .input-box::placeholder {
     position: relative;
     display: flex;
     width: 61.8666666667vw;
-    margin: 0 0 2.4vw 3.7333333333vw;
+    margin: 1.6vw 0 2.4vw 1.6vw;
   }
 
   .place-detail__left {
