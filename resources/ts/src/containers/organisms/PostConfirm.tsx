@@ -50,6 +50,22 @@ const getUrl = (
   })
 }
 
+const replaceBase64ToUrl = (
+  itineraryInfo: Place[][],
+  urls: string[]
+) => {
+  itineraryInfo.some((places) => {
+    places.some((place) => {
+      if (place.image) {
+        const url = urls.shift()
+        place.image = url ? url : ''
+      }
+      if (urls.length === 0) return true
+    })
+    if (urls.length === 0) return true
+  })
+}
+
 const PostConfirmContainer: FC<Props> = ({ history }) => {
   const itineraryInfo: Place[][] = useSelector(
     (state: RootState) => state.postReducer.itinerary
@@ -72,8 +88,7 @@ const PostConfirmContainer: FC<Props> = ({ history }) => {
         return await getUrl(id, 'place', image)
       })
     )
-    console.log(headerUrl)
-    console.log(urls)
+    replaceBase64ToUrl(itineraryInfo, urls)
   }
 
   return (
