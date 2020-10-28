@@ -51,13 +51,13 @@ const PostOverviewContainer: FC<Props> = ({ history }) => {
   const [isPublic, setIsPublic] = useHooks<boolean, string>(
     false,
     () => {
-      const isBefore = moment().isBefore(moment(dateS))
+      const isBefore = moment().isBefore(moment(dateF))
       setIsBtnDisabled(isBefore)
       if (isBefore) {
         setIsPublic(false)
       }
     },
-    [dateS]
+    [dateF]
   )
 
   const validate: () => { error: string } = () => {
