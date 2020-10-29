@@ -20,13 +20,11 @@ type State = {
 
 type PostReducer = Reducer<State, UnionedAction>
 
-moment.locale('ja')
-
 const initialState: State = {
   progressIndex: 0,
   title: '',
-  dateS: moment().format('YYYY-MM-DD'),
-  dateF: moment().format('YYYY-MM-DD'),
+  dateS: '',
+  dateF: '',
   people: 1,
   tags: [],
   isPublic: false,

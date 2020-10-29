@@ -9,13 +9,17 @@ import PlusInputBox from '../atoms/PlusInputBox'
 import FormBtn from '../atoms/FormBtn'
 
 type Props = {
+  titleInputRef: React.RefObject<HTMLInputElement>
+  tagInputRef: React.RefObject<HTMLInputElement>
+  dateSInputRef: React.RefObject<HTMLInputElement>
+  dateFInputRef: React.RefObject<HTMLInputElement>
+  peopleInputRef: React.RefObject<HTMLInputElement>
   setTitle: Dispatch<React.SetStateAction<string>>
   goToNext: () => void
   tags: string[]
   addTag: () => void
   deleteTag: (index: number) => void
   setTag: Dispatch<React.SetStateAction<string>>
-  tagInputRef: React.RefObject<HTMLInputElement>
   setDateS: Dispatch<React.SetStateAction<string>>
   setDateF: Dispatch<React.SetStateAction<string>>
   setPeople: Dispatch<React.SetStateAction<number>>
@@ -26,13 +30,17 @@ type Props = {
 }
 
 const PostOverview: FC<Props> = ({
+  titleInputRef,
+  tagInputRef,
+  dateSInputRef,
+  dateFInputRef,
+  peopleInputRef,
   setTitle,
   goToNext,
   tags,
   addTag,
   deleteTag,
   setTag,
-  tagInputRef,
   setDateS,
   setDateF,
   setPeople,
@@ -50,6 +58,7 @@ const PostOverview: FC<Props> = ({
             type="text"
             className="post__title"
             onChange={getChangeEventFunc(setTitle)}
+            ref={titleInputRef}
           />
           <div className="post__switch-btn-wrap">
             <FormBtn
@@ -110,12 +119,14 @@ const PostOverview: FC<Props> = ({
             type="date"
             className="post__date"
             onChange={getChangeEventFunc(setDateS)}
+            inputRef={dateSInputRef}
           />
           <p className="post__datebar">-</p>
           <InputBox
             type="date"
             className="post__date"
             onChange={getChangeEventFunc(setDateF)}
+            inputRef={dateFInputRef}
           />
         </div>
         <p className="post__date-notice">
@@ -131,6 +142,7 @@ const PostOverview: FC<Props> = ({
             className="post__people"
             onChange={getChangeEventFunc(setPeople)}
             placeholder={'1'}
+            inputRef={peopleInputRef}
           />
           <p className="post__nin">人</p>
         </div>
