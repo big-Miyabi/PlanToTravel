@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import * as H from 'history'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../reducers'
@@ -6,6 +6,7 @@ import { Place } from '../../utilities/types'
 import { postFirebaseStorage } from '../../utilities/postFirebaseStorage'
 import { postByAxios } from '../../utilities/axios'
 import PostConfirm from '../../components/organisms/PostConfirm'
+import Loading from '../../components/atoms/Loading'
 
 type Props = {
   history: H.History
@@ -81,11 +82,13 @@ const PostConfirmContainer: FC<Props> = ({ history }) => {
   const id = useSelector(
     (state: RootState) => state.loginReducer.id
   )
+  const [isLoading, setIsLoading] = useState<boolean>(false)
   const returnToPrevious = () => {
     history.push('/post/location')
   }
 
   const post = async () => {
+    setIsLoading(true)
     const images = getImages(itineraryInfo)
     const headerUrl = await getUrl(id, 'header', header)
     const urls = await Promise.all(
@@ -106,14 +109,18 @@ const PostConfirmContainer: FC<Props> = ({ history }) => {
       itinerary: itineraryInfo,
     })
     console.log(postResult)
+    setIsLoading(false)
   }
 
   return (
-    <PostConfirm
-      returnToPrevious={returnToPrevious}
-      itineraryInfo={itineraryInfo}
-      post={post}
-    />
+    <>
+      <PostConfirm
+        returnToPrevious={returnToPrevious}
+        itineraryInfo={itineraryInfo}
+        post={post}
+      />
+      <Loading isLoading={isLoading} />
+    </>
   )
 }
 
