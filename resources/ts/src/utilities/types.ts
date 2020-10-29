@@ -78,12 +78,17 @@ export type RatingIcon = {
 }
 
 export type ScheduleInfo = {
+  id: number
+  userid: number
+  title: string
   day_s: string
   day_f: string
-  header: string
+  header: string | null
+  is_public: boolean
+  people: number
 }
 
-export type GettedPlace = {
+export type ItineraryByLaravel = {
   comment: string | null
   day: string
   distance: string | null
@@ -93,10 +98,19 @@ export type GettedPlace = {
   ordernumber: number
   placename: string
   rating: number
-  transport: string
+  transport: Transport
   transportD: string | null
-  weather: string
+  weather: Weather
 }
+
+export type GettedItineraryDetail = [
+  ScheduleInfo,
+  string[],
+  ItineraryByLaravel[],
+  boolean,
+  number,
+  boolean
+]
 
 export const initialTarget = {
   dateIndex: null,

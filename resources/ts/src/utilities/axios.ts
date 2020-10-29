@@ -4,7 +4,7 @@ import {
   setLoginInfo,
 } from '../actions/login'
 import axios, { AxiosResponse } from 'axios'
-import { Place } from './types'
+import { Place, GettedItineraryDetail } from './types'
 /// <reference types="googlemaps" />
 type PlaceResult = google.maps.places.PlaceResult
 type DirectionsResult = google.maps.DirectionsResult
@@ -49,7 +49,7 @@ type PostByAxios = {
   getItineraryDetail: (
     id: string
   ) => Promise<{
-    result: any
+    result: GettedItineraryDetail
     isSuccess: boolean
   }>
 }
@@ -165,7 +165,10 @@ export const postByAxios: PostByAxios = {
   },
   getItineraryDetail: (
     id: string
-  ): Promise<{ result: any; isSuccess: boolean }> => {
+  ): Promise<{
+    result: GettedItineraryDetail
+    isSuccess: boolean
+  }> => {
     return new Promise((resolve) => {
       axios
         .post('/api/show', {
