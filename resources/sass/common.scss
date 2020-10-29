@@ -113,17 +113,29 @@ input:-webkit-autofill {
         width: px-to-vw(103);
         color: white;
         background-color: $light-blue;
+        font-size: 1.2rem;
     }
     %__next {
         width: px-to-vw(103);
+        height: px-to-vw(26);
         color: white;
+        font-size: 1.2rem;
+    }
+    &__post {
+        width: px-to-vw(103);
+        height: px-to-vw(26);
+        color: white;
+        font-size: 1.2rem;
+        background-color: $navy;
     }
     &__next {
         @extend %__next;
         background-color: $light-blue;
+        height: px-to-vw(26);
         &--error {
             @extend %__next;
             background-color: $light-gray;
+            height: px-to-vw(26);
         }
     }
 }
