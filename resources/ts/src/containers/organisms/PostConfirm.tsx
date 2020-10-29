@@ -97,7 +97,9 @@ const PostConfirmContainer: FC<Props> = ({ history }) => {
   const post = async () => {
     setIsLoading(true)
     const images = getImages(itineraryInfo)
-    const headerUrl = await getUrl(id, 'header', header)
+    const headerUrl = header
+      ? await getUrl(id, 'header', header)
+      : ''
     const urls = await Promise.all(
       images.map(async (image) => {
         return await getUrl(id, 'place', image)
@@ -118,6 +120,14 @@ const PostConfirmContainer: FC<Props> = ({ history }) => {
     console.log(postResult)
     const sid = postResult.result.data
     console.log(sid)
+    console.log(headerUrl)
+
+    if (!postResult.isSuccess) {
+      alert('投稿に失敗しました')
+      setIsLoading(false)
+
+      return
+    }
 
     setIsLoading(false)
     dispatch(setPostProgressIndex(0))
