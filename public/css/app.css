@@ -584,6 +584,19 @@ input:-webkit-autofill {
   text-align: right;
 }
 
+.loading-wrap {
+  z-index: 1000;
+  position: fixed;
+  display: flex;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+}
+
 @media screen and (max-width: 559px) {
   .register-screen {
     width: 100vw;
@@ -1973,11 +1986,13 @@ input:-webkit-autofill {
 
   .itinerary {
     color: #003666;
+    margin-top: -3.4666666667vw;
     margin-bottom: 19.4666666667vw;
   }
 
   .itinerary__date-wrap {
     display: flex;
+    height: 11.2vw;
     align-items: center;
   }
 
@@ -1994,6 +2009,12 @@ input:-webkit-autofill {
     font-weight: bold;
     color: #bcdbe8;
     flex-basis: 20%;
+  }
+
+  .itinerary__end-line {
+    height: 2px;
+    margin-top: 5.3333333333vw;
+    background-color: #bcdbe8;
   }
 
   .place-contents {

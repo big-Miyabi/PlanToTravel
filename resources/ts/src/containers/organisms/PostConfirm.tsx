@@ -1,11 +1,18 @@
-import React, { FC } from 'react'
+import React, { FC, useState } from 'react'
 import * as H from 'history'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import {
+  setCreatedItinerary,
+  setImageSrc,
+  setPostOverview,
+  setPostProgressIndex,
+} from '../../actions/post'
 import { RootState } from '../../reducers'
-import { Place } from '../../utilities/types'
+import { initialPlace, Place } from '../../utilities/types'
 import { postFirebaseStorage } from '../../utilities/postFirebaseStorage'
 import { postByAxios } from '../../utilities/axios'
 import PostConfirm from '../../components/organisms/PostConfirm'
+import Loading from '../../components/atoms/Loading'
 
 type Props = {
   history: H.History
@@ -68,6 +75,7 @@ const replaceBase64ToUrl = (
 }
 
 const PostConfirmContainer: FC<Props> = ({ history }) => {
+  const dispatch = useDispatch()
   const {
     itinerary: itineraryInfo,
     src: header,
@@ -81,20 +89,24 @@ const PostConfirmContainer: FC<Props> = ({ history }) => {
   const id = useSelector(
     (state: RootState) => state.loginReducer.id
   )
+  const [isLoading, setIsLoading] = useState<boolean>(false)
   const returnToPrevious = () => {
     history.push('/post/location')
   }
 
   const post = async () => {
+    setIsLoading(true)
     const images = getImages(itineraryInfo)
-    const headerUrl = await getUrl(id, 'header', header)
+    const headerUrl = header
+      ? await getUrl(id, 'header', header)
+      : ''
     const urls = await Promise.all(
       images.map(async (image) => {
         return await getUrl(id, 'place', image)
       })
     )
     replaceBase64ToUrl(itineraryInfo, urls)
-    const postResult = postByAxios.postItinerary({
+    const postResult = await postByAxios.postItinerary({
       uid: String(id),
       title,
       header: headerUrl,
@@ -105,15 +117,32 @@ const PostConfirmContainer: FC<Props> = ({ history }) => {
       is_public: isPublic,
       itinerary: itineraryInfo,
     })
-    console.log(postResult)
+    const sid = postResult.result.data
+
+    if (!postResult.isSuccess) {
+      alert('投稿に失敗しました')
+      setIsLoading(false)
+
+      return
+    }
+
+    setIsLoading(false)
+    dispatch(setPostProgressIndex(0))
+    dispatch(setPostOverview('', '', '', 1, [], false))
+    dispatch(setImageSrc(''))
+    dispatch(setCreatedItinerary([[initialPlace]]))
+    history.push(`/itinerary/${sid}`)
   }
 
   return (
-    <PostConfirm
-      returnToPrevious={returnToPrevious}
-      itineraryInfo={itineraryInfo}
-      post={post}
-    />
+    <>
+      <PostConfirm
+        returnToPrevious={returnToPrevious}
+        itineraryInfo={itineraryInfo}
+        post={post}
+      />
+      <Loading isLoading={isLoading} />
+    </>
   )
 }
 
