@@ -7,9 +7,16 @@ export const getClassName = (
   return `${arg.common}__${modifier} ${arg.unique}__${modifier}`
 }
 
-//
+export const addValueIntoInput = (
+  ref: React.RefObject<HTMLInputElement>,
+  value: string
+): void => {
+  const input = ref.current
+  if (!input) return
+  input.value = value
+}
+
 // ヒュベニの公式
-//
 export const getDistanceByHubeny = (
   lat1: number,
   lng1: number,

@@ -12,6 +12,7 @@ import {
   setPostOverview,
 } from '../../actions/post'
 import PostOverView from '../../components/organisms/PostOverView'
+import { addValueIntoInput } from '../../utilities/utilFunc'
 import { useHooks } from '../../utilities/customHook'
 import { RootState } from '../../reducers'
 
@@ -67,15 +68,6 @@ const PostOverviewContainer: FC<Props> = ({ history }) => {
     [dateF]
   )
 
-  const addValueIntoInputRef = (
-    ref: React.RefObject<HTMLInputElement>,
-    value: string
-  ) => {
-    const input = ref.current
-    if (!input) return
-    input.value = value
-  }
-
   const {
     title: selectorTitle,
     tags: selectorTags,
@@ -93,10 +85,10 @@ const PostOverviewContainer: FC<Props> = ({ history }) => {
     setPeople(selectorPeople)
     setIsPublic(selectorIsPublic)
 
-    addValueIntoInputRef(titleInputRef, selectorTitle)
-    addValueIntoInputRef(dateSInputRef, selectorDateS)
-    addValueIntoInputRef(dateFInputRef, selectorDateF)
-    addValueIntoInputRef(
+    addValueIntoInput(titleInputRef, selectorTitle)
+    addValueIntoInput(dateSInputRef, selectorDateS)
+    addValueIntoInput(dateFInputRef, selectorDateF)
+    addValueIntoInput(
       peopleInputRef,
       String(selectorPeople)
     )

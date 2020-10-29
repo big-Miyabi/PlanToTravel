@@ -33,9 +33,11 @@ const useValidate = (
 
 const PostLocationContainer: FC<Props> = ({ history }) => {
   const dispatch = useDispatch()
-  const { dateS, dateF } = useSelector(
-    (state: RootState) => state.postReducer
-  )
+  const {
+    dateS,
+    dateF,
+    itinerary: selectorItinerary,
+  } = useSelector((state: RootState) => state.postReducer)
   const dateDiff =
     moment(dateF).diff(moment(dateS), 'days') + 1
 
@@ -45,6 +47,10 @@ const PostLocationContainer: FC<Props> = ({ history }) => {
   const [itinerary, setItinerary] = useState<Place[][]>(
     initialItinerary
   )
+
+  useEffect(() => {
+    setItinerary(selectorItinerary.slice())
+  }, [selectorItinerary])
 
   const updateItinerary = () => {
     const newItinerary = itinerary.map((v1) => {

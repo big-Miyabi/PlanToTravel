@@ -3,7 +3,6 @@ import {
   ActionTypes,
   UnionedAction,
 } from '../actions/index'
-import moment from 'moment'
 import { Place, initialPlace } from '../utilities/types'
 
 type State = {
