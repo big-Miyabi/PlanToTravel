@@ -27,7 +27,7 @@ class ScheduleController extends Controller
     $params = $request->validate([
       'uid' => 'required|exists:users,id',
       'title' => 'required|string|max:63',
-      'header' => 'required',
+      'header' => 'present',
       'people' => 'required|max:2000',
       'day_s' => 'required|date',
       'day_f' => 'required|date',
@@ -88,7 +88,7 @@ class ScheduleController extends Controller
           'transport' => $place['transport'],
           'transport_detail' => $place['transportDetail'],
           'comment' => $place['comment'],
-          'distance' => null, // 後で追加
+          'distance' => $place['distance'],
           'rating' => $place['rating'],
           'order_number' => $key + 1
         ]);

@@ -9,9 +9,40 @@ import {
 import { RootState } from '../../reducers'
 import PostLocation from '../../components/organisms/PostLocation'
 import { Place, initialPlace } from '../../utilities/types'
+import { checkObjEqual } from '../../utilities/utilFunc'
 
 type Props = {
   history: H.History
+}
+
+const checkItineraryIsInitial = (
+  obj1: Place[][],
+  obj2: Place[][]
+): Promise<boolean> => {
+  return new Promise((resolve) => {
+    if (obj1.length !== obj2.length) resolve(false)
+
+    obj1.forEach((places1, dateIndex) => {
+      const places2 = obj2[dateIndex]
+      if (places1.length !== places2.length) resolve(false)
+
+      places1.forEach((place1, placeIndex) => {
+        const place2 = places2[placeIndex]
+        if (!checkObjEqual(place1, place2)) resolve(false)
+
+        const location1 = place1.location
+        const location2 = place2.location
+        if (
+          location1 &&
+          location2 &&
+          !checkObjEqual(location1, location2)
+        ) {
+          resolve(false)
+        }
+      })
+    })
+    resolve(true)
+  })
 }
 
 const useValidate = (
@@ -33,9 +64,11 @@ const useValidate = (
 
 const PostLocationContainer: FC<Props> = ({ history }) => {
   const dispatch = useDispatch()
-  const { dateS, dateF } = useSelector(
-    (state: RootState) => state.postReducer
-  )
+  const {
+    dateS,
+    dateF,
+    itinerary: reduxItinerary,
+  } = useSelector((state: RootState) => state.postReducer)
   const dateDiff =
     moment(dateF).diff(moment(dateS), 'days') + 1
 
@@ -45,6 +78,36 @@ const PostLocationContainer: FC<Props> = ({ history }) => {
   const [itinerary, setItinerary] = useState<Place[][]>(
     initialItinerary
   )
+  // メモリリークを防ぐのに必要
+  const [isMounted, setIsMounted] = useState<boolean>(false)
+
+  useEffect(() => {
+    const setReduxItinerary = async () => {
+      const isSelectorItineraryInitial = await checkItineraryIsInitial(
+        reduxItinerary,
+        [[initialPlace]]
+      )
+      // Redux上の行程表が初期値だったら何もしない
+      if (isSelectorItineraryInitial) return
+
+      const lengthDiff = Math.abs(
+        reduxItinerary.length - initialItinerary.length
+      )
+      if (
+        reduxItinerary.length >= initialItinerary.length
+      ) {
+        reduxItinerary.splice(-1, lengthDiff)
+      } else {
+        const emptyArray = [...Array(lengthDiff)]
+        emptyArray.forEach(() => {
+          reduxItinerary.push([initialPlace])
+        })
+      }
+      setItinerary(reduxItinerary.slice())
+    }
+
+    setReduxItinerary()
+  }, [reduxItinerary])
 
   const updateItinerary = () => {
     const newItinerary = itinerary.map((v1) => {

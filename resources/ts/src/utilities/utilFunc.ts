@@ -7,9 +7,23 @@ export const getClassName = (
   return `${arg.common}__${modifier} ${arg.unique}__${modifier}`
 }
 
-//
+export const addValueIntoInput = (
+  ref: React.RefObject<HTMLInputElement>,
+  value: string
+): void => {
+  const input = ref.current
+  if (!input) return
+  input.value = value
+}
+
+export const checkObjEqual = (a: Object, b: Object) => { // eslint-disable-line
+  const aJSON = JSON.stringify(Object.entries(a).sort())
+  const bJSON = JSON.stringify(Object.entries(b).sort())
+
+  return aJSON === bJSON
+}
+
 // ヒュベニの公式
-//
 export const getDistanceByHubeny = (
   lat1: number,
   lng1: number,

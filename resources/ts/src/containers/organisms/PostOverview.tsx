@@ -1,11 +1,10 @@
 import React, {
   FC,
-  Dispatch,
   useState,
   useRef,
   useEffect,
 } from 'react'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import * as H from 'history'
 import moment from 'moment'
 import {
@@ -13,7 +12,9 @@ import {
   setPostOverview,
 } from '../../actions/post'
 import PostOverView from '../../components/organisms/PostOverView'
+import { addValueIntoInput } from '../../utilities/utilFunc'
 import { useHooks } from '../../utilities/customHook'
+import { RootState } from '../../reducers'
 
 type Props = {
   history: H.History
@@ -41,6 +42,11 @@ const useValidate = (
 const PostOverviewContainer: FC<Props> = ({ history }) => {
   const dispatch = useDispatch()
   moment.locale('ja')
+  const titleInputRef = useRef<HTMLInputElement>(null)
+  const tagInputRef = useRef<HTMLInputElement>(null)
+  const dateSInputRef = useRef<HTMLInputElement>(null)
+  const dateFInputRef = useRef<HTMLInputElement>(null)
+  const peopleInputRef = useRef<HTMLInputElement>(null)
   const [title, setTitle] = useState<string>('')
   const [tag, setTag] = useState<string>('')
   const [dateS, setDateS] = useState<string>('')
@@ -62,6 +68,39 @@ const PostOverviewContainer: FC<Props> = ({ history }) => {
     [dateF]
   )
 
+  const {
+    title: selectorTitle,
+    tags: selectorTags,
+    dateS: selectorDateS,
+    dateF: selectorDateF,
+    people: selectorPeople,
+    isPublic: selectorIsPublic,
+  } = useSelector((state: RootState) => state.postReducer)
+
+  useEffect(() => {
+    setTitle(selectorTitle)
+    setTags(selectorTags.slice())
+    setDateS(selectorDateS)
+    setDateF(selectorDateF)
+    setPeople(selectorPeople)
+    setIsPublic(selectorIsPublic)
+
+    addValueIntoInput(titleInputRef, selectorTitle)
+    addValueIntoInput(dateSInputRef, selectorDateS)
+    addValueIntoInput(dateFInputRef, selectorDateF)
+    addValueIntoInput(
+      peopleInputRef,
+      String(selectorPeople)
+    )
+  }, [
+    selectorTitle,
+    selectorTags,
+    selectorDateS,
+    selectorDateF,
+    selectorPeople,
+    selectorIsPublic,
+  ])
+
   const validate: () => { error: string } = () => {
     if (!title) return { error: 'タイトルが未入力です' }
     if (!dateS) return { error: '開始日が未入力です' }
@@ -82,11 +121,9 @@ const PostOverviewContainer: FC<Props> = ({ history }) => {
     return { error: '' }
   }
 
-  const tagInputRef = useRef<HTMLInputElement>(null)
-
   const addTag = () => {
     const input = tagInputRef.current
-    if (input === null) return
+    if (!input) return
     if (tags.length >= 5) return
     if (input.value.length > 12) return
     if (input.value === '') return
@@ -135,13 +172,17 @@ const PostOverviewContainer: FC<Props> = ({ history }) => {
 
   return (
     <PostOverView
+      titleInputRef={titleInputRef}
+      tagInputRef={tagInputRef}
+      dateSInputRef={dateSInputRef}
+      dateFInputRef={dateFInputRef}
+      peopleInputRef={peopleInputRef}
       setTitle={setTitle}
       goToNext={goToNext}
       tags={tags}
       addTag={addTag}
       deleteTag={deleteTag}
       setTag={setTag}
-      tagInputRef={tagInputRef}
       setDateS={setDateS}
       setDateF={setDateF}
       setPeople={setPeople}
