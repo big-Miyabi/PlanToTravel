@@ -9,6 +9,7 @@ use App\Schedule;
 use App\Tag;
 use App\Place;
 use App\Like;
+use App\Bookmark;
 
 function stringToDate($string)
 {
@@ -101,8 +102,9 @@ class ScheduleController extends Controller
         $post->schedules_places()->create($params);
       }
     }
+    return $ScheduleId;
   }
-  public function index()
+  public function index(Request $request)
   {
     //送るデータの格納
     $posts = [];
@@ -113,11 +115,14 @@ class ScheduleController extends Controller
     //場所データ
     $placeBox = [];
     //いいねの値
+    $likeUid = false;
+    $bookmarkUid = false;
     //テーブルの値を取得
-    $schedules = Schedule::orderBy('created_at', 'desc')->where('is_public', 1)->get();
+    $schedules = Schedule::orderBy('created_at', 'desc')->where('is_public', 0)->get();
     $tags = Tag::orderBy('created_at', 'desc')->get();
     $places = Place::orderBy('created_at', 'desc')->get();
     $likes = Like::orderBy('created_at', 'desc')->get();
+    $bookmarks = Bookmark::orderBy('created_at', 'desc')->get();
     //値をpostsに格納する
     foreach ($schedules as $key => $schedule) {
       //スケジュールデータ
@@ -183,12 +188,22 @@ class ScheduleController extends Controller
       //初期化
       $likeCount = 0;
       //いいねの数の取得
-      foreach ($likes as  $like) {
+      foreach ($likes as  $likeKye => $like) {
         if ($like->schedule_id == $schedule->id) {
           $likeCount++;
+          if ($like->uid == $request->uid) {
+            $likeUid = true;
+          }
         }
       }
-      $posts[$key] = [$texts, $tagBox, $placeBox, $likeCount];
+      foreach ($bookmarks as  $booKye => $bookmark) {
+        if ($bookmark->schedule_id == $schedule->id) {
+          if ($bookmark->uid == $request->uid) {
+            $bookmarkUid = true;
+          }
+        }
+      }
+      $posts[$key] = ['schedule' => $texts, 'tags' => $tagBox, "places" => $placeBox, 'likeCounter' => $likeCount, 'is_liked' => $likeUid, 'is_bookmark' => $bookmarkUid];
     }
     //値を返す
     return $posts;
@@ -199,12 +214,16 @@ class ScheduleController extends Controller
     $schedules = Schedule::orderBy('created_at', 'desc')->get();
     $tags = Tag::orderBy('created_at', 'desc')->get();
     $places = Place::orderBy('created_at', 'desc')->get();
+    $likes = Like::orderBy('created_at', 'desc')->get();
+    $bookmarks = Bookmark::orderBy('created_at', 'desc')->get();
     //スケジュールデータ
     $texts = [];
     //タグデータ
     $tagBox = [];
     //場所データ
     $placeBox = [];
+    $likeUid = false;
+    $bookmarkUid = false;
     foreach ($schedules as $key => $schedule) {
       if ($schedule->id == $request->sid) {
         //スケジュールデータ
@@ -270,8 +289,26 @@ class ScheduleController extends Controller
           }
         }
       }
+      //初期化
+      $likeCount = 0;
+      //いいねの数の取得
+      foreach ($likes as  $likeKye => $like) {
+        if ($like->schedule_id == $schedule->id) {
+          $likeCount++;
+          if ($like->uid == $request->uid) {
+            $likeUid = true;
+          }
+        }
+      }
+      foreach ($bookmarks as  $booKye => $bookmark) {
+        if ($bookmark->schedule_id == $schedule->id) {
+          if ($bookmark->uid == $request->uid) {
+            $bookmarkUid = true;
+          }
+        }
+      }
     }
-    return [$texts, $tagBox, $placeBox];
+    return [$texts, $tagBox, $placeBox, $likeUid, $likeCount, $bookmarkUid];
   }
   //ユーザごとのスケジュール表示
   public function userSchedule(Request $request)
