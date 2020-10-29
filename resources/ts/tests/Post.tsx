@@ -31,7 +31,7 @@ const Post: FC = () => {
   // const [distance, setDistance] = useState<string>('')
   const [comment, setComments] = useState<string[]>([''])
   const [tag_name, setTags] = useState<string[]>([''])
-  const uid = 48
+  const uid = 49
   const is_public = false
   const sid = '134'
   const [search, setSearch] = useState<string>('')
@@ -51,6 +51,7 @@ const Post: FC = () => {
     axios
       .post('/api/show', {
         sid,
+        uid,
       })
       .then((res) => {
         console.log(res.data)
@@ -135,7 +136,7 @@ const Post: FC = () => {
   }
   const indexSchedule = () => {
     axios
-      .get('/api/index')
+      .post('/api/index', { uid })
       .then((res) => {
         console.log(res.data)
       })
