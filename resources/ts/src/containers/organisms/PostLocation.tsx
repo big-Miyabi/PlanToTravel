@@ -73,7 +73,7 @@ const PostLocationContainer: FC<Props> = ({ history }) => {
   const {
     dateS,
     dateF,
-    itinerary: selectorItinerary,
+    itinerary: reduxItinerary,
   } = useSelector((state: RootState) => state.postReducer)
   const dateDiff =
     moment(dateF).diff(moment(dateS), 'days') + 1
@@ -89,20 +89,31 @@ const PostLocationContainer: FC<Props> = ({ history }) => {
 
   useEffect(() => {
     const setReduxItinerary = async () => {
-      if (!isMounted) return
       const isSelectorItineraryInitial = await checkItineraryIsInitial(
-        selectorItinerary,
+        reduxItinerary,
         [[initialPlace]]
       )
+      // Redux上の行程表が初期値だったら何もしない
+      if (isSelectorItineraryInitial) return
 
-      if (!isSelectorItineraryInitial) {
-        setItinerary(selectorItinerary.slice())
+      const lengthDiff = Math.abs(
+        reduxItinerary.length - initialItinerary.length
+      )
+      if (
+        reduxItinerary.length >= initialItinerary.length
+      ) {
+        reduxItinerary.splice(-1, lengthDiff)
+      } else {
+        const emptyArray = [...Array(lengthDiff)]
+        emptyArray.forEach(() => {
+          reduxItinerary.push([initialPlace])
+        })
       }
+      setItinerary(reduxItinerary.slice())
     }
 
-    setIsMounted(true)
     setReduxItinerary()
-  }, [selectorItinerary, isMounted])
+  }, [reduxItinerary])
 
   const updateItinerary = () => {
     const newItinerary = itinerary.map((v1) => {
