@@ -114,7 +114,7 @@ class ScheduleController extends Controller
     $placeBox = [];
     //いいねの値
     //テーブルの値を取得
-    $schedules = Schedule::orderBy('created_at', 'desc')->get();
+    $schedules = Schedule::orderBy('created_at', 'desc')->where('is_public', 1)->get();
     $tags = Tag::orderBy('created_at', 'desc')->get();
     $places = Place::orderBy('created_at', 'desc')->get();
     $likes = Like::orderBy('created_at', 'desc')->get();
