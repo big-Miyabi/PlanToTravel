@@ -46,6 +46,12 @@ type PostByAxios = {
     result: any
     isSuccess: boolean
   }>
+  getItineraryDetail: (
+    id: string
+  ) => Promise<{
+    result: any
+    isSuccess: boolean
+  }>
 }
 
 type GoogleByAxios = {
@@ -149,6 +155,24 @@ export const postByAxios: PostByAxios = {
         })
         .then((res) => {
           console.log(res)
+          resolve({ result: res, isSuccess: true })
+        })
+        .catch((error) => {
+          console.log(error)
+          resolve({ result: error, isSuccess: false })
+        })
+    })
+  },
+  getItineraryDetail: (
+    id: string
+  ): Promise<{ result: any; isSuccess: boolean }> => {
+    return new Promise((resolve) => {
+      axios
+        .post('/api/show', {
+          sid: id,
+        })
+        .then((res) => {
+          console.log(res.data)
           resolve({ result: res, isSuccess: true })
         })
         .catch((error) => {
