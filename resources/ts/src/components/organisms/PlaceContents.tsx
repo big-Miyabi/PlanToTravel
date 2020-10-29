@@ -7,9 +7,13 @@ import TransportSelectIcon from '../molecules/TransportSelectIcon'
 
 type Props = {
   place: Place
+  isLastPlace: boolean
 }
 
-const PlaceContents: FC<Props> = ({ place }) => {
+const PlaceContents: FC<Props> = ({
+  place,
+  isLastPlace,
+}) => {
   const transportIndex = transports.findIndex(
     (v) => v === place.transport
   )
@@ -39,53 +43,58 @@ const PlaceContents: FC<Props> = ({ place }) => {
         )}
       </div>
 
-      <div className="place-detail">
-        <div className="place-detail__left"></div>
+      {isLastPlace && !place.image && !place.comment ? (
+        <></>
+      ) : (
+        <div className="place-detail">
+          <div className="place-detail__left"></div>
 
-        <div className="place-detail__right">
-          {place.image && place.name ? (
-            <img
-              className="place-detail__image"
-              src={place.image}
-              alt={place.name}
-            />
-          ) : (
-            <></>
-          )}
-
-          {place.comment ? (
-            <div className="place-detail__comment-wrap">
-              <EditIcon className="place-detail__comment-icon" />
-              <p>{place.comment}</p>
-            </div>
-          ) : (
-            <></>
-          )}
-
-          {transportIndex !== 7 && place.transportDetail ? (
-            <div className="place-detail__transport-wrap">
-              <TransportSelectIcon
-                index={transportIndex}
-                className="place-detail__transport-icon"
-                classNamePrefix="selected-icon__"
+          <div className="place-detail__right">
+            {place.image && place.name ? (
+              <img
+                className="place-detail__image"
+                src={place.image}
+                alt={place.name}
               />
-              <p className="place-detail__transport-detail">
-                {place.transportDetail}
-              </p>
-            </div>
-          ) : (
-            <></>
-          )}
+            ) : (
+              <></>
+            )}
 
-          {place.distance ? (
-            <p className="place-detail__distance">
-              {place.distance}
-            </p>
-          ) : (
-            <></>
-          )}
+            {place.comment ? (
+              <div className="place-detail__comment-wrap">
+                <EditIcon className="place-detail__comment-icon" />
+                <p>{place.comment}</p>
+              </div>
+            ) : (
+              <></>
+            )}
+
+            {transportIndex !== 7 &&
+            place.transportDetail ? (
+              <div className="place-detail__transport-wrap">
+                <TransportSelectIcon
+                  index={transportIndex}
+                  className="place-detail__transport-icon"
+                  classNamePrefix="selected-icon__"
+                />
+                <p className="place-detail__transport-detail">
+                  {place.transportDetail}
+                </p>
+              </div>
+            ) : (
+              <></>
+            )}
+
+            {place.distance ? (
+              <p className="place-detail__distance">
+                {place.distance}
+              </p>
+            ) : (
+              <></>
+            )}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   )
 }

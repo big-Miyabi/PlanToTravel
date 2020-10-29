@@ -716,12 +716,13 @@
     //ここから確認画面
     .itinerary {
         color: $navy;
+        margin-top: px-to-vw(-13);
         margin-bottom: px-to-vw(73);
 
         &__date-wrap {
             display: flex;
+            height: px-to-vw(42);
             align-items: center;
-            //margin: px-to-vw(3) 0;
         }
         &__date-border {
             height: 2px;
@@ -735,6 +736,11 @@
             font-weight: bold;
             color: $light-blue;
             flex-basis: 20%;
+        }
+        &__end-line {
+            height: 2px;
+            margin-top: px-to-vw(20);
+            background-color: $light-blue;
         }
     }
 

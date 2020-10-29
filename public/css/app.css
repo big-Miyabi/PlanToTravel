@@ -1973,11 +1973,13 @@ input:-webkit-autofill {
 
   .itinerary {
     color: #003666;
+    margin-top: -3.4666666667vw;
     margin-bottom: 19.4666666667vw;
   }
 
   .itinerary__date-wrap {
     display: flex;
+    height: 11.2vw;
     align-items: center;
   }
 
@@ -1994,6 +1996,12 @@ input:-webkit-autofill {
     font-weight: bold;
     color: #bcdbe8;
     flex-basis: 20%;
+  }
+
+  .itinerary__end-line {
+    height: 2px;
+    margin-top: 5.3333333333vw;
+    background-color: #bcdbe8;
   }
 
   .place-contents {
