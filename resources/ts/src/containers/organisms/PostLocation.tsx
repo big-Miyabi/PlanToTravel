@@ -9,16 +9,10 @@ import {
 import { RootState } from '../../reducers'
 import PostLocation from '../../components/organisms/PostLocation'
 import { Place, initialPlace } from '../../utilities/types'
+import { checkObjEqual } from '../../utilities/utilFunc'
 
 type Props = {
   history: H.History
-}
-
-const checkObjEqual = (a: Object, b: Object) => { // eslint-disable-line
-  const aJSON = JSON.stringify(Object.entries(a).sort())
-  const bJSON = JSON.stringify(Object.entries(b).sort())
-
-  return aJSON === bJSON
 }
 
 const checkItineraryIsInitial = (

@@ -117,10 +117,7 @@ const PostConfirmContainer: FC<Props> = ({ history }) => {
       is_public: isPublic,
       itinerary: itineraryInfo,
     })
-    console.log(postResult)
     const sid = postResult.result.data
-    console.log(sid)
-    console.log(headerUrl)
 
     if (!postResult.isSuccess) {
       alert('投稿に失敗しました')

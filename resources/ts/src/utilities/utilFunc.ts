@@ -16,6 +16,13 @@ export const addValueIntoInput = (
   input.value = value
 }
 
+export const checkObjEqual = (a: Object, b: Object) => { // eslint-disable-line
+  const aJSON = JSON.stringify(Object.entries(a).sort())
+  const bJSON = JSON.stringify(Object.entries(b).sort())
+
+  return aJSON === bJSON
+}
+
 // ヒュベニの公式
 export const getDistanceByHubeny = (
   lat1: number,
