@@ -20,9 +20,18 @@ const Itinerary: FC<Props> = ({ itineraryInfo }) => {
               {places[0].date}
             </p>
           </div>
-          {places.map((place, placeIndex) => (
-            <PlaceContents place={place} key={placeIndex} />
-          ))}
+          {places.map((place, placeIndex) => {
+            const isLastPlace =
+              places.length - 1 === placeIndex
+
+            return (
+              <PlaceContents
+                place={place}
+                isLastPlace={isLastPlace}
+                key={placeIndex}
+              />
+            )
+          })}
         </div>
       ))}
       <div className="itinerary__end-line"></div>
