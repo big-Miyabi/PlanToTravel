@@ -19,7 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::group(['middleware' => 'api'], function () {
   Route::post('create', 'ScheduleController@create');
-  Route::get('index', 'ScheduleController@index');
+  Route::post('index', 'ScheduleController@index');
   Route::post('show', 'ScheduleController@show');
 
   Route::post('like', 'LikeController@like');
