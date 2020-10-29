@@ -84,9 +84,12 @@ const PostLocationContainer: FC<Props> = ({ history }) => {
   const [itinerary, setItinerary] = useState<Place[][]>(
     initialItinerary
   )
+  // メモリリークを防ぐのに必要
+  const [isMounted, setIsMounted] = useState<boolean>(false)
 
   useEffect(() => {
     const setReduxItinerary = async () => {
+      if (!isMounted) return
       const isSelectorItineraryInitial = await checkItineraryIsInitial(
         selectorItinerary,
         [[initialPlace]]
@@ -97,8 +100,9 @@ const PostLocationContainer: FC<Props> = ({ history }) => {
       }
     }
 
+    setIsMounted(true)
     setReduxItinerary()
-  }, [selectorItinerary])
+  }, [selectorItinerary, isMounted])
 
   const updateItinerary = () => {
     const newItinerary = itinerary.map((v1) => {
