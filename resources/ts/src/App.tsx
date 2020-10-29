@@ -37,7 +37,7 @@ const App: FC = () => {
         component={PostScreen}
       />
       <Route
-        path="/post/:id"
+        path="/itinerary/:id"
         component={ItineraryDetailScreen}
       />
     </BrowserRouter>

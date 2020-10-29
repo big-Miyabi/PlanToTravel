@@ -104,7 +104,7 @@ const PostConfirmContainer: FC<Props> = ({ history }) => {
       })
     )
     replaceBase64ToUrl(itineraryInfo, urls)
-    const postResult = postByAxios.postItinerary({
+    const postResult = await postByAxios.postItinerary({
       uid: String(id),
       title,
       header: headerUrl,
@@ -116,12 +116,15 @@ const PostConfirmContainer: FC<Props> = ({ history }) => {
       itinerary: itineraryInfo,
     })
     console.log(postResult)
+    const sid = postResult.result.data
+    console.log(sid)
+
     setIsLoading(false)
     dispatch(setPostProgressIndex(0))
     dispatch(setPostOverview('', '', '', 1, [], false))
     dispatch(setImageSrc(''))
     dispatch(setCreatedItinerary([[initialPlace]]))
-    history.push('/home')
+    history.push(`/itinerary/${sid}`)
   }
 
   return (

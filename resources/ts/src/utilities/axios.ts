@@ -172,8 +172,7 @@ export const postByAxios: PostByAxios = {
           sid: id,
         })
         .then((res) => {
-          console.log(res.data)
-          resolve({ result: res, isSuccess: true })
+          resolve({ result: res.data, isSuccess: true })
         })
         .catch((error) => {
           console.log(error)

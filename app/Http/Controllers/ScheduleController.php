@@ -88,7 +88,7 @@ class ScheduleController extends Controller
           'transport' => $place['transport'],
           'transport_detail' => $place['transportDetail'],
           'comment' => $place['comment'],
-          'distance' => null, // 後で追加
+          'distance' => $place['distance'],
           'rating' => $place['rating'],
           'order_number' => $key + 1
         ]);
