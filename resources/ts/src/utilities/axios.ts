@@ -4,6 +4,7 @@ import {
   setLoginInfo,
 } from '../actions/login'
 import axios, { AxiosResponse } from 'axios'
+import { Place } from './types'
 /// <reference types="googlemaps" />
 type PlaceResult = google.maps.places.PlaceResult
 type DirectionsResult = google.maps.DirectionsResult
@@ -24,9 +25,27 @@ type DistanceArg = {
   mode: string
 }
 
+type ItineraryArg = {
+  uid: string
+  title: string
+  header: string
+  people: number
+  day_s: string
+  day_f: string
+  tag_name: string[]
+  is_public: boolean
+  itinerary: Place[][]
+}
+
 type PostByAxios = {
   regist: (arg: Regist) => Promise<string>
   login: (arg: Login) => Promise<string>
+  postItinerary: (
+    arg: ItineraryArg
+  ) => Promise<{
+    result: any
+    isSuccess: boolean
+  }>
 }
 
 type GoogleByAxios = {
@@ -112,6 +131,32 @@ export const postByAxios: PostByAxios = {
         })
     })
   },
+  postItinerary: (
+    arg: ItineraryArg
+  ): Promise<{ result: any; isSuccess: boolean }> => {
+    return new Promise((resolve) => {
+      axios
+        .post('/api/create', {
+          uid: arg.uid,
+          title: arg.title,
+          header: arg.header,
+          people: arg.people,
+          day_s: arg.day_s,
+          day_f: arg.day_f,
+          tag_name: arg.tag_name,
+          is_public: arg.is_public,
+          itinerary: arg.itinerary,
+        })
+        .then((res) => {
+          console.log(res)
+          resolve({ result: res, isSuccess: true })
+        })
+        .catch((error) => {
+          console.log(error)
+          resolve({ result: error, isSuccess: false })
+        })
+    })
+  },
 }
 
 export const googleByAxios: GoogleByAxios = {
@@ -177,22 +222,3 @@ export const googleByAxios: GoogleByAxios = {
     })
   },
 }
-
-// axios
-//   .post('/api/create', {
-//     uid,
-//     title,
-//     header: 'test',
-//     people,
-//     day_s: dateS,
-//     day_f: dateF,
-//     tag_name: tags,
-//     is_public: false, // 後で追加
-//     itinerary: sliced,
-//   })
-//   .then((res) => {
-//     console.log(res.data)
-//   })
-//   .catch((error) => {
-//     console.log(error)
-//   })
