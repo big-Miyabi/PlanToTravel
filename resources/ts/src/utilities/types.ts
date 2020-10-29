@@ -77,6 +77,12 @@ export type RatingIcon = {
   name: string
 }
 
+// export type GettedPlace = {
+//   comment: string | null
+//   day: string
+//   distance:
+// }
+
 export const initialTarget = {
   dateIndex: null,
   placeIndex: null,
