@@ -1,8 +1,14 @@
 import React, { FC, useState } from 'react'
 import * as H from 'history'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import {
+  setCreatedItinerary,
+  setImageSrc,
+  setPostOverview,
+  setPostProgressIndex,
+} from '../../actions/post'
 import { RootState } from '../../reducers'
-import { Place } from '../../utilities/types'
+import { initialPlace, Place } from '../../utilities/types'
 import { postFirebaseStorage } from '../../utilities/postFirebaseStorage'
 import { postByAxios } from '../../utilities/axios'
 import PostConfirm from '../../components/organisms/PostConfirm'
@@ -69,6 +75,7 @@ const replaceBase64ToUrl = (
 }
 
 const PostConfirmContainer: FC<Props> = ({ history }) => {
+  const dispatch = useDispatch()
   const {
     itinerary: itineraryInfo,
     src: header,
@@ -110,6 +117,11 @@ const PostConfirmContainer: FC<Props> = ({ history }) => {
     })
     console.log(postResult)
     setIsLoading(false)
+    dispatch(setPostProgressIndex(0))
+    dispatch(setPostOverview('', '', '', 1, [], false))
+    dispatch(setImageSrc(''))
+    dispatch(setCreatedItinerary([[initialPlace]]))
+    history.push('/home')
   }
 
   return (

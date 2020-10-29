@@ -14,6 +14,43 @@ type Props = {
   history: H.History
 }
 
+const checkObjEqual = (a: Object, b: Object) => { // eslint-disable-line
+  const aJSON = JSON.stringify(Object.entries(a).sort())
+  const bJSON = JSON.stringify(Object.entries(b).sort())
+
+  return aJSON === bJSON
+}
+
+const checkItineraryIsInitial = (
+  obj1: Place[][],
+  obj2: Place[][]
+): Promise<boolean> => {
+  return new Promise((resolve) => {
+    if (obj1.length !== obj2.length) resolve(false)
+
+    obj1.forEach((places1, dateIndex) => {
+      const places2 = obj2[dateIndex]
+      if (places1.length !== places2.length) resolve(false)
+
+      places1.forEach((place1, placeIndex) => {
+        const place2 = places2[placeIndex]
+        if (!checkObjEqual(place1, place2)) resolve(false)
+
+        const location1 = place1.location
+        const location2 = place2.location
+        if (
+          location1 &&
+          location2 &&
+          !checkObjEqual(location1, location2)
+        ) {
+          resolve(false)
+        }
+      })
+    })
+    resolve(true)
+  })
+}
+
 const useValidate = (
   validate: () => { error: string },
   itinerary: Place[][]
@@ -49,7 +86,18 @@ const PostLocationContainer: FC<Props> = ({ history }) => {
   )
 
   useEffect(() => {
-    setItinerary(selectorItinerary.slice())
+    const setReduxItinerary = async () => {
+      const isSelectorItineraryInitial = await checkItineraryIsInitial(
+        selectorItinerary,
+        [[initialPlace]]
+      )
+
+      if (!isSelectorItineraryInitial) {
+        setItinerary(selectorItinerary.slice())
+      }
+    }
+
+    setReduxItinerary()
   }, [selectorItinerary])
 
   const updateItinerary = () => {
