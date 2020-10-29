@@ -1,4 +1,5 @@
 import React, { FC, useEffect } from 'react'
+import { GettedPlace } from '../../utilities/types'
 import { postByAxios } from '../../utilities/axios'
 import ItineraryDetail from '../../components/screens/ItineraryDetailScreen'
 import { RouteComponentProps } from 'react-router'

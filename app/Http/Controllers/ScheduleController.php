@@ -27,7 +27,7 @@ class ScheduleController extends Controller
     $params = $request->validate([
       'uid' => 'required|exists:users,id',
       'title' => 'required|string|max:63',
-      'header' => 'required',
+      'header' => 'present',
       'people' => 'required|max:2000',
       'day_s' => 'required|date',
       'day_f' => 'required|date',
