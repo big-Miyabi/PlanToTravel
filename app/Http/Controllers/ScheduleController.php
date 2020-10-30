@@ -151,7 +151,7 @@ class ScheduleController extends Controller
       foreach ($schedule->schedules_tags  as $tagKey => $st) {
         foreach ($tags as $tag) {
           if ($st->tag_id == $tag->id) {
-            $tagBox[$tagKey] = [$tag->tag_name];
+            $tagBox[$tagKey] = $tag->tag_name;
           }
         }
       }
