@@ -7,7 +7,7 @@
         &__tab-wrap {
             display: flex;
             width: 100%;
-            margin-top: px-to-vw(5);
+            margin-top: px-to-vw(2);
             justify-content: space-evenly;
             align-items: center;
         }
@@ -22,6 +22,7 @@
             &--heart {
                 @extend %__tab;
                 display: flex;
+                margin-top: px-to-vw(4);
                 color: $orange;
                 flex-direction: column;
                 justify-content: center;
@@ -46,6 +47,10 @@
             &--bookmark {
                 font-size: 2.4rem;
             }
+            &--edit {
+                width: 24px;
+                height: 24px;
+            }
         }
         &__border {
             width: 0.5px;
@@ -62,6 +67,29 @@
         &__content-wrap {
             width: px-to-vw(290);
             margin: px-to-vw(40) auto;
+        }
+        %__fixed-wrap {
+            position: fixed;
+            display: flex;
+            right: px-to-vw(21);
+            bottom: px-to-vh(37);
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background-color: $white;
+            justify-content: center;
+            align-items: center;
+        }
+        &__fixed-wrap {
+            &--edit {
+                @extend %__fixed-wrap;
+                border: solid 2px $light-blue;
+            }
+            &--heart {
+                @extend %__fixed-wrap;
+                border: solid 2px $orange;
+                color: $orange;
+            }
         }
     }
 }
