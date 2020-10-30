@@ -1,0 +1,48 @@
+@import "variables";
+@import "function";
+
+// @include md-down()内部にstyleを記述すると、スマートフォンサイズでメディアクエリがかかるようになる
+@include md-down() {
+    .itinerary-detail {
+        &__tab-wrap {
+            display: flex;
+            width: 100%;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        &__content-wrap {
+            width: px-to-vw(290);
+            margin: px-to-vw(40) auto;
+        }
+        %__tab {
+            padding: 0 px-to-vw(40);
+            font-size: 2.4rem;
+        }
+        &__tab {
+            &--share {
+                @extend %__tab;
+                color: $light-gray;
+            }
+            &--heart {
+                @extend %__tab;
+                color: $orange;
+            }
+            &--bookmark {
+                @extend %__tab;
+                color: $mystic;
+            }
+        }
+        &__border {
+            width: 0.5px;
+            height: px-to-vw(26);
+            background-color: $light-gray;
+        }
+
+        &__h2 {
+            margin: 0;
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: $navy;
+        }
+    }
+}

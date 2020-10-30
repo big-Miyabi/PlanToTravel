@@ -1,9 +1,16 @@
 import React, { FC } from 'react'
+import { Place } from '../../utilities/types'
 import Header from '../../containers/organisms/Header'
 import Menu from '../../components/organisms/Menu'
 import ItineraryFirstView from '../molecules/ItineraryFirstView'
-import { Place } from '../../utilities/types'
 import Itinerary from '../organisms/Itinerary'
+import FontAwesomeIconBtn from '../atoms/FontAwesomeIconBtn'
+import {
+  faShareSquare,
+  faHeart as tintedHeart,
+  faBookmark,
+} from '@fortawesome/free-solid-svg-icons'
+import { faHeart as outlineHeart } from '@fortawesome/free-regular-svg-icons'
 
 type Props = {
   itinerary: Place[][] | null
@@ -45,7 +52,28 @@ const ItineraryDetailScreen: FC<Props> = ({
             people={people}
             tags={tags}
           />
-          <div className="itinerary-detail__tab"></div>
+          <div className="itinerary-detail__tab-wrap">
+            <div className="itinerary-detail__tab--share">
+              <FontAwesomeIconBtn
+                className="itinerary-detail__icon--share"
+                icon={faShareSquare}
+              />
+            </div>
+            <div className="itinerary-detail__border"></div>
+            <div className="itinerary-detail__tab--heart">
+              <FontAwesomeIconBtn
+                className="itinerary-detail__icon--heart"
+                icon={outlineHeart}
+              />
+            </div>
+            <div className="itinerary-detail__border"></div>
+            <div className="itinerary-detail__tab--bookmark">
+              <FontAwesomeIconBtn
+                className="itinerary-detail__icon--bookmark"
+                icon={faBookmark}
+              />
+            </div>
+          </div>
 
           <div className="itinerary-detail__content-wrap">
             <h2 className="itinerary-detail__h2">行程</h2>
