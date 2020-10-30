@@ -961,16 +961,6 @@ input:-webkit-autofill {
     content: "";
   }
 
-  .popular-card__white-bg-wrap {
-    z-index: 1;
-    position: absolute;
-  }
-
-  .popular-card__white-bg {
-    width: 92.5333333333vw;
-    height: 51.4666666667vw;
-  }
-
   .popular-card__go-to {
     position: relative;
     z-index: 1;
@@ -1004,19 +994,28 @@ input:-webkit-autofill {
     justify-content: space-between;
   }
 
-  .popular-card__bookmark {
+  .popular-card .new-card__bookmark--none,
+  .popular-card .new-card__bookmark--added,
+  .popular-card .popular-card__bookmark--none,
+  .popular-card .popular-card__bookmark--added {
     position: relative;
     top: -0.3694581281vh;
     font-size: 3.1rem;
-    color: rgba(0, 54, 102, 0.1);
   }
 
-  .popular-card__bookmark:hover {
+  .popular-card .new-card__bookmark--none:focus,
+  .popular-card .new-card__bookmark--added:focus,
+  .popular-card .popular-card__bookmark--none:focus,
+  .popular-card .popular-card__bookmark--added:focus {
+    outline: none;
+  }
+
+  .popular-card__bookmark--added {
     color: #003666;
   }
 
-  .popular-card__bookmark:focus {
-    outline: none;
+  .popular-card__bookmark--none {
+    color: rgba(0, 54, 102, 0.1);
   }
 
   .popular-card__favorite {
@@ -1144,7 +1143,6 @@ input:-webkit-autofill {
   }
 
   .new-card__itinerary-wrap {
-    z-index: 2;
     position: relative;
     top: 4.5333333333vw;
     left: 0;
@@ -1172,12 +1170,32 @@ input:-webkit-autofill {
     color: rgba(0, 54, 102, 0.1);
   }
 
-  .new-card__bookmark:hover {
+  .new-card__bookmark:focus {
+    outline: none;
+  }
+
+  .new-card .new-card__bookmark--none,
+  .new-card .new-card__bookmark--added,
+  .new-card .popular-card__bookmark--added,
+  .new-card .popular-card__bookmark--none {
+    position: relative;
+    top: -0.3694581281vh;
+    font-size: 3.1rem;
+  }
+
+  .new-card .new-card__bookmark--none:focus,
+  .new-card .new-card__bookmark--added:focus,
+  .new-card .popular-card__bookmark--added:focus,
+  .new-card .popular-card__bookmark--none:focus {
+    outline: none;
+  }
+
+  .new-card__bookmark--added {
     color: #003666;
   }
 
-  .new-card__bookmark:focus {
-    outline: none;
+  .new-card__bookmark--none {
+    color: rgba(0, 54, 102, 0.1);
   }
 
   .new-card__favorite {

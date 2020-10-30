@@ -1,9 +1,5 @@
 import React, { FC, useState, useEffect } from 'react'
-import {
-  ItineraryByLaravel,
-  Place,
-  ScheduleInfo,
-} from '../../utilities/types'
+import { Place } from '../../utilities/types'
 import { postByAxios } from '../../utilities/axios'
 import { convertItinerary } from '../../utilities/utilFunc'
 import ItineraryDetailScreen from '../../components/screens/ItineraryDetailScreen'

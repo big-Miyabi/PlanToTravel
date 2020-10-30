@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import PopularCard from '../../containers/molecules/PopularCard'
+import Card from '../../containers/molecules/Card'
 import { PostCardType } from '../../utilities/types'
 
 type Props = {
@@ -13,7 +13,8 @@ const PopularPosts: FC<Props> = ({ posts }) => {
       {posts ? (
         <>
           {posts.map((post, index) => (
-            <PopularCard
+            <Card
+              isNew={false}
               post={post}
               key={index}
               gradientId={`popular_post_${index}`}
