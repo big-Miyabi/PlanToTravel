@@ -37,12 +37,7 @@ const PopularCard: FC<Props> = ({
   }
 
   return (
-    <div
-      className="popular-card"
-      onClick={() => {
-        console.log('bar')
-      }}
-    >
+    <div className="popular-card">
       <div className="popular-card__wrap" style={bgStyle}>
         <div style={goTostyle}>
           <GoToLogo className="popular-card__go-to" />

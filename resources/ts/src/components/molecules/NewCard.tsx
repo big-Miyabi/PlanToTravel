@@ -11,9 +11,22 @@ import { PostCardType } from '../../utilities/types'
 type Props = {
   post: PostCardType
   gradientId: string
+  likes: number
+  isMeLover: boolean
+  onClickHeart: () => void
+  isMeBookmarked: boolean
+  onClickBookmark: () => void
 }
 
-const NewCard: FC<Props> = ({ post, gradientId }) => {
+const NewCard: FC<Props> = ({
+  post,
+  gradientId,
+  likes,
+  isMeLover,
+  onClickHeart,
+  isMeBookmarked,
+  onClickBookmark,
+}) => {
   const goTostyle = post.hasGoTo ? {} : { display: 'none' }
   const url = post.header
     ? post.header
@@ -38,12 +51,27 @@ const NewCard: FC<Props> = ({ post, gradientId }) => {
             gradientId={gradientId}
           />
         </div>
-        <div className="new-card__icon-wrap">
+        <div
+          className="new-card__icon-wrap"
+          onClick={(e) => {
+            e.stopPropagation()
+            onClickBookmark()
+          }}
+        >
           <FontAwesomeIconBtn
-            className="new-card__bookmark"
+            className={
+              'new-card__bookmark' +
+              (isMeBookmarked ? '--added' : '--none')
+            }
             icon={faBookmark}
           />
-          <div className="new-card__favorite">
+          <div
+            className="new-card__favorite"
+            onClick={(e) => {
+              e.stopPropagation()
+              onClickHeart()
+            }}
+          >
             <FontAwesomeIconBtn
               className="new-card__favorite-btn"
               icon={faHeart}

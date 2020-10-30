@@ -276,6 +276,25 @@
             }
         }
 
+        %__bookmark {
+            position: relative;
+            top: px-to-vh(-3);
+            font-size: 3.1rem;
+            &:focus {
+                outline: none;
+            }
+        }
+        &__bookmark {
+            &--added {
+                @extend %__bookmark;
+                color: $navy;
+            }
+            &--none {
+                @extend %__bookmark;
+                color: rgba(0, 54, 102, 0.1);
+            }
+        }
+
         &__favorite {
             position: relative;
             bottom: px-to-vh(-7);
