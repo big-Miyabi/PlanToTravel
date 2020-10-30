@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import * as H from 'history'
 import GoToLogo from '../atoms/svg/GoToLogo'
 import FontAwesomeIconBtn from '../atoms/FontAwesomeIconBtn'
 import ItineraryInCard from '../molecules/ItineraryInCard'
@@ -17,6 +18,7 @@ type Props = {
   onClickHeart: () => void
   isMeBookmarked: boolean
   onClickBookmark: () => void
+  history: H.History
 }
 
 const NewCard: FC<Props> = ({
@@ -27,6 +29,7 @@ const NewCard: FC<Props> = ({
   onClickHeart,
   isMeBookmarked,
   onClickBookmark,
+  history,
 }) => {
   const goTostyle = post.hasGoTo ? {} : { display: 'none' }
   const url = post.header
@@ -37,11 +40,17 @@ const NewCard: FC<Props> = ({
   }
 
   return (
-    <div className="new-card">
+    <div
+      className="new-card"
+      onClick={() => {
+        history.push(`/itinerary/${post.id}`)
+      }}
+    >
       <div
         className="new-card__go-to-wrap"
         style={goTostyle}
       >
+        ]
         <GoToLogo className="new-card__go-to" />
       </div>
       <div className="new-card__wrap" style={bgStyle}>
