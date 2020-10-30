@@ -16,8 +16,8 @@ const HomeScreen: FC<Props> = (props) => {
     <div className="home-screen">
       <Header />
       <Menu />
-      <PopularPosts />
-      <NewPosts />
+      <PopularPosts history={props.history} />
+      <NewPosts history={props.history} />
       <MapIcon
         className="home-screen__map-icon"
         color={colors.yellow}

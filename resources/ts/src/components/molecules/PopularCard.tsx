@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import * as H from 'history'
 import GoToLogo from '../atoms/svg/GoToLogo'
 import FontAwesomeIconBtn from '../atoms/FontAwesomeIconBtn'
 import ItineraryInCard from '../molecules/ItineraryInCard'
@@ -17,6 +18,7 @@ type Props = {
   onClickHeart: () => void
   isMeBookmarked: boolean
   onClickBookmark: () => void
+  history: H.History
 }
 
 const PopularCard: FC<Props> = ({
@@ -27,6 +29,7 @@ const PopularCard: FC<Props> = ({
   onClickHeart,
   isMeBookmarked,
   onClickBookmark,
+  history,
 }) => {
   const goTostyle = post.hasGoTo ? {} : { display: 'none' }
   const url = post.header
@@ -37,7 +40,12 @@ const PopularCard: FC<Props> = ({
   }
 
   return (
-    <div className="popular-card">
+    <div
+      className="popular-card"
+      onClick={() => {
+        history.push(`/itinerary/${post.id}`)
+      }}
+    >
       <div className="popular-card__wrap" style={bgStyle}>
         <div style={goTostyle}>
           <GoToLogo className="popular-card__go-to" />

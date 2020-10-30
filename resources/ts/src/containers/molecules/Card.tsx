@@ -1,4 +1,5 @@
 import React, { FC, useState } from 'react'
+import * as H from 'history'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../reducers'
 import { postByAxios } from '../../utilities/axios'
@@ -10,12 +11,14 @@ type Props = {
   isNew: boolean
   post: PostCardType
   gradientId: string
+  history: H.History
 }
 
 const PopularCardContainer: FC<Props> = ({
   isNew,
   post,
   gradientId,
+  history,
 }) => {
   const myUid = useSelector(
     (state: RootState) => state.loginReducer.id
@@ -57,6 +60,7 @@ const PopularCardContainer: FC<Props> = ({
           likes={likes}
           onClickHeart={onClickHeart}
           onClickBookmark={onClickBookmark}
+          history={history}
         />
       ) : (
         <PopularCard
@@ -67,6 +71,7 @@ const PopularCardContainer: FC<Props> = ({
           likes={likes}
           onClickHeart={onClickHeart}
           onClickBookmark={onClickBookmark}
+          history={history}
         />
       )}
     </>
