@@ -191,7 +191,6 @@ export const convertToPostCard = (
     ],
   }
   const initializedArray: PostCardType[] = [
-    // ∵ カード型で必要な場所の最大数は4
     ...Array(itinerary.length),
   ].map(() => initialPostCard)
 
@@ -204,9 +203,10 @@ export const convertToPostCard = (
       hasGoTo: value.tags.includes('GoToトラベル'),
       likes: value.likeCounts,
       isLiked: value.is_liked,
-      isBookmarked: value.is_liked,
+      isBookmarked: value.is_bookmark,
       itinerary: convertToCardItinerary(value.places),
     }
+
     initializedArray[index] = postCardInfo
   })
   const filteredArray: PostCardType[] = initializedArray.filter(
