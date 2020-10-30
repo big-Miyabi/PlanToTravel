@@ -165,7 +165,6 @@ const convertToCardItinerary = (
 
   const filteredArray = initializedArray.filter((value) => {
     const result = checkObjEqual(value, initialValue)
-    console.log(result)
 
     return !result
   })
@@ -213,8 +212,6 @@ export const convertToPostCard = (
       return !result
     }
   )
-
-  console.log(filteredArray)
 
   return filteredArray
 }

@@ -25,21 +25,27 @@ const NewPosts: FC<Props> = ({ posts }) => {
     <div className="new-posts">
       <p className="new-posts__title">新着の投稿</p>
 
-      {rowPosts.map((rowPost, rowKey) => (
-        <div className="new-posts__row" key={rowKey}>
-          {rowPost.map((post, cardKey) => {
-            const id = rowKey * 2 + cardKey
+      {posts.length ? (
+        <>
+          {rowPosts.map((rowPost, rowKey) => (
+            <div className="new-posts__row" key={rowKey}>
+              {rowPost.map((post, cardKey) => {
+                const id = rowKey * 2 + cardKey
 
-            return (
-              <NewCard
-                post={post}
-                key={cardKey}
-                gradientId={`new_post_${id}`}
-              />
-            )
-          })}
-        </div>
-      ))}
+                return (
+                  <NewCard
+                    post={post}
+                    key={cardKey}
+                    gradientId={`new_post_${id}`}
+                  />
+                )
+              })}
+            </div>
+          ))}
+        </>
+      ) : (
+        <></>
+      )}
     </div>
   )
 }

@@ -122,7 +122,9 @@ class ScheduleController extends Controller
     $descName =  $request->descName;
     $skip =  $request->skip;
     $limit =  $request->limit;
-    $schedules =  $descName === 'created_at' ? Schedule::orderBy($descName, 'desc')->where('is_public', 0)->get() : Schedule::withCount($descName)->orderBy($descName . '_count', 'desc')->where('is_public', 0)->skip($skip)->limit($limit)->get();
+    $schedules =  $descName === 'created_at' ?
+      Schedule::orderBy($descName, 'desc')->where('is_public', 0)->skip($skip)->limit($limit)->get() :
+      Schedule::withCount($descName)->orderBy($descName . '_count', 'desc')->where('is_public', 0)->skip($skip)->limit($limit)->get();
     $tags = Tag::orderBy('created_at', 'desc')->get();
     $places = Place::orderBy('created_at', 'desc')->get();
     $likes = Like::orderBy('created_at', 'desc')->get();
