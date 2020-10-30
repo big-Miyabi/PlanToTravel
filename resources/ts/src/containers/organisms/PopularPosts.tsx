@@ -88,6 +88,7 @@ const PopularPostsContainer: FC = () => {
         uid: String(myUid),
         skip: 0,
         limit: 17,
+        descName: 'created_at',
       })
       console.log(result)
     }
