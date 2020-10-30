@@ -1,3 +1,10 @@
+import {
+  ItineraryByLaravel,
+  Place,
+  initialPlace,
+} from './types'
+import moment from 'moment'
+
 export const getClassName = (
   arg: { common: string; unique: string },
   modifier: string
@@ -72,4 +79,61 @@ export const getDistanceByHubeny = (
   return distanceM >= 1000
     ? `直線距離 ${distanceKm} km`
     : `直線距離 ${Math.floor(distanceM)} m`
+}
+
+// Controllerから取得してきた行程表データを、フロントで表示するための形式に置き換える
+export const convertItinerary = (
+  itinerary: ItineraryByLaravel[],
+  dateS: string,
+  dateF: string
+): Place[][] => {
+  moment.locale('ja')
+  const momentS = moment(dateS)
+  const momentF = moment(dateF)
+  const dateDiff = momentF.diff(momentS, 'days') + 1
+  const initializedArray: Place[][] = [
+    ...Array(dateDiff),
+  ].map(
+    // ∵ 場所は一つの日付につき最大14個
+    () => [...Array(14)].map(() => initialPlace)
+  )
+  itinerary.forEach((value) => {
+    const momentDay = moment(value.day)
+    const dateIndex = Math.abs(
+      momentS.diff(momentDay, 'days')
+    )
+    const replacedDate = value.day.replace(/-/g, '.')
+    const placeValue: Place = {
+      date: replacedDate,
+      name: value.placename,
+      location: {
+        lat: value.latitude,
+        lng: value.longitude,
+      },
+      weather: value.weather,
+      rating: value.rating,
+      image: value.img,
+      comment: value.comment ? value.comment : '',
+      transport: value.transport,
+      transportDetail: value.transportD
+        ? value.transportD
+        : '',
+      distance: value.distance ? value.distance : '',
+    }
+
+    initializedArray[dateIndex][
+      value.ordernumber - 1
+    ] = placeValue
+  })
+
+  initializedArray.forEach((places, index) => {
+    initializedArray[index] = places.filter((place) => {
+      const result = checkObjEqual(place, initialPlace)
+
+      return !result
+    })
+  })
+  initializedArray.filter((v) => v)
+
+  return initializedArray
 }
