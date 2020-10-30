@@ -7,6 +7,7 @@ import PostOverview from '../../containers/organisms/PostOverview'
 import PostLocation from '../../containers/organisms/PostLocation'
 import MapScreen from '../../containers/screens/MapScreen'
 import PostConfirm from '../../containers/organisms/PostConfirm'
+import PostImage from '../../containers/molecules/PostImage'
 
 type Props = {
   pageIndex: number
@@ -25,7 +26,8 @@ const PostScreen: FC<Props> = ({
 
   return (
     <div className="post-screen">
-      <Header isPost={false} />
+      <Header isPost={true} />
+      <PostImage />
       <Menu />
       <ProgressBar
         className="post-screen__progress-map"

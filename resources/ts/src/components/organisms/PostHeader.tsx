@@ -4,7 +4,6 @@ import { colors } from '../../utilities/colors'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import NaviIcon from '../atoms/svg/NaviIcon'
 import FontAwesomeIconBtn from '../atoms/FontAwesomeIconBtn'
-import PostImage from '../../containers/molecules/PostImage'
 
 type Props = {
   isMenuActive: boolean
@@ -31,7 +30,6 @@ const Header: FC<Props> = ({ ...props }) => {
           />
         </Link>
       </div>
-      <PostImage />
     </div>
   )
 }
