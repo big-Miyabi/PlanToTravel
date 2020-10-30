@@ -71,6 +71,7 @@ type PostByAxios = {
     uid: string
     skip: number
     limit: number
+    descName: 'created_at' | 'likes'
   }) => Promise<{
     result: GettedItineraryDetail[]
     isSuccess: boolean
@@ -256,6 +257,7 @@ export const postByAxios: PostByAxios = {
     uid: string
     skip: number
     limit: number
+    descName: 'created_at' | 'likes'
   }): Promise<{
     result: GettedItineraryDetail[]
     isSuccess: boolean
@@ -266,6 +268,7 @@ export const postByAxios: PostByAxios = {
           uid: arg.uid,
           skip: arg.skip,
           limit: arg.limit,
+          descName: arg.descName,
         })
         .then((res) => {
           resolve({ result: res.data, isSuccess: true })

@@ -118,9 +118,11 @@ class ScheduleController extends Controller
     $likeUid = false;
     $bookmarkUid = false;
     //テーブルの値を取得
-    $skip = $request->skip;
-    $limit = $request->limit;
-    $schedules = Schedule::orderBy('created_at', 'desc')->where('is_public', 0)->skip($skip)->limit($limit)->get();
+    // $schedules = Schedule::withCount('likes')->orderBy('likes_count', 'desc')->where('is_public', 0)->get();
+    $descName =  $request->descName;
+    $skip =  $request->skip;
+    $limit =  $request->limit;
+    $schedules =  $descName === 'created_at' ? Schedule::orderBy($descName, 'desc')->where('is_public', 0)->get() : Schedule::withCount($descName)->orderBy($descName . '_count', 'desc')->where('is_public', 0)->skip($skip)->limit($limit)->get();
     $tags = Tag::orderBy('created_at', 'desc')->get();
     $places = Place::orderBy('created_at', 'desc')->get();
     $likes = Like::orderBy('created_at', 'desc')->get();
@@ -150,7 +152,7 @@ class ScheduleController extends Controller
       foreach ($schedule->schedules_tags  as $tagKey => $st) {
         foreach ($tags as $tag) {
           if ($st->tag_id == $tag->id) {
-            $tagBox[$tagKey] = ['tagname' => $tag->tag_name];
+            $tagBox[$tagKey] = [$tag->tag_name];
           }
         }
       }
@@ -187,9 +189,11 @@ class ScheduleController extends Controller
           }
         }
       }
+      //初期化
+      $likeCount = 0;
+      //いいねの数の取得
       $post = Schedule::findOrFail($schedule->id);
       $likeCount = $post->likes()->count();
-      //いいねの数の取得
       foreach ($likes as  $likeKye => $like) {
         if ($like->schedule_id == $schedule->id) {
           if ($like->uid == $request->uid) {
@@ -204,7 +208,8 @@ class ScheduleController extends Controller
           }
         }
       }
-      $posts[$key] = ['schedule' => $texts, 'tags' => $tagBox, "places" => $placeBox, 'likeCounter' => $likeCount, 'is_liked' => $likeUid, 'is_bookmark' => $bookmarkUid];
+      $user = User::find($schedule->uid);
+      $posts[$key] = ['schedule' => $texts, 'tags' => $tagBox, "places" => $placeBox, 'likeCounter' => $likeCount, 'is_liked' => $likeUid, 'is_bookmark' => $bookmarkUid, 'userIcon' => $user->icon, 'userName' => $user->username];
     }
     //値を返す
     return $posts;
