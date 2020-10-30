@@ -2234,20 +2234,15 @@ input:-webkit-autofill {
   .itinerary-detail__tab-wrap {
     display: flex;
     width: 100%;
+    margin-top: 1.3333333333vw;
     justify-content: space-evenly;
     align-items: center;
-  }
-
-  .itinerary-detail__content-wrap {
-    width: 77.3333333333vw;
-    margin: 10.6666666667vw auto;
   }
 
   .itinerary-detail .itinerary-detail__tab--bookmark,
   .itinerary-detail .itinerary-detail__tab--heart,
   .itinerary-detail .itinerary-detail__tab--share {
     padding: 0 10.6666666667vw;
-    font-size: 2.4rem;
   }
 
   .itinerary-detail__tab--share {
@@ -2255,11 +2250,26 @@ input:-webkit-autofill {
   }
 
   .itinerary-detail__tab--heart {
+    display: flex;
     color: #ff6633;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 
   .itinerary-detail__tab--bookmark {
     color: #d9e1e8;
+  }
+
+  .itinerary-detail__likes {
+    margin-bottom: 0;
+    font-size: 1rem;
+  }
+
+  .itinerary-detail__icon--share,
+  .itinerary-detail__icon--heart,
+  .itinerary-detail__icon--bookmark {
+    font-size: 2.4rem;
   }
 
   .itinerary-detail__border {
@@ -2273,6 +2283,11 @@ input:-webkit-autofill {
     font-size: 1.4rem;
     font-weight: bold;
     color: #003666;
+  }
+
+  .itinerary-detail__content-wrap {
+    width: 77.3333333333vw;
+    margin: 10.6666666667vw auto;
   }
 }
 

@@ -22,6 +22,9 @@ type Props = {
   dateF: string
   people: number
   tags: string[]
+  likes: number
+  isMeLover: boolean
+  isMeBookmarked: boolean
 }
 
 const ItineraryDetailScreen: FC<Props> = ({
@@ -34,6 +37,9 @@ const ItineraryDetailScreen: FC<Props> = ({
   dateF,
   people,
   tags,
+  likes,
+  isMeLover,
+  isMeBookmarked,
 }) => {
   return (
     <div className="itinerary-detail">
@@ -65,6 +71,9 @@ const ItineraryDetailScreen: FC<Props> = ({
                 className="itinerary-detail__icon--heart"
                 icon={outlineHeart}
               />
+              <p className="itinerary-detail__likes">
+                {likes}
+              </p>
             </div>
             <div className="itinerary-detail__border"></div>
             <div className="itinerary-detail__tab--bookmark">
