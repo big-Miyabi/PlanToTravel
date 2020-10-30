@@ -52,20 +52,22 @@ const PopularCard: FC<Props> = ({
             />
           </div>
 
-          <div
-            className="popular-card__icon-wrap"
-            onClick={(e) => {
-              e.stopPropagation()
-              onClickBookmark()
-            }}
-          >
-            <FontAwesomeIconBtn
-              className={
-                'popular-card__bookmark' +
-                (isMeBookmarked ? '--added' : '--none')
-              }
-              icon={faBookmark}
-            />
+          <div className="popular-card__icon-wrap">
+            <div
+              className="popular-card__bookmark-wrap"
+              onClick={(e) => {
+                e.stopPropagation()
+                onClickBookmark()
+              }}
+            >
+              <FontAwesomeIconBtn
+                className={
+                  'popular-card__bookmark' +
+                  (isMeBookmarked ? '--added' : '--none')
+                }
+                icon={faBookmark}
+              />
+            </div>
             <div
               className="popular-card__favorite"
               onClick={(e) => {
