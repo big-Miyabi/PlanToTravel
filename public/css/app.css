@@ -2239,7 +2239,8 @@ input:-webkit-autofill {
     align-items: center;
   }
 
-  .itinerary-detail .itinerary-detail__tab--bookmark,
+  .itinerary-detail .itinerary-detail__tab--bookmarked,
+  .itinerary-detail .itinerary-detail__tab--non-bookmarked,
   .itinerary-detail .itinerary-detail__tab--heart,
   .itinerary-detail .itinerary-detail__tab--share {
     padding: 0 10.6666666667vw;
@@ -2257,8 +2258,12 @@ input:-webkit-autofill {
     align-items: center;
   }
 
-  .itinerary-detail__tab--bookmark {
+  .itinerary-detail__tab--non-bookmarked {
     color: #d9e1e8;
+  }
+
+  .itinerary-detail__tab--bookmarked {
+    color: #003666;
   }
 
   .itinerary-detail__likes {
