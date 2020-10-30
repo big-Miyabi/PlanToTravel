@@ -2,6 +2,8 @@ import {
   ItineraryByLaravel,
   Place,
   initialPlace,
+  PostCardType,
+  ItineraryCardType,
 } from './types'
 import moment from 'moment'
 
@@ -136,4 +138,37 @@ export const convertItinerary = (
   initializedArray.filter((v) => v)
 
   return initializedArray
+}
+
+// Controllerから取得してきた行程表データを、フロントでカード型で表示するための形式に置き換える
+export const convertToCardItinerary = (
+  itinerary: ItineraryByLaravel[]
+): ItineraryCardType[] => {
+  const initialValue: ItineraryCardType = {
+    weather: 'sun',
+    place: '',
+  }
+  const initializedArray: ItineraryCardType[] = [
+    // ∵ カード型で必要な場所の最大数は4
+    ...Array(4),
+  ].map(() => initialValue)
+
+  itinerary.some((value, index) => {
+    const cardValue: ItineraryCardType = {
+      place: value.placename,
+      weather: value.weather,
+    }
+    initializedArray[index] = cardValue
+    if (index === 3) return true
+  })
+
+  const filteredArray = initializedArray.filter((value) => {
+    const result = checkObjEqual(value, initialValue)
+    console.log(result)
+
+    return !result
+  })
+  console.log(filteredArray)
+
+  return filteredArray
 }

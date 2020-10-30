@@ -227,11 +227,12 @@
         }
         &__date-wrap {
             display: flex;
-            flex-direction: row;
             margin-top: px-to-vw(9);
+            flex-direction: row;
         }
         &__date {
             width: px-to-vw(141);
+            background-color: $white;
         }
         &__datebar {
             margin: auto px-to-vw(2);

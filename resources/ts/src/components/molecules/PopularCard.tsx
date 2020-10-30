@@ -46,7 +46,7 @@ const PopularCard: FC<Props> = ({ post, gradientId }) => {
                 icon={faHeart}
               />
               <p className="popular-card__favorite-number">
-                {post.favNum}
+                {post.likes}
               </p>
             </div>
           </div>

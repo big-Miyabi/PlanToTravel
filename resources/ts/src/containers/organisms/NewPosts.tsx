@@ -9,7 +9,7 @@ const NewPostsContainer: FC = () => {
       id: 2000,
       header: '../images/listimg_sampleBg1.png',
       hasGoTo: true,
-      favNum: 123,
+      likes: 123,
       itinerary: [
         {
           weather: 'sun',
@@ -33,7 +33,7 @@ const NewPostsContainer: FC = () => {
       id: 2001,
       header: '../images/post_defaultPho.png',
       hasGoTo: false,
-      favNum: 100,
+      likes: 100,
       itinerary: [
         {
           weather: 'night',
@@ -53,7 +53,7 @@ const NewPostsContainer: FC = () => {
       id: 2002,
       header: '../images/post_ninki_sample2.png',
       hasGoTo: true,
-      favNum: 98,
+      likes: 98,
       itinerary: [
         {
           weather: 'snow',
@@ -77,7 +77,7 @@ const NewPostsContainer: FC = () => {
       id: 2003,
       header: '../images/post_ninki_sample1.png',
       hasGoTo: true,
-      favNum: 123,
+      likes: 123,
       itinerary: [
         {
           weather: 'rain',
@@ -93,7 +93,7 @@ const NewPostsContainer: FC = () => {
       id: 2004,
       header: '../images/post_defaultPho.png',
       hasGoTo: false,
-      favNum: 100,
+      likes: 100,
       itinerary: [
         {
           weather: 'snow',
@@ -117,7 +117,7 @@ const NewPostsContainer: FC = () => {
       id: 2005,
       header: '../images/post_ninki_sample2.png',
       hasGoTo: true,
-      favNum: 98,
+      likes: 98,
       itinerary: [
         {
           weather: 'sun',

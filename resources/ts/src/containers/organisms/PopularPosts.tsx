@@ -4,6 +4,7 @@ import PopularPosts from '../../components/organisms/PopularPosts'
 import { RootState } from '../../reducers'
 import { postByAxios } from '../../utilities/axios'
 import { PostCardType } from '../../utilities/types'
+import { convertToCardItinerary } from '../../utilities/utilFunc'
 
 const PopularPostsContainer: FC = () => {
   // テスト用
@@ -12,7 +13,7 @@ const PopularPostsContainer: FC = () => {
       id: 1000,
       header: '../images/post_ninki_sample1.png',
       hasGoTo: true,
-      favNum: 123,
+      likes: 123,
       itinerary: [
         {
           weather: 'sun',
@@ -36,7 +37,7 @@ const PopularPostsContainer: FC = () => {
       id: 1001,
       header: '../images/post_defaultPho.png',
       hasGoTo: true,
-      favNum: 100,
+      likes: 100,
       itinerary: [
         {
           weather: 'sun',
@@ -56,7 +57,7 @@ const PopularPostsContainer: FC = () => {
       id: 1002,
       header: '../images/post_ninki_sample2.png',
       hasGoTo: false,
-      favNum: 98,
+      likes: 98,
       itinerary: [
         {
           weather: 'sun',
@@ -84,13 +85,16 @@ const PopularPostsContainer: FC = () => {
 
   useEffect(() => {
     const getItineraryList = async () => {
-      const result = await postByAxios.getItineraryList({
-        uid: String(myUid),
-        skip: 0,
-        limit: 17,
-        descName: 'created_at',
-      })
+      const { result } = await postByAxios.getItineraryList(
+        {
+          uid: String(myUid),
+          skip: 0,
+          limit: 3,
+          descName: 'likes',
+        }
+      )
       console.log(result)
+      convertToCardItinerary(result[0].places)
     }
     getItineraryList()
   }, [])
