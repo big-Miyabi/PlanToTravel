@@ -3,6 +3,7 @@ import Header from '../../containers/organisms/Header'
 import Menu from '../../components/organisms/Menu'
 import ItineraryFirstView from '../molecules/ItineraryFirstView'
 import { Place } from '../../utilities/types'
+import Itinerary from '../organisms/Itinerary'
 
 type Props = {
   itinerary: Place[][] | null
@@ -32,17 +33,25 @@ const ItineraryDetailScreen: FC<Props> = ({
       <Header isPost={true} />
       <Menu />
       {itinerary ? (
-        <ItineraryFirstView
-          isDetail={true}
-          username={username}
-          icon={icon}
-          src={headerUrl}
-          title={title}
-          dateS={dateS}
-          dateF={dateF}
-          people={people}
-          tags={tags}
-        />
+        <>
+          <ItineraryFirstView
+            isDetail={true}
+            username={username}
+            icon={icon}
+            src={headerUrl}
+            title={title}
+            dateS={dateS}
+            dateF={dateF}
+            people={people}
+            tags={tags}
+          />
+          <div className="itinerary-detail__tab"></div>
+
+          <div className="itinerary-detail__content-wrap">
+            <h2 className="itinerary-detail__h2">行程</h2>
+            <Itinerary itineraryInfo={itinerary} />
+          </div>
+        </>
       ) : (
         <></>
       )}
