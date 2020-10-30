@@ -142,7 +142,7 @@ export const convertItinerary = (
 }
 
 // Controllerから取得してきた行程表データを、フロントでカード型で表示するための形式に置き換える
-export const convertToCardItinerary = (
+const convertToCardItinerary = (
   itinerary: ItineraryByLaravel[]
 ): ItineraryCardType[] => {
   const initialValue: ItineraryCardType = {
@@ -173,6 +173,7 @@ export const convertToCardItinerary = (
   return filteredArray
 }
 
+// Controllerから取得してきたスケジュールデータを、フロントでカード型で表示するための形式に置き換える
 export const convertToPostCard = (
   itinerary: GettedItineraryDetail[]
 ): PostCardType[] => {
