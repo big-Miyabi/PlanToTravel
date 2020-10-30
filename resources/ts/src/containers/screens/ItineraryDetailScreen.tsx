@@ -61,8 +61,6 @@ const ItineraryDetailScreenContainer: FC<urlProps> = (
         dateS,
         dateF
       )
-      console.log(`isLiked: ${isLiked}`)
-      console.log(`likeCounts: ${likeCounts}`)
 
       const replacedDateS = dateS.replace(/-/g, '.')
       const replacedDateF = dateF.replace(/-/g, '.')
@@ -76,8 +74,8 @@ const ItineraryDetailScreenContainer: FC<urlProps> = (
       setIsPublic(scheduleInfo.is_public)
       setPeople(scheduleInfo.people)
       setTags(gettedTags.slice())
-      setLikes(likeCounts)
       setIsMeLover(isLiked)
+      setLikes(isLiked ? likeCounts - 1 : likeCounts)
       setIsMeBookmarked(isBookmarked)
       setItinerary(convertedItinerary)
     }
