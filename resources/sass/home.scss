@@ -53,16 +53,6 @@
             }
         }
 
-        &__white-bg-wrap {
-            z-index: 1;
-            position: absolute;
-        }
-
-        &__white-bg {
-            width: px-to-vw(347);
-            height: px-to-vw(193); // 高さは幅に依存させる
-        }
-
         &__go-to {
             position: relative;
             z-index: 1;
@@ -101,10 +91,6 @@
             top: px-to-vh(-3);
             font-size: 3.1rem;
             color: rgba(0, 54, 102, 0.1);
-
-            &:hover {
-                color: $navy;
-            }
             &:focus {
                 outline: none;
             }
@@ -276,10 +262,6 @@
             top: px-to-vh(-3);
             font-size: 3.1rem;
             color: rgba(0, 54, 102, 0.1);
-
-            &:hover {
-                color: $navy;
-            }
             &:focus {
                 outline: none;
             }
