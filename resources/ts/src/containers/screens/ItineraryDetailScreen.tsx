@@ -83,6 +83,11 @@ const ItineraryDetailScreenContainer: FC<urlProps> = (
   const [isPublic, setIsPublic] = useState<boolean>(true)
   const [people, setPeople] = useState<number>(1)
   const [tags, setTags] = useState<string[]>([''])
+  const [likes, setLikes] = useState<number>(0)
+  const [isMeLover, setIsMeLover] = useState<boolean>(false)
+  const [isMeBookmarked, setIsMeBookmarked] = useState<
+    boolean
+  >(false)
 
   useEffect(() => {
     const getItineraryByAxios = async () => {
@@ -125,6 +130,9 @@ const ItineraryDetailScreenContainer: FC<urlProps> = (
       setIsPublic(scheduleInfo.is_public)
       setPeople(scheduleInfo.people)
       setTags(gettedTags.slice())
+      setLikes(likeCounts)
+      setIsMeLover(isLiked)
+      setIsMeBookmarked(isBookmarked)
       setItinerary(convertedItinerary)
     }
 
@@ -142,6 +150,9 @@ const ItineraryDetailScreenContainer: FC<urlProps> = (
       dateF={dateF}
       people={people}
       tags={tags}
+      likes={likes}
+      isMeLover={isMeLover}
+      isMeBookmarked={isMeBookmarked}
     />
   )
 }

@@ -7,16 +7,12 @@
         &__tab-wrap {
             display: flex;
             width: 100%;
+            margin-top: px-to-vw(5);
             justify-content: space-evenly;
             align-items: center;
         }
-        &__content-wrap {
-            width: px-to-vw(290);
-            margin: px-to-vw(40) auto;
-        }
         %__tab {
             padding: 0 px-to-vw(40);
-            font-size: 2.4rem;
         }
         &__tab {
             &--share {
@@ -25,11 +21,26 @@
             }
             &--heart {
                 @extend %__tab;
+                display: flex;
                 color: $orange;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
             }
             &--bookmark {
                 @extend %__tab;
                 color: $mystic;
+            }
+        }
+        &__likes {
+            margin-bottom: 0;
+            font-size: 1rem;
+        }
+        &__icon {
+            &--share,
+            &--heart,
+            &--bookmark {
+                font-size: 2.4rem;
             }
         }
         &__border {
@@ -43,6 +54,10 @@
             font-size: 1.4rem;
             font-weight: bold;
             color: $navy;
+        }
+        &__content-wrap {
+            width: px-to-vw(290);
+            margin: px-to-vw(40) auto;
         }
     }
 }
