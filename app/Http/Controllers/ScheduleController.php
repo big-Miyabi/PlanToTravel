@@ -118,7 +118,9 @@ class ScheduleController extends Controller
     $likeUid = false;
     $bookmarkUid = false;
     //テーブルの値を取得
-    $schedules = Schedule::orderBy('created_at', 'desc')->where('is_public', 0)->get();
+    $skip = $request->skip;
+    $limit = $request->limit;
+    $schedules = Schedule::orderBy('created_at', 'desc')->where('is_public', 0)->skip($skip)->limit($limit)->get();
     $tags = Tag::orderBy('created_at', 'desc')->get();
     $places = Place::orderBy('created_at', 'desc')->get();
     $likes = Like::orderBy('created_at', 'desc')->get();
