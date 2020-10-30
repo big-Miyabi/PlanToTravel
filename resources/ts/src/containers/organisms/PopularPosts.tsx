@@ -86,8 +86,8 @@ const PopularPostsContainer: FC = () => {
     const getItineraryList = async () => {
       const result = await postByAxios.getItineraryList({
         uid: String(myUid),
-        skip: 10,
-        limit: 1,
+        skip: 0,
+        limit: 17,
       })
       console.log(result)
     }

@@ -103,14 +103,14 @@ export type ItineraryByLaravel = {
   weather: Weather
 }
 
-export type GettedItineraryDetail = [
-  ScheduleInfo,
-  string[],
-  ItineraryByLaravel[],
-  boolean,
-  number,
-  boolean
-]
+export type GettedItineraryDetail = {
+  schedule_info: ScheduleInfo
+  tags: string[]
+  places: ItineraryByLaravel[]
+  is_liked: boolean
+  likeCount: number
+  is_bookmark: boolean
+}
 
 export const initialTarget = {
   dateIndex: null,

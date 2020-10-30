@@ -40,23 +40,21 @@ const ItineraryDetailScreenContainer: FC<urlProps> = (
   useEffect(() => {
     const getItineraryByAxios = async () => {
       const getResult = await postByAxios.getItineraryDetail(
-        sid
+        {
+          uid: String(myUid),
+          sid,
+        }
       )
-      const [
-        scheduleInfo,
-        gettedTags,
-        itineraryByLaravel,
-        isLiked,
-        likeCounts,
-        isBookmarked,
-      ]: [
-        ScheduleInfo,
-        string[],
-        ItineraryByLaravel[],
-        boolean,
-        number,
-        boolean
-      ] = getResult.result
+      console.log(getResult.result)
+
+      const {
+        schedule_info: scheduleInfo,
+        tags: gettedTags,
+        places: itineraryByLaravel,
+        likeCount: likeCounts,
+        is_liked: isLiked,
+        is_bookmark: isBookmarked,
+      } = getResult.result
       const { day_s: dateS, day_f: dateF } = scheduleInfo
       const convertedItinerary = convertItinerary(
         itineraryByLaravel,
