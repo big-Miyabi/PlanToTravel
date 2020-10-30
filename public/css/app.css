@@ -961,16 +961,6 @@ input:-webkit-autofill {
     content: "";
   }
 
-  .popular-card__white-bg-wrap {
-    z-index: 1;
-    position: absolute;
-  }
-
-  .popular-card__white-bg {
-    width: 92.5333333333vw;
-    height: 51.4666666667vw;
-  }
-
   .popular-card__go-to {
     position: relative;
     z-index: 1;
@@ -1009,10 +999,6 @@ input:-webkit-autofill {
     top: -0.3694581281vh;
     font-size: 3.1rem;
     color: rgba(0, 54, 102, 0.1);
-  }
-
-  .popular-card__bookmark:hover {
-    color: #003666;
   }
 
   .popular-card__bookmark:focus {
@@ -1170,10 +1156,6 @@ input:-webkit-autofill {
     top: -0.3694581281vh;
     font-size: 3.1rem;
     color: rgba(0, 54, 102, 0.1);
-  }
-
-  .new-card__bookmark:hover {
-    color: #003666;
   }
 
   .new-card__bookmark:focus {

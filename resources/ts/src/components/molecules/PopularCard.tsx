@@ -3,17 +3,31 @@ import GoToLogo from '../atoms/svg/GoToLogo'
 import FontAwesomeIconBtn from '../atoms/FontAwesomeIconBtn'
 import ItineraryInCard from '../molecules/ItineraryInCard'
 import {
-  faHeart,
+  faHeart as tintedHeart,
   faBookmark,
 } from '@fortawesome/free-solid-svg-icons'
+import { faHeart as outlineHeart } from '@fortawesome/free-regular-svg-icons'
 import { PostCardType } from '../../utilities/types'
 
 type Props = {
   post: PostCardType
   gradientId: string
+  likes: number
+  isMeLover: boolean
+  onClickHeart: () => void
+  isMeBookmarked: boolean
+  onClickBookmark: () => void
 }
 
-const PopularCard: FC<Props> = ({ post, gradientId }) => {
+const PopularCard: FC<Props> = ({
+  post,
+  gradientId,
+  likes,
+  isMeLover,
+  onClickHeart,
+  isMeBookmarked,
+  onClickBookmark,
+}) => {
   const goTostyle = post.hasGoTo ? {} : { display: 'none' }
   const url = post.header
     ? post.header
@@ -23,7 +37,12 @@ const PopularCard: FC<Props> = ({ post, gradientId }) => {
   }
 
   return (
-    <div className="popular-card">
+    <div
+      className="popular-card"
+      onClick={() => {
+        console.log('bar')
+      }}
+    >
       <div className="popular-card__wrap" style={bgStyle}>
         <div style={goTostyle}>
           <GoToLogo className="popular-card__go-to" />
@@ -43,13 +62,21 @@ const PopularCard: FC<Props> = ({ post, gradientId }) => {
               className="popular-card__bookmark"
               icon={faBookmark}
             />
-            <div className="popular-card__favorite">
+            <div
+              className="popular-card__favorite"
+              onClick={(e) => {
+                e.stopPropagation()
+                onClickHeart()
+              }}
+            >
               <FontAwesomeIconBtn
                 className="popular-card__favorite-btn"
-                icon={faHeart}
+                icon={
+                  isMeLover ? tintedHeart : outlineHeart
+                }
               />
               <p className="popular-card__favorite-number">
-                {post.likes}
+                {isMeLover ? likes + 1 : likes}
               </p>
             </div>
           </div>
