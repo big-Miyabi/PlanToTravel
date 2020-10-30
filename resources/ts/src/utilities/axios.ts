@@ -165,6 +165,7 @@ export const postByAxios: PostByAxios = {
     arg: ItineraryArg
   ): Promise<{ result: any; isSuccess: boolean }> => {
     return new Promise((resolve) => {
+      console.log(arg)
       axios
         .post('/api/create', {
           uid: arg.uid,
