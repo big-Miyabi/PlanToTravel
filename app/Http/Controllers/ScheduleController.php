@@ -192,10 +192,10 @@ class ScheduleController extends Controller
         }
       }
       //初期化
-      $likeCount = 0;
+      $likeCounts = 0;
       //いいねの数の取得
       $post = Schedule::findOrFail($schedule->id);
-      $likeCount = $post->likes()->count();
+      $likeCounts = $post->likes()->count();
       foreach ($likes as  $likeKye => $like) {
         if ($like->schedule_id == $schedule->id) {
           if ($like->uid == $request->uid) {
@@ -211,7 +211,7 @@ class ScheduleController extends Controller
         }
       }
       $user = User::find($schedule->uid);
-      $posts[$key] = ['schedule_info' => $texts, 'tags' => $tagBox, "places" => $placeBox, 'likeCounter' => $likeCount, 'is_liked' => $likeUid, 'is_bookmark' => $bookmarkUid, 'userIcon' => $user->icon, 'userName' => $user->username];
+      $posts[$key] = ['schedule_info' => $texts, 'tags' => $tagBox, "places" => $placeBox, 'likeCounts' => $likeCounts, 'is_liked' => $likeUid, 'is_bookmark' => $bookmarkUid, 'userIcon' => $user->icon, 'userName' => $user->username];
     }
     //値を返す
     return $posts;
@@ -299,7 +299,7 @@ class ScheduleController extends Controller
         }
       }
       $post = Schedule::findOrFail($schedule->id);
-      $likeCount = $post->likes()->count();
+      $likeCounts = $post->likes()->count();
       //いいねの数の取得
       foreach ($likes as  $likeKye => $like) {
         if ($like->schedule_id == $schedule->id) {
@@ -316,7 +316,7 @@ class ScheduleController extends Controller
         }
       }
     }
-    return ['schedule_info' => $texts, 'tags' => $tagBox, 'places' => $placeBox, 'is_liked' => $likeUid, 'likeCount' => $likeCount, 'is_bookmark' => $bookmarkUid, 'userIcon' => $user->icon, 'userName' => $user->username];
+    return ['schedule_info' => $texts, 'tags' => $tagBox, 'places' => $placeBox, 'is_liked' => $likeUid, 'likeCounts' => $likeCounts, 'is_bookmark' => $bookmarkUid, 'userIcon' => $user->icon, 'userName' => $user->username];
   }
   //ユーザごとのスケジュール表示
   public function userSchedule(Request $request)
