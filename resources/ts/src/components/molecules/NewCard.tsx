@@ -15,8 +15,11 @@ type Props = {
 
 const NewCard: FC<Props> = ({ post, gradientId }) => {
   const goTostyle = post.hasGoTo ? {} : { display: 'none' }
+  const url = post.header
+    ? post.header
+    : '../images/ninki_listimg_bg.png'
   const bgStyle = {
-    backgroundImage: 'url(' + post.header + ')',
+    backgroundImage: 'url(' + url + ')',
   }
 
   return (
