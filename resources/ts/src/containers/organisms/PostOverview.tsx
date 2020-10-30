@@ -156,6 +156,7 @@ const PostOverviewContainer: FC<Props> = ({ history }) => {
 
       return
     }
+    console.log('aaa')
     dispatch(
       setPostOverview(
         title,
