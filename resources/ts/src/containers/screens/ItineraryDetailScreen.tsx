@@ -115,14 +115,14 @@ const ItineraryDetailScreenContainer: FC<urlProps> = (
         boolean
       ] = getResult.result
       const { day_s: dateS, day_f: dateF } = scheduleInfo
-      console.log(getResult.result)
-
       const convertedItinerary = convertItinerary(
         itineraryByLaravel,
         dateS,
         dateF
       )
-      console.log(convertedItinerary)
+      console.log(`isLiked: ${isLiked}`)
+      console.log(`likeCounts: ${likeCounts}`)
+
       const replacedDateS = dateS.replace(/-/g, '.')
       const replacedDateF = dateF.replace(/-/g, '.')
       setPosterUid(String(scheduleInfo.userid))
@@ -144,6 +144,24 @@ const ItineraryDetailScreenContainer: FC<urlProps> = (
     getItineraryByAxios()
   }, [])
 
+  const onClickHeart = async () => {
+    setIsMeLover(!isMeLover)
+    const result = await postByAxios.like({
+      uid: String(myUid),
+      sid,
+    })
+    console.log(result.result)
+  }
+
+  const onClickBookmark = async () => {
+    setIsMeBookmarked(!isMeBookmarked)
+    const result = await postByAxios.bookmark({
+      uid: String(myUid),
+      sid,
+    })
+    console.log(result.result)
+  }
+
   return (
     <ItineraryDetailScreen
       itinerary={itinerary}
@@ -157,9 +175,9 @@ const ItineraryDetailScreenContainer: FC<urlProps> = (
       tags={tags}
       likes={likes}
       isMeLover={isMeLover}
-      setIsMeLover={setIsMeLover}
+      onClickHeart={onClickHeart}
       isMeBookmarked={isMeBookmarked}
-      setIsMeBookmarked={setIsMeBookmarked}
+      onClickBookmark={onClickBookmark}
       isPoster={posterUid === String(myUid)}
     />
   )

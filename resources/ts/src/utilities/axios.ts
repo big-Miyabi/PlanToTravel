@@ -52,6 +52,20 @@ type PostByAxios = {
     result: GettedItineraryDetail
     isSuccess: boolean
   }>
+  like: (arg: {
+    sid: string
+    uid: string
+  }) => Promise<{
+    result: string
+    isSuccess: boolean
+  }>
+  bookmark: (arg: {
+    sid: string
+    uid: string
+  }) => Promise<{
+    result: string
+    isSuccess: boolean
+  }>
 }
 
 type GoogleByAxios = {
@@ -173,6 +187,50 @@ export const postByAxios: PostByAxios = {
       axios
         .post('/api/show', {
           sid: id,
+        })
+        .then((res) => {
+          resolve({ result: res.data, isSuccess: true })
+        })
+        .catch((error) => {
+          console.log(error)
+          resolve({ result: error, isSuccess: false })
+        })
+    })
+  },
+  like: (arg: {
+    sid: string
+    uid: string
+  }): Promise<{
+    result: string
+    isSuccess: boolean
+  }> => {
+    return new Promise((resolve) => {
+      axios
+        .post('/api/like', {
+          sid: arg.sid,
+          uid: arg.uid,
+        })
+        .then((res) => {
+          resolve({ result: res.data, isSuccess: true })
+        })
+        .catch((error) => {
+          console.log(error)
+          resolve({ result: error, isSuccess: false })
+        })
+    })
+  },
+  bookmark: (arg: {
+    sid: string
+    uid: string
+  }): Promise<{
+    result: string
+    isSuccess: boolean
+  }> => {
+    return new Promise((resolve) => {
+      axios
+        .post('/api/bookmark', {
+          sid: arg.sid,
+          uid: arg.uid,
         })
         .then((res) => {
           resolve({ result: res.data, isSuccess: true })

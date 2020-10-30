@@ -26,9 +26,9 @@ type Props = {
   tags: string[]
   likes: number
   isMeLover: boolean
-  setIsMeLover: Dispatch<React.SetStateAction<boolean>>
+  onClickHeart: () => void
   isMeBookmarked: boolean
-  setIsMeBookmarked: Dispatch<React.SetStateAction<boolean>>
+  onClickBookmark: () => void
   isPoster: boolean
 }
 
@@ -44,9 +44,9 @@ const ItineraryDetailScreen: FC<Props> = ({
   tags,
   likes,
   isMeLover,
-  setIsMeLover,
+  onClickHeart,
   isMeBookmarked,
-  setIsMeBookmarked,
+  onClickBookmark,
   isPoster,
 }) => {
   return (
@@ -76,9 +76,7 @@ const ItineraryDetailScreen: FC<Props> = ({
         <div className="itinerary-detail__border"></div>
         <div
           className="itinerary-detail__tab--heart"
-          onClick={() => {
-            setIsMeLover(!isMeLover)
-          }}
+          onClick={onClickHeart}
         >
           <FontAwesomeIconBtn
             className="itinerary-detail__icon--heart"
@@ -96,9 +94,7 @@ const ItineraryDetailScreen: FC<Props> = ({
               ? 'bookmarked'
               : 'non-bookmarked')
           }
-          onClick={() => {
-            setIsMeBookmarked(!isMeBookmarked)
-          }}
+          onClick={onClickBookmark}
         >
           <FontAwesomeIconBtn
             className="itinerary-detail__icon--bookmark"
@@ -122,7 +118,7 @@ const ItineraryDetailScreen: FC<Props> = ({
           (isPoster ? '--edit' : '--heart')
         }
         onClick={() => {
-          if (!isPoster) setIsMeLover(!isMeLover)
+          if (!isPoster) onClickHeart
         }}
       >
         {isPoster ? (
