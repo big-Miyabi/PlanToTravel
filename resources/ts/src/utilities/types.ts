@@ -108,7 +108,7 @@ export type GettedItineraryDetail = {
   tags: string[]
   places: ItineraryByLaravel[]
   is_liked: boolean
-  likeCounter: number
+  likeCounts: number
   is_bookmark: boolean
   userIcon: string
   userName: string

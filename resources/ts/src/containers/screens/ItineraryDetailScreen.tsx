@@ -51,7 +51,7 @@ const ItineraryDetailScreenContainer: FC<urlProps> = (
         schedule_info: scheduleInfo,
         tags: gettedTags,
         places: itineraryByLaravel,
-        likeCounter: likeCounts,
+        likeCounts: likeCounts,
         is_liked: isLiked,
         is_bookmark: isBookmarked,
       } = getResult.result
