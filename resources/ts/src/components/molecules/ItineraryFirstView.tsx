@@ -4,8 +4,8 @@ import PostTag from './PostTag'
 import UserInfo from './UserInfo'
 
 type Props = {
-  inputRef: React.RefObject<HTMLInputElement>
-  onFileChange: (e: ChangeEvent<HTMLInputElement>) => void
+  inputRef?: React.RefObject<HTMLInputElement>
+  onFileChange?: (e: ChangeEvent<HTMLInputElement>) => void
   src: string
   isDetail: boolean
   icon: string

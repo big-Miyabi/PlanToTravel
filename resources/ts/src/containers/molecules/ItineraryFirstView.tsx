@@ -32,8 +32,8 @@ const ItineraryFirstViewContainer: FC = () => {
   return (
     <ItineraryFirstView
       inputRef={inputRef}
-      src={src}
       onFileChange={onFileChange}
+      src={src}
       isDetail={progressIndex === 2}
       icon={icon}
       username={username}

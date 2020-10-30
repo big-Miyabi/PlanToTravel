@@ -8,7 +8,7 @@ import {
 } from '../../utilities/types'
 import { postByAxios } from '../../utilities/axios'
 import { checkObjEqual } from '../../utilities/utilFunc'
-import ItineraryDetail from '../../components/screens/ItineraryDetailScreen'
+import ItineraryDetailScreen from '../../components/screens/ItineraryDetailScreen'
 import { RouteComponentProps } from 'react-router'
 
 type urlProps = RouteComponentProps<{ id: string }>
@@ -17,7 +17,7 @@ const convertItinerary = (
   itinerary: ItineraryByLaravel[],
   dateS: string,
   dateF: string
-) => {
+): Place[][] => {
   const momentS = moment(dateS)
   const momentF = moment(dateF)
   const dateDiff = momentF.diff(momentS, 'days') + 1
@@ -74,6 +74,14 @@ const ItineraryDetailScreenContainer: FC<urlProps> = (
   const [itinerary, setItinerary] = useState<
     Place[][] | null
   >(null)
+  const [uid, setUid] = useState<string>('')
+  const [title, setTitle] = useState<string>('')
+  const [headerUrl, setHeaderUrl] = useState<string>('')
+  const [dateS, setDateS] = useState<string>('')
+  const [dateF, setDateF] = useState<string>('')
+  const [isPublic, setIsPublic] = useState<boolean>(true)
+  const [people, setPeople] = useState<number>(1)
+  const [tags, setTags] = useState<string[]>([''])
 
   useEffect(() => {
     const getItineraryByAxios = async () => {
@@ -82,7 +90,7 @@ const ItineraryDetailScreenContainer: FC<urlProps> = (
       )
       const [
         scheduleInfo,
-        tags,
+        gettedTags,
         itineraryByLaravel,
         isLiked,
         likeCounts,
@@ -96,19 +104,42 @@ const ItineraryDetailScreenContainer: FC<urlProps> = (
         boolean
       ] = getResult.result
       const { day_s: dateS, day_f: dateF } = scheduleInfo
-      console.log(itineraryByLaravel)
+      console.log(getResult.result)
 
-      const hoge = convertItinerary(
+      const convertedItinerary = convertItinerary(
         itineraryByLaravel,
         dateS,
         dateF
       )
-      console.log(hoge)
+      console.log(convertedItinerary)
+      setUid(String(scheduleInfo.userid))
+      setTitle(scheduleInfo.title)
+      setHeaderUrl(
+        scheduleInfo.header ? scheduleInfo.header : ''
+      )
+      setDateS(dateS)
+      setDateF(dateF)
+      setIsPublic(scheduleInfo.is_public)
+      setPeople(scheduleInfo.people)
+      setTags(gettedTags.slice())
+      setItinerary(convertedItinerary)
     }
     getItineraryByAxios()
   }, [])
 
-  return <ItineraryDetail />
+  return (
+    <ItineraryDetailScreen
+      itinerary={itinerary}
+      username={'test'}
+      icon={''}
+      headerUrl={headerUrl}
+      title={title}
+      dateS={dateS}
+      dateF={dateF}
+      people={people}
+      tags={tags}
+    />
+  )
 }
 
 export default ItineraryDetailScreenContainer
