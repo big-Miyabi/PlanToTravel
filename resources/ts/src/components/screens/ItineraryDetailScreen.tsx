@@ -4,6 +4,7 @@ import Header from '../../containers/organisms/Header'
 import Menu from '../../components/organisms/Menu'
 import ItineraryFirstView from '../molecules/ItineraryFirstView'
 import Itinerary from '../organisms/Itinerary'
+import EditIcon from '../atoms/svg/EditIcon'
 import FontAwesomeIconBtn from '../atoms/FontAwesomeIconBtn'
 import {
   faShareSquare,
@@ -11,6 +12,7 @@ import {
   faBookmark,
 } from '@fortawesome/free-solid-svg-icons'
 import { faHeart as outlineHeart } from '@fortawesome/free-regular-svg-icons'
+import { colors } from '../../utilities/colors'
 
 type Props = {
   itinerary: Place[][] | null
@@ -27,6 +29,7 @@ type Props = {
   setIsMeLover: Dispatch<React.SetStateAction<boolean>>
   isMeBookmarked: boolean
   setIsMeBookmarked: Dispatch<React.SetStateAction<boolean>>
+  isPoster: boolean
 }
 
 const ItineraryDetailScreen: FC<Props> = ({
@@ -44,37 +47,24 @@ const ItineraryDetailScreen: FC<Props> = ({
   setIsMeLover,
   isMeBookmarked,
   setIsMeBookmarked,
+  isPoster,
 }) => {
   return (
     <div className="itinerary-detail">
       <Header isPost={true} />
       <Menu />
 
-      {itinerary ? (
-        <ItineraryFirstView
-          isDetail={true}
-          username={username}
-          icon={icon}
-          src={headerUrl}
-          title={title}
-          dateS={dateS}
-          dateF={dateF}
-          people={people}
-          tags={tags}
-        />
-      ) : (
-        <ItineraryFirstView
-          isDetail={true}
-          username={''}
-          icon={''}
-          src={''}
-          title={''}
-          dateS={''}
-          dateF={''}
-          people={1}
-          tags={[]}
-        />
-      )}
+      <ItineraryFirstView
+        isDetail={true}
+        username={itinerary ? username : ''}
+        icon={itinerary ? icon : ''}
+        src={itinerary ? headerUrl : ''}
+        title={itinerary ? title : ''}
+        dateS={itinerary ? dateS : ''}
+        dateF={itinerary ? dateF : ''}
+        people={itinerary ? people : 1}
+        tags={itinerary ? tags : []}
+      />
 
       <div className="itinerary-detail__tab-wrap">
         <div className="itinerary-detail__tab--share">
@@ -123,6 +113,28 @@ const ItineraryDetailScreen: FC<Props> = ({
           <Itinerary itineraryInfo={itinerary} />
         ) : (
           <></>
+        )}
+      </div>
+
+      <div
+        className={
+          'itinerary-detail__fixed-wrap' +
+          (isPoster ? '--edit' : '--heart')
+        }
+        onClick={() => {
+          if (!isPoster) setIsMeLover(!isMeLover)
+        }}
+      >
+        {isPoster ? (
+          <EditIcon
+            className="itinerary-detail__icon--edit"
+            color={colors.lightBlue}
+          />
+        ) : (
+          <FontAwesomeIconBtn
+            className="itinerary-detail__icon--heart"
+            icon={isMeLover ? tintedHeart : outlineHeart}
+          />
         )}
       </div>
     </div>

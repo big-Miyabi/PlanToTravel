@@ -10,6 +10,8 @@ import { postByAxios } from '../../utilities/axios'
 import { checkObjEqual } from '../../utilities/utilFunc'
 import ItineraryDetailScreen from '../../components/screens/ItineraryDetailScreen'
 import { RouteComponentProps } from 'react-router'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../reducers'
 
 type urlProps = RouteComponentProps<{ id: string }>
 
@@ -75,7 +77,7 @@ const ItineraryDetailScreenContainer: FC<urlProps> = (
   const [itinerary, setItinerary] = useState<
     Place[][] | null
   >(null)
-  const [uid, setUid] = useState<string>('')
+  const [posterUid, setPosterUid] = useState<string>('')
   const [title, setTitle] = useState<string>('')
   const [headerUrl, setHeaderUrl] = useState<string>('')
   const [dateS, setDateS] = useState<string>('')
@@ -88,6 +90,9 @@ const ItineraryDetailScreenContainer: FC<urlProps> = (
   const [isMeBookmarked, setIsMeBookmarked] = useState<
     boolean
   >(false)
+  const myUid = useSelector(
+    (state: RootState) => state.loginReducer.id
+  )
 
   useEffect(() => {
     const getItineraryByAxios = async () => {
@@ -120,7 +125,7 @@ const ItineraryDetailScreenContainer: FC<urlProps> = (
       console.log(convertedItinerary)
       const replacedDateS = dateS.replace(/-/g, '.')
       const replacedDateF = dateF.replace(/-/g, '.')
-      setUid(String(scheduleInfo.userid))
+      setPosterUid(String(scheduleInfo.userid))
       setTitle(scheduleInfo.title)
       setHeaderUrl(
         scheduleInfo.header ? scheduleInfo.header : ''
@@ -155,6 +160,7 @@ const ItineraryDetailScreenContainer: FC<urlProps> = (
       setIsMeLover={setIsMeLover}
       isMeBookmarked={isMeBookmarked}
       setIsMeBookmarked={setIsMeBookmarked}
+      isPoster={posterUid === String(myUid)}
     />
   )
 }
