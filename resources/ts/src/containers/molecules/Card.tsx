@@ -1,4 +1,4 @@
-import React, { FC, useState, useEffect } from 'react'
+import React, { FC, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { RootState } from '../../reducers'
 import { postByAxios } from '../../utilities/axios'
@@ -20,18 +20,13 @@ const PopularCardContainer: FC<Props> = ({
   const myUid = useSelector(
     (state: RootState) => state.loginReducer.id
   )
-  const [isMeLover, setIsMeLover] = useState<boolean>(false)
+  const [isMeLover, setIsMeLover] = useState<boolean>(
+    post.isLiked
+  )
   const [isMeBookmarked, setIsMeBookmarked] = useState<
     boolean
-  >(false)
-  const [likes, setLikes] = useState<number>(0)
-
-  useEffect(() => {
-    console.log(post.isBookmarked)
-    setIsMeLover(post.isLiked)
-    setIsMeBookmarked(post.isBookmarked)
-    setLikes(post.isLiked ? post.likes - 1 : post.likes)
-  }, [post.isBookmarked, post.isLiked, post.likes])
+  >(post.isBookmarked)
+  const likes = post.isLiked ? post.likes - 1 : post.likes
 
   const onClickHeart = async () => {
     setIsMeLover(!isMeLover)

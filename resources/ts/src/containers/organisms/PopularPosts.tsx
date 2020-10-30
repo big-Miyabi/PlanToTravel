@@ -26,9 +26,6 @@ const PopularPostsContainer: FC = () => {
         }
       )
       const converted = convertToPostCard(result)
-      console.log(result)
-
-      console.log(converted)
       setPosts(converted)
     }
     getItineraryList()
