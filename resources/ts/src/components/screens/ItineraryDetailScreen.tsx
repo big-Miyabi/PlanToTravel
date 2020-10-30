@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { FC, Dispatch } from 'react'
 import { Place } from '../../utilities/types'
 import Header from '../../containers/organisms/Header'
 import Menu from '../../components/organisms/Menu'
@@ -24,7 +24,9 @@ type Props = {
   tags: string[]
   likes: number
   isMeLover: boolean
+  setIsMeLover: Dispatch<React.SetStateAction<boolean>>
   isMeBookmarked: boolean
+  setIsMeBookmarked: Dispatch<React.SetStateAction<boolean>>
 }
 
 const ItineraryDetailScreen: FC<Props> = ({
@@ -39,12 +41,15 @@ const ItineraryDetailScreen: FC<Props> = ({
   tags,
   likes,
   isMeLover,
+  setIsMeLover,
   isMeBookmarked,
+  setIsMeBookmarked,
 }) => {
   return (
     <div className="itinerary-detail">
       <Header isPost={true} />
       <Menu />
+
       {itinerary ? (
         <>
           <ItineraryFirstView
@@ -58,6 +63,7 @@ const ItineraryDetailScreen: FC<Props> = ({
             people={people}
             tags={tags}
           />
+
           <div className="itinerary-detail__tab-wrap">
             <div className="itinerary-detail__tab--share">
               <FontAwesomeIconBtn
@@ -66,17 +72,34 @@ const ItineraryDetailScreen: FC<Props> = ({
               />
             </div>
             <div className="itinerary-detail__border"></div>
-            <div className="itinerary-detail__tab--heart">
+            <div
+              className="itinerary-detail__tab--heart"
+              onClick={() => {
+                setIsMeLover(!isMeLover)
+              }}
+            >
               <FontAwesomeIconBtn
                 className="itinerary-detail__icon--heart"
-                icon={outlineHeart}
+                icon={
+                  isMeLover ? tintedHeart : outlineHeart
+                }
               />
               <p className="itinerary-detail__likes">
-                {likes}
+                {isMeLover ? likes + 1 : likes}
               </p>
             </div>
             <div className="itinerary-detail__border"></div>
-            <div className="itinerary-detail__tab--bookmark">
+            <div
+              className={
+                'itinerary-detail__tab--' +
+                (isMeBookmarked
+                  ? 'bookmarked'
+                  : 'non-bookmarked')
+              }
+              onClick={() => {
+                setIsMeBookmarked(!isMeBookmarked)
+              }}
+            >
               <FontAwesomeIconBtn
                 className="itinerary-detail__icon--bookmark"
                 icon={faBookmark}

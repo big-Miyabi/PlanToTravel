@@ -152,7 +152,9 @@ const ItineraryDetailScreenContainer: FC<urlProps> = (
       tags={tags}
       likes={likes}
       isMeLover={isMeLover}
+      setIsMeLover={setIsMeLover}
       isMeBookmarked={isMeBookmarked}
+      setIsMeBookmarked={setIsMeBookmarked}
     />
   )
 }

@@ -27,9 +27,13 @@
                 justify-content: center;
                 align-items: center;
             }
-            &--bookmark {
+            &--non-bookmarked {
                 @extend %__tab;
                 color: $mystic;
+            }
+            &--bookmarked {
+                @extend %__tab;
+                color: $navy;
             }
         }
         &__likes {
