@@ -8,7 +8,7 @@ type Props = {
   isPost?: boolean
 }
 
-const HeaderContainer: FC<Props> = ({ isPost = true }) => {
+const HeaderContainer: FC<Props> = ({ isPost = false }) => {
   const dispatch = useDispatch()
   const [isMenuActive, setIsMenuActive] = useState(false)
   const [isSearchActive, setIsSearchActive] = useState(
@@ -52,16 +52,16 @@ const HeaderContainer: FC<Props> = ({ isPost = true }) => {
   return (
     <>
       {isPost ? (
+        <PostHeader
+          isMenuActive={isMenuActive}
+          switchMenuDisplay={switchMenuDisplay}
+        />
+      ) : (
         <Header
           isMenuActive={isMenuActive}
           isSearchActive={isSearchActive}
           switchMenuDisplay={switchMenuDisplay}
           switchSearchDisplay={switchSearchDisplay}
-        />
-      ) : (
-        <PostHeader
-          isMenuActive={isMenuActive}
-          switchMenuDisplay={switchMenuDisplay}
         />
       )}
     </>

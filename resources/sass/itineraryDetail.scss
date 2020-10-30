@@ -1,0 +1,95 @@
+@import "variables";
+@import "function";
+
+// @include md-down()内部にstyleを記述すると、スマートフォンサイズでメディアクエリがかかるようになる
+@include md-down() {
+    .itinerary-detail {
+        &__tab-wrap {
+            display: flex;
+            width: 100%;
+            margin-top: px-to-vw(2);
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        %__tab {
+            padding: 0 px-to-vw(40);
+        }
+        &__tab {
+            &--share {
+                @extend %__tab;
+                color: $light-gray;
+            }
+            &--heart {
+                @extend %__tab;
+                display: flex;
+                margin-top: px-to-vw(4);
+                color: $orange;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+            &--non-bookmarked {
+                @extend %__tab;
+                color: $mystic;
+            }
+            &--bookmarked {
+                @extend %__tab;
+                color: $navy;
+            }
+        }
+        &__likes {
+            margin-bottom: 0;
+            font-size: 1rem;
+        }
+        &__icon {
+            &--share,
+            &--heart,
+            &--bookmark {
+                font-size: 2.4rem;
+            }
+            &--edit {
+                width: 24px;
+                height: 24px;
+            }
+        }
+        &__border {
+            width: 0.5px;
+            height: px-to-vw(26);
+            background-color: $light-gray;
+        }
+
+        &__h2 {
+            margin: 0;
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: $navy;
+        }
+        &__content-wrap {
+            width: px-to-vw(290);
+            margin: px-to-vw(40) auto;
+        }
+        %__fixed-wrap {
+            position: fixed;
+            display: flex;
+            right: px-to-vw(21);
+            bottom: px-to-vh(37);
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background-color: $white;
+            justify-content: center;
+            align-items: center;
+        }
+        &__fixed-wrap {
+            &--edit {
+                @extend %__fixed-wrap;
+                border: solid 2px $light-blue;
+            }
+            &--heart {
+                @extend %__fixed-wrap;
+                border: solid 2px $orange;
+                color: $orange;
+            }
+        }
+    }
+}

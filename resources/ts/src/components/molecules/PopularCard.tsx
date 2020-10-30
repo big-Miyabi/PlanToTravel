@@ -15,8 +15,11 @@ type Props = {
 
 const PopularCard: FC<Props> = ({ post, gradientId }) => {
   const goTostyle = post.hasGoTo ? {} : { display: 'none' }
+  const url = post.header
+    ? post.header
+    : '../images/ninki_listimg_bg.png'
   const bgStyle = {
-    backgroundImage: 'url(' + post.header + ')',
+    backgroundImage: 'url(' + url + ')',
   }
 
   return (
@@ -46,7 +49,7 @@ const PopularCard: FC<Props> = ({ post, gradientId }) => {
                 icon={faHeart}
               />
               <p className="popular-card__favorite-number">
-                {post.favNum}
+                {post.likes}
               </p>
             </div>
           </div>

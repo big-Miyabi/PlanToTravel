@@ -8,8 +8,15 @@ import {
   faMoon,
 } from '@fortawesome/free-solid-svg-icons'
 
-export type ItineraryType = {
-  weather: string
+export type Weather =
+  | 'sun'
+  | 'cloud'
+  | 'rain'
+  | 'snow'
+  | 'night'
+
+export type ItineraryCardType = {
+  weather: Weather
   place: string
 }
 
@@ -17,8 +24,10 @@ export type PostCardType = {
   id: number
   header: string
   hasGoTo: boolean
-  favNum: number
-  itinerary: ItineraryType[]
+  likes: number
+  isLiked: boolean
+  isBookmarked: boolean
+  itinerary: ItineraryCardType[]
 }
 
 export type OpacityGradientType = {
@@ -30,13 +39,6 @@ export type Target = {
   dateIndex: number | null
   placeIndex: number | null
 }
-
-export type Weather =
-  | 'sun'
-  | 'cloud'
-  | 'rain'
-  | 'snow'
-  | 'night'
 
 export type Transport =
   | '徒歩'
@@ -103,14 +105,16 @@ export type ItineraryByLaravel = {
   weather: Weather
 }
 
-export type GettedItineraryDetail = [
-  ScheduleInfo,
-  string[],
-  ItineraryByLaravel[],
-  boolean,
-  number,
-  boolean
-]
+export type GettedItineraryDetail = {
+  schedule_info: ScheduleInfo
+  tags: string[]
+  places: ItineraryByLaravel[]
+  is_liked: boolean
+  likeCounts: number
+  is_bookmark: boolean
+  userIcon: string
+  userName: string
+}
 
 export const initialTarget = {
   dateIndex: null,

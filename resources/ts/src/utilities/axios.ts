@@ -46,10 +46,34 @@ type PostByAxios = {
     result: any
     isSuccess: boolean
   }>
-  getItineraryDetail: (
-    id: string
-  ) => Promise<{
+  getItineraryDetail: (arg: {
+    sid: string
+    uid: string
+  }) => Promise<{
     result: GettedItineraryDetail
+    isSuccess: boolean
+  }>
+  like: (arg: {
+    sid: string
+    uid: string
+  }) => Promise<{
+    result: string
+    isSuccess: boolean
+  }>
+  bookmark: (arg: {
+    sid: string
+    uid: string
+  }) => Promise<{
+    result: string
+    isSuccess: boolean
+  }>
+  getItineraryList: (arg: {
+    uid: string
+    skip: number
+    limit: number
+    descName: 'created_at' | 'likes'
+  }) => Promise<{
+    result: GettedItineraryDetail[]
     isSuccess: boolean
   }>
 }
@@ -141,6 +165,7 @@ export const postByAxios: PostByAxios = {
     arg: ItineraryArg
   ): Promise<{ result: any; isSuccess: boolean }> => {
     return new Promise((resolve) => {
+      console.log(arg)
       axios
         .post('/api/create', {
           uid: arg.uid,
@@ -163,22 +188,93 @@ export const postByAxios: PostByAxios = {
         })
     })
   },
-  getItineraryDetail: (
-    id: string
-  ): Promise<{
+  getItineraryDetail: (arg: {
+    sid: string
+    uid: string
+  }): Promise<{
     result: GettedItineraryDetail
     isSuccess: boolean
   }> => {
     return new Promise((resolve) => {
       axios
         .post('/api/show', {
-          sid: id,
+          uid: arg.uid,
+          sid: arg.sid,
         })
         .then((res) => {
           resolve({ result: res.data, isSuccess: true })
         })
         .catch((error) => {
           console.log(error)
+          resolve({ result: error, isSuccess: false })
+        })
+    })
+  },
+  like: (arg: {
+    sid: string
+    uid: string
+  }): Promise<{
+    result: string
+    isSuccess: boolean
+  }> => {
+    return new Promise((resolve) => {
+      axios
+        .post('/api/like', {
+          sid: arg.sid,
+          uid: arg.uid,
+        })
+        .then((res) => {
+          resolve({ result: res.data, isSuccess: true })
+        })
+        .catch((error) => {
+          console.log(error)
+          resolve({ result: error, isSuccess: false })
+        })
+    })
+  },
+  bookmark: (arg: {
+    sid: string
+    uid: string
+  }): Promise<{
+    result: string
+    isSuccess: boolean
+  }> => {
+    return new Promise((resolve) => {
+      axios
+        .post('/api/bookmark', {
+          sid: arg.sid,
+          uid: arg.uid,
+        })
+        .then((res) => {
+          resolve({ result: res.data, isSuccess: true })
+        })
+        .catch((error) => {
+          console.log(error)
+          resolve({ result: error, isSuccess: false })
+        })
+    })
+  },
+  getItineraryList: (arg: {
+    uid: string
+    skip: number
+    limit: number
+    descName: 'created_at' | 'likes'
+  }): Promise<{
+    result: GettedItineraryDetail[]
+    isSuccess: boolean
+  }> => {
+    return new Promise((resolve) => {
+      axios
+        .post('/api/index', {
+          uid: arg.uid,
+          skip: arg.skip,
+          limit: arg.limit,
+          descName: arg.descName,
+        })
+        .then((res) => {
+          resolve({ result: res.data, isSuccess: true })
+        })
+        .catch((error) => {
           resolve({ result: error, isSuccess: false })
         })
     })

@@ -93,6 +93,7 @@ const PostLocationContainer: FC<Props> = ({ history }) => {
       const lengthDiff = Math.abs(
         reduxItinerary.length - initialItinerary.length
       )
+
       if (
         reduxItinerary.length >= initialItinerary.length
       ) {
@@ -103,6 +104,14 @@ const PostLocationContainer: FC<Props> = ({ history }) => {
           reduxItinerary.push([initialPlace])
         })
       }
+      reduxItinerary.forEach((places, dateIndex) => {
+        const date = moment(dateS)
+          .add(dateIndex, 'd')
+          .format('YYYY.MM.DD')
+        places.forEach((_, placeIndex) => {
+          reduxItinerary[dateIndex][placeIndex].date = date
+        })
+      })
       setItinerary(reduxItinerary.slice())
     }
 

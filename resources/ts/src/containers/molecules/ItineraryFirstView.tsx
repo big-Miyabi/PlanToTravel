@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setImageSrc } from '../../actions/post'
 import { RootState } from '../../reducers'
 import { useFileInput } from '../../utilities/customHook'
-import PostImage from '../../components/molecules/PostImage'
+import ItineraryFirstView from '../../components/molecules/ItineraryFirstView'
 
-const PostImageContainer: FC = () => {
+const ItineraryFirstViewContainer: FC = () => {
   const dispatch = useDispatch()
   const [inputRef, base64, onFileChange] = useFileInput(
     (base64) => {
@@ -30,11 +30,11 @@ const PostImageContainer: FC = () => {
   const replacedDateF = dateF.replace(/-/g, '.')
 
   return (
-    <PostImage
+    <ItineraryFirstView
       inputRef={inputRef}
-      src={src}
       onFileChange={onFileChange}
-      isConfirm={progressIndex === 2}
+      src={src}
+      isDetail={progressIndex === 2}
       icon={icon}
       username={username}
       title={title}
@@ -46,4 +46,4 @@ const PostImageContainer: FC = () => {
   )
 }
 
-export default PostImageContainer
+export default ItineraryFirstViewContainer
