@@ -66,6 +66,14 @@ type PostByAxios = {
     result: string
     isSuccess: boolean
   }>
+  getItineraryList: (arg: {
+    uid: string
+    skip: number
+    limit: number
+  }) => Promise<{
+    result: GettedItineraryDetail[]
+    isSuccess: boolean
+  }>
 }
 
 type GoogleByAxios = {
@@ -237,6 +245,29 @@ export const postByAxios: PostByAxios = {
         })
         .catch((error) => {
           console.log(error)
+          resolve({ result: error, isSuccess: false })
+        })
+    })
+  },
+  getItineraryList: (arg: {
+    uid: string
+    skip: number
+    limit: number
+  }): Promise<{
+    result: GettedItineraryDetail[]
+    isSuccess: boolean
+  }> => {
+    return new Promise((resolve) => {
+      axios
+        .post('/api/index', {
+          uid: arg.uid,
+          skip: arg.skip,
+          limit: arg.limit,
+        })
+        .then((res) => {
+          resolve({ result: res.data, isSuccess: true })
+        })
+        .catch((error) => {
           resolve({ result: error, isSuccess: false })
         })
     })
