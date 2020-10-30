@@ -3,14 +3,17 @@ import { useSelector } from 'react-redux'
 import { RootState } from '../../reducers'
 import { postByAxios } from '../../utilities/axios'
 import { PostCardType } from '../../utilities/types'
+import PopularCard from '../../components/molecules/PopularCard'
 import NewCard from '../../components/molecules/NewCard'
 
 type Props = {
+  isNew: boolean
   post: PostCardType
   gradientId: string
 }
 
-const NewCardContainer: FC<Props> = ({
+const PopularCardContainer: FC<Props> = ({
+  isNew,
   post,
   gradientId,
 }) => {
@@ -49,16 +52,30 @@ const NewCardContainer: FC<Props> = ({
   }
 
   return (
-    <NewCard
-      post={post}
-      gradientId={gradientId}
-      isMeLover={isMeLover}
-      isMeBookmarked={isMeBookmarked}
-      likes={likes}
-      onClickHeart={onClickHeart}
-      onClickBookmark={onClickBookmark}
-    />
+    <>
+      {isNew ? (
+        <NewCard
+          post={post}
+          gradientId={gradientId}
+          isMeLover={isMeLover}
+          isMeBookmarked={isMeBookmarked}
+          likes={likes}
+          onClickHeart={onClickHeart}
+          onClickBookmark={onClickBookmark}
+        />
+      ) : (
+        <PopularCard
+          post={post}
+          gradientId={gradientId}
+          isMeLover={isMeLover}
+          isMeBookmarked={isMeBookmarked}
+          likes={likes}
+          onClickHeart={onClickHeart}
+          onClickBookmark={onClickBookmark}
+        />
+      )}
+    </>
   )
 }
 
-export default NewCardContainer
+export default PopularCardContainer

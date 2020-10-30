@@ -994,6 +994,8 @@ input:-webkit-autofill {
     justify-content: space-between;
   }
 
+  .popular-card .new-card__bookmark--none,
+  .popular-card .new-card__bookmark--added,
   .popular-card .popular-card__bookmark--none,
   .popular-card .popular-card__bookmark--added {
     position: relative;
@@ -1001,6 +1003,8 @@ input:-webkit-autofill {
     font-size: 3.1rem;
   }
 
+  .popular-card .new-card__bookmark--none:focus,
+  .popular-card .new-card__bookmark--added:focus,
   .popular-card .popular-card__bookmark--none:focus,
   .popular-card .popular-card__bookmark--added:focus {
     outline: none;
@@ -1169,6 +1173,30 @@ input:-webkit-autofill {
 
   .new-card__bookmark:focus {
     outline: none;
+  }
+
+  .new-card .new-card__bookmark--none,
+  .new-card .new-card__bookmark--added,
+  .new-card .popular-card__bookmark--added,
+  .new-card .popular-card__bookmark--none {
+    position: relative;
+    top: -0.3694581281vh;
+    font-size: 3.1rem;
+  }
+
+  .new-card .new-card__bookmark--none:focus,
+  .new-card .new-card__bookmark--added:focus,
+  .new-card .popular-card__bookmark--added:focus,
+  .new-card .popular-card__bookmark--none:focus {
+    outline: none;
+  }
+
+  .new-card__bookmark--added {
+    color: #003666;
+  }
+
+  .new-card__bookmark--none {
+    color: rgba(0, 54, 102, 0.1);
   }
 
   .new-card__favorite {
