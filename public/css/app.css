@@ -994,15 +994,24 @@ input:-webkit-autofill {
     justify-content: space-between;
   }
 
-  .popular-card__bookmark {
+  .popular-card .popular-card__bookmark--none,
+  .popular-card .popular-card__bookmark--added {
     position: relative;
     top: -0.3694581281vh;
     font-size: 3.1rem;
-    color: rgba(0, 54, 102, 0.1);
   }
 
-  .popular-card__bookmark:focus {
+  .popular-card .popular-card__bookmark--none:focus,
+  .popular-card .popular-card__bookmark--added:focus {
     outline: none;
+  }
+
+  .popular-card__bookmark--added {
+    color: #003666;
+  }
+
+  .popular-card__bookmark--none {
+    color: rgba(0, 54, 102, 0.1);
   }
 
   .popular-card__favorite {
