@@ -209,7 +209,7 @@ class ScheduleController extends Controller
         }
       }
       $user = User::find($schedule->uid);
-      $posts[$key] = ['schedule' => $texts, 'tags' => $tagBox, "places" => $placeBox, 'likeCounter' => $likeCount, 'is_liked' => $likeUid, 'is_bookmark' => $bookmarkUid, 'userIcon' => $user->icon, 'userName' => $user->username];
+      $posts[$key] = ['schedule_info' => $texts, 'tags' => $tagBox, "places" => $placeBox, 'likeCounter' => $likeCount, 'is_liked' => $likeUid, 'is_bookmark' => $bookmarkUid, 'userIcon' => $user->icon, 'userName' => $user->username];
     }
     //値を返す
     return $posts;
