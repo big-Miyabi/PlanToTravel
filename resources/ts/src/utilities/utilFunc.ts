@@ -200,7 +200,7 @@ export const convertToPostCard = (
         ? value.schedule_info.header
         : '',
       hasGoTo: value.tags.includes('GoToトラベル'),
-      likes: value.likeCounter,
+      likes: value.likeCounts,
       itinerary: convertToCardItinerary(value.places),
     }
     initializedArray[index] = postCardInfo

@@ -38,10 +38,6 @@ class ScheduleController extends Controller
     $scheduleData = Schedule::create($params);
     // scheduleTableのId取得
     $ScheduleId = $scheduleData['id'];
-    //  tagTableのばりで
-    $params = $request->validate([
-      'tag_name' => 'required',
-    ]);
     //   //  paramsに入れた値を'$post = Tag::findOrFail($TagId);'の中にあるschedules_tags()を使ってschedules_tagsに格納
     //   $post->schedules_tags()->create($params);
     // }
