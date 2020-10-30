@@ -51,70 +51,80 @@ const ItineraryDetailScreen: FC<Props> = ({
       <Menu />
 
       {itinerary ? (
-        <>
-          <ItineraryFirstView
-            isDetail={true}
-            username={username}
-            icon={icon}
-            src={headerUrl}
-            title={title}
-            dateS={dateS}
-            dateF={dateF}
-            people={people}
-            tags={tags}
-          />
-
-          <div className="itinerary-detail__tab-wrap">
-            <div className="itinerary-detail__tab--share">
-              <FontAwesomeIconBtn
-                className="itinerary-detail__icon--share"
-                icon={faShareSquare}
-              />
-            </div>
-            <div className="itinerary-detail__border"></div>
-            <div
-              className="itinerary-detail__tab--heart"
-              onClick={() => {
-                setIsMeLover(!isMeLover)
-              }}
-            >
-              <FontAwesomeIconBtn
-                className="itinerary-detail__icon--heart"
-                icon={
-                  isMeLover ? tintedHeart : outlineHeart
-                }
-              />
-              <p className="itinerary-detail__likes">
-                {isMeLover ? likes + 1 : likes}
-              </p>
-            </div>
-            <div className="itinerary-detail__border"></div>
-            <div
-              className={
-                'itinerary-detail__tab--' +
-                (isMeBookmarked
-                  ? 'bookmarked'
-                  : 'non-bookmarked')
-              }
-              onClick={() => {
-                setIsMeBookmarked(!isMeBookmarked)
-              }}
-            >
-              <FontAwesomeIconBtn
-                className="itinerary-detail__icon--bookmark"
-                icon={faBookmark}
-              />
-            </div>
-          </div>
-
-          <div className="itinerary-detail__content-wrap">
-            <h2 className="itinerary-detail__h2">行程</h2>
-            <Itinerary itineraryInfo={itinerary} />
-          </div>
-        </>
+        <ItineraryFirstView
+          isDetail={true}
+          username={username}
+          icon={icon}
+          src={headerUrl}
+          title={title}
+          dateS={dateS}
+          dateF={dateF}
+          people={people}
+          tags={tags}
+        />
       ) : (
-        <></>
+        <ItineraryFirstView
+          isDetail={true}
+          username={''}
+          icon={''}
+          src={''}
+          title={''}
+          dateS={''}
+          dateF={''}
+          people={1}
+          tags={[]}
+        />
       )}
+
+      <div className="itinerary-detail__tab-wrap">
+        <div className="itinerary-detail__tab--share">
+          <FontAwesomeIconBtn
+            className="itinerary-detail__icon--share"
+            icon={faShareSquare}
+          />
+        </div>
+        <div className="itinerary-detail__border"></div>
+        <div
+          className="itinerary-detail__tab--heart"
+          onClick={() => {
+            setIsMeLover(!isMeLover)
+          }}
+        >
+          <FontAwesomeIconBtn
+            className="itinerary-detail__icon--heart"
+            icon={isMeLover ? tintedHeart : outlineHeart}
+          />
+          <p className="itinerary-detail__likes">
+            {isMeLover ? likes + 1 : likes}
+          </p>
+        </div>
+        <div className="itinerary-detail__border"></div>
+        <div
+          className={
+            'itinerary-detail__tab--' +
+            (isMeBookmarked
+              ? 'bookmarked'
+              : 'non-bookmarked')
+          }
+          onClick={() => {
+            setIsMeBookmarked(!isMeBookmarked)
+          }}
+        >
+          <FontAwesomeIconBtn
+            className="itinerary-detail__icon--bookmark"
+            icon={faBookmark}
+          />
+        </div>
+      </div>
+
+      <div className="itinerary-detail__content-wrap">
+        <h2 className="itinerary-detail__h2">行程</h2>
+        {itinerary ? (
+          <Itinerary itineraryInfo={itinerary} />
+        ) : (
+          <></>
+        )}
+      </div>
     </div>
   )
 }
