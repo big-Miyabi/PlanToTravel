@@ -1,12 +1,14 @@
 import React, { FC } from 'react'
+import * as H from 'history'
 import Card from '../../containers/molecules/Card'
 import { PostCardType } from '../../utilities/types'
 
 type Props = {
   posts: PostCardType[]
+  history: H.History
 }
 
-const NewPosts: FC<Props> = ({ posts }) => {
+const NewPosts: FC<Props> = ({ posts, history }) => {
   const rowPosts: PostCardType[][] = []
 
   // 一列2カードの配列を作る
@@ -38,6 +40,7 @@ const NewPosts: FC<Props> = ({ posts }) => {
                     post={post}
                     key={cardKey}
                     gradientId={`new_post_${id}`}
+                    history={history}
                   />
                 )
               })}
