@@ -38,10 +38,6 @@ class ScheduleController extends Controller
     $scheduleData = Schedule::create($params);
     // scheduleTableのId取得
     $ScheduleId = $scheduleData['id'];
-    //  tagTableのばりで
-    $params = $request->validate([
-      'tag_name' => 'required',
-    ]);
     //   //  paramsに入れた値を'$post = Tag::findOrFail($TagId);'の中にあるschedules_tags()を使ってschedules_tagsに格納
     //   $post->schedules_tags()->create($params);
     // }
@@ -108,23 +104,30 @@ class ScheduleController extends Controller
   {
     //送るデータの格納
     $posts = [];
-    //スケジュールデータ
-    $texts = [];
-    //タグデータ
-    $tagBox = [];
-    //場所データ
-    $placeBox = [];
-    //いいねの値
-    $likeUid = false;
-    $bookmarkUid = false;
     //テーブルの値を取得
-    $schedules = Schedule::orderBy('created_at', 'desc')->where('is_public', 0)->get();
+    // $schedules = Schedule::withCount('likes')->orderBy('likes_count', 'desc')->where('is_public', 0)->get();
+    $descName =  $request->descName;
+    $skip =  $request->skip;
+    $limit =  $request->limit;
+    $schedules =  $descName === 'created_at' ?
+      Schedule::orderBy('created_at', 'desc')->where('is_public', 0)->skip($skip)->limit($limit)->get()
+      :
+      Schedule::withCount('likes')->orderBy('likes_count', 'desc')->where('is_public', 0)->skip($skip)->limit($limit)->get();
     $tags = Tag::orderBy('created_at', 'desc')->get();
     $places = Place::orderBy('created_at', 'desc')->get();
     $likes = Like::orderBy('created_at', 'desc')->get();
     $bookmarks = Bookmark::orderBy('created_at', 'desc')->get();
     //値をpostsに格納する
     foreach ($schedules as $key => $schedule) {
+      //スケジュールデータ
+      $texts = [];
+      //タグデータ
+      $tagBox = [];
+      //場所データ
+      $placeBox = [];
+      //いいねの値
+      $likeUid = false;
+      $bookmarkUid = false;
       //スケジュールデータ
       $id = $schedule->id;
       $userid = $schedule->uid;
@@ -148,7 +151,7 @@ class ScheduleController extends Controller
       foreach ($schedule->schedules_tags  as $tagKey => $st) {
         foreach ($tags as $tag) {
           if ($st->tag_id == $tag->id) {
-            $tagBox[$tagKey] = ['tagname' => $tag->tag_name];
+            $tagBox[$tagKey] = $tag->tag_name;
           }
         }
       }
@@ -188,9 +191,10 @@ class ScheduleController extends Controller
       //初期化
       $likeCount = 0;
       //いいねの数の取得
+      $post = Schedule::findOrFail($schedule->id);
+      $likeCount = $post->likes()->count();
       foreach ($likes as  $likeKye => $like) {
         if ($like->schedule_id == $schedule->id) {
-          $likeCount++;
           if ($like->uid == $request->uid) {
             $likeUid = true;
           }
@@ -203,7 +207,8 @@ class ScheduleController extends Controller
           }
         }
       }
-      $posts[$key] = ['schedule' => $texts, 'tags' => $tagBox, "places" => $placeBox, 'likeCounter' => $likeCount, 'is_liked' => $likeUid, 'is_bookmark' => $bookmarkUid];
+      $user = User::find($schedule->uid);
+      $posts[$key] = ['schedule_info' => $texts, 'tags' => $tagBox, "places" => $placeBox, 'likeCounts' => $likeCount, 'is_liked' => $likeUid, 'is_bookmark' => $bookmarkUid, 'userIcon' => $user->icon, 'userName' => $user->username];
     }
     //値を返す
     return $posts;
@@ -245,70 +250,70 @@ class ScheduleController extends Controller
           'day_f' => $day_f,
           'is_public' => $is_public
         ];
-      }
-      foreach ($schedule->schedules_tags  as $tagKey => $st) {
-        if ($st->schedule_id == $request->sid) {
-          foreach ($tags as $tag) {
-            if ($st->tag_id == $tag->id) {
-              $tagBox[$tagKey] = ['tagname' => $tag->tag_name];
+        $user = User::find($userid);
+        $post = Schedule::findOrFail($schedule->id);
+        $likeCount = $post->likes()->count();
+        //いいねの数の取得
+        foreach ($likes as  $likeKye => $like) {
+          if ($like->schedule_id == $schedule->id) {
+            if ($like->uid == $request->uid) {
+              $likeUid = true;
             }
           }
         }
-      }
-      foreach ($schedule->schedules_places  as $placeKey => $sp) {
-        if ($sp->schedule_id == $request->sid) {
-          foreach ($places as  $place) {
-            if ($sp->place_id == $place->id) {
-              $placeName = $place->place_name;
-              $orderNumber = $place->order_number;
-              $day = $place->day;
-              $img = $place->img;
-              $longitude = $place->longitude;
-              $latitude = $place->latitude;
-              $rating = $place->rating;
-              $weather = $place->weather;
-              $transport = $place->transport;
-              $transportD = $place->transport_detail;
-              $distance = $place->distance;
-              $comment = $place->comment;
-              $placeBox[$placeKey] = [
-                'placename' => $placeName,
-                'ordernumber' => $orderNumber,
-                'day' => $day,
-                'img' => $img,
-                'longitude' => $longitude,
-                'latitude' => $latitude,
-                'rating' => $rating,
-                'weather' => $weather,
-                'transport' => $transport,
-                'transportD' => $transportD,
-                'distance' => $distance,
-                'comment' => $comment
-              ];
+        foreach ($bookmarks as  $booKye => $bookmark) {
+          if ($bookmark->schedule_id == $schedule->id) {
+            if ($bookmark->uid == $request->uid) {
+              $bookmarkUid = true;
             }
           }
         }
-      }
-      //初期化
-      $likeCount = 0;
-      //いいねの数の取得
-      foreach ($likes as  $likeKye => $like) {
-        if ($like->schedule_id == $schedule->id) {
-          $likeCount++;
-          if ($like->uid == $request->uid) {
-            $likeUid = true;
+        foreach ($schedule->schedules_tags  as $tagKey => $st) {
+          if ($st->schedule_id == $request->sid) {
+            foreach ($tags as $tag) {
+              if ($st->tag_id == $tag->id) {
+                $tagBox[$tagKey] = $tag->tag_name;
+              }
+            }
           }
         }
-      }
-      foreach ($bookmarks as  $booKye => $bookmark) {
-        if ($bookmark->schedule_id == $schedule->id) {
-          if ($bookmark->uid == $request->uid) {
-            $bookmarkUid = true;
+        foreach ($schedule->schedules_places  as $placeKey => $sp) {
+          if ($sp->schedule_id == $request->sid) {
+            foreach ($places as  $place) {
+              if ($sp->place_id == $place->id) {
+                $placeName = $place->place_name;
+                $orderNumber = $place->order_number;
+                $day = $place->day;
+                $img = $place->img;
+                $longitude = $place->longitude;
+                $latitude = $place->latitude;
+                $rating = $place->rating;
+                $weather = $place->weather;
+                $transport = $place->transport;
+                $transportD = $place->transport_detail;
+                $distance = $place->distance;
+                $comment = $place->comment;
+                $placeBox[$placeKey] = [
+                  'placename' => $placeName,
+                  'ordernumber' => $orderNumber,
+                  'day' => $day,
+                  'img' => $img,
+                  'longitude' => $longitude,
+                  'latitude' => $latitude,
+                  'rating' => $rating,
+                  'weather' => $weather,
+                  'transport' => $transport,
+                  'transportD' => $transportD,
+                  'distance' => $distance,
+                  'comment' => $comment
+                ];
+              }
+            }
           }
         }
       }
     }
-    return [$texts, $tagBox, $placeBox, $likeUid, $likeCount, $bookmarkUid];
+    return ['schedule_info' => $texts, 'tags' => $tagBox, 'places' => $placeBox, 'is_liked' => $likeUid, 'likeCounts' => $likeCount, 'is_bookmark' => $bookmarkUid, 'userIcon' => $user->icon, 'userName' => $user->username];
   }
   //ユーザごとのスケジュール表示
   public function userSchedule(Request $request)
@@ -348,7 +353,7 @@ class ScheduleController extends Controller
           if ($st->schedule_id == $schedule->id) {
             foreach ($tags as $tag) {
               if ($st->tag_id == $tag->id) {
-                $tagBox[$tagKey] = ['tagname' => $tag->tag_name];
+                $tagBox[$tagKey] = $tag->tag_name;
               }
             }
           }
@@ -439,7 +444,7 @@ class ScheduleController extends Controller
         if ($st->schedule_id == $id) {
           foreach ($tags as $tag) {
             if ($st->tag_id == $tag->id) {
-              $tagBox[$tagKey] = ['tagname' => $tag->tag_name];
+              $tagBox[$tagKey] = $tag->tag_name;
             }
           }
         }

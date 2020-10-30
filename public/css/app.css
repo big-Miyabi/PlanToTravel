@@ -1440,12 +1440,13 @@ input:-webkit-autofill {
 
   .post__date-wrap {
     display: flex;
-    flex-direction: row;
     margin-top: 2.4vw;
+    flex-direction: row;
   }
 
   .post__date {
     width: 37.6vw;
+    background-color: #fff;
   }
 
   .post__datebar {
@@ -2227,6 +2228,101 @@ input:-webkit-autofill {
   .location-search__search-icon {
     font-size: 1.1rem;
     color: #e5e5e5;
+  }
+}
+
+@media screen and (max-width: 559px) {
+  .itinerary-detail__tab-wrap {
+    display: flex;
+    width: 100%;
+    margin-top: 0.5333333333vw;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  .itinerary-detail .itinerary-detail__tab--bookmarked,
+  .itinerary-detail .itinerary-detail__tab--non-bookmarked,
+  .itinerary-detail .itinerary-detail__tab--heart,
+  .itinerary-detail .itinerary-detail__tab--share {
+    padding: 0 10.6666666667vw;
+  }
+
+  .itinerary-detail__tab--share {
+    color: #e5e5e5;
+  }
+
+  .itinerary-detail__tab--heart {
+    display: flex;
+    margin-top: 1.0666666667vw;
+    color: #ff6633;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .itinerary-detail__tab--non-bookmarked {
+    color: #d9e1e8;
+  }
+
+  .itinerary-detail__tab--bookmarked {
+    color: #003666;
+  }
+
+  .itinerary-detail__likes {
+    margin-bottom: 0;
+    font-size: 1rem;
+  }
+
+  .itinerary-detail__icon--share,
+  .itinerary-detail__icon--heart,
+  .itinerary-detail__icon--bookmark {
+    font-size: 2.4rem;
+  }
+
+  .itinerary-detail__icon--edit {
+    width: 24px;
+    height: 24px;
+  }
+
+  .itinerary-detail__border {
+    width: 0.5px;
+    height: 6.9333333333vw;
+    background-color: #e5e5e5;
+  }
+
+  .itinerary-detail__h2 {
+    margin: 0;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: #003666;
+  }
+
+  .itinerary-detail__content-wrap {
+    width: 77.3333333333vw;
+    margin: 10.6666666667vw auto;
+  }
+
+  .itinerary-detail .itinerary-detail__fixed-wrap--heart,
+  .itinerary-detail .itinerary-detail__fixed-wrap--edit {
+    position: fixed;
+    display: flex;
+    right: 5.6vw;
+    bottom: 4.5566502463vh;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: #fff;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .itinerary-detail__fixed-wrap--edit {
+    border: solid 2px #bcdbe8;
+  }
+
+  .itinerary-detail__fixed-wrap--heart {
+    border: solid 2px #ff6633;
+    color: #ff6633;
   }
 }
 

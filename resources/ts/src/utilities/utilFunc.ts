@@ -1,3 +1,13 @@
+import {
+  ItineraryByLaravel,
+  Place,
+  initialPlace,
+  PostCardType,
+  ItineraryCardType,
+  GettedItineraryDetail,
+} from './types'
+import moment from 'moment'
+
 export const getClassName = (
   arg: { common: string; unique: string },
   modifier: string
@@ -72,4 +82,140 @@ export const getDistanceByHubeny = (
   return distanceM >= 1000
     ? `直線距離 ${distanceKm} km`
     : `直線距離 ${Math.floor(distanceM)} m`
+}
+
+// Controllerから取得してきた行程表データを、フロントで表示するための形式に置き換える
+export const convertItinerary = (
+  itinerary: ItineraryByLaravel[],
+  dateS: string,
+  dateF: string
+): Place[][] => {
+  moment.locale('ja')
+  const momentS = moment(dateS)
+  const momentF = moment(dateF)
+  const dateDiff = momentF.diff(momentS, 'days') + 1
+  const initializedArray: Place[][] = [
+    ...Array(dateDiff),
+  ].map(
+    // ∵ 場所は一つの日付につき最大14個
+    () => [...Array(14)].map(() => initialPlace)
+  )
+  itinerary.forEach((value) => {
+    const momentDay = moment(value.day)
+    const dateIndex = Math.abs(
+      momentS.diff(momentDay, 'days')
+    )
+    const replacedDate = value.day.replace(/-/g, '.')
+    const placeValue: Place = {
+      date: replacedDate,
+      name: value.placename,
+      location: {
+        lat: value.latitude,
+        lng: value.longitude,
+      },
+      weather: value.weather,
+      rating: value.rating,
+      image: value.img,
+      comment: value.comment ? value.comment : '',
+      transport: value.transport,
+      transportDetail: value.transportD
+        ? value.transportD
+        : '',
+      distance: value.distance ? value.distance : '',
+    }
+
+    initializedArray[dateIndex][
+      value.ordernumber - 1
+    ] = placeValue
+  })
+
+  initializedArray.forEach((places, index) => {
+    initializedArray[index] = places.filter((place) => {
+      const result = checkObjEqual(place, initialPlace)
+
+      return !result
+    })
+  })
+  initializedArray.filter((v) => v)
+
+  return initializedArray
+}
+
+// Controllerから取得してきた行程表データを、フロントでカード型で表示するための形式に置き換える
+const convertToCardItinerary = (
+  itinerary: ItineraryByLaravel[]
+): ItineraryCardType[] => {
+  const initialValue: ItineraryCardType = {
+    weather: 'sun',
+    place: '',
+  }
+  const initializedArray: ItineraryCardType[] = [
+    // ∵ カード型で必要な場所の最大数は4
+    ...Array(4),
+  ].map(() => initialValue)
+
+  itinerary.some((value, index) => {
+    const cardValue: ItineraryCardType = {
+      place: value.placename,
+      weather: value.weather,
+    }
+    initializedArray[index] = cardValue
+    if (index === 3) return true
+  })
+
+  const filteredArray = initializedArray.filter((value) => {
+    const result = checkObjEqual(value, initialValue)
+
+    return !result
+  })
+
+  return filteredArray
+}
+
+// Controllerから取得してきたスケジュールデータを、フロントでカード型で表示するための形式に置き換える
+export const convertToPostCard = (
+  itinerary: GettedItineraryDetail[]
+): PostCardType[] => {
+  const initialPostCard: PostCardType = {
+    id: -1,
+    header: '',
+    hasGoTo: false,
+    likes: -1,
+    isLiked: false,
+    isBookmarked: false,
+    itinerary: [
+      {
+        weather: 'sun',
+        place: '',
+      },
+    ],
+  }
+  const initializedArray: PostCardType[] = [
+    // ∵ カード型で必要な場所の最大数は4
+    ...Array(itinerary.length),
+  ].map(() => initialPostCard)
+
+  itinerary.forEach((value, index) => {
+    const postCardInfo: PostCardType = {
+      id: value.schedule_info.id,
+      header: value.schedule_info.header
+        ? value.schedule_info.header
+        : '',
+      hasGoTo: value.tags.includes('GoToトラベル'),
+      likes: value.likeCounts,
+      isLiked: value.is_liked,
+      isBookmarked: value.is_liked,
+      itinerary: convertToCardItinerary(value.places),
+    }
+    initializedArray[index] = postCardInfo
+  })
+  const filteredArray: PostCardType[] = initializedArray.filter(
+    (value) => {
+      const result = checkObjEqual(value, initialPostCard)
+
+      return !result
+    }
+  )
+
+  return filteredArray
 }
