@@ -1143,7 +1143,6 @@ input:-webkit-autofill {
   }
 
   .new-card__itinerary-wrap {
-    z-index: 2;
     position: relative;
     top: 4.5333333333vw;
     left: 0;
