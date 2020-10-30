@@ -246,11 +246,11 @@ class ScheduleController extends Controller
           'is_public' => $is_public
         ];
       }
-      foreach ($schedule->schedules_tags  as $tagKey => $st) {
+      foreach ($schedule->schedules_tags as $tagKey => $st) {
         if ($st->schedule_id == $request->sid) {
           foreach ($tags as $tag) {
             if ($st->tag_id == $tag->id) {
-              $tagBox[$tagKey] = ['tagname' => $tag->tag_name];
+              $tagBox[$tagKey] = $tag->tag_name;
             }
           }
         }
