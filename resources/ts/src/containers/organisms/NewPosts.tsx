@@ -1,143 +1,33 @@
-import React, { FC } from 'react'
+import React, { FC, useState, useEffect } from 'react'
 import NewPosts from '../../components/organisms/NewPosts'
+import { useSelector } from 'react-redux'
+import { RootState } from '../../reducers'
+import { postByAxios } from '../../utilities/axios'
 import { PostCardType } from '../../utilities/types'
+import { convertToPostCard } from '../../utilities/utilFunc'
 
 const NewPostsContainer: FC = () => {
-  // テスト用
-  const posts: PostCardType[] = [
-    {
-      id: 2000,
-      header: '../images/listimg_sampleBg1.png',
-      hasGoTo: true,
-      likes: 123,
-      itinerary: [
+  const myUid = useSelector(
+    (state: RootState) => state.loginReducer.id
+  )
+
+  const [posts, setPosts] = useState<PostCardType[]>([])
+
+  useEffect(() => {
+    const getItineraryList = async () => {
+      const { result } = await postByAxios.getItineraryList(
         {
-          weather: 'sun',
-          place: '浅草駅',
-        },
-        {
-          weather: 'rain',
-          place: '井の頭自然..',
-        },
-        {
-          weather: 'night',
-          place: '東京駅',
-        },
-        {
-          weather: 'snow',
-          place: '上野駅',
-        },
-      ],
-    },
-    {
-      id: 2001,
-      header: '../images/post_defaultPho.png',
-      hasGoTo: false,
-      likes: 100,
-      itinerary: [
-        {
-          weather: 'night',
-          place: '浅草駅',
-        },
-        {
-          weather: 'sun',
-          place: '東京駅',
-        },
-        {
-          weather: 'snow',
-          place: '上野駅',
-        },
-      ],
-    },
-    {
-      id: 2002,
-      header: '../images/post_ninki_sample2.png',
-      hasGoTo: true,
-      likes: 98,
-      itinerary: [
-        {
-          weather: 'snow',
-          place: '浅草駅',
-        },
-        {
-          weather: 'cloud',
-          place: '井の頭自然..',
-        },
-        {
-          weather: 'rain',
-          place: '東京駅',
-        },
-        {
-          weather: 'snow',
-          place: '上野駅',
-        },
-      ],
-    },
-    {
-      id: 2003,
-      header: '../images/post_ninki_sample1.png',
-      hasGoTo: true,
-      likes: 123,
-      itinerary: [
-        {
-          weather: 'rain',
-          place: '浅草駅',
-        },
-        {
-          weather: 'snow',
-          place: '井の頭自然..',
-        },
-      ],
-    },
-    {
-      id: 2004,
-      header: '../images/post_defaultPho.png',
-      hasGoTo: false,
-      likes: 100,
-      itinerary: [
-        {
-          weather: 'snow',
-          place: '浅草駅',
-        },
-        {
-          weather: 'night',
-          place: '井の頭自然..',
-        },
-        {
-          weather: 'rain',
-          place: '東京駅',
-        },
-        {
-          weather: 'snow',
-          place: '上野駅',
-        },
-      ],
-    },
-    {
-      id: 2005,
-      header: '../images/post_ninki_sample2.png',
-      hasGoTo: true,
-      likes: 98,
-      itinerary: [
-        {
-          weather: 'sun',
-          place: '浅草駅',
-        },
-        {
-          weather: 'rain',
-          place: '井の頭自然..',
-        },
-        {
-          weather: 'night',
-          place: '東京駅',
-        },
-        {
-          weather: 'snow',
-          place: '上野駅',
-        },
-      ],
-    },
-  ]
+          uid: String(myUid),
+          skip: 0,
+          limit: 6,
+          descName: 'created_at',
+        }
+      )
+      const converted = convertToPostCard(result)
+      setPosts(converted)
+    }
+    getItineraryList()
+  }, [])
 
   return <NewPosts posts={posts} />
 }
