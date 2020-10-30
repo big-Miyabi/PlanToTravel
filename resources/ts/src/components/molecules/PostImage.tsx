@@ -7,7 +7,7 @@ type Props = {
   inputRef: React.RefObject<HTMLInputElement>
   onFileChange: (e: ChangeEvent<HTMLInputElement>) => void
   src: string
-  isConfirm: boolean
+  isDetail: boolean
   icon: string
   username: string
   title: string
@@ -17,11 +17,11 @@ type Props = {
   tags: string[]
 }
 
-const PostImage: FC<Props> = ({
+const ItineraryFirstView: FC<Props> = ({
   inputRef,
   onFileChange,
   src,
-  isConfirm,
+  isDetail,
   icon,
   username,
   title,
@@ -42,7 +42,7 @@ const PostImage: FC<Props> = ({
 
   return (
     <div className="post-image" style={style}>
-      {isConfirm ? (
+      {isDetail ? (
         <div className="post-image__post-infos">
           <UserInfo
             classNamePrefix="post-image-user-info"
@@ -87,4 +87,4 @@ const PostImage: FC<Props> = ({
   )
 }
 
-export default PostImage
+export default ItineraryFirstView
