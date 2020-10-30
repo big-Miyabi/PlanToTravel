@@ -86,13 +86,22 @@
             justify-content: space-between;
         }
 
-        &__bookmark {
+        %__bookmark {
             position: relative;
             top: px-to-vh(-3);
             font-size: 3.1rem;
-            color: rgba(0, 54, 102, 0.1);
             &:focus {
                 outline: none;
+            }
+        }
+        &__bookmark {
+            &--added {
+                @extend %__bookmark;
+                color: $navy;
+            }
+            &--none {
+                @extend %__bookmark;
+                color: rgba(0, 54, 102, 0.1);
             }
         }
         &__favorite {
