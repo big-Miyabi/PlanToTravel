@@ -46,9 +46,10 @@ type PostByAxios = {
     result: any
     isSuccess: boolean
   }>
-  getItineraryDetail: (
-    id: string
-  ) => Promise<{
+  getItineraryDetail: (arg: {
+    sid: string
+    uid: string
+  }) => Promise<{
     result: GettedItineraryDetail
     isSuccess: boolean
   }>
@@ -185,16 +186,18 @@ export const postByAxios: PostByAxios = {
         })
     })
   },
-  getItineraryDetail: (
-    id: string
-  ): Promise<{
+  getItineraryDetail: (arg: {
+    sid: string
+    uid: string
+  }): Promise<{
     result: GettedItineraryDetail
     isSuccess: boolean
   }> => {
     return new Promise((resolve) => {
       axios
         .post('/api/show', {
-          sid: id,
+          uid: arg.uid,
+          sid: arg.sid,
         })
         .then((res) => {
           resolve({ result: res.data, isSuccess: true })
