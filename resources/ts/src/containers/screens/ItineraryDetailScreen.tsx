@@ -32,8 +32,9 @@ const convertItinerary = (
     const dateIndex = Math.abs(
       momentS.diff(momentDay, 'days')
     )
+    const replacedDate = value.day.replace(/-/g, '.')
     const placeValue: Place = {
-      date: value.day,
+      date: replacedDate,
       name: value.placename,
       location: {
         lat: value.latitude,
@@ -112,18 +113,21 @@ const ItineraryDetailScreenContainer: FC<urlProps> = (
         dateF
       )
       console.log(convertedItinerary)
+      const replacedDateS = dateS.replace(/-/g, '.')
+      const replacedDateF = dateF.replace(/-/g, '.')
       setUid(String(scheduleInfo.userid))
       setTitle(scheduleInfo.title)
       setHeaderUrl(
         scheduleInfo.header ? scheduleInfo.header : ''
       )
-      setDateS(dateS)
-      setDateF(dateF)
+      setDateS(replacedDateS)
+      setDateF(replacedDateF)
       setIsPublic(scheduleInfo.is_public)
       setPeople(scheduleInfo.people)
       setTags(gettedTags.slice())
       setItinerary(convertedItinerary)
     }
+
     getItineraryByAxios()
   }, [])
 
