@@ -108,8 +108,10 @@ export type GettedItineraryDetail = {
   tags: string[]
   places: ItineraryByLaravel[]
   is_liked: boolean
-  likeCount: number
+  likeCounter: number
   is_bookmark: boolean
+  userIcon: string
+  userName: string
 }
 
 export const initialTarget = {

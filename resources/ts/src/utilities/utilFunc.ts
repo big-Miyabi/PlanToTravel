@@ -4,6 +4,7 @@ import {
   initialPlace,
   PostCardType,
   ItineraryCardType,
+  GettedItineraryDetail,
 } from './types'
 import moment from 'moment'
 
@@ -168,6 +169,50 @@ export const convertToCardItinerary = (
 
     return !result
   })
+
+  return filteredArray
+}
+
+export const convertToPostCard = (
+  itinerary: GettedItineraryDetail[]
+): PostCardType[] => {
+  const initialPostCard: PostCardType = {
+    id: -1,
+    header: '',
+    hasGoTo: false,
+    likes: -1,
+    itinerary: [
+      {
+        weather: 'sun',
+        place: '',
+      },
+    ],
+  }
+  const initializedArray: PostCardType[] = [
+    // ∵ カード型で必要な場所の最大数は4
+    ...Array(itinerary.length),
+  ].map(() => initialPostCard)
+
+  itinerary.forEach((value, index) => {
+    const postCardInfo: PostCardType = {
+      id: value.schedule_info.id,
+      header: value.schedule_info.header
+        ? value.schedule_info.header
+        : '',
+      hasGoTo: value.tags.includes('GoToトラベル'),
+      likes: value.likeCounter,
+      itinerary: convertToCardItinerary(value.places),
+    }
+    initializedArray[index] = postCardInfo
+  })
+  const filteredArray: PostCardType[] = initializedArray.filter(
+    (value) => {
+      const result = checkObjEqual(value, initialPostCard)
+
+      return !result
+    }
+  )
+
   console.log(filteredArray)
 
   return filteredArray
