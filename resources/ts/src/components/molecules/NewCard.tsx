@@ -3,17 +3,31 @@ import GoToLogo from '../atoms/svg/GoToLogo'
 import FontAwesomeIconBtn from '../atoms/FontAwesomeIconBtn'
 import ItineraryInCard from '../molecules/ItineraryInCard'
 import {
-  faHeart,
+  faHeart as tintedHeart,
   faBookmark,
 } from '@fortawesome/free-solid-svg-icons'
+import { faHeart as outlineHeart } from '@fortawesome/free-regular-svg-icons'
 import { PostCardType } from '../../utilities/types'
 
 type Props = {
   post: PostCardType
   gradientId: string
+  likes: number
+  isMeLover: boolean
+  onClickHeart: () => void
+  isMeBookmarked: boolean
+  onClickBookmark: () => void
 }
 
-const NewCard: FC<Props> = ({ post, gradientId }) => {
+const NewCard: FC<Props> = ({
+  post,
+  gradientId,
+  likes,
+  isMeLover,
+  onClickHeart,
+  isMeBookmarked,
+  onClickBookmark,
+}) => {
   const goTostyle = post.hasGoTo ? {} : { display: 'none' }
   const url = post.header
     ? post.header
@@ -39,17 +53,34 @@ const NewCard: FC<Props> = ({ post, gradientId }) => {
           />
         </div>
         <div className="new-card__icon-wrap">
-          <FontAwesomeIconBtn
-            className="new-card__bookmark"
-            icon={faBookmark}
-          />
-          <div className="new-card__favorite">
+          <div
+            className="new-card__bookmark-wrap"
+            onClick={(e) => {
+              e.stopPropagation()
+              onClickBookmark()
+            }}
+          >
+            <FontAwesomeIconBtn
+              className={
+                'new-card__bookmark' +
+                (isMeBookmarked ? '--added' : '--none')
+              }
+              icon={faBookmark}
+            />
+          </div>
+          <div
+            className="new-card__favorite"
+            onClick={(e) => {
+              e.stopPropagation()
+              onClickHeart()
+            }}
+          >
             <FontAwesomeIconBtn
               className="new-card__favorite-btn"
-              icon={faHeart}
+              icon={isMeLover ? tintedHeart : outlineHeart}
             />
             <p className="new-card__favorite-number">
-              {post.likes}
+              {isMeLover ? likes + 1 : likes}
             </p>
           </div>
         </div>

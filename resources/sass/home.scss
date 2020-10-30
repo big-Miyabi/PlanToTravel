@@ -53,16 +53,6 @@
             }
         }
 
-        &__white-bg-wrap {
-            z-index: 1;
-            position: absolute;
-        }
-
-        &__white-bg {
-            width: px-to-vw(347);
-            height: px-to-vw(193); // 高さは幅に依存させる
-        }
-
         &__go-to {
             position: relative;
             z-index: 1;
@@ -96,17 +86,22 @@
             justify-content: space-between;
         }
 
-        &__bookmark {
+        %__bookmark {
             position: relative;
             top: px-to-vh(-3);
             font-size: 3.1rem;
-            color: rgba(0, 54, 102, 0.1);
-
-            &:hover {
-                color: $navy;
-            }
             &:focus {
                 outline: none;
+            }
+        }
+        &__bookmark {
+            &--added {
+                @extend %__bookmark;
+                color: $navy;
+            }
+            &--none {
+                @extend %__bookmark;
+                color: rgba(0, 54, 102, 0.1);
             }
         }
         &__favorite {
@@ -251,7 +246,6 @@
         }
 
         &__itinerary-wrap {
-            z-index: 2;
             position: relative;
             top: px-to-vw(17);
             left: 0;
@@ -276,12 +270,27 @@
             top: px-to-vh(-3);
             font-size: 3.1rem;
             color: rgba(0, 54, 102, 0.1);
-
-            &:hover {
-                color: $navy;
-            }
             &:focus {
                 outline: none;
+            }
+        }
+
+        %__bookmark {
+            position: relative;
+            top: px-to-vh(-3);
+            font-size: 3.1rem;
+            &:focus {
+                outline: none;
+            }
+        }
+        &__bookmark {
+            &--added {
+                @extend %__bookmark;
+                color: $navy;
+            }
+            &--none {
+                @extend %__bookmark;
+                color: rgba(0, 54, 102, 0.1);
             }
         }
 

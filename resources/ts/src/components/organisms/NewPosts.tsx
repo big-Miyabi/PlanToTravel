@@ -1,5 +1,5 @@
 import React, { FC } from 'react'
-import NewCard from '../../containers/molecules/NewCard'
+import Card from '../../containers/molecules/Card'
 import { PostCardType } from '../../utilities/types'
 
 type Props = {
@@ -33,7 +33,8 @@ const NewPosts: FC<Props> = ({ posts }) => {
                 const id = rowKey * 2 + cardKey
 
                 return (
-                  <NewCard
+                  <Card
+                    isNew={true}
                     post={post}
                     key={cardKey}
                     gradientId={`new_post_${id}`}
