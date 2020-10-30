@@ -8,8 +8,15 @@ import {
   faMoon,
 } from '@fortawesome/free-solid-svg-icons'
 
-export type ItineraryType = {
-  weather: string
+export type Weather =
+  | 'sun'
+  | 'cloud'
+  | 'rain'
+  | 'snow'
+  | 'night'
+
+export type ItineraryCardType = {
+  weather: Weather
   place: string
 }
 
@@ -17,8 +24,8 @@ export type PostCardType = {
   id: number
   header: string
   hasGoTo: boolean
-  favNum: number
-  itinerary: ItineraryType[]
+  likes: number
+  itinerary: ItineraryCardType[]
 }
 
 export type OpacityGradientType = {
@@ -30,13 +37,6 @@ export type Target = {
   dateIndex: number | null
   placeIndex: number | null
 }
-
-export type Weather =
-  | 'sun'
-  | 'cloud'
-  | 'rain'
-  | 'snow'
-  | 'night'
 
 export type Transport =
   | '徒歩'

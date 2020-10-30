@@ -1,10 +1,10 @@
 import React, { FC } from 'react'
-import { ItineraryType } from '../../utilities/types'
+import { ItineraryCardType } from '../../utilities/types'
 import WeatherPin from '../atoms/WeatherPin'
 
 type Props = {
   className: string
-  itinerary: ItineraryType[]
+  itinerary: ItineraryCardType[]
   gradientId?: string
 }
 

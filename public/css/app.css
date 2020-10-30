@@ -1440,12 +1440,13 @@ input:-webkit-autofill {
 
   .post__date-wrap {
     display: flex;
-    flex-direction: row;
     margin-top: 2.4vw;
+    flex-direction: row;
   }
 
   .post__date {
     width: 37.6vw;
+    background-color: #fff;
   }
 
   .post__datebar {
