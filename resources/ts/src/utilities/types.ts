@@ -25,6 +25,8 @@ export type PostCardType = {
   header: string
   hasGoTo: boolean
   likes: number
+  isLiked: boolean
+  isBookmarked: boolean
   itinerary: ItineraryCardType[]
 }
 

@@ -181,6 +181,8 @@ export const convertToPostCard = (
     header: '',
     hasGoTo: false,
     likes: -1,
+    isLiked: false,
+    isBookmarked: false,
     itinerary: [
       {
         weather: 'sun',
@@ -201,6 +203,8 @@ export const convertToPostCard = (
         : '',
       hasGoTo: value.tags.includes('GoToトラベル'),
       likes: value.likeCounts,
+      isLiked: value.is_liked,
+      isBookmarked: value.is_liked,
       itinerary: convertToCardItinerary(value.places),
     }
     initializedArray[index] = postCardInfo
